@@ -109,7 +109,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  #define BUFFER_SIZE 1024
+  #define BUFFER_SIZE 512
   char test[BUFFER_SIZE];
   {
     int i;
@@ -125,7 +125,7 @@ int main(void)
   /* USER CODE BEGIN 3 */
     sprintf(test, "\r\n%0x ", i++);
     CDC_Transmit_FS(test, BUFFER_SIZE);
-    HAL_Delay(3);
+    HAL_Delay(4);
     next_led();
 
   }

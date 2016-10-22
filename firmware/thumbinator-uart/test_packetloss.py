@@ -2,12 +2,13 @@
 import time
 
 f = open("/dev/ttyACM0", "rb")
-
-# first line will be partial
-l = f.readline()
+f.readline()
 
 def get_index(f):
     line = f.readline()
+    if line == '\n':
+        line = f.readline()
+
     data = line.split(" ")
     index = int(data[0], 16)
     return index, line
