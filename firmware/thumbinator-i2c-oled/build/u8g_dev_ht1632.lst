@@ -1,0 +1,588 @@
+ARM GAS  /tmp/ccBfZ9IL.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_ht1632.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.ht1632_init,"ax",%progbits
+  16              		.align	1
+  17              		.global	ht1632_init
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	ht1632_init:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_dev_ht1632.c"
+   1:Drivers/u8glib/src/u8g_dev_ht1632.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+   3:Drivers/u8glib/src/u8g_dev_ht1632.c ****   u8g_dev_ht1632.c
+   4:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+   5:Drivers/u8glib/src/u8g_dev_ht1632.c ****   1-Bit (BW) Driver for HT1632 controller
+   6:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+   7:Drivers/u8glib/src/u8g_dev_ht1632.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+   9:Drivers/u8glib/src/u8g_dev_ht1632.c ****   Copyright (c) 2013, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_ht1632.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  12:Drivers/u8glib/src/u8g_dev_ht1632.c ****   Redistribution and use in source and binary forms, with or without modification,
+  13:Drivers/u8glib/src/u8g_dev_ht1632.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  15:Drivers/u8glib/src/u8g_dev_ht1632.c ****   * Redistributions of source code must retain the above copyright notice, this list
+  16:Drivers/u8glib/src/u8g_dev_ht1632.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_ht1632.c ****    
+  18:Drivers/u8glib/src/u8g_dev_ht1632.c ****   * Redistributions in binary form must reproduce the above copyright notice, this
+  19:Drivers/u8glib/src/u8g_dev_ht1632.c ****     list of conditions and the following disclaimer in the documentation and/or other
+  20:Drivers/u8glib/src/u8g_dev_ht1632.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  22:Drivers/u8glib/src/u8g_dev_ht1632.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  23:Drivers/u8glib/src/u8g_dev_ht1632.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+  24:Drivers/u8glib/src/u8g_dev_ht1632.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  25:Drivers/u8glib/src/u8g_dev_ht1632.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  26:Drivers/u8glib/src/u8g_dev_ht1632.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  27:Drivers/u8glib/src/u8g_dev_ht1632.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  28:Drivers/u8glib/src/u8g_dev_ht1632.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  29:Drivers/u8glib/src/u8g_dev_ht1632.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  30:Drivers/u8glib/src/u8g_dev_ht1632.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  31:Drivers/u8glib/src/u8g_dev_ht1632.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+  32:Drivers/u8glib/src/u8g_dev_ht1632.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  33:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ARM GAS  /tmp/ccBfZ9IL.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  35:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  36:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  37:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  38:Drivers/u8glib/src/u8g_dev_ht1632.c ****     U8G_PIN_NONE can be used as argument
+  39:Drivers/u8glib/src/u8g_dev_ht1632.c ****    
+  40:Drivers/u8glib/src/u8g_dev_ht1632.c ****     uint8_t u8g_InitSPI(u8g_t *u8g, u8g_dev_t *dev, uint8_t sck, uint8_t mosi, uint8_t cs, uint8_t 
+  41:Drivers/u8glib/src/u8g_dev_ht1632.c ****     {
+  42:Drivers/u8glib/src/u8g_dev_ht1632.c ****       ...      
+  43:Drivers/u8glib/src/u8g_dev_ht1632.c ****       u8g->pin_list[U8G_PI_SCK] = sck;
+  44:Drivers/u8glib/src/u8g_dev_ht1632.c ****       u8g->pin_list[U8G_PI_MOSI] = mosi;
+  45:Drivers/u8glib/src/u8g_dev_ht1632.c ****       u8g->pin_list[U8G_PI_CS] = cs;
+  46:Drivers/u8glib/src/u8g_dev_ht1632.c ****       u8g->pin_list[U8G_PI_A0] = a0;
+  47:Drivers/u8glib/src/u8g_dev_ht1632.c ****       u8g->pin_list[U8G_PI_RESET] = reset;
+  48:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  49:Drivers/u8glib/src/u8g_dev_ht1632.c **** mapping  
+  50:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  51:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define DATA_PIN --> U8G_PI_MOSI
+  52:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define WR_PIN    --> U8G_PI_SCK
+  53:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define CS_PIN      --> U8G_PI_CS
+  54:Drivers/u8glib/src/u8g_dev_ht1632.c **** 				    U8G_PI_A0 --> not used
+  55:Drivers/u8glib/src/u8g_dev_ht1632.c **** 				    U8G_PI_RESET --> not used
+  56:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  57:Drivers/u8glib/src/u8g_dev_ht1632.c **** Usage:
+  58:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  59:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_InitSPI(&u8g, &u8g_dev_ht1632_24x16, WR_PIN, DATA_IN, CS_PIN, U8G_PIN_NONE, U8G_PIN_NONE)
+  60:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+  61:Drivers/u8glib/src/u8g_dev_ht1632.c **** */
+  62:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  63:Drivers/u8glib/src/u8g_dev_ht1632.c **** #include "u8g.h"
+  64:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  65:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define WIDTH 24
+  66:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HEIGHT 16
+  67:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define PAGE_HEIGHT 16
+  68:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  69:Drivers/u8glib/src/u8g_dev_ht1632.c **** /* http://forum.arduino.cc/index.php?topic=168537.0 */
+  70:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  71:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_SYSDIS       0x00    // CMD= 0000-0000-x Turn off oscil
+  72:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_SYSON        0x01    // CMD= 0000-0001-x Enable system oscil
+  73:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_LEDOFF       0x02    // CMD= 0000-0010-x LED duty cycle gen off
+  74:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_LEDON        0x03    // CMD= 0000-0011-x LEDs ON
+  75:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_BLOFF        0x08    // CMD= 0000-1000-x Blink OFF
+  76:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_BLON         0x09    // CMD= 0000-1001-x Blink On
+  77:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_SLVMD        0x10    // CMD= 0001-00xx-x Slave Mode
+  78:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_MSTMD        0x14    // CMD= 0001-01xx-x Master Mode
+  79:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_RCCLK        0x18    // CMD= 0001-10xx-x Use on-chip clock
+  80:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_EXTCLK       0x1C    // CMD= 0001-11xx-x Use external clock
+  81:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_COMS00       0x20    // CMD= 0010-ABxx-x commons options
+  82:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_COMS01       0x24    // CMD= 0010-ABxx-x commons options
+  83:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_COMS10       0x28    // CMD= 0010-ABxx-x commons options
+  84:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_COMS11       0x2C    // P-MOS OUTPUT AND 16COMMON OPTION
+  85:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_PWM          0xA0    // CMD= 101x-PPPP-x PWM duty cycle
+  86:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  87:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_ID_CMD   4       /* ID = 100 - Commands */
+  88:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_ID_RD    6       /* ID = 110 - Read RAM */
+  89:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_ID_WR    5       /* ID = 101 - Write RAM */
+  90:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ARM GAS  /tmp/ccBfZ9IL.s 			page 3
+
+
+  91:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_ID_LEN           3               // IDs are 3 bits
+  92:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_CMD_LEN          8               // CMDs are 8 bits
+  93:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_DATA_LEN         8               // Data are 4*2 bits
+  94:Drivers/u8glib/src/u8g_dev_ht1632.c **** #define HT1632_ADDR_LEN         7               // Address are 7 bits
+  95:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  96:Drivers/u8glib/src/u8g_dev_ht1632.c **** #if defined(ARDUINO)
+  97:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+  98:Drivers/u8glib/src/u8g_dev_ht1632.c **** #if ARDUINO < 100
+  99:Drivers/u8glib/src/u8g_dev_ht1632.c **** #include <WProgram.h>
+ 100:Drivers/u8glib/src/u8g_dev_ht1632.c **** #else
+ 101:Drivers/u8glib/src/u8g_dev_ht1632.c **** #include <Arduino.h>
+ 102:Drivers/u8glib/src/u8g_dev_ht1632.c **** #endif
+ 103:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 104:Drivers/u8glib/src/u8g_dev_ht1632.c **** //#define WR_PIN 3
+ 105:Drivers/u8glib/src/u8g_dev_ht1632.c **** //#define DATA_PIN 2
+ 106:Drivers/u8glib/src/u8g_dev_ht1632.c **** //#define CS_PIN 4
+ 107:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 108:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_write_data_MSB(u8g_t *u8g, uint8_t cnt, uint8_t data, uint8_t extra)
+ 109:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 110:Drivers/u8glib/src/u8g_dev_ht1632.c ****   int8_t i;
+ 111:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t data_pin = u8g->pin_list[U8G_PI_MOSI];
+ 112:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t wr_pin = u8g->pin_list[U8G_PI_SCK];
+ 113:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 114:Drivers/u8glib/src/u8g_dev_ht1632.c ****   for(i = cnt - 1; i >= 0; i--)
+ 115:Drivers/u8glib/src/u8g_dev_ht1632.c ****   {
+ 116:Drivers/u8glib/src/u8g_dev_ht1632.c ****     if ((data >> i) & 1)
+ 117:Drivers/u8glib/src/u8g_dev_ht1632.c ****     {  
+ 118:Drivers/u8glib/src/u8g_dev_ht1632.c ****       digitalWrite(data_pin, HIGH);
+ 119:Drivers/u8glib/src/u8g_dev_ht1632.c ****     }
+ 120:Drivers/u8glib/src/u8g_dev_ht1632.c ****     else
+ 121:Drivers/u8glib/src/u8g_dev_ht1632.c ****     {
+ 122:Drivers/u8glib/src/u8g_dev_ht1632.c ****       digitalWrite(data_pin, LOW);
+ 123:Drivers/u8glib/src/u8g_dev_ht1632.c ****     }
+ 124:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 125:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(wr_pin, LOW);
+ 126:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_MicroDelay();
+ 127:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(wr_pin, HIGH);
+ 128:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_MicroDelay();
+ 129:Drivers/u8glib/src/u8g_dev_ht1632.c ****   }
+ 130:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 131:Drivers/u8glib/src/u8g_dev_ht1632.c ****   // Send an extra bit
+ 132:Drivers/u8glib/src/u8g_dev_ht1632.c ****   if (extra)
+ 133:Drivers/u8glib/src/u8g_dev_ht1632.c ****   {
+ 134:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(data_pin, HIGH);
+ 135:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(wr_pin, LOW);
+ 136:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_MicroDelay();
+ 137:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(wr_pin, HIGH);
+ 138:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_MicroDelay();
+ 139:Drivers/u8glib/src/u8g_dev_ht1632.c ****   }
+ 140:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 141:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 142:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_write_data(u8g_t *u8g, uint8_t cnt, uint8_t data)
+ 143:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 144:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t i;
+ 145:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t data_pin = u8g->pin_list[U8G_PI_MOSI];
+ 146:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t wr_pin = u8g->pin_list[U8G_PI_SCK];
+ 147:Drivers/u8glib/src/u8g_dev_ht1632.c ****   for (i = 0; i < cnt; i++)
+ARM GAS  /tmp/ccBfZ9IL.s 			page 4
+
+
+ 148:Drivers/u8glib/src/u8g_dev_ht1632.c ****   {
+ 149:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 150:Drivers/u8glib/src/u8g_dev_ht1632.c ****     if ((data >> i) & 1) {
+ 151:Drivers/u8glib/src/u8g_dev_ht1632.c ****       digitalWrite(data_pin, HIGH);
+ 152:Drivers/u8glib/src/u8g_dev_ht1632.c ****     }
+ 153:Drivers/u8glib/src/u8g_dev_ht1632.c ****     else {
+ 154:Drivers/u8glib/src/u8g_dev_ht1632.c ****       digitalWrite(data_pin, LOW);
+ 155:Drivers/u8glib/src/u8g_dev_ht1632.c ****     }
+ 156:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 157:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(wr_pin, LOW);
+ 158:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_MicroDelay();
+ 159:Drivers/u8glib/src/u8g_dev_ht1632.c ****     digitalWrite(wr_pin, HIGH);
+ 160:Drivers/u8glib/src/u8g_dev_ht1632.c ****     u8g_MicroDelay();
+ 161:Drivers/u8glib/src/u8g_dev_ht1632.c ****   }
+ 162:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 163:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 164:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 165:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_init(u8g_t *u8g)
+ 166:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 167:Drivers/u8glib/src/u8g_dev_ht1632.c ****   //uint8_t i;
+ 168:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t data_pin = u8g->pin_list[U8G_PI_MOSI];
+ 169:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t wr_pin = u8g->pin_list[U8G_PI_SCK];
+ 170:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t cs_pin = u8g->pin_list[U8G_PI_CS];
+ 171:Drivers/u8glib/src/u8g_dev_ht1632.c ****   pinMode(data_pin, OUTPUT);
+ 172:Drivers/u8glib/src/u8g_dev_ht1632.c ****   pinMode(wr_pin, OUTPUT);
+ 173:Drivers/u8glib/src/u8g_dev_ht1632.c ****   pinMode(cs_pin, OUTPUT);
+ 174:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 175:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(data_pin, HIGH);
+ 176:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(wr_pin, HIGH);
+ 177:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, HIGH);
+ 178:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 179:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, LOW);
+ 180:Drivers/u8glib/src/u8g_dev_ht1632.c ****   /* init display once after startup */
+ 181:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 3, HT1632_ID_CMD, false); // IDs are 3 bits
+ 182:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_SYSDIS, true); // 8 bits
+ 183:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_SYSON, true); // 8 bits
+ 184:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_COMS11, true); // 8 bits
+ 185:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_LEDON, true); // 8 bits
+ 186:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_BLOFF, true); // 8 bits
+ 187:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_PWM+15, true); // 8 bits  
+ 188:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, HIGH);
+ 189:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 190:Drivers/u8glib/src/u8g_dev_ht1632.c ****   /* removed following (debug) code */
+ 191:Drivers/u8glib/src/u8g_dev_ht1632.c ****   /*
+ 192:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, LOW);
+ 193:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 3, HT1632_ID_WR, false); // Send "write to display" command
+ 194:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 7, 0, false);
+ 195:Drivers/u8glib/src/u8g_dev_ht1632.c ****   for(i = 0; i<48; ++i)
+ 196:Drivers/u8glib/src/u8g_dev_ht1632.c ****   {
+ 197:Drivers/u8glib/src/u8g_dev_ht1632.c ****     ht1632_write_data(u8g, 8, 0xFF);
+ 198:Drivers/u8glib/src/u8g_dev_ht1632.c ****   }
+ 199:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, HIGH);
+ 200:Drivers/u8glib/src/u8g_dev_ht1632.c ****   */
+ 201:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 202:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 203:Drivers/u8glib/src/u8g_dev_ht1632.c **** /*
+ 204:Drivers/u8glib/src/u8g_dev_ht1632.c ****   page: 0=data contain lines 0..16, 1=data contain lines 16..32  (a 24x16 display will only have pa
+ARM GAS  /tmp/ccBfZ9IL.s 			page 5
+
+
+ 205:Drivers/u8glib/src/u8g_dev_ht1632.c ****   cnt: width of the display
+ 206:Drivers/u8glib/src/u8g_dev_ht1632.c ****   data: pointer to a buffer with 2*cnt bytes.
+ 207:Drivers/u8glib/src/u8g_dev_ht1632.c **** */
+ 208:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_transfer_data(u8g_t *u8g, uint8_t page, uint8_t cnt, uint8_t *data)
+ 209:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 210:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t addr;
+ 211:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t cs_pin = u8g->pin_list[U8G_PI_CS];
+ 212:Drivers/u8glib/src/u8g_dev_ht1632.c ****   /* send data to the ht1632 */
+ 213:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, LOW);
+ 214:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 3, HT1632_ID_WR, false); // Send "write to display" command
+ 215:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 7, page*2*cnt, false); 
+ 216:Drivers/u8glib/src/u8g_dev_ht1632.c ****   
+ 217:Drivers/u8glib/src/u8g_dev_ht1632.c ****   // Operating in progressive addressing mode
+ 218:Drivers/u8glib/src/u8g_dev_ht1632.c ****   for (addr = 0; addr < cnt; addr++)
+ 219:Drivers/u8glib/src/u8g_dev_ht1632.c ****   {
+ 220:Drivers/u8glib/src/u8g_dev_ht1632.c ****     ht1632_write_data(u8g, 8, data[addr]);  
+ 221:Drivers/u8glib/src/u8g_dev_ht1632.c ****     ht1632_write_data(u8g, 8, data[addr+cnt]);
+ 222:Drivers/u8glib/src/u8g_dev_ht1632.c ****   }  
+ 223:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, HIGH);
+ 224:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 225:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+ 226:Drivers/u8glib/src/u8g_dev_ht1632.c **** /* value is between 0...15 */
+ 227:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_set_contrast(u8g_t *u8g, uint8_t value)
+ 228:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 229:Drivers/u8glib/src/u8g_dev_ht1632.c ****   uint8_t cs_pin = u8g->pin_list[U8G_PI_CS];
+ 230:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, LOW);
+ 231:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 3, HT1632_ID_CMD, false);
+ 232:Drivers/u8glib/src/u8g_dev_ht1632.c ****   ht1632_write_data_MSB(u8g, 8, HT1632_CMD_PWM + value, false);
+ 233:Drivers/u8glib/src/u8g_dev_ht1632.c ****   digitalWrite(cs_pin, HIGH);
+ 234:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 235:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 236:Drivers/u8glib/src/u8g_dev_ht1632.c **** #else
+ 237:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_init(u8g_t *u8g)
+ 238:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+  26              		.loc 1 238 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+ 239:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+  40              		.loc 1 239 0
+  41 0008 C046     		nop
+  42 000a BD46     		mov	sp, r7
+  43 000c 02B0     		add	sp, sp, #8
+  44              		@ sp needed
+  45 000e 80BD     		pop	{r7, pc}
+  46              		.cfi_endproc
+  47              	.LFE0:
+ARM GAS  /tmp/ccBfZ9IL.s 			page 6
+
+
+  49              		.section	.text.ht1632_transfer_data,"ax",%progbits
+  50              		.align	1
+  51              		.global	ht1632_transfer_data
+  52              		.syntax unified
+  53              		.code	16
+  54              		.thumb_func
+  55              		.fpu softvfp
+  57              	ht1632_transfer_data:
+  58              	.LFB1:
+ 240:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 241:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_transfer_data(u8g_t *u8g, uint8_t page, uint8_t cnt, uint8_t *data)
+ 242:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+  59              		.loc 1 242 0
+  60              		.cfi_startproc
+  61 0000 80B5     		push	{r7, lr}
+  62              	.LCFI3:
+  63              		.cfi_def_cfa_offset 8
+  64              		.cfi_offset 7, -8
+  65              		.cfi_offset 14, -4
+  66 0002 84B0     		sub	sp, sp, #16
+  67              	.LCFI4:
+  68              		.cfi_def_cfa_offset 24
+  69 0004 00AF     		add	r7, sp, #0
+  70              	.LCFI5:
+  71              		.cfi_def_cfa_register 7
+  72 0006 F860     		str	r0, [r7, #12]
+  73 0008 0800     		movs	r0, r1
+  74 000a 1100     		movs	r1, r2
+  75 000c 7B60     		str	r3, [r7, #4]
+  76 000e 0B23     		movs	r3, #11
+  77 0010 FB18     		adds	r3, r7, r3
+  78 0012 021C     		adds	r2, r0, #0
+  79 0014 1A70     		strb	r2, [r3]
+  80 0016 0A23     		movs	r3, #10
+  81 0018 FB18     		adds	r3, r7, r3
+  82 001a 0A1C     		adds	r2, r1, #0
+  83 001c 1A70     		strb	r2, [r3]
+ 243:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+  84              		.loc 1 243 0
+  85 001e C046     		nop
+  86 0020 BD46     		mov	sp, r7
+  87 0022 04B0     		add	sp, sp, #16
+  88              		@ sp needed
+  89 0024 80BD     		pop	{r7, pc}
+  90              		.cfi_endproc
+  91              	.LFE1:
+  93              		.section	.text.ht1632_set_contrast,"ax",%progbits
+  94              		.align	1
+  95              		.global	ht1632_set_contrast
+  96              		.syntax unified
+  97              		.code	16
+  98              		.thumb_func
+  99              		.fpu softvfp
+ 101              	ht1632_set_contrast:
+ 102              	.LFB2:
+ 244:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+ 245:Drivers/u8glib/src/u8g_dev_ht1632.c **** void ht1632_set_contrast(u8g_t *u8g, uint8_t value)
+ARM GAS  /tmp/ccBfZ9IL.s 			page 7
+
+
+ 246:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 103              		.loc 1 246 0
+ 104              		.cfi_startproc
+ 105 0000 80B5     		push	{r7, lr}
+ 106              	.LCFI6:
+ 107              		.cfi_def_cfa_offset 8
+ 108              		.cfi_offset 7, -8
+ 109              		.cfi_offset 14, -4
+ 110 0002 82B0     		sub	sp, sp, #8
+ 111              	.LCFI7:
+ 112              		.cfi_def_cfa_offset 16
+ 113 0004 00AF     		add	r7, sp, #0
+ 114              	.LCFI8:
+ 115              		.cfi_def_cfa_register 7
+ 116 0006 7860     		str	r0, [r7, #4]
+ 117 0008 0A00     		movs	r2, r1
+ 118 000a FB1C     		adds	r3, r7, #3
+ 119 000c 1A70     		strb	r2, [r3]
+ 247:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 120              		.loc 1 247 0
+ 121 000e C046     		nop
+ 122 0010 BD46     		mov	sp, r7
+ 123 0012 02B0     		add	sp, sp, #8
+ 124              		@ sp needed
+ 125 0014 80BD     		pop	{r7, pc}
+ 126              		.cfi_endproc
+ 127              	.LFE2:
+ 129              		.section	.text.u8g_dev_ht1632_24x16_fn,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	u8g_dev_ht1632_24x16_fn
+ 132              		.syntax unified
+ 133              		.code	16
+ 134              		.thumb_func
+ 135              		.fpu softvfp
+ 137              	u8g_dev_ht1632_24x16_fn:
+ 138              	.LFB3:
+ 248:Drivers/u8glib/src/u8g_dev_ht1632.c **** 
+ 249:Drivers/u8glib/src/u8g_dev_ht1632.c **** #endif /* ARDUINO */
+ 250:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 251:Drivers/u8glib/src/u8g_dev_ht1632.c ****  
+ 252:Drivers/u8glib/src/u8g_dev_ht1632.c **** uint8_t u8g_dev_ht1632_24x16_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 253:Drivers/u8glib/src/u8g_dev_ht1632.c **** {
+ 139              		.loc 1 253 0
+ 140              		.cfi_startproc
+ 141 0000 90B5     		push	{r4, r7, lr}
+ 142              	.LCFI9:
+ 143              		.cfi_def_cfa_offset 12
+ 144              		.cfi_offset 4, -12
+ 145              		.cfi_offset 7, -8
+ 146              		.cfi_offset 14, -4
+ 147 0002 87B0     		sub	sp, sp, #28
+ 148              	.LCFI10:
+ 149              		.cfi_def_cfa_offset 40
+ 150 0004 00AF     		add	r7, sp, #0
+ 151              	.LCFI11:
+ 152              		.cfi_def_cfa_register 7
+ 153 0006 F860     		str	r0, [r7, #12]
+ARM GAS  /tmp/ccBfZ9IL.s 			page 8
+
+
+ 154 0008 B960     		str	r1, [r7, #8]
+ 155 000a 3B60     		str	r3, [r7]
+ 156 000c FB1D     		adds	r3, r7, #7
+ 157 000e 1A70     		strb	r2, [r3]
+ 254:Drivers/u8glib/src/u8g_dev_ht1632.c ****   switch(msg)
+ 158              		.loc 1 254 0
+ 159 0010 FB1D     		adds	r3, r7, #7
+ 160 0012 1B78     		ldrb	r3, [r3]
+ 161 0014 0B2B     		cmp	r3, #11
+ 162 0016 24D0     		beq	.L12
+ 163 0018 02DC     		bgt	.L7
+ 164 001a 0A2B     		cmp	r3, #10
+ 165 001c 05D0     		beq	.L8
+ 166 001e 21E0     		b	.L5
+ 167              	.L7:
+ 168 0020 0F2B     		cmp	r3, #15
+ 169 0022 13D0     		beq	.L9
+ 170 0024 152B     		cmp	r3, #21
+ 171 0026 05D0     		beq	.L10
+ 172 0028 1CE0     		b	.L5
+ 173              	.L8:
+ 255:Drivers/u8glib/src/u8g_dev_ht1632.c ****   {
+ 256:Drivers/u8glib/src/u8g_dev_ht1632.c ****     case U8G_DEV_MSG_INIT:
+ 257:Drivers/u8glib/src/u8g_dev_ht1632.c ****       ht1632_init(u8g);
+ 174              		.loc 1 257 0
+ 175 002a FB68     		ldr	r3, [r7, #12]
+ 176 002c 1800     		movs	r0, r3
+ 177 002e FFF7FEFF 		bl	ht1632_init
+ 258:Drivers/u8glib/src/u8g_dev_ht1632.c ****       break;
+ 178              		.loc 1 258 0
+ 179 0032 17E0     		b	.L5
+ 180              	.L10:
+ 181              	.LBB2:
+ 259:Drivers/u8glib/src/u8g_dev_ht1632.c ****     case U8G_DEV_MSG_STOP:
+ 260:Drivers/u8glib/src/u8g_dev_ht1632.c ****       break;
+ 261:Drivers/u8glib/src/u8g_dev_ht1632.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 262:Drivers/u8glib/src/u8g_dev_ht1632.c ****       {
+ 263:Drivers/u8glib/src/u8g_dev_ht1632.c **** 	u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 182              		.loc 1 263 0
+ 183 0034 BB68     		ldr	r3, [r7, #8]
+ 184 0036 5B68     		ldr	r3, [r3, #4]
+ 185 0038 7B61     		str	r3, [r7, #20]
+ 264:Drivers/u8glib/src/u8g_dev_ht1632.c ****        
+ 265:Drivers/u8glib/src/u8g_dev_ht1632.c **** 	/* current page: pb->p.page */
+ 266:Drivers/u8glib/src/u8g_dev_ht1632.c **** 	/* ptr to the buffer: pb->buf */
+ 267:Drivers/u8glib/src/u8g_dev_ht1632.c **** 	ht1632_transfer_data(u8g, pb->p.page, WIDTH, pb->buf);
+ 186              		.loc 1 267 0
+ 187 003a 7B69     		ldr	r3, [r7, #20]
+ 188 003c 1979     		ldrb	r1, [r3, #4]
+ 189 003e 7B69     		ldr	r3, [r7, #20]
+ 190 0040 9B68     		ldr	r3, [r3, #8]
+ 191 0042 F868     		ldr	r0, [r7, #12]
+ 192 0044 1822     		movs	r2, #24
+ 193 0046 FFF7FEFF 		bl	ht1632_transfer_data
+ 194              	.LBE2:
+ 268:Drivers/u8glib/src/u8g_dev_ht1632.c ****       }
+ 269:Drivers/u8glib/src/u8g_dev_ht1632.c ****       break;
+ARM GAS  /tmp/ccBfZ9IL.s 			page 9
+
+
+ 195              		.loc 1 269 0
+ 196 004a 0BE0     		b	.L5
+ 197              	.L9:
+ 270:Drivers/u8glib/src/u8g_dev_ht1632.c ****     case U8G_DEV_MSG_CONTRAST:
+ 271:Drivers/u8glib/src/u8g_dev_ht1632.c ****       /* values passed to SetContrast() are between 0 and 255, scale down to 0...15 */
+ 272:Drivers/u8glib/src/u8g_dev_ht1632.c ****       ht1632_set_contrast(u8g, (*(uint8_t *)arg) >> 4);
+ 198              		.loc 1 272 0
+ 199 004c 3B68     		ldr	r3, [r7]
+ 200 004e 1B78     		ldrb	r3, [r3]
+ 201 0050 1B09     		lsrs	r3, r3, #4
+ 202 0052 DAB2     		uxtb	r2, r3
+ 203 0054 FB68     		ldr	r3, [r7, #12]
+ 204 0056 1100     		movs	r1, r2
+ 205 0058 1800     		movs	r0, r3
+ 206 005a FFF7FEFF 		bl	ht1632_set_contrast
+ 273:Drivers/u8glib/src/u8g_dev_ht1632.c ****     return 1;
+ 207              		.loc 1 273 0
+ 208 005e 0123     		movs	r3, #1
+ 209 0060 09E0     		b	.L11
+ 210              	.L12:
+ 260:Drivers/u8glib/src/u8g_dev_ht1632.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 211              		.loc 1 260 0
+ 212 0062 C046     		nop
+ 213              	.L5:
+ 274:Drivers/u8glib/src/u8g_dev_ht1632.c ****   }
+ 275:Drivers/u8glib/src/u8g_dev_ht1632.c ****   return u8g_dev_pb16v1_base_fn(u8g, dev, msg, arg);
+ 214              		.loc 1 275 0
+ 215 0064 3C68     		ldr	r4, [r7]
+ 216 0066 FB1D     		adds	r3, r7, #7
+ 217 0068 1A78     		ldrb	r2, [r3]
+ 218 006a B968     		ldr	r1, [r7, #8]
+ 219 006c F868     		ldr	r0, [r7, #12]
+ 220 006e 2300     		movs	r3, r4
+ 221 0070 FFF7FEFF 		bl	u8g_dev_pb16v1_base_fn
+ 222 0074 0300     		movs	r3, r0
+ 223              	.L11:
+ 276:Drivers/u8glib/src/u8g_dev_ht1632.c **** }
+ 224              		.loc 1 276 0
+ 225 0076 1800     		movs	r0, r3
+ 226 0078 BD46     		mov	sp, r7
+ 227 007a 07B0     		add	sp, sp, #28
+ 228              		@ sp needed
+ 229 007c 90BD     		pop	{r4, r7, pc}
+ 230              		.cfi_endproc
+ 231              	.LFE3:
+ 233              		.global	u8g_dev_ht1632_24x16_buf
+ 234              		.section	.bss.u8g_dev_ht1632_24x16_buf,"aw",%nobits
+ 235              		.align	2
+ 238              	u8g_dev_ht1632_24x16_buf:
+ 239 0000 00000000 		.space	48
+ 239      00000000 
+ 239      00000000 
+ 239      00000000 
+ 239      00000000 
+ 240              		.global	u8g_dev_ht1632_24x16_pb
+ 241              		.section	.data.u8g_dev_ht1632_24x16_pb,"aw",%progbits
+ 242              		.align	2
+ARM GAS  /tmp/ccBfZ9IL.s 			page 10
+
+
+ 245              	u8g_dev_ht1632_24x16_pb:
+ 246 0000 10       		.byte	16
+ 247 0001 10       		.byte	16
+ 248 0002 00       		.byte	0
+ 249 0003 00       		.byte	0
+ 250 0004 00       		.byte	0
+ 251 0005 18       		.byte	24
+ 252 0006 0000     		.space	2
+ 253 0008 00000000 		.word	u8g_dev_ht1632_24x16_buf
+ 254              		.global	u8g_dev_ht1632_24x16
+ 255              		.section	.data.u8g_dev_ht1632_24x16,"aw",%progbits
+ 256              		.align	2
+ 259              	u8g_dev_ht1632_24x16:
+ 260 0000 00000000 		.word	u8g_dev_ht1632_24x16_fn
+ 261 0004 00000000 		.word	u8g_dev_ht1632_24x16_pb
+ 262 0008 00000000 		.word	u8g_com_null_fn
+ 263              		.text
+ 264              	.Letext0:
+ 265              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 266              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 267              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccBfZ9IL.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_ht1632.c
+     /tmp/ccBfZ9IL.s:16     .text.ht1632_init:0000000000000000 $t
+     /tmp/ccBfZ9IL.s:23     .text.ht1632_init:0000000000000000 ht1632_init
+     /tmp/ccBfZ9IL.s:50     .text.ht1632_transfer_data:0000000000000000 $t
+     /tmp/ccBfZ9IL.s:57     .text.ht1632_transfer_data:0000000000000000 ht1632_transfer_data
+     /tmp/ccBfZ9IL.s:94     .text.ht1632_set_contrast:0000000000000000 $t
+     /tmp/ccBfZ9IL.s:101    .text.ht1632_set_contrast:0000000000000000 ht1632_set_contrast
+     /tmp/ccBfZ9IL.s:130    .text.u8g_dev_ht1632_24x16_fn:0000000000000000 $t
+     /tmp/ccBfZ9IL.s:137    .text.u8g_dev_ht1632_24x16_fn:0000000000000000 u8g_dev_ht1632_24x16_fn
+     /tmp/ccBfZ9IL.s:238    .bss.u8g_dev_ht1632_24x16_buf:0000000000000000 u8g_dev_ht1632_24x16_buf
+     /tmp/ccBfZ9IL.s:235    .bss.u8g_dev_ht1632_24x16_buf:0000000000000000 $d
+     /tmp/ccBfZ9IL.s:245    .data.u8g_dev_ht1632_24x16_pb:0000000000000000 u8g_dev_ht1632_24x16_pb
+     /tmp/ccBfZ9IL.s:242    .data.u8g_dev_ht1632_24x16_pb:0000000000000000 $d
+     /tmp/ccBfZ9IL.s:259    .data.u8g_dev_ht1632_24x16:0000000000000000 u8g_dev_ht1632_24x16
+     /tmp/ccBfZ9IL.s:256    .data.u8g_dev_ht1632_24x16:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_dev_pb16v1_base_fn
+u8g_com_null_fn

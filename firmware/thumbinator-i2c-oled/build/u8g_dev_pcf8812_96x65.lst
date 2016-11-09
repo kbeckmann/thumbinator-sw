@@ -1,0 +1,495 @@
+ARM GAS  /tmp/cc3M5tr5.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_pcf8812_96x65.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_pcf8812_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_pcf8812_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 C1       		.byte	-63
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 21       		.byte	33
+  29 0009 06       		.byte	6
+  30 000a 13       		.byte	19
+  31 000b C0       		.byte	-64
+  32 000c 20       		.byte	32
+  33 000d 0C       		.byte	12
+  34 000e FF       		.byte	-1
+  35 000f 64       		.byte	100
+  36 0010 20       		.byte	32
+  37 0011 0D       		.byte	13
+  38 0012 FF       		.byte	-1
+  39 0013 64       		.byte	100
+  40 0014 FF       		.byte	-1
+  41 0015 64       		.byte	100
+  42 0016 20       		.byte	32
+  43 0017 0C       		.byte	12
+  44 0018 FF       		.byte	-1
+  45 0019 64       		.byte	100
+  46 001a FF       		.byte	-1
+  47 001b D0       		.byte	-48
+  48 001c FF       		.byte	-1
+  49 001d FE       		.byte	-2
+  50              		.section	.text.u8g_dev_pcf8812_fn,"ax",%progbits
+  51              		.align	1
+  52              		.global	u8g_dev_pcf8812_fn
+  53              		.syntax unified
+  54              		.code	16
+  55              		.thumb_func
+  56              		.fpu softvfp
+  58              	u8g_dev_pcf8812_fn:
+  59              	.LFB0:
+  60              		.file 1 "Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c"
+ARM GAS  /tmp/cc3M5tr5.s 			page 2
+
+
+   1:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+   3:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   u8g_dev_pcf8812_96x65.c
+   4:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   
+   5:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   Display: Nokia 96x65
+   6:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+   7:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   
+   9:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   Copyright (c) 2011, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  12:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  15:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     
+  18:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  22:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   
+  36:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  37:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   
+  38:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   om6206        comaptible to pcf8812 ?
+  39:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   
+  40:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   Status: Tested 
+  41:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  42:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  43:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   Display                                               Controller              Seen in
+  44:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LPH7366 (9 pins, 84x48)                       PCD8544                Nokia 5110 / 5120 / 5130 / 5
+  45:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LPH7677 (8 pins, 84x48)                       PCD8544                         Nokia 3210
+  46:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LPH7779 (8 pins, 84x48)                       PCD8544                         Nokia 3310 / 3315 /
+  47:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   ???                                                          PCD8544                          Nok
+  48:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LPH7690 ?  (96x65)                                 PCF8455/OM6202          Nokia 3410
+  49:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LPH7690 ? (96x65?)                               SED1565/S1D15605        Nokia 7110 / 3510?
+  50:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   LPH7690                                                     ???                                  
+  51:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  52:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  53:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   
+  54:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** */
+  55:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  56:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** #include "u8g.h"
+  57:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+ARM GAS  /tmp/cc3M5tr5.s 			page 3
+
+
+  58:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** #define WIDTH 96
+  59:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** #define HEIGHT 65
+  60:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** #define PAGE_HEIGHT 8
+  61:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  62:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  63:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** static const uint8_t u8g_dev_pcf8812_init_seq[] PROGMEM = {
+  64:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_CS(0),             /* disable chip */
+  65:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  66:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  67:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_CS(1),             /* enable chip */
+  68:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x021,		                /* activate chip (PD=0), horizontal increment (V=0), enter extended comma
+  69:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x006,		                /* temp. control: b10 = 2 */
+  70:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x013,		                /* bias system 1:48 */
+  71:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x080 | 0x040,		/* medium Vop */
+  72:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  73:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x00c,		                /* display on, normal operation */
+  74:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  75:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  76:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x00d,		                /* display on, invert */
+  77:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  78:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  79:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  80:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   0x00c,		                /* display on, normal */
+  81:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  82:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_CS(0),             /* disable chip */
+  83:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   U8G_ESC_END                /* end of sequence */
+  84:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** };
+  85:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+  86:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** uint8_t u8g_dev_pcf8812_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  87:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** {
+  61              		.loc 1 87 0
+  62              		.cfi_startproc
+  63 0000 90B5     		push	{r4, r7, lr}
+  64              	.LCFI0:
+  65              		.cfi_def_cfa_offset 12
+  66              		.cfi_offset 4, -12
+  67              		.cfi_offset 7, -8
+  68              		.cfi_offset 14, -4
+  69 0002 87B0     		sub	sp, sp, #28
+  70              	.LCFI1:
+  71              		.cfi_def_cfa_offset 40
+  72 0004 00AF     		add	r7, sp, #0
+  73              	.LCFI2:
+  74              		.cfi_def_cfa_register 7
+  75 0006 F860     		str	r0, [r7, #12]
+  76 0008 B960     		str	r1, [r7, #8]
+  77 000a 3B60     		str	r3, [r7]
+  78 000c FB1D     		adds	r3, r7, #7
+  79 000e 1A70     		strb	r2, [r3]
+  88:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   switch(msg)
+  80              		.loc 1 88 0
+  81 0010 FB1D     		adds	r3, r7, #7
+  82 0012 1B78     		ldrb	r3, [r3]
+  83 0014 0B2B     		cmp	r3, #11
+  84 0016 00D1     		bne	.LCB24
+  85 0018 78E0     		b	.L10	@long jump
+  86              	.LCB24:
+ARM GAS  /tmp/cc3M5tr5.s 			page 4
+
+
+  87 001a 02DC     		bgt	.L4
+  88 001c 0A2B     		cmp	r3, #10
+  89 001e 05D0     		beq	.L5
+  90 0020 75E0     		b	.L2
+  91              	.L4:
+  92 0022 0F2B     		cmp	r3, #15
+  93 0024 4BD0     		beq	.L6
+  94 0026 152B     		cmp	r3, #21
+  95 0028 0DD0     		beq	.L7
+  96 002a 70E0     		b	.L2
+  97              	.L5:
+  89:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   {
+  90:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     case U8G_DEV_MSG_INIT:
+  91:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+  98              		.loc 1 91 0
+  99 002c B968     		ldr	r1, [r7, #8]
+ 100 002e FB68     		ldr	r3, [r7, #12]
+ 101 0030 0322     		movs	r2, #3
+ 102 0032 1800     		movs	r0, r3
+ 103 0034 FFF7FEFF 		bl	u8g_InitCom
+  92:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_pcf8812_init_seq);
+ 104              		.loc 1 92 0
+ 105 0038 3B4A     		ldr	r2, .L11
+ 106 003a B968     		ldr	r1, [r7, #8]
+ 107 003c FB68     		ldr	r3, [r7, #12]
+ 108 003e 1800     		movs	r0, r3
+ 109 0040 FFF7FEFF 		bl	u8g_WriteEscSeqP
+  93:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       break;
+ 110              		.loc 1 93 0
+ 111 0044 63E0     		b	.L2
+ 112              	.L7:
+ 113              	.LBB2:
+  94:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     case U8G_DEV_MSG_STOP:
+  95:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       break;
+  96:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+  97:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       {
+  98:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 114              		.loc 1 98 0
+ 115 0046 BB68     		ldr	r3, [r7, #8]
+ 116 0048 5B68     		ldr	r3, [r3, #4]
+ 117 004a 7B61     		str	r3, [r7, #20]
+  99:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_SetAddress(u8g, dev, 0);           /* command mode */
+ 118              		.loc 1 99 0
+ 119 004c B968     		ldr	r1, [r7, #8]
+ 120 004e FB68     		ldr	r3, [r7, #12]
+ 121 0050 0022     		movs	r2, #0
+ 122 0052 1800     		movs	r0, r3
+ 123 0054 FFF7FEFF 		bl	u8g_SetAddress
+ 100:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_SetChipSelect(u8g, dev, 1);
+ 124              		.loc 1 100 0
+ 125 0058 B968     		ldr	r1, [r7, #8]
+ 126 005a FB68     		ldr	r3, [r7, #12]
+ 127 005c 0122     		movs	r2, #1
+ 128 005e 1800     		movs	r0, r3
+ 129 0060 FFF7FEFF 		bl	u8g_SetChipSelect
+ 101:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_WriteByte(u8g, dev, 0x020 );		/* activate chip (PD=0), horizontal increment (V=0), ente
+ 130              		.loc 1 101 0
+ARM GAS  /tmp/cc3M5tr5.s 			page 5
+
+
+ 131 0064 B968     		ldr	r1, [r7, #8]
+ 132 0066 FB68     		ldr	r3, [r7, #12]
+ 133 0068 2022     		movs	r2, #32
+ 134 006a 1800     		movs	r0, r3
+ 135 006c FFF7FEFF 		bl	u8g_WriteByte
+ 102:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_WriteByte(u8g, dev, 0x080 );                        /* set X address */
+ 136              		.loc 1 102 0
+ 137 0070 B968     		ldr	r1, [r7, #8]
+ 138 0072 FB68     		ldr	r3, [r7, #12]
+ 139 0074 8022     		movs	r2, #128
+ 140 0076 1800     		movs	r0, r3
+ 141 0078 FFF7FEFF 		bl	u8g_WriteByte
+ 103:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_WriteByte(u8g, dev, 0x040 | pb->p.page); /* set Y address */
+ 142              		.loc 1 103 0
+ 143 007c 7B69     		ldr	r3, [r7, #20]
+ 144 007e 1B79     		ldrb	r3, [r3, #4]
+ 145 0080 4022     		movs	r2, #64
+ 146 0082 1343     		orrs	r3, r2
+ 147 0084 DAB2     		uxtb	r2, r3
+ 148 0086 B968     		ldr	r1, [r7, #8]
+ 149 0088 FB68     		ldr	r3, [r7, #12]
+ 150 008a 1800     		movs	r0, r3
+ 151 008c FFF7FEFF 		bl	u8g_WriteByte
+ 104:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 152              		.loc 1 104 0
+ 153 0090 B968     		ldr	r1, [r7, #8]
+ 154 0092 FB68     		ldr	r3, [r7, #12]
+ 155 0094 0122     		movs	r2, #1
+ 156 0096 1800     		movs	r0, r3
+ 157 0098 FFF7FEFF 		bl	u8g_SetAddress
+ 105:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 158              		.loc 1 105 0
+ 159 009c BA68     		ldr	r2, [r7, #8]
+ 160 009e F968     		ldr	r1, [r7, #12]
+ 161 00a0 7B69     		ldr	r3, [r7, #20]
+ 162 00a2 1800     		movs	r0, r3
+ 163 00a4 FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 164 00a8 031E     		subs	r3, r0, #0
+ 165 00aa 01D1     		bne	.L8
+ 106:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****           return 0;
+ 166              		.loc 1 106 0
+ 167 00ac 0023     		movs	r3, #0
+ 168 00ae 37E0     		b	.L9
+ 169              	.L8:
+ 107:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 
+ 108:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	  /*  mirrored output, not tested*/
+ 109:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	/*
+ 110:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	{
+ 111:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	  uint8_t i = pb->width;
+ 112:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	  while( i > 0 )
+ 113:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	  {
+ 114:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	    i--;
+ 115:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	    u8g_WriteByte(u8g, dev, ((unsigned char *)pb->buf)[i] );
+ 116:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	  }
+ 117:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	}
+ 118:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	*/
+ 119:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	
+ARM GAS  /tmp/cc3M5tr5.s 			page 6
+
+
+ 120:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** 	
+ 121:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 170              		.loc 1 121 0
+ 171 00b0 B968     		ldr	r1, [r7, #8]
+ 172 00b2 FB68     		ldr	r3, [r7, #12]
+ 173 00b4 0022     		movs	r2, #0
+ 174 00b6 1800     		movs	r0, r3
+ 175 00b8 FFF7FEFF 		bl	u8g_SetChipSelect
+ 176              	.LBE2:
+ 122:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       }
+ 123:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       break;
+ 177              		.loc 1 123 0
+ 178 00bc 27E0     		b	.L2
+ 179              	.L6:
+ 124:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     case U8G_DEV_MSG_CONTRAST:
+ 125:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       /* the contrast adjustment does not work, needs to be analysed */
+ 126:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 180              		.loc 1 126 0
+ 181 00be B968     		ldr	r1, [r7, #8]
+ 182 00c0 FB68     		ldr	r3, [r7, #12]
+ 183 00c2 0022     		movs	r2, #0
+ 184 00c4 1800     		movs	r0, r3
+ 185 00c6 FFF7FEFF 		bl	u8g_SetAddress
+ 127:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 186              		.loc 1 127 0
+ 187 00ca B968     		ldr	r1, [r7, #8]
+ 188 00cc FB68     		ldr	r3, [r7, #12]
+ 189 00ce 0122     		movs	r2, #1
+ 190 00d0 1800     		movs	r0, r3
+ 191 00d2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 128:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_WriteByte(u8g, dev, 0x021);        /* command mode, extended function set */
+ 192              		.loc 1 128 0
+ 193 00d6 B968     		ldr	r1, [r7, #8]
+ 194 00d8 FB68     		ldr	r3, [r7, #12]
+ 195 00da 2122     		movs	r2, #33
+ 196 00dc 1800     		movs	r0, r3
+ 197 00de FFF7FEFF 		bl	u8g_WriteByte
+ 129:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_WriteByte(u8g, dev, 0x080 | ( (*(uint8_t *)arg) >> 1 ) );
+ 198              		.loc 1 129 0
+ 199 00e2 3B68     		ldr	r3, [r7]
+ 200 00e4 1B78     		ldrb	r3, [r3]
+ 201 00e6 5B08     		lsrs	r3, r3, #1
+ 202 00e8 DBB2     		uxtb	r3, r3
+ 203 00ea 8022     		movs	r2, #128
+ 204 00ec 5242     		rsbs	r2, r2, #0
+ 205 00ee 1343     		orrs	r3, r2
+ 206 00f0 DAB2     		uxtb	r2, r3
+ 207 00f2 B968     		ldr	r1, [r7, #8]
+ 208 00f4 FB68     		ldr	r3, [r7, #12]
+ 209 00f6 1800     		movs	r0, r3
+ 210 00f8 FFF7FEFF 		bl	u8g_WriteByte
+ 130:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       u8g_SetChipSelect(u8g, dev, 0);
+ 211              		.loc 1 130 0
+ 212 00fc B968     		ldr	r1, [r7, #8]
+ 213 00fe FB68     		ldr	r3, [r7, #12]
+ 214 0100 0022     		movs	r2, #0
+ 215 0102 1800     		movs	r0, r3
+ARM GAS  /tmp/cc3M5tr5.s 			page 7
+
+
+ 216 0104 FFF7FEFF 		bl	u8g_SetChipSelect
+ 131:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****       return 1;
+ 217              		.loc 1 131 0
+ 218 0108 0123     		movs	r3, #1
+ 219 010a 09E0     		b	.L9
+ 220              	.L10:
+  95:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 221              		.loc 1 95 0
+ 222 010c C046     		nop
+ 223              	.L2:
+ 132:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   }
+ 133:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 224              		.loc 1 133 0
+ 225 010e 3C68     		ldr	r4, [r7]
+ 226 0110 FB1D     		adds	r3, r7, #7
+ 227 0112 1A78     		ldrb	r2, [r3]
+ 228 0114 B968     		ldr	r1, [r7, #8]
+ 229 0116 F868     		ldr	r0, [r7, #12]
+ 230 0118 2300     		movs	r3, r4
+ 231 011a FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 232 011e 0300     		movs	r3, r0
+ 233              	.L9:
+ 134:Drivers/u8glib/src/u8g_dev_pcf8812_96x65.c **** }
+ 234              		.loc 1 134 0
+ 235 0120 1800     		movs	r0, r3
+ 236 0122 BD46     		mov	sp, r7
+ 237 0124 07B0     		add	sp, sp, #28
+ 238              		@ sp needed
+ 239 0126 90BD     		pop	{r4, r7, pc}
+ 240              	.L12:
+ 241              		.align	2
+ 242              	.L11:
+ 243 0128 00000000 		.word	u8g_dev_pcf8812_init_seq
+ 244              		.cfi_endproc
+ 245              	.LFE0:
+ 247              		.global	u8g_dev_pcf8812_96x65_sw_spi_buf
+ 248              		.section	.bss.u8g_dev_pcf8812_96x65_sw_spi_buf,"aw",%nobits
+ 249              		.align	2
+ 252              	u8g_dev_pcf8812_96x65_sw_spi_buf:
+ 253 0000 00000000 		.space	96
+ 253      00000000 
+ 253      00000000 
+ 253      00000000 
+ 253      00000000 
+ 254              		.global	u8g_dev_pcf8812_96x65_sw_spi_pb
+ 255              		.section	.data.u8g_dev_pcf8812_96x65_sw_spi_pb,"aw",%progbits
+ 256              		.align	2
+ 259              	u8g_dev_pcf8812_96x65_sw_spi_pb:
+ 260 0000 08       		.byte	8
+ 261 0001 41       		.byte	65
+ 262 0002 00       		.byte	0
+ 263 0003 00       		.byte	0
+ 264 0004 00       		.byte	0
+ 265 0005 60       		.byte	96
+ 266 0006 0000     		.space	2
+ 267 0008 00000000 		.word	u8g_dev_pcf8812_96x65_sw_spi_buf
+ 268              		.global	u8g_dev_pcf8812_96x65_sw_spi
+ARM GAS  /tmp/cc3M5tr5.s 			page 8
+
+
+ 269              		.section	.data.u8g_dev_pcf8812_96x65_sw_spi,"aw",%progbits
+ 270              		.align	2
+ 273              	u8g_dev_pcf8812_96x65_sw_spi:
+ 274 0000 00000000 		.word	u8g_dev_pcf8812_fn
+ 275 0004 00000000 		.word	u8g_dev_pcf8812_96x65_sw_spi_pb
+ 276 0008 00000000 		.word	u8g_com_null_fn
+ 277              		.global	u8g_dev_pcf8812_96x65_hw_spi_buf
+ 278              		.section	.bss.u8g_dev_pcf8812_96x65_hw_spi_buf,"aw",%nobits
+ 279              		.align	2
+ 282              	u8g_dev_pcf8812_96x65_hw_spi_buf:
+ 283 0000 00000000 		.space	96
+ 283      00000000 
+ 283      00000000 
+ 283      00000000 
+ 283      00000000 
+ 284              		.global	u8g_dev_pcf8812_96x65_hw_spi_pb
+ 285              		.section	.data.u8g_dev_pcf8812_96x65_hw_spi_pb,"aw",%progbits
+ 286              		.align	2
+ 289              	u8g_dev_pcf8812_96x65_hw_spi_pb:
+ 290 0000 08       		.byte	8
+ 291 0001 41       		.byte	65
+ 292 0002 00       		.byte	0
+ 293 0003 00       		.byte	0
+ 294 0004 00       		.byte	0
+ 295 0005 60       		.byte	96
+ 296 0006 0000     		.space	2
+ 297 0008 00000000 		.word	u8g_dev_pcf8812_96x65_hw_spi_buf
+ 298              		.global	u8g_dev_pcf8812_96x65_hw_spi
+ 299              		.section	.data.u8g_dev_pcf8812_96x65_hw_spi,"aw",%progbits
+ 300              		.align	2
+ 303              	u8g_dev_pcf8812_96x65_hw_spi:
+ 304 0000 00000000 		.word	u8g_dev_pcf8812_fn
+ 305 0004 00000000 		.word	u8g_dev_pcf8812_96x65_hw_spi_pb
+ 306 0008 00000000 		.word	u8g_com_null_fn
+ 307              		.text
+ 308              	.Letext0:
+ 309              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 310              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 311              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cc3M5tr5.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_pcf8812_96x65.c
+     /tmp/cc3M5tr5.s:16     .rodata.u8g_dev_pcf8812_init_seq:0000000000000000 $d
+     /tmp/cc3M5tr5.s:19     .rodata.u8g_dev_pcf8812_init_seq:0000000000000000 u8g_dev_pcf8812_init_seq
+     /tmp/cc3M5tr5.s:51     .text.u8g_dev_pcf8812_fn:0000000000000000 $t
+     /tmp/cc3M5tr5.s:58     .text.u8g_dev_pcf8812_fn:0000000000000000 u8g_dev_pcf8812_fn
+     /tmp/cc3M5tr5.s:243    .text.u8g_dev_pcf8812_fn:0000000000000128 $d
+     /tmp/cc3M5tr5.s:252    .bss.u8g_dev_pcf8812_96x65_sw_spi_buf:0000000000000000 u8g_dev_pcf8812_96x65_sw_spi_buf
+     /tmp/cc3M5tr5.s:249    .bss.u8g_dev_pcf8812_96x65_sw_spi_buf:0000000000000000 $d
+     /tmp/cc3M5tr5.s:259    .data.u8g_dev_pcf8812_96x65_sw_spi_pb:0000000000000000 u8g_dev_pcf8812_96x65_sw_spi_pb
+     /tmp/cc3M5tr5.s:256    .data.u8g_dev_pcf8812_96x65_sw_spi_pb:0000000000000000 $d
+     /tmp/cc3M5tr5.s:273    .data.u8g_dev_pcf8812_96x65_sw_spi:0000000000000000 u8g_dev_pcf8812_96x65_sw_spi
+     /tmp/cc3M5tr5.s:270    .data.u8g_dev_pcf8812_96x65_sw_spi:0000000000000000 $d
+     /tmp/cc3M5tr5.s:282    .bss.u8g_dev_pcf8812_96x65_hw_spi_buf:0000000000000000 u8g_dev_pcf8812_96x65_hw_spi_buf
+     /tmp/cc3M5tr5.s:279    .bss.u8g_dev_pcf8812_96x65_hw_spi_buf:0000000000000000 $d
+     /tmp/cc3M5tr5.s:289    .data.u8g_dev_pcf8812_96x65_hw_spi_pb:0000000000000000 u8g_dev_pcf8812_96x65_hw_spi_pb
+     /tmp/cc3M5tr5.s:286    .data.u8g_dev_pcf8812_96x65_hw_spi_pb:0000000000000000 $d
+     /tmp/cc3M5tr5.s:303    .data.u8g_dev_pcf8812_96x65_hw_spi:0000000000000000 u8g_dev_pcf8812_96x65_hw_spi
+     /tmp/cc3M5tr5.s:300    .data.u8g_dev_pcf8812_96x65_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_SetAddress
+u8g_SetChipSelect
+u8g_WriteByte
+u8g_pb_WriteBuffer
+u8g_dev_pb8v1_base_fn
+u8g_com_null_fn

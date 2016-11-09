@@ -1,0 +1,565 @@
+ARM GAS  /tmp/ccZHoTq2.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_pcd8544_84x48.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_pcd8544_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_pcd8544_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 C1       		.byte	-63
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 21       		.byte	33
+  29 0009 06       		.byte	6
+  30 000a 13       		.byte	19
+  31 000b C0       		.byte	-64
+  32 000c 20       		.byte	32
+  33 000d 0C       		.byte	12
+  34 000e FF       		.byte	-1
+  35 000f 64       		.byte	100
+  36 0010 20       		.byte	32
+  37 0011 0D       		.byte	13
+  38 0012 FF       		.byte	-1
+  39 0013 64       		.byte	100
+  40 0014 FF       		.byte	-1
+  41 0015 64       		.byte	100
+  42 0016 20       		.byte	32
+  43 0017 0C       		.byte	12
+  44 0018 FF       		.byte	-1
+  45 0019 64       		.byte	100
+  46 001a FF       		.byte	-1
+  47 001b D0       		.byte	-48
+  48 001c FF       		.byte	-1
+  49 001d FE       		.byte	-2
+  50              		.section	.rodata.u8g_dev_pcd8544_sleep_on,"a",%progbits
+  51              		.align	2
+  54              	u8g_dev_pcd8544_sleep_on:
+  55 0000 FF       		.byte	-1
+  56 0001 E0       		.byte	-32
+  57 0002 FF       		.byte	-1
+  58 0003 D1       		.byte	-47
+  59 0004 20       		.byte	32
+  60 0005 0C       		.byte	12
+  61 0006 FF       		.byte	-1
+ARM GAS  /tmp/ccZHoTq2.s 			page 2
+
+
+  62 0007 D0       		.byte	-48
+  63 0008 FF       		.byte	-1
+  64 0009 FE       		.byte	-2
+  65              		.section	.rodata.u8g_dev_pcd8544_sleep_off,"a",%progbits
+  66              		.align	2
+  69              	u8g_dev_pcd8544_sleep_off:
+  70 0000 FF       		.byte	-1
+  71 0001 E0       		.byte	-32
+  72 0002 FF       		.byte	-1
+  73 0003 D1       		.byte	-47
+  74 0004 20       		.byte	32
+  75 0005 08       		.byte	8
+  76 0006 24       		.byte	36
+  77 0007 FF       		.byte	-1
+  78 0008 32       		.byte	50
+  79 0009 FF       		.byte	-1
+  80 000a D0       		.byte	-48
+  81 000b FF       		.byte	-1
+  82 000c FE       		.byte	-2
+  83              		.section	.text.u8g_dev_pcd8544_fn,"ax",%progbits
+  84              		.align	1
+  85              		.global	u8g_dev_pcd8544_fn
+  86              		.syntax unified
+  87              		.code	16
+  88              		.thumb_func
+  89              		.fpu softvfp
+  91              	u8g_dev_pcd8544_fn:
+  92              	.LFB0:
+  93              		.file 1 "Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c"
+   1:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+   3:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   u8g_dev_pcd8544_84x48.c
+   4:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+   5:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   Display: Nokia 84x48
+   6:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+   7:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   Status: Tested with PCF8812 Display
+   8:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+   9:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  10:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   Universal 8bit Graphics Library
+  11:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+  12:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   Copyright (c) 2011, olikraus@gmail.com
+  13:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   All rights reserved.
+  14:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  15:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  16:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   are permitted provided that the following conditions are met:
+  17:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  18:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  19:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     of conditions and the following disclaimer.
+  20:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     
+  21:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  22:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  23:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     materials provided with the distribution.
+  24:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  25:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  26:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  27:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  28:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+ARM GAS  /tmp/ccZHoTq2.s 			page 3
+
+
+  29:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  30:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  31:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  32:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  33:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  34:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  35:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  36:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  37:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  38:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+  39:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+  40:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** */
+  41:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  42:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** #include "u8g.h"
+  43:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  44:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** #define WIDTH 84
+  45:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** #define HEIGHT 48
+  46:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** #define PAGE_HEIGHT 8
+  47:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  48:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  49:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** static const uint8_t u8g_dev_pcd8544_init_seq[] PROGMEM = {
+  50:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(0),             /* disable chip */
+  51:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  52:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  53:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(1),             /* enable chip */
+  54:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x021,		/* activate chip (PD=0), horizontal increment (V=0), enter extended command set (H=1) */
+  55:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x006,		/* temp. control: b10 = 2 */
+  56:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x013,		/* bias system 1:48 */
+  57:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x0c0,		/* medium Vop */
+  58:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x020,		/* activate chip (PD=0), horizontal increment (V=0), enter normal command set (H=0) */
+  59:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x00c,		/* display on, normal operation */
+  60:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  61:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  62:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x00d,		                /* display on, invert */
+  63:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  64:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  65:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  66:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x00c,		                /* display on, normal */
+  67:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  68:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(0),             /* disable chip */
+  69:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_END                /* end of sequence */
+  70:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** };
+  71:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  72:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  73:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** static const uint8_t u8g_dev_pcd8544_sleep_on[] PROGMEM = {
+  74:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_ADR(0),           	/* instruction mode */
+  75:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(1),             	/* enable chip */
+  76:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+  77:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  78:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x00c,		                /* display on, normal */
+  79:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(0),             	/* disable chip, bugfix 12 nov 2014 */
+  80:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_END                	/* end of sequence */
+  81:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** };
+  82:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  83:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** static const uint8_t u8g_dev_pcd8544_sleep_off[] PROGMEM = {
+  84:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_ADR(0),           	/* instruction mode */
+  85:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(1),             	/* enable chip */
+ARM GAS  /tmp/ccZHoTq2.s 			page 4
+
+
+  86:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  87:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x008,		                /* display blank */
+  88:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   0x024,		                /* power down (PD=1), horizontal increment (V=0), enter normal command se
+  89:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   
+  90:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_DLY(50),       	/* delay 50 ms */
+  91:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_CS(0),             	/* disable chip, bugfix 12 nov 2014 */
+  92:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   U8G_ESC_END                	/* end of sequence */
+  93:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** };
+  94:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  95:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** 
+  96:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** uint8_t u8g_dev_pcd8544_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  97:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** {
+  94              		.loc 1 97 0
+  95              		.cfi_startproc
+  96 0000 90B5     		push	{r4, r7, lr}
+  97              	.LCFI0:
+  98              		.cfi_def_cfa_offset 12
+  99              		.cfi_offset 4, -12
+ 100              		.cfi_offset 7, -8
+ 101              		.cfi_offset 14, -4
+ 102 0002 87B0     		sub	sp, sp, #28
+ 103              	.LCFI1:
+ 104              		.cfi_def_cfa_offset 40
+ 105 0004 00AF     		add	r7, sp, #0
+ 106              	.LCFI2:
+ 107              		.cfi_def_cfa_register 7
+ 108 0006 F860     		str	r0, [r7, #12]
+ 109 0008 B960     		str	r1, [r7, #8]
+ 110 000a 3B60     		str	r3, [r7]
+ 111 000c FB1D     		adds	r3, r7, #7
+ 112 000e 1A70     		strb	r2, [r3]
+  98:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   switch(msg)
+ 113              		.loc 1 98 0
+ 114 0010 FB1D     		adds	r3, r7, #7
+ 115 0012 1B78     		ldrb	r3, [r3]
+ 116 0014 0A3B     		subs	r3, r3, #10
+ 117 0016 0B2B     		cmp	r3, #11
+ 118 0018 00D9     		bls	.LCB25
+ 119 001a 84E0     		b	.L2	@long jump
+ 120              	.LCB25:
+ 121 001c 9A00     		lsls	r2, r3, #2
+ 122 001e 484B     		ldr	r3, .L12
+ 123 0020 D318     		adds	r3, r2, r3
+ 124 0022 1B68     		ldr	r3, [r3]
+ 125 0024 9F46     		mov	pc, r3
+ 126              		.section	.rodata.u8g_dev_pcd8544_fn,"a",%progbits
+ 127              		.align	2
+ 128              	.L4:
+ 129 0000 26000000 		.word	.L3
+ 130 0004 26010000 		.word	.L2
+ 131 0008 26010000 		.word	.L2
+ 132 000c 26010000 		.word	.L2
+ 133 0010 26010000 		.word	.L2
+ 134 0014 B8000000 		.word	.L6
+ 135 0018 06010000 		.word	.L7
+ 136 001c 16010000 		.word	.L8
+ 137 0020 26010000 		.word	.L2
+ARM GAS  /tmp/ccZHoTq2.s 			page 5
+
+
+ 138 0024 26010000 		.word	.L2
+ 139 0028 26010000 		.word	.L2
+ 140 002c 40000000 		.word	.L9
+ 141              		.section	.text.u8g_dev_pcd8544_fn
+ 142              	.L3:
+  99:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   {
+ 100:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     case U8G_DEV_MSG_INIT:
+ 101:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 143              		.loc 1 101 0
+ 144 0026 B968     		ldr	r1, [r7, #8]
+ 145 0028 FB68     		ldr	r3, [r7, #12]
+ 146 002a 0322     		movs	r2, #3
+ 147 002c 1800     		movs	r0, r3
+ 148 002e FFF7FEFF 		bl	u8g_InitCom
+ 102:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_pcd8544_init_seq);
+ 149              		.loc 1 102 0
+ 150 0032 444A     		ldr	r2, .L12+4
+ 151 0034 B968     		ldr	r1, [r7, #8]
+ 152 0036 FB68     		ldr	r3, [r7, #12]
+ 153 0038 1800     		movs	r0, r3
+ 154 003a FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 103:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       break;
+ 155              		.loc 1 103 0
+ 156 003e 72E0     		b	.L2
+ 157              	.L9:
+ 158              	.LBB2:
+ 104:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     case U8G_DEV_MSG_STOP:
+ 105:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       break;
+ 106:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 107:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       {
+ 108:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 159              		.loc 1 108 0
+ 160 0040 BB68     		ldr	r3, [r7, #8]
+ 161 0042 5B68     		ldr	r3, [r3, #4]
+ 162 0044 7B61     		str	r3, [r7, #20]
+ 109:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_SetAddress(u8g, dev, 0);           /* command mode */
+ 163              		.loc 1 109 0
+ 164 0046 B968     		ldr	r1, [r7, #8]
+ 165 0048 FB68     		ldr	r3, [r7, #12]
+ 166 004a 0022     		movs	r2, #0
+ 167 004c 1800     		movs	r0, r3
+ 168 004e FFF7FEFF 		bl	u8g_SetAddress
+ 110:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_SetChipSelect(u8g, dev, 1);
+ 169              		.loc 1 110 0
+ 170 0052 B968     		ldr	r1, [r7, #8]
+ 171 0054 FB68     		ldr	r3, [r7, #12]
+ 172 0056 0122     		movs	r2, #1
+ 173 0058 1800     		movs	r0, r3
+ 174 005a FFF7FEFF 		bl	u8g_SetChipSelect
+ 111:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_WriteByte(u8g, dev, 0x020 );		/* activate chip (PD=0), horizontal increment (V=0), ente
+ 175              		.loc 1 111 0
+ 176 005e B968     		ldr	r1, [r7, #8]
+ 177 0060 FB68     		ldr	r3, [r7, #12]
+ 178 0062 2022     		movs	r2, #32
+ 179 0064 1800     		movs	r0, r3
+ 180 0066 FFF7FEFF 		bl	u8g_WriteByte
+ 112:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_WriteByte(u8g, dev, 0x080 );                        /* set X address */
+ARM GAS  /tmp/ccZHoTq2.s 			page 6
+
+
+ 181              		.loc 1 112 0
+ 182 006a B968     		ldr	r1, [r7, #8]
+ 183 006c FB68     		ldr	r3, [r7, #12]
+ 184 006e 8022     		movs	r2, #128
+ 185 0070 1800     		movs	r0, r3
+ 186 0072 FFF7FEFF 		bl	u8g_WriteByte
+ 113:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_WriteByte(u8g, dev, 0x040 | pb->p.page); /* set Y address */
+ 187              		.loc 1 113 0
+ 188 0076 7B69     		ldr	r3, [r7, #20]
+ 189 0078 1B79     		ldrb	r3, [r3, #4]
+ 190 007a 4022     		movs	r2, #64
+ 191 007c 1343     		orrs	r3, r2
+ 192 007e DAB2     		uxtb	r2, r3
+ 193 0080 B968     		ldr	r1, [r7, #8]
+ 194 0082 FB68     		ldr	r3, [r7, #12]
+ 195 0084 1800     		movs	r0, r3
+ 196 0086 FFF7FEFF 		bl	u8g_WriteByte
+ 114:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 197              		.loc 1 114 0
+ 198 008a B968     		ldr	r1, [r7, #8]
+ 199 008c FB68     		ldr	r3, [r7, #12]
+ 200 008e 0122     		movs	r2, #1
+ 201 0090 1800     		movs	r0, r3
+ 202 0092 FFF7FEFF 		bl	u8g_SetAddress
+ 115:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 203              		.loc 1 115 0
+ 204 0096 BA68     		ldr	r2, [r7, #8]
+ 205 0098 F968     		ldr	r1, [r7, #12]
+ 206 009a 7B69     		ldr	r3, [r7, #20]
+ 207 009c 1800     		movs	r0, r3
+ 208 009e FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 209 00a2 031E     		subs	r3, r0, #0
+ 210 00a4 01D1     		bne	.L10
+ 116:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****           return 0;
+ 211              		.loc 1 116 0
+ 212 00a6 0023     		movs	r3, #0
+ 213 00a8 46E0     		b	.L11
+ 214              	.L10:
+ 117:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 215              		.loc 1 117 0
+ 216 00aa B968     		ldr	r1, [r7, #8]
+ 217 00ac FB68     		ldr	r3, [r7, #12]
+ 218 00ae 0022     		movs	r2, #0
+ 219 00b0 1800     		movs	r0, r3
+ 220 00b2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 221              	.LBE2:
+ 118:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       }
+ 119:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       break;
+ 222              		.loc 1 119 0
+ 223 00b6 36E0     		b	.L2
+ 224              	.L6:
+ 120:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     case U8G_DEV_MSG_CONTRAST:
+ 121:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       /* the contrast adjustment does not work, needs to be analysed */
+ 122:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 225              		.loc 1 122 0
+ 226 00b8 B968     		ldr	r1, [r7, #8]
+ 227 00ba FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/ccZHoTq2.s 			page 7
+
+
+ 228 00bc 0022     		movs	r2, #0
+ 229 00be 1800     		movs	r0, r3
+ 230 00c0 FFF7FEFF 		bl	u8g_SetAddress
+ 123:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 231              		.loc 1 123 0
+ 232 00c4 B968     		ldr	r1, [r7, #8]
+ 233 00c6 FB68     		ldr	r3, [r7, #12]
+ 234 00c8 0122     		movs	r2, #1
+ 235 00ca 1800     		movs	r0, r3
+ 236 00cc FFF7FEFF 		bl	u8g_SetChipSelect
+ 124:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_WriteByte(u8g, dev, 0x021);        /* command mode, extended function set */
+ 237              		.loc 1 124 0
+ 238 00d0 B968     		ldr	r1, [r7, #8]
+ 239 00d2 FB68     		ldr	r3, [r7, #12]
+ 240 00d4 2122     		movs	r2, #33
+ 241 00d6 1800     		movs	r0, r3
+ 242 00d8 FFF7FEFF 		bl	u8g_WriteByte
+ 125:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_WriteByte(u8g, dev, 0x080 | ( (*(uint8_t *)arg) >> 1 ) );
+ 243              		.loc 1 125 0
+ 244 00dc 3B68     		ldr	r3, [r7]
+ 245 00de 1B78     		ldrb	r3, [r3]
+ 246 00e0 5B08     		lsrs	r3, r3, #1
+ 247 00e2 DBB2     		uxtb	r3, r3
+ 248 00e4 8022     		movs	r2, #128
+ 249 00e6 5242     		rsbs	r2, r2, #0
+ 250 00e8 1343     		orrs	r3, r2
+ 251 00ea DAB2     		uxtb	r2, r3
+ 252 00ec B968     		ldr	r1, [r7, #8]
+ 253 00ee FB68     		ldr	r3, [r7, #12]
+ 254 00f0 1800     		movs	r0, r3
+ 255 00f2 FFF7FEFF 		bl	u8g_WriteByte
+ 126:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_SetChipSelect(u8g, dev, 0);
+ 256              		.loc 1 126 0
+ 257 00f6 B968     		ldr	r1, [r7, #8]
+ 258 00f8 FB68     		ldr	r3, [r7, #12]
+ 259 00fa 0022     		movs	r2, #0
+ 260 00fc 1800     		movs	r0, r3
+ 261 00fe FFF7FEFF 		bl	u8g_SetChipSelect
+ 127:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       return 1;
+ 262              		.loc 1 127 0
+ 263 0102 0123     		movs	r3, #1
+ 264 0104 18E0     		b	.L11
+ 265              	.L7:
+ 128:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 129:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_pcd8544_sleep_on);    
+ 266              		.loc 1 129 0
+ 267 0106 104A     		ldr	r2, .L12+8
+ 268 0108 B968     		ldr	r1, [r7, #8]
+ 269 010a FB68     		ldr	r3, [r7, #12]
+ 270 010c 1800     		movs	r0, r3
+ 271 010e FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 130:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       return 1;
+ 272              		.loc 1 130 0
+ 273 0112 0123     		movs	r3, #1
+ 274 0114 10E0     		b	.L11
+ 275              	.L8:
+ 131:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ARM GAS  /tmp/ccZHoTq2.s 			page 8
+
+
+ 132:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_pcd8544_sleep_off);    
+ 276              		.loc 1 132 0
+ 277 0116 0D4A     		ldr	r2, .L12+12
+ 278 0118 B968     		ldr	r1, [r7, #8]
+ 279 011a FB68     		ldr	r3, [r7, #12]
+ 280 011c 1800     		movs	r0, r3
+ 281 011e FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 133:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****       return 1;
+ 282              		.loc 1 133 0
+ 283 0122 0123     		movs	r3, #1
+ 284 0124 08E0     		b	.L11
+ 285              	.L2:
+ 134:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   }
+ 135:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 286              		.loc 1 135 0
+ 287 0126 3C68     		ldr	r4, [r7]
+ 288 0128 FB1D     		adds	r3, r7, #7
+ 289 012a 1A78     		ldrb	r2, [r3]
+ 290 012c B968     		ldr	r1, [r7, #8]
+ 291 012e F868     		ldr	r0, [r7, #12]
+ 292 0130 2300     		movs	r3, r4
+ 293 0132 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 294 0136 0300     		movs	r3, r0
+ 295              	.L11:
+ 136:Drivers/u8glib/src/u8g_dev_pcd8544_84x48.c **** }
+ 296              		.loc 1 136 0
+ 297 0138 1800     		movs	r0, r3
+ 298 013a BD46     		mov	sp, r7
+ 299 013c 07B0     		add	sp, sp, #28
+ 300              		@ sp needed
+ 301 013e 90BD     		pop	{r4, r7, pc}
+ 302              	.L13:
+ 303              		.align	2
+ 304              	.L12:
+ 305 0140 00000000 		.word	.L4
+ 306 0144 00000000 		.word	u8g_dev_pcd8544_init_seq
+ 307 0148 00000000 		.word	u8g_dev_pcd8544_sleep_on
+ 308 014c 00000000 		.word	u8g_dev_pcd8544_sleep_off
+ 309              		.cfi_endproc
+ 310              	.LFE0:
+ 312              		.global	u8g_dev_pcd8544_84x48_sw_spi_buf
+ 313              		.section	.bss.u8g_dev_pcd8544_84x48_sw_spi_buf,"aw",%nobits
+ 314              		.align	2
+ 317              	u8g_dev_pcd8544_84x48_sw_spi_buf:
+ 318 0000 00000000 		.space	84
+ 318      00000000 
+ 318      00000000 
+ 318      00000000 
+ 318      00000000 
+ 319              		.global	u8g_dev_pcd8544_84x48_sw_spi_pb
+ 320              		.section	.data.u8g_dev_pcd8544_84x48_sw_spi_pb,"aw",%progbits
+ 321              		.align	2
+ 324              	u8g_dev_pcd8544_84x48_sw_spi_pb:
+ 325 0000 08       		.byte	8
+ 326 0001 30       		.byte	48
+ 327 0002 00       		.byte	0
+ 328 0003 00       		.byte	0
+ARM GAS  /tmp/ccZHoTq2.s 			page 9
+
+
+ 329 0004 00       		.byte	0
+ 330 0005 54       		.byte	84
+ 331 0006 0000     		.space	2
+ 332 0008 00000000 		.word	u8g_dev_pcd8544_84x48_sw_spi_buf
+ 333              		.global	u8g_dev_pcd8544_84x48_sw_spi
+ 334              		.section	.data.u8g_dev_pcd8544_84x48_sw_spi,"aw",%progbits
+ 335              		.align	2
+ 338              	u8g_dev_pcd8544_84x48_sw_spi:
+ 339 0000 00000000 		.word	u8g_dev_pcd8544_fn
+ 340 0004 00000000 		.word	u8g_dev_pcd8544_84x48_sw_spi_pb
+ 341 0008 00000000 		.word	u8g_com_null_fn
+ 342              		.global	u8g_dev_pcd8544_84x48_hw_spi_buf
+ 343              		.section	.bss.u8g_dev_pcd8544_84x48_hw_spi_buf,"aw",%nobits
+ 344              		.align	2
+ 347              	u8g_dev_pcd8544_84x48_hw_spi_buf:
+ 348 0000 00000000 		.space	84
+ 348      00000000 
+ 348      00000000 
+ 348      00000000 
+ 348      00000000 
+ 349              		.global	u8g_dev_pcd8544_84x48_hw_spi_pb
+ 350              		.section	.data.u8g_dev_pcd8544_84x48_hw_spi_pb,"aw",%progbits
+ 351              		.align	2
+ 354              	u8g_dev_pcd8544_84x48_hw_spi_pb:
+ 355 0000 08       		.byte	8
+ 356 0001 30       		.byte	48
+ 357 0002 00       		.byte	0
+ 358 0003 00       		.byte	0
+ 359 0004 00       		.byte	0
+ 360 0005 54       		.byte	84
+ 361 0006 0000     		.space	2
+ 362 0008 00000000 		.word	u8g_dev_pcd8544_84x48_hw_spi_buf
+ 363              		.global	u8g_dev_pcd8544_84x48_hw_spi
+ 364              		.section	.data.u8g_dev_pcd8544_84x48_hw_spi,"aw",%progbits
+ 365              		.align	2
+ 368              	u8g_dev_pcd8544_84x48_hw_spi:
+ 369 0000 00000000 		.word	u8g_dev_pcd8544_fn
+ 370 0004 00000000 		.word	u8g_dev_pcd8544_84x48_hw_spi_pb
+ 371 0008 00000000 		.word	u8g_com_null_fn
+ 372              		.text
+ 373              	.Letext0:
+ 374              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 375              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 376              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccZHoTq2.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_pcd8544_84x48.c
+     /tmp/ccZHoTq2.s:16     .rodata.u8g_dev_pcd8544_init_seq:0000000000000000 $d
+     /tmp/ccZHoTq2.s:19     .rodata.u8g_dev_pcd8544_init_seq:0000000000000000 u8g_dev_pcd8544_init_seq
+     /tmp/ccZHoTq2.s:51     .rodata.u8g_dev_pcd8544_sleep_on:0000000000000000 $d
+     /tmp/ccZHoTq2.s:54     .rodata.u8g_dev_pcd8544_sleep_on:0000000000000000 u8g_dev_pcd8544_sleep_on
+     /tmp/ccZHoTq2.s:66     .rodata.u8g_dev_pcd8544_sleep_off:0000000000000000 $d
+     /tmp/ccZHoTq2.s:69     .rodata.u8g_dev_pcd8544_sleep_off:0000000000000000 u8g_dev_pcd8544_sleep_off
+     /tmp/ccZHoTq2.s:84     .text.u8g_dev_pcd8544_fn:0000000000000000 $t
+     /tmp/ccZHoTq2.s:91     .text.u8g_dev_pcd8544_fn:0000000000000000 u8g_dev_pcd8544_fn
+     /tmp/ccZHoTq2.s:127    .rodata.u8g_dev_pcd8544_fn:0000000000000000 $d
+     /tmp/ccZHoTq2.s:305    .text.u8g_dev_pcd8544_fn:0000000000000140 $d
+     /tmp/ccZHoTq2.s:317    .bss.u8g_dev_pcd8544_84x48_sw_spi_buf:0000000000000000 u8g_dev_pcd8544_84x48_sw_spi_buf
+     /tmp/ccZHoTq2.s:314    .bss.u8g_dev_pcd8544_84x48_sw_spi_buf:0000000000000000 $d
+     /tmp/ccZHoTq2.s:324    .data.u8g_dev_pcd8544_84x48_sw_spi_pb:0000000000000000 u8g_dev_pcd8544_84x48_sw_spi_pb
+     /tmp/ccZHoTq2.s:321    .data.u8g_dev_pcd8544_84x48_sw_spi_pb:0000000000000000 $d
+     /tmp/ccZHoTq2.s:338    .data.u8g_dev_pcd8544_84x48_sw_spi:0000000000000000 u8g_dev_pcd8544_84x48_sw_spi
+     /tmp/ccZHoTq2.s:335    .data.u8g_dev_pcd8544_84x48_sw_spi:0000000000000000 $d
+     /tmp/ccZHoTq2.s:347    .bss.u8g_dev_pcd8544_84x48_hw_spi_buf:0000000000000000 u8g_dev_pcd8544_84x48_hw_spi_buf
+     /tmp/ccZHoTq2.s:344    .bss.u8g_dev_pcd8544_84x48_hw_spi_buf:0000000000000000 $d
+     /tmp/ccZHoTq2.s:354    .data.u8g_dev_pcd8544_84x48_hw_spi_pb:0000000000000000 u8g_dev_pcd8544_84x48_hw_spi_pb
+     /tmp/ccZHoTq2.s:351    .data.u8g_dev_pcd8544_84x48_hw_spi_pb:0000000000000000 $d
+     /tmp/ccZHoTq2.s:368    .data.u8g_dev_pcd8544_84x48_hw_spi:0000000000000000 u8g_dev_pcd8544_84x48_hw_spi
+     /tmp/ccZHoTq2.s:365    .data.u8g_dev_pcd8544_84x48_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_SetAddress
+u8g_SetChipSelect
+u8g_WriteByte
+u8g_pb_WriteBuffer
+u8g_dev_pb8v1_base_fn
+u8g_com_null_fn

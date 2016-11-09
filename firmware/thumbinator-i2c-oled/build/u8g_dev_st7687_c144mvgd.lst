@@ -1,0 +1,1118 @@
+ARM GAS  /tmp/cc2souAa.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_st7687_c144mvgd.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_st7687_c144mvgd_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_st7687_c144mvgd_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 D1       		.byte	-47
+  26 0006 FF       		.byte	-1
+  27 0007 CF       		.byte	-49
+  28 0008 11       		.byte	17
+  29 0009 FF       		.byte	-1
+  30 000a 05       		.byte	5
+  31 000b 3A       		.byte	58
+  32 000c FF       		.byte	-1
+  33 000d E1       		.byte	-31
+  34 000e 04       		.byte	4
+  35 000f FF       		.byte	-1
+  36 0010 E0       		.byte	-32
+  37 0011 26       		.byte	38
+  38 0012 FF       		.byte	-1
+  39 0013 E1       		.byte	-31
+  40 0014 04       		.byte	4
+  41 0015 FF       		.byte	-1
+  42 0016 E0       		.byte	-32
+  43 0017 F2       		.byte	-14
+  44 0018 FF       		.byte	-1
+  45 0019 E1       		.byte	-31
+  46 001a 01       		.byte	1
+  47 001b FF       		.byte	-1
+  48 001c E0       		.byte	-32
+  49 001d E0       		.byte	-32
+  50 001e FF       		.byte	-1
+  51 001f E1       		.byte	-31
+  52 0020 3F       		.byte	63
+  53 0021 25       		.byte	37
+  54 0022 1C       		.byte	28
+  55 0023 1E       		.byte	30
+  56 0024 20       		.byte	32
+  57 0025 12       		.byte	18
+  58 0026 2A       		.byte	42
+  59 0027 90       		.byte	-112
+ARM GAS  /tmp/cc2souAa.s 			page 2
+
+
+  60 0028 24       		.byte	36
+  61 0029 11       		.byte	17
+  62 002a 00       		.byte	0
+  63 002b 00       		.byte	0
+  64 002c 00       		.byte	0
+  65 002d 00       		.byte	0
+  66 002e 00       		.byte	0
+  67 002f FF       		.byte	-1
+  68 0030 E0       		.byte	-32
+  69 0031 E1       		.byte	-31
+  70 0032 FF       		.byte	-1
+  71 0033 E1       		.byte	-31
+  72 0034 20       		.byte	32
+  73 0035 20       		.byte	32
+  74 0036 20       		.byte	32
+  75 0037 20       		.byte	32
+  76 0038 05       		.byte	5
+  77 0039 00       		.byte	0
+  78 003a 15       		.byte	21
+  79 003b A7       		.byte	-89
+  80 003c 3D       		.byte	61
+  81 003d 18       		.byte	24
+  82 003e 25       		.byte	37
+  83 003f 2A       		.byte	42
+  84 0040 2B       		.byte	43
+  85 0041 2B       		.byte	43
+  86 0042 3A       		.byte	58
+  87 0043 FF       		.byte	-1
+  88 0044 E0       		.byte	-32
+  89 0045 B1       		.byte	-79
+  90 0046 FF       		.byte	-1
+  91 0047 E1       		.byte	-31
+  92 0048 08       		.byte	8
+  93 0049 08       		.byte	8
+  94 004a FF       		.byte	-1
+  95 004b E0       		.byte	-32
+  96 004c B4       		.byte	-76
+  97 004d FF       		.byte	-1
+  98 004e E1       		.byte	-31
+  99 004f 07       		.byte	7
+ 100 0050 FF       		.byte	-1
+ 101 0051 E0       		.byte	-32
+ 102 0052 C0       		.byte	-64
+ 103 0053 FF       		.byte	-1
+ 104 0054 E1       		.byte	-31
+ 105 0055 0A       		.byte	10
+ 106 0056 02       		.byte	2
+ 107 0057 FF       		.byte	-1
+ 108 0058 E0       		.byte	-32
+ 109 0059 C1       		.byte	-63
+ 110 005a FF       		.byte	-1
+ 111 005b E1       		.byte	-31
+ 112 005c 02       		.byte	2
+ 113 005d FF       		.byte	-1
+ 114 005e E0       		.byte	-32
+ 115 005f C5       		.byte	-59
+ 116 0060 FF       		.byte	-1
+ARM GAS  /tmp/cc2souAa.s 			page 3
+
+
+ 117 0061 E1       		.byte	-31
+ 118 0062 50       		.byte	80
+ 119 0063 5B       		.byte	91
+ 120 0064 FF       		.byte	-1
+ 121 0065 E0       		.byte	-32
+ 122 0066 C7       		.byte	-57
+ 123 0067 FF       		.byte	-1
+ 124 0068 E1       		.byte	-31
+ 125 0069 40       		.byte	64
+ 126 006a FF       		.byte	-1
+ 127 006b E0       		.byte	-32
+ 128 006c 2A       		.byte	42
+ 129 006d FF       		.byte	-1
+ 130 006e E1       		.byte	-31
+ 131 006f 00       		.byte	0
+ 132 0070 00       		.byte	0
+ 133 0071 00       		.byte	0
+ 134 0072 7F       		.byte	127
+ 135 0073 FF       		.byte	-1
+ 136 0074 E0       		.byte	-32
+ 137 0075 2B       		.byte	43
+ 138 0076 FF       		.byte	-1
+ 139 0077 E1       		.byte	-31
+ 140 0078 00       		.byte	0
+ 141 0079 00       		.byte	0
+ 142 007a 00       		.byte	0
+ 143 007b 7F       		.byte	127
+ 144 007c FF       		.byte	-1
+ 145 007d E0       		.byte	-32
+ 146 007e 36       		.byte	54
+ 147 007f FF       		.byte	-1
+ 148 0080 E1       		.byte	-31
+ 149 0081 00       		.byte	0
+ 150 0082 FF       		.byte	-1
+ 151 0083 E0       		.byte	-32
+ 152 0084 29       		.byte	41
+ 153 0085 2C       		.byte	44
+ 154 0086 FF       		.byte	-1
+ 155 0087 D0       		.byte	-48
+ 156 0088 FF       		.byte	-1
+ 157 0089 FE       		.byte	-2
+ 158              		.section	.text.get_byte_1,"ax",%progbits
+ 159              		.align	1
+ 160              		.syntax unified
+ 161              		.code	16
+ 162              		.thumb_func
+ 163              		.fpu softvfp
+ 165              	get_byte_1:
+ 166              	.LFB0:
+ 167              		.file 1 "Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c"
+   1:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+   3:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   u8g_dev_st7687_c144mvgd.c (1.44" TFT)
+   4:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+   5:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   Status: Started, but not finished
+   6:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+   7:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   Universal 8bit Graphics Library
+ARM GAS  /tmp/cc2souAa.s 			page 4
+
+
+   8:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+   9:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   Copyright (c) 2012, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  12:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  15:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     
+  18:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  22:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  36:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  37:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** */
+  38:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  39:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  41:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #define WIDTH 128
+  42:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #define HEIGHT 128
+  43:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #define PAGE_HEIGHT 8
+  44:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  45:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  46:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #ifdef FIRST_VERSION
+  47:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** /* 
+  48:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** see also: read.pudn.com/downloads115/sourcecode/app/484503/LCM_Display.c__.htm 
+  49:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** http://en.pudn.com/downloads115/sourcecode/app/detail484503_en.html
+  50:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** */
+  51:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  52:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** static const uint8_t u8g_dev_st7687_c144mvgd_init_seq[] PROGMEM = {
+  53:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_CS(0),             /* disable chip */
+  54:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  55:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_CS(1),             /* enable chip */
+  56:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_RST(15),           /* do reset low pulse with (15*16)+2 milliseconds (=maximum delay)*/
+  57:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  58:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x001,                        /* A0=0, SW reset */
+  59:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(200),         /* delay 200 ms */
+  60:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  61:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0d7,                        /* EEPROM data auto re-load control */
+  62:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+  63:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x09f,                             /* ARD = 1 */
+  64:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ARM GAS  /tmp/cc2souAa.s 			page 5
+
+
+  65:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  66:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  67:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0e0,                        /* EEPROM control in */
+  68:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+  69:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                             /*  */
+  70:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  71:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  72:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  73:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #ifdef NOT_REQUIRED  
+  74:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0fa,                        /* EEPROM function selection 8.1.66 */
+  75:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+  76:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                             /*  */
+  77:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  78:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  79:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #endif 
+  80:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  81:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0e3,                        /* Read from EEPROM, 8.1.55 */
+  82:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  83:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+  84:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0e1,                        /* EEPROM control out, 8.1.53 */
+  85:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  86:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  87:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   //0x028,                        /* display off */
+  88:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x011,                                /* Sleep out & booster on */
+  89:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  90:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  91:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c0,                        /* Vop setting, 8.1.42 */
+  92:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+  93:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                             /*  */
+  94:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x001,                             /*  3.6 + 256*0.04 = 13.84 Volt */
+  95:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  96:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+  97:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+  98:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c3,                                /* Bias selection, 8.1.45 */
+  99:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 100:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x003,
+ 101:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 102:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 103:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c4,                                /* Booster setting 8.1.46 */
+ 104:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 105:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x007,
+ 106:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 107:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 108:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c5,                                /* ??? */
+ 109:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 110:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x001,
+ 111:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 112:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 113:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0cb,                                /* FV3 with Booster x2 control, 8.1.47 */
+ 114:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 115:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x001,
+ 116:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 117:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 118:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x036,                                /* Memory data access control, 8.1.28 */
+ 119:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 120:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x080,
+ 121:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ARM GAS  /tmp/cc2souAa.s 			page 6
+
+
+ 122:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 123:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0b5,                                /* N-line control, 8.1.37 */
+ 124:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 125:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x089,
+ 126:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 127:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 128:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 129:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0d0,                                /* Analog circuit setting, 8.1.49 */
+ 130:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 131:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x01d,
+ 132:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 133:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 134:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0b7,                                /* Com/Seg Scan Direction, 8.1.38 */
+ 135:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 136:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x040,
+ 137:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 138:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 139:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x025,                                /* Write contrast, 8.1.17 */
+ 140:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 141:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x03f,
+ 142:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 143:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 144:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x03a,                                /* Interface pixel format, 8.1.32 */
+ 145:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 146:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x004,                                /* 3: 12 bit per pixel Type A, 4: 12 bit Type B, 5: 16bit p
+ 147:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 148:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 149:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0b0,                                /* Display Duty setting, 8.1.34 */
+ 150:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 151:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x07f,
+ 152:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 153:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 154:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0f0,                                /* Frame Freq. in Temp range A,B,C and D, 8.1.59 */
+ 155:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 156:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x007,
+ 157:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x00c,
+ 158:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x00c,
+ 159:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x015,
+ 160:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 161:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 162:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0f9,                                /* Frame RGB Value, 8.1.65 */
+ 163:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 164:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,
+ 165:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x005,
+ 166:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x008,
+ 167:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x00a,
+ 168:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x00c,
+ 169:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x00e,
+ 170:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x010,
+ 171:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x011,
+ 172:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x012,
+ 173:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x013,
+ 174:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x014,
+ 175:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x015,
+ 176:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x016,
+ 177:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x018,
+ 178:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x01a,
+ARM GAS  /tmp/cc2souAa.s 			page 7
+
+
+ 179:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x01b,
+ 180:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 181:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 182:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0f9,                                /* Frame RGB Value, 8.1.65 */
+ 183:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 184:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,
+ 185:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,
+ 186:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,
+ 187:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,
+ 188:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x033,
+ 189:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x055,
+ 190:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x055,
+ 191:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x055,
+ 192:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 193:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 194:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x029,                        /* display on */
+ 195:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 196:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 197:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_END                /* end of sequence */
+ 198:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 199:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** };
+ 200:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 201:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #else
+ 202:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 203:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** /*
+ 204:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** http://www.waitingforfriday.com/images/e/e3/FTM144D01N_test.zip
+ 205:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** */
+ 206:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 207:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** static const uint8_t u8g_dev_st7687_c144mvgd_init_seq[] PROGMEM = {
+ 208:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 209:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 210:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 211:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_RST(15),           /* do reset low pulse with (15*16)+2 milliseconds (=maximum delay)*/
+ 212:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 213:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x011,                                /* Sleep out & booster on */
+ 214:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_DLY(5),         /* delay 5 ms */
+ 215:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     
+ 216:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x03a,                                /* Interface pixel format, 8.1.32 */
+ 217:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 218:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x004,                                /* 3: 12 bit per pixel Type A, 4: 12 bit Type B, 5: 16bit p
+ 219:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 220:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 221:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 222:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x026,                                /* SET_GAMMA_CURVE */
+ 223:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 224:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x004,                                
+ 225:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 226:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 227:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0f2,                                /* GAM_R_SEL */
+ 228:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 229:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x001,                                /* enable gamma adj */                                
+ 230:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 231:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 232:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 233:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0e0,                                /* POSITIVE_GAMMA_CORRECT */
+ 234:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 235:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x3f,
+ARM GAS  /tmp/cc2souAa.s 			page 8
+
+
+ 236:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x25,
+ 237:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x1c,
+ 238:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x1e,
+ 239:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x20,
+ 240:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x12,
+ 241:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x2a,
+ 242:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x90,
+ 243:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x24,
+ 244:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x11,
+ 245:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x00,
+ 246:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x00,
+ 247:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x00,
+ 248:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x00,
+ 249:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x00,    
+ 250:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 251:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 252:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0e1,                                /* NEGATIVE_GAMMA_CORRECT */
+ 253:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 254:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x20,
+ 255:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x20,
+ 256:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x20,
+ 257:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x20,
+ 258:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x05,
+ 259:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x00,
+ 260:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x15,
+ 261:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0xa7,
+ 262:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x3d,
+ 263:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x18,
+ 264:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x25,
+ 265:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x2a,
+ 266:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x2b,
+ 267:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x2b,
+ 268:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     0x3a,
+ 269:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 270:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****      
+ 271:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0b1,                                /* FRAME_RATE_CONTROL1 */
+ 272:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 273:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x008,                                /* DIVA = 8 */
+ 274:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x008,                                /* VPA = 8 */
+ 275:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 276:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 277:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 278:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0b4,                                /* DISPLAY_INVERSION */
+ 279:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 280:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x007,                                /* NLA = 1, NLB = 1, NLC = 1 (all on Frame Inversion) */
+ 281:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 282:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     
+ 283:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c0,                                /* POWER_CONTROL1 */
+ 284:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 285:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x00a,                                /* VRH = 10:  GVDD = 4.30 */
+ 286:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x002,                                /* VC = 2: VCI1 = 2.65 */
+ 287:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 288:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****    
+ 289:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c1,                                /* POWER_CONTROL2 */
+ 290:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 291:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x002,                                /* BT = 2: AVDD = 2xVCI1, VCL = -1xVCI1, VGH = 5xVCI1, VGL 
+ 292:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ARM GAS  /tmp/cc2souAa.s 			page 9
+
+
+ 293:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       
+ 294:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c5,                                /* VCOM_CONTROL1 */
+ 295:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 296:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x050,                                /* VMH = 80: VCOMH voltage = 4.5 */
+ 297:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x05b,                                /* VML = 91: VCOML voltage = -0.225 */
+ 298:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 299:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 300:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x0c7,                                /* VCOM_OFFSET_CONTROL */
+ 301:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 302:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x040,                                /* nVM = 0, VMF = 64: VCOMH output = VMH, VCOML output = VM
+ 303:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 304:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 305:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x02a,                                /* SET_COLUMN_ADDRESS */
+ 306:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 307:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /*  */
+ 308:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /*  */
+ 309:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /*  */
+ 310:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x07f,                                /*  */
+ 311:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 312:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 313:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x02b,                                /* SET_PAGE_ADDRESS */
+ 314:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 315:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /*  */
+ 316:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /*  */
+ 317:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /*  */
+ 318:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x07f,                                /*  */
+ 319:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 320:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 321:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x036,                                /* SET_ADDRESS_MODE */
+ 322:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 323:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x000,                                /* Select display orientation */
+ 324:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 325:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 	
+ 326:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 327:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x029,                        /* display on */
+ 328:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 329:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   0x02c,                         /* write start */
+ 330:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   
+ 331:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 332:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   U8G_ESC_END                /* end of sequence */
+ 333:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 334:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** };
+ 335:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 336:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** #endif
+ 337:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 338:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 339:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 340:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 341:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** /* calculate bytes for Type B 4096 color display */
+ 342:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** static uint8_t get_byte_1(uint8_t v)
+ 343:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** {
+ 168              		.loc 1 343 0
+ 169              		.cfi_startproc
+ 170 0000 80B5     		push	{r7, lr}
+ 171              	.LCFI0:
+ 172              		.cfi_def_cfa_offset 8
+ 173              		.cfi_offset 7, -8
+ARM GAS  /tmp/cc2souAa.s 			page 10
+
+
+ 174              		.cfi_offset 14, -4
+ 175 0002 82B0     		sub	sp, sp, #8
+ 176              	.LCFI1:
+ 177              		.cfi_def_cfa_offset 16
+ 178 0004 00AF     		add	r7, sp, #0
+ 179              	.LCFI2:
+ 180              		.cfi_def_cfa_register 7
+ 181 0006 0200     		movs	r2, r0
+ 182 0008 FB1D     		adds	r3, r7, #7
+ 183 000a 1A70     		strb	r2, [r3]
+ 344:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   v >>= 4;
+ 184              		.loc 1 344 0
+ 185 000c FB1D     		adds	r3, r7, #7
+ 186 000e FA1D     		adds	r2, r7, #7
+ 187 0010 1278     		ldrb	r2, [r2]
+ 188 0012 1209     		lsrs	r2, r2, #4
+ 189 0014 1A70     		strb	r2, [r3]
+ 345:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   v &= 0x0e;
+ 190              		.loc 1 345 0
+ 191 0016 FB1D     		adds	r3, r7, #7
+ 192 0018 FA1D     		adds	r2, r7, #7
+ 193 001a 1278     		ldrb	r2, [r2]
+ 194 001c 0E21     		movs	r1, #14
+ 195 001e 0A40     		ands	r2, r1
+ 196 0020 1A70     		strb	r2, [r3]
+ 346:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   return v;
+ 197              		.loc 1 346 0
+ 198 0022 FB1D     		adds	r3, r7, #7
+ 199 0024 1B78     		ldrb	r3, [r3]
+ 347:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** }
+ 200              		.loc 1 347 0
+ 201 0026 1800     		movs	r0, r3
+ 202 0028 BD46     		mov	sp, r7
+ 203 002a 02B0     		add	sp, sp, #8
+ 204              		@ sp needed
+ 205 002c 80BD     		pop	{r7, pc}
+ 206              		.cfi_endproc
+ 207              	.LFE0:
+ 209              		.section	.text.get_byte_2,"ax",%progbits
+ 210              		.align	1
+ 211              		.syntax unified
+ 212              		.code	16
+ 213              		.thumb_func
+ 214              		.fpu softvfp
+ 216              	get_byte_2:
+ 217              	.LFB1:
+ 348:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 349:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** static uint8_t get_byte_2(uint8_t v)
+ 350:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** {
+ 218              		.loc 1 350 0
+ 219              		.cfi_startproc
+ 220 0000 80B5     		push	{r7, lr}
+ 221              	.LCFI3:
+ 222              		.cfi_def_cfa_offset 8
+ 223              		.cfi_offset 7, -8
+ 224              		.cfi_offset 14, -4
+ 225 0002 84B0     		sub	sp, sp, #16
+ARM GAS  /tmp/cc2souAa.s 			page 11
+
+
+ 226              	.LCFI4:
+ 227              		.cfi_def_cfa_offset 24
+ 228 0004 00AF     		add	r7, sp, #0
+ 229              	.LCFI5:
+ 230              		.cfi_def_cfa_register 7
+ 231 0006 0200     		movs	r2, r0
+ 232 0008 FB1D     		adds	r3, r7, #7
+ 233 000a 1A70     		strb	r2, [r3]
+ 351:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   uint8_t w;
+ 352:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   w = v;
+ 234              		.loc 1 352 0
+ 235 000c 0F23     		movs	r3, #15
+ 236 000e FB18     		adds	r3, r7, r3
+ 237 0010 FA1D     		adds	r2, r7, #7
+ 238 0012 1278     		ldrb	r2, [r2]
+ 239 0014 1A70     		strb	r2, [r3]
+ 353:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   w &= 3;
+ 240              		.loc 1 353 0
+ 241 0016 0F23     		movs	r3, #15
+ 242 0018 FB18     		adds	r3, r7, r3
+ 243 001a 0F22     		movs	r2, #15
+ 244 001c BA18     		adds	r2, r7, r2
+ 245 001e 1278     		ldrb	r2, [r2]
+ 246 0020 0321     		movs	r1, #3
+ 247 0022 0A40     		ands	r2, r1
+ 248 0024 1A70     		strb	r2, [r3]
+ 354:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   w = (w<<2) | w;
+ 249              		.loc 1 354 0
+ 250 0026 0F23     		movs	r3, #15
+ 251 0028 FB18     		adds	r3, r7, r3
+ 252 002a 1B78     		ldrb	r3, [r3]
+ 253 002c 9B00     		lsls	r3, r3, #2
+ 254 002e 5AB2     		sxtb	r2, r3
+ 255 0030 0F23     		movs	r3, #15
+ 256 0032 FB18     		adds	r3, r7, r3
+ 257 0034 1B78     		ldrb	r3, [r3]
+ 258 0036 5BB2     		sxtb	r3, r3
+ 259 0038 1343     		orrs	r3, r2
+ 260 003a 5AB2     		sxtb	r2, r3
+ 261 003c 0F23     		movs	r3, #15
+ 262 003e FB18     		adds	r3, r7, r3
+ 263 0040 1A70     		strb	r2, [r3]
+ 355:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   v <<= 3;
+ 264              		.loc 1 355 0
+ 265 0042 FB1D     		adds	r3, r7, #7
+ 266 0044 FA1D     		adds	r2, r7, #7
+ 267 0046 1278     		ldrb	r2, [r2]
+ 268 0048 D200     		lsls	r2, r2, #3
+ 269 004a 1A70     		strb	r2, [r3]
+ 356:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   v &= 0x0e0;
+ 270              		.loc 1 356 0
+ 271 004c FB1D     		adds	r3, r7, #7
+ 272 004e FA1D     		adds	r2, r7, #7
+ 273 0050 1278     		ldrb	r2, [r2]
+ 274 0052 1F21     		movs	r1, #31
+ 275 0054 8A43     		bics	r2, r1
+ 276 0056 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/cc2souAa.s 			page 12
+
+
+ 357:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   w |= v;
+ 277              		.loc 1 357 0
+ 278 0058 0F23     		movs	r3, #15
+ 279 005a FB18     		adds	r3, r7, r3
+ 280 005c 0F22     		movs	r2, #15
+ 281 005e B918     		adds	r1, r7, r2
+ 282 0060 FA1D     		adds	r2, r7, #7
+ 283 0062 0978     		ldrb	r1, [r1]
+ 284 0064 1278     		ldrb	r2, [r2]
+ 285 0066 0A43     		orrs	r2, r1
+ 286 0068 1A70     		strb	r2, [r3]
+ 358:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   return w;
+ 287              		.loc 1 358 0
+ 288 006a 0F23     		movs	r3, #15
+ 289 006c FB18     		adds	r3, r7, r3
+ 290 006e 1B78     		ldrb	r3, [r3]
+ 359:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** }
+ 291              		.loc 1 359 0
+ 292 0070 1800     		movs	r0, r3
+ 293 0072 BD46     		mov	sp, r7
+ 294 0074 04B0     		add	sp, sp, #16
+ 295              		@ sp needed
+ 296 0076 80BD     		pop	{r7, pc}
+ 297              		.cfi_endproc
+ 298              	.LFE1:
+ 300              		.section	.text.u8g_dev_st7687_c144mvgd_fn,"ax",%progbits
+ 301              		.align	1
+ 302              		.global	u8g_dev_st7687_c144mvgd_fn
+ 303              		.syntax unified
+ 304              		.code	16
+ 305              		.thumb_func
+ 306              		.fpu softvfp
+ 308              	u8g_dev_st7687_c144mvgd_fn:
+ 309              	.LFB2:
+ 360:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** 
+ 361:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** uint8_t u8g_dev_st7687_c144mvgd_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 362:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** {
+ 310              		.loc 1 362 0
+ 311              		.cfi_startproc
+ 312 0000 90B5     		push	{r4, r7, lr}
+ 313              	.LCFI6:
+ 314              		.cfi_def_cfa_offset 12
+ 315              		.cfi_offset 4, -12
+ 316              		.cfi_offset 7, -8
+ 317              		.cfi_offset 14, -4
+ 318 0002 89B0     		sub	sp, sp, #36
+ 319              	.LCFI7:
+ 320              		.cfi_def_cfa_offset 48
+ 321 0004 00AF     		add	r7, sp, #0
+ 322              	.LCFI8:
+ 323              		.cfi_def_cfa_register 7
+ 324 0006 F860     		str	r0, [r7, #12]
+ 325 0008 B960     		str	r1, [r7, #8]
+ 326 000a 3B60     		str	r3, [r7]
+ 327 000c FB1D     		adds	r3, r7, #7
+ 328 000e 1A70     		strb	r2, [r3]
+ 363:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   switch(msg)
+ARM GAS  /tmp/cc2souAa.s 			page 13
+
+
+ 329              		.loc 1 363 0
+ 330 0010 FB1D     		adds	r3, r7, #7
+ 331 0012 1B78     		ldrb	r3, [r3]
+ 332 0014 0B2B     		cmp	r3, #11
+ 333 0016 00D1     		bne	.LCB147
+ 334 0018 C7E0     		b	.L15	@long jump
+ 335              	.LCB147:
+ 336 001a 152B     		cmp	r3, #21
+ 337 001c 0FD0     		beq	.L8
+ 338 001e 0A2B     		cmp	r3, #10
+ 339 0020 00D0     		beq	.LCB151
+ 340 0022 C3E0     		b	.L6	@long jump
+ 341              	.LCB151:
+ 364:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   {
+ 365:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     case U8G_DEV_MSG_INIT:
+ 366:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 342              		.loc 1 366 0
+ 343 0024 B968     		ldr	r1, [r7, #8]
+ 344 0026 FB68     		ldr	r3, [r7, #12]
+ 345 0028 0322     		movs	r2, #3
+ 346 002a 1800     		movs	r0, r3
+ 347 002c FFF7FEFF 		bl	u8g_InitCom
+ 367:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7687_c144mvgd_init_seq);
+ 348              		.loc 1 367 0
+ 349 0030 654A     		ldr	r2, .L16
+ 350 0032 B968     		ldr	r1, [r7, #8]
+ 351 0034 FB68     		ldr	r3, [r7, #12]
+ 352 0036 1800     		movs	r0, r3
+ 353 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 368:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       break;
+ 354              		.loc 1 368 0
+ 355 003c B6E0     		b	.L6
+ 356              	.L8:
+ 357              	.LBB2:
+ 369:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     case U8G_DEV_MSG_STOP:
+ 370:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       break;
+ 371:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 372:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       {
+ 373:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         uint8_t y, i, j;
+ 374:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         uint8_t *ptr;
+ 375:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 358              		.loc 1 375 0
+ 359 003e BB68     		ldr	r3, [r7, #8]
+ 360 0040 5B68     		ldr	r3, [r3, #4]
+ 361 0042 7B61     		str	r3, [r7, #20]
+ 376:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         
+ 377:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 0);           /* cmd mode */
+ 362              		.loc 1 377 0
+ 363 0044 B968     		ldr	r1, [r7, #8]
+ 364 0046 FB68     		ldr	r3, [r7, #12]
+ 365 0048 0022     		movs	r2, #0
+ 366 004a 1800     		movs	r0, r3
+ 367 004c FFF7FEFF 		bl	u8g_SetAddress
+ 378:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetChipSelect(u8g, dev, 1);
+ 368              		.loc 1 378 0
+ 369 0050 B968     		ldr	r1, [r7, #8]
+ 370 0052 FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/cc2souAa.s 			page 14
+
+
+ 371 0054 0122     		movs	r2, #1
+ 372 0056 1800     		movs	r0, r3
+ 373 0058 FFF7FEFF 		bl	u8g_SetChipSelect
+ 379:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         y = pb->p.page_y0;
+ 374              		.loc 1 379 0
+ 375 005c 1323     		movs	r3, #19
+ 376 005e FB18     		adds	r3, r7, r3
+ 377 0060 7A69     		ldr	r2, [r7, #20]
+ 378 0062 9278     		ldrb	r2, [r2, #2]
+ 379 0064 1A70     		strb	r2, [r3]
+ 380:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         ptr = pb->buf;
+ 380              		.loc 1 380 0
+ 381 0066 7B69     		ldr	r3, [r7, #20]
+ 382 0068 9B68     		ldr	r3, [r3, #8]
+ 383 006a BB61     		str	r3, [r7, #24]
+ 381:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         
+ 382:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 0);           /* cmd mode */
+ 384              		.loc 1 382 0
+ 385 006c B968     		ldr	r1, [r7, #8]
+ 386 006e FB68     		ldr	r3, [r7, #12]
+ 387 0070 0022     		movs	r2, #0
+ 388 0072 1800     		movs	r0, r3
+ 389 0074 FFF7FEFF 		bl	u8g_SetAddress
+ 383:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, 0x02a );      /* Column address set 8.1.20 */
+ 390              		.loc 1 383 0
+ 391 0078 B968     		ldr	r1, [r7, #8]
+ 392 007a FB68     		ldr	r3, [r7, #12]
+ 393 007c 2A22     		movs	r2, #42
+ 394 007e 1800     		movs	r0, r3
+ 395 0080 FFF7FEFF 		bl	u8g_WriteByte
+ 384:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 396              		.loc 1 384 0
+ 397 0084 B968     		ldr	r1, [r7, #8]
+ 398 0086 FB68     		ldr	r3, [r7, #12]
+ 399 0088 0122     		movs	r2, #1
+ 400 008a 1800     		movs	r0, r3
+ 401 008c FFF7FEFF 		bl	u8g_SetAddress
+ 385:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, 0x000 );      /* x0 */
+ 402              		.loc 1 385 0
+ 403 0090 B968     		ldr	r1, [r7, #8]
+ 404 0092 FB68     		ldr	r3, [r7, #12]
+ 405 0094 0022     		movs	r2, #0
+ 406 0096 1800     		movs	r0, r3
+ 407 0098 FFF7FEFF 		bl	u8g_WriteByte
+ 386:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, WIDTH-1 );      /* x1 */
+ 408              		.loc 1 386 0
+ 409 009c B968     		ldr	r1, [r7, #8]
+ 410 009e FB68     		ldr	r3, [r7, #12]
+ 411 00a0 7F22     		movs	r2, #127
+ 412 00a2 1800     		movs	r0, r3
+ 413 00a4 FFF7FEFF 		bl	u8g_WriteByte
+ 387:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 0);           /* cmd mode */
+ 414              		.loc 1 387 0
+ 415 00a8 B968     		ldr	r1, [r7, #8]
+ 416 00aa FB68     		ldr	r3, [r7, #12]
+ 417 00ac 0022     		movs	r2, #0
+ 418 00ae 1800     		movs	r0, r3
+ARM GAS  /tmp/cc2souAa.s 			page 15
+
+
+ 419 00b0 FFF7FEFF 		bl	u8g_SetAddress
+ 388:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, 0x02b );      /* Row address set 8.1.21 */
+ 420              		.loc 1 388 0
+ 421 00b4 B968     		ldr	r1, [r7, #8]
+ 422 00b6 FB68     		ldr	r3, [r7, #12]
+ 423 00b8 2B22     		movs	r2, #43
+ 424 00ba 1800     		movs	r0, r3
+ 425 00bc FFF7FEFF 		bl	u8g_WriteByte
+ 389:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 426              		.loc 1 389 0
+ 427 00c0 B968     		ldr	r1, [r7, #8]
+ 428 00c2 FB68     		ldr	r3, [r7, #12]
+ 429 00c4 0122     		movs	r2, #1
+ 430 00c6 1800     		movs	r0, r3
+ 431 00c8 FFF7FEFF 		bl	u8g_SetAddress
+ 390:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, y );      /* y0 */
+ 432              		.loc 1 390 0
+ 433 00cc 1323     		movs	r3, #19
+ 434 00ce FB18     		adds	r3, r7, r3
+ 435 00d0 1A78     		ldrb	r2, [r3]
+ 436 00d2 B968     		ldr	r1, [r7, #8]
+ 437 00d4 FB68     		ldr	r3, [r7, #12]
+ 438 00d6 1800     		movs	r0, r3
+ 439 00d8 FFF7FEFF 		bl	u8g_WriteByte
+ 391:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, y+PAGE_HEIGHT-1 );      /* y1 */
+ 440              		.loc 1 391 0
+ 441 00dc 1323     		movs	r3, #19
+ 442 00de FB18     		adds	r3, r7, r3
+ 443 00e0 1B78     		ldrb	r3, [r3]
+ 444 00e2 0733     		adds	r3, r3, #7
+ 445 00e4 DAB2     		uxtb	r2, r3
+ 446 00e6 B968     		ldr	r1, [r7, #8]
+ 447 00e8 FB68     		ldr	r3, [r7, #12]
+ 448 00ea 1800     		movs	r0, r3
+ 449 00ec FFF7FEFF 		bl	u8g_WriteByte
+ 392:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 0);           /* cmd mode */
+ 450              		.loc 1 392 0
+ 451 00f0 B968     		ldr	r1, [r7, #8]
+ 452 00f2 FB68     		ldr	r3, [r7, #12]
+ 453 00f4 0022     		movs	r2, #0
+ 454 00f6 1800     		movs	r0, r3
+ 455 00f8 FFF7FEFF 		bl	u8g_SetAddress
+ 393:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_WriteByte(u8g, dev, 0x02c );      /* Memory write 8.1.22 */
+ 456              		.loc 1 393 0
+ 457 00fc B968     		ldr	r1, [r7, #8]
+ 458 00fe FB68     		ldr	r3, [r7, #12]
+ 459 0100 2C22     		movs	r2, #44
+ 460 0102 1800     		movs	r0, r3
+ 461 0104 FFF7FEFF 		bl	u8g_WriteByte
+ 394:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 462              		.loc 1 394 0
+ 463 0108 B968     		ldr	r1, [r7, #8]
+ 464 010a FB68     		ldr	r3, [r7, #12]
+ 465 010c 0122     		movs	r2, #1
+ 466 010e 1800     		movs	r0, r3
+ 467 0110 FFF7FEFF 		bl	u8g_SetAddress
+ 395:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         
+ARM GAS  /tmp/cc2souAa.s 			page 16
+
+
+ 396:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         for( i = 0; i < PAGE_HEIGHT; i ++ )
+ 468              		.loc 1 396 0
+ 469 0114 1F23     		movs	r3, #31
+ 470 0116 FB18     		adds	r3, r7, r3
+ 471 0118 0022     		movs	r2, #0
+ 472 011a 1A70     		strb	r2, [r3]
+ 473 011c 33E0     		b	.L10
+ 474              	.L13:
+ 397:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         {
+ 398:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****           
+ 399:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****           for( j = 0; j < WIDTH; j ++ )
+ 475              		.loc 1 399 0
+ 476 011e 1E23     		movs	r3, #30
+ 477 0120 FB18     		adds	r3, r7, r3
+ 478 0122 0022     		movs	r2, #0
+ 479 0124 1A70     		strb	r2, [r3]
+ 480 0126 21E0     		b	.L11
+ 481              	.L12:
+ 400:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****           {
+ 401:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****             u8g_WriteByte(u8g, dev, get_byte_1(*ptr) );     
+ 482              		.loc 1 401 0 discriminator 3
+ 483 0128 BB69     		ldr	r3, [r7, #24]
+ 484 012a 1B78     		ldrb	r3, [r3]
+ 485 012c 1800     		movs	r0, r3
+ 486 012e FFF7FEFF 		bl	get_byte_1
+ 487 0132 0300     		movs	r3, r0
+ 488 0134 1A00     		movs	r2, r3
+ 489 0136 B968     		ldr	r1, [r7, #8]
+ 490 0138 FB68     		ldr	r3, [r7, #12]
+ 491 013a 1800     		movs	r0, r3
+ 492 013c FFF7FEFF 		bl	u8g_WriteByte
+ 402:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****             u8g_WriteByte(u8g, dev, get_byte_2(*ptr) );                 
+ 493              		.loc 1 402 0 discriminator 3
+ 494 0140 BB69     		ldr	r3, [r7, #24]
+ 495 0142 1B78     		ldrb	r3, [r3]
+ 496 0144 1800     		movs	r0, r3
+ 497 0146 FFF7FEFF 		bl	get_byte_2
+ 498 014a 0300     		movs	r3, r0
+ 499 014c 1A00     		movs	r2, r3
+ 500 014e B968     		ldr	r1, [r7, #8]
+ 501 0150 FB68     		ldr	r3, [r7, #12]
+ 502 0152 1800     		movs	r0, r3
+ 503 0154 FFF7FEFF 		bl	u8g_WriteByte
+ 403:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****             ptr++;
+ 504              		.loc 1 403 0 discriminator 3
+ 505 0158 BB69     		ldr	r3, [r7, #24]
+ 506 015a 0133     		adds	r3, r3, #1
+ 507 015c BB61     		str	r3, [r7, #24]
+ 399:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****           {
+ 508              		.loc 1 399 0 discriminator 3
+ 509 015e 1E23     		movs	r3, #30
+ 510 0160 FB18     		adds	r3, r7, r3
+ 511 0162 1A78     		ldrb	r2, [r3]
+ 512 0164 1E23     		movs	r3, #30
+ 513 0166 FB18     		adds	r3, r7, r3
+ 514 0168 0132     		adds	r2, r2, #1
+ 515 016a 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/cc2souAa.s 			page 17
+
+
+ 516              	.L11:
+ 399:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****           {
+ 517              		.loc 1 399 0 is_stmt 0 discriminator 1
+ 518 016c 1E23     		movs	r3, #30
+ 519 016e FB18     		adds	r3, r7, r3
+ 520 0170 1B78     		ldrb	r3, [r3]
+ 521 0172 5BB2     		sxtb	r3, r3
+ 522 0174 002B     		cmp	r3, #0
+ 523 0176 D7DA     		bge	.L12
+ 396:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         {
+ 524              		.loc 1 396 0 is_stmt 1 discriminator 2
+ 525 0178 1F23     		movs	r3, #31
+ 526 017a FB18     		adds	r3, r7, r3
+ 527 017c 1A78     		ldrb	r2, [r3]
+ 528 017e 1F23     		movs	r3, #31
+ 529 0180 FB18     		adds	r3, r7, r3
+ 530 0182 0132     		adds	r2, r2, #1
+ 531 0184 1A70     		strb	r2, [r3]
+ 532              	.L10:
+ 396:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         {
+ 533              		.loc 1 396 0 is_stmt 0 discriminator 1
+ 534 0186 1F23     		movs	r3, #31
+ 535 0188 FB18     		adds	r3, r7, r3
+ 536 018a 1B78     		ldrb	r3, [r3]
+ 537 018c 072B     		cmp	r3, #7
+ 538 018e C6D9     		bls	.L13
+ 404:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****           }
+ 405:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         }
+ 406:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetAddress(u8g, dev, 0);           /* cmd mode */
+ 539              		.loc 1 406 0 is_stmt 1
+ 540 0190 B968     		ldr	r1, [r7, #8]
+ 541 0192 FB68     		ldr	r3, [r7, #12]
+ 542 0194 0022     		movs	r2, #0
+ 543 0196 1800     		movs	r0, r3
+ 544 0198 FFF7FEFF 		bl	u8g_SetAddress
+ 407:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 545              		.loc 1 407 0
+ 546 019c B968     		ldr	r1, [r7, #8]
+ 547 019e FB68     		ldr	r3, [r7, #12]
+ 548 01a0 0022     		movs	r2, #0
+ 549 01a2 1800     		movs	r0, r3
+ 550 01a4 FFF7FEFF 		bl	u8g_SetChipSelect
+ 551              	.LBE2:
+ 408:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       }
+ 409:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****       break;
+ 552              		.loc 1 409 0
+ 553 01a8 00E0     		b	.L6
+ 554              	.L15:
+ 370:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 555              		.loc 1 370 0
+ 556 01aa C046     		nop
+ 557              	.L6:
+ 410:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   }
+ 411:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c ****   return u8g_dev_pb8h8_base_fn(u8g, dev, msg, arg);
+ 558              		.loc 1 411 0
+ 559 01ac 3C68     		ldr	r4, [r7]
+ 560 01ae FB1D     		adds	r3, r7, #7
+ARM GAS  /tmp/cc2souAa.s 			page 18
+
+
+ 561 01b0 1A78     		ldrb	r2, [r3]
+ 562 01b2 B968     		ldr	r1, [r7, #8]
+ 563 01b4 F868     		ldr	r0, [r7, #12]
+ 564 01b6 2300     		movs	r3, r4
+ 565 01b8 FFF7FEFF 		bl	u8g_dev_pb8h8_base_fn
+ 566 01bc 0300     		movs	r3, r0
+ 412:Drivers/u8glib/src/u8g_dev_st7687_c144mvgd.c **** }
+ 567              		.loc 1 412 0
+ 568 01be 1800     		movs	r0, r3
+ 569 01c0 BD46     		mov	sp, r7
+ 570 01c2 09B0     		add	sp, sp, #36
+ 571              		@ sp needed
+ 572 01c4 90BD     		pop	{r4, r7, pc}
+ 573              	.L17:
+ 574 01c6 C046     		.align	2
+ 575              	.L16:
+ 576 01c8 00000000 		.word	u8g_dev_st7687_c144mvgd_init_seq
+ 577              		.cfi_endproc
+ 578              	.LFE2:
+ 580              		.global	u8g_st7687_c144mvgd_8h8_buf
+ 581              		.section	.bss.u8g_st7687_c144mvgd_8h8_buf,"aw",%nobits
+ 582              		.align	2
+ 585              	u8g_st7687_c144mvgd_8h8_buf:
+ 586 0000 00000000 		.space	1024
+ 586      00000000 
+ 586      00000000 
+ 586      00000000 
+ 586      00000000 
+ 587              		.global	u8g_st7687_c144mvgd_8h8_pb
+ 588              		.section	.data.u8g_st7687_c144mvgd_8h8_pb,"aw",%progbits
+ 589              		.align	2
+ 592              	u8g_st7687_c144mvgd_8h8_pb:
+ 593 0000 08       		.byte	8
+ 594 0001 80       		.byte	-128
+ 595 0002 00       		.byte	0
+ 596 0003 00       		.byte	0
+ 597 0004 00       		.byte	0
+ 598 0005 80       		.byte	-128
+ 599 0006 0000     		.space	2
+ 600 0008 00000000 		.word	u8g_st7687_c144mvgd_8h8_buf
+ 601              		.global	u8g_dev_st7687_c144mvgd_sw_spi
+ 602              		.section	.data.u8g_dev_st7687_c144mvgd_sw_spi,"aw",%progbits
+ 603              		.align	2
+ 606              	u8g_dev_st7687_c144mvgd_sw_spi:
+ 607 0000 00000000 		.word	u8g_dev_st7687_c144mvgd_fn
+ 608 0004 00000000 		.word	u8g_st7687_c144mvgd_8h8_pb
+ 609 0008 00000000 		.word	u8g_com_arduino_sw_spi_fn
+ 610              		.global	u8g_dev_st7687_c144mvgd_8bit
+ 611              		.section	.data.u8g_dev_st7687_c144mvgd_8bit,"aw",%progbits
+ 612              		.align	2
+ 615              	u8g_dev_st7687_c144mvgd_8bit:
+ 616 0000 00000000 		.word	u8g_dev_st7687_c144mvgd_fn
+ 617 0004 00000000 		.word	u8g_st7687_c144mvgd_8h8_pb
+ 618 0008 00000000 		.word	u8g_com_null_fn
+ 619              		.text
+ 620              	.Letext0:
+ 621              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ARM GAS  /tmp/cc2souAa.s 			page 19
+
+
+ 622              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 623              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cc2souAa.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_st7687_c144mvgd.c
+     /tmp/cc2souAa.s:16     .rodata.u8g_dev_st7687_c144mvgd_init_seq:0000000000000000 $d
+     /tmp/cc2souAa.s:19     .rodata.u8g_dev_st7687_c144mvgd_init_seq:0000000000000000 u8g_dev_st7687_c144mvgd_init_seq
+     /tmp/cc2souAa.s:159    .text.get_byte_1:0000000000000000 $t
+     /tmp/cc2souAa.s:165    .text.get_byte_1:0000000000000000 get_byte_1
+     /tmp/cc2souAa.s:210    .text.get_byte_2:0000000000000000 $t
+     /tmp/cc2souAa.s:216    .text.get_byte_2:0000000000000000 get_byte_2
+     /tmp/cc2souAa.s:301    .text.u8g_dev_st7687_c144mvgd_fn:0000000000000000 $t
+     /tmp/cc2souAa.s:308    .text.u8g_dev_st7687_c144mvgd_fn:0000000000000000 u8g_dev_st7687_c144mvgd_fn
+     /tmp/cc2souAa.s:576    .text.u8g_dev_st7687_c144mvgd_fn:00000000000001c8 $d
+     /tmp/cc2souAa.s:585    .bss.u8g_st7687_c144mvgd_8h8_buf:0000000000000000 u8g_st7687_c144mvgd_8h8_buf
+     /tmp/cc2souAa.s:582    .bss.u8g_st7687_c144mvgd_8h8_buf:0000000000000000 $d
+     /tmp/cc2souAa.s:592    .data.u8g_st7687_c144mvgd_8h8_pb:0000000000000000 u8g_st7687_c144mvgd_8h8_pb
+     /tmp/cc2souAa.s:589    .data.u8g_st7687_c144mvgd_8h8_pb:0000000000000000 $d
+     /tmp/cc2souAa.s:606    .data.u8g_dev_st7687_c144mvgd_sw_spi:0000000000000000 u8g_dev_st7687_c144mvgd_sw_spi
+     /tmp/cc2souAa.s:603    .data.u8g_dev_st7687_c144mvgd_sw_spi:0000000000000000 $d
+     /tmp/cc2souAa.s:615    .data.u8g_dev_st7687_c144mvgd_8bit:0000000000000000 u8g_dev_st7687_c144mvgd_8bit
+     /tmp/cc2souAa.s:612    .data.u8g_dev_st7687_c144mvgd_8bit:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_SetAddress
+u8g_SetChipSelect
+u8g_WriteByte
+u8g_dev_pb8h8_base_fn
+u8g_com_arduino_sw_spi_fn
+u8g_com_null_fn

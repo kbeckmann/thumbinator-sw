@@ -1,0 +1,2447 @@
+ARM GAS  /tmp/ccSVg8P5.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_ellipse.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_draw_ellipse_section,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	u8g_draw_ellipse_section:
+  23              	.LFB0:
+  24              		.file 1 "Drivers/u8glib/src/u8g_ellipse.c"
+   1:Drivers/u8glib/src/u8g_ellipse.c **** /*
+   2:Drivers/u8glib/src/u8g_ellipse.c **** 
+   3:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_ellipse.c
+   4:Drivers/u8glib/src/u8g_ellipse.c **** 
+   5:Drivers/u8glib/src/u8g_ellipse.c ****   Utility to draw empty and filled ellipses.
+   6:Drivers/u8glib/src/u8g_ellipse.c ****   
+   7:Drivers/u8glib/src/u8g_ellipse.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_ellipse.c ****   
+   9:Drivers/u8glib/src/u8g_ellipse.c ****   Copyright (c) 2011, bjthom@gmail.com
+  10:Drivers/u8glib/src/u8g_ellipse.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_ellipse.c **** 
+  12:Drivers/u8glib/src/u8g_ellipse.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_ellipse.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_ellipse.c **** 
+  15:Drivers/u8glib/src/u8g_ellipse.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_ellipse.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_ellipse.c ****     
+  18:Drivers/u8glib/src/u8g_ellipse.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_ellipse.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_ellipse.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_ellipse.c **** 
+  22:Drivers/u8glib/src/u8g_ellipse.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_ellipse.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_ellipse.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_ellipse.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_ellipse.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_ellipse.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_ellipse.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_ellipse.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_ellipse.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_ellipse.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_ellipse.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_ellipse.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_ellipse.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+ARM GAS  /tmp/ccSVg8P5.s 			page 2
+
+
+  35:Drivers/u8glib/src/u8g_ellipse.c ****   
+  36:Drivers/u8glib/src/u8g_ellipse.c ****   Addition to the U8G Library as of 02/29/12
+  37:Drivers/u8glib/src/u8g_ellipse.c ****   Adapted from Bresenham's Algorithm and the following websites:
+  38:Drivers/u8glib/src/u8g_ellipse.c **** 	http://free.pages.at/easyfilter/bresenham.html
+  39:Drivers/u8glib/src/u8g_ellipse.c **** 	http://homepage.smc.edu/kennedy_john/belipse.pdf
+  40:Drivers/u8glib/src/u8g_ellipse.c ****   
+  41:Drivers/u8glib/src/u8g_ellipse.c **** */
+  42:Drivers/u8glib/src/u8g_ellipse.c **** 
+  43:Drivers/u8glib/src/u8g_ellipse.c **** #include "u8g.h"
+  44:Drivers/u8glib/src/u8g_ellipse.c **** 
+  45:Drivers/u8glib/src/u8g_ellipse.c **** 
+  46:Drivers/u8glib/src/u8g_ellipse.c **** #ifdef WORK_IN_PROGRESS
+  47:Drivers/u8glib/src/u8g_ellipse.c **** 
+  48:Drivers/u8glib/src/u8g_ellipse.c **** void u8g_DrawEllipseRect(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t x1, u8g_uint_t y1)
+  49:Drivers/u8glib/src/u8g_ellipse.c **** {
+  50:Drivers/u8glib/src/u8g_ellipse.c **** 	int a = abs(x1 - x0);
+  51:Drivers/u8glib/src/u8g_ellipse.c **** 	int b = abs(y1 - y0);	//get diameters
+  52:Drivers/u8glib/src/u8g_ellipse.c **** 	int b1 = b&1;
+  53:Drivers/u8glib/src/u8g_ellipse.c **** 	long dx = 4*(1-a)*b*b;
+  54:Drivers/u8glib/src/u8g_ellipse.c **** 	long dy = 4*(b1+1)*a*a;
+  55:Drivers/u8glib/src/u8g_ellipse.c **** 	long err = dx+dy+b1*a*a;
+  56:Drivers/u8glib/src/u8g_ellipse.c **** 	long e2;
+  57:Drivers/u8glib/src/u8g_ellipse.c **** 	
+  58:Drivers/u8glib/src/u8g_ellipse.c **** 	if (x0 > x1) { x0 = x1; x1 += a; }
+  59:Drivers/u8glib/src/u8g_ellipse.c **** 	if (y0 > y1) { y0 = y1; } 
+  60:Drivers/u8glib/src/u8g_ellipse.c **** 	y0 += (b+1)/2;
+  61:Drivers/u8glib/src/u8g_ellipse.c **** 	y1 = y0-b1;
+  62:Drivers/u8glib/src/u8g_ellipse.c **** 	a *= 8*a;
+  63:Drivers/u8glib/src/u8g_ellipse.c **** 	b1 = 8*b*b;
+  64:Drivers/u8glib/src/u8g_ellipse.c **** 	
+  65:Drivers/u8glib/src/u8g_ellipse.c **** 	do {
+  66:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x1, y0);
+  67:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x0, y0);
+  68:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x0, y1);
+  69:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x1, y1);
+  70:Drivers/u8glib/src/u8g_ellipse.c **** 		e2 = 2*err;
+  71:Drivers/u8glib/src/u8g_ellipse.c **** 		if (e2 >= dx) {
+  72:Drivers/u8glib/src/u8g_ellipse.c **** 			x0++;
+  73:Drivers/u8glib/src/u8g_ellipse.c **** 			x1--;
+  74:Drivers/u8glib/src/u8g_ellipse.c **** 			err += dx += b1;
+  75:Drivers/u8glib/src/u8g_ellipse.c **** 		}
+  76:Drivers/u8glib/src/u8g_ellipse.c **** 		if (e2 <= dy) {
+  77:Drivers/u8glib/src/u8g_ellipse.c **** 			y0++;
+  78:Drivers/u8glib/src/u8g_ellipse.c **** 			y1--;
+  79:Drivers/u8glib/src/u8g_ellipse.c **** 			err += dy += a;
+  80:Drivers/u8glib/src/u8g_ellipse.c **** 		}
+  81:Drivers/u8glib/src/u8g_ellipse.c **** 	} while (x0 <= x1);
+  82:Drivers/u8glib/src/u8g_ellipse.c **** 	
+  83:Drivers/u8glib/src/u8g_ellipse.c **** 	while (y0-y1 < b) {
+  84:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x0-1, y0);
+  85:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x1+1, y0++);
+  86:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x0-1, y1);
+  87:Drivers/u8glib/src/u8g_ellipse.c **** 		u8g_DrawPixel(u8g, x1+1, y1--);
+  88:Drivers/u8glib/src/u8g_ellipse.c **** 	}
+  89:Drivers/u8glib/src/u8g_ellipse.c **** }
+  90:Drivers/u8glib/src/u8g_ellipse.c **** 
+  91:Drivers/u8glib/src/u8g_ellipse.c **** void u8g_DrawEllipse(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t xr, u8g_uint_t yr)
+ARM GAS  /tmp/ccSVg8P5.s 			page 3
+
+
+  92:Drivers/u8glib/src/u8g_ellipse.c **** {
+  93:Drivers/u8glib/src/u8g_ellipse.c **** 	u8g_DrawPixel(u8g, x0, y0+yr);
+  94:Drivers/u8glib/src/u8g_ellipse.c **** 	u8g_DrawPixel(u8g, x0, y0-yr);
+  95:Drivers/u8glib/src/u8g_ellipse.c **** 	u8g_DrawPixel(u8g, x0+xr, y0);
+  96:Drivers/u8glib/src/u8g_ellipse.c **** 	u8g_DrawPixel(u8g, x0-xr, y0);
+  97:Drivers/u8glib/src/u8g_ellipse.c **** }
+  98:Drivers/u8glib/src/u8g_ellipse.c **** 
+  99:Drivers/u8glib/src/u8g_ellipse.c **** #endif
+ 100:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 101:Drivers/u8glib/src/u8g_ellipse.c **** #if defined(U8G_16BIT)
+ 102:Drivers/u8glib/src/u8g_ellipse.c **** typedef  int32_t u8g_long_t;
+ 103:Drivers/u8glib/src/u8g_ellipse.c **** #else
+ 104:Drivers/u8glib/src/u8g_ellipse.c **** typedef  int16_t u8g_long_t;
+ 105:Drivers/u8glib/src/u8g_ellipse.c **** #endif
+ 106:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 107:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 108:Drivers/u8glib/src/u8g_ellipse.c **** /*
+ 109:Drivers/u8glib/src/u8g_ellipse.c ****   Source: 
+ 110:Drivers/u8glib/src/u8g_ellipse.c ****     ftp://pc.fk0.name/pub/books/programming/bezier-ellipse.pdf
+ 111:Drivers/u8glib/src/u8g_ellipse.c ****     Foley, Computer Graphics, p 90
+ 112:Drivers/u8glib/src/u8g_ellipse.c **** */
+ 113:Drivers/u8glib/src/u8g_ellipse.c **** static void u8g_draw_ellipse_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uin
+ 114:Drivers/u8glib/src/u8g_ellipse.c **** static void u8g_draw_ellipse_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uin
+ 115:Drivers/u8glib/src/u8g_ellipse.c **** {
+  25              		.loc 1 115 0
+  26              		.cfi_startproc
+  27 0000 90B5     		push	{r4, r7, lr}
+  28              	.LCFI0:
+  29              		.cfi_def_cfa_offset 12
+  30              		.cfi_offset 4, -12
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 83B0     		sub	sp, sp, #12
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 24
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  40 0008 0C00     		movs	r4, r1
+  41 000a 1000     		movs	r0, r2
+  42 000c 1900     		movs	r1, r3
+  43 000e FB1C     		adds	r3, r7, #3
+  44 0010 221C     		adds	r2, r4, #0
+  45 0012 1A70     		strb	r2, [r3]
+  46 0014 BB1C     		adds	r3, r7, #2
+  47 0016 021C     		adds	r2, r0, #0
+  48 0018 1A70     		strb	r2, [r3]
+  49 001a 7B1C     		adds	r3, r7, #1
+  50 001c 0A1C     		adds	r2, r1, #0
+  51 001e 1A70     		strb	r2, [r3]
+ 116:Drivers/u8glib/src/u8g_ellipse.c ****     /* upper right */
+ 117:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_UPPER_RIGHT )
+  52              		.loc 1 117 0
+  53 0020 1C23     		movs	r3, #28
+  54 0022 FB18     		adds	r3, r7, r3
+  55 0024 1B78     		ldrb	r3, [r3]
+ARM GAS  /tmp/ccSVg8P5.s 			page 4
+
+
+  56 0026 0122     		movs	r2, #1
+  57 0028 1340     		ands	r3, r2
+  58 002a 10D0     		beq	.L2
+ 118:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 119:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawPixel(u8g, x0 + x, y0 - y);
+  59              		.loc 1 119 0
+  60 002c 7A1C     		adds	r2, r7, #1
+  61 002e FB1C     		adds	r3, r7, #3
+  62 0030 1278     		ldrb	r2, [r2]
+  63 0032 1B78     		ldrb	r3, [r3]
+  64 0034 D318     		adds	r3, r2, r3
+  65 0036 D9B2     		uxtb	r1, r3
+  66 0038 1823     		movs	r3, #24
+  67 003a FA18     		adds	r2, r7, r3
+  68 003c BB1C     		adds	r3, r7, #2
+  69 003e 1278     		ldrb	r2, [r2]
+  70 0040 1B78     		ldrb	r3, [r3]
+  71 0042 D31A     		subs	r3, r2, r3
+  72 0044 DAB2     		uxtb	r2, r3
+  73 0046 7B68     		ldr	r3, [r7, #4]
+  74 0048 1800     		movs	r0, r3
+  75 004a FFF7FEFF 		bl	u8g_DrawPixel
+  76              	.L2:
+ 120:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 121:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 122:Drivers/u8glib/src/u8g_ellipse.c ****     /* upper left */
+ 123:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_UPPER_LEFT )
+  77              		.loc 1 123 0
+  78 004e 1C23     		movs	r3, #28
+  79 0050 FB18     		adds	r3, r7, r3
+  80 0052 1B78     		ldrb	r3, [r3]
+  81 0054 0222     		movs	r2, #2
+  82 0056 1340     		ands	r3, r2
+  83 0058 10D0     		beq	.L3
+ 124:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 125:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawPixel(u8g, x0 - x, y0 - y);
+  84              		.loc 1 125 0
+  85 005a 7A1C     		adds	r2, r7, #1
+  86 005c FB1C     		adds	r3, r7, #3
+  87 005e 1278     		ldrb	r2, [r2]
+  88 0060 1B78     		ldrb	r3, [r3]
+  89 0062 D31A     		subs	r3, r2, r3
+  90 0064 D9B2     		uxtb	r1, r3
+  91 0066 1823     		movs	r3, #24
+  92 0068 FA18     		adds	r2, r7, r3
+  93 006a BB1C     		adds	r3, r7, #2
+  94 006c 1278     		ldrb	r2, [r2]
+  95 006e 1B78     		ldrb	r3, [r3]
+  96 0070 D31A     		subs	r3, r2, r3
+  97 0072 DAB2     		uxtb	r2, r3
+  98 0074 7B68     		ldr	r3, [r7, #4]
+  99 0076 1800     		movs	r0, r3
+ 100 0078 FFF7FEFF 		bl	u8g_DrawPixel
+ 101              	.L3:
+ 126:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 127:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 128:Drivers/u8glib/src/u8g_ellipse.c ****     /* lower right */
+ARM GAS  /tmp/ccSVg8P5.s 			page 5
+
+
+ 129:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_LOWER_RIGHT )
+ 102              		.loc 1 129 0
+ 103 007c 1C23     		movs	r3, #28
+ 104 007e FB18     		adds	r3, r7, r3
+ 105 0080 1B78     		ldrb	r3, [r3]
+ 106 0082 0822     		movs	r2, #8
+ 107 0084 1340     		ands	r3, r2
+ 108 0086 10D0     		beq	.L4
+ 130:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 131:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawPixel(u8g, x0 + x, y0 + y);
+ 109              		.loc 1 131 0
+ 110 0088 7A1C     		adds	r2, r7, #1
+ 111 008a FB1C     		adds	r3, r7, #3
+ 112 008c 1278     		ldrb	r2, [r2]
+ 113 008e 1B78     		ldrb	r3, [r3]
+ 114 0090 D318     		adds	r3, r2, r3
+ 115 0092 D9B2     		uxtb	r1, r3
+ 116 0094 1823     		movs	r3, #24
+ 117 0096 FA18     		adds	r2, r7, r3
+ 118 0098 BB1C     		adds	r3, r7, #2
+ 119 009a 1278     		ldrb	r2, [r2]
+ 120 009c 1B78     		ldrb	r3, [r3]
+ 121 009e D318     		adds	r3, r2, r3
+ 122 00a0 DAB2     		uxtb	r2, r3
+ 123 00a2 7B68     		ldr	r3, [r7, #4]
+ 124 00a4 1800     		movs	r0, r3
+ 125 00a6 FFF7FEFF 		bl	u8g_DrawPixel
+ 126              	.L4:
+ 132:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 133:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 134:Drivers/u8glib/src/u8g_ellipse.c ****     /* lower left */
+ 135:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_LOWER_LEFT )
+ 127              		.loc 1 135 0
+ 128 00aa 1C23     		movs	r3, #28
+ 129 00ac FB18     		adds	r3, r7, r3
+ 130 00ae 1B78     		ldrb	r3, [r3]
+ 131 00b0 0422     		movs	r2, #4
+ 132 00b2 1340     		ands	r3, r2
+ 133 00b4 10D0     		beq	.L6
+ 136:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 137:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawPixel(u8g, x0 - x, y0 + y);
+ 134              		.loc 1 137 0
+ 135 00b6 7A1C     		adds	r2, r7, #1
+ 136 00b8 FB1C     		adds	r3, r7, #3
+ 137 00ba 1278     		ldrb	r2, [r2]
+ 138 00bc 1B78     		ldrb	r3, [r3]
+ 139 00be D31A     		subs	r3, r2, r3
+ 140 00c0 D9B2     		uxtb	r1, r3
+ 141 00c2 1823     		movs	r3, #24
+ 142 00c4 FA18     		adds	r2, r7, r3
+ 143 00c6 BB1C     		adds	r3, r7, #2
+ 144 00c8 1278     		ldrb	r2, [r2]
+ 145 00ca 1B78     		ldrb	r3, [r3]
+ 146 00cc D318     		adds	r3, r2, r3
+ 147 00ce DAB2     		uxtb	r2, r3
+ 148 00d0 7B68     		ldr	r3, [r7, #4]
+ 149 00d2 1800     		movs	r0, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 6
+
+
+ 150 00d4 FFF7FEFF 		bl	u8g_DrawPixel
+ 151              	.L6:
+ 138:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 139:Drivers/u8glib/src/u8g_ellipse.c **** }
+ 152              		.loc 1 139 0
+ 153 00d8 C046     		nop
+ 154 00da BD46     		mov	sp, r7
+ 155 00dc 03B0     		add	sp, sp, #12
+ 156              		@ sp needed
+ 157 00de 90BD     		pop	{r4, r7, pc}
+ 158              		.cfi_endproc
+ 159              	.LFE0:
+ 161              		.section	.text.u8g_draw_ellipse,"ax",%progbits
+ 162              		.align	1
+ 163              		.global	u8g_draw_ellipse
+ 164              		.syntax unified
+ 165              		.code	16
+ 166              		.thumb_func
+ 167              		.fpu softvfp
+ 169              	u8g_draw_ellipse:
+ 170              	.LFB1:
+ 140:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 141:Drivers/u8glib/src/u8g_ellipse.c **** void u8g_draw_ellipse(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rx, u8g_uint_t ry, uint8
+ 142:Drivers/u8glib/src/u8g_ellipse.c **** {
+ 171              		.loc 1 142 0
+ 172              		.cfi_startproc
+ 173 0000 90B5     		push	{r4, r7, lr}
+ 174              	.LCFI3:
+ 175              		.cfi_def_cfa_offset 12
+ 176              		.cfi_offset 4, -12
+ 177              		.cfi_offset 7, -8
+ 178              		.cfi_offset 14, -4
+ 179 0002 89B0     		sub	sp, sp, #36
+ 180              	.LCFI4:
+ 181              		.cfi_def_cfa_offset 48
+ 182 0004 02AF     		add	r7, sp, #8
+ 183              	.LCFI5:
+ 184              		.cfi_def_cfa 7, 40
+ 185 0006 7860     		str	r0, [r7, #4]
+ 186 0008 0C00     		movs	r4, r1
+ 187 000a 1000     		movs	r0, r2
+ 188 000c 1900     		movs	r1, r3
+ 189 000e FB1C     		adds	r3, r7, #3
+ 190 0010 221C     		adds	r2, r4, #0
+ 191 0012 1A70     		strb	r2, [r3]
+ 192 0014 BB1C     		adds	r3, r7, #2
+ 193 0016 021C     		adds	r2, r0, #0
+ 194 0018 1A70     		strb	r2, [r3]
+ 195 001a 7B1C     		adds	r3, r7, #1
+ 196 001c 0A1C     		adds	r2, r1, #0
+ 197 001e 1A70     		strb	r2, [r3]
+ 143:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_uint_t x, y;
+ 144:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t xchg, ychg;
+ 145:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t err;
+ 146:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t rxrx2;
+ 147:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t ryry2;
+ 148:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t stopx, stopy;
+ARM GAS  /tmp/ccSVg8P5.s 			page 7
+
+
+ 149:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 150:Drivers/u8glib/src/u8g_ellipse.c ****   rxrx2 = rx;
+ 198              		.loc 1 150 0
+ 199 0020 0A23     		movs	r3, #10
+ 200 0022 FB18     		adds	r3, r7, r3
+ 201 0024 7A1C     		adds	r2, r7, #1
+ 202 0026 1278     		ldrb	r2, [r2]
+ 203 0028 1A80     		strh	r2, [r3]
+ 151:Drivers/u8glib/src/u8g_ellipse.c ****   rxrx2 *= rx;
+ 204              		.loc 1 151 0
+ 205 002a 7B1C     		adds	r3, r7, #1
+ 206 002c 1B78     		ldrb	r3, [r3]
+ 207 002e 9BB2     		uxth	r3, r3
+ 208 0030 0A22     		movs	r2, #10
+ 209 0032 BA18     		adds	r2, r7, r2
+ 210 0034 1288     		ldrh	r2, [r2]
+ 211 0036 5343     		muls	r3, r2
+ 212 0038 9AB2     		uxth	r2, r3
+ 213 003a 0A23     		movs	r3, #10
+ 214 003c FB18     		adds	r3, r7, r3
+ 215 003e 1A80     		strh	r2, [r3]
+ 152:Drivers/u8glib/src/u8g_ellipse.c ****   rxrx2 *= 2;
+ 216              		.loc 1 152 0
+ 217 0040 0A23     		movs	r3, #10
+ 218 0042 FB18     		adds	r3, r7, r3
+ 219 0044 1B88     		ldrh	r3, [r3]
+ 220 0046 DB18     		adds	r3, r3, r3
+ 221 0048 9AB2     		uxth	r2, r3
+ 222 004a 0A23     		movs	r3, #10
+ 223 004c FB18     		adds	r3, r7, r3
+ 224 004e 1A80     		strh	r2, [r3]
+ 153:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 154:Drivers/u8glib/src/u8g_ellipse.c ****   ryry2 = ry;
+ 225              		.loc 1 154 0
+ 226 0050 0823     		movs	r3, #8
+ 227 0052 FB18     		adds	r3, r7, r3
+ 228 0054 2822     		movs	r2, #40
+ 229 0056 BA18     		adds	r2, r7, r2
+ 230 0058 1278     		ldrb	r2, [r2]
+ 231 005a 1A80     		strh	r2, [r3]
+ 155:Drivers/u8glib/src/u8g_ellipse.c ****   ryry2 *= ry;
+ 232              		.loc 1 155 0
+ 233 005c 2823     		movs	r3, #40
+ 234 005e FB18     		adds	r3, r7, r3
+ 235 0060 1B78     		ldrb	r3, [r3]
+ 236 0062 9BB2     		uxth	r3, r3
+ 237 0064 0822     		movs	r2, #8
+ 238 0066 BA18     		adds	r2, r7, r2
+ 239 0068 1288     		ldrh	r2, [r2]
+ 240 006a 5343     		muls	r3, r2
+ 241 006c 9AB2     		uxth	r2, r3
+ 242 006e 0823     		movs	r3, #8
+ 243 0070 FB18     		adds	r3, r7, r3
+ 244 0072 1A80     		strh	r2, [r3]
+ 156:Drivers/u8glib/src/u8g_ellipse.c ****   ryry2 *= 2;
+ 245              		.loc 1 156 0
+ 246 0074 0823     		movs	r3, #8
+ARM GAS  /tmp/ccSVg8P5.s 			page 8
+
+
+ 247 0076 FB18     		adds	r3, r7, r3
+ 248 0078 1B88     		ldrh	r3, [r3]
+ 249 007a DB18     		adds	r3, r3, r3
+ 250 007c 9AB2     		uxth	r2, r3
+ 251 007e 0823     		movs	r3, #8
+ 252 0080 FB18     		adds	r3, r7, r3
+ 253 0082 1A80     		strh	r2, [r3]
+ 157:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 158:Drivers/u8glib/src/u8g_ellipse.c ****   x = rx;
+ 254              		.loc 1 158 0
+ 255 0084 1723     		movs	r3, #23
+ 256 0086 FB18     		adds	r3, r7, r3
+ 257 0088 7A1C     		adds	r2, r7, #1
+ 258 008a 1278     		ldrb	r2, [r2]
+ 259 008c 1A70     		strb	r2, [r3]
+ 159:Drivers/u8glib/src/u8g_ellipse.c ****   y = 0;
+ 260              		.loc 1 159 0
+ 261 008e 1623     		movs	r3, #22
+ 262 0090 FB18     		adds	r3, r7, r3
+ 263 0092 0022     		movs	r2, #0
+ 264 0094 1A70     		strb	r2, [r3]
+ 160:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 161:Drivers/u8glib/src/u8g_ellipse.c ****   xchg = 1;
+ 265              		.loc 1 161 0
+ 266 0096 1423     		movs	r3, #20
+ 267 0098 FB18     		adds	r3, r7, r3
+ 268 009a 0122     		movs	r2, #1
+ 269 009c 1A80     		strh	r2, [r3]
+ 162:Drivers/u8glib/src/u8g_ellipse.c ****   xchg -= rx;
+ 270              		.loc 1 162 0
+ 271 009e 1423     		movs	r3, #20
+ 272 00a0 FB18     		adds	r3, r7, r3
+ 273 00a2 1A88     		ldrh	r2, [r3]
+ 274 00a4 7B1C     		adds	r3, r7, #1
+ 275 00a6 1B78     		ldrb	r3, [r3]
+ 276 00a8 9BB2     		uxth	r3, r3
+ 277 00aa D31A     		subs	r3, r2, r3
+ 278 00ac 9AB2     		uxth	r2, r3
+ 279 00ae 1423     		movs	r3, #20
+ 280 00b0 FB18     		adds	r3, r7, r3
+ 281 00b2 1A80     		strh	r2, [r3]
+ 163:Drivers/u8glib/src/u8g_ellipse.c ****   xchg -= rx;
+ 282              		.loc 1 163 0
+ 283 00b4 1423     		movs	r3, #20
+ 284 00b6 FB18     		adds	r3, r7, r3
+ 285 00b8 1A88     		ldrh	r2, [r3]
+ 286 00ba 7B1C     		adds	r3, r7, #1
+ 287 00bc 1B78     		ldrb	r3, [r3]
+ 288 00be 9BB2     		uxth	r3, r3
+ 289 00c0 D31A     		subs	r3, r2, r3
+ 290 00c2 9AB2     		uxth	r2, r3
+ 291 00c4 1423     		movs	r3, #20
+ 292 00c6 FB18     		adds	r3, r7, r3
+ 293 00c8 1A80     		strh	r2, [r3]
+ 164:Drivers/u8glib/src/u8g_ellipse.c ****   xchg *= ry;
+ 294              		.loc 1 164 0
+ 295 00ca 2823     		movs	r3, #40
+ARM GAS  /tmp/ccSVg8P5.s 			page 9
+
+
+ 296 00cc FB18     		adds	r3, r7, r3
+ 297 00ce 1B78     		ldrb	r3, [r3]
+ 298 00d0 9BB2     		uxth	r3, r3
+ 299 00d2 1422     		movs	r2, #20
+ 300 00d4 BA18     		adds	r2, r7, r2
+ 301 00d6 1288     		ldrh	r2, [r2]
+ 302 00d8 5343     		muls	r3, r2
+ 303 00da 9AB2     		uxth	r2, r3
+ 304 00dc 1423     		movs	r3, #20
+ 305 00de FB18     		adds	r3, r7, r3
+ 306 00e0 1A80     		strh	r2, [r3]
+ 165:Drivers/u8glib/src/u8g_ellipse.c ****   xchg *= ry;
+ 307              		.loc 1 165 0
+ 308 00e2 2823     		movs	r3, #40
+ 309 00e4 FB18     		adds	r3, r7, r3
+ 310 00e6 1B78     		ldrb	r3, [r3]
+ 311 00e8 9BB2     		uxth	r3, r3
+ 312 00ea 1422     		movs	r2, #20
+ 313 00ec BA18     		adds	r2, r7, r2
+ 314 00ee 1288     		ldrh	r2, [r2]
+ 315 00f0 5343     		muls	r3, r2
+ 316 00f2 9AB2     		uxth	r2, r3
+ 317 00f4 1423     		movs	r3, #20
+ 318 00f6 FB18     		adds	r3, r7, r3
+ 319 00f8 1A80     		strh	r2, [r3]
+ 166:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 167:Drivers/u8glib/src/u8g_ellipse.c ****   ychg = rx;
+ 320              		.loc 1 167 0
+ 321 00fa 1223     		movs	r3, #18
+ 322 00fc FB18     		adds	r3, r7, r3
+ 323 00fe 7A1C     		adds	r2, r7, #1
+ 324 0100 1278     		ldrb	r2, [r2]
+ 325 0102 1A80     		strh	r2, [r3]
+ 168:Drivers/u8glib/src/u8g_ellipse.c ****   ychg *= rx;
+ 326              		.loc 1 168 0
+ 327 0104 7B1C     		adds	r3, r7, #1
+ 328 0106 1B78     		ldrb	r3, [r3]
+ 329 0108 9BB2     		uxth	r3, r3
+ 330 010a 1222     		movs	r2, #18
+ 331 010c BA18     		adds	r2, r7, r2
+ 332 010e 1288     		ldrh	r2, [r2]
+ 333 0110 5343     		muls	r3, r2
+ 334 0112 9AB2     		uxth	r2, r3
+ 335 0114 1223     		movs	r3, #18
+ 336 0116 FB18     		adds	r3, r7, r3
+ 337 0118 1A80     		strh	r2, [r3]
+ 169:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 170:Drivers/u8glib/src/u8g_ellipse.c ****   err = 0;
+ 338              		.loc 1 170 0
+ 339 011a 1023     		movs	r3, #16
+ 340 011c FB18     		adds	r3, r7, r3
+ 341 011e 0022     		movs	r2, #0
+ 342 0120 1A80     		strh	r2, [r3]
+ 171:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 172:Drivers/u8glib/src/u8g_ellipse.c ****   stopx = ryry2;
+ 343              		.loc 1 172 0
+ 344 0122 0E23     		movs	r3, #14
+ARM GAS  /tmp/ccSVg8P5.s 			page 10
+
+
+ 345 0124 FB18     		adds	r3, r7, r3
+ 346 0126 0822     		movs	r2, #8
+ 347 0128 BA18     		adds	r2, r7, r2
+ 348 012a 1288     		ldrh	r2, [r2]
+ 349 012c 1A80     		strh	r2, [r3]
+ 173:Drivers/u8glib/src/u8g_ellipse.c ****   stopx *= rx;
+ 350              		.loc 1 173 0
+ 351 012e 7B1C     		adds	r3, r7, #1
+ 352 0130 1B78     		ldrb	r3, [r3]
+ 353 0132 9BB2     		uxth	r3, r3
+ 354 0134 0E22     		movs	r2, #14
+ 355 0136 BA18     		adds	r2, r7, r2
+ 356 0138 1288     		ldrh	r2, [r2]
+ 357 013a 5343     		muls	r3, r2
+ 358 013c 9AB2     		uxth	r2, r3
+ 359 013e 0E23     		movs	r3, #14
+ 360 0140 FB18     		adds	r3, r7, r3
+ 361 0142 1A80     		strh	r2, [r3]
+ 174:Drivers/u8glib/src/u8g_ellipse.c ****   stopy = 0;
+ 362              		.loc 1 174 0
+ 363 0144 0C23     		movs	r3, #12
+ 364 0146 FB18     		adds	r3, r7, r3
+ 365 0148 0022     		movs	r2, #0
+ 366 014a 1A80     		strh	r2, [r3]
+ 175:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 176:Drivers/u8glib/src/u8g_ellipse.c ****   while( stopx >= stopy )
+ 367              		.loc 1 176 0
+ 368 014c 80E0     		b	.L8
+ 369              	.L9:
+ 177:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 178:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_draw_ellipse_section(u8g, x, y, x0, y0, option);
+ 370              		.loc 1 178 0
+ 371 014e FB1C     		adds	r3, r7, #3
+ 372 0150 1C78     		ldrb	r4, [r3]
+ 373 0152 1623     		movs	r3, #22
+ 374 0154 FB18     		adds	r3, r7, r3
+ 375 0156 1A78     		ldrb	r2, [r3]
+ 376 0158 1723     		movs	r3, #23
+ 377 015a FB18     		adds	r3, r7, r3
+ 378 015c 1978     		ldrb	r1, [r3]
+ 379 015e 7868     		ldr	r0, [r7, #4]
+ 380 0160 2C23     		movs	r3, #44
+ 381 0162 FB18     		adds	r3, r7, r3
+ 382 0164 1B78     		ldrb	r3, [r3]
+ 383 0166 0193     		str	r3, [sp, #4]
+ 384 0168 BB1C     		adds	r3, r7, #2
+ 385 016a 1B78     		ldrb	r3, [r3]
+ 386 016c 0093     		str	r3, [sp]
+ 387 016e 2300     		movs	r3, r4
+ 388 0170 FFF7FEFF 		bl	u8g_draw_ellipse_section
+ 179:Drivers/u8glib/src/u8g_ellipse.c ****     y++;
+ 389              		.loc 1 179 0
+ 390 0174 1623     		movs	r3, #22
+ 391 0176 FB18     		adds	r3, r7, r3
+ 392 0178 1A78     		ldrb	r2, [r3]
+ 393 017a 1623     		movs	r3, #22
+ 394 017c FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 11
+
+
+ 395 017e 0132     		adds	r2, r2, #1
+ 396 0180 1A70     		strb	r2, [r3]
+ 180:Drivers/u8glib/src/u8g_ellipse.c ****     stopy += rxrx2;
+ 397              		.loc 1 180 0
+ 398 0182 0C23     		movs	r3, #12
+ 399 0184 FB18     		adds	r3, r7, r3
+ 400 0186 1A88     		ldrh	r2, [r3]
+ 401 0188 0A23     		movs	r3, #10
+ 402 018a FB18     		adds	r3, r7, r3
+ 403 018c 1B88     		ldrh	r3, [r3]
+ 404 018e D318     		adds	r3, r2, r3
+ 405 0190 9AB2     		uxth	r2, r3
+ 406 0192 0C23     		movs	r3, #12
+ 407 0194 FB18     		adds	r3, r7, r3
+ 408 0196 1A80     		strh	r2, [r3]
+ 181:Drivers/u8glib/src/u8g_ellipse.c ****     err += ychg;
+ 409              		.loc 1 181 0
+ 410 0198 1023     		movs	r3, #16
+ 411 019a FB18     		adds	r3, r7, r3
+ 412 019c 1A88     		ldrh	r2, [r3]
+ 413 019e 1223     		movs	r3, #18
+ 414 01a0 FB18     		adds	r3, r7, r3
+ 415 01a2 1B88     		ldrh	r3, [r3]
+ 416 01a4 D318     		adds	r3, r2, r3
+ 417 01a6 9AB2     		uxth	r2, r3
+ 418 01a8 1023     		movs	r3, #16
+ 419 01aa FB18     		adds	r3, r7, r3
+ 420 01ac 1A80     		strh	r2, [r3]
+ 182:Drivers/u8glib/src/u8g_ellipse.c ****     ychg += rxrx2;
+ 421              		.loc 1 182 0
+ 422 01ae 1223     		movs	r3, #18
+ 423 01b0 FB18     		adds	r3, r7, r3
+ 424 01b2 1A88     		ldrh	r2, [r3]
+ 425 01b4 0A23     		movs	r3, #10
+ 426 01b6 FB18     		adds	r3, r7, r3
+ 427 01b8 1B88     		ldrh	r3, [r3]
+ 428 01ba D318     		adds	r3, r2, r3
+ 429 01bc 9AB2     		uxth	r2, r3
+ 430 01be 1223     		movs	r3, #18
+ 431 01c0 FB18     		adds	r3, r7, r3
+ 432 01c2 1A80     		strh	r2, [r3]
+ 183:Drivers/u8glib/src/u8g_ellipse.c ****     if ( 2*err+xchg > 0 )
+ 433              		.loc 1 183 0
+ 434 01c4 1023     		movs	r3, #16
+ 435 01c6 FB18     		adds	r3, r7, r3
+ 436 01c8 0022     		movs	r2, #0
+ 437 01ca 9B5E     		ldrsh	r3, [r3, r2]
+ 438 01cc 5A00     		lsls	r2, r3, #1
+ 439 01ce 1423     		movs	r3, #20
+ 440 01d0 FB18     		adds	r3, r7, r3
+ 441 01d2 0021     		movs	r1, #0
+ 442 01d4 5B5E     		ldrsh	r3, [r3, r1]
+ 443 01d6 D318     		adds	r3, r2, r3
+ 444 01d8 1722     		movs	r2, #23
+ 445 01da BA18     		adds	r2, r7, r2
+ 446 01dc 1721     		movs	r1, #23
+ 447 01de 7918     		adds	r1, r7, r1
+ARM GAS  /tmp/ccSVg8P5.s 			page 12
+
+
+ 448 01e0 0978     		ldrb	r1, [r1]
+ 449 01e2 1170     		strb	r1, [r2]
+ 450 01e4 1422     		movs	r2, #20
+ 451 01e6 BA18     		adds	r2, r7, r2
+ 452 01e8 1421     		movs	r1, #20
+ 453 01ea 7918     		adds	r1, r7, r1
+ 454 01ec 0988     		ldrh	r1, [r1]
+ 455 01ee 1180     		strh	r1, [r2]
+ 456 01f0 0E22     		movs	r2, #14
+ 457 01f2 BA18     		adds	r2, r7, r2
+ 458 01f4 0E21     		movs	r1, #14
+ 459 01f6 7918     		adds	r1, r7, r1
+ 460 01f8 0988     		ldrh	r1, [r1]
+ 461 01fa 1180     		strh	r1, [r2]
+ 462 01fc 002B     		cmp	r3, #0
+ 463 01fe 27DD     		ble	.L8
+ 184:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 185:Drivers/u8glib/src/u8g_ellipse.c ****       x--;
+ 464              		.loc 1 185 0
+ 465 0200 1723     		movs	r3, #23
+ 466 0202 FB18     		adds	r3, r7, r3
+ 467 0204 1A78     		ldrb	r2, [r3]
+ 468 0206 1723     		movs	r3, #23
+ 469 0208 FB18     		adds	r3, r7, r3
+ 470 020a 013A     		subs	r2, r2, #1
+ 471 020c 1A70     		strb	r2, [r3]
+ 186:Drivers/u8glib/src/u8g_ellipse.c ****       stopx -= ryry2;
+ 472              		.loc 1 186 0
+ 473 020e 0E23     		movs	r3, #14
+ 474 0210 FB18     		adds	r3, r7, r3
+ 475 0212 1A88     		ldrh	r2, [r3]
+ 476 0214 0823     		movs	r3, #8
+ 477 0216 FB18     		adds	r3, r7, r3
+ 478 0218 1B88     		ldrh	r3, [r3]
+ 479 021a D31A     		subs	r3, r2, r3
+ 480 021c 9AB2     		uxth	r2, r3
+ 481 021e 0E23     		movs	r3, #14
+ 482 0220 FB18     		adds	r3, r7, r3
+ 483 0222 1A80     		strh	r2, [r3]
+ 187:Drivers/u8glib/src/u8g_ellipse.c ****       err += xchg;
+ 484              		.loc 1 187 0
+ 485 0224 1023     		movs	r3, #16
+ 486 0226 FB18     		adds	r3, r7, r3
+ 487 0228 1A88     		ldrh	r2, [r3]
+ 488 022a 1423     		movs	r3, #20
+ 489 022c FB18     		adds	r3, r7, r3
+ 490 022e 1B88     		ldrh	r3, [r3]
+ 491 0230 D318     		adds	r3, r2, r3
+ 492 0232 9AB2     		uxth	r2, r3
+ 493 0234 1023     		movs	r3, #16
+ 494 0236 FB18     		adds	r3, r7, r3
+ 495 0238 1A80     		strh	r2, [r3]
+ 188:Drivers/u8glib/src/u8g_ellipse.c ****       xchg += ryry2;      
+ 496              		.loc 1 188 0
+ 497 023a 1423     		movs	r3, #20
+ 498 023c FB18     		adds	r3, r7, r3
+ 499 023e 1A88     		ldrh	r2, [r3]
+ARM GAS  /tmp/ccSVg8P5.s 			page 13
+
+
+ 500 0240 0823     		movs	r3, #8
+ 501 0242 FB18     		adds	r3, r7, r3
+ 502 0244 1B88     		ldrh	r3, [r3]
+ 503 0246 D318     		adds	r3, r2, r3
+ 504 0248 9AB2     		uxth	r2, r3
+ 505 024a 1423     		movs	r3, #20
+ 506 024c FB18     		adds	r3, r7, r3
+ 507 024e 1A80     		strh	r2, [r3]
+ 508              	.L8:
+ 176:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 509              		.loc 1 176 0
+ 510 0250 0E23     		movs	r3, #14
+ 511 0252 FA18     		adds	r2, r7, r3
+ 512 0254 0C23     		movs	r3, #12
+ 513 0256 FB18     		adds	r3, r7, r3
+ 514 0258 0021     		movs	r1, #0
+ 515 025a 525E     		ldrsh	r2, [r2, r1]
+ 516 025c 0021     		movs	r1, #0
+ 517 025e 5B5E     		ldrsh	r3, [r3, r1]
+ 518 0260 9A42     		cmp	r2, r3
+ 519 0262 00DB     		blt	.LCB458
+ 520 0264 73E7     		b	.L9	@long jump
+ 521              	.LCB458:
+ 189:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 190:Drivers/u8glib/src/u8g_ellipse.c ****   }
+ 191:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 192:Drivers/u8glib/src/u8g_ellipse.c ****   x = 0;
+ 522              		.loc 1 192 0
+ 523 0266 1723     		movs	r3, #23
+ 524 0268 FB18     		adds	r3, r7, r3
+ 525 026a 0022     		movs	r2, #0
+ 526 026c 1A70     		strb	r2, [r3]
+ 193:Drivers/u8glib/src/u8g_ellipse.c ****   y = ry;
+ 527              		.loc 1 193 0
+ 528 026e 1623     		movs	r3, #22
+ 529 0270 FB18     		adds	r3, r7, r3
+ 530 0272 2822     		movs	r2, #40
+ 531 0274 BA18     		adds	r2, r7, r2
+ 532 0276 1278     		ldrb	r2, [r2]
+ 533 0278 1A70     		strb	r2, [r3]
+ 194:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 195:Drivers/u8glib/src/u8g_ellipse.c ****   xchg = ry;
+ 534              		.loc 1 195 0
+ 535 027a 1423     		movs	r3, #20
+ 536 027c FB18     		adds	r3, r7, r3
+ 537 027e 2822     		movs	r2, #40
+ 538 0280 BA18     		adds	r2, r7, r2
+ 539 0282 1278     		ldrb	r2, [r2]
+ 540 0284 1A80     		strh	r2, [r3]
+ 196:Drivers/u8glib/src/u8g_ellipse.c ****   xchg *= ry;
+ 541              		.loc 1 196 0
+ 542 0286 2823     		movs	r3, #40
+ 543 0288 FB18     		adds	r3, r7, r3
+ 544 028a 1B78     		ldrb	r3, [r3]
+ 545 028c 9BB2     		uxth	r3, r3
+ 546 028e 1422     		movs	r2, #20
+ 547 0290 BA18     		adds	r2, r7, r2
+ARM GAS  /tmp/ccSVg8P5.s 			page 14
+
+
+ 548 0292 1288     		ldrh	r2, [r2]
+ 549 0294 5343     		muls	r3, r2
+ 550 0296 9AB2     		uxth	r2, r3
+ 551 0298 1423     		movs	r3, #20
+ 552 029a FB18     		adds	r3, r7, r3
+ 553 029c 1A80     		strh	r2, [r3]
+ 197:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 198:Drivers/u8glib/src/u8g_ellipse.c ****   ychg = 1;
+ 554              		.loc 1 198 0
+ 555 029e 1223     		movs	r3, #18
+ 556 02a0 FB18     		adds	r3, r7, r3
+ 557 02a2 0122     		movs	r2, #1
+ 558 02a4 1A80     		strh	r2, [r3]
+ 199:Drivers/u8glib/src/u8g_ellipse.c ****   ychg -= ry;
+ 559              		.loc 1 199 0
+ 560 02a6 1223     		movs	r3, #18
+ 561 02a8 FB18     		adds	r3, r7, r3
+ 562 02aa 1A88     		ldrh	r2, [r3]
+ 563 02ac 2823     		movs	r3, #40
+ 564 02ae FB18     		adds	r3, r7, r3
+ 565 02b0 1B78     		ldrb	r3, [r3]
+ 566 02b2 9BB2     		uxth	r3, r3
+ 567 02b4 D31A     		subs	r3, r2, r3
+ 568 02b6 9AB2     		uxth	r2, r3
+ 569 02b8 1223     		movs	r3, #18
+ 570 02ba FB18     		adds	r3, r7, r3
+ 571 02bc 1A80     		strh	r2, [r3]
+ 200:Drivers/u8glib/src/u8g_ellipse.c ****   ychg -= ry;
+ 572              		.loc 1 200 0
+ 573 02be 1223     		movs	r3, #18
+ 574 02c0 FB18     		adds	r3, r7, r3
+ 575 02c2 1A88     		ldrh	r2, [r3]
+ 576 02c4 2823     		movs	r3, #40
+ 577 02c6 FB18     		adds	r3, r7, r3
+ 578 02c8 1B78     		ldrb	r3, [r3]
+ 579 02ca 9BB2     		uxth	r3, r3
+ 580 02cc D31A     		subs	r3, r2, r3
+ 581 02ce 9AB2     		uxth	r2, r3
+ 582 02d0 1223     		movs	r3, #18
+ 583 02d2 FB18     		adds	r3, r7, r3
+ 584 02d4 1A80     		strh	r2, [r3]
+ 201:Drivers/u8glib/src/u8g_ellipse.c ****   ychg *= rx;
+ 585              		.loc 1 201 0
+ 586 02d6 7B1C     		adds	r3, r7, #1
+ 587 02d8 1B78     		ldrb	r3, [r3]
+ 588 02da 9BB2     		uxth	r3, r3
+ 589 02dc 1222     		movs	r2, #18
+ 590 02de BA18     		adds	r2, r7, r2
+ 591 02e0 1288     		ldrh	r2, [r2]
+ 592 02e2 5343     		muls	r3, r2
+ 593 02e4 9AB2     		uxth	r2, r3
+ 594 02e6 1223     		movs	r3, #18
+ 595 02e8 FB18     		adds	r3, r7, r3
+ 596 02ea 1A80     		strh	r2, [r3]
+ 202:Drivers/u8glib/src/u8g_ellipse.c ****   ychg *= rx;
+ 597              		.loc 1 202 0
+ 598 02ec 7B1C     		adds	r3, r7, #1
+ARM GAS  /tmp/ccSVg8P5.s 			page 15
+
+
+ 599 02ee 1B78     		ldrb	r3, [r3]
+ 600 02f0 9BB2     		uxth	r3, r3
+ 601 02f2 1222     		movs	r2, #18
+ 602 02f4 BA18     		adds	r2, r7, r2
+ 603 02f6 1288     		ldrh	r2, [r2]
+ 604 02f8 5343     		muls	r3, r2
+ 605 02fa 9AB2     		uxth	r2, r3
+ 606 02fc 1223     		movs	r3, #18
+ 607 02fe FB18     		adds	r3, r7, r3
+ 608 0300 1A80     		strh	r2, [r3]
+ 203:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 204:Drivers/u8glib/src/u8g_ellipse.c ****   err = 0;
+ 609              		.loc 1 204 0
+ 610 0302 1023     		movs	r3, #16
+ 611 0304 FB18     		adds	r3, r7, r3
+ 612 0306 0022     		movs	r2, #0
+ 613 0308 1A80     		strh	r2, [r3]
+ 205:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 206:Drivers/u8glib/src/u8g_ellipse.c ****   stopx = 0;
+ 614              		.loc 1 206 0
+ 615 030a 0E23     		movs	r3, #14
+ 616 030c FB18     		adds	r3, r7, r3
+ 617 030e 0022     		movs	r2, #0
+ 618 0310 1A80     		strh	r2, [r3]
+ 207:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 208:Drivers/u8glib/src/u8g_ellipse.c ****   stopy = rxrx2;
+ 619              		.loc 1 208 0
+ 620 0312 0C23     		movs	r3, #12
+ 621 0314 FB18     		adds	r3, r7, r3
+ 622 0316 0A22     		movs	r2, #10
+ 623 0318 BA18     		adds	r2, r7, r2
+ 624 031a 1288     		ldrh	r2, [r2]
+ 625 031c 1A80     		strh	r2, [r3]
+ 209:Drivers/u8glib/src/u8g_ellipse.c ****   stopy *= ry;
+ 626              		.loc 1 209 0
+ 627 031e 2823     		movs	r3, #40
+ 628 0320 FB18     		adds	r3, r7, r3
+ 629 0322 1B78     		ldrb	r3, [r3]
+ 630 0324 9BB2     		uxth	r3, r3
+ 631 0326 0C22     		movs	r2, #12
+ 632 0328 BA18     		adds	r2, r7, r2
+ 633 032a 1288     		ldrh	r2, [r2]
+ 634 032c 5343     		muls	r3, r2
+ 635 032e 9AB2     		uxth	r2, r3
+ 636 0330 0C23     		movs	r3, #12
+ 637 0332 FB18     		adds	r3, r7, r3
+ 638 0334 1A80     		strh	r2, [r3]
+ 210:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 211:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 212:Drivers/u8glib/src/u8g_ellipse.c ****   while( stopx <= stopy )
+ 639              		.loc 1 212 0
+ 640 0336 80E0     		b	.L10
+ 641              	.L11:
+ 213:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 214:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_draw_ellipse_section(u8g, x, y, x0, y0, option);
+ 642              		.loc 1 214 0
+ 643 0338 FB1C     		adds	r3, r7, #3
+ARM GAS  /tmp/ccSVg8P5.s 			page 16
+
+
+ 644 033a 1C78     		ldrb	r4, [r3]
+ 645 033c 1623     		movs	r3, #22
+ 646 033e FB18     		adds	r3, r7, r3
+ 647 0340 1A78     		ldrb	r2, [r3]
+ 648 0342 1723     		movs	r3, #23
+ 649 0344 FB18     		adds	r3, r7, r3
+ 650 0346 1978     		ldrb	r1, [r3]
+ 651 0348 7868     		ldr	r0, [r7, #4]
+ 652 034a 2C23     		movs	r3, #44
+ 653 034c FB18     		adds	r3, r7, r3
+ 654 034e 1B78     		ldrb	r3, [r3]
+ 655 0350 0193     		str	r3, [sp, #4]
+ 656 0352 BB1C     		adds	r3, r7, #2
+ 657 0354 1B78     		ldrb	r3, [r3]
+ 658 0356 0093     		str	r3, [sp]
+ 659 0358 2300     		movs	r3, r4
+ 660 035a FFF7FEFF 		bl	u8g_draw_ellipse_section
+ 215:Drivers/u8glib/src/u8g_ellipse.c ****     x++;
+ 661              		.loc 1 215 0
+ 662 035e 1723     		movs	r3, #23
+ 663 0360 FB18     		adds	r3, r7, r3
+ 664 0362 1A78     		ldrb	r2, [r3]
+ 665 0364 1723     		movs	r3, #23
+ 666 0366 FB18     		adds	r3, r7, r3
+ 667 0368 0132     		adds	r2, r2, #1
+ 668 036a 1A70     		strb	r2, [r3]
+ 216:Drivers/u8glib/src/u8g_ellipse.c ****     stopx += ryry2;
+ 669              		.loc 1 216 0
+ 670 036c 0E23     		movs	r3, #14
+ 671 036e FB18     		adds	r3, r7, r3
+ 672 0370 1A88     		ldrh	r2, [r3]
+ 673 0372 0823     		movs	r3, #8
+ 674 0374 FB18     		adds	r3, r7, r3
+ 675 0376 1B88     		ldrh	r3, [r3]
+ 676 0378 D318     		adds	r3, r2, r3
+ 677 037a 9AB2     		uxth	r2, r3
+ 678 037c 0E23     		movs	r3, #14
+ 679 037e FB18     		adds	r3, r7, r3
+ 680 0380 1A80     		strh	r2, [r3]
+ 217:Drivers/u8glib/src/u8g_ellipse.c ****     err += xchg;
+ 681              		.loc 1 217 0
+ 682 0382 1023     		movs	r3, #16
+ 683 0384 FB18     		adds	r3, r7, r3
+ 684 0386 1A88     		ldrh	r2, [r3]
+ 685 0388 1423     		movs	r3, #20
+ 686 038a FB18     		adds	r3, r7, r3
+ 687 038c 1B88     		ldrh	r3, [r3]
+ 688 038e D318     		adds	r3, r2, r3
+ 689 0390 9AB2     		uxth	r2, r3
+ 690 0392 1023     		movs	r3, #16
+ 691 0394 FB18     		adds	r3, r7, r3
+ 692 0396 1A80     		strh	r2, [r3]
+ 218:Drivers/u8glib/src/u8g_ellipse.c ****     xchg += ryry2;
+ 693              		.loc 1 218 0
+ 694 0398 1423     		movs	r3, #20
+ 695 039a FB18     		adds	r3, r7, r3
+ 696 039c 1A88     		ldrh	r2, [r3]
+ARM GAS  /tmp/ccSVg8P5.s 			page 17
+
+
+ 697 039e 0823     		movs	r3, #8
+ 698 03a0 FB18     		adds	r3, r7, r3
+ 699 03a2 1B88     		ldrh	r3, [r3]
+ 700 03a4 D318     		adds	r3, r2, r3
+ 701 03a6 9AB2     		uxth	r2, r3
+ 702 03a8 1423     		movs	r3, #20
+ 703 03aa FB18     		adds	r3, r7, r3
+ 704 03ac 1A80     		strh	r2, [r3]
+ 219:Drivers/u8glib/src/u8g_ellipse.c ****     if ( 2*err+ychg > 0 )
+ 705              		.loc 1 219 0
+ 706 03ae 1023     		movs	r3, #16
+ 707 03b0 FB18     		adds	r3, r7, r3
+ 708 03b2 0022     		movs	r2, #0
+ 709 03b4 9B5E     		ldrsh	r3, [r3, r2]
+ 710 03b6 5A00     		lsls	r2, r3, #1
+ 711 03b8 1223     		movs	r3, #18
+ 712 03ba FB18     		adds	r3, r7, r3
+ 713 03bc 0021     		movs	r1, #0
+ 714 03be 5B5E     		ldrsh	r3, [r3, r1]
+ 715 03c0 D318     		adds	r3, r2, r3
+ 716 03c2 1622     		movs	r2, #22
+ 717 03c4 BA18     		adds	r2, r7, r2
+ 718 03c6 1621     		movs	r1, #22
+ 719 03c8 7918     		adds	r1, r7, r1
+ 720 03ca 0978     		ldrb	r1, [r1]
+ 721 03cc 1170     		strb	r1, [r2]
+ 722 03ce 1222     		movs	r2, #18
+ 723 03d0 BA18     		adds	r2, r7, r2
+ 724 03d2 1221     		movs	r1, #18
+ 725 03d4 7918     		adds	r1, r7, r1
+ 726 03d6 0988     		ldrh	r1, [r1]
+ 727 03d8 1180     		strh	r1, [r2]
+ 728 03da 0C22     		movs	r2, #12
+ 729 03dc BA18     		adds	r2, r7, r2
+ 730 03de 0C21     		movs	r1, #12
+ 731 03e0 7918     		adds	r1, r7, r1
+ 732 03e2 0988     		ldrh	r1, [r1]
+ 733 03e4 1180     		strh	r1, [r2]
+ 734 03e6 002B     		cmp	r3, #0
+ 735 03e8 27DD     		ble	.L10
+ 220:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 221:Drivers/u8glib/src/u8g_ellipse.c ****       y--;
+ 736              		.loc 1 221 0
+ 737 03ea 1623     		movs	r3, #22
+ 738 03ec FB18     		adds	r3, r7, r3
+ 739 03ee 1A78     		ldrb	r2, [r3]
+ 740 03f0 1623     		movs	r3, #22
+ 741 03f2 FB18     		adds	r3, r7, r3
+ 742 03f4 013A     		subs	r2, r2, #1
+ 743 03f6 1A70     		strb	r2, [r3]
+ 222:Drivers/u8glib/src/u8g_ellipse.c ****       stopy -= rxrx2;
+ 744              		.loc 1 222 0
+ 745 03f8 0C23     		movs	r3, #12
+ 746 03fa FB18     		adds	r3, r7, r3
+ 747 03fc 1A88     		ldrh	r2, [r3]
+ 748 03fe 0A23     		movs	r3, #10
+ 749 0400 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 18
+
+
+ 750 0402 1B88     		ldrh	r3, [r3]
+ 751 0404 D31A     		subs	r3, r2, r3
+ 752 0406 9AB2     		uxth	r2, r3
+ 753 0408 0C23     		movs	r3, #12
+ 754 040a FB18     		adds	r3, r7, r3
+ 755 040c 1A80     		strh	r2, [r3]
+ 223:Drivers/u8glib/src/u8g_ellipse.c ****       err += ychg;
+ 756              		.loc 1 223 0
+ 757 040e 1023     		movs	r3, #16
+ 758 0410 FB18     		adds	r3, r7, r3
+ 759 0412 1A88     		ldrh	r2, [r3]
+ 760 0414 1223     		movs	r3, #18
+ 761 0416 FB18     		adds	r3, r7, r3
+ 762 0418 1B88     		ldrh	r3, [r3]
+ 763 041a D318     		adds	r3, r2, r3
+ 764 041c 9AB2     		uxth	r2, r3
+ 765 041e 1023     		movs	r3, #16
+ 766 0420 FB18     		adds	r3, r7, r3
+ 767 0422 1A80     		strh	r2, [r3]
+ 224:Drivers/u8glib/src/u8g_ellipse.c ****       ychg += rxrx2;
+ 768              		.loc 1 224 0
+ 769 0424 1223     		movs	r3, #18
+ 770 0426 FB18     		adds	r3, r7, r3
+ 771 0428 1A88     		ldrh	r2, [r3]
+ 772 042a 0A23     		movs	r3, #10
+ 773 042c FB18     		adds	r3, r7, r3
+ 774 042e 1B88     		ldrh	r3, [r3]
+ 775 0430 D318     		adds	r3, r2, r3
+ 776 0432 9AB2     		uxth	r2, r3
+ 777 0434 1223     		movs	r3, #18
+ 778 0436 FB18     		adds	r3, r7, r3
+ 779 0438 1A80     		strh	r2, [r3]
+ 780              	.L10:
+ 212:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 781              		.loc 1 212 0
+ 782 043a 0E23     		movs	r3, #14
+ 783 043c FA18     		adds	r2, r7, r3
+ 784 043e 0C23     		movs	r3, #12
+ 785 0440 FB18     		adds	r3, r7, r3
+ 786 0442 0021     		movs	r1, #0
+ 787 0444 525E     		ldrsh	r2, [r2, r1]
+ 788 0446 0021     		movs	r1, #0
+ 789 0448 5B5E     		ldrsh	r3, [r3, r1]
+ 790 044a 9A42     		cmp	r2, r3
+ 791 044c 00DC     		bgt	.LCB702
+ 792 044e 73E7     		b	.L11	@long jump
+ 793              	.LCB702:
+ 225:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 226:Drivers/u8glib/src/u8g_ellipse.c ****   }
+ 227:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 228:Drivers/u8glib/src/u8g_ellipse.c **** }
+ 794              		.loc 1 228 0
+ 795 0450 C046     		nop
+ 796 0452 BD46     		mov	sp, r7
+ 797 0454 07B0     		add	sp, sp, #28
+ 798              		@ sp needed
+ 799 0456 90BD     		pop	{r4, r7, pc}
+ARM GAS  /tmp/ccSVg8P5.s 			page 19
+
+
+ 800              		.cfi_endproc
+ 801              	.LFE1:
+ 803              		.section	.text.u8g_DrawEllipse,"ax",%progbits
+ 804              		.align	1
+ 805              		.global	u8g_DrawEllipse
+ 806              		.syntax unified
+ 807              		.code	16
+ 808              		.thumb_func
+ 809              		.fpu softvfp
+ 811              	u8g_DrawEllipse:
+ 812              	.LFB2:
+ 229:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 230:Drivers/u8glib/src/u8g_ellipse.c **** void u8g_DrawEllipse(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rx, u8g_uint_t ry, uint8_
+ 231:Drivers/u8glib/src/u8g_ellipse.c **** {
+ 813              		.loc 1 231 0
+ 814              		.cfi_startproc
+ 815 0000 90B5     		push	{r4, r7, lr}
+ 816              	.LCFI6:
+ 817              		.cfi_def_cfa_offset 12
+ 818              		.cfi_offset 4, -12
+ 819              		.cfi_offset 7, -8
+ 820              		.cfi_offset 14, -4
+ 821 0002 87B0     		sub	sp, sp, #28
+ 822              	.LCFI7:
+ 823              		.cfi_def_cfa_offset 40
+ 824 0004 02AF     		add	r7, sp, #8
+ 825              	.LCFI8:
+ 826              		.cfi_def_cfa 7, 32
+ 827 0006 7860     		str	r0, [r7, #4]
+ 828 0008 0C00     		movs	r4, r1
+ 829 000a 1000     		movs	r0, r2
+ 830 000c 1900     		movs	r1, r3
+ 831 000e FB1C     		adds	r3, r7, #3
+ 832 0010 221C     		adds	r2, r4, #0
+ 833 0012 1A70     		strb	r2, [r3]
+ 834 0014 BB1C     		adds	r3, r7, #2
+ 835 0016 021C     		adds	r2, r0, #0
+ 836 0018 1A70     		strb	r2, [r3]
+ 837 001a 7B1C     		adds	r3, r7, #1
+ 838 001c 0A1C     		adds	r2, r1, #0
+ 839 001e 1A70     		strb	r2, [r3]
+ 840              	.LBB2:
+ 232:Drivers/u8glib/src/u8g_ellipse.c ****   /* check for bounding box */
+ 233:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 234:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_uint_t rxp, rxp2;
+ 235:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_uint_t ryp, ryp2;
+ 236:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 237:Drivers/u8glib/src/u8g_ellipse.c ****     rxp = rx;
+ 841              		.loc 1 237 0
+ 842 0020 0F23     		movs	r3, #15
+ 843 0022 FB18     		adds	r3, r7, r3
+ 844 0024 7A1C     		adds	r2, r7, #1
+ 845 0026 1278     		ldrb	r2, [r2]
+ 846 0028 1A70     		strb	r2, [r3]
+ 238:Drivers/u8glib/src/u8g_ellipse.c ****     rxp++;
+ 847              		.loc 1 238 0
+ 848 002a 0F23     		movs	r3, #15
+ARM GAS  /tmp/ccSVg8P5.s 			page 20
+
+
+ 849 002c FB18     		adds	r3, r7, r3
+ 850 002e 1A78     		ldrb	r2, [r3]
+ 851 0030 0F23     		movs	r3, #15
+ 852 0032 FB18     		adds	r3, r7, r3
+ 853 0034 0132     		adds	r2, r2, #1
+ 854 0036 1A70     		strb	r2, [r3]
+ 239:Drivers/u8glib/src/u8g_ellipse.c ****     rxp2 = rxp;
+ 855              		.loc 1 239 0
+ 856 0038 0E23     		movs	r3, #14
+ 857 003a FB18     		adds	r3, r7, r3
+ 858 003c 0F22     		movs	r2, #15
+ 859 003e BA18     		adds	r2, r7, r2
+ 860 0040 1278     		ldrb	r2, [r2]
+ 861 0042 1A70     		strb	r2, [r3]
+ 240:Drivers/u8glib/src/u8g_ellipse.c ****     rxp2 *= 2;
+ 862              		.loc 1 240 0
+ 863 0044 0E23     		movs	r3, #14
+ 864 0046 FA18     		adds	r2, r7, r3
+ 865 0048 0E23     		movs	r3, #14
+ 866 004a FB18     		adds	r3, r7, r3
+ 867 004c 1B78     		ldrb	r3, [r3]
+ 868 004e DB18     		adds	r3, r3, r3
+ 869 0050 1370     		strb	r3, [r2]
+ 241:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 242:Drivers/u8glib/src/u8g_ellipse.c ****     ryp = ry;
+ 870              		.loc 1 242 0
+ 871 0052 0D23     		movs	r3, #13
+ 872 0054 FB18     		adds	r3, r7, r3
+ 873 0056 2022     		movs	r2, #32
+ 874 0058 BA18     		adds	r2, r7, r2
+ 875 005a 1278     		ldrb	r2, [r2]
+ 876 005c 1A70     		strb	r2, [r3]
+ 243:Drivers/u8glib/src/u8g_ellipse.c ****     ryp++;
+ 877              		.loc 1 243 0
+ 878 005e 0D23     		movs	r3, #13
+ 879 0060 FB18     		adds	r3, r7, r3
+ 880 0062 1A78     		ldrb	r2, [r3]
+ 881 0064 0D23     		movs	r3, #13
+ 882 0066 FB18     		adds	r3, r7, r3
+ 883 0068 0132     		adds	r2, r2, #1
+ 884 006a 1A70     		strb	r2, [r3]
+ 244:Drivers/u8glib/src/u8g_ellipse.c ****     ryp2 = ryp;
+ 885              		.loc 1 244 0
+ 886 006c 0C23     		movs	r3, #12
+ 887 006e FB18     		adds	r3, r7, r3
+ 888 0070 0D22     		movs	r2, #13
+ 889 0072 BA18     		adds	r2, r7, r2
+ 890 0074 1278     		ldrb	r2, [r2]
+ 891 0076 1A70     		strb	r2, [r3]
+ 245:Drivers/u8glib/src/u8g_ellipse.c ****     ryp2 *= 2;
+ 892              		.loc 1 245 0
+ 893 0078 0C23     		movs	r3, #12
+ 894 007a FA18     		adds	r2, r7, r3
+ 895 007c 0C23     		movs	r3, #12
+ 896 007e FB18     		adds	r3, r7, r3
+ 897 0080 1B78     		ldrb	r3, [r3]
+ 898 0082 DB18     		adds	r3, r3, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 21
+
+
+ 899 0084 1370     		strb	r3, [r2]
+ 246:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 247:Drivers/u8glib/src/u8g_ellipse.c ****     if ( u8g_IsBBXIntersection(u8g, x0-rxp, y0-ryp, rxp2, ryp2) == 0)
+ 900              		.loc 1 247 0
+ 901 0086 FA1C     		adds	r2, r7, #3
+ 902 0088 0F23     		movs	r3, #15
+ 903 008a FB18     		adds	r3, r7, r3
+ 904 008c 1278     		ldrb	r2, [r2]
+ 905 008e 1B78     		ldrb	r3, [r3]
+ 906 0090 D31A     		subs	r3, r2, r3
+ 907 0092 D9B2     		uxtb	r1, r3
+ 908 0094 BA1C     		adds	r2, r7, #2
+ 909 0096 0D23     		movs	r3, #13
+ 910 0098 FB18     		adds	r3, r7, r3
+ 911 009a 1278     		ldrb	r2, [r2]
+ 912 009c 1B78     		ldrb	r3, [r3]
+ 913 009e D31A     		subs	r3, r2, r3
+ 914 00a0 DAB2     		uxtb	r2, r3
+ 915 00a2 0E23     		movs	r3, #14
+ 916 00a4 FB18     		adds	r3, r7, r3
+ 917 00a6 1C78     		ldrb	r4, [r3]
+ 918 00a8 7868     		ldr	r0, [r7, #4]
+ 919 00aa 0C23     		movs	r3, #12
+ 920 00ac FB18     		adds	r3, r7, r3
+ 921 00ae 1B78     		ldrb	r3, [r3]
+ 922 00b0 0093     		str	r3, [sp]
+ 923 00b2 2300     		movs	r3, r4
+ 924 00b4 FFF7FEFF 		bl	u8g_IsBBXIntersection
+ 925 00b8 031E     		subs	r3, r0, #0
+ 926 00ba 12D0     		beq	.L15
+ 927              	.LBE2:
+ 248:Drivers/u8glib/src/u8g_ellipse.c ****       return;    
+ 249:Drivers/u8glib/src/u8g_ellipse.c ****   }
+ 250:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 251:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_draw_ellipse(u8g, x0, y0, rx, ry, option);
+ 928              		.loc 1 251 0
+ 929 00bc 7B1C     		adds	r3, r7, #1
+ 930 00be 1C78     		ldrb	r4, [r3]
+ 931 00c0 BB1C     		adds	r3, r7, #2
+ 932 00c2 1A78     		ldrb	r2, [r3]
+ 933 00c4 FB1C     		adds	r3, r7, #3
+ 934 00c6 1978     		ldrb	r1, [r3]
+ 935 00c8 7868     		ldr	r0, [r7, #4]
+ 936 00ca 2423     		movs	r3, #36
+ 937 00cc FB18     		adds	r3, r7, r3
+ 938 00ce 1B78     		ldrb	r3, [r3]
+ 939 00d0 0193     		str	r3, [sp, #4]
+ 940 00d2 2023     		movs	r3, #32
+ 941 00d4 FB18     		adds	r3, r7, r3
+ 942 00d6 1B78     		ldrb	r3, [r3]
+ 943 00d8 0093     		str	r3, [sp]
+ 944 00da 2300     		movs	r3, r4
+ 945 00dc FFF7FEFF 		bl	u8g_draw_ellipse
+ 946 00e0 00E0     		b	.L12
+ 947              	.L15:
+ 948              	.LBB3:
+ 248:Drivers/u8glib/src/u8g_ellipse.c ****       return;    
+ARM GAS  /tmp/ccSVg8P5.s 			page 22
+
+
+ 949              		.loc 1 248 0
+ 950 00e2 C046     		nop
+ 951              	.L12:
+ 952              	.LBE3:
+ 252:Drivers/u8glib/src/u8g_ellipse.c **** }
+ 953              		.loc 1 252 0
+ 954 00e4 BD46     		mov	sp, r7
+ 955 00e6 05B0     		add	sp, sp, #20
+ 956              		@ sp needed
+ 957 00e8 90BD     		pop	{r4, r7, pc}
+ 958              		.cfi_endproc
+ 959              	.LFE2:
+ 961              		.section	.text.u8g_draw_filled_ellipse_section,"ax",%progbits
+ 962              		.align	1
+ 963              		.syntax unified
+ 964              		.code	16
+ 965              		.thumb_func
+ 966              		.fpu softvfp
+ 968              	u8g_draw_filled_ellipse_section:
+ 969              	.LFB3:
+ 253:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 254:Drivers/u8glib/src/u8g_ellipse.c **** static void u8g_draw_filled_ellipse_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, 
+ 255:Drivers/u8glib/src/u8g_ellipse.c **** static void u8g_draw_filled_ellipse_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, 
+ 256:Drivers/u8glib/src/u8g_ellipse.c **** {
+ 970              		.loc 1 256 0
+ 971              		.cfi_startproc
+ 972 0000 90B5     		push	{r4, r7, lr}
+ 973              	.LCFI9:
+ 974              		.cfi_def_cfa_offset 12
+ 975              		.cfi_offset 4, -12
+ 976              		.cfi_offset 7, -8
+ 977              		.cfi_offset 14, -4
+ 978 0002 83B0     		sub	sp, sp, #12
+ 979              	.LCFI10:
+ 980              		.cfi_def_cfa_offset 24
+ 981 0004 00AF     		add	r7, sp, #0
+ 982              	.LCFI11:
+ 983              		.cfi_def_cfa_register 7
+ 984 0006 7860     		str	r0, [r7, #4]
+ 985 0008 0C00     		movs	r4, r1
+ 986 000a 1000     		movs	r0, r2
+ 987 000c 1900     		movs	r1, r3
+ 988 000e FB1C     		adds	r3, r7, #3
+ 989 0010 221C     		adds	r2, r4, #0
+ 990 0012 1A70     		strb	r2, [r3]
+ 991 0014 BB1C     		adds	r3, r7, #2
+ 992 0016 021C     		adds	r2, r0, #0
+ 993 0018 1A70     		strb	r2, [r3]
+ 994 001a 7B1C     		adds	r3, r7, #1
+ 995 001c 0A1C     		adds	r2, r1, #0
+ 996 001e 1A70     		strb	r2, [r3]
+ 257:Drivers/u8glib/src/u8g_ellipse.c ****     /* upper right */
+ 258:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_UPPER_RIGHT )
+ 997              		.loc 1 258 0
+ 998 0020 1C23     		movs	r3, #28
+ 999 0022 FB18     		adds	r3, r7, r3
+ 1000 0024 1B78     		ldrb	r3, [r3]
+ARM GAS  /tmp/ccSVg8P5.s 			page 23
+
+
+ 1001 0026 0122     		movs	r2, #1
+ 1002 0028 1340     		ands	r3, r2
+ 1003 002a 13D0     		beq	.L17
+ 259:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 260:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawVLine(u8g, x0+x, y0-y, y+1);
+ 1004              		.loc 1 260 0
+ 1005 002c 7A1C     		adds	r2, r7, #1
+ 1006 002e FB1C     		adds	r3, r7, #3
+ 1007 0030 1278     		ldrb	r2, [r2]
+ 1008 0032 1B78     		ldrb	r3, [r3]
+ 1009 0034 D318     		adds	r3, r2, r3
+ 1010 0036 D9B2     		uxtb	r1, r3
+ 1011 0038 1823     		movs	r3, #24
+ 1012 003a FA18     		adds	r2, r7, r3
+ 1013 003c BB1C     		adds	r3, r7, #2
+ 1014 003e 1278     		ldrb	r2, [r2]
+ 1015 0040 1B78     		ldrb	r3, [r3]
+ 1016 0042 D31A     		subs	r3, r2, r3
+ 1017 0044 DAB2     		uxtb	r2, r3
+ 1018 0046 BB1C     		adds	r3, r7, #2
+ 1019 0048 1B78     		ldrb	r3, [r3]
+ 1020 004a 0133     		adds	r3, r3, #1
+ 1021 004c DBB2     		uxtb	r3, r3
+ 1022 004e 7868     		ldr	r0, [r7, #4]
+ 1023 0050 FFF7FEFF 		bl	u8g_DrawVLine
+ 1024              	.L17:
+ 261:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 262:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 263:Drivers/u8glib/src/u8g_ellipse.c ****     /* upper left */
+ 264:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_UPPER_LEFT )
+ 1025              		.loc 1 264 0
+ 1026 0054 1C23     		movs	r3, #28
+ 1027 0056 FB18     		adds	r3, r7, r3
+ 1028 0058 1B78     		ldrb	r3, [r3]
+ 1029 005a 0222     		movs	r2, #2
+ 1030 005c 1340     		ands	r3, r2
+ 1031 005e 13D0     		beq	.L18
+ 265:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 266:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawVLine(u8g, x0-x, y0-y, y+1);
+ 1032              		.loc 1 266 0
+ 1033 0060 7A1C     		adds	r2, r7, #1
+ 1034 0062 FB1C     		adds	r3, r7, #3
+ 1035 0064 1278     		ldrb	r2, [r2]
+ 1036 0066 1B78     		ldrb	r3, [r3]
+ 1037 0068 D31A     		subs	r3, r2, r3
+ 1038 006a D9B2     		uxtb	r1, r3
+ 1039 006c 1823     		movs	r3, #24
+ 1040 006e FA18     		adds	r2, r7, r3
+ 1041 0070 BB1C     		adds	r3, r7, #2
+ 1042 0072 1278     		ldrb	r2, [r2]
+ 1043 0074 1B78     		ldrb	r3, [r3]
+ 1044 0076 D31A     		subs	r3, r2, r3
+ 1045 0078 DAB2     		uxtb	r2, r3
+ 1046 007a BB1C     		adds	r3, r7, #2
+ 1047 007c 1B78     		ldrb	r3, [r3]
+ 1048 007e 0133     		adds	r3, r3, #1
+ 1049 0080 DBB2     		uxtb	r3, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 24
+
+
+ 1050 0082 7868     		ldr	r0, [r7, #4]
+ 1051 0084 FFF7FEFF 		bl	u8g_DrawVLine
+ 1052              	.L18:
+ 267:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 268:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 269:Drivers/u8glib/src/u8g_ellipse.c ****     /* lower right */
+ 270:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_LOWER_RIGHT )
+ 1053              		.loc 1 270 0
+ 1054 0088 1C23     		movs	r3, #28
+ 1055 008a FB18     		adds	r3, r7, r3
+ 1056 008c 1B78     		ldrb	r3, [r3]
+ 1057 008e 0822     		movs	r2, #8
+ 1058 0090 1340     		ands	r3, r2
+ 1059 0092 0FD0     		beq	.L19
+ 271:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 272:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawVLine(u8g, x0+x, y0, y+1);
+ 1060              		.loc 1 272 0
+ 1061 0094 7A1C     		adds	r2, r7, #1
+ 1062 0096 FB1C     		adds	r3, r7, #3
+ 1063 0098 1278     		ldrb	r2, [r2]
+ 1064 009a 1B78     		ldrb	r3, [r3]
+ 1065 009c D318     		adds	r3, r2, r3
+ 1066 009e D9B2     		uxtb	r1, r3
+ 1067 00a0 BB1C     		adds	r3, r7, #2
+ 1068 00a2 1B78     		ldrb	r3, [r3]
+ 1069 00a4 0133     		adds	r3, r3, #1
+ 1070 00a6 DBB2     		uxtb	r3, r3
+ 1071 00a8 1822     		movs	r2, #24
+ 1072 00aa BA18     		adds	r2, r7, r2
+ 1073 00ac 1278     		ldrb	r2, [r2]
+ 1074 00ae 7868     		ldr	r0, [r7, #4]
+ 1075 00b0 FFF7FEFF 		bl	u8g_DrawVLine
+ 1076              	.L19:
+ 273:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 274:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 275:Drivers/u8glib/src/u8g_ellipse.c ****     /* lower left */
+ 276:Drivers/u8glib/src/u8g_ellipse.c ****     if ( option & U8G_DRAW_LOWER_LEFT )
+ 1077              		.loc 1 276 0
+ 1078 00b4 1C23     		movs	r3, #28
+ 1079 00b6 FB18     		adds	r3, r7, r3
+ 1080 00b8 1B78     		ldrb	r3, [r3]
+ 1081 00ba 0422     		movs	r2, #4
+ 1082 00bc 1340     		ands	r3, r2
+ 1083 00be 0FD0     		beq	.L21
+ 277:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 278:Drivers/u8glib/src/u8g_ellipse.c ****       u8g_DrawVLine(u8g, x0-x, y0, y+1);
+ 1084              		.loc 1 278 0
+ 1085 00c0 7A1C     		adds	r2, r7, #1
+ 1086 00c2 FB1C     		adds	r3, r7, #3
+ 1087 00c4 1278     		ldrb	r2, [r2]
+ 1088 00c6 1B78     		ldrb	r3, [r3]
+ 1089 00c8 D31A     		subs	r3, r2, r3
+ 1090 00ca D9B2     		uxtb	r1, r3
+ 1091 00cc BB1C     		adds	r3, r7, #2
+ 1092 00ce 1B78     		ldrb	r3, [r3]
+ 1093 00d0 0133     		adds	r3, r3, #1
+ 1094 00d2 DBB2     		uxtb	r3, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 25
+
+
+ 1095 00d4 1822     		movs	r2, #24
+ 1096 00d6 BA18     		adds	r2, r7, r2
+ 1097 00d8 1278     		ldrb	r2, [r2]
+ 1098 00da 7868     		ldr	r0, [r7, #4]
+ 1099 00dc FFF7FEFF 		bl	u8g_DrawVLine
+ 1100              	.L21:
+ 279:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 280:Drivers/u8glib/src/u8g_ellipse.c **** }
+ 1101              		.loc 1 280 0
+ 1102 00e0 C046     		nop
+ 1103 00e2 BD46     		mov	sp, r7
+ 1104 00e4 03B0     		add	sp, sp, #12
+ 1105              		@ sp needed
+ 1106 00e6 90BD     		pop	{r4, r7, pc}
+ 1107              		.cfi_endproc
+ 1108              	.LFE3:
+ 1110              		.section	.text.u8g_draw_filled_ellipse,"ax",%progbits
+ 1111              		.align	1
+ 1112              		.global	u8g_draw_filled_ellipse
+ 1113              		.syntax unified
+ 1114              		.code	16
+ 1115              		.thumb_func
+ 1116              		.fpu softvfp
+ 1118              	u8g_draw_filled_ellipse:
+ 1119              	.LFB4:
+ 281:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 282:Drivers/u8glib/src/u8g_ellipse.c **** void u8g_draw_filled_ellipse(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rx, u8g_uint_t ry
+ 283:Drivers/u8glib/src/u8g_ellipse.c **** {
+ 1120              		.loc 1 283 0
+ 1121              		.cfi_startproc
+ 1122 0000 90B5     		push	{r4, r7, lr}
+ 1123              	.LCFI12:
+ 1124              		.cfi_def_cfa_offset 12
+ 1125              		.cfi_offset 4, -12
+ 1126              		.cfi_offset 7, -8
+ 1127              		.cfi_offset 14, -4
+ 1128 0002 89B0     		sub	sp, sp, #36
+ 1129              	.LCFI13:
+ 1130              		.cfi_def_cfa_offset 48
+ 1131 0004 02AF     		add	r7, sp, #8
+ 1132              	.LCFI14:
+ 1133              		.cfi_def_cfa 7, 40
+ 1134 0006 7860     		str	r0, [r7, #4]
+ 1135 0008 0C00     		movs	r4, r1
+ 1136 000a 1000     		movs	r0, r2
+ 1137 000c 1900     		movs	r1, r3
+ 1138 000e FB1C     		adds	r3, r7, #3
+ 1139 0010 221C     		adds	r2, r4, #0
+ 1140 0012 1A70     		strb	r2, [r3]
+ 1141 0014 BB1C     		adds	r3, r7, #2
+ 1142 0016 021C     		adds	r2, r0, #0
+ 1143 0018 1A70     		strb	r2, [r3]
+ 1144 001a 7B1C     		adds	r3, r7, #1
+ 1145 001c 0A1C     		adds	r2, r1, #0
+ 1146 001e 1A70     		strb	r2, [r3]
+ 284:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_uint_t x, y;
+ 285:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t xchg, ychg;
+ARM GAS  /tmp/ccSVg8P5.s 			page 26
+
+
+ 286:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t err;
+ 287:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t rxrx2;
+ 288:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t ryry2;
+ 289:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_long_t stopx, stopy;
+ 290:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 291:Drivers/u8glib/src/u8g_ellipse.c ****   rxrx2 = rx;
+ 1147              		.loc 1 291 0
+ 1148 0020 0A23     		movs	r3, #10
+ 1149 0022 FB18     		adds	r3, r7, r3
+ 1150 0024 7A1C     		adds	r2, r7, #1
+ 1151 0026 1278     		ldrb	r2, [r2]
+ 1152 0028 1A80     		strh	r2, [r3]
+ 292:Drivers/u8glib/src/u8g_ellipse.c ****   rxrx2 *= rx;
+ 1153              		.loc 1 292 0
+ 1154 002a 7B1C     		adds	r3, r7, #1
+ 1155 002c 1B78     		ldrb	r3, [r3]
+ 1156 002e 9BB2     		uxth	r3, r3
+ 1157 0030 0A22     		movs	r2, #10
+ 1158 0032 BA18     		adds	r2, r7, r2
+ 1159 0034 1288     		ldrh	r2, [r2]
+ 1160 0036 5343     		muls	r3, r2
+ 1161 0038 9AB2     		uxth	r2, r3
+ 1162 003a 0A23     		movs	r3, #10
+ 1163 003c FB18     		adds	r3, r7, r3
+ 1164 003e 1A80     		strh	r2, [r3]
+ 293:Drivers/u8glib/src/u8g_ellipse.c ****   rxrx2 *= 2;
+ 1165              		.loc 1 293 0
+ 1166 0040 0A23     		movs	r3, #10
+ 1167 0042 FB18     		adds	r3, r7, r3
+ 1168 0044 1B88     		ldrh	r3, [r3]
+ 1169 0046 DB18     		adds	r3, r3, r3
+ 1170 0048 9AB2     		uxth	r2, r3
+ 1171 004a 0A23     		movs	r3, #10
+ 1172 004c FB18     		adds	r3, r7, r3
+ 1173 004e 1A80     		strh	r2, [r3]
+ 294:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 295:Drivers/u8glib/src/u8g_ellipse.c ****   ryry2 = ry;
+ 1174              		.loc 1 295 0
+ 1175 0050 0823     		movs	r3, #8
+ 1176 0052 FB18     		adds	r3, r7, r3
+ 1177 0054 2822     		movs	r2, #40
+ 1178 0056 BA18     		adds	r2, r7, r2
+ 1179 0058 1278     		ldrb	r2, [r2]
+ 1180 005a 1A80     		strh	r2, [r3]
+ 296:Drivers/u8glib/src/u8g_ellipse.c ****   ryry2 *= ry;
+ 1181              		.loc 1 296 0
+ 1182 005c 2823     		movs	r3, #40
+ 1183 005e FB18     		adds	r3, r7, r3
+ 1184 0060 1B78     		ldrb	r3, [r3]
+ 1185 0062 9BB2     		uxth	r3, r3
+ 1186 0064 0822     		movs	r2, #8
+ 1187 0066 BA18     		adds	r2, r7, r2
+ 1188 0068 1288     		ldrh	r2, [r2]
+ 1189 006a 5343     		muls	r3, r2
+ 1190 006c 9AB2     		uxth	r2, r3
+ 1191 006e 0823     		movs	r3, #8
+ 1192 0070 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 27
+
+
+ 1193 0072 1A80     		strh	r2, [r3]
+ 297:Drivers/u8glib/src/u8g_ellipse.c ****   ryry2 *= 2;
+ 1194              		.loc 1 297 0
+ 1195 0074 0823     		movs	r3, #8
+ 1196 0076 FB18     		adds	r3, r7, r3
+ 1197 0078 1B88     		ldrh	r3, [r3]
+ 1198 007a DB18     		adds	r3, r3, r3
+ 1199 007c 9AB2     		uxth	r2, r3
+ 1200 007e 0823     		movs	r3, #8
+ 1201 0080 FB18     		adds	r3, r7, r3
+ 1202 0082 1A80     		strh	r2, [r3]
+ 298:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 299:Drivers/u8glib/src/u8g_ellipse.c ****   x = rx;
+ 1203              		.loc 1 299 0
+ 1204 0084 1723     		movs	r3, #23
+ 1205 0086 FB18     		adds	r3, r7, r3
+ 1206 0088 7A1C     		adds	r2, r7, #1
+ 1207 008a 1278     		ldrb	r2, [r2]
+ 1208 008c 1A70     		strb	r2, [r3]
+ 300:Drivers/u8glib/src/u8g_ellipse.c ****   y = 0;
+ 1209              		.loc 1 300 0
+ 1210 008e 1623     		movs	r3, #22
+ 1211 0090 FB18     		adds	r3, r7, r3
+ 1212 0092 0022     		movs	r2, #0
+ 1213 0094 1A70     		strb	r2, [r3]
+ 301:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 302:Drivers/u8glib/src/u8g_ellipse.c ****   xchg = 1;
+ 1214              		.loc 1 302 0
+ 1215 0096 1423     		movs	r3, #20
+ 1216 0098 FB18     		adds	r3, r7, r3
+ 1217 009a 0122     		movs	r2, #1
+ 1218 009c 1A80     		strh	r2, [r3]
+ 303:Drivers/u8glib/src/u8g_ellipse.c ****   xchg -= rx;
+ 1219              		.loc 1 303 0
+ 1220 009e 1423     		movs	r3, #20
+ 1221 00a0 FB18     		adds	r3, r7, r3
+ 1222 00a2 1A88     		ldrh	r2, [r3]
+ 1223 00a4 7B1C     		adds	r3, r7, #1
+ 1224 00a6 1B78     		ldrb	r3, [r3]
+ 1225 00a8 9BB2     		uxth	r3, r3
+ 1226 00aa D31A     		subs	r3, r2, r3
+ 1227 00ac 9AB2     		uxth	r2, r3
+ 1228 00ae 1423     		movs	r3, #20
+ 1229 00b0 FB18     		adds	r3, r7, r3
+ 1230 00b2 1A80     		strh	r2, [r3]
+ 304:Drivers/u8glib/src/u8g_ellipse.c ****   xchg -= rx;
+ 1231              		.loc 1 304 0
+ 1232 00b4 1423     		movs	r3, #20
+ 1233 00b6 FB18     		adds	r3, r7, r3
+ 1234 00b8 1A88     		ldrh	r2, [r3]
+ 1235 00ba 7B1C     		adds	r3, r7, #1
+ 1236 00bc 1B78     		ldrb	r3, [r3]
+ 1237 00be 9BB2     		uxth	r3, r3
+ 1238 00c0 D31A     		subs	r3, r2, r3
+ 1239 00c2 9AB2     		uxth	r2, r3
+ 1240 00c4 1423     		movs	r3, #20
+ 1241 00c6 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 28
+
+
+ 1242 00c8 1A80     		strh	r2, [r3]
+ 305:Drivers/u8glib/src/u8g_ellipse.c ****   xchg *= ry;
+ 1243              		.loc 1 305 0
+ 1244 00ca 2823     		movs	r3, #40
+ 1245 00cc FB18     		adds	r3, r7, r3
+ 1246 00ce 1B78     		ldrb	r3, [r3]
+ 1247 00d0 9BB2     		uxth	r3, r3
+ 1248 00d2 1422     		movs	r2, #20
+ 1249 00d4 BA18     		adds	r2, r7, r2
+ 1250 00d6 1288     		ldrh	r2, [r2]
+ 1251 00d8 5343     		muls	r3, r2
+ 1252 00da 9AB2     		uxth	r2, r3
+ 1253 00dc 1423     		movs	r3, #20
+ 1254 00de FB18     		adds	r3, r7, r3
+ 1255 00e0 1A80     		strh	r2, [r3]
+ 306:Drivers/u8glib/src/u8g_ellipse.c ****   xchg *= ry;
+ 1256              		.loc 1 306 0
+ 1257 00e2 2823     		movs	r3, #40
+ 1258 00e4 FB18     		adds	r3, r7, r3
+ 1259 00e6 1B78     		ldrb	r3, [r3]
+ 1260 00e8 9BB2     		uxth	r3, r3
+ 1261 00ea 1422     		movs	r2, #20
+ 1262 00ec BA18     		adds	r2, r7, r2
+ 1263 00ee 1288     		ldrh	r2, [r2]
+ 1264 00f0 5343     		muls	r3, r2
+ 1265 00f2 9AB2     		uxth	r2, r3
+ 1266 00f4 1423     		movs	r3, #20
+ 1267 00f6 FB18     		adds	r3, r7, r3
+ 1268 00f8 1A80     		strh	r2, [r3]
+ 307:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 308:Drivers/u8glib/src/u8g_ellipse.c ****   ychg = rx;
+ 1269              		.loc 1 308 0
+ 1270 00fa 1223     		movs	r3, #18
+ 1271 00fc FB18     		adds	r3, r7, r3
+ 1272 00fe 7A1C     		adds	r2, r7, #1
+ 1273 0100 1278     		ldrb	r2, [r2]
+ 1274 0102 1A80     		strh	r2, [r3]
+ 309:Drivers/u8glib/src/u8g_ellipse.c ****   ychg *= rx;
+ 1275              		.loc 1 309 0
+ 1276 0104 7B1C     		adds	r3, r7, #1
+ 1277 0106 1B78     		ldrb	r3, [r3]
+ 1278 0108 9BB2     		uxth	r3, r3
+ 1279 010a 1222     		movs	r2, #18
+ 1280 010c BA18     		adds	r2, r7, r2
+ 1281 010e 1288     		ldrh	r2, [r2]
+ 1282 0110 5343     		muls	r3, r2
+ 1283 0112 9AB2     		uxth	r2, r3
+ 1284 0114 1223     		movs	r3, #18
+ 1285 0116 FB18     		adds	r3, r7, r3
+ 1286 0118 1A80     		strh	r2, [r3]
+ 310:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 311:Drivers/u8glib/src/u8g_ellipse.c ****   err = 0;
+ 1287              		.loc 1 311 0
+ 1288 011a 1023     		movs	r3, #16
+ 1289 011c FB18     		adds	r3, r7, r3
+ 1290 011e 0022     		movs	r2, #0
+ 1291 0120 1A80     		strh	r2, [r3]
+ARM GAS  /tmp/ccSVg8P5.s 			page 29
+
+
+ 312:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 313:Drivers/u8glib/src/u8g_ellipse.c ****   stopx = ryry2;
+ 1292              		.loc 1 313 0
+ 1293 0122 0E23     		movs	r3, #14
+ 1294 0124 FB18     		adds	r3, r7, r3
+ 1295 0126 0822     		movs	r2, #8
+ 1296 0128 BA18     		adds	r2, r7, r2
+ 1297 012a 1288     		ldrh	r2, [r2]
+ 1298 012c 1A80     		strh	r2, [r3]
+ 314:Drivers/u8glib/src/u8g_ellipse.c ****   stopx *= rx;
+ 1299              		.loc 1 314 0
+ 1300 012e 7B1C     		adds	r3, r7, #1
+ 1301 0130 1B78     		ldrb	r3, [r3]
+ 1302 0132 9BB2     		uxth	r3, r3
+ 1303 0134 0E22     		movs	r2, #14
+ 1304 0136 BA18     		adds	r2, r7, r2
+ 1305 0138 1288     		ldrh	r2, [r2]
+ 1306 013a 5343     		muls	r3, r2
+ 1307 013c 9AB2     		uxth	r2, r3
+ 1308 013e 0E23     		movs	r3, #14
+ 1309 0140 FB18     		adds	r3, r7, r3
+ 1310 0142 1A80     		strh	r2, [r3]
+ 315:Drivers/u8glib/src/u8g_ellipse.c ****   stopy = 0;
+ 1311              		.loc 1 315 0
+ 1312 0144 0C23     		movs	r3, #12
+ 1313 0146 FB18     		adds	r3, r7, r3
+ 1314 0148 0022     		movs	r2, #0
+ 1315 014a 1A80     		strh	r2, [r3]
+ 316:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 317:Drivers/u8glib/src/u8g_ellipse.c ****   while( stopx >= stopy )
+ 1316              		.loc 1 317 0
+ 1317 014c 80E0     		b	.L23
+ 1318              	.L24:
+ 318:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 319:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_draw_filled_ellipse_section(u8g, x, y, x0, y0, option);
+ 1319              		.loc 1 319 0
+ 1320 014e FB1C     		adds	r3, r7, #3
+ 1321 0150 1C78     		ldrb	r4, [r3]
+ 1322 0152 1623     		movs	r3, #22
+ 1323 0154 FB18     		adds	r3, r7, r3
+ 1324 0156 1A78     		ldrb	r2, [r3]
+ 1325 0158 1723     		movs	r3, #23
+ 1326 015a FB18     		adds	r3, r7, r3
+ 1327 015c 1978     		ldrb	r1, [r3]
+ 1328 015e 7868     		ldr	r0, [r7, #4]
+ 1329 0160 2C23     		movs	r3, #44
+ 1330 0162 FB18     		adds	r3, r7, r3
+ 1331 0164 1B78     		ldrb	r3, [r3]
+ 1332 0166 0193     		str	r3, [sp, #4]
+ 1333 0168 BB1C     		adds	r3, r7, #2
+ 1334 016a 1B78     		ldrb	r3, [r3]
+ 1335 016c 0093     		str	r3, [sp]
+ 1336 016e 2300     		movs	r3, r4
+ 1337 0170 FFF7FEFF 		bl	u8g_draw_filled_ellipse_section
+ 320:Drivers/u8glib/src/u8g_ellipse.c ****     y++;
+ 1338              		.loc 1 320 0
+ 1339 0174 1623     		movs	r3, #22
+ARM GAS  /tmp/ccSVg8P5.s 			page 30
+
+
+ 1340 0176 FB18     		adds	r3, r7, r3
+ 1341 0178 1A78     		ldrb	r2, [r3]
+ 1342 017a 1623     		movs	r3, #22
+ 1343 017c FB18     		adds	r3, r7, r3
+ 1344 017e 0132     		adds	r2, r2, #1
+ 1345 0180 1A70     		strb	r2, [r3]
+ 321:Drivers/u8glib/src/u8g_ellipse.c ****     stopy += rxrx2;
+ 1346              		.loc 1 321 0
+ 1347 0182 0C23     		movs	r3, #12
+ 1348 0184 FB18     		adds	r3, r7, r3
+ 1349 0186 1A88     		ldrh	r2, [r3]
+ 1350 0188 0A23     		movs	r3, #10
+ 1351 018a FB18     		adds	r3, r7, r3
+ 1352 018c 1B88     		ldrh	r3, [r3]
+ 1353 018e D318     		adds	r3, r2, r3
+ 1354 0190 9AB2     		uxth	r2, r3
+ 1355 0192 0C23     		movs	r3, #12
+ 1356 0194 FB18     		adds	r3, r7, r3
+ 1357 0196 1A80     		strh	r2, [r3]
+ 322:Drivers/u8glib/src/u8g_ellipse.c ****     err += ychg;
+ 1358              		.loc 1 322 0
+ 1359 0198 1023     		movs	r3, #16
+ 1360 019a FB18     		adds	r3, r7, r3
+ 1361 019c 1A88     		ldrh	r2, [r3]
+ 1362 019e 1223     		movs	r3, #18
+ 1363 01a0 FB18     		adds	r3, r7, r3
+ 1364 01a2 1B88     		ldrh	r3, [r3]
+ 1365 01a4 D318     		adds	r3, r2, r3
+ 1366 01a6 9AB2     		uxth	r2, r3
+ 1367 01a8 1023     		movs	r3, #16
+ 1368 01aa FB18     		adds	r3, r7, r3
+ 1369 01ac 1A80     		strh	r2, [r3]
+ 323:Drivers/u8glib/src/u8g_ellipse.c ****     ychg += rxrx2;
+ 1370              		.loc 1 323 0
+ 1371 01ae 1223     		movs	r3, #18
+ 1372 01b0 FB18     		adds	r3, r7, r3
+ 1373 01b2 1A88     		ldrh	r2, [r3]
+ 1374 01b4 0A23     		movs	r3, #10
+ 1375 01b6 FB18     		adds	r3, r7, r3
+ 1376 01b8 1B88     		ldrh	r3, [r3]
+ 1377 01ba D318     		adds	r3, r2, r3
+ 1378 01bc 9AB2     		uxth	r2, r3
+ 1379 01be 1223     		movs	r3, #18
+ 1380 01c0 FB18     		adds	r3, r7, r3
+ 1381 01c2 1A80     		strh	r2, [r3]
+ 324:Drivers/u8glib/src/u8g_ellipse.c ****     if ( 2*err+xchg > 0 )
+ 1382              		.loc 1 324 0
+ 1383 01c4 1023     		movs	r3, #16
+ 1384 01c6 FB18     		adds	r3, r7, r3
+ 1385 01c8 0022     		movs	r2, #0
+ 1386 01ca 9B5E     		ldrsh	r3, [r3, r2]
+ 1387 01cc 5A00     		lsls	r2, r3, #1
+ 1388 01ce 1423     		movs	r3, #20
+ 1389 01d0 FB18     		adds	r3, r7, r3
+ 1390 01d2 0021     		movs	r1, #0
+ 1391 01d4 5B5E     		ldrsh	r3, [r3, r1]
+ 1392 01d6 D318     		adds	r3, r2, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 31
+
+
+ 1393 01d8 1722     		movs	r2, #23
+ 1394 01da BA18     		adds	r2, r7, r2
+ 1395 01dc 1721     		movs	r1, #23
+ 1396 01de 7918     		adds	r1, r7, r1
+ 1397 01e0 0978     		ldrb	r1, [r1]
+ 1398 01e2 1170     		strb	r1, [r2]
+ 1399 01e4 1422     		movs	r2, #20
+ 1400 01e6 BA18     		adds	r2, r7, r2
+ 1401 01e8 1421     		movs	r1, #20
+ 1402 01ea 7918     		adds	r1, r7, r1
+ 1403 01ec 0988     		ldrh	r1, [r1]
+ 1404 01ee 1180     		strh	r1, [r2]
+ 1405 01f0 0E22     		movs	r2, #14
+ 1406 01f2 BA18     		adds	r2, r7, r2
+ 1407 01f4 0E21     		movs	r1, #14
+ 1408 01f6 7918     		adds	r1, r7, r1
+ 1409 01f8 0988     		ldrh	r1, [r1]
+ 1410 01fa 1180     		strh	r1, [r2]
+ 1411 01fc 002B     		cmp	r3, #0
+ 1412 01fe 27DD     		ble	.L23
+ 325:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 326:Drivers/u8glib/src/u8g_ellipse.c ****       x--;
+ 1413              		.loc 1 326 0
+ 1414 0200 1723     		movs	r3, #23
+ 1415 0202 FB18     		adds	r3, r7, r3
+ 1416 0204 1A78     		ldrb	r2, [r3]
+ 1417 0206 1723     		movs	r3, #23
+ 1418 0208 FB18     		adds	r3, r7, r3
+ 1419 020a 013A     		subs	r2, r2, #1
+ 1420 020c 1A70     		strb	r2, [r3]
+ 327:Drivers/u8glib/src/u8g_ellipse.c ****       stopx -= ryry2;
+ 1421              		.loc 1 327 0
+ 1422 020e 0E23     		movs	r3, #14
+ 1423 0210 FB18     		adds	r3, r7, r3
+ 1424 0212 1A88     		ldrh	r2, [r3]
+ 1425 0214 0823     		movs	r3, #8
+ 1426 0216 FB18     		adds	r3, r7, r3
+ 1427 0218 1B88     		ldrh	r3, [r3]
+ 1428 021a D31A     		subs	r3, r2, r3
+ 1429 021c 9AB2     		uxth	r2, r3
+ 1430 021e 0E23     		movs	r3, #14
+ 1431 0220 FB18     		adds	r3, r7, r3
+ 1432 0222 1A80     		strh	r2, [r3]
+ 328:Drivers/u8glib/src/u8g_ellipse.c ****       err += xchg;
+ 1433              		.loc 1 328 0
+ 1434 0224 1023     		movs	r3, #16
+ 1435 0226 FB18     		adds	r3, r7, r3
+ 1436 0228 1A88     		ldrh	r2, [r3]
+ 1437 022a 1423     		movs	r3, #20
+ 1438 022c FB18     		adds	r3, r7, r3
+ 1439 022e 1B88     		ldrh	r3, [r3]
+ 1440 0230 D318     		adds	r3, r2, r3
+ 1441 0232 9AB2     		uxth	r2, r3
+ 1442 0234 1023     		movs	r3, #16
+ 1443 0236 FB18     		adds	r3, r7, r3
+ 1444 0238 1A80     		strh	r2, [r3]
+ 329:Drivers/u8glib/src/u8g_ellipse.c ****       xchg += ryry2;      
+ARM GAS  /tmp/ccSVg8P5.s 			page 32
+
+
+ 1445              		.loc 1 329 0
+ 1446 023a 1423     		movs	r3, #20
+ 1447 023c FB18     		adds	r3, r7, r3
+ 1448 023e 1A88     		ldrh	r2, [r3]
+ 1449 0240 0823     		movs	r3, #8
+ 1450 0242 FB18     		adds	r3, r7, r3
+ 1451 0244 1B88     		ldrh	r3, [r3]
+ 1452 0246 D318     		adds	r3, r2, r3
+ 1453 0248 9AB2     		uxth	r2, r3
+ 1454 024a 1423     		movs	r3, #20
+ 1455 024c FB18     		adds	r3, r7, r3
+ 1456 024e 1A80     		strh	r2, [r3]
+ 1457              	.L23:
+ 317:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 1458              		.loc 1 317 0
+ 1459 0250 0E23     		movs	r3, #14
+ 1460 0252 FA18     		adds	r2, r7, r3
+ 1461 0254 0C23     		movs	r3, #12
+ 1462 0256 FB18     		adds	r3, r7, r3
+ 1463 0258 0021     		movs	r1, #0
+ 1464 025a 525E     		ldrsh	r2, [r2, r1]
+ 1465 025c 0021     		movs	r1, #0
+ 1466 025e 5B5E     		ldrsh	r3, [r3, r1]
+ 1467 0260 9A42     		cmp	r2, r3
+ 1468 0262 00DB     		blt	.LCB1321
+ 1469 0264 73E7     		b	.L24	@long jump
+ 1470              	.LCB1321:
+ 330:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 331:Drivers/u8glib/src/u8g_ellipse.c ****   }
+ 332:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 333:Drivers/u8glib/src/u8g_ellipse.c ****   x = 0;
+ 1471              		.loc 1 333 0
+ 1472 0266 1723     		movs	r3, #23
+ 1473 0268 FB18     		adds	r3, r7, r3
+ 1474 026a 0022     		movs	r2, #0
+ 1475 026c 1A70     		strb	r2, [r3]
+ 334:Drivers/u8glib/src/u8g_ellipse.c ****   y = ry;
+ 1476              		.loc 1 334 0
+ 1477 026e 1623     		movs	r3, #22
+ 1478 0270 FB18     		adds	r3, r7, r3
+ 1479 0272 2822     		movs	r2, #40
+ 1480 0274 BA18     		adds	r2, r7, r2
+ 1481 0276 1278     		ldrb	r2, [r2]
+ 1482 0278 1A70     		strb	r2, [r3]
+ 335:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 336:Drivers/u8glib/src/u8g_ellipse.c ****   xchg = ry;
+ 1483              		.loc 1 336 0
+ 1484 027a 1423     		movs	r3, #20
+ 1485 027c FB18     		adds	r3, r7, r3
+ 1486 027e 2822     		movs	r2, #40
+ 1487 0280 BA18     		adds	r2, r7, r2
+ 1488 0282 1278     		ldrb	r2, [r2]
+ 1489 0284 1A80     		strh	r2, [r3]
+ 337:Drivers/u8glib/src/u8g_ellipse.c ****   xchg *= ry;
+ 1490              		.loc 1 337 0
+ 1491 0286 2823     		movs	r3, #40
+ 1492 0288 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 33
+
+
+ 1493 028a 1B78     		ldrb	r3, [r3]
+ 1494 028c 9BB2     		uxth	r3, r3
+ 1495 028e 1422     		movs	r2, #20
+ 1496 0290 BA18     		adds	r2, r7, r2
+ 1497 0292 1288     		ldrh	r2, [r2]
+ 1498 0294 5343     		muls	r3, r2
+ 1499 0296 9AB2     		uxth	r2, r3
+ 1500 0298 1423     		movs	r3, #20
+ 1501 029a FB18     		adds	r3, r7, r3
+ 1502 029c 1A80     		strh	r2, [r3]
+ 338:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 339:Drivers/u8glib/src/u8g_ellipse.c ****   ychg = 1;
+ 1503              		.loc 1 339 0
+ 1504 029e 1223     		movs	r3, #18
+ 1505 02a0 FB18     		adds	r3, r7, r3
+ 1506 02a2 0122     		movs	r2, #1
+ 1507 02a4 1A80     		strh	r2, [r3]
+ 340:Drivers/u8glib/src/u8g_ellipse.c ****   ychg -= ry;
+ 1508              		.loc 1 340 0
+ 1509 02a6 1223     		movs	r3, #18
+ 1510 02a8 FB18     		adds	r3, r7, r3
+ 1511 02aa 1A88     		ldrh	r2, [r3]
+ 1512 02ac 2823     		movs	r3, #40
+ 1513 02ae FB18     		adds	r3, r7, r3
+ 1514 02b0 1B78     		ldrb	r3, [r3]
+ 1515 02b2 9BB2     		uxth	r3, r3
+ 1516 02b4 D31A     		subs	r3, r2, r3
+ 1517 02b6 9AB2     		uxth	r2, r3
+ 1518 02b8 1223     		movs	r3, #18
+ 1519 02ba FB18     		adds	r3, r7, r3
+ 1520 02bc 1A80     		strh	r2, [r3]
+ 341:Drivers/u8glib/src/u8g_ellipse.c ****   ychg -= ry;
+ 1521              		.loc 1 341 0
+ 1522 02be 1223     		movs	r3, #18
+ 1523 02c0 FB18     		adds	r3, r7, r3
+ 1524 02c2 1A88     		ldrh	r2, [r3]
+ 1525 02c4 2823     		movs	r3, #40
+ 1526 02c6 FB18     		adds	r3, r7, r3
+ 1527 02c8 1B78     		ldrb	r3, [r3]
+ 1528 02ca 9BB2     		uxth	r3, r3
+ 1529 02cc D31A     		subs	r3, r2, r3
+ 1530 02ce 9AB2     		uxth	r2, r3
+ 1531 02d0 1223     		movs	r3, #18
+ 1532 02d2 FB18     		adds	r3, r7, r3
+ 1533 02d4 1A80     		strh	r2, [r3]
+ 342:Drivers/u8glib/src/u8g_ellipse.c ****   ychg *= rx;
+ 1534              		.loc 1 342 0
+ 1535 02d6 7B1C     		adds	r3, r7, #1
+ 1536 02d8 1B78     		ldrb	r3, [r3]
+ 1537 02da 9BB2     		uxth	r3, r3
+ 1538 02dc 1222     		movs	r2, #18
+ 1539 02de BA18     		adds	r2, r7, r2
+ 1540 02e0 1288     		ldrh	r2, [r2]
+ 1541 02e2 5343     		muls	r3, r2
+ 1542 02e4 9AB2     		uxth	r2, r3
+ 1543 02e6 1223     		movs	r3, #18
+ 1544 02e8 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 34
+
+
+ 1545 02ea 1A80     		strh	r2, [r3]
+ 343:Drivers/u8glib/src/u8g_ellipse.c ****   ychg *= rx;
+ 1546              		.loc 1 343 0
+ 1547 02ec 7B1C     		adds	r3, r7, #1
+ 1548 02ee 1B78     		ldrb	r3, [r3]
+ 1549 02f0 9BB2     		uxth	r3, r3
+ 1550 02f2 1222     		movs	r2, #18
+ 1551 02f4 BA18     		adds	r2, r7, r2
+ 1552 02f6 1288     		ldrh	r2, [r2]
+ 1553 02f8 5343     		muls	r3, r2
+ 1554 02fa 9AB2     		uxth	r2, r3
+ 1555 02fc 1223     		movs	r3, #18
+ 1556 02fe FB18     		adds	r3, r7, r3
+ 1557 0300 1A80     		strh	r2, [r3]
+ 344:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 345:Drivers/u8glib/src/u8g_ellipse.c ****   err = 0;
+ 1558              		.loc 1 345 0
+ 1559 0302 1023     		movs	r3, #16
+ 1560 0304 FB18     		adds	r3, r7, r3
+ 1561 0306 0022     		movs	r2, #0
+ 1562 0308 1A80     		strh	r2, [r3]
+ 346:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 347:Drivers/u8glib/src/u8g_ellipse.c ****   stopx = 0;
+ 1563              		.loc 1 347 0
+ 1564 030a 0E23     		movs	r3, #14
+ 1565 030c FB18     		adds	r3, r7, r3
+ 1566 030e 0022     		movs	r2, #0
+ 1567 0310 1A80     		strh	r2, [r3]
+ 348:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 349:Drivers/u8glib/src/u8g_ellipse.c ****   stopy = rxrx2;
+ 1568              		.loc 1 349 0
+ 1569 0312 0C23     		movs	r3, #12
+ 1570 0314 FB18     		adds	r3, r7, r3
+ 1571 0316 0A22     		movs	r2, #10
+ 1572 0318 BA18     		adds	r2, r7, r2
+ 1573 031a 1288     		ldrh	r2, [r2]
+ 1574 031c 1A80     		strh	r2, [r3]
+ 350:Drivers/u8glib/src/u8g_ellipse.c ****   stopy *= ry;
+ 1575              		.loc 1 350 0
+ 1576 031e 2823     		movs	r3, #40
+ 1577 0320 FB18     		adds	r3, r7, r3
+ 1578 0322 1B78     		ldrb	r3, [r3]
+ 1579 0324 9BB2     		uxth	r3, r3
+ 1580 0326 0C22     		movs	r2, #12
+ 1581 0328 BA18     		adds	r2, r7, r2
+ 1582 032a 1288     		ldrh	r2, [r2]
+ 1583 032c 5343     		muls	r3, r2
+ 1584 032e 9AB2     		uxth	r2, r3
+ 1585 0330 0C23     		movs	r3, #12
+ 1586 0332 FB18     		adds	r3, r7, r3
+ 1587 0334 1A80     		strh	r2, [r3]
+ 351:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 352:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 353:Drivers/u8glib/src/u8g_ellipse.c ****   while( stopx <= stopy )
+ 1588              		.loc 1 353 0
+ 1589 0336 80E0     		b	.L25
+ 1590              	.L26:
+ARM GAS  /tmp/ccSVg8P5.s 			page 35
+
+
+ 354:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 355:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_draw_filled_ellipse_section(u8g, x, y, x0, y0, option);
+ 1591              		.loc 1 355 0
+ 1592 0338 FB1C     		adds	r3, r7, #3
+ 1593 033a 1C78     		ldrb	r4, [r3]
+ 1594 033c 1623     		movs	r3, #22
+ 1595 033e FB18     		adds	r3, r7, r3
+ 1596 0340 1A78     		ldrb	r2, [r3]
+ 1597 0342 1723     		movs	r3, #23
+ 1598 0344 FB18     		adds	r3, r7, r3
+ 1599 0346 1978     		ldrb	r1, [r3]
+ 1600 0348 7868     		ldr	r0, [r7, #4]
+ 1601 034a 2C23     		movs	r3, #44
+ 1602 034c FB18     		adds	r3, r7, r3
+ 1603 034e 1B78     		ldrb	r3, [r3]
+ 1604 0350 0193     		str	r3, [sp, #4]
+ 1605 0352 BB1C     		adds	r3, r7, #2
+ 1606 0354 1B78     		ldrb	r3, [r3]
+ 1607 0356 0093     		str	r3, [sp]
+ 1608 0358 2300     		movs	r3, r4
+ 1609 035a FFF7FEFF 		bl	u8g_draw_filled_ellipse_section
+ 356:Drivers/u8glib/src/u8g_ellipse.c ****     x++;
+ 1610              		.loc 1 356 0
+ 1611 035e 1723     		movs	r3, #23
+ 1612 0360 FB18     		adds	r3, r7, r3
+ 1613 0362 1A78     		ldrb	r2, [r3]
+ 1614 0364 1723     		movs	r3, #23
+ 1615 0366 FB18     		adds	r3, r7, r3
+ 1616 0368 0132     		adds	r2, r2, #1
+ 1617 036a 1A70     		strb	r2, [r3]
+ 357:Drivers/u8glib/src/u8g_ellipse.c ****     stopx += ryry2;
+ 1618              		.loc 1 357 0
+ 1619 036c 0E23     		movs	r3, #14
+ 1620 036e FB18     		adds	r3, r7, r3
+ 1621 0370 1A88     		ldrh	r2, [r3]
+ 1622 0372 0823     		movs	r3, #8
+ 1623 0374 FB18     		adds	r3, r7, r3
+ 1624 0376 1B88     		ldrh	r3, [r3]
+ 1625 0378 D318     		adds	r3, r2, r3
+ 1626 037a 9AB2     		uxth	r2, r3
+ 1627 037c 0E23     		movs	r3, #14
+ 1628 037e FB18     		adds	r3, r7, r3
+ 1629 0380 1A80     		strh	r2, [r3]
+ 358:Drivers/u8glib/src/u8g_ellipse.c ****     err += xchg;
+ 1630              		.loc 1 358 0
+ 1631 0382 1023     		movs	r3, #16
+ 1632 0384 FB18     		adds	r3, r7, r3
+ 1633 0386 1A88     		ldrh	r2, [r3]
+ 1634 0388 1423     		movs	r3, #20
+ 1635 038a FB18     		adds	r3, r7, r3
+ 1636 038c 1B88     		ldrh	r3, [r3]
+ 1637 038e D318     		adds	r3, r2, r3
+ 1638 0390 9AB2     		uxth	r2, r3
+ 1639 0392 1023     		movs	r3, #16
+ 1640 0394 FB18     		adds	r3, r7, r3
+ 1641 0396 1A80     		strh	r2, [r3]
+ 359:Drivers/u8glib/src/u8g_ellipse.c ****     xchg += ryry2;
+ARM GAS  /tmp/ccSVg8P5.s 			page 36
+
+
+ 1642              		.loc 1 359 0
+ 1643 0398 1423     		movs	r3, #20
+ 1644 039a FB18     		adds	r3, r7, r3
+ 1645 039c 1A88     		ldrh	r2, [r3]
+ 1646 039e 0823     		movs	r3, #8
+ 1647 03a0 FB18     		adds	r3, r7, r3
+ 1648 03a2 1B88     		ldrh	r3, [r3]
+ 1649 03a4 D318     		adds	r3, r2, r3
+ 1650 03a6 9AB2     		uxth	r2, r3
+ 1651 03a8 1423     		movs	r3, #20
+ 1652 03aa FB18     		adds	r3, r7, r3
+ 1653 03ac 1A80     		strh	r2, [r3]
+ 360:Drivers/u8glib/src/u8g_ellipse.c ****     if ( 2*err+ychg > 0 )
+ 1654              		.loc 1 360 0
+ 1655 03ae 1023     		movs	r3, #16
+ 1656 03b0 FB18     		adds	r3, r7, r3
+ 1657 03b2 0022     		movs	r2, #0
+ 1658 03b4 9B5E     		ldrsh	r3, [r3, r2]
+ 1659 03b6 5A00     		lsls	r2, r3, #1
+ 1660 03b8 1223     		movs	r3, #18
+ 1661 03ba FB18     		adds	r3, r7, r3
+ 1662 03bc 0021     		movs	r1, #0
+ 1663 03be 5B5E     		ldrsh	r3, [r3, r1]
+ 1664 03c0 D318     		adds	r3, r2, r3
+ 1665 03c2 1622     		movs	r2, #22
+ 1666 03c4 BA18     		adds	r2, r7, r2
+ 1667 03c6 1621     		movs	r1, #22
+ 1668 03c8 7918     		adds	r1, r7, r1
+ 1669 03ca 0978     		ldrb	r1, [r1]
+ 1670 03cc 1170     		strb	r1, [r2]
+ 1671 03ce 1222     		movs	r2, #18
+ 1672 03d0 BA18     		adds	r2, r7, r2
+ 1673 03d2 1221     		movs	r1, #18
+ 1674 03d4 7918     		adds	r1, r7, r1
+ 1675 03d6 0988     		ldrh	r1, [r1]
+ 1676 03d8 1180     		strh	r1, [r2]
+ 1677 03da 0C22     		movs	r2, #12
+ 1678 03dc BA18     		adds	r2, r7, r2
+ 1679 03de 0C21     		movs	r1, #12
+ 1680 03e0 7918     		adds	r1, r7, r1
+ 1681 03e2 0988     		ldrh	r1, [r1]
+ 1682 03e4 1180     		strh	r1, [r2]
+ 1683 03e6 002B     		cmp	r3, #0
+ 1684 03e8 27DD     		ble	.L25
+ 361:Drivers/u8glib/src/u8g_ellipse.c ****     {
+ 362:Drivers/u8glib/src/u8g_ellipse.c ****       y--;
+ 1685              		.loc 1 362 0
+ 1686 03ea 1623     		movs	r3, #22
+ 1687 03ec FB18     		adds	r3, r7, r3
+ 1688 03ee 1A78     		ldrb	r2, [r3]
+ 1689 03f0 1623     		movs	r3, #22
+ 1690 03f2 FB18     		adds	r3, r7, r3
+ 1691 03f4 013A     		subs	r2, r2, #1
+ 1692 03f6 1A70     		strb	r2, [r3]
+ 363:Drivers/u8glib/src/u8g_ellipse.c ****       stopy -= rxrx2;
+ 1693              		.loc 1 363 0
+ 1694 03f8 0C23     		movs	r3, #12
+ARM GAS  /tmp/ccSVg8P5.s 			page 37
+
+
+ 1695 03fa FB18     		adds	r3, r7, r3
+ 1696 03fc 1A88     		ldrh	r2, [r3]
+ 1697 03fe 0A23     		movs	r3, #10
+ 1698 0400 FB18     		adds	r3, r7, r3
+ 1699 0402 1B88     		ldrh	r3, [r3]
+ 1700 0404 D31A     		subs	r3, r2, r3
+ 1701 0406 9AB2     		uxth	r2, r3
+ 1702 0408 0C23     		movs	r3, #12
+ 1703 040a FB18     		adds	r3, r7, r3
+ 1704 040c 1A80     		strh	r2, [r3]
+ 364:Drivers/u8glib/src/u8g_ellipse.c ****       err += ychg;
+ 1705              		.loc 1 364 0
+ 1706 040e 1023     		movs	r3, #16
+ 1707 0410 FB18     		adds	r3, r7, r3
+ 1708 0412 1A88     		ldrh	r2, [r3]
+ 1709 0414 1223     		movs	r3, #18
+ 1710 0416 FB18     		adds	r3, r7, r3
+ 1711 0418 1B88     		ldrh	r3, [r3]
+ 1712 041a D318     		adds	r3, r2, r3
+ 1713 041c 9AB2     		uxth	r2, r3
+ 1714 041e 1023     		movs	r3, #16
+ 1715 0420 FB18     		adds	r3, r7, r3
+ 1716 0422 1A80     		strh	r2, [r3]
+ 365:Drivers/u8glib/src/u8g_ellipse.c ****       ychg += rxrx2;
+ 1717              		.loc 1 365 0
+ 1718 0424 1223     		movs	r3, #18
+ 1719 0426 FB18     		adds	r3, r7, r3
+ 1720 0428 1A88     		ldrh	r2, [r3]
+ 1721 042a 0A23     		movs	r3, #10
+ 1722 042c FB18     		adds	r3, r7, r3
+ 1723 042e 1B88     		ldrh	r3, [r3]
+ 1724 0430 D318     		adds	r3, r2, r3
+ 1725 0432 9AB2     		uxth	r2, r3
+ 1726 0434 1223     		movs	r3, #18
+ 1727 0436 FB18     		adds	r3, r7, r3
+ 1728 0438 1A80     		strh	r2, [r3]
+ 1729              	.L25:
+ 353:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 1730              		.loc 1 353 0
+ 1731 043a 0E23     		movs	r3, #14
+ 1732 043c FA18     		adds	r2, r7, r3
+ 1733 043e 0C23     		movs	r3, #12
+ 1734 0440 FB18     		adds	r3, r7, r3
+ 1735 0442 0021     		movs	r1, #0
+ 1736 0444 525E     		ldrsh	r2, [r2, r1]
+ 1737 0446 0021     		movs	r1, #0
+ 1738 0448 5B5E     		ldrsh	r3, [r3, r1]
+ 1739 044a 9A42     		cmp	r2, r3
+ 1740 044c 00DC     		bgt	.LCB1565
+ 1741 044e 73E7     		b	.L26	@long jump
+ 1742              	.LCB1565:
+ 366:Drivers/u8glib/src/u8g_ellipse.c ****     }
+ 367:Drivers/u8glib/src/u8g_ellipse.c ****   }
+ 368:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 369:Drivers/u8glib/src/u8g_ellipse.c **** }
+ 1743              		.loc 1 369 0
+ 1744 0450 C046     		nop
+ARM GAS  /tmp/ccSVg8P5.s 			page 38
+
+
+ 1745 0452 BD46     		mov	sp, r7
+ 1746 0454 07B0     		add	sp, sp, #28
+ 1747              		@ sp needed
+ 1748 0456 90BD     		pop	{r4, r7, pc}
+ 1749              		.cfi_endproc
+ 1750              	.LFE4:
+ 1752              		.section	.text.u8g_DrawFilledEllipse,"ax",%progbits
+ 1753              		.align	1
+ 1754              		.global	u8g_DrawFilledEllipse
+ 1755              		.syntax unified
+ 1756              		.code	16
+ 1757              		.thumb_func
+ 1758              		.fpu softvfp
+ 1760              	u8g_DrawFilledEllipse:
+ 1761              	.LFB5:
+ 370:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 371:Drivers/u8glib/src/u8g_ellipse.c **** void u8g_DrawFilledEllipse(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rx, u8g_uint_t ry, 
+ 372:Drivers/u8glib/src/u8g_ellipse.c **** {
+ 1762              		.loc 1 372 0
+ 1763              		.cfi_startproc
+ 1764 0000 90B5     		push	{r4, r7, lr}
+ 1765              	.LCFI15:
+ 1766              		.cfi_def_cfa_offset 12
+ 1767              		.cfi_offset 4, -12
+ 1768              		.cfi_offset 7, -8
+ 1769              		.cfi_offset 14, -4
+ 1770 0002 87B0     		sub	sp, sp, #28
+ 1771              	.LCFI16:
+ 1772              		.cfi_def_cfa_offset 40
+ 1773 0004 02AF     		add	r7, sp, #8
+ 1774              	.LCFI17:
+ 1775              		.cfi_def_cfa 7, 32
+ 1776 0006 7860     		str	r0, [r7, #4]
+ 1777 0008 0C00     		movs	r4, r1
+ 1778 000a 1000     		movs	r0, r2
+ 1779 000c 1900     		movs	r1, r3
+ 1780 000e FB1C     		adds	r3, r7, #3
+ 1781 0010 221C     		adds	r2, r4, #0
+ 1782 0012 1A70     		strb	r2, [r3]
+ 1783 0014 BB1C     		adds	r3, r7, #2
+ 1784 0016 021C     		adds	r2, r0, #0
+ 1785 0018 1A70     		strb	r2, [r3]
+ 1786 001a 7B1C     		adds	r3, r7, #1
+ 1787 001c 0A1C     		adds	r2, r1, #0
+ 1788 001e 1A70     		strb	r2, [r3]
+ 1789              	.LBB4:
+ 373:Drivers/u8glib/src/u8g_ellipse.c ****   /* check for bounding box */
+ 374:Drivers/u8glib/src/u8g_ellipse.c ****   {
+ 375:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_uint_t rxp, rxp2;
+ 376:Drivers/u8glib/src/u8g_ellipse.c ****     u8g_uint_t ryp, ryp2;
+ 377:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 378:Drivers/u8glib/src/u8g_ellipse.c ****     rxp = rx;
+ 1790              		.loc 1 378 0
+ 1791 0020 0F23     		movs	r3, #15
+ 1792 0022 FB18     		adds	r3, r7, r3
+ 1793 0024 7A1C     		adds	r2, r7, #1
+ 1794 0026 1278     		ldrb	r2, [r2]
+ARM GAS  /tmp/ccSVg8P5.s 			page 39
+
+
+ 1795 0028 1A70     		strb	r2, [r3]
+ 379:Drivers/u8glib/src/u8g_ellipse.c ****     rxp++;
+ 1796              		.loc 1 379 0
+ 1797 002a 0F23     		movs	r3, #15
+ 1798 002c FB18     		adds	r3, r7, r3
+ 1799 002e 1A78     		ldrb	r2, [r3]
+ 1800 0030 0F23     		movs	r3, #15
+ 1801 0032 FB18     		adds	r3, r7, r3
+ 1802 0034 0132     		adds	r2, r2, #1
+ 1803 0036 1A70     		strb	r2, [r3]
+ 380:Drivers/u8glib/src/u8g_ellipse.c ****     rxp2 = rxp;
+ 1804              		.loc 1 380 0
+ 1805 0038 0E23     		movs	r3, #14
+ 1806 003a FB18     		adds	r3, r7, r3
+ 1807 003c 0F22     		movs	r2, #15
+ 1808 003e BA18     		adds	r2, r7, r2
+ 1809 0040 1278     		ldrb	r2, [r2]
+ 1810 0042 1A70     		strb	r2, [r3]
+ 381:Drivers/u8glib/src/u8g_ellipse.c ****     rxp2 *= 2;
+ 1811              		.loc 1 381 0
+ 1812 0044 0E23     		movs	r3, #14
+ 1813 0046 FA18     		adds	r2, r7, r3
+ 1814 0048 0E23     		movs	r3, #14
+ 1815 004a FB18     		adds	r3, r7, r3
+ 1816 004c 1B78     		ldrb	r3, [r3]
+ 1817 004e DB18     		adds	r3, r3, r3
+ 1818 0050 1370     		strb	r3, [r2]
+ 382:Drivers/u8glib/src/u8g_ellipse.c **** 
+ 383:Drivers/u8glib/src/u8g_ellipse.c ****     ryp = ry;
+ 1819              		.loc 1 383 0
+ 1820 0052 0D23     		movs	r3, #13
+ 1821 0054 FB18     		adds	r3, r7, r3
+ 1822 0056 2022     		movs	r2, #32
+ 1823 0058 BA18     		adds	r2, r7, r2
+ 1824 005a 1278     		ldrb	r2, [r2]
+ 1825 005c 1A70     		strb	r2, [r3]
+ 384:Drivers/u8glib/src/u8g_ellipse.c ****     ryp++;
+ 1826              		.loc 1 384 0
+ 1827 005e 0D23     		movs	r3, #13
+ 1828 0060 FB18     		adds	r3, r7, r3
+ 1829 0062 1A78     		ldrb	r2, [r3]
+ 1830 0064 0D23     		movs	r3, #13
+ 1831 0066 FB18     		adds	r3, r7, r3
+ 1832 0068 0132     		adds	r2, r2, #1
+ 1833 006a 1A70     		strb	r2, [r3]
+ 385:Drivers/u8glib/src/u8g_ellipse.c ****     ryp2 = ryp;
+ 1834              		.loc 1 385 0
+ 1835 006c 0C23     		movs	r3, #12
+ 1836 006e FB18     		adds	r3, r7, r3
+ 1837 0070 0D22     		movs	r2, #13
+ 1838 0072 BA18     		adds	r2, r7, r2
+ 1839 0074 1278     		ldrb	r2, [r2]
+ 1840 0076 1A70     		strb	r2, [r3]
+ 386:Drivers/u8glib/src/u8g_ellipse.c ****     ryp2 *= 2;
+ 1841              		.loc 1 386 0
+ 1842 0078 0C23     		movs	r3, #12
+ 1843 007a FA18     		adds	r2, r7, r3
+ARM GAS  /tmp/ccSVg8P5.s 			page 40
+
+
+ 1844 007c 0C23     		movs	r3, #12
+ 1845 007e FB18     		adds	r3, r7, r3
+ 1846 0080 1B78     		ldrb	r3, [r3]
+ 1847 0082 DB18     		adds	r3, r3, r3
+ 1848 0084 1370     		strb	r3, [r2]
+ 387:Drivers/u8glib/src/u8g_ellipse.c ****     
+ 388:Drivers/u8glib/src/u8g_ellipse.c ****     if ( u8g_IsBBXIntersection(u8g, x0-rxp, y0-ryp, rxp2, ryp2) == 0)
+ 1849              		.loc 1 388 0
+ 1850 0086 FA1C     		adds	r2, r7, #3
+ 1851 0088 0F23     		movs	r3, #15
+ 1852 008a FB18     		adds	r3, r7, r3
+ 1853 008c 1278     		ldrb	r2, [r2]
+ 1854 008e 1B78     		ldrb	r3, [r3]
+ 1855 0090 D31A     		subs	r3, r2, r3
+ 1856 0092 D9B2     		uxtb	r1, r3
+ 1857 0094 BA1C     		adds	r2, r7, #2
+ 1858 0096 0D23     		movs	r3, #13
+ 1859 0098 FB18     		adds	r3, r7, r3
+ 1860 009a 1278     		ldrb	r2, [r2]
+ 1861 009c 1B78     		ldrb	r3, [r3]
+ 1862 009e D31A     		subs	r3, r2, r3
+ 1863 00a0 DAB2     		uxtb	r2, r3
+ 1864 00a2 0E23     		movs	r3, #14
+ 1865 00a4 FB18     		adds	r3, r7, r3
+ 1866 00a6 1C78     		ldrb	r4, [r3]
+ 1867 00a8 7868     		ldr	r0, [r7, #4]
+ 1868 00aa 0C23     		movs	r3, #12
+ 1869 00ac FB18     		adds	r3, r7, r3
+ 1870 00ae 1B78     		ldrb	r3, [r3]
+ 1871 00b0 0093     		str	r3, [sp]
+ 1872 00b2 2300     		movs	r3, r4
+ 1873 00b4 FFF7FEFF 		bl	u8g_IsBBXIntersection
+ 1874 00b8 031E     		subs	r3, r0, #0
+ 1875 00ba 12D0     		beq	.L30
+ 1876              	.LBE4:
+ 389:Drivers/u8glib/src/u8g_ellipse.c ****       return;    
+ 390:Drivers/u8glib/src/u8g_ellipse.c ****   }
+ 391:Drivers/u8glib/src/u8g_ellipse.c ****   
+ 392:Drivers/u8glib/src/u8g_ellipse.c ****   u8g_draw_filled_ellipse(u8g, x0, y0, rx, ry, option);
+ 1877              		.loc 1 392 0
+ 1878 00bc 7B1C     		adds	r3, r7, #1
+ 1879 00be 1C78     		ldrb	r4, [r3]
+ 1880 00c0 BB1C     		adds	r3, r7, #2
+ 1881 00c2 1A78     		ldrb	r2, [r3]
+ 1882 00c4 FB1C     		adds	r3, r7, #3
+ 1883 00c6 1978     		ldrb	r1, [r3]
+ 1884 00c8 7868     		ldr	r0, [r7, #4]
+ 1885 00ca 2423     		movs	r3, #36
+ 1886 00cc FB18     		adds	r3, r7, r3
+ 1887 00ce 1B78     		ldrb	r3, [r3]
+ 1888 00d0 0193     		str	r3, [sp, #4]
+ 1889 00d2 2023     		movs	r3, #32
+ 1890 00d4 FB18     		adds	r3, r7, r3
+ 1891 00d6 1B78     		ldrb	r3, [r3]
+ 1892 00d8 0093     		str	r3, [sp]
+ 1893 00da 2300     		movs	r3, r4
+ 1894 00dc FFF7FEFF 		bl	u8g_draw_filled_ellipse
+ARM GAS  /tmp/ccSVg8P5.s 			page 41
+
+
+ 1895 00e0 00E0     		b	.L27
+ 1896              	.L30:
+ 1897              	.LBB5:
+ 389:Drivers/u8glib/src/u8g_ellipse.c ****       return;    
+ 1898              		.loc 1 389 0
+ 1899 00e2 C046     		nop
+ 1900              	.L27:
+ 1901              	.LBE5:
+ 393:Drivers/u8glib/src/u8g_ellipse.c **** }
+ 1902              		.loc 1 393 0
+ 1903 00e4 BD46     		mov	sp, r7
+ 1904 00e6 05B0     		add	sp, sp, #20
+ 1905              		@ sp needed
+ 1906 00e8 90BD     		pop	{r4, r7, pc}
+ 1907              		.cfi_endproc
+ 1908              	.LFE5:
+ 1910              		.text
+ 1911              	.Letext0:
+ 1912              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1913              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1914              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccSVg8P5.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_ellipse.c
+     /tmp/ccSVg8P5.s:16     .text.u8g_draw_ellipse_section:0000000000000000 $t
+     /tmp/ccSVg8P5.s:22     .text.u8g_draw_ellipse_section:0000000000000000 u8g_draw_ellipse_section
+     /tmp/ccSVg8P5.s:162    .text.u8g_draw_ellipse:0000000000000000 $t
+     /tmp/ccSVg8P5.s:169    .text.u8g_draw_ellipse:0000000000000000 u8g_draw_ellipse
+     /tmp/ccSVg8P5.s:804    .text.u8g_DrawEllipse:0000000000000000 $t
+     /tmp/ccSVg8P5.s:811    .text.u8g_DrawEllipse:0000000000000000 u8g_DrawEllipse
+     /tmp/ccSVg8P5.s:962    .text.u8g_draw_filled_ellipse_section:0000000000000000 $t
+     /tmp/ccSVg8P5.s:968    .text.u8g_draw_filled_ellipse_section:0000000000000000 u8g_draw_filled_ellipse_section
+     /tmp/ccSVg8P5.s:1111   .text.u8g_draw_filled_ellipse:0000000000000000 $t
+     /tmp/ccSVg8P5.s:1118   .text.u8g_draw_filled_ellipse:0000000000000000 u8g_draw_filled_ellipse
+     /tmp/ccSVg8P5.s:1753   .text.u8g_DrawFilledEllipse:0000000000000000 $t
+     /tmp/ccSVg8P5.s:1760   .text.u8g_DrawFilledEllipse:0000000000000000 u8g_DrawFilledEllipse
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_DrawPixel
+u8g_IsBBXIntersection
+u8g_DrawVLine

@@ -1,0 +1,1960 @@
+ARM GAS  /tmp/cc86Wp1q.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_rot.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_dev_rot_dummy_fn,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_dev_rot_dummy_fn
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_dev_rot_dummy_fn:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_rot.c"
+   1:Drivers/u8glib/src/u8g_rot.c **** /*
+   2:Drivers/u8glib/src/u8g_rot.c **** 
+   3:Drivers/u8glib/src/u8g_rot.c ****   u8g_rot.c
+   4:Drivers/u8glib/src/u8g_rot.c **** 
+   5:Drivers/u8glib/src/u8g_rot.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_rot.c ****   
+   7:Drivers/u8glib/src/u8g_rot.c ****   Copyright (c) 2011, olikraus@gmail.com
+   8:Drivers/u8glib/src/u8g_rot.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_rot.c **** 
+  10:Drivers/u8glib/src/u8g_rot.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_rot.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_rot.c **** 
+  13:Drivers/u8glib/src/u8g_rot.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_rot.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_rot.c ****     
+  16:Drivers/u8glib/src/u8g_rot.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_rot.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_rot.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_rot.c **** 
+  20:Drivers/u8glib/src/u8g_rot.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_rot.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_rot.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_rot.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_rot.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_rot.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_rot.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_rot.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_rot.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_rot.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_rot.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_rot.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_rot.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_rot.c ****   
+ARM GAS  /tmp/cc86Wp1q.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_rot.c ****   
+  35:Drivers/u8glib/src/u8g_rot.c **** */
+  36:Drivers/u8glib/src/u8g_rot.c **** 
+  37:Drivers/u8glib/src/u8g_rot.c **** #include "u8g.h"
+  38:Drivers/u8glib/src/u8g_rot.c **** 
+  39:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot90_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg);
+  40:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot180_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg);
+  41:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot270_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg);
+  42:Drivers/u8glib/src/u8g_rot.c **** 
+  43:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot_dummy_fn(void *u8g, void *dev, uint8_t msg, void *arg)
+  44:Drivers/u8glib/src/u8g_rot.c **** {
+  26              		.loc 1 44 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 84B0     		sub	sp, sp, #16
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 24
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 F860     		str	r0, [r7, #12]
+  40 0008 B960     		str	r1, [r7, #8]
+  41 000a 3B60     		str	r3, [r7]
+  42 000c FB1D     		adds	r3, r7, #7
+  43 000e 1A70     		strb	r2, [r3]
+  45:Drivers/u8glib/src/u8g_rot.c ****   return 0;
+  44              		.loc 1 45 0
+  45 0010 0023     		movs	r3, #0
+  46:Drivers/u8glib/src/u8g_rot.c **** }
+  46              		.loc 1 46 0
+  47 0012 1800     		movs	r0, r3
+  48 0014 BD46     		mov	sp, r7
+  49 0016 04B0     		add	sp, sp, #16
+  50              		@ sp needed
+  51 0018 80BD     		pop	{r7, pc}
+  52              		.cfi_endproc
+  53              	.LFE0:
+  55              		.global	u8g_dev_rot
+  56              		.section	.data.u8g_dev_rot,"aw",%progbits
+  57              		.align	2
+  60              	u8g_dev_rot:
+  61 0000 00000000 		.word	u8g_dev_rot_dummy_fn
+  62 0004 00000000 		.word	0
+  63 0008 00000000 		.word	0
+  64              		.section	.text.u8g_UndoRotation,"ax",%progbits
+  65              		.align	1
+  66              		.global	u8g_UndoRotation
+  67              		.syntax unified
+  68              		.code	16
+  69              		.thumb_func
+  70              		.fpu softvfp
+  72              	u8g_UndoRotation:
+  73              	.LFB1:
+ARM GAS  /tmp/cc86Wp1q.s 			page 3
+
+
+  47:Drivers/u8glib/src/u8g_rot.c **** 
+  48:Drivers/u8glib/src/u8g_rot.c **** u8g_dev_t u8g_dev_rot = { u8g_dev_rot_dummy_fn, NULL, NULL };
+  49:Drivers/u8glib/src/u8g_rot.c **** 
+  50:Drivers/u8glib/src/u8g_rot.c **** 
+  51:Drivers/u8glib/src/u8g_rot.c **** void u8g_UndoRotation(u8g_t *u8g)
+  52:Drivers/u8glib/src/u8g_rot.c **** {
+  74              		.loc 1 52 0
+  75              		.cfi_startproc
+  76 0000 80B5     		push	{r7, lr}
+  77              	.LCFI3:
+  78              		.cfi_def_cfa_offset 8
+  79              		.cfi_offset 7, -8
+  80              		.cfi_offset 14, -4
+  81 0002 82B0     		sub	sp, sp, #8
+  82              	.LCFI4:
+  83              		.cfi_def_cfa_offset 16
+  84 0004 00AF     		add	r7, sp, #0
+  85              	.LCFI5:
+  86              		.cfi_def_cfa_register 7
+  87 0006 7860     		str	r0, [r7, #4]
+  53:Drivers/u8glib/src/u8g_rot.c ****   if ( u8g->dev != &u8g_dev_rot )
+  88              		.loc 1 53 0
+  89 0008 7B68     		ldr	r3, [r7, #4]
+  90 000a 5A68     		ldr	r2, [r3, #4]
+  91 000c 074B     		ldr	r3, .L7
+  92 000e 9A42     		cmp	r2, r3
+  93 0010 08D1     		bne	.L6
+  54:Drivers/u8glib/src/u8g_rot.c ****     return;
+  55:Drivers/u8glib/src/u8g_rot.c ****   u8g->dev = u8g_dev_rot.dev_mem;
+  94              		.loc 1 55 0
+  95 0012 064B     		ldr	r3, .L7
+  96 0014 5A68     		ldr	r2, [r3, #4]
+  97 0016 7B68     		ldr	r3, [r7, #4]
+  98 0018 5A60     		str	r2, [r3, #4]
+  56:Drivers/u8glib/src/u8g_rot.c ****   u8g_UpdateDimension(u8g);
+  99              		.loc 1 56 0
+ 100 001a 7B68     		ldr	r3, [r7, #4]
+ 101 001c 1800     		movs	r0, r3
+ 102 001e FFF7FEFF 		bl	u8g_UpdateDimension
+ 103 0022 00E0     		b	.L3
+ 104              	.L6:
+  54:Drivers/u8glib/src/u8g_rot.c ****     return;
+ 105              		.loc 1 54 0
+ 106 0024 C046     		nop
+ 107              	.L3:
+  57:Drivers/u8glib/src/u8g_rot.c **** }
+ 108              		.loc 1 57 0
+ 109 0026 BD46     		mov	sp, r7
+ 110 0028 02B0     		add	sp, sp, #8
+ 111              		@ sp needed
+ 112 002a 80BD     		pop	{r7, pc}
+ 113              	.L8:
+ 114              		.align	2
+ 115              	.L7:
+ 116 002c 00000000 		.word	u8g_dev_rot
+ 117              		.cfi_endproc
+ 118              	.LFE1:
+ARM GAS  /tmp/cc86Wp1q.s 			page 4
+
+
+ 120              		.section	.text.u8g_SetRot90,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	u8g_SetRot90
+ 123              		.syntax unified
+ 124              		.code	16
+ 125              		.thumb_func
+ 126              		.fpu softvfp
+ 128              	u8g_SetRot90:
+ 129              	.LFB2:
+  58:Drivers/u8glib/src/u8g_rot.c **** 
+  59:Drivers/u8glib/src/u8g_rot.c **** void u8g_SetRot90(u8g_t *u8g)
+  60:Drivers/u8glib/src/u8g_rot.c **** {
+ 130              		.loc 1 60 0
+ 131              		.cfi_startproc
+ 132 0000 80B5     		push	{r7, lr}
+ 133              	.LCFI6:
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 7, -8
+ 136              		.cfi_offset 14, -4
+ 137 0002 82B0     		sub	sp, sp, #8
+ 138              	.LCFI7:
+ 139              		.cfi_def_cfa_offset 16
+ 140 0004 00AF     		add	r7, sp, #0
+ 141              	.LCFI8:
+ 142              		.cfi_def_cfa_register 7
+ 143 0006 7860     		str	r0, [r7, #4]
+  61:Drivers/u8glib/src/u8g_rot.c ****   if ( u8g->dev != &u8g_dev_rot )
+ 144              		.loc 1 61 0
+ 145 0008 7B68     		ldr	r3, [r7, #4]
+ 146 000a 5A68     		ldr	r2, [r3, #4]
+ 147 000c 0A4B     		ldr	r3, .L11
+ 148 000e 9A42     		cmp	r2, r3
+ 149 0010 06D0     		beq	.L10
+  62:Drivers/u8glib/src/u8g_rot.c ****   {
+  63:Drivers/u8glib/src/u8g_rot.c ****     u8g_dev_rot.dev_mem = u8g->dev;
+ 150              		.loc 1 63 0
+ 151 0012 7B68     		ldr	r3, [r7, #4]
+ 152 0014 5A68     		ldr	r2, [r3, #4]
+ 153 0016 084B     		ldr	r3, .L11
+ 154 0018 5A60     		str	r2, [r3, #4]
+  64:Drivers/u8glib/src/u8g_rot.c ****     u8g->dev = &u8g_dev_rot;
+ 155              		.loc 1 64 0
+ 156 001a 7B68     		ldr	r3, [r7, #4]
+ 157 001c 064A     		ldr	r2, .L11
+ 158 001e 5A60     		str	r2, [r3, #4]
+ 159              	.L10:
+  65:Drivers/u8glib/src/u8g_rot.c ****   }
+  66:Drivers/u8glib/src/u8g_rot.c ****   u8g_dev_rot.dev_fn = u8g_dev_rot90_fn;
+ 160              		.loc 1 66 0
+ 161 0020 054B     		ldr	r3, .L11
+ 162 0022 064A     		ldr	r2, .L11+4
+ 163 0024 1A60     		str	r2, [r3]
+  67:Drivers/u8glib/src/u8g_rot.c ****   u8g_UpdateDimension(u8g);
+ 164              		.loc 1 67 0
+ 165 0026 7B68     		ldr	r3, [r7, #4]
+ 166 0028 1800     		movs	r0, r3
+ 167 002a FFF7FEFF 		bl	u8g_UpdateDimension
+ARM GAS  /tmp/cc86Wp1q.s 			page 5
+
+
+  68:Drivers/u8glib/src/u8g_rot.c **** }
+ 168              		.loc 1 68 0
+ 169 002e C046     		nop
+ 170 0030 BD46     		mov	sp, r7
+ 171 0032 02B0     		add	sp, sp, #8
+ 172              		@ sp needed
+ 173 0034 80BD     		pop	{r7, pc}
+ 174              	.L12:
+ 175 0036 C046     		.align	2
+ 176              	.L11:
+ 177 0038 00000000 		.word	u8g_dev_rot
+ 178 003c 00000000 		.word	u8g_dev_rot90_fn
+ 179              		.cfi_endproc
+ 180              	.LFE2:
+ 182              		.section	.text.u8g_SetRot180,"ax",%progbits
+ 183              		.align	1
+ 184              		.global	u8g_SetRot180
+ 185              		.syntax unified
+ 186              		.code	16
+ 187              		.thumb_func
+ 188              		.fpu softvfp
+ 190              	u8g_SetRot180:
+ 191              	.LFB3:
+  69:Drivers/u8glib/src/u8g_rot.c **** 
+  70:Drivers/u8glib/src/u8g_rot.c **** void u8g_SetRot180(u8g_t *u8g)
+  71:Drivers/u8glib/src/u8g_rot.c **** {
+ 192              		.loc 1 71 0
+ 193              		.cfi_startproc
+ 194 0000 80B5     		push	{r7, lr}
+ 195              	.LCFI9:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 7, -8
+ 198              		.cfi_offset 14, -4
+ 199 0002 82B0     		sub	sp, sp, #8
+ 200              	.LCFI10:
+ 201              		.cfi_def_cfa_offset 16
+ 202 0004 00AF     		add	r7, sp, #0
+ 203              	.LCFI11:
+ 204              		.cfi_def_cfa_register 7
+ 205 0006 7860     		str	r0, [r7, #4]
+  72:Drivers/u8glib/src/u8g_rot.c ****   if ( u8g->dev != &u8g_dev_rot )
+ 206              		.loc 1 72 0
+ 207 0008 7B68     		ldr	r3, [r7, #4]
+ 208 000a 5A68     		ldr	r2, [r3, #4]
+ 209 000c 0A4B     		ldr	r3, .L15
+ 210 000e 9A42     		cmp	r2, r3
+ 211 0010 06D0     		beq	.L14
+  73:Drivers/u8glib/src/u8g_rot.c ****   {
+  74:Drivers/u8glib/src/u8g_rot.c ****     u8g_dev_rot.dev_mem = u8g->dev;
+ 212              		.loc 1 74 0
+ 213 0012 7B68     		ldr	r3, [r7, #4]
+ 214 0014 5A68     		ldr	r2, [r3, #4]
+ 215 0016 084B     		ldr	r3, .L15
+ 216 0018 5A60     		str	r2, [r3, #4]
+  75:Drivers/u8glib/src/u8g_rot.c ****     u8g->dev = &u8g_dev_rot;
+ 217              		.loc 1 75 0
+ 218 001a 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/cc86Wp1q.s 			page 6
+
+
+ 219 001c 064A     		ldr	r2, .L15
+ 220 001e 5A60     		str	r2, [r3, #4]
+ 221              	.L14:
+  76:Drivers/u8glib/src/u8g_rot.c ****   }
+  77:Drivers/u8glib/src/u8g_rot.c ****   u8g_dev_rot.dev_fn = u8g_dev_rot180_fn;
+ 222              		.loc 1 77 0
+ 223 0020 054B     		ldr	r3, .L15
+ 224 0022 064A     		ldr	r2, .L15+4
+ 225 0024 1A60     		str	r2, [r3]
+  78:Drivers/u8glib/src/u8g_rot.c ****   u8g_UpdateDimension(u8g);
+ 226              		.loc 1 78 0
+ 227 0026 7B68     		ldr	r3, [r7, #4]
+ 228 0028 1800     		movs	r0, r3
+ 229 002a FFF7FEFF 		bl	u8g_UpdateDimension
+  79:Drivers/u8glib/src/u8g_rot.c **** }
+ 230              		.loc 1 79 0
+ 231 002e C046     		nop
+ 232 0030 BD46     		mov	sp, r7
+ 233 0032 02B0     		add	sp, sp, #8
+ 234              		@ sp needed
+ 235 0034 80BD     		pop	{r7, pc}
+ 236              	.L16:
+ 237 0036 C046     		.align	2
+ 238              	.L15:
+ 239 0038 00000000 		.word	u8g_dev_rot
+ 240 003c 00000000 		.word	u8g_dev_rot180_fn
+ 241              		.cfi_endproc
+ 242              	.LFE3:
+ 244              		.section	.text.u8g_SetRot270,"ax",%progbits
+ 245              		.align	1
+ 246              		.global	u8g_SetRot270
+ 247              		.syntax unified
+ 248              		.code	16
+ 249              		.thumb_func
+ 250              		.fpu softvfp
+ 252              	u8g_SetRot270:
+ 253              	.LFB4:
+  80:Drivers/u8glib/src/u8g_rot.c **** 
+  81:Drivers/u8glib/src/u8g_rot.c **** void u8g_SetRot270(u8g_t *u8g)
+  82:Drivers/u8glib/src/u8g_rot.c **** {
+ 254              		.loc 1 82 0
+ 255              		.cfi_startproc
+ 256 0000 80B5     		push	{r7, lr}
+ 257              	.LCFI12:
+ 258              		.cfi_def_cfa_offset 8
+ 259              		.cfi_offset 7, -8
+ 260              		.cfi_offset 14, -4
+ 261 0002 82B0     		sub	sp, sp, #8
+ 262              	.LCFI13:
+ 263              		.cfi_def_cfa_offset 16
+ 264 0004 00AF     		add	r7, sp, #0
+ 265              	.LCFI14:
+ 266              		.cfi_def_cfa_register 7
+ 267 0006 7860     		str	r0, [r7, #4]
+  83:Drivers/u8glib/src/u8g_rot.c ****   if ( u8g->dev != &u8g_dev_rot )
+ 268              		.loc 1 83 0
+ 269 0008 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/cc86Wp1q.s 			page 7
+
+
+ 270 000a 5A68     		ldr	r2, [r3, #4]
+ 271 000c 0A4B     		ldr	r3, .L19
+ 272 000e 9A42     		cmp	r2, r3
+ 273 0010 06D0     		beq	.L18
+  84:Drivers/u8glib/src/u8g_rot.c ****   {
+  85:Drivers/u8glib/src/u8g_rot.c ****     u8g_dev_rot.dev_mem = u8g->dev;
+ 274              		.loc 1 85 0
+ 275 0012 7B68     		ldr	r3, [r7, #4]
+ 276 0014 5A68     		ldr	r2, [r3, #4]
+ 277 0016 084B     		ldr	r3, .L19
+ 278 0018 5A60     		str	r2, [r3, #4]
+  86:Drivers/u8glib/src/u8g_rot.c ****     u8g->dev = &u8g_dev_rot;
+ 279              		.loc 1 86 0
+ 280 001a 7B68     		ldr	r3, [r7, #4]
+ 281 001c 064A     		ldr	r2, .L19
+ 282 001e 5A60     		str	r2, [r3, #4]
+ 283              	.L18:
+  87:Drivers/u8glib/src/u8g_rot.c ****   }
+  88:Drivers/u8glib/src/u8g_rot.c ****   u8g_dev_rot.dev_fn = u8g_dev_rot270_fn;
+ 284              		.loc 1 88 0
+ 285 0020 054B     		ldr	r3, .L19
+ 286 0022 064A     		ldr	r2, .L19+4
+ 287 0024 1A60     		str	r2, [r3]
+  89:Drivers/u8glib/src/u8g_rot.c ****   u8g_UpdateDimension(u8g);
+ 288              		.loc 1 89 0
+ 289 0026 7B68     		ldr	r3, [r7, #4]
+ 290 0028 1800     		movs	r0, r3
+ 291 002a FFF7FEFF 		bl	u8g_UpdateDimension
+  90:Drivers/u8glib/src/u8g_rot.c **** }
+ 292              		.loc 1 90 0
+ 293 002e C046     		nop
+ 294 0030 BD46     		mov	sp, r7
+ 295 0032 02B0     		add	sp, sp, #8
+ 296              		@ sp needed
+ 297 0034 80BD     		pop	{r7, pc}
+ 298              	.L20:
+ 299 0036 C046     		.align	2
+ 300              	.L19:
+ 301 0038 00000000 		.word	u8g_dev_rot
+ 302 003c 00000000 		.word	u8g_dev_rot270_fn
+ 303              		.cfi_endproc
+ 304              	.LFE4:
+ 306              		.section	.text.u8g_dev_rot90_fn,"ax",%progbits
+ 307              		.align	1
+ 308              		.global	u8g_dev_rot90_fn
+ 309              		.syntax unified
+ 310              		.code	16
+ 311              		.thumb_func
+ 312              		.fpu softvfp
+ 314              	u8g_dev_rot90_fn:
+ 315              	.LFB5:
+  91:Drivers/u8glib/src/u8g_rot.c **** 
+  92:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot90_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  93:Drivers/u8glib/src/u8g_rot.c **** {
+ 316              		.loc 1 93 0
+ 317              		.cfi_startproc
+ 318 0000 90B5     		push	{r4, r7, lr}
+ARM GAS  /tmp/cc86Wp1q.s 			page 8
+
+
+ 319              	.LCFI15:
+ 320              		.cfi_def_cfa_offset 12
+ 321              		.cfi_offset 4, -12
+ 322              		.cfi_offset 7, -8
+ 323              		.cfi_offset 14, -4
+ 324 0002 89B0     		sub	sp, sp, #36
+ 325              	.LCFI16:
+ 326              		.cfi_def_cfa_offset 48
+ 327 0004 00AF     		add	r7, sp, #0
+ 328              	.LCFI17:
+ 329              		.cfi_def_cfa_register 7
+ 330 0006 F860     		str	r0, [r7, #12]
+ 331 0008 B960     		str	r1, [r7, #8]
+ 332 000a 3B60     		str	r3, [r7]
+ 333 000c FB1D     		adds	r3, r7, #7
+ 334 000e 1A70     		strb	r2, [r3]
+  94:Drivers/u8glib/src/u8g_rot.c ****   u8g_dev_t *rotation_chain = (u8g_dev_t *)(dev->dev_mem);
+ 335              		.loc 1 94 0
+ 336 0010 BB68     		ldr	r3, [r7, #8]
+ 337 0012 5B68     		ldr	r3, [r3, #4]
+ 338 0014 FB61     		str	r3, [r7, #28]
+  95:Drivers/u8glib/src/u8g_rot.c ****   switch(msg)
+ 339              		.loc 1 95 0
+ 340 0016 FB1D     		adds	r3, r7, #7
+ 341 0018 1B78     		ldrb	r3, [r3]
+ 342 001a 173B     		subs	r3, r3, #23
+ 343 001c 302B     		cmp	r3, #48
+ 344 001e 04D8     		bhi	.L22
+ 345 0020 9A00     		lsls	r2, r3, #2
+ 346 0022 604B     		ldr	r3, .L31
+ 347 0024 D318     		adds	r3, r2, r3
+ 348 0026 1B68     		ldr	r3, [r3]
+ 349 0028 9F46     		mov	pc, r3
+ 350              		.section	.rodata.u8g_dev_rot90_fn,"a",%progbits
+ 351              		.align	2
+ 352              	.L24:
+ 353 0000 3E000000 		.word	.L23
+ 354 0004 2A000000 		.word	.L22
+ 355 0008 2A000000 		.word	.L22
+ 356 000c 2A000000 		.word	.L22
+ 357 0010 2A000000 		.word	.L22
+ 358 0014 2A000000 		.word	.L22
+ 359 0018 2A000000 		.word	.L22
+ 360 001c 2A000000 		.word	.L22
+ 361 0020 2A000000 		.word	.L22
+ 362 0024 2A000000 		.word	.L22
+ 363 0028 2A000000 		.word	.L22
+ 364 002c 2A000000 		.word	.L22
+ 365 0030 2A000000 		.word	.L22
+ 366 0034 2A000000 		.word	.L22
+ 367 0038 2A000000 		.word	.L22
+ 368 003c 2A000000 		.word	.L22
+ 369 0040 2A000000 		.word	.L22
+ 370 0044 2A000000 		.word	.L22
+ 371 0048 2A000000 		.word	.L22
+ 372 004c 2A000000 		.word	.L22
+ 373 0050 2A000000 		.word	.L22
+ARM GAS  /tmp/cc86Wp1q.s 			page 9
+
+
+ 374 0054 B6000000 		.word	.L25
+ 375 0058 1A010000 		.word	.L26
+ 376 005c 2A000000 		.word	.L22
+ 377 0060 2A000000 		.word	.L22
+ 378 0064 2A000000 		.word	.L22
+ 379 0068 2A000000 		.word	.L22
+ 380 006c B6000000 		.word	.L25
+ 381 0070 2A000000 		.word	.L22
+ 382 0074 2A000000 		.word	.L22
+ 383 0078 2A000000 		.word	.L22
+ 384 007c 2A000000 		.word	.L22
+ 385 0080 2A000000 		.word	.L22
+ 386 0084 2A000000 		.word	.L22
+ 387 0088 2A000000 		.word	.L22
+ 388 008c 2A000000 		.word	.L22
+ 389 0090 1A010000 		.word	.L26
+ 390 0094 2A000000 		.word	.L22
+ 391 0098 2A000000 		.word	.L22
+ 392 009c 2A000000 		.word	.L22
+ 393 00a0 2A000000 		.word	.L22
+ 394 00a4 2A000000 		.word	.L22
+ 395 00a8 2A000000 		.word	.L22
+ 396 00ac 2A000000 		.word	.L22
+ 397 00b0 2A000000 		.word	.L22
+ 398 00b4 2A000000 		.word	.L22
+ 399 00b8 2A000000 		.word	.L22
+ 400 00bc 8A000000 		.word	.L27
+ 401 00c0 A0000000 		.word	.L28
+ 402              		.section	.text.u8g_dev_rot90_fn
+ 403              	.L22:
+  96:Drivers/u8glib/src/u8g_rot.c ****   {
+  97:Drivers/u8glib/src/u8g_rot.c ****     default:
+  98:Drivers/u8glib/src/u8g_rot.c ****     /*
+  99:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_INIT:
+ 100:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_STOP:
+ 101:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_PAGE_FIRST:
+ 102:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 103:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_COLOR_ENTRY:
+ 104:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_XY_CB:
+ 105:Drivers/u8glib/src/u8g_rot.c ****     */
+ 106:Drivers/u8glib/src/u8g_rot.c ****       return u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 404              		.loc 1 106 0
+ 405 002a 3C68     		ldr	r4, [r7]
+ 406 002c FB1D     		adds	r3, r7, #7
+ 407 002e 1A78     		ldrb	r2, [r3]
+ 408 0030 F969     		ldr	r1, [r7, #28]
+ 409 0032 F868     		ldr	r0, [r7, #12]
+ 410 0034 2300     		movs	r3, r4
+ 411 0036 FFF7FEFF 		bl	u8g_call_dev_fn
+ 412 003a 0300     		movs	r3, r0
+ 413 003c ADE0     		b	.L29
+ 414              	.L23:
+ 107:Drivers/u8glib/src/u8g_rot.c **** #ifdef U8G_DEV_MSG_IS_BBX_INTERSECTION
+ 108:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_IS_BBX_INTERSECTION:
+ 109:Drivers/u8glib/src/u8g_rot.c ****       {
+ 110:Drivers/u8glib/src/u8g_rot.c ****         u8g_dev_arg_bbx_t *bbx = (u8g_dev_arg_bbx_t *)arg;
+ 111:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y, tmp;
+ARM GAS  /tmp/cc86Wp1q.s 			page 10
+
+
+ 112:Drivers/u8glib/src/u8g_rot.c ****         
+ 113:Drivers/u8glib/src/u8g_rot.c ****         /* transform the reference point */
+ 114:Drivers/u8glib/src/u8g_rot.c ****         y = bbx->x;
+ 115:Drivers/u8glib/src/u8g_rot.c ****         x = u8g->height;
+ 116:Drivers/u8glib/src/u8g_rot.c ****         /* x = u8g_GetWidthLL(u8g, rotation_chain); */
+ 117:Drivers/u8glib/src/u8g_rot.c ****         x -= bbx->y; 
+ 118:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 119:Drivers/u8glib/src/u8g_rot.c ****         
+ 120:Drivers/u8glib/src/u8g_rot.c ****         /* adjust point to be the uppler left corner again */
+ 121:Drivers/u8glib/src/u8g_rot.c ****         x -= bbx->h;
+ 122:Drivers/u8glib/src/u8g_rot.c ****         x++;
+ 123:Drivers/u8glib/src/u8g_rot.c ****         
+ 124:Drivers/u8glib/src/u8g_rot.c ****         /* swap box dimensions */        
+ 125:Drivers/u8glib/src/u8g_rot.c ****         tmp = bbx->w;
+ 126:Drivers/u8glib/src/u8g_rot.c ****         bbx->w = bbx->h;
+ 127:Drivers/u8glib/src/u8g_rot.c ****         bbx->h = tmp;
+ 128:Drivers/u8glib/src/u8g_rot.c ****         
+ 129:Drivers/u8glib/src/u8g_rot.c ****         /* store x,y */
+ 130:Drivers/u8glib/src/u8g_rot.c ****         bbx->x = x;
+ 131:Drivers/u8glib/src/u8g_rot.c ****         bbx->y = y;
+ 132:Drivers/u8glib/src/u8g_rot.c ****       }
+ 133:Drivers/u8glib/src/u8g_rot.c ****       return u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 134:Drivers/u8glib/src/u8g_rot.c **** #endif /* U8G_DEV_MSG_IS_BBX_INTERSECTION */
+ 135:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_PAGE_BOX:
+ 136:Drivers/u8glib/src/u8g_rot.c ****       /* get page size from next device in the chain */
+ 137:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 415              		.loc 1 137 0
+ 416 003e 3C68     		ldr	r4, [r7]
+ 417 0040 FB1D     		adds	r3, r7, #7
+ 418 0042 1A78     		ldrb	r2, [r3]
+ 419 0044 F969     		ldr	r1, [r7, #28]
+ 420 0046 F868     		ldr	r0, [r7, #12]
+ 421 0048 2300     		movs	r3, r4
+ 422 004a FFF7FEFF 		bl	u8g_call_dev_fn
+ 423              	.LBB2:
+ 138:Drivers/u8glib/src/u8g_rot.c ****       //printf("pre x: %3d..%3d y: %3d..%3d   ", ((u8g_box_t *)arg)->x0, ((u8g_box_t *)arg)->x1, ((
+ 139:Drivers/u8glib/src/u8g_rot.c ****       {
+ 140:Drivers/u8glib/src/u8g_rot.c **** 	u8g_box_t new_box;
+ 141:Drivers/u8glib/src/u8g_rot.c **** 	//new_box.x0 = u8g_GetHeightLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->y1 - 1;
+ 142:Drivers/u8glib/src/u8g_rot.c **** 	//new_box.x1 = u8g_GetHeightLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->y0 - 1;
+ 143:Drivers/u8glib/src/u8g_rot.c **** 	
+ 144:Drivers/u8glib/src/u8g_rot.c **** 	new_box.x0 = ((u8g_box_t *)arg)->y0;
+ 424              		.loc 1 144 0
+ 425 004e 3B68     		ldr	r3, [r7]
+ 426 0050 5A78     		ldrb	r2, [r3, #1]
+ 427 0052 1423     		movs	r3, #20
+ 428 0054 FB18     		adds	r3, r7, r3
+ 429 0056 1A70     		strb	r2, [r3]
+ 145:Drivers/u8glib/src/u8g_rot.c **** 	new_box.x1 = ((u8g_box_t *)arg)->y1;
+ 430              		.loc 1 145 0
+ 431 0058 3B68     		ldr	r3, [r7]
+ 432 005a DA78     		ldrb	r2, [r3, #3]
+ 433 005c 1423     		movs	r3, #20
+ 434 005e FB18     		adds	r3, r7, r3
+ 435 0060 9A70     		strb	r2, [r3, #2]
+ 146:Drivers/u8glib/src/u8g_rot.c **** 	new_box.y0 = ((u8g_box_t *)arg)->x0;
+ 436              		.loc 1 146 0
+ARM GAS  /tmp/cc86Wp1q.s 			page 11
+
+
+ 437 0062 3B68     		ldr	r3, [r7]
+ 438 0064 1A78     		ldrb	r2, [r3]
+ 439 0066 1423     		movs	r3, #20
+ 440 0068 FB18     		adds	r3, r7, r3
+ 441 006a 5A70     		strb	r2, [r3, #1]
+ 147:Drivers/u8glib/src/u8g_rot.c **** 	new_box.y1 = ((u8g_box_t *)arg)->x1;
+ 442              		.loc 1 147 0
+ 443 006c 3B68     		ldr	r3, [r7]
+ 444 006e 9A78     		ldrb	r2, [r3, #2]
+ 445 0070 1423     		movs	r3, #20
+ 446 0072 FB18     		adds	r3, r7, r3
+ 447 0074 DA70     		strb	r2, [r3, #3]
+ 148:Drivers/u8glib/src/u8g_rot.c **** 	*((u8g_box_t *)arg) = new_box;
+ 448              		.loc 1 148 0
+ 449 0076 3A68     		ldr	r2, [r7]
+ 450 0078 1423     		movs	r3, #20
+ 451 007a FB18     		adds	r3, r7, r3
+ 452 007c 1000     		movs	r0, r2
+ 453 007e 1900     		movs	r1, r3
+ 454 0080 0423     		movs	r3, #4
+ 455 0082 1A00     		movs	r2, r3
+ 456 0084 FFF7FEFF 		bl	memcpy
+ 457              	.LBE2:
+ 149:Drivers/u8glib/src/u8g_rot.c **** 	//printf("post x: %3d..%3d y: %3d..%3d\n", ((u8g_box_t *)arg)->x0, ((u8g_box_t *)arg)->x1, ((u8g_b
+ 150:Drivers/u8glib/src/u8g_rot.c ****       }
+ 151:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 458              		.loc 1 151 0
+ 459 0088 86E0     		b	.L30
+ 460              	.L27:
+ 152:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_WIDTH:
+ 153:Drivers/u8glib/src/u8g_rot.c ****       *((u8g_uint_t *)arg) = u8g_GetHeightLL(u8g,rotation_chain);
+ 461              		.loc 1 153 0
+ 462 008a FA69     		ldr	r2, [r7, #28]
+ 463 008c FB68     		ldr	r3, [r7, #12]
+ 464 008e 1100     		movs	r1, r2
+ 465 0090 1800     		movs	r0, r3
+ 466 0092 FFF7FEFF 		bl	u8g_GetHeightLL
+ 467 0096 0300     		movs	r3, r0
+ 468 0098 1A00     		movs	r2, r3
+ 469 009a 3B68     		ldr	r3, [r7]
+ 470 009c 1A70     		strb	r2, [r3]
+ 154:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 471              		.loc 1 154 0
+ 472 009e 7BE0     		b	.L30
+ 473              	.L28:
+ 155:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_HEIGHT:
+ 156:Drivers/u8glib/src/u8g_rot.c ****       *((u8g_uint_t *)arg) = u8g_GetWidthLL(u8g, rotation_chain);
+ 474              		.loc 1 156 0
+ 475 00a0 FA69     		ldr	r2, [r7, #28]
+ 476 00a2 FB68     		ldr	r3, [r7, #12]
+ 477 00a4 1100     		movs	r1, r2
+ 478 00a6 1800     		movs	r0, r3
+ 479 00a8 FFF7FEFF 		bl	u8g_GetWidthLL
+ 480 00ac 0300     		movs	r3, r0
+ 481 00ae 1A00     		movs	r2, r3
+ 482 00b0 3B68     		ldr	r3, [r7]
+ 483 00b2 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/cc86Wp1q.s 			page 12
+
+
+ 157:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 484              		.loc 1 157 0
+ 485 00b4 70E0     		b	.L30
+ 486              	.L25:
+ 487              	.LBB3:
+ 158:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_PIXEL:
+ 159:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_TPIXEL:
+ 160:Drivers/u8glib/src/u8g_rot.c ****       {
+ 161:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 162:Drivers/u8glib/src/u8g_rot.c ****         y = ((u8g_dev_arg_pixel_t *)arg)->x;
+ 488              		.loc 1 162 0
+ 489 00b6 1B23     		movs	r3, #27
+ 490 00b8 FB18     		adds	r3, r7, r3
+ 491 00ba 3A68     		ldr	r2, [r7]
+ 492 00bc 1278     		ldrb	r2, [r2]
+ 493 00be 1A70     		strb	r2, [r3]
+ 163:Drivers/u8glib/src/u8g_rot.c ****         x = u8g_GetWidthLL(u8g, rotation_chain);
+ 494              		.loc 1 163 0
+ 495 00c0 1A23     		movs	r3, #26
+ 496 00c2 FC18     		adds	r4, r7, r3
+ 497 00c4 FA69     		ldr	r2, [r7, #28]
+ 498 00c6 FB68     		ldr	r3, [r7, #12]
+ 499 00c8 1100     		movs	r1, r2
+ 500 00ca 1800     		movs	r0, r3
+ 501 00cc FFF7FEFF 		bl	u8g_GetWidthLL
+ 502 00d0 0300     		movs	r3, r0
+ 503 00d2 2370     		strb	r3, [r4]
+ 164:Drivers/u8glib/src/u8g_rot.c ****         x -= ((u8g_dev_arg_pixel_t *)arg)->y; 
+ 504              		.loc 1 164 0
+ 505 00d4 3B68     		ldr	r3, [r7]
+ 506 00d6 5A78     		ldrb	r2, [r3, #1]
+ 507 00d8 1A23     		movs	r3, #26
+ 508 00da FB18     		adds	r3, r7, r3
+ 509 00dc 1A21     		movs	r1, #26
+ 510 00de 7918     		adds	r1, r7, r1
+ 511 00e0 0978     		ldrb	r1, [r1]
+ 512 00e2 8A1A     		subs	r2, r1, r2
+ 513 00e4 1A70     		strb	r2, [r3]
+ 165:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 514              		.loc 1 165 0
+ 515 00e6 1A23     		movs	r3, #26
+ 516 00e8 FB18     		adds	r3, r7, r3
+ 517 00ea 1A78     		ldrb	r2, [r3]
+ 518 00ec 1A23     		movs	r3, #26
+ 519 00ee FB18     		adds	r3, r7, r3
+ 520 00f0 013A     		subs	r2, r2, #1
+ 521 00f2 1A70     		strb	r2, [r3]
+ 166:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->x = x;
+ 522              		.loc 1 166 0
+ 523 00f4 3B68     		ldr	r3, [r7]
+ 524 00f6 1A22     		movs	r2, #26
+ 525 00f8 BA18     		adds	r2, r7, r2
+ 526 00fa 1278     		ldrb	r2, [r2]
+ 527 00fc 1A70     		strb	r2, [r3]
+ 167:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->y = y;
+ 528              		.loc 1 167 0
+ 529 00fe 3B68     		ldr	r3, [r7]
+ARM GAS  /tmp/cc86Wp1q.s 			page 13
+
+
+ 530 0100 1B22     		movs	r2, #27
+ 531 0102 BA18     		adds	r2, r7, r2
+ 532 0104 1278     		ldrb	r2, [r2]
+ 533 0106 5A70     		strb	r2, [r3, #1]
+ 534              	.LBE3:
+ 168:Drivers/u8glib/src/u8g_rot.c ****       }
+ 169:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 535              		.loc 1 169 0
+ 536 0108 3C68     		ldr	r4, [r7]
+ 537 010a FB1D     		adds	r3, r7, #7
+ 538 010c 1A78     		ldrb	r2, [r3]
+ 539 010e F969     		ldr	r1, [r7, #28]
+ 540 0110 F868     		ldr	r0, [r7, #12]
+ 541 0112 2300     		movs	r3, r4
+ 542 0114 FFF7FEFF 		bl	u8g_call_dev_fn
+ 170:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 543              		.loc 1 170 0
+ 544 0118 3EE0     		b	.L30
+ 545              	.L26:
+ 546              	.LBB4:
+ 171:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_8PIXEL:
+ 172:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_4TPIXEL:
+ 173:Drivers/u8glib/src/u8g_rot.c ****       {
+ 174:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 175:Drivers/u8glib/src/u8g_rot.c **** 	//uint16_t x,y;
+ 176:Drivers/u8glib/src/u8g_rot.c ****         y = ((u8g_dev_arg_pixel_t *)arg)->x;
+ 547              		.loc 1 176 0
+ 548 011a 1923     		movs	r3, #25
+ 549 011c FB18     		adds	r3, r7, r3
+ 550 011e 3A68     		ldr	r2, [r7]
+ 551 0120 1278     		ldrb	r2, [r2]
+ 552 0122 1A70     		strb	r2, [r3]
+ 177:Drivers/u8glib/src/u8g_rot.c ****         x = u8g_GetWidthLL(u8g, rotation_chain);
+ 553              		.loc 1 177 0
+ 554 0124 1823     		movs	r3, #24
+ 555 0126 FC18     		adds	r4, r7, r3
+ 556 0128 FA69     		ldr	r2, [r7, #28]
+ 557 012a FB68     		ldr	r3, [r7, #12]
+ 558 012c 1100     		movs	r1, r2
+ 559 012e 1800     		movs	r0, r3
+ 560 0130 FFF7FEFF 		bl	u8g_GetWidthLL
+ 561 0134 0300     		movs	r3, r0
+ 562 0136 2370     		strb	r3, [r4]
+ 178:Drivers/u8glib/src/u8g_rot.c ****         x -= ((u8g_dev_arg_pixel_t *)arg)->y; 
+ 563              		.loc 1 178 0
+ 564 0138 3B68     		ldr	r3, [r7]
+ 565 013a 5A78     		ldrb	r2, [r3, #1]
+ 566 013c 1823     		movs	r3, #24
+ 567 013e FB18     		adds	r3, r7, r3
+ 568 0140 1821     		movs	r1, #24
+ 569 0142 7918     		adds	r1, r7, r1
+ 570 0144 0978     		ldrb	r1, [r1]
+ 571 0146 8A1A     		subs	r2, r1, r2
+ 572 0148 1A70     		strb	r2, [r3]
+ 179:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 573              		.loc 1 179 0
+ 574 014a 1823     		movs	r3, #24
+ARM GAS  /tmp/cc86Wp1q.s 			page 14
+
+
+ 575 014c FB18     		adds	r3, r7, r3
+ 576 014e 1A78     		ldrb	r2, [r3]
+ 577 0150 1823     		movs	r3, #24
+ 578 0152 FB18     		adds	r3, r7, r3
+ 579 0154 013A     		subs	r2, r2, #1
+ 580 0156 1A70     		strb	r2, [r3]
+ 180:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->x = x;
+ 581              		.loc 1 180 0
+ 582 0158 3B68     		ldr	r3, [r7]
+ 583 015a 1822     		movs	r2, #24
+ 584 015c BA18     		adds	r2, r7, r2
+ 585 015e 1278     		ldrb	r2, [r2]
+ 586 0160 1A70     		strb	r2, [r3]
+ 181:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->y = y;
+ 587              		.loc 1 181 0
+ 588 0162 3B68     		ldr	r3, [r7]
+ 589 0164 1922     		movs	r2, #25
+ 590 0166 BA18     		adds	r2, r7, r2
+ 591 0168 1278     		ldrb	r2, [r2]
+ 592 016a 5A70     		strb	r2, [r3, #1]
+ 182:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->dir+=1;
+ 593              		.loc 1 182 0
+ 594 016c 3B68     		ldr	r3, [r7]
+ 595 016e DB78     		ldrb	r3, [r3, #3]
+ 596 0170 0133     		adds	r3, r3, #1
+ 597 0172 DAB2     		uxtb	r2, r3
+ 598 0174 3B68     		ldr	r3, [r7]
+ 599 0176 DA70     		strb	r2, [r3, #3]
+ 183:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->dir &= 3;
+ 600              		.loc 1 183 0
+ 601 0178 3B68     		ldr	r3, [r7]
+ 602 017a DB78     		ldrb	r3, [r3, #3]
+ 603 017c 0322     		movs	r2, #3
+ 604 017e 1340     		ands	r3, r2
+ 605 0180 DAB2     		uxtb	r2, r3
+ 606 0182 3B68     		ldr	r3, [r7]
+ 607 0184 DA70     		strb	r2, [r3, #3]
+ 608              	.LBE4:
+ 184:Drivers/u8glib/src/u8g_rot.c ****       }
+ 185:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 609              		.loc 1 185 0
+ 610 0186 3C68     		ldr	r4, [r7]
+ 611 0188 FB1D     		adds	r3, r7, #7
+ 612 018a 1A78     		ldrb	r2, [r3]
+ 613 018c F969     		ldr	r1, [r7, #28]
+ 614 018e F868     		ldr	r0, [r7, #12]
+ 615 0190 2300     		movs	r3, r4
+ 616 0192 FFF7FEFF 		bl	u8g_call_dev_fn
+ 186:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 617              		.loc 1 186 0
+ 618 0196 C046     		nop
+ 619              	.L30:
+ 187:Drivers/u8glib/src/u8g_rot.c ****   }
+ 188:Drivers/u8glib/src/u8g_rot.c ****   return 1;
+ 620              		.loc 1 188 0
+ 621 0198 0123     		movs	r3, #1
+ 622              	.L29:
+ARM GAS  /tmp/cc86Wp1q.s 			page 15
+
+
+ 189:Drivers/u8glib/src/u8g_rot.c **** }
+ 623              		.loc 1 189 0
+ 624 019a 1800     		movs	r0, r3
+ 625 019c BD46     		mov	sp, r7
+ 626 019e 09B0     		add	sp, sp, #36
+ 627              		@ sp needed
+ 628 01a0 90BD     		pop	{r4, r7, pc}
+ 629              	.L32:
+ 630 01a2 C046     		.align	2
+ 631              	.L31:
+ 632 01a4 00000000 		.word	.L24
+ 633              		.cfi_endproc
+ 634              	.LFE5:
+ 636              		.section	.text.u8g_dev_rot180_fn,"ax",%progbits
+ 637              		.align	1
+ 638              		.global	u8g_dev_rot180_fn
+ 639              		.syntax unified
+ 640              		.code	16
+ 641              		.thumb_func
+ 642              		.fpu softvfp
+ 644              	u8g_dev_rot180_fn:
+ 645              	.LFB6:
+ 190:Drivers/u8glib/src/u8g_rot.c **** 
+ 191:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot180_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 192:Drivers/u8glib/src/u8g_rot.c **** {
+ 646              		.loc 1 192 0
+ 647              		.cfi_startproc
+ 648 0000 90B5     		push	{r4, r7, lr}
+ 649              	.LCFI18:
+ 650              		.cfi_def_cfa_offset 12
+ 651              		.cfi_offset 4, -12
+ 652              		.cfi_offset 7, -8
+ 653              		.cfi_offset 14, -4
+ 654 0002 89B0     		sub	sp, sp, #36
+ 655              	.LCFI19:
+ 656              		.cfi_def_cfa_offset 48
+ 657 0004 00AF     		add	r7, sp, #0
+ 658              	.LCFI20:
+ 659              		.cfi_def_cfa_register 7
+ 660 0006 F860     		str	r0, [r7, #12]
+ 661 0008 B960     		str	r1, [r7, #8]
+ 662 000a 3B60     		str	r3, [r7]
+ 663 000c FB1D     		adds	r3, r7, #7
+ 664 000e 1A70     		strb	r2, [r3]
+ 193:Drivers/u8glib/src/u8g_rot.c ****   u8g_dev_t *rotation_chain = (u8g_dev_t *)(dev->dev_mem);
+ 665              		.loc 1 193 0
+ 666 0010 BB68     		ldr	r3, [r7, #8]
+ 667 0012 5B68     		ldr	r3, [r3, #4]
+ 668 0014 FB61     		str	r3, [r7, #28]
+ 194:Drivers/u8glib/src/u8g_rot.c ****   switch(msg)
+ 669              		.loc 1 194 0
+ 670 0016 FB1D     		adds	r3, r7, #7
+ 671 0018 1B78     		ldrb	r3, [r3]
+ 672 001a 173B     		subs	r3, r3, #23
+ 673 001c 302B     		cmp	r3, #48
+ 674 001e 04D8     		bhi	.L34
+ 675 0020 9A00     		lsls	r2, r3, #2
+ARM GAS  /tmp/cc86Wp1q.s 			page 16
+
+
+ 676 0022 8D4B     		ldr	r3, .L43
+ 677 0024 D318     		adds	r3, r2, r3
+ 678 0026 1B68     		ldr	r3, [r3]
+ 679 0028 9F46     		mov	pc, r3
+ 680              		.section	.rodata.u8g_dev_rot180_fn,"a",%progbits
+ 681              		.align	2
+ 682              	.L36:
+ 683 0000 3E000000 		.word	.L35
+ 684 0004 2A000000 		.word	.L34
+ 685 0008 2A000000 		.word	.L34
+ 686 000c 2A000000 		.word	.L34
+ 687 0010 2A000000 		.word	.L34
+ 688 0014 2A000000 		.word	.L34
+ 689 0018 2A000000 		.word	.L34
+ 690 001c 2A000000 		.word	.L34
+ 691 0020 2A000000 		.word	.L34
+ 692 0024 2A000000 		.word	.L34
+ 693 0028 2A000000 		.word	.L34
+ 694 002c 2A000000 		.word	.L34
+ 695 0030 2A000000 		.word	.L34
+ 696 0034 2A000000 		.word	.L34
+ 697 0038 2A000000 		.word	.L34
+ 698 003c 2A000000 		.word	.L34
+ 699 0040 2A000000 		.word	.L34
+ 700 0044 2A000000 		.word	.L34
+ 701 0048 2A000000 		.word	.L34
+ 702 004c 2A000000 		.word	.L34
+ 703 0050 2A000000 		.word	.L34
+ 704 0054 16010000 		.word	.L37
+ 705 0058 A4010000 		.word	.L38
+ 706 005c 2A000000 		.word	.L34
+ 707 0060 2A000000 		.word	.L34
+ 708 0064 2A000000 		.word	.L34
+ 709 0068 2A000000 		.word	.L34
+ 710 006c 16010000 		.word	.L37
+ 711 0070 2A000000 		.word	.L34
+ 712 0074 2A000000 		.word	.L34
+ 713 0078 2A000000 		.word	.L34
+ 714 007c 2A000000 		.word	.L34
+ 715 0080 2A000000 		.word	.L34
+ 716 0084 2A000000 		.word	.L34
+ 717 0088 2A000000 		.word	.L34
+ 718 008c 2A000000 		.word	.L34
+ 719 0090 A4010000 		.word	.L38
+ 720 0094 2A000000 		.word	.L34
+ 721 0098 2A000000 		.word	.L34
+ 722 009c 2A000000 		.word	.L34
+ 723 00a0 2A000000 		.word	.L34
+ 724 00a4 2A000000 		.word	.L34
+ 725 00a8 2A000000 		.word	.L34
+ 726 00ac 2A000000 		.word	.L34
+ 727 00b0 2A000000 		.word	.L34
+ 728 00b4 2A000000 		.word	.L34
+ 729 00b8 2A000000 		.word	.L34
+ 730 00bc EA000000 		.word	.L39
+ 731 00c0 00010000 		.word	.L40
+ 732              		.section	.text.u8g_dev_rot180_fn
+ARM GAS  /tmp/cc86Wp1q.s 			page 17
+
+
+ 733              	.L34:
+ 195:Drivers/u8glib/src/u8g_rot.c ****   {
+ 196:Drivers/u8glib/src/u8g_rot.c ****     default:
+ 197:Drivers/u8glib/src/u8g_rot.c ****     /*
+ 198:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_INIT:
+ 199:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_STOP:
+ 200:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_PAGE_FIRST:
+ 201:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 202:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_COLOR_ENTRY:
+ 203:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_XY_CB:
+ 204:Drivers/u8glib/src/u8g_rot.c ****     */
+ 205:Drivers/u8glib/src/u8g_rot.c ****       return u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 734              		.loc 1 205 0
+ 735 002a 3C68     		ldr	r4, [r7]
+ 736 002c FB1D     		adds	r3, r7, #7
+ 737 002e 1A78     		ldrb	r2, [r3]
+ 738 0030 F969     		ldr	r1, [r7, #28]
+ 739 0032 F868     		ldr	r0, [r7, #12]
+ 740 0034 2300     		movs	r3, r4
+ 741 0036 FFF7FEFF 		bl	u8g_call_dev_fn
+ 742 003a 0300     		movs	r3, r0
+ 743 003c 07E1     		b	.L41
+ 744              	.L35:
+ 206:Drivers/u8glib/src/u8g_rot.c **** #ifdef U8G_DEV_MSG_IS_BBX_INTERSECTION
+ 207:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_IS_BBX_INTERSECTION:
+ 208:Drivers/u8glib/src/u8g_rot.c ****       {
+ 209:Drivers/u8glib/src/u8g_rot.c ****         u8g_dev_arg_bbx_t *bbx = (u8g_dev_arg_bbx_t *)arg;
+ 210:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 211:Drivers/u8glib/src/u8g_rot.c ****         
+ 212:Drivers/u8glib/src/u8g_rot.c ****         /* transform the reference point */
+ 213:Drivers/u8glib/src/u8g_rot.c ****         //y = u8g_GetHeightLL(u8g, rotation_chain);
+ 214:Drivers/u8glib/src/u8g_rot.c ****         y = u8g->height;
+ 215:Drivers/u8glib/src/u8g_rot.c ****         y -= bbx->y; 
+ 216:Drivers/u8glib/src/u8g_rot.c ****         y--;
+ 217:Drivers/u8glib/src/u8g_rot.c ****         
+ 218:Drivers/u8glib/src/u8g_rot.c ****         //x = u8g_GetWidthLL(u8g, rotation_chain);
+ 219:Drivers/u8glib/src/u8g_rot.c ****         x = u8g->width;
+ 220:Drivers/u8glib/src/u8g_rot.c ****         x -= bbx->x; 
+ 221:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 222:Drivers/u8glib/src/u8g_rot.c ****         
+ 223:Drivers/u8glib/src/u8g_rot.c ****         /* adjust point to be the uppler left corner again */
+ 224:Drivers/u8glib/src/u8g_rot.c ****         y -= bbx->h;
+ 225:Drivers/u8glib/src/u8g_rot.c ****         y++;
+ 226:Drivers/u8glib/src/u8g_rot.c ****         
+ 227:Drivers/u8glib/src/u8g_rot.c ****         x -= bbx->w;
+ 228:Drivers/u8glib/src/u8g_rot.c ****         x++;
+ 229:Drivers/u8glib/src/u8g_rot.c ****                 
+ 230:Drivers/u8glib/src/u8g_rot.c ****         /* store x,y */
+ 231:Drivers/u8glib/src/u8g_rot.c ****         bbx->x = x;
+ 232:Drivers/u8glib/src/u8g_rot.c ****         bbx->y = y;
+ 233:Drivers/u8glib/src/u8g_rot.c ****       }
+ 234:Drivers/u8glib/src/u8g_rot.c ****       return u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 235:Drivers/u8glib/src/u8g_rot.c **** #endif /* U8G_DEV_MSG_IS_BBX_INTERSECTION */
+ 236:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_PAGE_BOX:
+ 237:Drivers/u8glib/src/u8g_rot.c ****       /* get page size from next device in the chain */
+ 238:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 745              		.loc 1 238 0
+ARM GAS  /tmp/cc86Wp1q.s 			page 18
+
+
+ 746 003e 3C68     		ldr	r4, [r7]
+ 747 0040 FB1D     		adds	r3, r7, #7
+ 748 0042 1A78     		ldrb	r2, [r3]
+ 749 0044 F969     		ldr	r1, [r7, #28]
+ 750 0046 F868     		ldr	r0, [r7, #12]
+ 751 0048 2300     		movs	r3, r4
+ 752 004a FFF7FEFF 		bl	u8g_call_dev_fn
+ 753              	.LBB5:
+ 239:Drivers/u8glib/src/u8g_rot.c ****       //printf("pre x: %3d..%3d y: %3d..%3d   ", ((u8g_box_t *)arg)->x0, ((u8g_box_t *)arg)->x1, ((
+ 240:Drivers/u8glib/src/u8g_rot.c ****       {
+ 241:Drivers/u8glib/src/u8g_rot.c **** 	u8g_box_t new_box;
+ 242:Drivers/u8glib/src/u8g_rot.c **** 	
+ 243:Drivers/u8glib/src/u8g_rot.c **** 	new_box.x0 = u8g_GetWidthLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->x1 - 1;
+ 754              		.loc 1 243 0
+ 755 004e FA69     		ldr	r2, [r7, #28]
+ 756 0050 FB68     		ldr	r3, [r7, #12]
+ 757 0052 1100     		movs	r1, r2
+ 758 0054 1800     		movs	r0, r3
+ 759 0056 FFF7FEFF 		bl	u8g_GetWidthLL
+ 760 005a 0300     		movs	r3, r0
+ 761 005c 1A00     		movs	r2, r3
+ 762 005e 3B68     		ldr	r3, [r7]
+ 763 0060 9B78     		ldrb	r3, [r3, #2]
+ 764 0062 D31A     		subs	r3, r2, r3
+ 765 0064 DBB2     		uxtb	r3, r3
+ 766 0066 013B     		subs	r3, r3, #1
+ 767 0068 DAB2     		uxtb	r2, r3
+ 768 006a 1423     		movs	r3, #20
+ 769 006c FB18     		adds	r3, r7, r3
+ 770 006e 1A70     		strb	r2, [r3]
+ 244:Drivers/u8glib/src/u8g_rot.c **** 	new_box.x1 = u8g_GetWidthLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->x0 - 1;
+ 771              		.loc 1 244 0
+ 772 0070 FA69     		ldr	r2, [r7, #28]
+ 773 0072 FB68     		ldr	r3, [r7, #12]
+ 774 0074 1100     		movs	r1, r2
+ 775 0076 1800     		movs	r0, r3
+ 776 0078 FFF7FEFF 		bl	u8g_GetWidthLL
+ 777 007c 0300     		movs	r3, r0
+ 778 007e 1A00     		movs	r2, r3
+ 779 0080 3B68     		ldr	r3, [r7]
+ 780 0082 1B78     		ldrb	r3, [r3]
+ 781 0084 D31A     		subs	r3, r2, r3
+ 782 0086 DBB2     		uxtb	r3, r3
+ 783 0088 013B     		subs	r3, r3, #1
+ 784 008a DAB2     		uxtb	r2, r3
+ 785 008c 1423     		movs	r3, #20
+ 786 008e FB18     		adds	r3, r7, r3
+ 787 0090 9A70     		strb	r2, [r3, #2]
+ 245:Drivers/u8glib/src/u8g_rot.c **** 	new_box.y0 = u8g_GetHeightLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->y1 - 1;
+ 788              		.loc 1 245 0
+ 789 0092 FA69     		ldr	r2, [r7, #28]
+ 790 0094 FB68     		ldr	r3, [r7, #12]
+ 791 0096 1100     		movs	r1, r2
+ 792 0098 1800     		movs	r0, r3
+ 793 009a FFF7FEFF 		bl	u8g_GetHeightLL
+ 794 009e 0300     		movs	r3, r0
+ 795 00a0 1A00     		movs	r2, r3
+ARM GAS  /tmp/cc86Wp1q.s 			page 19
+
+
+ 796 00a2 3B68     		ldr	r3, [r7]
+ 797 00a4 DB78     		ldrb	r3, [r3, #3]
+ 798 00a6 D31A     		subs	r3, r2, r3
+ 799 00a8 DBB2     		uxtb	r3, r3
+ 800 00aa 013B     		subs	r3, r3, #1
+ 801 00ac DAB2     		uxtb	r2, r3
+ 802 00ae 1423     		movs	r3, #20
+ 803 00b0 FB18     		adds	r3, r7, r3
+ 804 00b2 5A70     		strb	r2, [r3, #1]
+ 246:Drivers/u8glib/src/u8g_rot.c **** 	new_box.y1 = u8g_GetHeightLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->y0 - 1;
+ 805              		.loc 1 246 0
+ 806 00b4 FA69     		ldr	r2, [r7, #28]
+ 807 00b6 FB68     		ldr	r3, [r7, #12]
+ 808 00b8 1100     		movs	r1, r2
+ 809 00ba 1800     		movs	r0, r3
+ 810 00bc FFF7FEFF 		bl	u8g_GetHeightLL
+ 811 00c0 0300     		movs	r3, r0
+ 812 00c2 1A00     		movs	r2, r3
+ 813 00c4 3B68     		ldr	r3, [r7]
+ 814 00c6 5B78     		ldrb	r3, [r3, #1]
+ 815 00c8 D31A     		subs	r3, r2, r3
+ 816 00ca DBB2     		uxtb	r3, r3
+ 817 00cc 013B     		subs	r3, r3, #1
+ 818 00ce DAB2     		uxtb	r2, r3
+ 819 00d0 1423     		movs	r3, #20
+ 820 00d2 FB18     		adds	r3, r7, r3
+ 821 00d4 DA70     		strb	r2, [r3, #3]
+ 247:Drivers/u8glib/src/u8g_rot.c **** 	*((u8g_box_t *)arg) = new_box;
+ 822              		.loc 1 247 0
+ 823 00d6 3A68     		ldr	r2, [r7]
+ 824 00d8 1423     		movs	r3, #20
+ 825 00da FB18     		adds	r3, r7, r3
+ 826 00dc 1000     		movs	r0, r2
+ 827 00de 1900     		movs	r1, r3
+ 828 00e0 0423     		movs	r3, #4
+ 829 00e2 1A00     		movs	r2, r3
+ 830 00e4 FFF7FEFF 		bl	memcpy
+ 831              	.LBE5:
+ 248:Drivers/u8glib/src/u8g_rot.c **** 	//printf("post x: %3d..%3d y: %3d..%3d\n", ((u8g_box_t *)arg)->x0, ((u8g_box_t *)arg)->x1, ((u8g_b
+ 249:Drivers/u8glib/src/u8g_rot.c ****       }
+ 250:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 832              		.loc 1 250 0
+ 833 00e8 B0E0     		b	.L42
+ 834              	.L39:
+ 251:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_WIDTH:
+ 252:Drivers/u8glib/src/u8g_rot.c ****       *((u8g_uint_t *)arg) = u8g_GetWidthLL(u8g,rotation_chain);
+ 835              		.loc 1 252 0
+ 836 00ea FA69     		ldr	r2, [r7, #28]
+ 837 00ec FB68     		ldr	r3, [r7, #12]
+ 838 00ee 1100     		movs	r1, r2
+ 839 00f0 1800     		movs	r0, r3
+ 840 00f2 FFF7FEFF 		bl	u8g_GetWidthLL
+ 841 00f6 0300     		movs	r3, r0
+ 842 00f8 1A00     		movs	r2, r3
+ 843 00fa 3B68     		ldr	r3, [r7]
+ 844 00fc 1A70     		strb	r2, [r3]
+ 253:Drivers/u8glib/src/u8g_rot.c ****       break;
+ARM GAS  /tmp/cc86Wp1q.s 			page 20
+
+
+ 845              		.loc 1 253 0
+ 846 00fe A5E0     		b	.L42
+ 847              	.L40:
+ 254:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_HEIGHT:
+ 255:Drivers/u8glib/src/u8g_rot.c ****       *((u8g_uint_t *)arg) = u8g_GetHeightLL(u8g, rotation_chain);
+ 848              		.loc 1 255 0
+ 849 0100 FA69     		ldr	r2, [r7, #28]
+ 850 0102 FB68     		ldr	r3, [r7, #12]
+ 851 0104 1100     		movs	r1, r2
+ 852 0106 1800     		movs	r0, r3
+ 853 0108 FFF7FEFF 		bl	u8g_GetHeightLL
+ 854 010c 0300     		movs	r3, r0
+ 855 010e 1A00     		movs	r2, r3
+ 856 0110 3B68     		ldr	r3, [r7]
+ 857 0112 1A70     		strb	r2, [r3]
+ 256:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 858              		.loc 1 256 0
+ 859 0114 9AE0     		b	.L42
+ 860              	.L37:
+ 861              	.LBB6:
+ 257:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_PIXEL:
+ 258:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_TPIXEL:
+ 259:Drivers/u8glib/src/u8g_rot.c ****       {
+ 260:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 261:Drivers/u8glib/src/u8g_rot.c **** 
+ 262:Drivers/u8glib/src/u8g_rot.c ****         y = u8g_GetHeightLL(u8g, rotation_chain);
+ 862              		.loc 1 262 0
+ 863 0116 1B23     		movs	r3, #27
+ 864 0118 FC18     		adds	r4, r7, r3
+ 865 011a FA69     		ldr	r2, [r7, #28]
+ 866 011c FB68     		ldr	r3, [r7, #12]
+ 867 011e 1100     		movs	r1, r2
+ 868 0120 1800     		movs	r0, r3
+ 869 0122 FFF7FEFF 		bl	u8g_GetHeightLL
+ 870 0126 0300     		movs	r3, r0
+ 871 0128 2370     		strb	r3, [r4]
+ 263:Drivers/u8glib/src/u8g_rot.c ****         y -= ((u8g_dev_arg_pixel_t *)arg)->y; 
+ 872              		.loc 1 263 0
+ 873 012a 3B68     		ldr	r3, [r7]
+ 874 012c 5A78     		ldrb	r2, [r3, #1]
+ 875 012e 1B23     		movs	r3, #27
+ 876 0130 FB18     		adds	r3, r7, r3
+ 877 0132 1B21     		movs	r1, #27
+ 878 0134 7918     		adds	r1, r7, r1
+ 879 0136 0978     		ldrb	r1, [r1]
+ 880 0138 8A1A     		subs	r2, r1, r2
+ 881 013a 1A70     		strb	r2, [r3]
+ 264:Drivers/u8glib/src/u8g_rot.c ****         y--;
+ 882              		.loc 1 264 0
+ 883 013c 1B23     		movs	r3, #27
+ 884 013e FB18     		adds	r3, r7, r3
+ 885 0140 1A78     		ldrb	r2, [r3]
+ 886 0142 1B23     		movs	r3, #27
+ 887 0144 FB18     		adds	r3, r7, r3
+ 888 0146 013A     		subs	r2, r2, #1
+ 889 0148 1A70     		strb	r2, [r3]
+ 265:Drivers/u8glib/src/u8g_rot.c ****         
+ARM GAS  /tmp/cc86Wp1q.s 			page 21
+
+
+ 266:Drivers/u8glib/src/u8g_rot.c ****         x = u8g_GetWidthLL(u8g, rotation_chain);
+ 890              		.loc 1 266 0
+ 891 014a 1A23     		movs	r3, #26
+ 892 014c FC18     		adds	r4, r7, r3
+ 893 014e FA69     		ldr	r2, [r7, #28]
+ 894 0150 FB68     		ldr	r3, [r7, #12]
+ 895 0152 1100     		movs	r1, r2
+ 896 0154 1800     		movs	r0, r3
+ 897 0156 FFF7FEFF 		bl	u8g_GetWidthLL
+ 898 015a 0300     		movs	r3, r0
+ 899 015c 2370     		strb	r3, [r4]
+ 267:Drivers/u8glib/src/u8g_rot.c ****         x -= ((u8g_dev_arg_pixel_t *)arg)->x; 
+ 900              		.loc 1 267 0
+ 901 015e 3B68     		ldr	r3, [r7]
+ 902 0160 1A78     		ldrb	r2, [r3]
+ 903 0162 1A23     		movs	r3, #26
+ 904 0164 FB18     		adds	r3, r7, r3
+ 905 0166 1A21     		movs	r1, #26
+ 906 0168 7918     		adds	r1, r7, r1
+ 907 016a 0978     		ldrb	r1, [r1]
+ 908 016c 8A1A     		subs	r2, r1, r2
+ 909 016e 1A70     		strb	r2, [r3]
+ 268:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 910              		.loc 1 268 0
+ 911 0170 1A23     		movs	r3, #26
+ 912 0172 FB18     		adds	r3, r7, r3
+ 913 0174 1A78     		ldrb	r2, [r3]
+ 914 0176 1A23     		movs	r3, #26
+ 915 0178 FB18     		adds	r3, r7, r3
+ 916 017a 013A     		subs	r2, r2, #1
+ 917 017c 1A70     		strb	r2, [r3]
+ 269:Drivers/u8glib/src/u8g_rot.c ****         
+ 270:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->x = x;
+ 918              		.loc 1 270 0
+ 919 017e 3B68     		ldr	r3, [r7]
+ 920 0180 1A22     		movs	r2, #26
+ 921 0182 BA18     		adds	r2, r7, r2
+ 922 0184 1278     		ldrb	r2, [r2]
+ 923 0186 1A70     		strb	r2, [r3]
+ 271:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->y = y;
+ 924              		.loc 1 271 0
+ 925 0188 3B68     		ldr	r3, [r7]
+ 926 018a 1B22     		movs	r2, #27
+ 927 018c BA18     		adds	r2, r7, r2
+ 928 018e 1278     		ldrb	r2, [r2]
+ 929 0190 5A70     		strb	r2, [r3, #1]
+ 930              	.LBE6:
+ 272:Drivers/u8glib/src/u8g_rot.c ****       }
+ 273:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 931              		.loc 1 273 0
+ 932 0192 3C68     		ldr	r4, [r7]
+ 933 0194 FB1D     		adds	r3, r7, #7
+ 934 0196 1A78     		ldrb	r2, [r3]
+ 935 0198 F969     		ldr	r1, [r7, #28]
+ 936 019a F868     		ldr	r0, [r7, #12]
+ 937 019c 2300     		movs	r3, r4
+ 938 019e FFF7FEFF 		bl	u8g_call_dev_fn
+ARM GAS  /tmp/cc86Wp1q.s 			page 22
+
+
+ 274:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 939              		.loc 1 274 0
+ 940 01a2 53E0     		b	.L42
+ 941              	.L38:
+ 942              	.LBB7:
+ 275:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_8PIXEL:
+ 276:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_4TPIXEL:
+ 277:Drivers/u8glib/src/u8g_rot.c ****       {
+ 278:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 279:Drivers/u8glib/src/u8g_rot.c ****         
+ 280:Drivers/u8glib/src/u8g_rot.c ****         y = u8g_GetHeightLL(u8g, rotation_chain);
+ 943              		.loc 1 280 0
+ 944 01a4 1923     		movs	r3, #25
+ 945 01a6 FC18     		adds	r4, r7, r3
+ 946 01a8 FA69     		ldr	r2, [r7, #28]
+ 947 01aa FB68     		ldr	r3, [r7, #12]
+ 948 01ac 1100     		movs	r1, r2
+ 949 01ae 1800     		movs	r0, r3
+ 950 01b0 FFF7FEFF 		bl	u8g_GetHeightLL
+ 951 01b4 0300     		movs	r3, r0
+ 952 01b6 2370     		strb	r3, [r4]
+ 281:Drivers/u8glib/src/u8g_rot.c ****         y -= ((u8g_dev_arg_pixel_t *)arg)->y; 
+ 953              		.loc 1 281 0
+ 954 01b8 3B68     		ldr	r3, [r7]
+ 955 01ba 5A78     		ldrb	r2, [r3, #1]
+ 956 01bc 1923     		movs	r3, #25
+ 957 01be FB18     		adds	r3, r7, r3
+ 958 01c0 1921     		movs	r1, #25
+ 959 01c2 7918     		adds	r1, r7, r1
+ 960 01c4 0978     		ldrb	r1, [r1]
+ 961 01c6 8A1A     		subs	r2, r1, r2
+ 962 01c8 1A70     		strb	r2, [r3]
+ 282:Drivers/u8glib/src/u8g_rot.c ****         y--;
+ 963              		.loc 1 282 0
+ 964 01ca 1923     		movs	r3, #25
+ 965 01cc FB18     		adds	r3, r7, r3
+ 966 01ce 1A78     		ldrb	r2, [r3]
+ 967 01d0 1923     		movs	r3, #25
+ 968 01d2 FB18     		adds	r3, r7, r3
+ 969 01d4 013A     		subs	r2, r2, #1
+ 970 01d6 1A70     		strb	r2, [r3]
+ 283:Drivers/u8glib/src/u8g_rot.c ****         
+ 284:Drivers/u8glib/src/u8g_rot.c ****         x = u8g_GetWidthLL(u8g, rotation_chain);
+ 971              		.loc 1 284 0
+ 972 01d8 1823     		movs	r3, #24
+ 973 01da FC18     		adds	r4, r7, r3
+ 974 01dc FA69     		ldr	r2, [r7, #28]
+ 975 01de FB68     		ldr	r3, [r7, #12]
+ 976 01e0 1100     		movs	r1, r2
+ 977 01e2 1800     		movs	r0, r3
+ 978 01e4 FFF7FEFF 		bl	u8g_GetWidthLL
+ 979 01e8 0300     		movs	r3, r0
+ 980 01ea 2370     		strb	r3, [r4]
+ 285:Drivers/u8glib/src/u8g_rot.c ****         x -= ((u8g_dev_arg_pixel_t *)arg)->x; 
+ 981              		.loc 1 285 0
+ 982 01ec 3B68     		ldr	r3, [r7]
+ 983 01ee 1A78     		ldrb	r2, [r3]
+ARM GAS  /tmp/cc86Wp1q.s 			page 23
+
+
+ 984 01f0 1823     		movs	r3, #24
+ 985 01f2 FB18     		adds	r3, r7, r3
+ 986 01f4 1821     		movs	r1, #24
+ 987 01f6 7918     		adds	r1, r7, r1
+ 988 01f8 0978     		ldrb	r1, [r1]
+ 989 01fa 8A1A     		subs	r2, r1, r2
+ 990 01fc 1A70     		strb	r2, [r3]
+ 286:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 991              		.loc 1 286 0
+ 992 01fe 1823     		movs	r3, #24
+ 993 0200 FB18     		adds	r3, r7, r3
+ 994 0202 1A78     		ldrb	r2, [r3]
+ 995 0204 1823     		movs	r3, #24
+ 996 0206 FB18     		adds	r3, r7, r3
+ 997 0208 013A     		subs	r2, r2, #1
+ 998 020a 1A70     		strb	r2, [r3]
+ 287:Drivers/u8glib/src/u8g_rot.c ****         
+ 288:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->x = x;
+ 999              		.loc 1 288 0
+ 1000 020c 3B68     		ldr	r3, [r7]
+ 1001 020e 1822     		movs	r2, #24
+ 1002 0210 BA18     		adds	r2, r7, r2
+ 1003 0212 1278     		ldrb	r2, [r2]
+ 1004 0214 1A70     		strb	r2, [r3]
+ 289:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->y = y;
+ 1005              		.loc 1 289 0
+ 1006 0216 3B68     		ldr	r3, [r7]
+ 1007 0218 1922     		movs	r2, #25
+ 1008 021a BA18     		adds	r2, r7, r2
+ 1009 021c 1278     		ldrb	r2, [r2]
+ 1010 021e 5A70     		strb	r2, [r3, #1]
+ 290:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->dir+=2;
+ 1011              		.loc 1 290 0
+ 1012 0220 3B68     		ldr	r3, [r7]
+ 1013 0222 DB78     		ldrb	r3, [r3, #3]
+ 1014 0224 0233     		adds	r3, r3, #2
+ 1015 0226 DAB2     		uxtb	r2, r3
+ 1016 0228 3B68     		ldr	r3, [r7]
+ 1017 022a DA70     		strb	r2, [r3, #3]
+ 291:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->dir &= 3;
+ 1018              		.loc 1 291 0
+ 1019 022c 3B68     		ldr	r3, [r7]
+ 1020 022e DB78     		ldrb	r3, [r3, #3]
+ 1021 0230 0322     		movs	r2, #3
+ 1022 0232 1340     		ands	r3, r2
+ 1023 0234 DAB2     		uxtb	r2, r3
+ 1024 0236 3B68     		ldr	r3, [r7]
+ 1025 0238 DA70     		strb	r2, [r3, #3]
+ 1026              	.LBE7:
+ 292:Drivers/u8glib/src/u8g_rot.c ****       }
+ 293:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 1027              		.loc 1 293 0
+ 1028 023a 3C68     		ldr	r4, [r7]
+ 1029 023c FB1D     		adds	r3, r7, #7
+ 1030 023e 1A78     		ldrb	r2, [r3]
+ 1031 0240 F969     		ldr	r1, [r7, #28]
+ 1032 0242 F868     		ldr	r0, [r7, #12]
+ARM GAS  /tmp/cc86Wp1q.s 			page 24
+
+
+ 1033 0244 2300     		movs	r3, r4
+ 1034 0246 FFF7FEFF 		bl	u8g_call_dev_fn
+ 294:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 1035              		.loc 1 294 0
+ 1036 024a C046     		nop
+ 1037              	.L42:
+ 295:Drivers/u8glib/src/u8g_rot.c ****   }
+ 296:Drivers/u8glib/src/u8g_rot.c ****   return 1;
+ 1038              		.loc 1 296 0
+ 1039 024c 0123     		movs	r3, #1
+ 1040              	.L41:
+ 297:Drivers/u8glib/src/u8g_rot.c **** }
+ 1041              		.loc 1 297 0
+ 1042 024e 1800     		movs	r0, r3
+ 1043 0250 BD46     		mov	sp, r7
+ 1044 0252 09B0     		add	sp, sp, #36
+ 1045              		@ sp needed
+ 1046 0254 90BD     		pop	{r4, r7, pc}
+ 1047              	.L44:
+ 1048 0256 C046     		.align	2
+ 1049              	.L43:
+ 1050 0258 00000000 		.word	.L36
+ 1051              		.cfi_endproc
+ 1052              	.LFE6:
+ 1054              		.section	.text.u8g_dev_rot270_fn,"ax",%progbits
+ 1055              		.align	1
+ 1056              		.global	u8g_dev_rot270_fn
+ 1057              		.syntax unified
+ 1058              		.code	16
+ 1059              		.thumb_func
+ 1060              		.fpu softvfp
+ 1062              	u8g_dev_rot270_fn:
+ 1063              	.LFB7:
+ 298:Drivers/u8glib/src/u8g_rot.c **** 
+ 299:Drivers/u8glib/src/u8g_rot.c **** uint8_t u8g_dev_rot270_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 300:Drivers/u8glib/src/u8g_rot.c **** {
+ 1064              		.loc 1 300 0
+ 1065              		.cfi_startproc
+ 1066 0000 90B5     		push	{r4, r7, lr}
+ 1067              	.LCFI21:
+ 1068              		.cfi_def_cfa_offset 12
+ 1069              		.cfi_offset 4, -12
+ 1070              		.cfi_offset 7, -8
+ 1071              		.cfi_offset 14, -4
+ 1072 0002 89B0     		sub	sp, sp, #36
+ 1073              	.LCFI22:
+ 1074              		.cfi_def_cfa_offset 48
+ 1075 0004 00AF     		add	r7, sp, #0
+ 1076              	.LCFI23:
+ 1077              		.cfi_def_cfa_register 7
+ 1078 0006 F860     		str	r0, [r7, #12]
+ 1079 0008 B960     		str	r1, [r7, #8]
+ 1080 000a 3B60     		str	r3, [r7]
+ 1081 000c FB1D     		adds	r3, r7, #7
+ 1082 000e 1A70     		strb	r2, [r3]
+ 301:Drivers/u8glib/src/u8g_rot.c ****   u8g_dev_t *rotation_chain = (u8g_dev_t *)(dev->dev_mem);
+ 1083              		.loc 1 301 0
+ARM GAS  /tmp/cc86Wp1q.s 			page 25
+
+
+ 1084 0010 BB68     		ldr	r3, [r7, #8]
+ 1085 0012 5B68     		ldr	r3, [r3, #4]
+ 1086 0014 FB61     		str	r3, [r7, #28]
+ 302:Drivers/u8glib/src/u8g_rot.c ****   switch(msg)
+ 1087              		.loc 1 302 0
+ 1088 0016 FB1D     		adds	r3, r7, #7
+ 1089 0018 1B78     		ldrb	r3, [r3]
+ 1090 001a 173B     		subs	r3, r3, #23
+ 1091 001c 302B     		cmp	r3, #48
+ 1092 001e 04D8     		bhi	.L46
+ 1093 0020 9A00     		lsls	r2, r3, #2
+ 1094 0022 784B     		ldr	r3, .L55
+ 1095 0024 D318     		adds	r3, r2, r3
+ 1096 0026 1B68     		ldr	r3, [r3]
+ 1097 0028 9F46     		mov	pc, r3
+ 1098              		.section	.rodata.u8g_dev_rot270_fn,"a",%progbits
+ 1099              		.align	2
+ 1100              	.L48:
+ 1101 0000 3E000000 		.word	.L47
+ 1102 0004 2A000000 		.word	.L46
+ 1103 0008 2A000000 		.word	.L46
+ 1104 000c 2A000000 		.word	.L46
+ 1105 0010 2A000000 		.word	.L46
+ 1106 0014 2A000000 		.word	.L46
+ 1107 0018 2A000000 		.word	.L46
+ 1108 001c 2A000000 		.word	.L46
+ 1109 0020 2A000000 		.word	.L46
+ 1110 0024 2A000000 		.word	.L46
+ 1111 0028 2A000000 		.word	.L46
+ 1112 002c 2A000000 		.word	.L46
+ 1113 0030 2A000000 		.word	.L46
+ 1114 0034 2A000000 		.word	.L46
+ 1115 0038 2A000000 		.word	.L46
+ 1116 003c 2A000000 		.word	.L46
+ 1117 0040 2A000000 		.word	.L46
+ 1118 0044 2A000000 		.word	.L46
+ 1119 0048 2A000000 		.word	.L46
+ 1120 004c 2A000000 		.word	.L46
+ 1121 0050 2A000000 		.word	.L46
+ 1122 0054 16010000 		.word	.L49
+ 1123 0058 7A010000 		.word	.L50
+ 1124 005c 2A000000 		.word	.L46
+ 1125 0060 2A000000 		.word	.L46
+ 1126 0064 2A000000 		.word	.L46
+ 1127 0068 2A000000 		.word	.L46
+ 1128 006c 16010000 		.word	.L49
+ 1129 0070 2A000000 		.word	.L46
+ 1130 0074 2A000000 		.word	.L46
+ 1131 0078 2A000000 		.word	.L46
+ 1132 007c 2A000000 		.word	.L46
+ 1133 0080 2A000000 		.word	.L46
+ 1134 0084 2A000000 		.word	.L46
+ 1135 0088 2A000000 		.word	.L46
+ 1136 008c 2A000000 		.word	.L46
+ 1137 0090 7A010000 		.word	.L50
+ 1138 0094 2A000000 		.word	.L46
+ 1139 0098 2A000000 		.word	.L46
+ARM GAS  /tmp/cc86Wp1q.s 			page 26
+
+
+ 1140 009c 2A000000 		.word	.L46
+ 1141 00a0 2A000000 		.word	.L46
+ 1142 00a4 2A000000 		.word	.L46
+ 1143 00a8 2A000000 		.word	.L46
+ 1144 00ac 2A000000 		.word	.L46
+ 1145 00b0 2A000000 		.word	.L46
+ 1146 00b4 2A000000 		.word	.L46
+ 1147 00b8 2A000000 		.word	.L46
+ 1148 00bc EA000000 		.word	.L51
+ 1149 00c0 00010000 		.word	.L52
+ 1150              		.section	.text.u8g_dev_rot270_fn
+ 1151              	.L46:
+ 303:Drivers/u8glib/src/u8g_rot.c ****   {
+ 304:Drivers/u8glib/src/u8g_rot.c ****     default:
+ 305:Drivers/u8glib/src/u8g_rot.c ****     /*
+ 306:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_INIT:
+ 307:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_STOP:
+ 308:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_PAGE_FIRST:
+ 309:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 310:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_COLOR_ENTRY:
+ 311:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_XY_CB:
+ 312:Drivers/u8glib/src/u8g_rot.c ****     */
+ 313:Drivers/u8glib/src/u8g_rot.c ****       return u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 1152              		.loc 1 313 0
+ 1153 002a 3C68     		ldr	r4, [r7]
+ 1154 002c FB1D     		adds	r3, r7, #7
+ 1155 002e 1A78     		ldrb	r2, [r3]
+ 1156 0030 F969     		ldr	r1, [r7, #28]
+ 1157 0032 F868     		ldr	r0, [r7, #12]
+ 1158 0034 2300     		movs	r3, r4
+ 1159 0036 FFF7FEFF 		bl	u8g_call_dev_fn
+ 1160 003a 0300     		movs	r3, r0
+ 1161 003c DDE0     		b	.L53
+ 1162              	.L47:
+ 314:Drivers/u8glib/src/u8g_rot.c **** #ifdef U8G_DEV_MSG_IS_BBX_INTERSECTION
+ 315:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_IS_BBX_INTERSECTION:
+ 316:Drivers/u8glib/src/u8g_rot.c ****       {
+ 317:Drivers/u8glib/src/u8g_rot.c ****         u8g_dev_arg_bbx_t *bbx = (u8g_dev_arg_bbx_t *)arg;
+ 318:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y, tmp;
+ 319:Drivers/u8glib/src/u8g_rot.c ****         
+ 320:Drivers/u8glib/src/u8g_rot.c ****         /* transform the reference point */
+ 321:Drivers/u8glib/src/u8g_rot.c ****         x = bbx->y;
+ 322:Drivers/u8glib/src/u8g_rot.c ****         
+ 323:Drivers/u8glib/src/u8g_rot.c ****         y = u8g->width;
+ 324:Drivers/u8glib/src/u8g_rot.c ****         /* y = u8g_GetHeightLL(u8g, rotation_chain); */
+ 325:Drivers/u8glib/src/u8g_rot.c ****         y -= bbx->x; 
+ 326:Drivers/u8glib/src/u8g_rot.c ****         y--;
+ 327:Drivers/u8glib/src/u8g_rot.c ****                 
+ 328:Drivers/u8glib/src/u8g_rot.c ****         /* adjust point to be the uppler left corner again */
+ 329:Drivers/u8glib/src/u8g_rot.c ****         y -= bbx->w;
+ 330:Drivers/u8glib/src/u8g_rot.c ****         y++;
+ 331:Drivers/u8glib/src/u8g_rot.c ****         
+ 332:Drivers/u8glib/src/u8g_rot.c ****         /* swap box dimensions */        
+ 333:Drivers/u8glib/src/u8g_rot.c ****         tmp = bbx->w;
+ 334:Drivers/u8glib/src/u8g_rot.c ****         bbx->w = bbx->h;
+ 335:Drivers/u8glib/src/u8g_rot.c ****         bbx->h = tmp;
+ 336:Drivers/u8glib/src/u8g_rot.c ****         
+ARM GAS  /tmp/cc86Wp1q.s 			page 27
+
+
+ 337:Drivers/u8glib/src/u8g_rot.c ****         /* store x,y */
+ 338:Drivers/u8glib/src/u8g_rot.c ****         bbx->x = x;
+ 339:Drivers/u8glib/src/u8g_rot.c ****         bbx->y = y;
+ 340:Drivers/u8glib/src/u8g_rot.c ****       }
+ 341:Drivers/u8glib/src/u8g_rot.c ****       return u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 342:Drivers/u8glib/src/u8g_rot.c **** #endif /* U8G_DEV_MSG_IS_BBX_INTERSECTION */
+ 343:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_PAGE_BOX:
+ 344:Drivers/u8glib/src/u8g_rot.c ****       /* get page size from next device in the chain */
+ 345:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 1163              		.loc 1 345 0
+ 1164 003e 3C68     		ldr	r4, [r7]
+ 1165 0040 FB1D     		adds	r3, r7, #7
+ 1166 0042 1A78     		ldrb	r2, [r3]
+ 1167 0044 F969     		ldr	r1, [r7, #28]
+ 1168 0046 F868     		ldr	r0, [r7, #12]
+ 1169 0048 2300     		movs	r3, r4
+ 1170 004a FFF7FEFF 		bl	u8g_call_dev_fn
+ 1171              	.LBB8:
+ 346:Drivers/u8glib/src/u8g_rot.c ****       //printf("pre x: %3d..%3d y: %3d..%3d   ", ((u8g_box_t *)arg)->x0, ((u8g_box_t *)arg)->x1, ((
+ 347:Drivers/u8glib/src/u8g_rot.c ****       {
+ 348:Drivers/u8glib/src/u8g_rot.c **** 	u8g_box_t new_box;
+ 349:Drivers/u8glib/src/u8g_rot.c **** 	
+ 350:Drivers/u8glib/src/u8g_rot.c **** 	new_box.x0 = u8g_GetHeightLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->y1 - 1;
+ 1172              		.loc 1 350 0
+ 1173 004e FA69     		ldr	r2, [r7, #28]
+ 1174 0050 FB68     		ldr	r3, [r7, #12]
+ 1175 0052 1100     		movs	r1, r2
+ 1176 0054 1800     		movs	r0, r3
+ 1177 0056 FFF7FEFF 		bl	u8g_GetHeightLL
+ 1178 005a 0300     		movs	r3, r0
+ 1179 005c 1A00     		movs	r2, r3
+ 1180 005e 3B68     		ldr	r3, [r7]
+ 1181 0060 DB78     		ldrb	r3, [r3, #3]
+ 1182 0062 D31A     		subs	r3, r2, r3
+ 1183 0064 DBB2     		uxtb	r3, r3
+ 1184 0066 013B     		subs	r3, r3, #1
+ 1185 0068 DAB2     		uxtb	r2, r3
+ 1186 006a 1423     		movs	r3, #20
+ 1187 006c FB18     		adds	r3, r7, r3
+ 1188 006e 1A70     		strb	r2, [r3]
+ 351:Drivers/u8glib/src/u8g_rot.c **** 	new_box.x1 = u8g_GetHeightLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->y0 - 1;
+ 1189              		.loc 1 351 0
+ 1190 0070 FA69     		ldr	r2, [r7, #28]
+ 1191 0072 FB68     		ldr	r3, [r7, #12]
+ 1192 0074 1100     		movs	r1, r2
+ 1193 0076 1800     		movs	r0, r3
+ 1194 0078 FFF7FEFF 		bl	u8g_GetHeightLL
+ 1195 007c 0300     		movs	r3, r0
+ 1196 007e 1A00     		movs	r2, r3
+ 1197 0080 3B68     		ldr	r3, [r7]
+ 1198 0082 5B78     		ldrb	r3, [r3, #1]
+ 1199 0084 D31A     		subs	r3, r2, r3
+ 1200 0086 DBB2     		uxtb	r3, r3
+ 1201 0088 013B     		subs	r3, r3, #1
+ 1202 008a DAB2     		uxtb	r2, r3
+ 1203 008c 1423     		movs	r3, #20
+ 1204 008e FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/cc86Wp1q.s 			page 28
+
+
+ 1205 0090 9A70     		strb	r2, [r3, #2]
+ 352:Drivers/u8glib/src/u8g_rot.c **** 	new_box.y0 = u8g_GetWidthLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->x1 - 1;
+ 1206              		.loc 1 352 0
+ 1207 0092 FA69     		ldr	r2, [r7, #28]
+ 1208 0094 FB68     		ldr	r3, [r7, #12]
+ 1209 0096 1100     		movs	r1, r2
+ 1210 0098 1800     		movs	r0, r3
+ 1211 009a FFF7FEFF 		bl	u8g_GetWidthLL
+ 1212 009e 0300     		movs	r3, r0
+ 1213 00a0 1A00     		movs	r2, r3
+ 1214 00a2 3B68     		ldr	r3, [r7]
+ 1215 00a4 9B78     		ldrb	r3, [r3, #2]
+ 1216 00a6 D31A     		subs	r3, r2, r3
+ 1217 00a8 DBB2     		uxtb	r3, r3
+ 1218 00aa 013B     		subs	r3, r3, #1
+ 1219 00ac DAB2     		uxtb	r2, r3
+ 1220 00ae 1423     		movs	r3, #20
+ 1221 00b0 FB18     		adds	r3, r7, r3
+ 1222 00b2 5A70     		strb	r2, [r3, #1]
+ 353:Drivers/u8glib/src/u8g_rot.c **** 	new_box.y1 = u8g_GetWidthLL(u8g,rotation_chain) - ((u8g_box_t *)arg)->x0 - 1;
+ 1223              		.loc 1 353 0
+ 1224 00b4 FA69     		ldr	r2, [r7, #28]
+ 1225 00b6 FB68     		ldr	r3, [r7, #12]
+ 1226 00b8 1100     		movs	r1, r2
+ 1227 00ba 1800     		movs	r0, r3
+ 1228 00bc FFF7FEFF 		bl	u8g_GetWidthLL
+ 1229 00c0 0300     		movs	r3, r0
+ 1230 00c2 1A00     		movs	r2, r3
+ 1231 00c4 3B68     		ldr	r3, [r7]
+ 1232 00c6 1B78     		ldrb	r3, [r3]
+ 1233 00c8 D31A     		subs	r3, r2, r3
+ 1234 00ca DBB2     		uxtb	r3, r3
+ 1235 00cc 013B     		subs	r3, r3, #1
+ 1236 00ce DAB2     		uxtb	r2, r3
+ 1237 00d0 1423     		movs	r3, #20
+ 1238 00d2 FB18     		adds	r3, r7, r3
+ 1239 00d4 DA70     		strb	r2, [r3, #3]
+ 354:Drivers/u8glib/src/u8g_rot.c **** 	*((u8g_box_t *)arg) = new_box;
+ 1240              		.loc 1 354 0
+ 1241 00d6 3A68     		ldr	r2, [r7]
+ 1242 00d8 1423     		movs	r3, #20
+ 1243 00da FB18     		adds	r3, r7, r3
+ 1244 00dc 1000     		movs	r0, r2
+ 1245 00de 1900     		movs	r1, r3
+ 1246 00e0 0423     		movs	r3, #4
+ 1247 00e2 1A00     		movs	r2, r3
+ 1248 00e4 FFF7FEFF 		bl	memcpy
+ 1249              	.LBE8:
+ 355:Drivers/u8glib/src/u8g_rot.c **** 	//printf("post x: %3d..%3d y: %3d..%3d\n", ((u8g_box_t *)arg)->x0, ((u8g_box_t *)arg)->x1, ((u8g_b
+ 356:Drivers/u8glib/src/u8g_rot.c ****       }
+ 357:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 1250              		.loc 1 357 0
+ 1251 00e8 86E0     		b	.L54
+ 1252              	.L51:
+ 358:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_WIDTH:
+ 359:Drivers/u8glib/src/u8g_rot.c ****       *((u8g_uint_t *)arg) = u8g_GetHeightLL(u8g,rotation_chain);
+ 1253              		.loc 1 359 0
+ARM GAS  /tmp/cc86Wp1q.s 			page 29
+
+
+ 1254 00ea FA69     		ldr	r2, [r7, #28]
+ 1255 00ec FB68     		ldr	r3, [r7, #12]
+ 1256 00ee 1100     		movs	r1, r2
+ 1257 00f0 1800     		movs	r0, r3
+ 1258 00f2 FFF7FEFF 		bl	u8g_GetHeightLL
+ 1259 00f6 0300     		movs	r3, r0
+ 1260 00f8 1A00     		movs	r2, r3
+ 1261 00fa 3B68     		ldr	r3, [r7]
+ 1262 00fc 1A70     		strb	r2, [r3]
+ 360:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 1263              		.loc 1 360 0
+ 1264 00fe 7BE0     		b	.L54
+ 1265              	.L52:
+ 361:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_GET_HEIGHT:
+ 362:Drivers/u8glib/src/u8g_rot.c ****       *((u8g_uint_t *)arg) = u8g_GetWidthLL(u8g, rotation_chain);
+ 1266              		.loc 1 362 0
+ 1267 0100 FA69     		ldr	r2, [r7, #28]
+ 1268 0102 FB68     		ldr	r3, [r7, #12]
+ 1269 0104 1100     		movs	r1, r2
+ 1270 0106 1800     		movs	r0, r3
+ 1271 0108 FFF7FEFF 		bl	u8g_GetWidthLL
+ 1272 010c 0300     		movs	r3, r0
+ 1273 010e 1A00     		movs	r2, r3
+ 1274 0110 3B68     		ldr	r3, [r7]
+ 1275 0112 1A70     		strb	r2, [r3]
+ 363:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 1276              		.loc 1 363 0
+ 1277 0114 70E0     		b	.L54
+ 1278              	.L49:
+ 1279              	.LBB9:
+ 364:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_PIXEL:
+ 365:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_TPIXEL:
+ 366:Drivers/u8glib/src/u8g_rot.c ****       {
+ 367:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 368:Drivers/u8glib/src/u8g_rot.c ****         x = ((u8g_dev_arg_pixel_t *)arg)->y;
+ 1280              		.loc 1 368 0
+ 1281 0116 1B23     		movs	r3, #27
+ 1282 0118 FB18     		adds	r3, r7, r3
+ 1283 011a 3A68     		ldr	r2, [r7]
+ 1284 011c 5278     		ldrb	r2, [r2, #1]
+ 1285 011e 1A70     		strb	r2, [r3]
+ 369:Drivers/u8glib/src/u8g_rot.c ****         
+ 370:Drivers/u8glib/src/u8g_rot.c ****         y = u8g_GetHeightLL(u8g, rotation_chain);
+ 1286              		.loc 1 370 0
+ 1287 0120 1A23     		movs	r3, #26
+ 1288 0122 FC18     		adds	r4, r7, r3
+ 1289 0124 FA69     		ldr	r2, [r7, #28]
+ 1290 0126 FB68     		ldr	r3, [r7, #12]
+ 1291 0128 1100     		movs	r1, r2
+ 1292 012a 1800     		movs	r0, r3
+ 1293 012c FFF7FEFF 		bl	u8g_GetHeightLL
+ 1294 0130 0300     		movs	r3, r0
+ 1295 0132 2370     		strb	r3, [r4]
+ 371:Drivers/u8glib/src/u8g_rot.c ****         y -= ((u8g_dev_arg_pixel_t *)arg)->x; 
+ 1296              		.loc 1 371 0
+ 1297 0134 3B68     		ldr	r3, [r7]
+ 1298 0136 1A78     		ldrb	r2, [r3]
+ARM GAS  /tmp/cc86Wp1q.s 			page 30
+
+
+ 1299 0138 1A23     		movs	r3, #26
+ 1300 013a FB18     		adds	r3, r7, r3
+ 1301 013c 1A21     		movs	r1, #26
+ 1302 013e 7918     		adds	r1, r7, r1
+ 1303 0140 0978     		ldrb	r1, [r1]
+ 1304 0142 8A1A     		subs	r2, r1, r2
+ 1305 0144 1A70     		strb	r2, [r3]
+ 372:Drivers/u8glib/src/u8g_rot.c ****         y--;
+ 1306              		.loc 1 372 0
+ 1307 0146 1A23     		movs	r3, #26
+ 1308 0148 FB18     		adds	r3, r7, r3
+ 1309 014a 1A78     		ldrb	r2, [r3]
+ 1310 014c 1A23     		movs	r3, #26
+ 1311 014e FB18     		adds	r3, r7, r3
+ 1312 0150 013A     		subs	r2, r2, #1
+ 1313 0152 1A70     		strb	r2, [r3]
+ 373:Drivers/u8glib/src/u8g_rot.c ****           
+ 374:Drivers/u8glib/src/u8g_rot.c ****         /*
+ 375:Drivers/u8glib/src/u8g_rot.c ****         x = u8g_GetWidthLL(u8g, rotation_chain);
+ 376:Drivers/u8glib/src/u8g_rot.c ****         x -= ((u8g_dev_arg_pixel_t *)arg)->y; 
+ 377:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 378:Drivers/u8glib/src/u8g_rot.c ****         */
+ 379:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->x = x;
+ 1314              		.loc 1 379 0
+ 1315 0154 3B68     		ldr	r3, [r7]
+ 1316 0156 1B22     		movs	r2, #27
+ 1317 0158 BA18     		adds	r2, r7, r2
+ 1318 015a 1278     		ldrb	r2, [r2]
+ 1319 015c 1A70     		strb	r2, [r3]
+ 380:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->y = y;
+ 1320              		.loc 1 380 0
+ 1321 015e 3B68     		ldr	r3, [r7]
+ 1322 0160 1A22     		movs	r2, #26
+ 1323 0162 BA18     		adds	r2, r7, r2
+ 1324 0164 1278     		ldrb	r2, [r2]
+ 1325 0166 5A70     		strb	r2, [r3, #1]
+ 1326              	.LBE9:
+ 381:Drivers/u8glib/src/u8g_rot.c ****       }
+ 382:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 1327              		.loc 1 382 0
+ 1328 0168 3C68     		ldr	r4, [r7]
+ 1329 016a FB1D     		adds	r3, r7, #7
+ 1330 016c 1A78     		ldrb	r2, [r3]
+ 1331 016e F969     		ldr	r1, [r7, #28]
+ 1332 0170 F868     		ldr	r0, [r7, #12]
+ 1333 0172 2300     		movs	r3, r4
+ 1334 0174 FFF7FEFF 		bl	u8g_call_dev_fn
+ 383:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 1335              		.loc 1 383 0
+ 1336 0178 3EE0     		b	.L54
+ 1337              	.L50:
+ 1338              	.LBB10:
+ 384:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_8PIXEL:
+ 385:Drivers/u8glib/src/u8g_rot.c ****     case U8G_DEV_MSG_SET_4TPIXEL:
+ 386:Drivers/u8glib/src/u8g_rot.c ****       {
+ 387:Drivers/u8glib/src/u8g_rot.c ****         u8g_uint_t x, y;
+ 388:Drivers/u8glib/src/u8g_rot.c ****         x = ((u8g_dev_arg_pixel_t *)arg)->y;
+ARM GAS  /tmp/cc86Wp1q.s 			page 31
+
+
+ 1339              		.loc 1 388 0
+ 1340 017a 1923     		movs	r3, #25
+ 1341 017c FB18     		adds	r3, r7, r3
+ 1342 017e 3A68     		ldr	r2, [r7]
+ 1343 0180 5278     		ldrb	r2, [r2, #1]
+ 1344 0182 1A70     		strb	r2, [r3]
+ 389:Drivers/u8glib/src/u8g_rot.c ****         
+ 390:Drivers/u8glib/src/u8g_rot.c ****         y = u8g_GetHeightLL(u8g, rotation_chain);
+ 1345              		.loc 1 390 0
+ 1346 0184 1823     		movs	r3, #24
+ 1347 0186 FC18     		adds	r4, r7, r3
+ 1348 0188 FA69     		ldr	r2, [r7, #28]
+ 1349 018a FB68     		ldr	r3, [r7, #12]
+ 1350 018c 1100     		movs	r1, r2
+ 1351 018e 1800     		movs	r0, r3
+ 1352 0190 FFF7FEFF 		bl	u8g_GetHeightLL
+ 1353 0194 0300     		movs	r3, r0
+ 1354 0196 2370     		strb	r3, [r4]
+ 391:Drivers/u8glib/src/u8g_rot.c ****         y -= ((u8g_dev_arg_pixel_t *)arg)->x; 
+ 1355              		.loc 1 391 0
+ 1356 0198 3B68     		ldr	r3, [r7]
+ 1357 019a 1A78     		ldrb	r2, [r3]
+ 1358 019c 1823     		movs	r3, #24
+ 1359 019e FB18     		adds	r3, r7, r3
+ 1360 01a0 1821     		movs	r1, #24
+ 1361 01a2 7918     		adds	r1, r7, r1
+ 1362 01a4 0978     		ldrb	r1, [r1]
+ 1363 01a6 8A1A     		subs	r2, r1, r2
+ 1364 01a8 1A70     		strb	r2, [r3]
+ 392:Drivers/u8glib/src/u8g_rot.c ****         y--;
+ 1365              		.loc 1 392 0
+ 1366 01aa 1823     		movs	r3, #24
+ 1367 01ac FB18     		adds	r3, r7, r3
+ 1368 01ae 1A78     		ldrb	r2, [r3]
+ 1369 01b0 1823     		movs	r3, #24
+ 1370 01b2 FB18     		adds	r3, r7, r3
+ 1371 01b4 013A     		subs	r2, r2, #1
+ 1372 01b6 1A70     		strb	r2, [r3]
+ 393:Drivers/u8glib/src/u8g_rot.c ****           
+ 394:Drivers/u8glib/src/u8g_rot.c ****         /*
+ 395:Drivers/u8glib/src/u8g_rot.c ****         x = u8g_GetWidthLL(u8g, rotation_chain);
+ 396:Drivers/u8glib/src/u8g_rot.c ****         x -= ((u8g_dev_arg_pixel_t *)arg)->y; 
+ 397:Drivers/u8glib/src/u8g_rot.c ****         x--;
+ 398:Drivers/u8glib/src/u8g_rot.c ****         */
+ 399:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->x = x;
+ 1373              		.loc 1 399 0
+ 1374 01b8 3B68     		ldr	r3, [r7]
+ 1375 01ba 1922     		movs	r2, #25
+ 1376 01bc BA18     		adds	r2, r7, r2
+ 1377 01be 1278     		ldrb	r2, [r2]
+ 1378 01c0 1A70     		strb	r2, [r3]
+ 400:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->y = y;
+ 1379              		.loc 1 400 0
+ 1380 01c2 3B68     		ldr	r3, [r7]
+ 1381 01c4 1822     		movs	r2, #24
+ 1382 01c6 BA18     		adds	r2, r7, r2
+ 1383 01c8 1278     		ldrb	r2, [r2]
+ARM GAS  /tmp/cc86Wp1q.s 			page 32
+
+
+ 1384 01ca 5A70     		strb	r2, [r3, #1]
+ 401:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->dir+=3;
+ 1385              		.loc 1 401 0
+ 1386 01cc 3B68     		ldr	r3, [r7]
+ 1387 01ce DB78     		ldrb	r3, [r3, #3]
+ 1388 01d0 0333     		adds	r3, r3, #3
+ 1389 01d2 DAB2     		uxtb	r2, r3
+ 1390 01d4 3B68     		ldr	r3, [r7]
+ 1391 01d6 DA70     		strb	r2, [r3, #3]
+ 402:Drivers/u8glib/src/u8g_rot.c ****         ((u8g_dev_arg_pixel_t *)arg)->dir &= 3;
+ 1392              		.loc 1 402 0
+ 1393 01d8 3B68     		ldr	r3, [r7]
+ 1394 01da DB78     		ldrb	r3, [r3, #3]
+ 1395 01dc 0322     		movs	r2, #3
+ 1396 01de 1340     		ands	r3, r2
+ 1397 01e0 DAB2     		uxtb	r2, r3
+ 1398 01e2 3B68     		ldr	r3, [r7]
+ 1399 01e4 DA70     		strb	r2, [r3, #3]
+ 1400              	.LBE10:
+ 403:Drivers/u8glib/src/u8g_rot.c ****       }
+ 404:Drivers/u8glib/src/u8g_rot.c ****       u8g_call_dev_fn(u8g, rotation_chain, msg, arg);
+ 1401              		.loc 1 404 0
+ 1402 01e6 3C68     		ldr	r4, [r7]
+ 1403 01e8 FB1D     		adds	r3, r7, #7
+ 1404 01ea 1A78     		ldrb	r2, [r3]
+ 1405 01ec F969     		ldr	r1, [r7, #28]
+ 1406 01ee F868     		ldr	r0, [r7, #12]
+ 1407 01f0 2300     		movs	r3, r4
+ 1408 01f2 FFF7FEFF 		bl	u8g_call_dev_fn
+ 405:Drivers/u8glib/src/u8g_rot.c ****       break;
+ 1409              		.loc 1 405 0
+ 1410 01f6 C046     		nop
+ 1411              	.L54:
+ 406:Drivers/u8glib/src/u8g_rot.c ****   }
+ 407:Drivers/u8glib/src/u8g_rot.c ****   return 1;
+ 1412              		.loc 1 407 0
+ 1413 01f8 0123     		movs	r3, #1
+ 1414              	.L53:
+ 408:Drivers/u8glib/src/u8g_rot.c **** }
+ 1415              		.loc 1 408 0
+ 1416 01fa 1800     		movs	r0, r3
+ 1417 01fc BD46     		mov	sp, r7
+ 1418 01fe 09B0     		add	sp, sp, #36
+ 1419              		@ sp needed
+ 1420 0200 90BD     		pop	{r4, r7, pc}
+ 1421              	.L56:
+ 1422 0202 C046     		.align	2
+ 1423              	.L55:
+ 1424 0204 00000000 		.word	.L48
+ 1425              		.cfi_endproc
+ 1426              	.LFE7:
+ 1428              		.text
+ 1429              	.Letext0:
+ 1430              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1431              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1432              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cc86Wp1q.s 			page 33
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_rot.c
+     /tmp/cc86Wp1q.s:16     .text.u8g_dev_rot_dummy_fn:0000000000000000 $t
+     /tmp/cc86Wp1q.s:23     .text.u8g_dev_rot_dummy_fn:0000000000000000 u8g_dev_rot_dummy_fn
+     /tmp/cc86Wp1q.s:60     .data.u8g_dev_rot:0000000000000000 u8g_dev_rot
+     /tmp/cc86Wp1q.s:57     .data.u8g_dev_rot:0000000000000000 $d
+     /tmp/cc86Wp1q.s:65     .text.u8g_UndoRotation:0000000000000000 $t
+     /tmp/cc86Wp1q.s:72     .text.u8g_UndoRotation:0000000000000000 u8g_UndoRotation
+     /tmp/cc86Wp1q.s:116    .text.u8g_UndoRotation:000000000000002c $d
+     /tmp/cc86Wp1q.s:121    .text.u8g_SetRot90:0000000000000000 $t
+     /tmp/cc86Wp1q.s:128    .text.u8g_SetRot90:0000000000000000 u8g_SetRot90
+     /tmp/cc86Wp1q.s:177    .text.u8g_SetRot90:0000000000000038 $d
+     /tmp/cc86Wp1q.s:314    .text.u8g_dev_rot90_fn:0000000000000000 u8g_dev_rot90_fn
+     /tmp/cc86Wp1q.s:183    .text.u8g_SetRot180:0000000000000000 $t
+     /tmp/cc86Wp1q.s:190    .text.u8g_SetRot180:0000000000000000 u8g_SetRot180
+     /tmp/cc86Wp1q.s:239    .text.u8g_SetRot180:0000000000000038 $d
+     /tmp/cc86Wp1q.s:644    .text.u8g_dev_rot180_fn:0000000000000000 u8g_dev_rot180_fn
+     /tmp/cc86Wp1q.s:245    .text.u8g_SetRot270:0000000000000000 $t
+     /tmp/cc86Wp1q.s:252    .text.u8g_SetRot270:0000000000000000 u8g_SetRot270
+     /tmp/cc86Wp1q.s:301    .text.u8g_SetRot270:0000000000000038 $d
+     /tmp/cc86Wp1q.s:1062   .text.u8g_dev_rot270_fn:0000000000000000 u8g_dev_rot270_fn
+     /tmp/cc86Wp1q.s:307    .text.u8g_dev_rot90_fn:0000000000000000 $t
+     /tmp/cc86Wp1q.s:351    .rodata.u8g_dev_rot90_fn:0000000000000000 $d
+     /tmp/cc86Wp1q.s:632    .text.u8g_dev_rot90_fn:00000000000001a4 $d
+     /tmp/cc86Wp1q.s:637    .text.u8g_dev_rot180_fn:0000000000000000 $t
+     /tmp/cc86Wp1q.s:681    .rodata.u8g_dev_rot180_fn:0000000000000000 $d
+     /tmp/cc86Wp1q.s:1050   .text.u8g_dev_rot180_fn:0000000000000258 $d
+     /tmp/cc86Wp1q.s:1055   .text.u8g_dev_rot270_fn:0000000000000000 $t
+     /tmp/cc86Wp1q.s:1099   .rodata.u8g_dev_rot270_fn:0000000000000000 $d
+     /tmp/cc86Wp1q.s:1424   .text.u8g_dev_rot270_fn:0000000000000204 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_UpdateDimension
+u8g_call_dev_fn
+memcpy
+u8g_GetHeightLL
+u8g_GetWidthLL

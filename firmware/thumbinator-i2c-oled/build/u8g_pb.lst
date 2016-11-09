@@ -1,0 +1,866 @@
+ARM GAS  /tmp/ccFvMJ4u.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_pb.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_pb_Clear,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_pb_Clear
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_pb_Clear:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_pb.c"
+   1:Drivers/u8glib/src/u8g_pb.c **** /*
+   2:Drivers/u8glib/src/u8g_pb.c **** 
+   3:Drivers/u8glib/src/u8g_pb.c ****   u8g_pb.c
+   4:Drivers/u8glib/src/u8g_pb.c ****   
+   5:Drivers/u8glib/src/u8g_pb.c ****   common procedures for the page buffer
+   6:Drivers/u8glib/src/u8g_pb.c **** 
+   7:Drivers/u8glib/src/u8g_pb.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_pb.c ****   
+   9:Drivers/u8glib/src/u8g_pb.c ****   Copyright (c) 2011, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_pb.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_pb.c **** 
+  12:Drivers/u8glib/src/u8g_pb.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_pb.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_pb.c **** 
+  15:Drivers/u8glib/src/u8g_pb.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_pb.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_pb.c ****     
+  18:Drivers/u8glib/src/u8g_pb.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_pb.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_pb.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_pb.c **** 
+  22:Drivers/u8glib/src/u8g_pb.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_pb.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_pb.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_pb.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_pb.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_pb.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_pb.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_pb.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_pb.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_pb.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_pb.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_pb.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ARM GAS  /tmp/ccFvMJ4u.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_pb.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_pb.c ****   
+  36:Drivers/u8glib/src/u8g_pb.c ****   
+  37:Drivers/u8glib/src/u8g_pb.c **** */
+  38:Drivers/u8glib/src/u8g_pb.c **** 
+  39:Drivers/u8glib/src/u8g_pb.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_pb.c **** 
+  41:Drivers/u8glib/src/u8g_pb.c **** void u8g_pb_Clear(u8g_pb_t *b)
+  42:Drivers/u8glib/src/u8g_pb.c **** {
+  26              		.loc 1 42 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 84B0     		sub	sp, sp, #16
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 24
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  43:Drivers/u8glib/src/u8g_pb.c ****   uint8_t *ptr = (uint8_t *)b->buf;
+  40              		.loc 1 43 0
+  41 0008 7B68     		ldr	r3, [r7, #4]
+  42 000a 9B68     		ldr	r3, [r3, #8]
+  43 000c FB60     		str	r3, [r7, #12]
+  44:Drivers/u8glib/src/u8g_pb.c ****   uint8_t *end_ptr = ptr;
+  44              		.loc 1 44 0
+  45 000e FB68     		ldr	r3, [r7, #12]
+  46 0010 BB60     		str	r3, [r7, #8]
+  45:Drivers/u8glib/src/u8g_pb.c ****   end_ptr += b->width;
+  47              		.loc 1 45 0
+  48 0012 7B68     		ldr	r3, [r7, #4]
+  49 0014 5B79     		ldrb	r3, [r3, #5]
+  50 0016 1A00     		movs	r2, r3
+  51 0018 BB68     		ldr	r3, [r7, #8]
+  52 001a 9B18     		adds	r3, r3, r2
+  53 001c BB60     		str	r3, [r7, #8]
+  54              	.L2:
+  46:Drivers/u8glib/src/u8g_pb.c ****   do
+  47:Drivers/u8glib/src/u8g_pb.c ****   {
+  48:Drivers/u8glib/src/u8g_pb.c ****     *ptr++ = 0;
+  55              		.loc 1 48 0 discriminator 1
+  56 001e FB68     		ldr	r3, [r7, #12]
+  57 0020 5A1C     		adds	r2, r3, #1
+  58 0022 FA60     		str	r2, [r7, #12]
+  59 0024 0022     		movs	r2, #0
+  60 0026 1A70     		strb	r2, [r3]
+  49:Drivers/u8glib/src/u8g_pb.c ****   } while( ptr != end_ptr );
+  61              		.loc 1 49 0 discriminator 1
+  62 0028 FA68     		ldr	r2, [r7, #12]
+  63 002a BB68     		ldr	r3, [r7, #8]
+  64 002c 9A42     		cmp	r2, r3
+  65 002e F6D1     		bne	.L2
+  50:Drivers/u8glib/src/u8g_pb.c **** }
+ARM GAS  /tmp/ccFvMJ4u.s 			page 3
+
+
+  66              		.loc 1 50 0
+  67 0030 C046     		nop
+  68 0032 BD46     		mov	sp, r7
+  69 0034 04B0     		add	sp, sp, #16
+  70              		@ sp needed
+  71 0036 80BD     		pop	{r7, pc}
+  72              		.cfi_endproc
+  73              	.LFE0:
+  75              		.section	.text.u8g_pb_IsYIntersection,"ax",%progbits
+  76              		.align	1
+  77              		.global	u8g_pb_IsYIntersection
+  78              		.syntax unified
+  79              		.code	16
+  80              		.thumb_func
+  81              		.fpu softvfp
+  83              	u8g_pb_IsYIntersection:
+  84              	.LFB1:
+  51:Drivers/u8glib/src/u8g_pb.c **** 
+  52:Drivers/u8glib/src/u8g_pb.c **** /* the following procedure does not work. why? Can be checked with descpic */
+  53:Drivers/u8glib/src/u8g_pb.c **** /*
+  54:Drivers/u8glib/src/u8g_pb.c **** void u8g_pb_Clear(u8g_pb_t *b)
+  55:Drivers/u8glib/src/u8g_pb.c **** {
+  56:Drivers/u8glib/src/u8g_pb.c ****   uint8_t *ptr = (uint8_t *)b->buf;
+  57:Drivers/u8glib/src/u8g_pb.c ****   uint8_t cnt = b->width;
+  58:Drivers/u8glib/src/u8g_pb.c ****   do
+  59:Drivers/u8glib/src/u8g_pb.c ****   {
+  60:Drivers/u8glib/src/u8g_pb.c ****     *ptr++ = 0;
+  61:Drivers/u8glib/src/u8g_pb.c ****     cnt--;
+  62:Drivers/u8glib/src/u8g_pb.c ****   } while( cnt != 0 );
+  63:Drivers/u8glib/src/u8g_pb.c **** }
+  64:Drivers/u8glib/src/u8g_pb.c **** */
+  65:Drivers/u8glib/src/u8g_pb.c **** 
+  66:Drivers/u8glib/src/u8g_pb.c **** /*
+  67:Drivers/u8glib/src/u8g_pb.c ****   intersection assumptions:
+  68:Drivers/u8glib/src/u8g_pb.c ****     a1 <= a2 is always true    
+  69:Drivers/u8glib/src/u8g_pb.c **** */
+  70:Drivers/u8glib/src/u8g_pb.c ****   /*
+  71:Drivers/u8glib/src/u8g_pb.c ****     minimized version
+  72:Drivers/u8glib/src/u8g_pb.c ****     ---1----0 1             b1 <= a2 && b1 > b2
+  73:Drivers/u8glib/src/u8g_pb.c ****     -----1--0 1             b2 >= a1 && b1 > b2
+  74:Drivers/u8glib/src/u8g_pb.c ****     ---1-1--- 1             b1 <= a2 && b2 >= a1
+  75:Drivers/u8glib/src/u8g_pb.c ****   */
+  76:Drivers/u8glib/src/u8g_pb.c **** /*
+  77:Drivers/u8glib/src/u8g_pb.c **** uint8_t u8g_pb8v1_IsYIntersection___Old(u8g_pb_t *b, u8g_uint_t v0, u8g_uint_t v1)
+  78:Drivers/u8glib/src/u8g_pb.c **** {
+  79:Drivers/u8glib/src/u8g_pb.c ****   uint8_t c0, c1, c;
+  80:Drivers/u8glib/src/u8g_pb.c ****   c0 = v0 <= b->p.page_y1;
+  81:Drivers/u8glib/src/u8g_pb.c ****   c1 = v1 >= b->p.page_y0;
+  82:Drivers/u8glib/src/u8g_pb.c ****   c = v0 > v1;
+  83:Drivers/u8glib/src/u8g_pb.c ****   if ( c0 && c1 ) return 1;
+  84:Drivers/u8glib/src/u8g_pb.c ****   if ( c0 && c ) return 1;
+  85:Drivers/u8glib/src/u8g_pb.c ****   if ( c1 && c ) return 1;
+  86:Drivers/u8glib/src/u8g_pb.c ****   return 0;
+  87:Drivers/u8glib/src/u8g_pb.c **** }
+  88:Drivers/u8glib/src/u8g_pb.c **** */
+  89:Drivers/u8glib/src/u8g_pb.c **** 
+  90:Drivers/u8glib/src/u8g_pb.c **** uint8_t u8g_pb_IsYIntersection(u8g_pb_t *pb, u8g_uint_t v0, u8g_uint_t v1)
+ARM GAS  /tmp/ccFvMJ4u.s 			page 4
+
+
+  91:Drivers/u8glib/src/u8g_pb.c **** {
+  85              		.loc 1 91 0
+  86              		.cfi_startproc
+  87 0000 80B5     		push	{r7, lr}
+  88              	.LCFI3:
+  89              		.cfi_def_cfa_offset 8
+  90              		.cfi_offset 7, -8
+  91              		.cfi_offset 14, -4
+  92 0002 84B0     		sub	sp, sp, #16
+  93              	.LCFI4:
+  94              		.cfi_def_cfa_offset 24
+  95 0004 00AF     		add	r7, sp, #0
+  96              	.LCFI5:
+  97              		.cfi_def_cfa_register 7
+  98 0006 7860     		str	r0, [r7, #4]
+  99 0008 0800     		movs	r0, r1
+ 100 000a 1100     		movs	r1, r2
+ 101 000c FB1C     		adds	r3, r7, #3
+ 102 000e 021C     		adds	r2, r0, #0
+ 103 0010 1A70     		strb	r2, [r3]
+ 104 0012 BB1C     		adds	r3, r7, #2
+ 105 0014 0A1C     		adds	r2, r1, #0
+ 106 0016 1A70     		strb	r2, [r3]
+  92:Drivers/u8glib/src/u8g_pb.c ****   uint8_t c1, c2, c3, tmp;
+  93:Drivers/u8glib/src/u8g_pb.c ****   c1 = v0 <= pb->p.page_y1;
+ 107              		.loc 1 93 0
+ 108 0018 7B68     		ldr	r3, [r7, #4]
+ 109 001a D978     		ldrb	r1, [r3, #3]
+ 110 001c FB1C     		adds	r3, r7, #3
+ 111 001e 1A78     		ldrb	r2, [r3]
+ 112 0020 0023     		movs	r3, #0
+ 113 0022 9142     		cmp	r1, r2
+ 114 0024 5B41     		adcs	r3, r3, r3
+ 115 0026 DAB2     		uxtb	r2, r3
+ 116 0028 0F23     		movs	r3, #15
+ 117 002a FB18     		adds	r3, r7, r3
+ 118 002c 1A70     		strb	r2, [r3]
+  94:Drivers/u8glib/src/u8g_pb.c ****   c2 = v1 >= pb->p.page_y0;
+ 119              		.loc 1 94 0
+ 120 002e 7B68     		ldr	r3, [r7, #4]
+ 121 0030 9A78     		ldrb	r2, [r3, #2]
+ 122 0032 BB1C     		adds	r3, r7, #2
+ 123 0034 1978     		ldrb	r1, [r3]
+ 124 0036 0023     		movs	r3, #0
+ 125 0038 9142     		cmp	r1, r2
+ 126 003a 5B41     		adcs	r3, r3, r3
+ 127 003c DAB2     		uxtb	r2, r3
+ 128 003e 0E23     		movs	r3, #14
+ 129 0040 FB18     		adds	r3, r7, r3
+ 130 0042 1A70     		strb	r2, [r3]
+  95:Drivers/u8glib/src/u8g_pb.c ****   c3 = v0 > v1;
+ 131              		.loc 1 95 0
+ 132 0044 FB1C     		adds	r3, r7, #3
+ 133 0046 BA1C     		adds	r2, r7, #2
+ 134 0048 1B78     		ldrb	r3, [r3]
+ 135 004a 1278     		ldrb	r2, [r2]
+ 136 004c 9A42     		cmp	r2, r3
+ARM GAS  /tmp/ccFvMJ4u.s 			page 5
+
+
+ 137 004e 9B41     		sbcs	r3, r3, r3
+ 138 0050 5B42     		rsbs	r3, r3, #0
+ 139 0052 DAB2     		uxtb	r2, r3
+ 140 0054 0D23     		movs	r3, #13
+ 141 0056 FB18     		adds	r3, r7, r3
+ 142 0058 1A70     		strb	r2, [r3]
+  96:Drivers/u8glib/src/u8g_pb.c ****   /*
+  97:Drivers/u8glib/src/u8g_pb.c ****   if ( c1 && c2 )
+  98:Drivers/u8glib/src/u8g_pb.c ****     return 1;
+  99:Drivers/u8glib/src/u8g_pb.c ****   if ( c1 && c3 )
+ 100:Drivers/u8glib/src/u8g_pb.c ****     return 1;
+ 101:Drivers/u8glib/src/u8g_pb.c ****   if ( c2 && c3 )
+ 102:Drivers/u8glib/src/u8g_pb.c ****     return 1;
+ 103:Drivers/u8glib/src/u8g_pb.c ****   return 0;
+ 104:Drivers/u8glib/src/u8g_pb.c ****   */
+ 105:Drivers/u8glib/src/u8g_pb.c ****   
+ 106:Drivers/u8glib/src/u8g_pb.c ****   tmp = c1;
+ 143              		.loc 1 106 0
+ 144 005a 0C23     		movs	r3, #12
+ 145 005c FB18     		adds	r3, r7, r3
+ 146 005e 0F22     		movs	r2, #15
+ 147 0060 BA18     		adds	r2, r7, r2
+ 148 0062 1278     		ldrb	r2, [r2]
+ 149 0064 1A70     		strb	r2, [r3]
+ 107:Drivers/u8glib/src/u8g_pb.c ****   c1 &= c2;
+ 150              		.loc 1 107 0
+ 151 0066 0F23     		movs	r3, #15
+ 152 0068 FB18     		adds	r3, r7, r3
+ 153 006a 0F22     		movs	r2, #15
+ 154 006c BA18     		adds	r2, r7, r2
+ 155 006e 0E21     		movs	r1, #14
+ 156 0070 7918     		adds	r1, r7, r1
+ 157 0072 1278     		ldrb	r2, [r2]
+ 158 0074 0978     		ldrb	r1, [r1]
+ 159 0076 0A40     		ands	r2, r1
+ 160 0078 1A70     		strb	r2, [r3]
+ 108:Drivers/u8glib/src/u8g_pb.c ****   c2 &= c3;
+ 161              		.loc 1 108 0
+ 162 007a 0E23     		movs	r3, #14
+ 163 007c FB18     		adds	r3, r7, r3
+ 164 007e 0E22     		movs	r2, #14
+ 165 0080 BA18     		adds	r2, r7, r2
+ 166 0082 0D21     		movs	r1, #13
+ 167 0084 7918     		adds	r1, r7, r1
+ 168 0086 1278     		ldrb	r2, [r2]
+ 169 0088 0978     		ldrb	r1, [r1]
+ 170 008a 0A40     		ands	r2, r1
+ 171 008c 1A70     		strb	r2, [r3]
+ 109:Drivers/u8glib/src/u8g_pb.c ****   c3 &= tmp;
+ 172              		.loc 1 109 0
+ 173 008e 0D23     		movs	r3, #13
+ 174 0090 FB18     		adds	r3, r7, r3
+ 175 0092 0D22     		movs	r2, #13
+ 176 0094 BA18     		adds	r2, r7, r2
+ 177 0096 0C21     		movs	r1, #12
+ 178 0098 7918     		adds	r1, r7, r1
+ 179 009a 1278     		ldrb	r2, [r2]
+ARM GAS  /tmp/ccFvMJ4u.s 			page 6
+
+
+ 180 009c 0978     		ldrb	r1, [r1]
+ 181 009e 0A40     		ands	r2, r1
+ 182 00a0 1A70     		strb	r2, [r3]
+ 110:Drivers/u8glib/src/u8g_pb.c ****   c1 |= c2;
+ 183              		.loc 1 110 0
+ 184 00a2 0F23     		movs	r3, #15
+ 185 00a4 FB18     		adds	r3, r7, r3
+ 186 00a6 0F22     		movs	r2, #15
+ 187 00a8 B918     		adds	r1, r7, r2
+ 188 00aa 0E22     		movs	r2, #14
+ 189 00ac BA18     		adds	r2, r7, r2
+ 190 00ae 0978     		ldrb	r1, [r1]
+ 191 00b0 1278     		ldrb	r2, [r2]
+ 192 00b2 0A43     		orrs	r2, r1
+ 193 00b4 1A70     		strb	r2, [r3]
+ 111:Drivers/u8glib/src/u8g_pb.c ****   c1 |= c3;
+ 194              		.loc 1 111 0
+ 195 00b6 0F23     		movs	r3, #15
+ 196 00b8 FB18     		adds	r3, r7, r3
+ 197 00ba 0F22     		movs	r2, #15
+ 198 00bc B918     		adds	r1, r7, r2
+ 199 00be 0D22     		movs	r2, #13
+ 200 00c0 BA18     		adds	r2, r7, r2
+ 201 00c2 0978     		ldrb	r1, [r1]
+ 202 00c4 1278     		ldrb	r2, [r2]
+ 203 00c6 0A43     		orrs	r2, r1
+ 204 00c8 1A70     		strb	r2, [r3]
+ 112:Drivers/u8glib/src/u8g_pb.c ****   return c1 & 1;
+ 205              		.loc 1 112 0
+ 206 00ca 0F23     		movs	r3, #15
+ 207 00cc FB18     		adds	r3, r7, r3
+ 208 00ce 1B78     		ldrb	r3, [r3]
+ 209 00d0 0122     		movs	r2, #1
+ 210 00d2 1340     		ands	r3, r2
+ 211 00d4 DBB2     		uxtb	r3, r3
+ 113:Drivers/u8glib/src/u8g_pb.c **** }
+ 212              		.loc 1 113 0
+ 213 00d6 1800     		movs	r0, r3
+ 214 00d8 BD46     		mov	sp, r7
+ 215 00da 04B0     		add	sp, sp, #16
+ 216              		@ sp needed
+ 217 00dc 80BD     		pop	{r7, pc}
+ 218              		.cfi_endproc
+ 219              	.LFE1:
+ 221              		.section	.text.u8g_pb_IsXIntersection,"ax",%progbits
+ 222              		.align	1
+ 223              		.global	u8g_pb_IsXIntersection
+ 224              		.syntax unified
+ 225              		.code	16
+ 226              		.thumb_func
+ 227              		.fpu softvfp
+ 229              	u8g_pb_IsXIntersection:
+ 230              	.LFB2:
+ 114:Drivers/u8glib/src/u8g_pb.c **** 
+ 115:Drivers/u8glib/src/u8g_pb.c **** 
+ 116:Drivers/u8glib/src/u8g_pb.c **** uint8_t u8g_pb_IsXIntersection(u8g_pb_t *b, u8g_uint_t v0, u8g_uint_t v1)
+ 117:Drivers/u8glib/src/u8g_pb.c **** {
+ARM GAS  /tmp/ccFvMJ4u.s 			page 7
+
+
+ 231              		.loc 1 117 0
+ 232              		.cfi_startproc
+ 233 0000 80B5     		push	{r7, lr}
+ 234              	.LCFI6:
+ 235              		.cfi_def_cfa_offset 8
+ 236              		.cfi_offset 7, -8
+ 237              		.cfi_offset 14, -4
+ 238 0002 84B0     		sub	sp, sp, #16
+ 239              	.LCFI7:
+ 240              		.cfi_def_cfa_offset 24
+ 241 0004 00AF     		add	r7, sp, #0
+ 242              	.LCFI8:
+ 243              		.cfi_def_cfa_register 7
+ 244 0006 7860     		str	r0, [r7, #4]
+ 245 0008 0800     		movs	r0, r1
+ 246 000a 1100     		movs	r1, r2
+ 247 000c FB1C     		adds	r3, r7, #3
+ 248 000e 021C     		adds	r2, r0, #0
+ 249 0010 1A70     		strb	r2, [r3]
+ 250 0012 BB1C     		adds	r3, r7, #2
+ 251 0014 0A1C     		adds	r2, r1, #0
+ 252 0016 1A70     		strb	r2, [r3]
+ 118:Drivers/u8glib/src/u8g_pb.c ****   uint8_t /*c0, c1, */ c2, c3;
+ 119:Drivers/u8glib/src/u8g_pb.c ****   /*
+ 120:Drivers/u8glib/src/u8g_pb.c ****     conditions: b->p.page_y0 < b->p.page_y1
+ 121:Drivers/u8glib/src/u8g_pb.c ****     there are no restriction on v0 and v1. If v0 > v1, then warp around unsigned is assumed
+ 122:Drivers/u8glib/src/u8g_pb.c ****   */
+ 123:Drivers/u8glib/src/u8g_pb.c ****   /*
+ 124:Drivers/u8glib/src/u8g_pb.c ****   c0 = v0 < 0;
+ 125:Drivers/u8glib/src/u8g_pb.c ****   c1 = v1 < 0;
+ 126:Drivers/u8glib/src/u8g_pb.c ****   */
+ 127:Drivers/u8glib/src/u8g_pb.c ****   c2 = v0 > b->width;
+ 253              		.loc 1 127 0
+ 254 0018 7B68     		ldr	r3, [r7, #4]
+ 255 001a 5A79     		ldrb	r2, [r3, #5]
+ 256 001c FB1C     		adds	r3, r7, #3
+ 257 001e 1B78     		ldrb	r3, [r3]
+ 258 0020 9A42     		cmp	r2, r3
+ 259 0022 9B41     		sbcs	r3, r3, r3
+ 260 0024 5B42     		rsbs	r3, r3, #0
+ 261 0026 DAB2     		uxtb	r2, r3
+ 262 0028 0F23     		movs	r3, #15
+ 263 002a FB18     		adds	r3, r7, r3
+ 264 002c 1A70     		strb	r2, [r3]
+ 128:Drivers/u8glib/src/u8g_pb.c ****   c3 = v1 > b->width;
+ 265              		.loc 1 128 0
+ 266 002e 7B68     		ldr	r3, [r7, #4]
+ 267 0030 5A79     		ldrb	r2, [r3, #5]
+ 268 0032 BB1C     		adds	r3, r7, #2
+ 269 0034 1B78     		ldrb	r3, [r3]
+ 270 0036 9A42     		cmp	r2, r3
+ 271 0038 9B41     		sbcs	r3, r3, r3
+ 272 003a 5B42     		rsbs	r3, r3, #0
+ 273 003c DAB2     		uxtb	r2, r3
+ 274 003e 0E23     		movs	r3, #14
+ 275 0040 FB18     		adds	r3, r7, r3
+ 276 0042 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccFvMJ4u.s 			page 8
+
+
+ 129:Drivers/u8glib/src/u8g_pb.c ****   /*if ( c0 && c1 ) return 0;*/
+ 130:Drivers/u8glib/src/u8g_pb.c ****   if ( c2 && c3 ) return 0;
+ 277              		.loc 1 130 0
+ 278 0044 0F23     		movs	r3, #15
+ 279 0046 FB18     		adds	r3, r7, r3
+ 280 0048 1B78     		ldrb	r3, [r3]
+ 281 004a 002B     		cmp	r3, #0
+ 282 004c 06D0     		beq	.L6
+ 283              		.loc 1 130 0 is_stmt 0 discriminator 1
+ 284 004e 0E23     		movs	r3, #14
+ 285 0050 FB18     		adds	r3, r7, r3
+ 286 0052 1B78     		ldrb	r3, [r3]
+ 287 0054 002B     		cmp	r3, #0
+ 288 0056 01D0     		beq	.L6
+ 289              		.loc 1 130 0 discriminator 2
+ 290 0058 0023     		movs	r3, #0
+ 291 005a 00E0     		b	.L7
+ 292              	.L6:
+ 131:Drivers/u8glib/src/u8g_pb.c ****   /*if ( c1 && c2 ) return 0;*/
+ 132:Drivers/u8glib/src/u8g_pb.c ****   return 1;
+ 293              		.loc 1 132 0 is_stmt 1
+ 294 005c 0123     		movs	r3, #1
+ 295              	.L7:
+ 133:Drivers/u8glib/src/u8g_pb.c **** }
+ 296              		.loc 1 133 0
+ 297 005e 1800     		movs	r0, r3
+ 298 0060 BD46     		mov	sp, r7
+ 299 0062 04B0     		add	sp, sp, #16
+ 300              		@ sp needed
+ 301 0064 80BD     		pop	{r7, pc}
+ 302              		.cfi_endproc
+ 303              	.LFE2:
+ 305              		.section	.text.u8g_pb_IsIntersection,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	u8g_pb_IsIntersection
+ 308              		.syntax unified
+ 309              		.code	16
+ 310              		.thumb_func
+ 311              		.fpu softvfp
+ 313              	u8g_pb_IsIntersection:
+ 314              	.LFB3:
+ 134:Drivers/u8glib/src/u8g_pb.c **** 
+ 135:Drivers/u8glib/src/u8g_pb.c **** uint8_t u8g_pb_IsIntersection(u8g_pb_t *pb, u8g_dev_arg_bbx_t *bbx)
+ 136:Drivers/u8glib/src/u8g_pb.c **** {
+ 315              		.loc 1 136 0
+ 316              		.cfi_startproc
+ 317 0000 80B5     		push	{r7, lr}
+ 318              	.LCFI9:
+ 319              		.cfi_def_cfa_offset 8
+ 320              		.cfi_offset 7, -8
+ 321              		.cfi_offset 14, -4
+ 322 0002 84B0     		sub	sp, sp, #16
+ 323              	.LCFI10:
+ 324              		.cfi_def_cfa_offset 24
+ 325 0004 00AF     		add	r7, sp, #0
+ 326              	.LCFI11:
+ 327              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/ccFvMJ4u.s 			page 9
+
+
+ 328 0006 7860     		str	r0, [r7, #4]
+ 329 0008 3960     		str	r1, [r7]
+ 137:Drivers/u8glib/src/u8g_pb.c ****   u8g_uint_t tmp;
+ 138:Drivers/u8glib/src/u8g_pb.c **** 
+ 139:Drivers/u8glib/src/u8g_pb.c ****   tmp = bbx->y;
+ 330              		.loc 1 139 0
+ 331 000a 0F23     		movs	r3, #15
+ 332 000c FB18     		adds	r3, r7, r3
+ 333 000e 3A68     		ldr	r2, [r7]
+ 334 0010 5278     		ldrb	r2, [r2, #1]
+ 335 0012 1A70     		strb	r2, [r3]
+ 140:Drivers/u8glib/src/u8g_pb.c ****   tmp += bbx->h;
+ 336              		.loc 1 140 0
+ 337 0014 3B68     		ldr	r3, [r7]
+ 338 0016 D978     		ldrb	r1, [r3, #3]
+ 339 0018 0F23     		movs	r3, #15
+ 340 001a FB18     		adds	r3, r7, r3
+ 341 001c 0F22     		movs	r2, #15
+ 342 001e BA18     		adds	r2, r7, r2
+ 343 0020 1278     		ldrb	r2, [r2]
+ 344 0022 8A18     		adds	r2, r1, r2
+ 345 0024 1A70     		strb	r2, [r3]
+ 141:Drivers/u8glib/src/u8g_pb.c ****   tmp--;
+ 346              		.loc 1 141 0
+ 347 0026 0F23     		movs	r3, #15
+ 348 0028 FB18     		adds	r3, r7, r3
+ 349 002a 1A78     		ldrb	r2, [r3]
+ 350 002c 0F23     		movs	r3, #15
+ 351 002e FB18     		adds	r3, r7, r3
+ 352 0030 013A     		subs	r2, r2, #1
+ 353 0032 1A70     		strb	r2, [r3]
+ 142:Drivers/u8glib/src/u8g_pb.c ****   
+ 143:Drivers/u8glib/src/u8g_pb.c ****   if ( u8g_pb_IsYIntersection(pb, bbx->y, tmp) == 0 )
+ 354              		.loc 1 143 0
+ 355 0034 3B68     		ldr	r3, [r7]
+ 356 0036 5978     		ldrb	r1, [r3, #1]
+ 357 0038 0F23     		movs	r3, #15
+ 358 003a FB18     		adds	r3, r7, r3
+ 359 003c 1A78     		ldrb	r2, [r3]
+ 360 003e 7B68     		ldr	r3, [r7, #4]
+ 361 0040 1800     		movs	r0, r3
+ 362 0042 FFF7FEFF 		bl	u8g_pb_IsYIntersection
+ 363 0046 031E     		subs	r3, r0, #0
+ 364 0048 01D1     		bne	.L9
+ 144:Drivers/u8glib/src/u8g_pb.c ****     return 0;
+ 365              		.loc 1 144 0
+ 366 004a 0023     		movs	r3, #0
+ 367 004c 1EE0     		b	.L10
+ 368              	.L9:
+ 145:Drivers/u8glib/src/u8g_pb.c ****   
+ 146:Drivers/u8glib/src/u8g_pb.c ****   /* maybe this one can be skiped... probability is very high to have an intersection, so it would 
+ 147:Drivers/u8glib/src/u8g_pb.c ****   tmp = bbx->x;
+ 369              		.loc 1 147 0
+ 370 004e 0F23     		movs	r3, #15
+ 371 0050 FB18     		adds	r3, r7, r3
+ 372 0052 3A68     		ldr	r2, [r7]
+ 373 0054 1278     		ldrb	r2, [r2]
+ARM GAS  /tmp/ccFvMJ4u.s 			page 10
+
+
+ 374 0056 1A70     		strb	r2, [r3]
+ 148:Drivers/u8glib/src/u8g_pb.c ****   tmp += bbx->w;
+ 375              		.loc 1 148 0
+ 376 0058 3B68     		ldr	r3, [r7]
+ 377 005a 9978     		ldrb	r1, [r3, #2]
+ 378 005c 0F23     		movs	r3, #15
+ 379 005e FB18     		adds	r3, r7, r3
+ 380 0060 0F22     		movs	r2, #15
+ 381 0062 BA18     		adds	r2, r7, r2
+ 382 0064 1278     		ldrb	r2, [r2]
+ 383 0066 8A18     		adds	r2, r1, r2
+ 384 0068 1A70     		strb	r2, [r3]
+ 149:Drivers/u8glib/src/u8g_pb.c ****   tmp--;
+ 385              		.loc 1 149 0
+ 386 006a 0F23     		movs	r3, #15
+ 387 006c FB18     		adds	r3, r7, r3
+ 388 006e 1A78     		ldrb	r2, [r3]
+ 389 0070 0F23     		movs	r3, #15
+ 390 0072 FB18     		adds	r3, r7, r3
+ 391 0074 013A     		subs	r2, r2, #1
+ 392 0076 1A70     		strb	r2, [r3]
+ 150:Drivers/u8glib/src/u8g_pb.c ****     
+ 151:Drivers/u8glib/src/u8g_pb.c ****   return u8g_pb_IsXIntersection(pb, bbx->x, tmp);
+ 393              		.loc 1 151 0
+ 394 0078 3B68     		ldr	r3, [r7]
+ 395 007a 1978     		ldrb	r1, [r3]
+ 396 007c 0F23     		movs	r3, #15
+ 397 007e FB18     		adds	r3, r7, r3
+ 398 0080 1A78     		ldrb	r2, [r3]
+ 399 0082 7B68     		ldr	r3, [r7, #4]
+ 400 0084 1800     		movs	r0, r3
+ 401 0086 FFF7FEFF 		bl	u8g_pb_IsXIntersection
+ 402 008a 0300     		movs	r3, r0
+ 403              	.L10:
+ 152:Drivers/u8glib/src/u8g_pb.c **** }
+ 404              		.loc 1 152 0
+ 405 008c 1800     		movs	r0, r3
+ 406 008e BD46     		mov	sp, r7
+ 407 0090 04B0     		add	sp, sp, #16
+ 408              		@ sp needed
+ 409 0092 80BD     		pop	{r7, pc}
+ 410              		.cfi_endproc
+ 411              	.LFE3:
+ 413              		.section	.text.u8g_pb_GetPageBox,"ax",%progbits
+ 414              		.align	1
+ 415              		.global	u8g_pb_GetPageBox
+ 416              		.syntax unified
+ 417              		.code	16
+ 418              		.thumb_func
+ 419              		.fpu softvfp
+ 421              	u8g_pb_GetPageBox:
+ 422              	.LFB4:
+ 153:Drivers/u8glib/src/u8g_pb.c **** 
+ 154:Drivers/u8glib/src/u8g_pb.c **** void u8g_pb_GetPageBox(u8g_pb_t *pb, u8g_box_t *box)
+ 155:Drivers/u8glib/src/u8g_pb.c **** {
+ 423              		.loc 1 155 0
+ 424              		.cfi_startproc
+ARM GAS  /tmp/ccFvMJ4u.s 			page 11
+
+
+ 425 0000 80B5     		push	{r7, lr}
+ 426              	.LCFI12:
+ 427              		.cfi_def_cfa_offset 8
+ 428              		.cfi_offset 7, -8
+ 429              		.cfi_offset 14, -4
+ 430 0002 82B0     		sub	sp, sp, #8
+ 431              	.LCFI13:
+ 432              		.cfi_def_cfa_offset 16
+ 433 0004 00AF     		add	r7, sp, #0
+ 434              	.LCFI14:
+ 435              		.cfi_def_cfa_register 7
+ 436 0006 7860     		str	r0, [r7, #4]
+ 437 0008 3960     		str	r1, [r7]
+ 156:Drivers/u8glib/src/u8g_pb.c ****   box->x0 = 0;
+ 438              		.loc 1 156 0
+ 439 000a 3B68     		ldr	r3, [r7]
+ 440 000c 0022     		movs	r2, #0
+ 441 000e 1A70     		strb	r2, [r3]
+ 157:Drivers/u8glib/src/u8g_pb.c ****   box->y0 = pb->p.page_y0;
+ 442              		.loc 1 157 0
+ 443 0010 7B68     		ldr	r3, [r7, #4]
+ 444 0012 9A78     		ldrb	r2, [r3, #2]
+ 445 0014 3B68     		ldr	r3, [r7]
+ 446 0016 5A70     		strb	r2, [r3, #1]
+ 158:Drivers/u8glib/src/u8g_pb.c ****   box->x1 = pb->width;
+ 447              		.loc 1 158 0
+ 448 0018 7B68     		ldr	r3, [r7, #4]
+ 449 001a 5A79     		ldrb	r2, [r3, #5]
+ 450 001c 3B68     		ldr	r3, [r7]
+ 451 001e 9A70     		strb	r2, [r3, #2]
+ 159:Drivers/u8glib/src/u8g_pb.c ****   box->x1--;
+ 452              		.loc 1 159 0
+ 453 0020 3B68     		ldr	r3, [r7]
+ 454 0022 9B78     		ldrb	r3, [r3, #2]
+ 455 0024 013B     		subs	r3, r3, #1
+ 456 0026 DAB2     		uxtb	r2, r3
+ 457 0028 3B68     		ldr	r3, [r7]
+ 458 002a 9A70     		strb	r2, [r3, #2]
+ 160:Drivers/u8glib/src/u8g_pb.c ****   box->y1 = pb->p.page_y1;
+ 459              		.loc 1 160 0
+ 460 002c 7B68     		ldr	r3, [r7, #4]
+ 461 002e DA78     		ldrb	r2, [r3, #3]
+ 462 0030 3B68     		ldr	r3, [r7]
+ 463 0032 DA70     		strb	r2, [r3, #3]
+ 161:Drivers/u8glib/src/u8g_pb.c **** }
+ 464              		.loc 1 161 0
+ 465 0034 C046     		nop
+ 466 0036 BD46     		mov	sp, r7
+ 467 0038 02B0     		add	sp, sp, #8
+ 468              		@ sp needed
+ 469 003a 80BD     		pop	{r7, pc}
+ 470              		.cfi_endproc
+ 471              	.LFE4:
+ 473              		.section	.text.u8g_pb_Is8PixelVisible,"ax",%progbits
+ 474              		.align	1
+ 475              		.global	u8g_pb_Is8PixelVisible
+ 476              		.syntax unified
+ARM GAS  /tmp/ccFvMJ4u.s 			page 12
+
+
+ 477              		.code	16
+ 478              		.thumb_func
+ 479              		.fpu softvfp
+ 481              	u8g_pb_Is8PixelVisible:
+ 482              	.LFB5:
+ 162:Drivers/u8glib/src/u8g_pb.c **** 
+ 163:Drivers/u8glib/src/u8g_pb.c **** 
+ 164:Drivers/u8glib/src/u8g_pb.c **** uint8_t u8g_pb_Is8PixelVisible(u8g_pb_t *b, u8g_dev_arg_pixel_t *arg_pixel)
+ 165:Drivers/u8glib/src/u8g_pb.c **** {
+ 483              		.loc 1 165 0
+ 484              		.cfi_startproc
+ 485 0000 80B5     		push	{r7, lr}
+ 486              	.LCFI15:
+ 487              		.cfi_def_cfa_offset 8
+ 488              		.cfi_offset 7, -8
+ 489              		.cfi_offset 14, -4
+ 490 0002 84B0     		sub	sp, sp, #16
+ 491              	.LCFI16:
+ 492              		.cfi_def_cfa_offset 24
+ 493 0004 00AF     		add	r7, sp, #0
+ 494              	.LCFI17:
+ 495              		.cfi_def_cfa_register 7
+ 496 0006 7860     		str	r0, [r7, #4]
+ 497 0008 3960     		str	r1, [r7]
+ 166:Drivers/u8glib/src/u8g_pb.c ****   u8g_uint_t v0, v1;
+ 167:Drivers/u8glib/src/u8g_pb.c ****   v0 = arg_pixel->y;
+ 498              		.loc 1 167 0
+ 499 000a 0F23     		movs	r3, #15
+ 500 000c FB18     		adds	r3, r7, r3
+ 501 000e 3A68     		ldr	r2, [r7]
+ 502 0010 5278     		ldrb	r2, [r2, #1]
+ 503 0012 1A70     		strb	r2, [r3]
+ 168:Drivers/u8glib/src/u8g_pb.c ****   v1 = v0;
+ 504              		.loc 1 168 0
+ 505 0014 0E23     		movs	r3, #14
+ 506 0016 FB18     		adds	r3, r7, r3
+ 507 0018 0F22     		movs	r2, #15
+ 508 001a BA18     		adds	r2, r7, r2
+ 509 001c 1278     		ldrb	r2, [r2]
+ 510 001e 1A70     		strb	r2, [r3]
+ 169:Drivers/u8glib/src/u8g_pb.c ****   switch( arg_pixel->dir )
+ 511              		.loc 1 169 0
+ 512 0020 3B68     		ldr	r3, [r7]
+ 513 0022 DB78     		ldrb	r3, [r3, #3]
+ 514 0024 012B     		cmp	r3, #1
+ 515 0026 05D0     		beq	.L14
+ 516 0028 14DD     		ble	.L20
+ 517 002a 022B     		cmp	r3, #2
+ 518 002c 14D0     		beq	.L21
+ 519 002e 032B     		cmp	r3, #3
+ 520 0030 08D0     		beq	.L18
+ 521 0032 12E0     		b	.L13
+ 522              	.L14:
+ 170:Drivers/u8glib/src/u8g_pb.c ****   {
+ 171:Drivers/u8glib/src/u8g_pb.c ****     case 0:
+ 172:Drivers/u8glib/src/u8g_pb.c ****       break;
+ 173:Drivers/u8glib/src/u8g_pb.c ****     case 1:  
+ARM GAS  /tmp/ccFvMJ4u.s 			page 13
+
+
+ 174:Drivers/u8glib/src/u8g_pb.c ****       v1 += 8;          /* this is independent from the page height */
+ 523              		.loc 1 174 0
+ 524 0034 0E23     		movs	r3, #14
+ 525 0036 FB18     		adds	r3, r7, r3
+ 526 0038 0E22     		movs	r2, #14
+ 527 003a BA18     		adds	r2, r7, r2
+ 528 003c 1278     		ldrb	r2, [r2]
+ 529 003e 0832     		adds	r2, r2, #8
+ 530 0040 1A70     		strb	r2, [r3]
+ 175:Drivers/u8glib/src/u8g_pb.c ****       break;
+ 531              		.loc 1 175 0
+ 532 0042 0AE0     		b	.L13
+ 533              	.L18:
+ 176:Drivers/u8glib/src/u8g_pb.c ****     case 2:  
+ 177:Drivers/u8glib/src/u8g_pb.c ****       break;
+ 178:Drivers/u8glib/src/u8g_pb.c ****     case 3: 
+ 179:Drivers/u8glib/src/u8g_pb.c ****       v0 -= 8;
+ 534              		.loc 1 179 0
+ 535 0044 0F23     		movs	r3, #15
+ 536 0046 FB18     		adds	r3, r7, r3
+ 537 0048 0F22     		movs	r2, #15
+ 538 004a BA18     		adds	r2, r7, r2
+ 539 004c 1278     		ldrb	r2, [r2]
+ 540 004e 083A     		subs	r2, r2, #8
+ 541 0050 1A70     		strb	r2, [r3]
+ 180:Drivers/u8glib/src/u8g_pb.c ****       break;
+ 542              		.loc 1 180 0
+ 543 0052 02E0     		b	.L13
+ 544              	.L20:
+ 172:Drivers/u8glib/src/u8g_pb.c ****     case 1:  
+ 545              		.loc 1 172 0
+ 546 0054 C046     		nop
+ 547 0056 00E0     		b	.L13
+ 548              	.L21:
+ 177:Drivers/u8glib/src/u8g_pb.c ****     case 3: 
+ 549              		.loc 1 177 0
+ 550 0058 C046     		nop
+ 551              	.L13:
+ 181:Drivers/u8glib/src/u8g_pb.c ****   }
+ 182:Drivers/u8glib/src/u8g_pb.c ****   return u8g_pb_IsYIntersection(b, v0, v1);
+ 552              		.loc 1 182 0
+ 553 005a 0E23     		movs	r3, #14
+ 554 005c FB18     		adds	r3, r7, r3
+ 555 005e 1A78     		ldrb	r2, [r3]
+ 556 0060 0F23     		movs	r3, #15
+ 557 0062 FB18     		adds	r3, r7, r3
+ 558 0064 1978     		ldrb	r1, [r3]
+ 559 0066 7B68     		ldr	r3, [r7, #4]
+ 560 0068 1800     		movs	r0, r3
+ 561 006a FFF7FEFF 		bl	u8g_pb_IsYIntersection
+ 562 006e 0300     		movs	r3, r0
+ 183:Drivers/u8glib/src/u8g_pb.c **** }
+ 563              		.loc 1 183 0
+ 564 0070 1800     		movs	r0, r3
+ 565 0072 BD46     		mov	sp, r7
+ 566 0074 04B0     		add	sp, sp, #16
+ 567              		@ sp needed
+ARM GAS  /tmp/ccFvMJ4u.s 			page 14
+
+
+ 568 0076 80BD     		pop	{r7, pc}
+ 569              		.cfi_endproc
+ 570              	.LFE5:
+ 572              		.section	.text.u8g_pb_WriteBuffer,"ax",%progbits
+ 573              		.align	1
+ 574              		.global	u8g_pb_WriteBuffer
+ 575              		.syntax unified
+ 576              		.code	16
+ 577              		.thumb_func
+ 578              		.fpu softvfp
+ 580              	u8g_pb_WriteBuffer:
+ 581              	.LFB6:
+ 184:Drivers/u8glib/src/u8g_pb.c **** 
+ 185:Drivers/u8glib/src/u8g_pb.c **** 
+ 186:Drivers/u8glib/src/u8g_pb.c **** 
+ 187:Drivers/u8glib/src/u8g_pb.c **** uint8_t u8g_pb_WriteBuffer(u8g_pb_t *b, u8g_t *u8g, u8g_dev_t *dev)
+ 188:Drivers/u8glib/src/u8g_pb.c **** {
+ 582              		.loc 1 188 0
+ 583              		.cfi_startproc
+ 584 0000 80B5     		push	{r7, lr}
+ 585              	.LCFI18:
+ 586              		.cfi_def_cfa_offset 8
+ 587              		.cfi_offset 7, -8
+ 588              		.cfi_offset 14, -4
+ 589 0002 84B0     		sub	sp, sp, #16
+ 590              	.LCFI19:
+ 591              		.cfi_def_cfa_offset 24
+ 592 0004 00AF     		add	r7, sp, #0
+ 593              	.LCFI20:
+ 594              		.cfi_def_cfa_register 7
+ 595 0006 F860     		str	r0, [r7, #12]
+ 596 0008 B960     		str	r1, [r7, #8]
+ 597 000a 7A60     		str	r2, [r7, #4]
+ 189:Drivers/u8glib/src/u8g_pb.c ****   return u8g_WriteSequence(u8g, dev, b->width, b->buf);  
+ 598              		.loc 1 189 0
+ 599 000c FB68     		ldr	r3, [r7, #12]
+ 600 000e 5A79     		ldrb	r2, [r3, #5]
+ 601 0010 FB68     		ldr	r3, [r7, #12]
+ 602 0012 9B68     		ldr	r3, [r3, #8]
+ 603 0014 7968     		ldr	r1, [r7, #4]
+ 604 0016 B868     		ldr	r0, [r7, #8]
+ 605 0018 FFF7FEFF 		bl	u8g_WriteSequence
+ 606 001c 0300     		movs	r3, r0
+ 190:Drivers/u8glib/src/u8g_pb.c **** }
+ 607              		.loc 1 190 0
+ 608 001e 1800     		movs	r0, r3
+ 609 0020 BD46     		mov	sp, r7
+ 610 0022 04B0     		add	sp, sp, #16
+ 611              		@ sp needed
+ 612 0024 80BD     		pop	{r7, pc}
+ 613              		.cfi_endproc
+ 614              	.LFE6:
+ 616              		.text
+ 617              	.Letext0:
+ 618              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 619              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 620              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccFvMJ4u.s 			page 15
+
+
+ARM GAS  /tmp/ccFvMJ4u.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_pb.c
+     /tmp/ccFvMJ4u.s:16     .text.u8g_pb_Clear:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:23     .text.u8g_pb_Clear:0000000000000000 u8g_pb_Clear
+     /tmp/ccFvMJ4u.s:76     .text.u8g_pb_IsYIntersection:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:83     .text.u8g_pb_IsYIntersection:0000000000000000 u8g_pb_IsYIntersection
+     /tmp/ccFvMJ4u.s:222    .text.u8g_pb_IsXIntersection:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:229    .text.u8g_pb_IsXIntersection:0000000000000000 u8g_pb_IsXIntersection
+     /tmp/ccFvMJ4u.s:306    .text.u8g_pb_IsIntersection:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:313    .text.u8g_pb_IsIntersection:0000000000000000 u8g_pb_IsIntersection
+     /tmp/ccFvMJ4u.s:414    .text.u8g_pb_GetPageBox:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:421    .text.u8g_pb_GetPageBox:0000000000000000 u8g_pb_GetPageBox
+     /tmp/ccFvMJ4u.s:474    .text.u8g_pb_Is8PixelVisible:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:481    .text.u8g_pb_Is8PixelVisible:0000000000000000 u8g_pb_Is8PixelVisible
+     /tmp/ccFvMJ4u.s:573    .text.u8g_pb_WriteBuffer:0000000000000000 $t
+     /tmp/ccFvMJ4u.s:580    .text.u8g_pb_WriteBuffer:0000000000000000 u8g_pb_WriteBuffer
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_WriteSequence

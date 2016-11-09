@@ -1,0 +1,934 @@
+ARM GAS  /tmp/cc7XZmMG.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_uc1601_c128032.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_uc1601_c128032_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_uc1601_c128032_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 D1       		.byte	-47
+  26 0006 FF       		.byte	-1
+  27 0007 CF       		.byte	-49
+  28 0008 A3       		.byte	-93
+  29 0009 A0       		.byte	-96
+  30 000a C8       		.byte	-56
+  31 000b C2       		.byte	-62
+  32 000c 40       		.byte	64
+  33 000d 2C       		.byte	44
+  34 000e FF       		.byte	-1
+  35 000f 32       		.byte	50
+  36 0010 2E       		.byte	46
+  37 0011 FF       		.byte	-1
+  38 0012 32       		.byte	50
+  39 0013 2F       		.byte	47
+  40 0014 FF       		.byte	-1
+  41 0015 0A       		.byte	10
+  42 0016 26       		.byte	38
+  43 0017 AF       		.byte	-81
+  44 0018 A6       		.byte	-90
+  45 0019 FF       		.byte	-1
+  46 001a 64       		.byte	100
+  47 001b FF       		.byte	-1
+  48 001c D0       		.byte	-48
+  49 001d FF       		.byte	-1
+  50 001e FE       		.byte	-2
+  51              		.section	.rodata.u8g_dev_uc1601_c128032_data_start,"a",%progbits
+  52              		.align	2
+  55              	u8g_dev_uc1601_c128032_data_start:
+  56 0000 FF       		.byte	-1
+  57 0001 E0       		.byte	-32
+  58 0002 FF       		.byte	-1
+  59 0003 D1       		.byte	-47
+  60 0004 10       		.byte	16
+  61 0005 04       		.byte	4
+ARM GAS  /tmp/cc7XZmMG.s 			page 2
+
+
+  62 0006 FF       		.byte	-1
+  63 0007 FE       		.byte	-2
+  64              		.section	.rodata.u8g_dev_uc1601_c128032_sleep_on,"a",%progbits
+  65              		.align	2
+  68              	u8g_dev_uc1601_c128032_sleep_on:
+  69 0000 FF       		.byte	-1
+  70 0001 E0       		.byte	-32
+  71 0002 FF       		.byte	-1
+  72 0003 D1       		.byte	-47
+  73 0004 AC       		.byte	-84
+  74 0005 00       		.byte	0
+  75 0006 AE       		.byte	-82
+  76 0007 A5       		.byte	-91
+  77 0008 FF       		.byte	-1
+  78 0009 D1       		.byte	-47
+  79 000a FF       		.byte	-1
+  80 000b FE       		.byte	-2
+  81              		.section	.rodata.u8g_dev_uc1601_c128032_sleep_off,"a",%progbits
+  82              		.align	2
+  85              	u8g_dev_uc1601_c128032_sleep_off:
+  86 0000 FF       		.byte	-1
+  87 0001 E0       		.byte	-32
+  88 0002 FF       		.byte	-1
+  89 0003 D1       		.byte	-47
+  90 0004 A4       		.byte	-92
+  91 0005 AF       		.byte	-81
+  92 0006 FF       		.byte	-1
+  93 0007 32       		.byte	50
+  94 0008 FF       		.byte	-1
+  95 0009 D1       		.byte	-47
+  96 000a FF       		.byte	-1
+  97 000b FE       		.byte	-2
+  98              		.section	.text.u8g_dev_uc1601_c128032_fn,"ax",%progbits
+  99              		.align	1
+ 100              		.global	u8g_dev_uc1601_c128032_fn
+ 101              		.syntax unified
+ 102              		.code	16
+ 103              		.thumb_func
+ 104              		.fpu softvfp
+ 106              	u8g_dev_uc1601_c128032_fn:
+ 107              	.LFB0:
+ 108              		.file 1 "Drivers/u8glib/src/u8g_dev_uc1601_c128032.c"
+   1:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+   3:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   u8g_dev_uc1601_c128032.c
+   4:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+   5:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   LCD-AG-C128032R-DIW W/KK E6 PBF from http://www.artronic.pl/o_produkcie.php?id=1343
+   6:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+   7:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+   9:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   Copyright (c) 2013, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  12:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  15:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+ARM GAS  /tmp/cc7XZmMG.s 			page 3
+
+
+  16:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     
+  18:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  22:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  36:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  37:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** */
+  38:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  39:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  41:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** #define WIDTH 128
+  42:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** #define HEIGHT 32
+  43:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** #define PAGE_HEIGHT 8
+  44:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  45:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** /* init sequence */
+  46:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** static const uint8_t u8g_dev_uc1601_c128032_init_seq[] PROGMEM = {
+  47:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(0),            	/* disable chip */
+  48:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_ADR(0),           	/* instruction mode */
+  49:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(1),             	/* enable chip */
+  50:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_RST(15),           	/* do reset low pulse with (15*16)+2 milliseconds (=maximum delay)*/
+  51:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  52:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0a3,		        /* 0x0a3: LCD bias 1/7 ,  0x0a2: LCD bias 1/9 */
+  53:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0a0,		        /* 0x0a0: ADC set to normal,  0x0a1 ADC set to inverted */
+  54:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0c8,                        /* common output mode: set scan direction normal operation/SHL Sele
+  55:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0c2,				/* 22 May 2013: mirror x */
+  56:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  57:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x040,		        /* set display start line */
+  58:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  59:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x028 | 0x04,                 /* power control: turn on voltage converter */
+  60:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_DLY(50),         	/* delay 50 ms */
+  61:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  62:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x028 | 0x06,                 /* power control: turn on voltage regulator */
+  63:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_DLY(50),         	/* delay 50 ms */
+  64:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  65:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x028 | 0x07,                 /* power control: turn on voltage follower */
+  66:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_DLY(10),         	/* delay 10 ms */
+  67:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  68:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x020| 0x06,		        /* set V0 voltage resistor ratio to 6  */
+  69:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  70:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0af,		        /* display on */
+  71:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   
+  72:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   //0x081,		        /* set contrast */
+ARM GAS  /tmp/cc7XZmMG.s 			page 4
+
+
+  73:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   //0x018,		        /* contrast value*/
+  74:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****  
+  75:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0a6,                      /* display normal, bit val 0: LCD pixel off. */
+  76:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  77:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_DLY(100),       	/* delay 100 ms */
+  78:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(0),             	/* disable chip */
+  79:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_END                	/* end of sequence */
+  80:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** };
+  81:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  82:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** static const uint8_t u8g_dev_uc1601_c128032_data_start[] PROGMEM = {
+  83:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_ADR(0),           	/* instruction mode */
+  84:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(1),             	/* enable chip */
+  85:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x010,			/* set upper 4 bit of the col adr to 0 */
+  86:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x004,			/* set lower 4 bit of the col adr  */      
+  87:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_END                	/* end of sequence */
+  88:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** };
+  89:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+  90:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** static const uint8_t u8g_dev_uc1601_c128032_sleep_on[] PROGMEM = {
+  91:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_ADR(0),           	/* instruction mode */
+  92:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(1),             	/* enable chip */
+  93:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0ac,			/* static indicator off */
+  94:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x000,		        /* indicator register set (not sure if this is required) */
+  95:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0ae,			/* display off */      
+  96:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0a5,			/* all points on */      
+  97:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(1),             	/* disable chip */
+  98:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_END                	/* end of sequence */
+  99:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** };
+ 100:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+ 101:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** static const uint8_t u8g_dev_uc1601_c128032_sleep_off[] PROGMEM = {
+ 102:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_ADR(0),           	/* instruction mode */
+ 103:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(1),             	/* enable chip */
+ 104:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0a4,			/* all points off */      
+ 105:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   0x0af,			/* display on */      
+ 106:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_DLY(50),       	/* delay 50 ms */
+ 107:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_CS(1),             	/* disable chip */
+ 108:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   U8G_ESC_END                	/* end of sequence */
+ 109:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** };
+ 110:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+ 111:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+ 112:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** uint8_t u8g_dev_uc1601_c128032_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 113:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** {
+ 109              		.loc 1 113 0
+ 110              		.cfi_startproc
+ 111 0000 90B5     		push	{r4, r7, lr}
+ 112              	.LCFI0:
+ 113              		.cfi_def_cfa_offset 12
+ 114              		.cfi_offset 4, -12
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 87B0     		sub	sp, sp, #28
+ 118              	.LCFI1:
+ 119              		.cfi_def_cfa_offset 40
+ 120 0004 00AF     		add	r7, sp, #0
+ 121              	.LCFI2:
+ 122              		.cfi_def_cfa_register 7
+ 123 0006 F860     		str	r0, [r7, #12]
+ 124 0008 B960     		str	r1, [r7, #8]
+ARM GAS  /tmp/cc7XZmMG.s 			page 5
+
+
+ 125 000a 3B60     		str	r3, [r7]
+ 126 000c FB1D     		adds	r3, r7, #7
+ 127 000e 1A70     		strb	r2, [r3]
+ 114:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   switch(msg)
+ 128              		.loc 1 114 0
+ 129 0010 FB1D     		adds	r3, r7, #7
+ 130 0012 1B78     		ldrb	r3, [r3]
+ 131 0014 0A3B     		subs	r3, r3, #10
+ 132 0016 0B2B     		cmp	r3, #11
+ 133 0018 6FD8     		bhi	.L2
+ 134 001a 9A00     		lsls	r2, r3, #2
+ 135 001c 3D4B     		ldr	r3, .L12
+ 136 001e D318     		adds	r3, r2, r3
+ 137 0020 1B68     		ldr	r3, [r3]
+ 138 0022 9F46     		mov	pc, r3
+ 139              		.section	.rodata.u8g_dev_uc1601_c128032_fn,"a",%progbits
+ 140              		.align	2
+ 141              	.L4:
+ 142 0000 24000000 		.word	.L3
+ 143 0004 FA000000 		.word	.L2
+ 144 0008 FA000000 		.word	.L2
+ 145 000c FA000000 		.word	.L2
+ 146 0010 FA000000 		.word	.L2
+ 147 0014 94000000 		.word	.L6
+ 148 0018 DA000000 		.word	.L7
+ 149 001c EA000000 		.word	.L8
+ 150 0020 FA000000 		.word	.L2
+ 151 0024 FA000000 		.word	.L2
+ 152 0028 FA000000 		.word	.L2
+ 153 002c 3E000000 		.word	.L9
+ 154              		.section	.text.u8g_dev_uc1601_c128032_fn
+ 155              	.L3:
+ 115:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   {
+ 116:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_INIT:
+ 117:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 156              		.loc 1 117 0
+ 157 0024 B968     		ldr	r1, [r7, #8]
+ 158 0026 FB68     		ldr	r3, [r7, #12]
+ 159 0028 0222     		movs	r2, #2
+ 160 002a 1800     		movs	r0, r3
+ 161 002c FFF7FEFF 		bl	u8g_InitCom
+ 118:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_init_seq);
+ 162              		.loc 1 118 0
+ 163 0030 394A     		ldr	r2, .L12+4
+ 164 0032 B968     		ldr	r1, [r7, #8]
+ 165 0034 FB68     		ldr	r3, [r7, #12]
+ 166 0036 1800     		movs	r0, r3
+ 167 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 119:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       break;
+ 168              		.loc 1 119 0
+ 169 003c 5DE0     		b	.L2
+ 170              	.L9:
+ 171              	.LBB2:
+ 120:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_STOP:
+ 121:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       break;
+ 122:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 123:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       {
+ARM GAS  /tmp/cc7XZmMG.s 			page 6
+
+
+ 124:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 172              		.loc 1 124 0
+ 173 003e BB68     		ldr	r3, [r7, #8]
+ 174 0040 5B68     		ldr	r3, [r3, #4]
+ 175 0042 7B61     		str	r3, [r7, #20]
+ 125:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_data_start);    
+ 176              		.loc 1 125 0
+ 177 0044 354A     		ldr	r2, .L12+8
+ 178 0046 B968     		ldr	r1, [r7, #8]
+ 179 0048 FB68     		ldr	r3, [r7, #12]
+ 180 004a 1800     		movs	r0, r3
+ 181 004c FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 126:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | pb->p.page); /* select current page (UC1601) */
+ 182              		.loc 1 126 0
+ 183 0050 7B69     		ldr	r3, [r7, #20]
+ 184 0052 1B79     		ldrb	r3, [r3, #4]
+ 185 0054 5022     		movs	r2, #80
+ 186 0056 5242     		rsbs	r2, r2, #0
+ 187 0058 1343     		orrs	r3, r2
+ 188 005a DAB2     		uxtb	r2, r3
+ 189 005c B968     		ldr	r1, [r7, #8]
+ 190 005e FB68     		ldr	r3, [r7, #12]
+ 191 0060 1800     		movs	r0, r3
+ 192 0062 FFF7FEFF 		bl	u8g_WriteByte
+ 127:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 193              		.loc 1 127 0
+ 194 0066 B968     		ldr	r1, [r7, #8]
+ 195 0068 FB68     		ldr	r3, [r7, #12]
+ 196 006a 0122     		movs	r2, #1
+ 197 006c 1800     		movs	r0, r3
+ 198 006e FFF7FEFF 		bl	u8g_SetAddress
+ 128:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 199              		.loc 1 128 0
+ 200 0072 BA68     		ldr	r2, [r7, #8]
+ 201 0074 F968     		ldr	r1, [r7, #12]
+ 202 0076 7B69     		ldr	r3, [r7, #20]
+ 203 0078 1800     		movs	r0, r3
+ 204 007a FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 205 007e 031E     		subs	r3, r0, #0
+ 206 0080 01D1     		bne	.L10
+ 129:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****           return 0;
+ 207              		.loc 1 129 0
+ 208 0082 0023     		movs	r3, #0
+ 209 0084 42E0     		b	.L11
+ 210              	.L10:
+ 130:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 211              		.loc 1 130 0
+ 212 0086 B968     		ldr	r1, [r7, #8]
+ 213 0088 FB68     		ldr	r3, [r7, #12]
+ 214 008a 0022     		movs	r2, #0
+ 215 008c 1800     		movs	r0, r3
+ 216 008e FFF7FEFF 		bl	u8g_SetChipSelect
+ 217              	.LBE2:
+ 131:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       }
+ 132:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       break;
+ 218              		.loc 1 132 0
+ 219 0092 32E0     		b	.L2
+ARM GAS  /tmp/cc7XZmMG.s 			page 7
+
+
+ 220              	.L6:
+ 133:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_CONTRAST:
+ 134:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 221              		.loc 1 134 0
+ 222 0094 B968     		ldr	r1, [r7, #8]
+ 223 0096 FB68     		ldr	r3, [r7, #12]
+ 224 0098 0122     		movs	r2, #1
+ 225 009a 1800     		movs	r0, r3
+ 226 009c FFF7FEFF 		bl	u8g_SetChipSelect
+ 135:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 227              		.loc 1 135 0
+ 228 00a0 B968     		ldr	r1, [r7, #8]
+ 229 00a2 FB68     		ldr	r3, [r7, #12]
+ 230 00a4 0022     		movs	r2, #0
+ 231 00a6 1800     		movs	r0, r3
+ 232 00a8 FFF7FEFF 		bl	u8g_SetAddress
+ 136:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 233              		.loc 1 136 0
+ 234 00ac B968     		ldr	r1, [r7, #8]
+ 235 00ae FB68     		ldr	r3, [r7, #12]
+ 236 00b0 8122     		movs	r2, #129
+ 237 00b2 1800     		movs	r0, r3
+ 238 00b4 FFF7FEFF 		bl	u8g_WriteByte
+ 137:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 239              		.loc 1 137 0
+ 240 00b8 3B68     		ldr	r3, [r7]
+ 241 00ba 1B78     		ldrb	r3, [r3]
+ 242 00bc 9B08     		lsrs	r3, r3, #2
+ 243 00be DAB2     		uxtb	r2, r3
+ 244 00c0 B968     		ldr	r1, [r7, #8]
+ 245 00c2 FB68     		ldr	r3, [r7, #12]
+ 246 00c4 1800     		movs	r0, r3
+ 247 00c6 FFF7FEFF 		bl	u8g_WriteByte
+ 138:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 248              		.loc 1 138 0
+ 249 00ca B968     		ldr	r1, [r7, #8]
+ 250 00cc FB68     		ldr	r3, [r7, #12]
+ 251 00ce 0022     		movs	r2, #0
+ 252 00d0 1800     		movs	r0, r3
+ 253 00d2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 139:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       return 1;
+ 254              		.loc 1 139 0
+ 255 00d6 0123     		movs	r3, #1
+ 256 00d8 18E0     		b	.L11
+ 257              	.L7:
+ 140:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 141:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_sleep_on);    
+ 258              		.loc 1 141 0
+ 259 00da 114A     		ldr	r2, .L12+12
+ 260 00dc B968     		ldr	r1, [r7, #8]
+ 261 00de FB68     		ldr	r3, [r7, #12]
+ 262 00e0 1800     		movs	r0, r3
+ 263 00e2 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 142:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       return 1;
+ 264              		.loc 1 142 0
+ 265 00e6 0123     		movs	r3, #1
+ 266 00e8 10E0     		b	.L11
+ARM GAS  /tmp/cc7XZmMG.s 			page 8
+
+
+ 267              	.L8:
+ 143:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 144:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_sleep_off);    
+ 268              		.loc 1 144 0
+ 269 00ea 0E4A     		ldr	r2, .L12+16
+ 270 00ec B968     		ldr	r1, [r7, #8]
+ 271 00ee FB68     		ldr	r3, [r7, #12]
+ 272 00f0 1800     		movs	r0, r3
+ 273 00f2 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 145:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       return 1;
+ 274              		.loc 1 145 0
+ 275 00f6 0123     		movs	r3, #1
+ 276 00f8 08E0     		b	.L11
+ 277              	.L2:
+ 146:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   }
+ 147:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 278              		.loc 1 147 0
+ 279 00fa 3C68     		ldr	r4, [r7]
+ 280 00fc FB1D     		adds	r3, r7, #7
+ 281 00fe 1A78     		ldrb	r2, [r3]
+ 282 0100 B968     		ldr	r1, [r7, #8]
+ 283 0102 F868     		ldr	r0, [r7, #12]
+ 284 0104 2300     		movs	r3, r4
+ 285 0106 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 286 010a 0300     		movs	r3, r0
+ 287              	.L11:
+ 148:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** }
+ 288              		.loc 1 148 0
+ 289 010c 1800     		movs	r0, r3
+ 290 010e BD46     		mov	sp, r7
+ 291 0110 07B0     		add	sp, sp, #28
+ 292              		@ sp needed
+ 293 0112 90BD     		pop	{r4, r7, pc}
+ 294              	.L13:
+ 295              		.align	2
+ 296              	.L12:
+ 297 0114 00000000 		.word	.L4
+ 298 0118 00000000 		.word	u8g_dev_uc1601_c128032_init_seq
+ 299 011c 00000000 		.word	u8g_dev_uc1601_c128032_data_start
+ 300 0120 00000000 		.word	u8g_dev_uc1601_c128032_sleep_on
+ 301 0124 00000000 		.word	u8g_dev_uc1601_c128032_sleep_off
+ 302              		.cfi_endproc
+ 303              	.LFE0:
+ 305              		.section	.text.u8g_dev_uc1601_c128032_2x_fn,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	u8g_dev_uc1601_c128032_2x_fn
+ 308              		.syntax unified
+ 309              		.code	16
+ 310              		.thumb_func
+ 311              		.fpu softvfp
+ 313              	u8g_dev_uc1601_c128032_2x_fn:
+ 314              	.LFB1:
+ 149:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 
+ 150:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** uint8_t u8g_dev_uc1601_c128032_2x_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 151:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** {
+ 315              		.loc 1 151 0
+ 316              		.cfi_startproc
+ARM GAS  /tmp/cc7XZmMG.s 			page 9
+
+
+ 317 0000 90B5     		push	{r4, r7, lr}
+ 318              	.LCFI3:
+ 319              		.cfi_def_cfa_offset 12
+ 320              		.cfi_offset 4, -12
+ 321              		.cfi_offset 7, -8
+ 322              		.cfi_offset 14, -4
+ 323 0002 87B0     		sub	sp, sp, #28
+ 324              	.LCFI4:
+ 325              		.cfi_def_cfa_offset 40
+ 326 0004 00AF     		add	r7, sp, #0
+ 327              	.LCFI5:
+ 328              		.cfi_def_cfa_register 7
+ 329 0006 F860     		str	r0, [r7, #12]
+ 330 0008 B960     		str	r1, [r7, #8]
+ 331 000a 3B60     		str	r3, [r7]
+ 332 000c FB1D     		adds	r3, r7, #7
+ 333 000e 1A70     		strb	r2, [r3]
+ 152:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   switch(msg)
+ 334              		.loc 1 152 0
+ 335 0010 FB1D     		adds	r3, r7, #7
+ 336 0012 1B78     		ldrb	r3, [r3]
+ 337 0014 0A3B     		subs	r3, r3, #10
+ 338 0016 0B2B     		cmp	r3, #11
+ 339 0018 00D9     		bls	.LCB208
+ 340 001a A0E0     		b	.L15	@long jump
+ 341              	.LCB208:
+ 342 001c 9A00     		lsls	r2, r3, #2
+ 343 001e 564B     		ldr	r3, .L24
+ 344 0020 D318     		adds	r3, r2, r3
+ 345 0022 1B68     		ldr	r3, [r3]
+ 346 0024 9F46     		mov	pc, r3
+ 347              		.section	.rodata.u8g_dev_uc1601_c128032_2x_fn,"a",%progbits
+ 348              		.align	2
+ 349              	.L17:
+ 350 0000 26000000 		.word	.L16
+ 351 0004 5E010000 		.word	.L15
+ 352 0008 5E010000 		.word	.L15
+ 353 000c 5E010000 		.word	.L15
+ 354 0010 5E010000 		.word	.L15
+ 355 0014 F8000000 		.word	.L19
+ 356 0018 3E010000 		.word	.L20
+ 357 001c 4E010000 		.word	.L21
+ 358 0020 5E010000 		.word	.L15
+ 359 0024 5E010000 		.word	.L15
+ 360 0028 5E010000 		.word	.L15
+ 361 002c 40000000 		.word	.L22
+ 362              		.section	.text.u8g_dev_uc1601_c128032_2x_fn
+ 363              	.L16:
+ 153:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   {
+ 154:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_INIT:
+ 155:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 364              		.loc 1 155 0
+ 365 0026 B968     		ldr	r1, [r7, #8]
+ 366 0028 FB68     		ldr	r3, [r7, #12]
+ 367 002a 0222     		movs	r2, #2
+ 368 002c 1800     		movs	r0, r3
+ 369 002e FFF7FEFF 		bl	u8g_InitCom
+ARM GAS  /tmp/cc7XZmMG.s 			page 10
+
+
+ 156:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_init_seq);
+ 370              		.loc 1 156 0
+ 371 0032 524A     		ldr	r2, .L24+4
+ 372 0034 B968     		ldr	r1, [r7, #8]
+ 373 0036 FB68     		ldr	r3, [r7, #12]
+ 374 0038 1800     		movs	r0, r3
+ 375 003a FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 157:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       break;
+ 376              		.loc 1 157 0
+ 377 003e 8EE0     		b	.L15
+ 378              	.L22:
+ 379              	.LBB3:
+ 158:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_STOP:
+ 159:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       break;
+ 160:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 161:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       {
+ 162:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 380              		.loc 1 162 0
+ 381 0040 BB68     		ldr	r3, [r7, #8]
+ 382 0042 5B68     		ldr	r3, [r3, #4]
+ 383 0044 7B61     		str	r3, [r7, #20]
+ 163:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 	
+ 164:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_data_start);    
+ 384              		.loc 1 164 0
+ 385 0046 4E4A     		ldr	r2, .L24+8
+ 386 0048 B968     		ldr	r1, [r7, #8]
+ 387 004a FB68     		ldr	r3, [r7, #12]
+ 388 004c 1800     		movs	r0, r3
+ 389 004e FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 165:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | (2*pb->p.page)); /* select current page (UC1601) */
+ 390              		.loc 1 165 0
+ 391 0052 7B69     		ldr	r3, [r7, #20]
+ 392 0054 1B79     		ldrb	r3, [r3, #4]
+ 393 0056 DB18     		adds	r3, r3, r3
+ 394 0058 DBB2     		uxtb	r3, r3
+ 395 005a 5BB2     		sxtb	r3, r3
+ 396 005c 5022     		movs	r2, #80
+ 397 005e 5242     		rsbs	r2, r2, #0
+ 398 0060 1343     		orrs	r3, r2
+ 399 0062 5BB2     		sxtb	r3, r3
+ 400 0064 DAB2     		uxtb	r2, r3
+ 401 0066 B968     		ldr	r1, [r7, #8]
+ 402 0068 FB68     		ldr	r3, [r7, #12]
+ 403 006a 1800     		movs	r0, r3
+ 404 006c FFF7FEFF 		bl	u8g_WriteByte
+ 166:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 405              		.loc 1 166 0
+ 406 0070 B968     		ldr	r1, [r7, #8]
+ 407 0072 FB68     		ldr	r3, [r7, #12]
+ 408 0074 0122     		movs	r2, #1
+ 409 0076 1800     		movs	r0, r3
+ 410 0078 FFF7FEFF 		bl	u8g_SetAddress
+ 167:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 	u8g_WriteSequence(u8g, dev, pb->width, pb->buf); 
+ 411              		.loc 1 167 0
+ 412 007c 7B69     		ldr	r3, [r7, #20]
+ 413 007e 5A79     		ldrb	r2, [r3, #5]
+ 414 0080 7B69     		ldr	r3, [r7, #20]
+ARM GAS  /tmp/cc7XZmMG.s 			page 11
+
+
+ 415 0082 9B68     		ldr	r3, [r3, #8]
+ 416 0084 B968     		ldr	r1, [r7, #8]
+ 417 0086 F868     		ldr	r0, [r7, #12]
+ 418 0088 FFF7FEFF 		bl	u8g_WriteSequence
+ 168:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 419              		.loc 1 168 0
+ 420 008c B968     		ldr	r1, [r7, #8]
+ 421 008e FB68     		ldr	r3, [r7, #12]
+ 422 0090 0022     		movs	r2, #0
+ 423 0092 1800     		movs	r0, r3
+ 424 0094 FFF7FEFF 		bl	u8g_SetChipSelect
+ 169:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 	
+ 170:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_data_start);    
+ 425              		.loc 1 170 0
+ 426 0098 394A     		ldr	r2, .L24+8
+ 427 009a B968     		ldr	r1, [r7, #8]
+ 428 009c FB68     		ldr	r3, [r7, #12]
+ 429 009e 1800     		movs	r0, r3
+ 430 00a0 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 171:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | (2*pb->p.page+1)); /* select current page (UC1601) */
+ 431              		.loc 1 171 0
+ 432 00a4 7B69     		ldr	r3, [r7, #20]
+ 433 00a6 1B79     		ldrb	r3, [r3, #4]
+ 434 00a8 DB18     		adds	r3, r3, r3
+ 435 00aa DBB2     		uxtb	r3, r3
+ 436 00ac 0133     		adds	r3, r3, #1
+ 437 00ae DBB2     		uxtb	r3, r3
+ 438 00b0 5BB2     		sxtb	r3, r3
+ 439 00b2 5022     		movs	r2, #80
+ 440 00b4 5242     		rsbs	r2, r2, #0
+ 441 00b6 1343     		orrs	r3, r2
+ 442 00b8 5BB2     		sxtb	r3, r3
+ 443 00ba DAB2     		uxtb	r2, r3
+ 444 00bc B968     		ldr	r1, [r7, #8]
+ 445 00be FB68     		ldr	r3, [r7, #12]
+ 446 00c0 1800     		movs	r0, r3
+ 447 00c2 FFF7FEFF 		bl	u8g_WriteByte
+ 172:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 448              		.loc 1 172 0
+ 449 00c6 B968     		ldr	r1, [r7, #8]
+ 450 00c8 FB68     		ldr	r3, [r7, #12]
+ 451 00ca 0122     		movs	r2, #1
+ 452 00cc 1800     		movs	r0, r3
+ 453 00ce FFF7FEFF 		bl	u8g_SetAddress
+ 173:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** 	u8g_WriteSequence(u8g, dev, pb->width, (uint8_t *)(pb->buf)+pb->width); 
+ 454              		.loc 1 173 0
+ 455 00d2 7B69     		ldr	r3, [r7, #20]
+ 456 00d4 5C79     		ldrb	r4, [r3, #5]
+ 457 00d6 7B69     		ldr	r3, [r7, #20]
+ 458 00d8 9B68     		ldr	r3, [r3, #8]
+ 459 00da 7A69     		ldr	r2, [r7, #20]
+ 460 00dc 5279     		ldrb	r2, [r2, #5]
+ 461 00de 9B18     		adds	r3, r3, r2
+ 462 00e0 B968     		ldr	r1, [r7, #8]
+ 463 00e2 F868     		ldr	r0, [r7, #12]
+ 464 00e4 2200     		movs	r2, r4
+ 465 00e6 FFF7FEFF 		bl	u8g_WriteSequence
+ARM GAS  /tmp/cc7XZmMG.s 			page 12
+
+
+ 174:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 466              		.loc 1 174 0
+ 467 00ea B968     		ldr	r1, [r7, #8]
+ 468 00ec FB68     		ldr	r3, [r7, #12]
+ 469 00ee 0022     		movs	r2, #0
+ 470 00f0 1800     		movs	r0, r3
+ 471 00f2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 472              	.LBE3:
+ 175:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       }
+ 176:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       break;
+ 473              		.loc 1 176 0
+ 474 00f6 32E0     		b	.L15
+ 475              	.L19:
+ 177:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_CONTRAST:
+ 178:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 476              		.loc 1 178 0
+ 477 00f8 B968     		ldr	r1, [r7, #8]
+ 478 00fa FB68     		ldr	r3, [r7, #12]
+ 479 00fc 0122     		movs	r2, #1
+ 480 00fe 1800     		movs	r0, r3
+ 481 0100 FFF7FEFF 		bl	u8g_SetChipSelect
+ 179:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 482              		.loc 1 179 0
+ 483 0104 B968     		ldr	r1, [r7, #8]
+ 484 0106 FB68     		ldr	r3, [r7, #12]
+ 485 0108 0022     		movs	r2, #0
+ 486 010a 1800     		movs	r0, r3
+ 487 010c FFF7FEFF 		bl	u8g_SetAddress
+ 180:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 488              		.loc 1 180 0
+ 489 0110 B968     		ldr	r1, [r7, #8]
+ 490 0112 FB68     		ldr	r3, [r7, #12]
+ 491 0114 8122     		movs	r2, #129
+ 492 0116 1800     		movs	r0, r3
+ 493 0118 FFF7FEFF 		bl	u8g_WriteByte
+ 181:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 494              		.loc 1 181 0
+ 495 011c 3B68     		ldr	r3, [r7]
+ 496 011e 1B78     		ldrb	r3, [r3]
+ 497 0120 9B08     		lsrs	r3, r3, #2
+ 498 0122 DAB2     		uxtb	r2, r3
+ 499 0124 B968     		ldr	r1, [r7, #8]
+ 500 0126 FB68     		ldr	r3, [r7, #12]
+ 501 0128 1800     		movs	r0, r3
+ 502 012a FFF7FEFF 		bl	u8g_WriteByte
+ 182:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 503              		.loc 1 182 0
+ 504 012e B968     		ldr	r1, [r7, #8]
+ 505 0130 FB68     		ldr	r3, [r7, #12]
+ 506 0132 0022     		movs	r2, #0
+ 507 0134 1800     		movs	r0, r3
+ 508 0136 FFF7FEFF 		bl	u8g_SetChipSelect
+ 183:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       return 1;
+ 509              		.loc 1 183 0
+ 510 013a 0123     		movs	r3, #1
+ 511 013c 18E0     		b	.L23
+ 512              	.L20:
+ARM GAS  /tmp/cc7XZmMG.s 			page 13
+
+
+ 184:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 185:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_sleep_on);    
+ 513              		.loc 1 185 0
+ 514 013e 114A     		ldr	r2, .L24+12
+ 515 0140 B968     		ldr	r1, [r7, #8]
+ 516 0142 FB68     		ldr	r3, [r7, #12]
+ 517 0144 1800     		movs	r0, r3
+ 518 0146 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 186:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       return 1;
+ 519              		.loc 1 186 0
+ 520 014a 0123     		movs	r3, #1
+ 521 014c 10E0     		b	.L23
+ 522              	.L21:
+ 187:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 188:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1601_c128032_sleep_off);    
+ 523              		.loc 1 188 0
+ 524 014e 0E4A     		ldr	r2, .L24+16
+ 525 0150 B968     		ldr	r1, [r7, #8]
+ 526 0152 FB68     		ldr	r3, [r7, #12]
+ 527 0154 1800     		movs	r0, r3
+ 528 0156 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 189:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****       return 1;
+ 529              		.loc 1 189 0
+ 530 015a 0123     		movs	r3, #1
+ 531 015c 08E0     		b	.L23
+ 532              	.L15:
+ 190:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   }
+ 191:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c ****   return u8g_dev_pb16v1_base_fn(u8g, dev, msg, arg);
+ 533              		.loc 1 191 0
+ 534 015e 3C68     		ldr	r4, [r7]
+ 535 0160 FB1D     		adds	r3, r7, #7
+ 536 0162 1A78     		ldrb	r2, [r3]
+ 537 0164 B968     		ldr	r1, [r7, #8]
+ 538 0166 F868     		ldr	r0, [r7, #12]
+ 539 0168 2300     		movs	r3, r4
+ 540 016a FFF7FEFF 		bl	u8g_dev_pb16v1_base_fn
+ 541 016e 0300     		movs	r3, r0
+ 542              	.L23:
+ 192:Drivers/u8glib/src/u8g_dev_uc1601_c128032.c **** }
+ 543              		.loc 1 192 0
+ 544 0170 1800     		movs	r0, r3
+ 545 0172 BD46     		mov	sp, r7
+ 546 0174 07B0     		add	sp, sp, #28
+ 547              		@ sp needed
+ 548 0176 90BD     		pop	{r4, r7, pc}
+ 549              	.L25:
+ 550              		.align	2
+ 551              	.L24:
+ 552 0178 00000000 		.word	.L17
+ 553 017c 00000000 		.word	u8g_dev_uc1601_c128032_init_seq
+ 554 0180 00000000 		.word	u8g_dev_uc1601_c128032_data_start
+ 555 0184 00000000 		.word	u8g_dev_uc1601_c128032_sleep_on
+ 556 0188 00000000 		.word	u8g_dev_uc1601_c128032_sleep_off
+ 557              		.cfi_endproc
+ 558              	.LFE1:
+ 560              		.global	u8g_dev_uc1601_c128032_sw_spi_buf
+ 561              		.section	.bss.u8g_dev_uc1601_c128032_sw_spi_buf,"aw",%nobits
+ARM GAS  /tmp/cc7XZmMG.s 			page 14
+
+
+ 562              		.align	2
+ 565              	u8g_dev_uc1601_c128032_sw_spi_buf:
+ 566 0000 00000000 		.space	128
+ 566      00000000 
+ 566      00000000 
+ 566      00000000 
+ 566      00000000 
+ 567              		.global	u8g_dev_uc1601_c128032_sw_spi_pb
+ 568              		.section	.data.u8g_dev_uc1601_c128032_sw_spi_pb,"aw",%progbits
+ 569              		.align	2
+ 572              	u8g_dev_uc1601_c128032_sw_spi_pb:
+ 573 0000 08       		.byte	8
+ 574 0001 20       		.byte	32
+ 575 0002 00       		.byte	0
+ 576 0003 00       		.byte	0
+ 577 0004 00       		.byte	0
+ 578 0005 80       		.byte	-128
+ 579 0006 0000     		.space	2
+ 580 0008 00000000 		.word	u8g_dev_uc1601_c128032_sw_spi_buf
+ 581              		.global	u8g_dev_uc1601_c128032_sw_spi
+ 582              		.section	.data.u8g_dev_uc1601_c128032_sw_spi,"aw",%progbits
+ 583              		.align	2
+ 586              	u8g_dev_uc1601_c128032_sw_spi:
+ 587 0000 00000000 		.word	u8g_dev_uc1601_c128032_fn
+ 588 0004 00000000 		.word	u8g_dev_uc1601_c128032_sw_spi_pb
+ 589 0008 00000000 		.word	u8g_com_null_fn
+ 590              		.global	u8g_dev_uc1601_c128032_hw_spi_buf
+ 591              		.section	.bss.u8g_dev_uc1601_c128032_hw_spi_buf,"aw",%nobits
+ 592              		.align	2
+ 595              	u8g_dev_uc1601_c128032_hw_spi_buf:
+ 596 0000 00000000 		.space	128
+ 596      00000000 
+ 596      00000000 
+ 596      00000000 
+ 596      00000000 
+ 597              		.global	u8g_dev_uc1601_c128032_hw_spi_pb
+ 598              		.section	.data.u8g_dev_uc1601_c128032_hw_spi_pb,"aw",%progbits
+ 599              		.align	2
+ 602              	u8g_dev_uc1601_c128032_hw_spi_pb:
+ 603 0000 08       		.byte	8
+ 604 0001 20       		.byte	32
+ 605 0002 00       		.byte	0
+ 606 0003 00       		.byte	0
+ 607 0004 00       		.byte	0
+ 608 0005 80       		.byte	-128
+ 609 0006 0000     		.space	2
+ 610 0008 00000000 		.word	u8g_dev_uc1601_c128032_hw_spi_buf
+ 611              		.global	u8g_dev_uc1601_c128032_hw_spi
+ 612              		.section	.data.u8g_dev_uc1601_c128032_hw_spi,"aw",%progbits
+ 613              		.align	2
+ 616              	u8g_dev_uc1601_c128032_hw_spi:
+ 617 0000 00000000 		.word	u8g_dev_uc1601_c128032_fn
+ 618 0004 00000000 		.word	u8g_dev_uc1601_c128032_hw_spi_pb
+ 619 0008 00000000 		.word	u8g_com_null_fn
+ 620              		.global	u8g_dev_uc1601_c128032_2x_buf
+ 621              		.section	.bss.u8g_dev_uc1601_c128032_2x_buf,"aw",%nobits
+ 622              		.align	2
+ARM GAS  /tmp/cc7XZmMG.s 			page 15
+
+
+ 625              	u8g_dev_uc1601_c128032_2x_buf:
+ 626 0000 00000000 		.space	256
+ 626      00000000 
+ 626      00000000 
+ 626      00000000 
+ 626      00000000 
+ 627              		.global	u8g_dev_uc1601_c128032_2x_pb
+ 628              		.section	.data.u8g_dev_uc1601_c128032_2x_pb,"aw",%progbits
+ 629              		.align	2
+ 632              	u8g_dev_uc1601_c128032_2x_pb:
+ 633 0000 10       		.byte	16
+ 634 0001 20       		.byte	32
+ 635 0002 00       		.byte	0
+ 636 0003 00       		.byte	0
+ 637 0004 00       		.byte	0
+ 638 0005 80       		.byte	-128
+ 639 0006 0000     		.space	2
+ 640 0008 00000000 		.word	u8g_dev_uc1601_c128032_2x_buf
+ 641              		.global	u8g_dev_uc1601_c128032_2x_sw_spi
+ 642              		.section	.data.u8g_dev_uc1601_c128032_2x_sw_spi,"aw",%progbits
+ 643              		.align	2
+ 646              	u8g_dev_uc1601_c128032_2x_sw_spi:
+ 647 0000 00000000 		.word	u8g_dev_uc1601_c128032_2x_fn
+ 648 0004 00000000 		.word	u8g_dev_uc1601_c128032_2x_pb
+ 649 0008 00000000 		.word	u8g_com_null_fn
+ 650              		.global	u8g_dev_uc1601_c128032_2x_hw_spi
+ 651              		.section	.data.u8g_dev_uc1601_c128032_2x_hw_spi,"aw",%progbits
+ 652              		.align	2
+ 655              	u8g_dev_uc1601_c128032_2x_hw_spi:
+ 656 0000 00000000 		.word	u8g_dev_uc1601_c128032_2x_fn
+ 657 0004 00000000 		.word	u8g_dev_uc1601_c128032_2x_pb
+ 658 0008 00000000 		.word	u8g_com_null_fn
+ 659              		.text
+ 660              	.Letext0:
+ 661              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 662              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 663              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cc7XZmMG.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_uc1601_c128032.c
+     /tmp/cc7XZmMG.s:16     .rodata.u8g_dev_uc1601_c128032_init_seq:0000000000000000 $d
+     /tmp/cc7XZmMG.s:19     .rodata.u8g_dev_uc1601_c128032_init_seq:0000000000000000 u8g_dev_uc1601_c128032_init_seq
+     /tmp/cc7XZmMG.s:52     .rodata.u8g_dev_uc1601_c128032_data_start:0000000000000000 $d
+     /tmp/cc7XZmMG.s:55     .rodata.u8g_dev_uc1601_c128032_data_start:0000000000000000 u8g_dev_uc1601_c128032_data_start
+     /tmp/cc7XZmMG.s:65     .rodata.u8g_dev_uc1601_c128032_sleep_on:0000000000000000 $d
+     /tmp/cc7XZmMG.s:68     .rodata.u8g_dev_uc1601_c128032_sleep_on:0000000000000000 u8g_dev_uc1601_c128032_sleep_on
+     /tmp/cc7XZmMG.s:82     .rodata.u8g_dev_uc1601_c128032_sleep_off:0000000000000000 $d
+     /tmp/cc7XZmMG.s:85     .rodata.u8g_dev_uc1601_c128032_sleep_off:0000000000000000 u8g_dev_uc1601_c128032_sleep_off
+     /tmp/cc7XZmMG.s:99     .text.u8g_dev_uc1601_c128032_fn:0000000000000000 $t
+     /tmp/cc7XZmMG.s:106    .text.u8g_dev_uc1601_c128032_fn:0000000000000000 u8g_dev_uc1601_c128032_fn
+     /tmp/cc7XZmMG.s:140    .rodata.u8g_dev_uc1601_c128032_fn:0000000000000000 $d
+     /tmp/cc7XZmMG.s:297    .text.u8g_dev_uc1601_c128032_fn:0000000000000114 $d
+     /tmp/cc7XZmMG.s:306    .text.u8g_dev_uc1601_c128032_2x_fn:0000000000000000 $t
+     /tmp/cc7XZmMG.s:313    .text.u8g_dev_uc1601_c128032_2x_fn:0000000000000000 u8g_dev_uc1601_c128032_2x_fn
+     /tmp/cc7XZmMG.s:348    .rodata.u8g_dev_uc1601_c128032_2x_fn:0000000000000000 $d
+     /tmp/cc7XZmMG.s:552    .text.u8g_dev_uc1601_c128032_2x_fn:0000000000000178 $d
+     /tmp/cc7XZmMG.s:565    .bss.u8g_dev_uc1601_c128032_sw_spi_buf:0000000000000000 u8g_dev_uc1601_c128032_sw_spi_buf
+     /tmp/cc7XZmMG.s:562    .bss.u8g_dev_uc1601_c128032_sw_spi_buf:0000000000000000 $d
+     /tmp/cc7XZmMG.s:572    .data.u8g_dev_uc1601_c128032_sw_spi_pb:0000000000000000 u8g_dev_uc1601_c128032_sw_spi_pb
+     /tmp/cc7XZmMG.s:569    .data.u8g_dev_uc1601_c128032_sw_spi_pb:0000000000000000 $d
+     /tmp/cc7XZmMG.s:586    .data.u8g_dev_uc1601_c128032_sw_spi:0000000000000000 u8g_dev_uc1601_c128032_sw_spi
+     /tmp/cc7XZmMG.s:583    .data.u8g_dev_uc1601_c128032_sw_spi:0000000000000000 $d
+     /tmp/cc7XZmMG.s:595    .bss.u8g_dev_uc1601_c128032_hw_spi_buf:0000000000000000 u8g_dev_uc1601_c128032_hw_spi_buf
+     /tmp/cc7XZmMG.s:592    .bss.u8g_dev_uc1601_c128032_hw_spi_buf:0000000000000000 $d
+     /tmp/cc7XZmMG.s:602    .data.u8g_dev_uc1601_c128032_hw_spi_pb:0000000000000000 u8g_dev_uc1601_c128032_hw_spi_pb
+     /tmp/cc7XZmMG.s:599    .data.u8g_dev_uc1601_c128032_hw_spi_pb:0000000000000000 $d
+     /tmp/cc7XZmMG.s:616    .data.u8g_dev_uc1601_c128032_hw_spi:0000000000000000 u8g_dev_uc1601_c128032_hw_spi
+     /tmp/cc7XZmMG.s:613    .data.u8g_dev_uc1601_c128032_hw_spi:0000000000000000 $d
+     /tmp/cc7XZmMG.s:625    .bss.u8g_dev_uc1601_c128032_2x_buf:0000000000000000 u8g_dev_uc1601_c128032_2x_buf
+     /tmp/cc7XZmMG.s:622    .bss.u8g_dev_uc1601_c128032_2x_buf:0000000000000000 $d
+     /tmp/cc7XZmMG.s:632    .data.u8g_dev_uc1601_c128032_2x_pb:0000000000000000 u8g_dev_uc1601_c128032_2x_pb
+     /tmp/cc7XZmMG.s:629    .data.u8g_dev_uc1601_c128032_2x_pb:0000000000000000 $d
+     /tmp/cc7XZmMG.s:646    .data.u8g_dev_uc1601_c128032_2x_sw_spi:0000000000000000 u8g_dev_uc1601_c128032_2x_sw_spi
+     /tmp/cc7XZmMG.s:643    .data.u8g_dev_uc1601_c128032_2x_sw_spi:0000000000000000 $d
+     /tmp/cc7XZmMG.s:655    .data.u8g_dev_uc1601_c128032_2x_hw_spi:0000000000000000 u8g_dev_uc1601_c128032_2x_hw_spi
+     /tmp/cc7XZmMG.s:652    .data.u8g_dev_uc1601_c128032_2x_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8v1_base_fn
+u8g_WriteSequence
+u8g_dev_pb16v1_base_fn
+u8g_com_null_fn

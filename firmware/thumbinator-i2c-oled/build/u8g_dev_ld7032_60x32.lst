@@ -1,0 +1,840 @@
+ARM GAS  /tmp/ccI98pnV.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_ld7032_60x32.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_ld7032_60x32_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_ld7032_60x32_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 01       		.byte	1
+  26 0006 FF       		.byte	-1
+  27 0007 C1       		.byte	-63
+  28 0008 FF       		.byte	-1
+  29 0009 D1       		.byte	-47
+  30 000a FF       		.byte	-1
+  31 000b E0       		.byte	-32
+  32 000c 02       		.byte	2
+  33 000d FF       		.byte	-1
+  34 000e E1       		.byte	-31
+  35 000f 01       		.byte	1
+  36 0010 FF       		.byte	-1
+  37 0011 E0       		.byte	-32
+  38 0012 14       		.byte	20
+  39 0013 FF       		.byte	-1
+  40 0014 E1       		.byte	-31
+  41 0015 00       		.byte	0
+  42 0016 FF       		.byte	-1
+  43 0017 E0       		.byte	-32
+  44 0018 1A       		.byte	26
+  45 0019 FF       		.byte	-1
+  46 001a E1       		.byte	-31
+  47 001b 04       		.byte	4
+  48 001c FF       		.byte	-1
+  49 001d E0       		.byte	-32
+  50 001e 1D       		.byte	29
+  51 001f FF       		.byte	-1
+  52 0020 E1       		.byte	-31
+  53 0021 00       		.byte	0
+  54 0022 FF       		.byte	-1
+  55 0023 E0       		.byte	-32
+  56 0024 09       		.byte	9
+  57 0025 FF       		.byte	-1
+  58 0026 E1       		.byte	-31
+  59 0027 00       		.byte	0
+ARM GAS  /tmp/ccI98pnV.s 			page 2
+
+
+  60 0028 FF       		.byte	-1
+  61 0029 E0       		.byte	-32
+  62 002a 30       		.byte	48
+  63 002b FF       		.byte	-1
+  64 002c E1       		.byte	-31
+  65 002d 00       		.byte	0
+  66 002e 3B       		.byte	59
+  67 002f FF       		.byte	-1
+  68 0030 E0       		.byte	-32
+  69 0031 32       		.byte	50
+  70 0032 FF       		.byte	-1
+  71 0033 E1       		.byte	-31
+  72 0034 00       		.byte	0
+  73 0035 1F       		.byte	31
+  74 0036 FF       		.byte	-1
+  75 0037 E0       		.byte	-32
+  76 0038 10       		.byte	16
+  77 0039 FF       		.byte	-1
+  78 003a E1       		.byte	-31
+  79 003b 00       		.byte	0
+  80 003c FF       		.byte	-1
+  81 003d E0       		.byte	-32
+  82 003e 16       		.byte	22
+  83 003f FF       		.byte	-1
+  84 0040 E1       		.byte	-31
+  85 0041 00       		.byte	0
+  86 0042 FF       		.byte	-1
+  87 0043 E0       		.byte	-32
+  88 0044 12       		.byte	18
+  89 0045 FF       		.byte	-1
+  90 0046 E1       		.byte	-31
+  91 0047 50       		.byte	80
+  92 0048 FF       		.byte	-1
+  93 0049 E0       		.byte	-32
+  94 004a 18       		.byte	24
+  95 004b FF       		.byte	-1
+  96 004c E1       		.byte	-31
+  97 004d 03       		.byte	3
+  98 004e FF       		.byte	-1
+  99 004f E0       		.byte	-32
+ 100 0050 44       		.byte	68
+ 101 0051 FF       		.byte	-1
+ 102 0052 E1       		.byte	-31
+ 103 0053 02       		.byte	2
+ 104 0054 FF       		.byte	-1
+ 105 0055 E0       		.byte	-32
+ 106 0056 48       		.byte	72
+ 107 0057 FF       		.byte	-1
+ 108 0058 E1       		.byte	-31
+ 109 0059 03       		.byte	3
+ 110 005a FF       		.byte	-1
+ 111 005b E0       		.byte	-32
+ 112 005c 3F       		.byte	63
+ 113 005d FF       		.byte	-1
+ 114 005e E1       		.byte	-31
+ 115 005f 11       		.byte	17
+ 116 0060 FF       		.byte	-1
+ARM GAS  /tmp/ccI98pnV.s 			page 3
+
+
+ 117 0061 E0       		.byte	-32
+ 118 0062 3D       		.byte	61
+ 119 0063 FF       		.byte	-1
+ 120 0064 E1       		.byte	-31
+ 121 0065 00       		.byte	0
+ 122 0066 FF       		.byte	-1
+ 123 0067 E0       		.byte	-32
+ 124 0068 02       		.byte	2
+ 125 0069 FF       		.byte	-1
+ 126 006a E1       		.byte	-31
+ 127 006b 01       		.byte	1
+ 128 006c FF       		.byte	-1
+ 129 006d E0       		.byte	-32
+ 130 006e 08       		.byte	8
+ 131 006f FF       		.byte	-1
+ 132 0070 D0       		.byte	-48
+ 133 0071 FF       		.byte	-1
+ 134 0072 FE       		.byte	-2
+ 135              		.section	.rodata.u8g_dev_ld7032_60x32_data_start,"a",%progbits
+ 136              		.align	2
+ 139              	u8g_dev_ld7032_60x32_data_start:
+ 140 0000 FF       		.byte	-1
+ 141 0001 E0       		.byte	-32
+ 142 0002 FF       		.byte	-1
+ 143 0003 D1       		.byte	-47
+ 144 0004 FF       		.byte	-1
+ 145 0005 E0       		.byte	-32
+ 146 0006 34       		.byte	52
+ 147 0007 FF       		.byte	-1
+ 148 0008 E1       		.byte	-31
+ 149 0009 00       		.byte	0
+ 150 000a FF       		.byte	-1
+ 151 000b E0       		.byte	-32
+ 152 000c 35       		.byte	53
+ 153 000d FF       		.byte	-1
+ 154 000e E1       		.byte	-31
+ 155 000f 07       		.byte	7
+ 156 0010 FF       		.byte	-1
+ 157 0011 E0       		.byte	-32
+ 158 0012 37       		.byte	55
+ 159 0013 FF       		.byte	-1
+ 160 0014 E1       		.byte	-31
+ 161 0015 1F       		.byte	31
+ 162 0016 FF       		.byte	-1
+ 163 0017 E0       		.byte	-32
+ 164 0018 36       		.byte	54
+ 165 0019 FF       		.byte	-1
+ 166 001a E1       		.byte	-31
+ 167 001b FF       		.byte	-1
+ 168 001c FE       		.byte	-2
+ 169              		.section	.rodata.u8g_dev_ld7032_60x32_sleep_on,"a",%progbits
+ 170              		.align	2
+ 173              	u8g_dev_ld7032_60x32_sleep_on:
+ 174 0000 FF       		.byte	-1
+ 175 0001 E0       		.byte	-32
+ 176 0002 FF       		.byte	-1
+ 177 0003 D1       		.byte	-47
+ARM GAS  /tmp/ccI98pnV.s 			page 4
+
+
+ 178 0004 FF       		.byte	-1
+ 179 0005 D0       		.byte	-48
+ 180 0006 FF       		.byte	-1
+ 181 0007 FE       		.byte	-2
+ 182              		.section	.rodata.u8g_dev_ld7032_60x32_sleep_off,"a",%progbits
+ 183              		.align	2
+ 186              	u8g_dev_ld7032_60x32_sleep_off:
+ 187 0000 FF       		.byte	-1
+ 188 0001 E0       		.byte	-32
+ 189 0002 FF       		.byte	-1
+ 190 0003 D1       		.byte	-47
+ 191 0004 FF       		.byte	-1
+ 192 0005 32       		.byte	50
+ 193 0006 FF       		.byte	-1
+ 194 0007 D0       		.byte	-48
+ 195 0008 FF       		.byte	-1
+ 196 0009 FE       		.byte	-2
+ 197              		.section	.text.u8g_dev_ld7032_60x32_fn,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	u8g_dev_ld7032_60x32_fn
+ 200              		.syntax unified
+ 201              		.code	16
+ 202              		.thumb_func
+ 203              		.fpu softvfp
+ 205              	u8g_dev_ld7032_60x32_fn:
+ 206              	.LFB0:
+ 207              		.file 1 "Drivers/u8glib/src/u8g_dev_ld7032_60x32.c"
+   1:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+   3:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   u8g_dev_ld7032_60x32.c
+   4:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+   5:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   60x32 OLED display
+   6:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+   7:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+   9:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   Copyright (c) 2011, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  12:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  15:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     
+  18:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  22:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+ARM GAS  /tmp/ccI98pnV.s 			page 5
+
+
+  31:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  36:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  37:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** */
+  38:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  39:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  41:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** /* define width as 64, so that it is a multiple of 8 */
+  42:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** #define WIDTH 64
+  43:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** #define HEIGHT 32
+  44:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** #define PAGE_HEIGHT 8
+  45:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  46:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** static const uint8_t u8g_dev_ld7032_60x32_init_seq[] PROGMEM = {
+  47:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(0),             /* disable chip */
+  48:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  49:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_DLY(1),       	/* delay 1 ms */
+  50:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  51:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(1),             /* enable chip */
+  52:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  53:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  54:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  55:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x002,				/* Dot Matrix Display ON/OFF */
+  56:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  57:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x001,				/* ON */
+  58:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  59:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  60:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x014,				/* Dot Matrix Display Stand-by ON/OFF */
+  61:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  62:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* ON */
+  63:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  64:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  65:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x01a,				/* Dot Matrix Frame Rate */
+  66:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  67:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x004,				/* special value for this OLED from manual */
+  68:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  69:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  70:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x01d,				/* Graphics Memory Writing Direction */
+  71:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  72:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* reset default (right down, horizontal) */
+  73:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  74:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  75:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x009,				/* Display Direction */
+  76:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  77:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* reset default (x,y: min --> max) */
+  78:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  79:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  80:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x030,				/* Display Size X */
+  81:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  82:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* Column Start Output */
+  83:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x03b,				/* Column End Output */
+  84:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+  85:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  86:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x032,				/* Display Size Y */
+  87:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ARM GAS  /tmp/ccI98pnV.s 			page 6
+
+
+  88:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* Row Start Output */
+  89:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x01f,				/* Row End Output */
+  90:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  91:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  92:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x010,				/* Peak Pulse Width Set */
+  93:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  94:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* 0 SCLK */
+  95:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+  96:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  97:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x016,				/* Peak Pulse Delay Set */
+  98:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+  99:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* 0 SCLK */
+ 100:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+ 101:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 102:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x012,				/* Dot Matrix Current Level Set */
+ 103:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 104:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x050,				/* 0x050 * 1 uA = 80 uA */
+ 105:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 106:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 107:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x018,				/* Pre-Charge Pulse Width */
+ 108:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 109:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x003,				/* 3 SCLK */
+ 110:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 111:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 112:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x044,				/* Pre-Charge Mode */
+ 113:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 114:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x002,				/* Every Time */
+ 115:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 116:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 117:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x048,				/* Row overlap timing */
+ 118:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 119:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x003,				/* Pre-Charge + Peak Delay + Peak boot Timing */
+ 120:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 121:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 122:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x03f,				/* VCC_R_SEL */
+ 123:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 124:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x011,				/* ??? */
+ 125:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 126:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 127:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x03d,				/* VSS selection */
+ 128:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 129:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* 2.8V */
+ 130:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 131:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 132:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x002,				/* Dot Matrix Display ON/OFF */
+ 133:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 134:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x001,				/* ON */
+ 135:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 136:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 137:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x008,				/* write data */
+ 138:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 139:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 140:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_END                /* end of sequence */
+ 141:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** };
+ 142:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 143:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** /* use box commands to set start adr */
+ 144:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** static const uint8_t u8g_dev_ld7032_60x32_data_start[] PROGMEM = {
+ARM GAS  /tmp/ccI98pnV.s 			page 7
+
+
+ 145:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 146:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 147:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+ 148:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   
+ 149:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 150:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x034,				/* box x start */
+ 151:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 152:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x000,				/* 0 */
+ 153:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 154:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 155:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x035,				/* box x end */
+ 156:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 157:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x007,				/*  */
+ 158:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 159:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 160:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x037,				/* box y end */
+ 161:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 162:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x01f,				/*  */
+ 163:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 164:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 165:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   0x036,				/* box y start */
+ 166:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(1),           /* data mode */
+ 167:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 168:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_END                /* end of sequence */
+ 169:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** };
+ 170:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 171:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** static const uint8_t u8g_dev_ld7032_60x32_sleep_on[] PROGMEM = {
+ 172:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 173:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 174:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   /* ... */
+ 175:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 176:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_END                /* end of sequence */
+ 177:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** };
+ 178:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 179:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** static const uint8_t u8g_dev_ld7032_60x32_sleep_off[] PROGMEM = {
+ 180:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 181:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 182:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   /* ... */
+ 183:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_DLY(50),       /* delay 50 ms */
+ 184:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 185:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   U8G_ESC_END                /* end of sequence */
+ 186:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** };
+ 187:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 
+ 188:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** uint8_t u8g_dev_ld7032_60x32_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 189:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** {
+ 208              		.loc 1 189 0
+ 209              		.cfi_startproc
+ 210 0000 90B5     		push	{r4, r7, lr}
+ 211              	.LCFI0:
+ 212              		.cfi_def_cfa_offset 12
+ 213              		.cfi_offset 4, -12
+ 214              		.cfi_offset 7, -8
+ 215              		.cfi_offset 14, -4
+ 216 0002 87B0     		sub	sp, sp, #28
+ 217              	.LCFI1:
+ 218              		.cfi_def_cfa_offset 40
+ 219 0004 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/ccI98pnV.s 			page 8
+
+
+ 220              	.LCFI2:
+ 221              		.cfi_def_cfa_register 7
+ 222 0006 F860     		str	r0, [r7, #12]
+ 223 0008 B960     		str	r1, [r7, #8]
+ 224 000a 3B60     		str	r3, [r7]
+ 225 000c FB1D     		adds	r3, r7, #7
+ 226 000e 1A70     		strb	r2, [r3]
+ 190:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   switch(msg)
+ 227              		.loc 1 190 0
+ 228 0010 FB1D     		adds	r3, r7, #7
+ 229 0012 1B78     		ldrb	r3, [r3]
+ 230 0014 0A3B     		subs	r3, r3, #10
+ 231 0016 0B2B     		cmp	r3, #11
+ 232 0018 00D9     		bls	.LCB25
+ 233 001a 77E0     		b	.L2	@long jump
+ 234              	.LCB25:
+ 235 001c 9A00     		lsls	r2, r3, #2
+ 236 001e 424B     		ldr	r3, .L12
+ 237 0020 D318     		adds	r3, r2, r3
+ 238 0022 1B68     		ldr	r3, [r3]
+ 239 0024 9F46     		mov	pc, r3
+ 240              		.section	.rodata.u8g_dev_ld7032_60x32_fn,"a",%progbits
+ 241              		.align	2
+ 242              	.L4:
+ 243 0000 26000000 		.word	.L3
+ 244 0004 0C010000 		.word	.L2
+ 245 0008 0C010000 		.word	.L2
+ 246 000c 0C010000 		.word	.L2
+ 247 0010 0C010000 		.word	.L2
+ 248 0014 A6000000 		.word	.L6
+ 249 0018 EC000000 		.word	.L7
+ 250 001c FC000000 		.word	.L8
+ 251 0020 0C010000 		.word	.L2
+ 252 0024 0C010000 		.word	.L2
+ 253 0028 0C010000 		.word	.L2
+ 254 002c 40000000 		.word	.L9
+ 255              		.section	.text.u8g_dev_ld7032_60x32_fn
+ 256              	.L3:
+ 191:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   {
+ 192:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     case U8G_DEV_MSG_INIT:
+ 193:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 257              		.loc 1 193 0
+ 258 0026 B968     		ldr	r1, [r7, #8]
+ 259 0028 FB68     		ldr	r3, [r7, #12]
+ 260 002a 0322     		movs	r2, #3
+ 261 002c 1800     		movs	r0, r3
+ 262 002e FFF7FEFF 		bl	u8g_InitCom
+ 194:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ld7032_60x32_init_seq);
+ 263              		.loc 1 194 0
+ 264 0032 3E4A     		ldr	r2, .L12+4
+ 265 0034 B968     		ldr	r1, [r7, #8]
+ 266 0036 FB68     		ldr	r3, [r7, #12]
+ 267 0038 1800     		movs	r0, r3
+ 268 003a FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 195:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       break;
+ 269              		.loc 1 195 0
+ 270 003e 65E0     		b	.L2
+ARM GAS  /tmp/ccI98pnV.s 			page 9
+
+
+ 271              	.L9:
+ 272              	.LBB2:
+ 196:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     case U8G_DEV_MSG_STOP:
+ 197:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       break;
+ 198:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 199:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       {
+ 200:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 273              		.loc 1 200 0
+ 274 0040 BB68     		ldr	r3, [r7, #8]
+ 275 0042 5B68     		ldr	r3, [r3, #4]
+ 276 0044 7B61     		str	r3, [r7, #20]
+ 201:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_ld7032_60x32_data_start);    
+ 277              		.loc 1 201 0
+ 278 0046 3A4A     		ldr	r2, .L12+8
+ 279 0048 B968     		ldr	r1, [r7, #8]
+ 280 004a FB68     		ldr	r3, [r7, #12]
+ 281 004c 1800     		movs	r0, r3
+ 282 004e FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 202:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****         u8g_WriteByte(u8g, dev, pb->p.page_y0); /* y start */
+ 283              		.loc 1 202 0
+ 284 0052 7B69     		ldr	r3, [r7, #20]
+ 285 0054 9A78     		ldrb	r2, [r3, #2]
+ 286 0056 B968     		ldr	r1, [r7, #8]
+ 287 0058 FB68     		ldr	r3, [r7, #12]
+ 288 005a 1800     		movs	r0, r3
+ 289 005c FFF7FEFF 		bl	u8g_WriteByte
+ 203:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 	u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 290              		.loc 1 203 0
+ 291 0060 B968     		ldr	r1, [r7, #8]
+ 292 0062 FB68     		ldr	r3, [r7, #12]
+ 293 0064 0022     		movs	r2, #0
+ 294 0066 1800     		movs	r0, r3
+ 295 0068 FFF7FEFF 		bl	u8g_SetAddress
+ 204:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** 	u8g_WriteByte(u8g, dev, 0x008);
+ 296              		.loc 1 204 0
+ 297 006c B968     		ldr	r1, [r7, #8]
+ 298 006e FB68     		ldr	r3, [r7, #12]
+ 299 0070 0822     		movs	r2, #8
+ 300 0072 1800     		movs	r0, r3
+ 301 0074 FFF7FEFF 		bl	u8g_WriteByte
+ 205:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 302              		.loc 1 205 0
+ 303 0078 B968     		ldr	r1, [r7, #8]
+ 304 007a FB68     		ldr	r3, [r7, #12]
+ 305 007c 0122     		movs	r2, #1
+ 306 007e 1800     		movs	r0, r3
+ 307 0080 FFF7FEFF 		bl	u8g_SetAddress
+ 206:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 308              		.loc 1 206 0
+ 309 0084 BA68     		ldr	r2, [r7, #8]
+ 310 0086 F968     		ldr	r1, [r7, #12]
+ 311 0088 7B69     		ldr	r3, [r7, #20]
+ 312 008a 1800     		movs	r0, r3
+ 313 008c FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 314 0090 031E     		subs	r3, r0, #0
+ 315 0092 01D1     		bne	.L10
+ 207:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****           return 0;
+ARM GAS  /tmp/ccI98pnV.s 			page 10
+
+
+ 316              		.loc 1 207 0
+ 317 0094 0023     		movs	r3, #0
+ 318 0096 42E0     		b	.L11
+ 319              	.L10:
+ 208:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 320              		.loc 1 208 0
+ 321 0098 B968     		ldr	r1, [r7, #8]
+ 322 009a FB68     		ldr	r3, [r7, #12]
+ 323 009c 0022     		movs	r2, #0
+ 324 009e 1800     		movs	r0, r3
+ 325 00a0 FFF7FEFF 		bl	u8g_SetChipSelect
+ 326              	.LBE2:
+ 209:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       }
+ 210:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       break;
+ 327              		.loc 1 210 0
+ 328 00a4 32E0     		b	.L2
+ 329              	.L6:
+ 211:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     case U8G_DEV_MSG_CONTRAST:
+ 212:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 330              		.loc 1 212 0
+ 331 00a6 B968     		ldr	r1, [r7, #8]
+ 332 00a8 FB68     		ldr	r3, [r7, #12]
+ 333 00aa 0122     		movs	r2, #1
+ 334 00ac 1800     		movs	r0, r3
+ 335 00ae FFF7FEFF 		bl	u8g_SetChipSelect
+ 213:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 336              		.loc 1 213 0
+ 337 00b2 B968     		ldr	r1, [r7, #8]
+ 338 00b4 FB68     		ldr	r3, [r7, #12]
+ 339 00b6 0022     		movs	r2, #0
+ 340 00b8 1800     		movs	r0, r3
+ 341 00ba FFF7FEFF 		bl	u8g_SetAddress
+ 214:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 342              		.loc 1 214 0
+ 343 00be B968     		ldr	r1, [r7, #8]
+ 344 00c0 FB68     		ldr	r3, [r7, #12]
+ 345 00c2 8122     		movs	r2, #129
+ 346 00c4 1800     		movs	r0, r3
+ 347 00c6 FFF7FEFF 		bl	u8g_WriteByte
+ 215:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 348              		.loc 1 215 0
+ 349 00ca 3B68     		ldr	r3, [r7]
+ 350 00cc 1B78     		ldrb	r3, [r3]
+ 351 00ce 9B08     		lsrs	r3, r3, #2
+ 352 00d0 DAB2     		uxtb	r2, r3
+ 353 00d2 B968     		ldr	r1, [r7, #8]
+ 354 00d4 FB68     		ldr	r3, [r7, #12]
+ 355 00d6 1800     		movs	r0, r3
+ 356 00d8 FFF7FEFF 		bl	u8g_WriteByte
+ 216:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 357              		.loc 1 216 0
+ 358 00dc B968     		ldr	r1, [r7, #8]
+ 359 00de FB68     		ldr	r3, [r7, #12]
+ 360 00e0 0022     		movs	r2, #0
+ 361 00e2 1800     		movs	r0, r3
+ 362 00e4 FFF7FEFF 		bl	u8g_SetChipSelect
+ 217:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       return 1;
+ARM GAS  /tmp/ccI98pnV.s 			page 11
+
+
+ 363              		.loc 1 217 0
+ 364 00e8 0123     		movs	r3, #1
+ 365 00ea 18E0     		b	.L11
+ 366              	.L7:
+ 218:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 219:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ld7032_60x32_sleep_on);    
+ 367              		.loc 1 219 0
+ 368 00ec 114A     		ldr	r2, .L12+12
+ 369 00ee B968     		ldr	r1, [r7, #8]
+ 370 00f0 FB68     		ldr	r3, [r7, #12]
+ 371 00f2 1800     		movs	r0, r3
+ 372 00f4 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 220:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       return 1;
+ 373              		.loc 1 220 0
+ 374 00f8 0123     		movs	r3, #1
+ 375 00fa 10E0     		b	.L11
+ 376              	.L8:
+ 221:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 222:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ld7032_60x32_sleep_off);    
+ 377              		.loc 1 222 0
+ 378 00fc 0E4A     		ldr	r2, .L12+16
+ 379 00fe B968     		ldr	r1, [r7, #8]
+ 380 0100 FB68     		ldr	r3, [r7, #12]
+ 381 0102 1800     		movs	r0, r3
+ 382 0104 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 223:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****       return 1;
+ 383              		.loc 1 223 0
+ 384 0108 0123     		movs	r3, #1
+ 385 010a 08E0     		b	.L11
+ 386              	.L2:
+ 224:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   }
+ 225:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c ****   return u8g_dev_pb8h1_base_fn(u8g, dev, msg, arg);
+ 387              		.loc 1 225 0
+ 388 010c 3C68     		ldr	r4, [r7]
+ 389 010e FB1D     		adds	r3, r7, #7
+ 390 0110 1A78     		ldrb	r2, [r3]
+ 391 0112 B968     		ldr	r1, [r7, #8]
+ 392 0114 F868     		ldr	r0, [r7, #12]
+ 393 0116 2300     		movs	r3, r4
+ 394 0118 FFF7FEFF 		bl	u8g_dev_pb8h1_base_fn
+ 395 011c 0300     		movs	r3, r0
+ 396              	.L11:
+ 226:Drivers/u8glib/src/u8g_dev_ld7032_60x32.c **** }
+ 397              		.loc 1 226 0
+ 398 011e 1800     		movs	r0, r3
+ 399 0120 BD46     		mov	sp, r7
+ 400 0122 07B0     		add	sp, sp, #28
+ 401              		@ sp needed
+ 402 0124 90BD     		pop	{r4, r7, pc}
+ 403              	.L13:
+ 404 0126 C046     		.align	2
+ 405              	.L12:
+ 406 0128 00000000 		.word	.L4
+ 407 012c 00000000 		.word	u8g_dev_ld7032_60x32_init_seq
+ 408 0130 00000000 		.word	u8g_dev_ld7032_60x32_data_start
+ 409 0134 00000000 		.word	u8g_dev_ld7032_60x32_sleep_on
+ 410 0138 00000000 		.word	u8g_dev_ld7032_60x32_sleep_off
+ARM GAS  /tmp/ccI98pnV.s 			page 12
+
+
+ 411              		.cfi_endproc
+ 412              	.LFE0:
+ 414              		.global	u8g_dev_ld7032_60x32_sw_spi_buf
+ 415              		.section	.bss.u8g_dev_ld7032_60x32_sw_spi_buf,"aw",%nobits
+ 416              		.align	2
+ 419              	u8g_dev_ld7032_60x32_sw_spi_buf:
+ 420 0000 00000000 		.space	64
+ 420      00000000 
+ 420      00000000 
+ 420      00000000 
+ 420      00000000 
+ 421              		.global	u8g_dev_ld7032_60x32_sw_spi_pb
+ 422              		.section	.data.u8g_dev_ld7032_60x32_sw_spi_pb,"aw",%progbits
+ 423              		.align	2
+ 426              	u8g_dev_ld7032_60x32_sw_spi_pb:
+ 427 0000 08       		.byte	8
+ 428 0001 20       		.byte	32
+ 429 0002 00       		.byte	0
+ 430 0003 00       		.byte	0
+ 431 0004 00       		.byte	0
+ 432 0005 40       		.byte	64
+ 433 0006 0000     		.space	2
+ 434 0008 00000000 		.word	u8g_dev_ld7032_60x32_sw_spi_buf
+ 435              		.global	u8g_dev_ld7032_60x32_sw_spi
+ 436              		.section	.data.u8g_dev_ld7032_60x32_sw_spi,"aw",%progbits
+ 437              		.align	2
+ 440              	u8g_dev_ld7032_60x32_sw_spi:
+ 441 0000 00000000 		.word	u8g_dev_ld7032_60x32_fn
+ 442 0004 00000000 		.word	u8g_dev_ld7032_60x32_sw_spi_pb
+ 443 0008 00000000 		.word	u8g_com_null_fn
+ 444              		.global	u8g_dev_ld7032_60x32_hw_spi_buf
+ 445              		.section	.bss.u8g_dev_ld7032_60x32_hw_spi_buf,"aw",%nobits
+ 446              		.align	2
+ 449              	u8g_dev_ld7032_60x32_hw_spi_buf:
+ 450 0000 00000000 		.space	64
+ 450      00000000 
+ 450      00000000 
+ 450      00000000 
+ 450      00000000 
+ 451              		.global	u8g_dev_ld7032_60x32_hw_spi_pb
+ 452              		.section	.data.u8g_dev_ld7032_60x32_hw_spi_pb,"aw",%progbits
+ 453              		.align	2
+ 456              	u8g_dev_ld7032_60x32_hw_spi_pb:
+ 457 0000 08       		.byte	8
+ 458 0001 20       		.byte	32
+ 459 0002 00       		.byte	0
+ 460 0003 00       		.byte	0
+ 461 0004 00       		.byte	0
+ 462 0005 40       		.byte	64
+ 463 0006 0000     		.space	2
+ 464 0008 00000000 		.word	u8g_dev_ld7032_60x32_hw_spi_buf
+ 465              		.global	u8g_dev_ld7032_60x32_hw_spi
+ 466              		.section	.data.u8g_dev_ld7032_60x32_hw_spi,"aw",%progbits
+ 467              		.align	2
+ 470              	u8g_dev_ld7032_60x32_hw_spi:
+ 471 0000 00000000 		.word	u8g_dev_ld7032_60x32_fn
+ 472 0004 00000000 		.word	u8g_dev_ld7032_60x32_hw_spi_pb
+ARM GAS  /tmp/ccI98pnV.s 			page 13
+
+
+ 473 0008 00000000 		.word	u8g_com_null_fn
+ 474              		.global	u8g_dev_ld7032_60x32_parallel_buf
+ 475              		.section	.bss.u8g_dev_ld7032_60x32_parallel_buf,"aw",%nobits
+ 476              		.align	2
+ 479              	u8g_dev_ld7032_60x32_parallel_buf:
+ 480 0000 00000000 		.space	64
+ 480      00000000 
+ 480      00000000 
+ 480      00000000 
+ 480      00000000 
+ 481              		.global	u8g_dev_ld7032_60x32_parallel_pb
+ 482              		.section	.data.u8g_dev_ld7032_60x32_parallel_pb,"aw",%progbits
+ 483              		.align	2
+ 486              	u8g_dev_ld7032_60x32_parallel_pb:
+ 487 0000 08       		.byte	8
+ 488 0001 20       		.byte	32
+ 489 0002 00       		.byte	0
+ 490 0003 00       		.byte	0
+ 491 0004 00       		.byte	0
+ 492 0005 40       		.byte	64
+ 493 0006 0000     		.space	2
+ 494 0008 00000000 		.word	u8g_dev_ld7032_60x32_parallel_buf
+ 495              		.global	u8g_dev_ld7032_60x32_parallel
+ 496              		.section	.data.u8g_dev_ld7032_60x32_parallel,"aw",%progbits
+ 497              		.align	2
+ 500              	u8g_dev_ld7032_60x32_parallel:
+ 501 0000 00000000 		.word	u8g_dev_ld7032_60x32_fn
+ 502 0004 00000000 		.word	u8g_dev_ld7032_60x32_parallel_pb
+ 503 0008 00000000 		.word	u8g_com_null_fn
+ 504              		.global	u8g_dev_ld7032_60x32_hw_usart_spi_buf
+ 505              		.section	.bss.u8g_dev_ld7032_60x32_hw_usart_spi_buf,"aw",%nobits
+ 506              		.align	2
+ 509              	u8g_dev_ld7032_60x32_hw_usart_spi_buf:
+ 510 0000 00000000 		.space	64
+ 510      00000000 
+ 510      00000000 
+ 510      00000000 
+ 510      00000000 
+ 511              		.global	u8g_dev_ld7032_60x32_hw_usart_spi_pb
+ 512              		.section	.data.u8g_dev_ld7032_60x32_hw_usart_spi_pb,"aw",%progbits
+ 513              		.align	2
+ 516              	u8g_dev_ld7032_60x32_hw_usart_spi_pb:
+ 517 0000 08       		.byte	8
+ 518 0001 20       		.byte	32
+ 519 0002 00       		.byte	0
+ 520 0003 00       		.byte	0
+ 521 0004 00       		.byte	0
+ 522 0005 40       		.byte	64
+ 523 0006 0000     		.space	2
+ 524 0008 00000000 		.word	u8g_dev_ld7032_60x32_hw_usart_spi_buf
+ 525              		.global	u8g_dev_ld7032_60x32_hw_usart_spi
+ 526              		.section	.data.u8g_dev_ld7032_60x32_hw_usart_spi,"aw",%progbits
+ 527              		.align	2
+ 530              	u8g_dev_ld7032_60x32_hw_usart_spi:
+ 531 0000 00000000 		.word	u8g_dev_ld7032_60x32_fn
+ 532 0004 00000000 		.word	u8g_dev_ld7032_60x32_hw_usart_spi_pb
+ 533 0008 00000000 		.word	u8g_com_null_fn
+ARM GAS  /tmp/ccI98pnV.s 			page 14
+
+
+ 534              		.text
+ 535              	.Letext0:
+ 536              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 537              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 538              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccI98pnV.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_ld7032_60x32.c
+     /tmp/ccI98pnV.s:16     .rodata.u8g_dev_ld7032_60x32_init_seq:0000000000000000 $d
+     /tmp/ccI98pnV.s:19     .rodata.u8g_dev_ld7032_60x32_init_seq:0000000000000000 u8g_dev_ld7032_60x32_init_seq
+     /tmp/ccI98pnV.s:136    .rodata.u8g_dev_ld7032_60x32_data_start:0000000000000000 $d
+     /tmp/ccI98pnV.s:139    .rodata.u8g_dev_ld7032_60x32_data_start:0000000000000000 u8g_dev_ld7032_60x32_data_start
+     /tmp/ccI98pnV.s:170    .rodata.u8g_dev_ld7032_60x32_sleep_on:0000000000000000 $d
+     /tmp/ccI98pnV.s:173    .rodata.u8g_dev_ld7032_60x32_sleep_on:0000000000000000 u8g_dev_ld7032_60x32_sleep_on
+     /tmp/ccI98pnV.s:183    .rodata.u8g_dev_ld7032_60x32_sleep_off:0000000000000000 $d
+     /tmp/ccI98pnV.s:186    .rodata.u8g_dev_ld7032_60x32_sleep_off:0000000000000000 u8g_dev_ld7032_60x32_sleep_off
+     /tmp/ccI98pnV.s:198    .text.u8g_dev_ld7032_60x32_fn:0000000000000000 $t
+     /tmp/ccI98pnV.s:205    .text.u8g_dev_ld7032_60x32_fn:0000000000000000 u8g_dev_ld7032_60x32_fn
+     /tmp/ccI98pnV.s:241    .rodata.u8g_dev_ld7032_60x32_fn:0000000000000000 $d
+     /tmp/ccI98pnV.s:406    .text.u8g_dev_ld7032_60x32_fn:0000000000000128 $d
+     /tmp/ccI98pnV.s:419    .bss.u8g_dev_ld7032_60x32_sw_spi_buf:0000000000000000 u8g_dev_ld7032_60x32_sw_spi_buf
+     /tmp/ccI98pnV.s:416    .bss.u8g_dev_ld7032_60x32_sw_spi_buf:0000000000000000 $d
+     /tmp/ccI98pnV.s:426    .data.u8g_dev_ld7032_60x32_sw_spi_pb:0000000000000000 u8g_dev_ld7032_60x32_sw_spi_pb
+     /tmp/ccI98pnV.s:423    .data.u8g_dev_ld7032_60x32_sw_spi_pb:0000000000000000 $d
+     /tmp/ccI98pnV.s:440    .data.u8g_dev_ld7032_60x32_sw_spi:0000000000000000 u8g_dev_ld7032_60x32_sw_spi
+     /tmp/ccI98pnV.s:437    .data.u8g_dev_ld7032_60x32_sw_spi:0000000000000000 $d
+     /tmp/ccI98pnV.s:449    .bss.u8g_dev_ld7032_60x32_hw_spi_buf:0000000000000000 u8g_dev_ld7032_60x32_hw_spi_buf
+     /tmp/ccI98pnV.s:446    .bss.u8g_dev_ld7032_60x32_hw_spi_buf:0000000000000000 $d
+     /tmp/ccI98pnV.s:456    .data.u8g_dev_ld7032_60x32_hw_spi_pb:0000000000000000 u8g_dev_ld7032_60x32_hw_spi_pb
+     /tmp/ccI98pnV.s:453    .data.u8g_dev_ld7032_60x32_hw_spi_pb:0000000000000000 $d
+     /tmp/ccI98pnV.s:470    .data.u8g_dev_ld7032_60x32_hw_spi:0000000000000000 u8g_dev_ld7032_60x32_hw_spi
+     /tmp/ccI98pnV.s:467    .data.u8g_dev_ld7032_60x32_hw_spi:0000000000000000 $d
+     /tmp/ccI98pnV.s:479    .bss.u8g_dev_ld7032_60x32_parallel_buf:0000000000000000 u8g_dev_ld7032_60x32_parallel_buf
+     /tmp/ccI98pnV.s:476    .bss.u8g_dev_ld7032_60x32_parallel_buf:0000000000000000 $d
+     /tmp/ccI98pnV.s:486    .data.u8g_dev_ld7032_60x32_parallel_pb:0000000000000000 u8g_dev_ld7032_60x32_parallel_pb
+     /tmp/ccI98pnV.s:483    .data.u8g_dev_ld7032_60x32_parallel_pb:0000000000000000 $d
+     /tmp/ccI98pnV.s:500    .data.u8g_dev_ld7032_60x32_parallel:0000000000000000 u8g_dev_ld7032_60x32_parallel
+     /tmp/ccI98pnV.s:497    .data.u8g_dev_ld7032_60x32_parallel:0000000000000000 $d
+     /tmp/ccI98pnV.s:509    .bss.u8g_dev_ld7032_60x32_hw_usart_spi_buf:0000000000000000 u8g_dev_ld7032_60x32_hw_usart_spi_buf
+     /tmp/ccI98pnV.s:506    .bss.u8g_dev_ld7032_60x32_hw_usart_spi_buf:0000000000000000 $d
+     /tmp/ccI98pnV.s:516    .data.u8g_dev_ld7032_60x32_hw_usart_spi_pb:0000000000000000 u8g_dev_ld7032_60x32_hw_usart_spi_pb
+     /tmp/ccI98pnV.s:513    .data.u8g_dev_ld7032_60x32_hw_usart_spi_pb:0000000000000000 $d
+     /tmp/ccI98pnV.s:530    .data.u8g_dev_ld7032_60x32_hw_usart_spi:0000000000000000 u8g_dev_ld7032_60x32_hw_usart_spi
+     /tmp/ccI98pnV.s:527    .data.u8g_dev_ld7032_60x32_hw_usart_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8h1_base_fn
+u8g_com_null_fn

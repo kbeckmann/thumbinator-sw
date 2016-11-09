@@ -1,0 +1,443 @@
+ARM GAS  /tmp/cclzJ6DE.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_tls8204_84x48.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_tls8204_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_tls8204_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 C1       		.byte	-63
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 21       		.byte	33
+  29 0009 06       		.byte	6
+  30 000a 05       		.byte	5
+  31 000b 40       		.byte	64
+  32 000c 13       		.byte	19
+  33 000d C0       		.byte	-64
+  34 000e 20       		.byte	32
+  35 000f 0C       		.byte	12
+  36 0010 FF       		.byte	-1
+  37 0011 64       		.byte	100
+  38 0012 20       		.byte	32
+  39 0013 0D       		.byte	13
+  40 0014 FF       		.byte	-1
+  41 0015 64       		.byte	100
+  42 0016 FF       		.byte	-1
+  43 0017 64       		.byte	100
+  44 0018 20       		.byte	32
+  45 0019 0C       		.byte	12
+  46 001a FF       		.byte	-1
+  47 001b 64       		.byte	100
+  48 001c FF       		.byte	-1
+  49 001d D0       		.byte	-48
+  50 001e FF       		.byte	-1
+  51 001f FE       		.byte	-2
+  52              		.section	.text.u8g_dev_tls8204_fn,"ax",%progbits
+  53              		.align	1
+  54              		.global	u8g_dev_tls8204_fn
+  55              		.syntax unified
+  56              		.code	16
+  57              		.thumb_func
+  58              		.fpu softvfp
+  60              	u8g_dev_tls8204_fn:
+ARM GAS  /tmp/cclzJ6DE.s 			page 2
+
+
+  61              	.LFB0:
+  62              		.file 1 "Drivers/u8glib/src/u8g_dev_tls8204_84x48.c"
+   1:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+   3:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   u8g_dev_tls8204_84x48.c
+   4:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   
+   5:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   Display: Nokia 84x48
+   6:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   
+   7:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   Status: Tested with TLS8204V12 Display by Olimex MOD-LCD3310
+   8:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   
+   9:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   Contributed: http://code.google.com/p/u8glib/issues/detail?id=126
+  10:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  11:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   Universal 8bit Graphics Library
+  12:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   
+  13:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   Copyright (c) 2011, olikraus@gmail.com
+  14:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   All rights reserved.
+  15:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  16:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  17:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   are permitted provided that the following conditions are met:
+  18:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  19:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  20:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     of conditions and the following disclaimer.
+  21:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     
+  22:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  23:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  24:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     materials provided with the distribution.
+  25:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  26:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  27:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  28:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  29:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  30:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  31:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  32:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  33:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  34:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  35:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  36:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  37:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  38:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  39:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   
+  40:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   
+  41:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** */
+  42:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  43:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** #include "u8g.h"
+  44:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  45:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** #define WIDTH 84
+  46:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** #define HEIGHT 48
+  47:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** #define PAGE_HEIGHT 8
+  48:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  49:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  50:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** static const uint8_t u8g_dev_tls8204_init_seq[] PROGMEM = {
+  51:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_CS(0),             /* disable chip */
+  52:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  53:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  54:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_CS(1),             /* enable chip */
+  55:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x021,		/* activate chip (PD=0), horizontal increment (V=0), enter extended command set (H=1) */
+ARM GAS  /tmp/cclzJ6DE.s 			page 3
+
+
+  56:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x006,		/* temp. control: b10 = 2 */
+  57:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x04 | !!((66-1)&(1u<<6)),
+  58:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x40 | ((66-2) & ((1u<<6)-1)),
+  59:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x013,		/* bias system 1:48 */
+  60:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x0c0,		/* medium Vop */
+  61:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x020,		/* activate chip (PD=0), horizontal increment (V=0), enter normal command set (H=0) */
+  62:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x00c,		/* display on, normal operation */
+  63:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  64:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  65:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x00d,		                /* display on, invert */
+  66:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  67:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  68:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x020,		                /* activate chip (PD=0), horizontal increment (V=0), enter normal command
+  69:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   0x00c,		                /* display on, normal */
+  70:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  71:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_CS(0),             /* disable chip */
+  72:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   U8G_ESC_END                /* end of sequence */
+  73:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** };
+  74:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  75:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** 
+  76:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** uint8_t u8g_dev_tls8204_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  77:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** {
+  63              		.loc 1 77 0
+  64              		.cfi_startproc
+  65 0000 90B5     		push	{r4, r7, lr}
+  66              	.LCFI0:
+  67              		.cfi_def_cfa_offset 12
+  68              		.cfi_offset 4, -12
+  69              		.cfi_offset 7, -8
+  70              		.cfi_offset 14, -4
+  71 0002 87B0     		sub	sp, sp, #28
+  72              	.LCFI1:
+  73              		.cfi_def_cfa_offset 40
+  74 0004 00AF     		add	r7, sp, #0
+  75              	.LCFI2:
+  76              		.cfi_def_cfa_register 7
+  77 0006 F860     		str	r0, [r7, #12]
+  78 0008 B960     		str	r1, [r7, #8]
+  79 000a 3B60     		str	r3, [r7]
+  80 000c FB1D     		adds	r3, r7, #7
+  81 000e 1A70     		strb	r2, [r3]
+  78:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   switch(msg)
+  82              		.loc 1 78 0
+  83 0010 FB1D     		adds	r3, r7, #7
+  84 0012 1B78     		ldrb	r3, [r3]
+  85 0014 0B2B     		cmp	r3, #11
+  86 0016 00D1     		bne	.LCB24
+  87 0018 7EE0     		b	.L10	@long jump
+  88              	.LCB24:
+  89 001a 02DC     		bgt	.L4
+  90 001c 0A2B     		cmp	r3, #10
+  91 001e 05D0     		beq	.L5
+  92 0020 7BE0     		b	.L2
+  93              	.L4:
+  94 0022 0F2B     		cmp	r3, #15
+  95 0024 4BD0     		beq	.L6
+  96 0026 152B     		cmp	r3, #21
+ARM GAS  /tmp/cclzJ6DE.s 			page 4
+
+
+  97 0028 0DD0     		beq	.L7
+  98 002a 76E0     		b	.L2
+  99              	.L5:
+  79:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   {
+  80:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     case U8G_DEV_MSG_INIT:
+  81:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 100              		.loc 1 81 0
+ 101 002c B968     		ldr	r1, [r7, #8]
+ 102 002e FB68     		ldr	r3, [r7, #12]
+ 103 0030 0322     		movs	r2, #3
+ 104 0032 1800     		movs	r0, r3
+ 105 0034 FFF7FEFF 		bl	u8g_InitCom
+  82:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_tls8204_init_seq);
+ 106              		.loc 1 82 0
+ 107 0038 3E4A     		ldr	r2, .L11
+ 108 003a B968     		ldr	r1, [r7, #8]
+ 109 003c FB68     		ldr	r3, [r7, #12]
+ 110 003e 1800     		movs	r0, r3
+ 111 0040 FFF7FEFF 		bl	u8g_WriteEscSeqP
+  83:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       break;
+ 112              		.loc 1 83 0
+ 113 0044 69E0     		b	.L2
+ 114              	.L7:
+ 115              	.LBB2:
+  84:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     case U8G_DEV_MSG_STOP:
+  85:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       break;
+  86:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+  87:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       {
+  88:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 116              		.loc 1 88 0
+ 117 0046 BB68     		ldr	r3, [r7, #8]
+ 118 0048 5B68     		ldr	r3, [r3, #4]
+ 119 004a 7B61     		str	r3, [r7, #20]
+  89:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_SetAddress(u8g, dev, 0);           /* command mode */
+ 120              		.loc 1 89 0
+ 121 004c B968     		ldr	r1, [r7, #8]
+ 122 004e FB68     		ldr	r3, [r7, #12]
+ 123 0050 0022     		movs	r2, #0
+ 124 0052 1800     		movs	r0, r3
+ 125 0054 FFF7FEFF 		bl	u8g_SetAddress
+  90:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_SetChipSelect(u8g, dev, 1);
+ 126              		.loc 1 90 0
+ 127 0058 B968     		ldr	r1, [r7, #8]
+ 128 005a FB68     		ldr	r3, [r7, #12]
+ 129 005c 0122     		movs	r2, #1
+ 130 005e 1800     		movs	r0, r3
+ 131 0060 FFF7FEFF 		bl	u8g_SetChipSelect
+  91:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_WriteByte(u8g, dev, 0x020 );		/* activate chip (PD=0), horizontal increment (V=0), ente
+ 132              		.loc 1 91 0
+ 133 0064 B968     		ldr	r1, [r7, #8]
+ 134 0066 FB68     		ldr	r3, [r7, #12]
+ 135 0068 2022     		movs	r2, #32
+ 136 006a 1800     		movs	r0, r3
+ 137 006c FFF7FEFF 		bl	u8g_WriteByte
+  92:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_WriteByte(u8g, dev, 0x080 );                        /* set X address */
+ 138              		.loc 1 92 0
+ 139 0070 B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/cclzJ6DE.s 			page 5
+
+
+ 140 0072 FB68     		ldr	r3, [r7, #12]
+ 141 0074 8022     		movs	r2, #128
+ 142 0076 1800     		movs	r0, r3
+ 143 0078 FFF7FEFF 		bl	u8g_WriteByte
+  93:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_WriteByte(u8g, dev, 0x040 | pb->p.page); /* set Y address */
+ 144              		.loc 1 93 0
+ 145 007c 7B69     		ldr	r3, [r7, #20]
+ 146 007e 1B79     		ldrb	r3, [r3, #4]
+ 147 0080 4022     		movs	r2, #64
+ 148 0082 1343     		orrs	r3, r2
+ 149 0084 DAB2     		uxtb	r2, r3
+ 150 0086 B968     		ldr	r1, [r7, #8]
+ 151 0088 FB68     		ldr	r3, [r7, #12]
+ 152 008a 1800     		movs	r0, r3
+ 153 008c FFF7FEFF 		bl	u8g_WriteByte
+  94:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 154              		.loc 1 94 0
+ 155 0090 B968     		ldr	r1, [r7, #8]
+ 156 0092 FB68     		ldr	r3, [r7, #12]
+ 157 0094 0122     		movs	r2, #1
+ 158 0096 1800     		movs	r0, r3
+ 159 0098 FFF7FEFF 		bl	u8g_SetAddress
+  95:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 160              		.loc 1 95 0
+ 161 009c BA68     		ldr	r2, [r7, #8]
+ 162 009e F968     		ldr	r1, [r7, #12]
+ 163 00a0 7B69     		ldr	r3, [r7, #20]
+ 164 00a2 1800     		movs	r0, r3
+ 165 00a4 FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 166 00a8 031E     		subs	r3, r0, #0
+ 167 00aa 01D1     		bne	.L8
+  96:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****           return 0;
+ 168              		.loc 1 96 0
+ 169 00ac 0023     		movs	r3, #0
+ 170 00ae 3DE0     		b	.L9
+ 171              	.L8:
+  97:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 172              		.loc 1 97 0
+ 173 00b0 B968     		ldr	r1, [r7, #8]
+ 174 00b2 FB68     		ldr	r3, [r7, #12]
+ 175 00b4 0022     		movs	r2, #0
+ 176 00b6 1800     		movs	r0, r3
+ 177 00b8 FFF7FEFF 		bl	u8g_SetChipSelect
+ 178              	.LBE2:
+  98:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       }
+  99:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       break;
+ 179              		.loc 1 99 0
+ 180 00bc 2DE0     		b	.L2
+ 181              	.L6:
+ 100:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     case U8G_DEV_MSG_CONTRAST:
+ 101:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       /* the contrast adjustment does not work, needs to be analysed */
+ 102:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 182              		.loc 1 102 0
+ 183 00be B968     		ldr	r1, [r7, #8]
+ 184 00c0 FB68     		ldr	r3, [r7, #12]
+ 185 00c2 0022     		movs	r2, #0
+ 186 00c4 1800     		movs	r0, r3
+ARM GAS  /tmp/cclzJ6DE.s 			page 6
+
+
+ 187 00c6 FFF7FEFF 		bl	u8g_SetAddress
+ 103:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 188              		.loc 1 103 0
+ 189 00ca B968     		ldr	r1, [r7, #8]
+ 190 00cc FB68     		ldr	r3, [r7, #12]
+ 191 00ce 0122     		movs	r2, #1
+ 192 00d0 1800     		movs	r0, r3
+ 193 00d2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 104:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_WriteByte(u8g, dev, 0x021);        /* command mode, extended function set */
+ 194              		.loc 1 104 0
+ 195 00d6 B968     		ldr	r1, [r7, #8]
+ 196 00d8 FB68     		ldr	r3, [r7, #12]
+ 197 00da 2122     		movs	r2, #33
+ 198 00dc 1800     		movs	r0, r3
+ 199 00de FFF7FEFF 		bl	u8g_WriteByte
+ 105:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_WriteByte(u8g, dev, 0x080 | ( (*(uint8_t *)arg) >> 1 ) );
+ 200              		.loc 1 105 0
+ 201 00e2 3B68     		ldr	r3, [r7]
+ 202 00e4 1B78     		ldrb	r3, [r3]
+ 203 00e6 5B08     		lsrs	r3, r3, #1
+ 204 00e8 DBB2     		uxtb	r3, r3
+ 205 00ea 8022     		movs	r2, #128
+ 206 00ec 5242     		rsbs	r2, r2, #0
+ 207 00ee 1343     		orrs	r3, r2
+ 208 00f0 DAB2     		uxtb	r2, r3
+ 209 00f2 B968     		ldr	r1, [r7, #8]
+ 210 00f4 FB68     		ldr	r3, [r7, #12]
+ 211 00f6 1800     		movs	r0, r3
+ 212 00f8 FFF7FEFF 		bl	u8g_WriteByte
+ 106:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_WriteByte(u8g, dev, 0x020);        /* command mode, extended function set */
+ 213              		.loc 1 106 0
+ 214 00fc B968     		ldr	r1, [r7, #8]
+ 215 00fe FB68     		ldr	r3, [r7, #12]
+ 216 0100 2022     		movs	r2, #32
+ 217 0102 1800     		movs	r0, r3
+ 218 0104 FFF7FEFF 		bl	u8g_WriteByte
+ 107:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       u8g_SetChipSelect(u8g, dev, 0);
+ 219              		.loc 1 107 0
+ 220 0108 B968     		ldr	r1, [r7, #8]
+ 221 010a FB68     		ldr	r3, [r7, #12]
+ 222 010c 0022     		movs	r2, #0
+ 223 010e 1800     		movs	r0, r3
+ 224 0110 FFF7FEFF 		bl	u8g_SetChipSelect
+ 108:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****       return 1;
+ 225              		.loc 1 108 0
+ 226 0114 0123     		movs	r3, #1
+ 227 0116 09E0     		b	.L9
+ 228              	.L10:
+  85:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 229              		.loc 1 85 0
+ 230 0118 C046     		nop
+ 231              	.L2:
+ 109:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   }
+ 110:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 232              		.loc 1 110 0
+ 233 011a 3C68     		ldr	r4, [r7]
+ 234 011c FB1D     		adds	r3, r7, #7
+ARM GAS  /tmp/cclzJ6DE.s 			page 7
+
+
+ 235 011e 1A78     		ldrb	r2, [r3]
+ 236 0120 B968     		ldr	r1, [r7, #8]
+ 237 0122 F868     		ldr	r0, [r7, #12]
+ 238 0124 2300     		movs	r3, r4
+ 239 0126 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 240 012a 0300     		movs	r3, r0
+ 241              	.L9:
+ 111:Drivers/u8glib/src/u8g_dev_tls8204_84x48.c **** }
+ 242              		.loc 1 111 0
+ 243 012c 1800     		movs	r0, r3
+ 244 012e BD46     		mov	sp, r7
+ 245 0130 07B0     		add	sp, sp, #28
+ 246              		@ sp needed
+ 247 0132 90BD     		pop	{r4, r7, pc}
+ 248              	.L12:
+ 249              		.align	2
+ 250              	.L11:
+ 251 0134 00000000 		.word	u8g_dev_tls8204_init_seq
+ 252              		.cfi_endproc
+ 253              	.LFE0:
+ 255              		.global	u8g_dev_tls8204_84x48_sw_spi_buf
+ 256              		.section	.bss.u8g_dev_tls8204_84x48_sw_spi_buf,"aw",%nobits
+ 257              		.align	2
+ 260              	u8g_dev_tls8204_84x48_sw_spi_buf:
+ 261 0000 00000000 		.space	84
+ 261      00000000 
+ 261      00000000 
+ 261      00000000 
+ 261      00000000 
+ 262              		.global	u8g_dev_tls8204_84x48_sw_spi_pb
+ 263              		.section	.data.u8g_dev_tls8204_84x48_sw_spi_pb,"aw",%progbits
+ 264              		.align	2
+ 267              	u8g_dev_tls8204_84x48_sw_spi_pb:
+ 268 0000 08       		.byte	8
+ 269 0001 30       		.byte	48
+ 270 0002 00       		.byte	0
+ 271 0003 00       		.byte	0
+ 272 0004 00       		.byte	0
+ 273 0005 54       		.byte	84
+ 274 0006 0000     		.space	2
+ 275 0008 00000000 		.word	u8g_dev_tls8204_84x48_sw_spi_buf
+ 276              		.global	u8g_dev_tls8204_84x48_sw_spi
+ 277              		.section	.data.u8g_dev_tls8204_84x48_sw_spi,"aw",%progbits
+ 278              		.align	2
+ 281              	u8g_dev_tls8204_84x48_sw_spi:
+ 282 0000 00000000 		.word	u8g_dev_tls8204_fn
+ 283 0004 00000000 		.word	u8g_dev_tls8204_84x48_sw_spi_pb
+ 284 0008 00000000 		.word	u8g_com_null_fn
+ 285              		.text
+ 286              	.Letext0:
+ 287              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 288              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 289              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cclzJ6DE.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_tls8204_84x48.c
+     /tmp/cclzJ6DE.s:16     .rodata.u8g_dev_tls8204_init_seq:0000000000000000 $d
+     /tmp/cclzJ6DE.s:19     .rodata.u8g_dev_tls8204_init_seq:0000000000000000 u8g_dev_tls8204_init_seq
+     /tmp/cclzJ6DE.s:53     .text.u8g_dev_tls8204_fn:0000000000000000 $t
+     /tmp/cclzJ6DE.s:60     .text.u8g_dev_tls8204_fn:0000000000000000 u8g_dev_tls8204_fn
+     /tmp/cclzJ6DE.s:251    .text.u8g_dev_tls8204_fn:0000000000000134 $d
+     /tmp/cclzJ6DE.s:260    .bss.u8g_dev_tls8204_84x48_sw_spi_buf:0000000000000000 u8g_dev_tls8204_84x48_sw_spi_buf
+     /tmp/cclzJ6DE.s:257    .bss.u8g_dev_tls8204_84x48_sw_spi_buf:0000000000000000 $d
+     /tmp/cclzJ6DE.s:267    .data.u8g_dev_tls8204_84x48_sw_spi_pb:0000000000000000 u8g_dev_tls8204_84x48_sw_spi_pb
+     /tmp/cclzJ6DE.s:264    .data.u8g_dev_tls8204_84x48_sw_spi_pb:0000000000000000 $d
+     /tmp/cclzJ6DE.s:281    .data.u8g_dev_tls8204_84x48_sw_spi:0000000000000000 u8g_dev_tls8204_84x48_sw_spi
+     /tmp/cclzJ6DE.s:278    .data.u8g_dev_tls8204_84x48_sw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_SetAddress
+u8g_SetChipSelect
+u8g_WriteByte
+u8g_pb_WriteBuffer
+u8g_dev_pb8v1_base_fn
+u8g_com_null_fn

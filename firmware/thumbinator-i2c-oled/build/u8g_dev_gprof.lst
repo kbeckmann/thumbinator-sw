@@ -1,0 +1,369 @@
+ARM GAS  /tmp/ccLUmVrF.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_gprof.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.comm	u8g_pb_dev_gprof_buf,128,4
+  16              		.global	u8g_pb_dev_gprof
+  17              		.section	.data.u8g_pb_dev_gprof,"aw",%progbits
+  18              		.align	2
+  21              	u8g_pb_dev_gprof:
+  22 0000 08       		.byte	8
+  23 0001 40       		.byte	64
+  24 0002 00       		.byte	0
+  25 0003 00       		.byte	0
+  26 0004 00       		.byte	0
+  27 0005 80       		.byte	-128
+  28 0006 0000     		.space	2
+  29 0008 00000000 		.word	u8g_pb_dev_gprof_buf
+  30              		.global	u8g_dev_gprof
+  31              		.section	.data.u8g_dev_gprof,"aw",%progbits
+  32              		.align	2
+  35              	u8g_dev_gprof:
+  36 0000 00000000 		.word	u8g_dev_gprof_fn
+  37 0004 00000000 		.word	u8g_pb_dev_gprof
+  38 0008 00000000 		.word	0
+  39              		.section	.text.u8g_dev_gprof_fn,"ax",%progbits
+  40              		.align	1
+  41              		.global	u8g_dev_gprof_fn
+  42              		.syntax unified
+  43              		.code	16
+  44              		.thumb_func
+  45              		.fpu softvfp
+  47              	u8g_dev_gprof_fn:
+  48              	.LFB0:
+  49              		.file 1 "Drivers/u8glib/src/u8g_dev_gprof.c"
+   1:Drivers/u8glib/src/u8g_dev_gprof.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+   3:Drivers/u8glib/src/u8g_dev_gprof.c ****   u8g_dev_gprof.c
+   4:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+   5:Drivers/u8glib/src/u8g_dev_gprof.c ****   Device for performance measurement with gprof.
+   6:Drivers/u8glib/src/u8g_dev_gprof.c ****   Does not write any data, but uses a buffer.
+   7:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+   8:Drivers/u8glib/src/u8g_dev_gprof.c ****   Universal 8bit Graphics Library
+   9:Drivers/u8glib/src/u8g_dev_gprof.c ****   
+  10:Drivers/u8glib/src/u8g_dev_gprof.c ****   Copyright (c) 2011, olikraus@gmail.com
+  11:Drivers/u8glib/src/u8g_dev_gprof.c ****   All rights reserved.
+  12:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  13:Drivers/u8glib/src/u8g_dev_gprof.c ****   Redistribution and use in source and binary forms, with or without modification, 
+ARM GAS  /tmp/ccLUmVrF.s 			page 2
+
+
+  14:Drivers/u8glib/src/u8g_dev_gprof.c ****   are permitted provided that the following conditions are met:
+  15:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  16:Drivers/u8glib/src/u8g_dev_gprof.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  17:Drivers/u8glib/src/u8g_dev_gprof.c ****     of conditions and the following disclaimer.
+  18:Drivers/u8glib/src/u8g_dev_gprof.c ****     
+  19:Drivers/u8glib/src/u8g_dev_gprof.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  20:Drivers/u8glib/src/u8g_dev_gprof.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  21:Drivers/u8glib/src/u8g_dev_gprof.c ****     materials provided with the distribution.
+  22:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  23:Drivers/u8glib/src/u8g_dev_gprof.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  24:Drivers/u8glib/src/u8g_dev_gprof.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  25:Drivers/u8glib/src/u8g_dev_gprof.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  26:Drivers/u8glib/src/u8g_dev_gprof.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  27:Drivers/u8glib/src/u8g_dev_gprof.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  28:Drivers/u8glib/src/u8g_dev_gprof.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  29:Drivers/u8glib/src/u8g_dev_gprof.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  30:Drivers/u8glib/src/u8g_dev_gprof.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  31:Drivers/u8glib/src/u8g_dev_gprof.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  32:Drivers/u8glib/src/u8g_dev_gprof.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  33:Drivers/u8glib/src/u8g_dev_gprof.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  34:Drivers/u8glib/src/u8g_dev_gprof.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  35:Drivers/u8glib/src/u8g_dev_gprof.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  36:Drivers/u8glib/src/u8g_dev_gprof.c ****   
+  37:Drivers/u8glib/src/u8g_dev_gprof.c ****   
+  38:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  39:Drivers/u8glib/src/u8g_dev_gprof.c **** */
+  40:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  41:Drivers/u8glib/src/u8g_dev_gprof.c **** #include "u8g.h"
+  42:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  43:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  44:Drivers/u8glib/src/u8g_dev_gprof.c **** #define WIDTH 128
+  45:Drivers/u8glib/src/u8g_dev_gprof.c **** #define HEIGHT 64
+  46:Drivers/u8glib/src/u8g_dev_gprof.c **** #define PAGE_HEIGHT 8
+  47:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  48:Drivers/u8glib/src/u8g_dev_gprof.c **** uint8_t u8g_dev_gprof_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg);
+  49:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  50:Drivers/u8glib/src/u8g_dev_gprof.c **** uint8_t u8g_pb_dev_gprof_buf[WIDTH];
+  51:Drivers/u8glib/src/u8g_dev_gprof.c **** u8g_pb_t u8g_pb_dev_gprof = { {PAGE_HEIGHT, HEIGHT, 0, 0, 0},  WIDTH, u8g_pb_dev_gprof_buf };
+  52:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  53:Drivers/u8glib/src/u8g_dev_gprof.c **** u8g_dev_t u8g_dev_gprof = { u8g_dev_gprof_fn, &u8g_pb_dev_gprof, NULL };
+  54:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+  55:Drivers/u8glib/src/u8g_dev_gprof.c **** uint8_t u8g_dev_gprof_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  56:Drivers/u8glib/src/u8g_dev_gprof.c **** {
+  50              		.loc 1 56 0
+  51              		.cfi_startproc
+  52 0000 90B5     		push	{r4, r7, lr}
+  53              	.LCFI0:
+  54              		.cfi_def_cfa_offset 12
+  55              		.cfi_offset 4, -12
+  56              		.cfi_offset 7, -8
+  57              		.cfi_offset 14, -4
+  58 0002 87B0     		sub	sp, sp, #28
+  59              	.LCFI1:
+  60              		.cfi_def_cfa_offset 40
+  61 0004 00AF     		add	r7, sp, #0
+  62              	.LCFI2:
+  63              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/ccLUmVrF.s 			page 3
+
+
+  64 0006 F860     		str	r0, [r7, #12]
+  65 0008 B960     		str	r1, [r7, #8]
+  66 000a 3B60     		str	r3, [r7]
+  67 000c FB1D     		adds	r3, r7, #7
+  68 000e 1A70     		strb	r2, [r3]
+  57:Drivers/u8glib/src/u8g_dev_gprof.c ****   u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+  69              		.loc 1 57 0
+  70 0010 BB68     		ldr	r3, [r7, #8]
+  71 0012 5B68     		ldr	r3, [r3, #4]
+  72 0014 7B61     		str	r3, [r7, #20]
+  58:Drivers/u8glib/src/u8g_dev_gprof.c ****   
+  59:Drivers/u8glib/src/u8g_dev_gprof.c ****   switch(msg)
+  73              		.loc 1 59 0
+  74 0016 FB1D     		adds	r3, r7, #7
+  75 0018 1B78     		ldrb	r3, [r3]
+  76 001a 0A3B     		subs	r3, r3, #10
+  77 001c 332B     		cmp	r3, #51
+  78 001e 21D8     		bhi	.L2
+  79 0020 9A00     		lsls	r2, r3, #2
+  80 0022 174B     		ldr	r3, .L13
+  81 0024 D318     		adds	r3, r2, r3
+  82 0026 1B68     		ldr	r3, [r3]
+  83 0028 9F46     		mov	pc, r3
+  84              		.section	.rodata.u8g_dev_gprof_fn,"a",%progbits
+  85              		.align	2
+  86              	.L4:
+  87 0000 64000000 		.word	.L2
+  88 0004 64000000 		.word	.L2
+  89 0008 64000000 		.word	.L2
+  90 000c 64000000 		.word	.L2
+  91 0010 64000000 		.word	.L2
+  92 0014 64000000 		.word	.L2
+  93 0018 64000000 		.word	.L2
+  94 001c 64000000 		.word	.L2
+  95 0020 64000000 		.word	.L2
+  96 0024 64000000 		.word	.L2
+  97 0028 2A000000 		.word	.L6
+  98 002c 3C000000 		.word	.L7
+  99 0030 64000000 		.word	.L2
+ 100 0034 56000000 		.word	.L8
+ 101 0038 64000000 		.word	.L2
+ 102 003c 64000000 		.word	.L2
+ 103 0040 64000000 		.word	.L2
+ 104 0044 64000000 		.word	.L2
+ 105 0048 64000000 		.word	.L2
+ 106 004c 64000000 		.word	.L2
+ 107 0050 64000000 		.word	.L2
+ 108 0054 64000000 		.word	.L2
+ 109 0058 64000000 		.word	.L2
+ 110 005c 64000000 		.word	.L2
+ 111 0060 64000000 		.word	.L2
+ 112 0064 64000000 		.word	.L2
+ 113 0068 64000000 		.word	.L2
+ 114 006c 64000000 		.word	.L2
+ 115 0070 64000000 		.word	.L2
+ 116 0074 64000000 		.word	.L2
+ 117 0078 64000000 		.word	.L2
+ARM GAS  /tmp/ccLUmVrF.s 			page 4
+
+
+ 118 007c 64000000 		.word	.L2
+ 119 0080 64000000 		.word	.L2
+ 120 0084 64000000 		.word	.L2
+ 121 0088 64000000 		.word	.L2
+ 122 008c 64000000 		.word	.L2
+ 123 0090 64000000 		.word	.L2
+ 124 0094 64000000 		.word	.L2
+ 125 0098 64000000 		.word	.L2
+ 126 009c 64000000 		.word	.L2
+ 127 00a0 64000000 		.word	.L2
+ 128 00a4 64000000 		.word	.L2
+ 129 00a8 64000000 		.word	.L2
+ 130 00ac 64000000 		.word	.L2
+ 131 00b0 64000000 		.word	.L2
+ 132 00b4 64000000 		.word	.L2
+ 133 00b8 64000000 		.word	.L2
+ 134 00bc 64000000 		.word	.L2
+ 135 00c0 64000000 		.word	.L2
+ 136 00c4 64000000 		.word	.L2
+ 137 00c8 64000000 		.word	.L2
+ 138 00cc 64000000 		.word	.L2
+ 139              		.section	.text.u8g_dev_gprof_fn
+ 140              	.L6:
+  60:Drivers/u8glib/src/u8g_dev_gprof.c ****   {
+  61:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_INIT:
+  62:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+  63:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_STOP:
+  64:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+  65:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_PAGE_FIRST:
+  66:Drivers/u8glib/src/u8g_dev_gprof.c ****       u8g_pb_Clear(pb);
+ 141              		.loc 1 66 0
+ 142 002a 7B69     		ldr	r3, [r7, #20]
+ 143 002c 1800     		movs	r0, r3
+ 144 002e FFF7FEFF 		bl	u8g_pb_Clear
+  67:Drivers/u8glib/src/u8g_dev_gprof.c ****       u8g_page_First(&(pb->p));
+ 145              		.loc 1 67 0
+ 146 0032 7B69     		ldr	r3, [r7, #20]
+ 147 0034 1800     		movs	r0, r3
+ 148 0036 FFF7FEFF 		bl	u8g_page_First
+  68:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+ 149              		.loc 1 68 0
+ 150 003a 13E0     		b	.L2
+ 151              	.L7:
+  69:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+  70:Drivers/u8glib/src/u8g_dev_gprof.c ****       /*
+  71:Drivers/u8glib/src/u8g_dev_gprof.c ****       {
+  72:Drivers/u8glib/src/u8g_dev_gprof.c ****         uint8_t i, j;
+  73:Drivers/u8glib/src/u8g_dev_gprof.c ****         uint8_t page_height;
+  74:Drivers/u8glib/src/u8g_dev_gprof.c ****         page_height = pb->p.page_y1;
+  75:Drivers/u8glib/src/u8g_dev_gprof.c ****         page_height -= pb->p.page_y0;
+  76:Drivers/u8glib/src/u8g_dev_gprof.c ****         page_height++;
+  77:Drivers/u8glib/src/u8g_dev_gprof.c ****         for( j = 0; j < page_height; j++ )
+  78:Drivers/u8glib/src/u8g_dev_gprof.c ****         {
+  79:Drivers/u8glib/src/u8g_dev_gprof.c ****           printf("%02d ", j);
+  80:Drivers/u8glib/src/u8g_dev_gprof.c ****           for( i = 0; i < WIDTH; i++ )
+  81:Drivers/u8glib/src/u8g_dev_gprof.c ****           {
+  82:Drivers/u8glib/src/u8g_dev_gprof.c ****             if ( (u8g_pb_dev_stdout_buf[i] & (1<<j)) != 0 )
+ARM GAS  /tmp/ccLUmVrF.s 			page 5
+
+
+  83:Drivers/u8glib/src/u8g_dev_gprof.c ****               printf("#");
+  84:Drivers/u8glib/src/u8g_dev_gprof.c ****             else
+  85:Drivers/u8glib/src/u8g_dev_gprof.c ****               printf(".");
+  86:Drivers/u8glib/src/u8g_dev_gprof.c ****           }
+  87:Drivers/u8glib/src/u8g_dev_gprof.c ****           printf("\n");
+  88:Drivers/u8glib/src/u8g_dev_gprof.c ****         }
+  89:Drivers/u8glib/src/u8g_dev_gprof.c ****       }
+  90:Drivers/u8glib/src/u8g_dev_gprof.c ****       */
+  91:Drivers/u8glib/src/u8g_dev_gprof.c ****       if ( u8g_page_Next(&(pb->p)) == 0 )
+ 152              		.loc 1 91 0
+ 153 003c 7B69     		ldr	r3, [r7, #20]
+ 154 003e 1800     		movs	r0, r3
+ 155 0040 FFF7FEFF 		bl	u8g_page_Next
+ 156 0044 031E     		subs	r3, r0, #0
+ 157 0046 01D1     		bne	.L11
+  92:Drivers/u8glib/src/u8g_dev_gprof.c ****       {
+  93:Drivers/u8glib/src/u8g_dev_gprof.c ****         //printf("\n");
+  94:Drivers/u8glib/src/u8g_dev_gprof.c ****         return 0;
+ 158              		.loc 1 94 0
+ 159 0048 0023     		movs	r3, #0
+ 160 004a 14E0     		b	.L12
+ 161              	.L11:
+  95:Drivers/u8glib/src/u8g_dev_gprof.c ****       }
+  96:Drivers/u8glib/src/u8g_dev_gprof.c ****       u8g_pb_Clear(pb);
+ 162              		.loc 1 96 0
+ 163 004c 7B69     		ldr	r3, [r7, #20]
+ 164 004e 1800     		movs	r0, r3
+ 165 0050 FFF7FEFF 		bl	u8g_pb_Clear
+  97:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+ 166              		.loc 1 97 0
+ 167 0054 06E0     		b	.L2
+ 168              	.L8:
+  98:Drivers/u8glib/src/u8g_dev_gprof.c **** #ifdef U8G_DEV_MSG_IS_BBX_INTERSECTION
+  99:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_IS_BBX_INTERSECTION:
+ 100:Drivers/u8glib/src/u8g_dev_gprof.c ****        {
+ 101:Drivers/u8glib/src/u8g_dev_gprof.c ****         u8g_dev_arg_bbx_t *bbx = (u8g_dev_arg_bbx_t *)arg;
+ 102:Drivers/u8glib/src/u8g_dev_gprof.c ****         u8g_uint_t x2, y2;
+ 103:Drivers/u8glib/src/u8g_dev_gprof.c **** 
+ 104:Drivers/u8glib/src/u8g_dev_gprof.c ****         y2 = bbx->y;
+ 105:Drivers/u8glib/src/u8g_dev_gprof.c ****         y2 += bbx->h;
+ 106:Drivers/u8glib/src/u8g_dev_gprof.c ****         y2--;
+ 107:Drivers/u8glib/src/u8g_dev_gprof.c ****         
+ 108:Drivers/u8glib/src/u8g_dev_gprof.c ****         if ( u8g_pb_IsYIntersection(pb, bbx->y, y2) == 0 )
+ 109:Drivers/u8glib/src/u8g_dev_gprof.c ****           return 0;
+ 110:Drivers/u8glib/src/u8g_dev_gprof.c ****         
+ 111:Drivers/u8glib/src/u8g_dev_gprof.c ****         /* maybe this one can be skiped... probability is very high to have an intersection, so it 
+ 112:Drivers/u8glib/src/u8g_dev_gprof.c ****         x2 = bbx->x;
+ 113:Drivers/u8glib/src/u8g_dev_gprof.c ****         x2 += bbx->w;
+ 114:Drivers/u8glib/src/u8g_dev_gprof.c ****         x2--;
+ 115:Drivers/u8glib/src/u8g_dev_gprof.c ****         
+ 116:Drivers/u8glib/src/u8g_dev_gprof.c ****         if ( u8g_pb_IsXIntersection(pb, bbx->x, x2) == 0 )
+ 117:Drivers/u8glib/src/u8g_dev_gprof.c ****           return 0;
+ 118:Drivers/u8glib/src/u8g_dev_gprof.c ****       }
+ 119:Drivers/u8glib/src/u8g_dev_gprof.c ****       return 1;
+ 120:Drivers/u8glib/src/u8g_dev_gprof.c **** #endif
+ 121:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_GET_PAGE_BOX:
+ 122:Drivers/u8glib/src/u8g_dev_gprof.c ****       u8g_pb_GetPageBox(pb, (u8g_box_t *)arg);
+ARM GAS  /tmp/ccLUmVrF.s 			page 6
+
+
+ 169              		.loc 1 122 0
+ 170 0056 3A68     		ldr	r2, [r7]
+ 171 0058 7B69     		ldr	r3, [r7, #20]
+ 172 005a 1100     		movs	r1, r2
+ 173 005c 1800     		movs	r0, r3
+ 174 005e FFF7FEFF 		bl	u8g_pb_GetPageBox
+ 123:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+ 175              		.loc 1 123 0
+ 176 0062 C046     		nop
+ 177              	.L2:
+ 124:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_SET_COLOR_ENTRY:
+ 125:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+ 126:Drivers/u8glib/src/u8g_dev_gprof.c ****     case U8G_DEV_MSG_SET_XY_CB:
+ 127:Drivers/u8glib/src/u8g_dev_gprof.c ****       break;
+ 128:Drivers/u8glib/src/u8g_dev_gprof.c ****   }
+ 129:Drivers/u8glib/src/u8g_dev_gprof.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 178              		.loc 1 129 0
+ 179 0064 3C68     		ldr	r4, [r7]
+ 180 0066 FB1D     		adds	r3, r7, #7
+ 181 0068 1A78     		ldrb	r2, [r3]
+ 182 006a B968     		ldr	r1, [r7, #8]
+ 183 006c F868     		ldr	r0, [r7, #12]
+ 184 006e 2300     		movs	r3, r4
+ 185 0070 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 186 0074 0300     		movs	r3, r0
+ 187              	.L12:
+ 130:Drivers/u8glib/src/u8g_dev_gprof.c **** }
+ 188              		.loc 1 130 0
+ 189 0076 1800     		movs	r0, r3
+ 190 0078 BD46     		mov	sp, r7
+ 191 007a 07B0     		add	sp, sp, #28
+ 192              		@ sp needed
+ 193 007c 90BD     		pop	{r4, r7, pc}
+ 194              	.L14:
+ 195 007e C046     		.align	2
+ 196              	.L13:
+ 197 0080 00000000 		.word	.L4
+ 198              		.cfi_endproc
+ 199              	.LFE0:
+ 201              		.text
+ 202              	.Letext0:
+ 203              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 204              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 205              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccLUmVrF.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_gprof.c
+                            *COM*:0000000000000080 u8g_pb_dev_gprof_buf
+     /tmp/ccLUmVrF.s:21     .data.u8g_pb_dev_gprof:0000000000000000 u8g_pb_dev_gprof
+     /tmp/ccLUmVrF.s:18     .data.u8g_pb_dev_gprof:0000000000000000 $d
+     /tmp/ccLUmVrF.s:35     .data.u8g_dev_gprof:0000000000000000 u8g_dev_gprof
+     /tmp/ccLUmVrF.s:32     .data.u8g_dev_gprof:0000000000000000 $d
+     /tmp/ccLUmVrF.s:47     .text.u8g_dev_gprof_fn:0000000000000000 u8g_dev_gprof_fn
+     /tmp/ccLUmVrF.s:40     .text.u8g_dev_gprof_fn:0000000000000000 $t
+     /tmp/ccLUmVrF.s:85     .rodata.u8g_dev_gprof_fn:0000000000000000 $d
+     /tmp/ccLUmVrF.s:197    .text.u8g_dev_gprof_fn:0000000000000080 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_pb_Clear
+u8g_page_First
+u8g_page_Next
+u8g_pb_GetPageBox
+u8g_dev_pb8v1_base_fn

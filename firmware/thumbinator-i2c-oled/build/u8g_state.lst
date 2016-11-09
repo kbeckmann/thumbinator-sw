@@ -1,0 +1,311 @@
+ARM GAS  /tmp/cccad6Ry.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_state.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_state_dummy_cb,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_state_dummy_cb
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_state_dummy_cb:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_state.c"
+   1:Drivers/u8glib/src/u8g_state.c **** /*
+   2:Drivers/u8glib/src/u8g_state.c **** 
+   3:Drivers/u8glib/src/u8g_state.c ****   u8g_state.c
+   4:Drivers/u8glib/src/u8g_state.c ****   
+   5:Drivers/u8glib/src/u8g_state.c ****   backup and restore hardware state
+   6:Drivers/u8glib/src/u8g_state.c **** 
+   7:Drivers/u8glib/src/u8g_state.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_state.c ****   
+   9:Drivers/u8glib/src/u8g_state.c ****   Copyright (c) 2011, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_state.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_state.c **** 
+  12:Drivers/u8glib/src/u8g_state.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_state.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_state.c **** 
+  15:Drivers/u8glib/src/u8g_state.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_state.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_state.c ****     
+  18:Drivers/u8glib/src/u8g_state.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_state.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_state.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_state.c **** 
+  22:Drivers/u8glib/src/u8g_state.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_state.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_state.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_state.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_state.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_state.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_state.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_state.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_state.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_state.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_state.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_state.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ARM GAS  /tmp/cccad6Ry.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_state.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_state.c ****   
+  36:Drivers/u8glib/src/u8g_state.c **** 
+  37:Drivers/u8glib/src/u8g_state.c ****   state callback: backup env U8G_STATE_MSG_BACKUP_ENV
+  38:Drivers/u8glib/src/u8g_state.c ****   device callback: DEV_MSG_INIT
+  39:Drivers/u8glib/src/u8g_state.c ****   state callback: backup u8g U8G_STATE_MSG_BACKUP_U8G
+  40:Drivers/u8glib/src/u8g_state.c ****   state callback: restore env U8G_STATE_MSG_RESTORE_ENV
+  41:Drivers/u8glib/src/u8g_state.c **** 
+  42:Drivers/u8glib/src/u8g_state.c ****   state callback: backup env U8G_STATE_MSG_BACKUP_ENV
+  43:Drivers/u8glib/src/u8g_state.c ****   state callback: retore u8g U8G_STATE_MSG_RESTORE_U8G
+  44:Drivers/u8glib/src/u8g_state.c ****   DEV_MSG_PAGE_FIRST or DEV_MSG_PAGE_NEXT
+  45:Drivers/u8glib/src/u8g_state.c ****   state callback: restore env U8G_STATE_MSG_RESTORE_ENV
+  46:Drivers/u8glib/src/u8g_state.c **** 
+  47:Drivers/u8glib/src/u8g_state.c **** */
+  48:Drivers/u8glib/src/u8g_state.c **** 
+  49:Drivers/u8glib/src/u8g_state.c **** #include <stddef.h>
+  50:Drivers/u8glib/src/u8g_state.c **** #include "u8g.h"
+  51:Drivers/u8glib/src/u8g_state.c **** 
+  52:Drivers/u8glib/src/u8g_state.c **** void u8g_state_dummy_cb(uint8_t msg)
+  53:Drivers/u8glib/src/u8g_state.c **** {
+  26              		.loc 1 53 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 0200     		movs	r2, r0
+  40 0008 FB1D     		adds	r3, r7, #7
+  41 000a 1A70     		strb	r2, [r3]
+  54:Drivers/u8glib/src/u8g_state.c ****   /* the dummy procedure does nothing */
+  55:Drivers/u8glib/src/u8g_state.c **** }
+  42              		.loc 1 55 0
+  43 000c C046     		nop
+  44 000e BD46     		mov	sp, r7
+  45 0010 02B0     		add	sp, sp, #8
+  46              		@ sp needed
+  47 0012 80BD     		pop	{r7, pc}
+  48              		.cfi_endproc
+  49              	.LFE0:
+  51              		.section	.text.u8g_SetHardwareBackup,"ax",%progbits
+  52              		.align	1
+  53              		.global	u8g_SetHardwareBackup
+  54              		.syntax unified
+  55              		.code	16
+  56              		.thumb_func
+  57              		.fpu softvfp
+  59              	u8g_SetHardwareBackup:
+  60              	.LFB1:
+  56:Drivers/u8glib/src/u8g_state.c **** 
+  57:Drivers/u8glib/src/u8g_state.c **** void u8g_SetHardwareBackup(u8g_t *u8g, u8g_state_cb backup_cb)
+ARM GAS  /tmp/cccad6Ry.s 			page 3
+
+
+  58:Drivers/u8glib/src/u8g_state.c **** {
+  61              		.loc 1 58 0
+  62              		.cfi_startproc
+  63 0000 80B5     		push	{r7, lr}
+  64              	.LCFI3:
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 7, -8
+  67              		.cfi_offset 14, -4
+  68 0002 82B0     		sub	sp, sp, #8
+  69              	.LCFI4:
+  70              		.cfi_def_cfa_offset 16
+  71 0004 00AF     		add	r7, sp, #0
+  72              	.LCFI5:
+  73              		.cfi_def_cfa_register 7
+  74 0006 7860     		str	r0, [r7, #4]
+  75 0008 3960     		str	r1, [r7]
+  59:Drivers/u8glib/src/u8g_state.c ****   u8g->state_cb = backup_cb;
+  76              		.loc 1 59 0
+  77 000a 7B68     		ldr	r3, [r7, #4]
+  78 000c 3A68     		ldr	r2, [r7]
+  79 000e 5A63     		str	r2, [r3, #52]
+  60:Drivers/u8glib/src/u8g_state.c ****   /* in most cases the init message was already sent, so this will backup the */
+  61:Drivers/u8glib/src/u8g_state.c ****   /* current u8g state */
+  62:Drivers/u8glib/src/u8g_state.c ****   backup_cb(U8G_STATE_MSG_BACKUP_U8G);
+  80              		.loc 1 62 0
+  81 0010 3B68     		ldr	r3, [r7]
+  82 0012 0320     		movs	r0, #3
+  83 0014 9847     		blx	r3
+  84              	.LVL0:
+  63:Drivers/u8glib/src/u8g_state.c **** }
+  85              		.loc 1 63 0
+  86 0016 C046     		nop
+  87 0018 BD46     		mov	sp, r7
+  88 001a 02B0     		add	sp, sp, #8
+  89              		@ sp needed
+  90 001c 80BD     		pop	{r7, pc}
+  91              		.cfi_endproc
+  92              	.LFE1:
+  94              		.section	.text.u8g_backup_spi,"ax",%progbits
+  95              		.align	1
+  96              		.global	u8g_backup_spi
+  97              		.syntax unified
+  98              		.code	16
+  99              		.thumb_func
+ 100              		.fpu softvfp
+ 102              	u8g_backup_spi:
+ 103              	.LFB2:
+  64:Drivers/u8glib/src/u8g_state.c **** 
+  65:Drivers/u8glib/src/u8g_state.c **** 
+  66:Drivers/u8glib/src/u8g_state.c **** /*===============================================================*/
+  67:Drivers/u8glib/src/u8g_state.c **** /* register variable for restoring interrupt state */
+  68:Drivers/u8glib/src/u8g_state.c **** 
+  69:Drivers/u8glib/src/u8g_state.c **** #if defined(__AVR__)
+  70:Drivers/u8glib/src/u8g_state.c **** uint8_t global_SREG_backup;
+  71:Drivers/u8glib/src/u8g_state.c **** #endif
+  72:Drivers/u8glib/src/u8g_state.c **** 
+  73:Drivers/u8glib/src/u8g_state.c **** 
+ARM GAS  /tmp/cccad6Ry.s 			page 4
+
+
+  74:Drivers/u8glib/src/u8g_state.c **** 
+  75:Drivers/u8glib/src/u8g_state.c **** /*===============================================================*/
+  76:Drivers/u8glib/src/u8g_state.c **** /* AVR */
+  77:Drivers/u8glib/src/u8g_state.c **** 
+  78:Drivers/u8glib/src/u8g_state.c **** #if defined(__AVR__)
+  79:Drivers/u8glib/src/u8g_state.c **** #define U8G_ATMEGA_HW_SPI
+  80:Drivers/u8glib/src/u8g_state.c **** 
+  81:Drivers/u8glib/src/u8g_state.c **** /* remove the definition for attiny */
+  82:Drivers/u8glib/src/u8g_state.c **** #if __AVR_ARCH__ == 2
+  83:Drivers/u8glib/src/u8g_state.c **** #undef U8G_ATMEGA_HW_SPI
+  84:Drivers/u8glib/src/u8g_state.c **** #endif
+  85:Drivers/u8glib/src/u8g_state.c **** #if __AVR_ARCH__ == 25
+  86:Drivers/u8glib/src/u8g_state.c **** #undef U8G_ATMEGA_HW_SPI
+  87:Drivers/u8glib/src/u8g_state.c **** #endif
+  88:Drivers/u8glib/src/u8g_state.c **** #endif
+  89:Drivers/u8glib/src/u8g_state.c **** 
+  90:Drivers/u8glib/src/u8g_state.c **** #if defined(U8G_ATMEGA_HW_SPI)
+  91:Drivers/u8glib/src/u8g_state.c **** #include <avr/interrupt.h>
+  92:Drivers/u8glib/src/u8g_state.c **** static uint8_t u8g_state_avr_spi_memory[2];
+  93:Drivers/u8glib/src/u8g_state.c **** 
+  94:Drivers/u8glib/src/u8g_state.c **** void u8g_backup_spi(uint8_t msg)
+  95:Drivers/u8glib/src/u8g_state.c **** {
+  96:Drivers/u8glib/src/u8g_state.c ****   if ( U8G_STATE_MSG_IS_BACKUP(msg) )
+  97:Drivers/u8glib/src/u8g_state.c ****   {
+  98:Drivers/u8glib/src/u8g_state.c ****     u8g_state_avr_spi_memory[U8G_STATE_MSG_GET_IDX(msg)] = SPCR;
+  99:Drivers/u8glib/src/u8g_state.c ****   }
+ 100:Drivers/u8glib/src/u8g_state.c ****   else
+ 101:Drivers/u8glib/src/u8g_state.c ****   {
+ 102:Drivers/u8glib/src/u8g_state.c ****     uint8_t tmp = SREG;
+ 103:Drivers/u8glib/src/u8g_state.c ****     cli();
+ 104:Drivers/u8glib/src/u8g_state.c ****     SPCR = 0;
+ 105:Drivers/u8glib/src/u8g_state.c ****     SPCR = u8g_state_avr_spi_memory[U8G_STATE_MSG_GET_IDX(msg)];
+ 106:Drivers/u8glib/src/u8g_state.c ****     SREG = tmp;
+ 107:Drivers/u8glib/src/u8g_state.c ****   }
+ 108:Drivers/u8glib/src/u8g_state.c **** }
+ 109:Drivers/u8glib/src/u8g_state.c **** 
+ 110:Drivers/u8glib/src/u8g_state.c **** #elif defined (U8G_RASPBERRY_PI)
+ 111:Drivers/u8glib/src/u8g_state.c **** 
+ 112:Drivers/u8glib/src/u8g_state.c **** #include <stdio.h>
+ 113:Drivers/u8glib/src/u8g_state.c **** 
+ 114:Drivers/u8glib/src/u8g_state.c **** void u8g_backup_spi(uint8_t msg) {
+ 115:Drivers/u8glib/src/u8g_state.c ****   printf("u8g_backup_spi %d\r\n",msg);
+ 116:Drivers/u8glib/src/u8g_state.c **** }
+ 117:Drivers/u8glib/src/u8g_state.c **** 
+ 118:Drivers/u8glib/src/u8g_state.c **** #elif defined(ARDUINO) && defined(__SAM3X8E__)		// Arduino Due, maybe we should better check for __
+ 119:Drivers/u8glib/src/u8g_state.c **** 
+ 120:Drivers/u8glib/src/u8g_state.c **** #include "sam.h"
+ 121:Drivers/u8glib/src/u8g_state.c **** 
+ 122:Drivers/u8glib/src/u8g_state.c **** struct sam_backup_struct
+ 123:Drivers/u8glib/src/u8g_state.c **** {
+ 124:Drivers/u8glib/src/u8g_state.c ****   uint32_t mr;
+ 125:Drivers/u8glib/src/u8g_state.c ****   uint32_t sr;
+ 126:Drivers/u8glib/src/u8g_state.c ****   uint32_t csr[4];  
+ 127:Drivers/u8glib/src/u8g_state.c **** } sam_backup[2];
+ 128:Drivers/u8glib/src/u8g_state.c **** 
+ 129:Drivers/u8glib/src/u8g_state.c **** void u8g_backup_spi(uint8_t msg)
+ 130:Drivers/u8glib/src/u8g_state.c **** {
+ARM GAS  /tmp/cccad6Ry.s 			page 5
+
+
+ 131:Drivers/u8glib/src/u8g_state.c ****   uint8_t idx = U8G_STATE_MSG_GET_IDX(msg);
+ 132:Drivers/u8glib/src/u8g_state.c ****   if ( U8G_STATE_MSG_IS_BACKUP(msg) )
+ 133:Drivers/u8glib/src/u8g_state.c ****   {
+ 134:Drivers/u8glib/src/u8g_state.c ****     sam_backup[idx].mr = SPI0->SPI_MR;
+ 135:Drivers/u8glib/src/u8g_state.c ****     sam_backup[idx].sr = SPI0->SPI_SR;
+ 136:Drivers/u8glib/src/u8g_state.c ****     sam_backup[idx].csr[0] = SPI0->SPI_CSR[0];
+ 137:Drivers/u8glib/src/u8g_state.c ****     sam_backup[idx].csr[1] = SPI0->SPI_CSR[1];
+ 138:Drivers/u8glib/src/u8g_state.c ****     sam_backup[idx].csr[2] = SPI0->SPI_CSR[2];
+ 139:Drivers/u8glib/src/u8g_state.c ****     sam_backup[idx].csr[3] = SPI0->SPI_CSR[3];
+ 140:Drivers/u8glib/src/u8g_state.c ****   }
+ 141:Drivers/u8glib/src/u8g_state.c ****   else
+ 142:Drivers/u8glib/src/u8g_state.c ****   {
+ 143:Drivers/u8glib/src/u8g_state.c ****     SPI0->SPI_MR = sam_backup[idx].mr;
+ 144:Drivers/u8glib/src/u8g_state.c ****     SPI0->SPI_CSR[0] = sam_backup[idx].csr[0];
+ 145:Drivers/u8glib/src/u8g_state.c ****     SPI0->SPI_CSR[1] = sam_backup[idx].csr[1];
+ 146:Drivers/u8glib/src/u8g_state.c ****     SPI0->SPI_CSR[2] = sam_backup[idx].csr[2];
+ 147:Drivers/u8glib/src/u8g_state.c ****     SPI0->SPI_CSR[3] = sam_backup[idx].csr[3];
+ 148:Drivers/u8glib/src/u8g_state.c ****   }
+ 149:Drivers/u8glib/src/u8g_state.c **** }
+ 150:Drivers/u8glib/src/u8g_state.c **** 
+ 151:Drivers/u8glib/src/u8g_state.c **** #else
+ 152:Drivers/u8glib/src/u8g_state.c **** 
+ 153:Drivers/u8glib/src/u8g_state.c **** void u8g_backup_spi(uint8_t msg)
+ 154:Drivers/u8glib/src/u8g_state.c **** {
+ 104              		.loc 1 154 0
+ 105              		.cfi_startproc
+ 106 0000 80B5     		push	{r7, lr}
+ 107              	.LCFI6:
+ 108              		.cfi_def_cfa_offset 8
+ 109              		.cfi_offset 7, -8
+ 110              		.cfi_offset 14, -4
+ 111 0002 82B0     		sub	sp, sp, #8
+ 112              	.LCFI7:
+ 113              		.cfi_def_cfa_offset 16
+ 114 0004 00AF     		add	r7, sp, #0
+ 115              	.LCFI8:
+ 116              		.cfi_def_cfa_register 7
+ 117 0006 0200     		movs	r2, r0
+ 118 0008 FB1D     		adds	r3, r7, #7
+ 119 000a 1A70     		strb	r2, [r3]
+ 155:Drivers/u8glib/src/u8g_state.c **** }
+ 120              		.loc 1 155 0
+ 121 000c C046     		nop
+ 122 000e BD46     		mov	sp, r7
+ 123 0010 02B0     		add	sp, sp, #8
+ 124              		@ sp needed
+ 125 0012 80BD     		pop	{r7, pc}
+ 126              		.cfi_endproc
+ 127              	.LFE2:
+ 129              		.text
+ 130              	.Letext0:
+ 131              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 132              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 133              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cccad6Ry.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_state.c
+     /tmp/cccad6Ry.s:16     .text.u8g_state_dummy_cb:0000000000000000 $t
+     /tmp/cccad6Ry.s:23     .text.u8g_state_dummy_cb:0000000000000000 u8g_state_dummy_cb
+     /tmp/cccad6Ry.s:52     .text.u8g_SetHardwareBackup:0000000000000000 $t
+     /tmp/cccad6Ry.s:59     .text.u8g_SetHardwareBackup:0000000000000000 u8g_SetHardwareBackup
+     /tmp/cccad6Ry.s:95     .text.u8g_backup_spi:0000000000000000 $t
+     /tmp/cccad6Ry.s:102    .text.u8g_backup_spi:0000000000000000 u8g_backup_spi
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS

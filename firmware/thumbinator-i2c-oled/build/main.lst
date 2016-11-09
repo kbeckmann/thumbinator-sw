@@ -1,0 +1,1174 @@
+ARM GAS  /tmp/ccRtsJbi.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"main.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.comm	hi2c1,76,4
+  16              		.comm	husart1,72,4
+  17              		.section	.bss.u8g,"aw",%nobits
+  18              		.align	2
+  21              	u8g:
+  22 0000 00000000 		.space	60
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  22      00000000 
+  23              		.section	.text.next_led,"ax",%progbits
+  24              		.align	1
+  25              		.syntax unified
+  26              		.code	16
+  27              		.thumb_func
+  28              		.fpu softvfp
+  30              	next_led:
+  31              	.LFB35:
+  32              		.file 1 "Src/main.c"
+   1:Src/main.c    **** /**
+   2:Src/main.c    ****   ******************************************************************************
+   3:Src/main.c    ****   * File Name          : main.c
+   4:Src/main.c    ****   * Description        : Main program body
+   5:Src/main.c    ****   ******************************************************************************
+   6:Src/main.c    ****   *
+   7:Src/main.c    ****   * Copyright (c) 2016 STMicroelectronics International N.V. 
+   8:Src/main.c    ****   * All rights reserved.
+   9:Src/main.c    ****   *
+  10:Src/main.c    ****   * Redistribution and use in source and binary forms, with or without 
+  11:Src/main.c    ****   * modification, are permitted, provided that the following conditions are met:
+  12:Src/main.c    ****   *
+  13:Src/main.c    ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  14:Src/main.c    ****   *    this list of conditions and the following disclaimer.
+  15:Src/main.c    ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  16:Src/main.c    ****   *    this list of conditions and the following disclaimer in the documentation
+  17:Src/main.c    ****   *    and/or other materials provided with the distribution.
+  18:Src/main.c    ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  19:Src/main.c    ****   *    contributors to this software may be used to endorse or promote products 
+  20:Src/main.c    ****   *    derived from this software without specific written permission.
+  21:Src/main.c    ****   * 4. This software, including modifications and/or derivative works of this 
+  22:Src/main.c    ****   *    software, must execute solely and exclusively on microcontroller or
+  23:Src/main.c    ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+  24:Src/main.c    ****   * 5. Redistribution and use of this software other than as permitted under 
+ARM GAS  /tmp/ccRtsJbi.s 			page 2
+
+
+  25:Src/main.c    ****   *    this license is void and will automatically terminate your rights under 
+  26:Src/main.c    ****   *    this license. 
+  27:Src/main.c    ****   *
+  28:Src/main.c    ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  29:Src/main.c    ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  30:Src/main.c    ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  31:Src/main.c    ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  32:Src/main.c    ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  33:Src/main.c    ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  34:Src/main.c    ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  35:Src/main.c    ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  36:Src/main.c    ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  37:Src/main.c    ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  38:Src/main.c    ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  39:Src/main.c    ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  40:Src/main.c    ****   *
+  41:Src/main.c    ****   ******************************************************************************
+  42:Src/main.c    ****   */
+  43:Src/main.c    **** /* Includes ------------------------------------------------------------------*/
+  44:Src/main.c    **** #include "main.h"
+  45:Src/main.c    **** #include "stm32f0xx_hal.h"
+  46:Src/main.c    **** #include "usb_device.h"
+  47:Src/main.c    **** 
+  48:Src/main.c    **** /* USER CODE BEGIN Includes */
+  49:Src/main.c    **** #include "u8g_arm.h"
+  50:Src/main.c    **** /* USER CODE END Includes */
+  51:Src/main.c    **** 
+  52:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  53:Src/main.c    **** I2C_HandleTypeDef hi2c1;
+  54:Src/main.c    **** 
+  55:Src/main.c    **** USART_HandleTypeDef husart1;
+  56:Src/main.c    **** 
+  57:Src/main.c    **** /* USER CODE BEGIN PV */
+  58:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  59:Src/main.c    **** static u8g_t u8g;
+  60:Src/main.c    **** 
+  61:Src/main.c    **** /* USER CODE END PV */
+  62:Src/main.c    **** 
+  63:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  64:Src/main.c    **** void SystemClock_Config(void);
+  65:Src/main.c    **** void Error_Handler(void);
+  66:Src/main.c    **** static void MX_GPIO_Init(void);
+  67:Src/main.c    **** static void MX_USART1_Init(void);
+  68:Src/main.c    **** static void MX_I2C1_Init(void);
+  69:Src/main.c    **** 
+  70:Src/main.c    **** /* USER CODE BEGIN PFP */
+  71:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  72:Src/main.c    **** 
+  73:Src/main.c    **** /* USER CODE END PFP */
+  74:Src/main.c    **** 
+  75:Src/main.c    **** /* USER CODE BEGIN 0 */
+  76:Src/main.c    **** static void next_led(void) {
+  33              		.loc 1 76 0
+  34              		.cfi_startproc
+  35 0000 80B5     		push	{r7, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccRtsJbi.s 			page 3
+
+
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 00AF     		add	r7, sp, #0
+  41              	.LCFI1:
+  42              		.cfi_def_cfa_register 7
+  77:Src/main.c    ****   static int i = 0;
+  78:Src/main.c    ****   i = (i + 1) % 16;
+  43              		.loc 1 78 0
+  44 0004 214B     		ldr	r3, .L8
+  45 0006 1B68     		ldr	r3, [r3]
+  46 0008 0133     		adds	r3, r3, #1
+  47 000a 214A     		ldr	r2, .L8+4
+  48 000c 1340     		ands	r3, r2
+  49 000e 04D5     		bpl	.L2
+  50 0010 013B     		subs	r3, r3, #1
+  51 0012 1022     		movs	r2, #16
+  52 0014 5242     		rsbs	r2, r2, #0
+  53 0016 1343     		orrs	r3, r2
+  54 0018 0133     		adds	r3, r3, #1
+  55              	.L2:
+  56 001a 1A00     		movs	r2, r3
+  57 001c 1B4B     		ldr	r3, .L8
+  58 001e 1A60     		str	r2, [r3]
+  79:Src/main.c    ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_10, GPIO_PIN_RESET);
+  59              		.loc 1 79 0
+  60 0020 1C49     		ldr	r1, .L8+8
+  61 0022 1D4B     		ldr	r3, .L8+12
+  62 0024 0022     		movs	r2, #0
+  63 0026 1800     		movs	r0, r3
+  64 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  80:Src/main.c    ****   if (i & 1) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+  65              		.loc 1 80 0
+  66 002c 174B     		ldr	r3, .L8
+  67 002e 1B68     		ldr	r3, [r3]
+  68 0030 0122     		movs	r2, #1
+  69 0032 1340     		ands	r3, r2
+  70 0034 05D0     		beq	.L3
+  71              		.loc 1 80 0 is_stmt 0 discriminator 1
+  72 0036 184B     		ldr	r3, .L8+12
+  73 0038 0122     		movs	r2, #1
+  74 003a 0121     		movs	r1, #1
+  75 003c 1800     		movs	r0, r3
+  76 003e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  77              	.L3:
+  81:Src/main.c    ****   if (i & 2) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+  78              		.loc 1 81 0 is_stmt 1
+  79 0042 124B     		ldr	r3, .L8
+  80 0044 1B68     		ldr	r3, [r3]
+  81 0046 0222     		movs	r2, #2
+  82 0048 1340     		ands	r3, r2
+  83 004a 05D0     		beq	.L4
+  84              		.loc 1 81 0 is_stmt 0 discriminator 1
+  85 004c 124B     		ldr	r3, .L8+12
+  86 004e 0122     		movs	r2, #1
+  87 0050 0221     		movs	r1, #2
+  88 0052 1800     		movs	r0, r3
+  89 0054 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ARM GAS  /tmp/ccRtsJbi.s 			page 4
+
+
+  90              	.L4:
+  82:Src/main.c    ****   if (i & 4) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
+  91              		.loc 1 82 0 is_stmt 1
+  92 0058 0C4B     		ldr	r3, .L8
+  93 005a 1B68     		ldr	r3, [r3]
+  94 005c 0422     		movs	r2, #4
+  95 005e 1340     		ands	r3, r2
+  96 0060 05D0     		beq	.L5
+  97              		.loc 1 82 0 is_stmt 0 discriminator 1
+  98 0062 0D4B     		ldr	r3, .L8+12
+  99 0064 0122     		movs	r2, #1
+ 100 0066 0421     		movs	r1, #4
+ 101 0068 1800     		movs	r0, r3
+ 102 006a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 103              	.L5:
+  83:Src/main.c    ****   if (i & 8) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_SET);
+ 104              		.loc 1 83 0 is_stmt 1
+ 105 006e 074B     		ldr	r3, .L8
+ 106 0070 1B68     		ldr	r3, [r3]
+ 107 0072 0822     		movs	r2, #8
+ 108 0074 1340     		ands	r3, r2
+ 109 0076 06D0     		beq	.L7
+ 110              		.loc 1 83 0 is_stmt 0 discriminator 1
+ 111 0078 8023     		movs	r3, #128
+ 112 007a DB00     		lsls	r3, r3, #3
+ 113 007c 0648     		ldr	r0, .L8+12
+ 114 007e 0122     		movs	r2, #1
+ 115 0080 1900     		movs	r1, r3
+ 116 0082 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 117              	.L7:
+  84:Src/main.c    **** }
+ 118              		.loc 1 84 0 is_stmt 1
+ 119 0086 C046     		nop
+ 120 0088 BD46     		mov	sp, r7
+ 121              		@ sp needed
+ 122 008a 80BD     		pop	{r7, pc}
+ 123              	.L9:
+ 124              		.align	2
+ 125              	.L8:
+ 126 008c 00000000 		.word	i.8311
+ 127 0090 0F000080 		.word	-2147483633
+ 128 0094 07040000 		.word	1031
+ 129 0098 00040048 		.word	1207960576
+ 130              		.cfi_endproc
+ 131              	.LFE35:
+ 133              		.section	.rodata
+ 134              		.align	2
+ 135              	.LC2:
+ 136 0000 48656C6C 		.ascii	"Hello!\000"
+ 136      6F2100
+ 137              		.section	.text.draw,"ax",%progbits
+ 138              		.align	1
+ 139              		.global	draw
+ 140              		.syntax unified
+ 141              		.code	16
+ 142              		.thumb_func
+ 143              		.fpu softvfp
+ARM GAS  /tmp/ccRtsJbi.s 			page 5
+
+
+ 145              	draw:
+ 146              	.LFB36:
+  85:Src/main.c    **** 
+  86:Src/main.c    **** void draw(void)
+  87:Src/main.c    **** {
+ 147              		.loc 1 87 0
+ 148              		.cfi_startproc
+ 149 0000 80B5     		push	{r7, lr}
+ 150              	.LCFI2:
+ 151              		.cfi_def_cfa_offset 8
+ 152              		.cfi_offset 7, -8
+ 153              		.cfi_offset 14, -4
+ 154 0002 82B0     		sub	sp, sp, #8
+ 155              	.LCFI3:
+ 156              		.cfi_def_cfa_offset 16
+ 157 0004 02AF     		add	r7, sp, #8
+ 158              	.LCFI4:
+ 159              		.cfi_def_cfa 7, 8
+  88:Src/main.c    ****   static i = 0;
+  89:Src/main.c    ****   i = (i+1) & 0xff;
+ 160              		.loc 1 89 0
+ 161 0006 0D4B     		ldr	r3, .L11
+ 162 0008 1B68     		ldr	r3, [r3]
+ 163 000a 0133     		adds	r3, r3, #1
+ 164 000c FF22     		movs	r2, #255
+ 165 000e 1A40     		ands	r2, r3
+ 166 0010 0A4B     		ldr	r3, .L11
+ 167 0012 1A60     		str	r2, [r3]
+  90:Src/main.c    **** 	u8g_DrawStr(&u8g, 2, 12, "Hello!");//write string - you set coordinates and string
+ 168              		.loc 1 90 0
+ 169 0014 0A4B     		ldr	r3, .L11+4
+ 170 0016 0B48     		ldr	r0, .L11+8
+ 171 0018 0C22     		movs	r2, #12
+ 172 001a 0221     		movs	r1, #2
+ 173 001c FFF7FEFF 		bl	u8g_DrawStr
+  91:Src/main.c    **** 	u8g_DrawBox(&u8g, i, 30, 35, 35);//draw some box
+ 174              		.loc 1 91 0
+ 175 0020 064B     		ldr	r3, .L11
+ 176 0022 1B68     		ldr	r3, [r3]
+ 177 0024 D9B2     		uxtb	r1, r3
+ 178 0026 0748     		ldr	r0, .L11+8
+ 179 0028 2323     		movs	r3, #35
+ 180 002a 0093     		str	r3, [sp]
+ 181 002c 2323     		movs	r3, #35
+ 182 002e 1E22     		movs	r2, #30
+ 183 0030 FFF7FEFF 		bl	u8g_DrawBox
+  92:Src/main.c    **** }
+ 184              		.loc 1 92 0
+ 185 0034 C046     		nop
+ 186 0036 BD46     		mov	sp, r7
+ 187              		@ sp needed
+ 188 0038 80BD     		pop	{r7, pc}
+ 189              	.L12:
+ 190 003a C046     		.align	2
+ 191              	.L11:
+ 192 003c 00000000 		.word	i.8315
+ 193 0040 00000000 		.word	.LC2
+ARM GAS  /tmp/ccRtsJbi.s 			page 6
+
+
+ 194 0044 00000000 		.word	u8g
+ 195              		.cfi_endproc
+ 196              	.LFE36:
+ 198              		.section	.text.main,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	main
+ 201              		.syntax unified
+ 202              		.code	16
+ 203              		.thumb_func
+ 204              		.fpu softvfp
+ 206              	main:
+ 207              	.LFB37:
+  93:Src/main.c    **** 
+  94:Src/main.c    **** /* USER CODE END 0 */
+  95:Src/main.c    **** 
+  96:Src/main.c    **** int main(void)
+  97:Src/main.c    **** {
+ 208              		.loc 1 97 0
+ 209              		.cfi_startproc
+ 210 0000 80B5     		push	{r7, lr}
+ 211              	.LCFI5:
+ 212              		.cfi_def_cfa_offset 8
+ 213              		.cfi_offset 7, -8
+ 214              		.cfi_offset 14, -4
+ 215 0002 00AF     		add	r7, sp, #0
+ 216              	.LCFI6:
+ 217              		.cfi_def_cfa_register 7
+  98:Src/main.c    **** 
+  99:Src/main.c    ****   /* USER CODE BEGIN 1 */
+ 100:Src/main.c    **** 
+ 101:Src/main.c    ****   /* USER CODE END 1 */
+ 102:Src/main.c    **** 
+ 103:Src/main.c    ****   /* MCU Configuration----------------------------------------------------------*/
+ 104:Src/main.c    **** 
+ 105:Src/main.c    ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+ 106:Src/main.c    ****   HAL_Init();
+ 218              		.loc 1 106 0
+ 219 0004 FFF7FEFF 		bl	HAL_Init
+ 107:Src/main.c    **** 
+ 108:Src/main.c    ****   /* Configure the system clock */
+ 109:Src/main.c    ****   SystemClock_Config();
+ 220              		.loc 1 109 0
+ 221 0008 FFF7FEFF 		bl	SystemClock_Config
+ 110:Src/main.c    **** 
+ 111:Src/main.c    ****   /* Initialize all configured peripherals */
+ 112:Src/main.c    ****   MX_GPIO_Init();
+ 222              		.loc 1 112 0
+ 223 000c FFF7FEFF 		bl	MX_GPIO_Init
+ 113:Src/main.c    ****   MX_USART1_Init();
+ 224              		.loc 1 113 0
+ 225 0010 FFF7FEFF 		bl	MX_USART1_Init
+ 114:Src/main.c    ****   MX_USB_DEVICE_Init();
+ 226              		.loc 1 114 0
+ 227 0014 FFF7FEFF 		bl	MX_USB_DEVICE_Init
+ 115:Src/main.c    ****   MX_I2C1_Init();
+ 228              		.loc 1 115 0
+ 229 0018 FFF7FEFF 		bl	MX_I2C1_Init
+ARM GAS  /tmp/ccRtsJbi.s 			page 7
+
+
+ 116:Src/main.c    **** 
+ 117:Src/main.c    ****   /* USER CODE BEGIN 2 */
+ 118:Src/main.c    ****   HAL_Delay(1);
+ 230              		.loc 1 118 0
+ 231 001c 0120     		movs	r0, #1
+ 232 001e FFF7FEFF 		bl	HAL_Delay
+ 119:Src/main.c    ****   next_led();
+ 233              		.loc 1 119 0
+ 234 0022 FFF7FEFF 		bl	next_led
+ 120:Src/main.c    ****   u8g_InitComFn(&u8g, &u8g_dev_ssd1306_128x64_i2c, u8g_com_hw_i2c_fn); //here we init our u8glib dr
+ 235              		.loc 1 120 0
+ 236 0026 0E4A     		ldr	r2, .L16
+ 237 0028 0E49     		ldr	r1, .L16+4
+ 238 002a 0F4B     		ldr	r3, .L16+8
+ 239 002c 1800     		movs	r0, r3
+ 240 002e FFF7FEFF 		bl	u8g_InitComFn
+ 121:Src/main.c    ****   next_led();
+ 241              		.loc 1 121 0
+ 242 0032 FFF7FEFF 		bl	next_led
+ 243              	.L15:
+ 122:Src/main.c    ****   /* USER CODE END 2 */
+ 123:Src/main.c    **** 
+ 124:Src/main.c    ****   /* Infinite loop */
+ 125:Src/main.c    ****   /* USER CODE BEGIN WHILE */
+ 126:Src/main.c    ****   while (1)
+ 127:Src/main.c    ****   {
+ 128:Src/main.c    ****   /* USER CODE END WHILE */
+ 129:Src/main.c    **** 
+ 130:Src/main.c    ****   /* USER CODE BEGIN 3 */
+ 131:Src/main.c    ****   //  HAL_Delay(100);
+ 132:Src/main.c    ****     next_led();
+ 244              		.loc 1 132 0
+ 245 0036 FFF7FEFF 		bl	next_led
+ 133:Src/main.c    ****   	u8g_SetFont(&u8g,u8g_font_profont10);//set current font
+ 246              		.loc 1 133 0
+ 247 003a 0C4A     		ldr	r2, .L16+12
+ 248 003c 0A4B     		ldr	r3, .L16+8
+ 249 003e 1100     		movs	r1, r2
+ 250 0040 1800     		movs	r0, r3
+ 251 0042 FFF7FEFF 		bl	u8g_SetFont
+ 134:Src/main.c    **** 
+ 135:Src/main.c    ****     u8g_FirstPage(&u8g);
+ 252              		.loc 1 135 0
+ 253 0046 084B     		ldr	r3, .L16+8
+ 254 0048 1800     		movs	r0, r3
+ 255 004a FFF7FEFF 		bl	u8g_FirstPage
+ 256              	.L14:
+ 136:Src/main.c    ****     do
+ 137:Src/main.c    ****     {
+ 138:Src/main.c    ****       draw();
+ 257              		.loc 1 138 0 discriminator 1
+ 258 004e FFF7FEFF 		bl	draw
+ 139:Src/main.c    ****     } while ( u8g_NextPage(&u8g) );
+ 259              		.loc 1 139 0 discriminator 1
+ 260 0052 054B     		ldr	r3, .L16+8
+ 261 0054 1800     		movs	r0, r3
+ 262 0056 FFF7FEFF 		bl	u8g_NextPage
+ARM GAS  /tmp/ccRtsJbi.s 			page 8
+
+
+ 263 005a 031E     		subs	r3, r0, #0
+ 264 005c F7D1     		bne	.L14
+ 132:Src/main.c    ****   	u8g_SetFont(&u8g,u8g_font_profont10);//set current font
+ 265              		.loc 1 132 0
+ 266 005e EAE7     		b	.L15
+ 267              	.L17:
+ 268              		.align	2
+ 269              	.L16:
+ 270 0060 00000000 		.word	u8g_com_hw_i2c_fn
+ 271 0064 00000000 		.word	u8g_dev_ssd1306_128x64_i2c
+ 272 0068 00000000 		.word	u8g
+ 273 006c 00000000 		.word	u8g_font_profont10
+ 274              		.cfi_endproc
+ 275              	.LFE37:
+ 277              		.global	__aeabi_uidiv
+ 278              		.section	.text.SystemClock_Config,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	SystemClock_Config
+ 281              		.syntax unified
+ 282              		.code	16
+ 283              		.thumb_func
+ 284              		.fpu softvfp
+ 286              	SystemClock_Config:
+ 287              	.LFB38:
+ 140:Src/main.c    **** //    u8g_Delay(10);
+ 141:Src/main.c    **** 
+ 142:Src/main.c    ****   }
+ 143:Src/main.c    ****   /* USER CODE END 3 */
+ 144:Src/main.c    **** 
+ 145:Src/main.c    **** }
+ 146:Src/main.c    **** 
+ 147:Src/main.c    **** /** System Clock Configuration
+ 148:Src/main.c    **** */
+ 149:Src/main.c    **** void SystemClock_Config(void)
+ 150:Src/main.c    **** {
+ 288              		.loc 1 150 0
+ 289              		.cfi_startproc
+ 290 0000 80B5     		push	{r7, lr}
+ 291              	.LCFI7:
+ 292              		.cfi_def_cfa_offset 8
+ 293              		.cfi_offset 7, -8
+ 294              		.cfi_offset 14, -4
+ 295 0002 98B0     		sub	sp, sp, #96
+ 296              	.LCFI8:
+ 297              		.cfi_def_cfa_offset 104
+ 298 0004 00AF     		add	r7, sp, #0
+ 299              	.LCFI9:
+ 300              		.cfi_def_cfa_register 7
+ 151:Src/main.c    **** 
+ 152:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct;
+ 153:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct;
+ 154:Src/main.c    ****   RCC_PeriphCLKInitTypeDef PeriphClkInit;
+ 155:Src/main.c    **** 
+ 156:Src/main.c    ****     /**Initializes the CPU, AHB and APB busses clocks 
+ 157:Src/main.c    ****     */
+ 158:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI48;
+ 301              		.loc 1 158 0
+ARM GAS  /tmp/ccRtsJbi.s 			page 9
+
+
+ 302 0006 2C23     		movs	r3, #44
+ 303 0008 FB18     		adds	r3, r7, r3
+ 304 000a 2222     		movs	r2, #34
+ 305 000c 1A60     		str	r2, [r3]
+ 159:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 306              		.loc 1 159 0
+ 307 000e 2C23     		movs	r3, #44
+ 308 0010 FB18     		adds	r3, r7, r3
+ 309 0012 0122     		movs	r2, #1
+ 310 0014 DA60     		str	r2, [r3, #12]
+ 160:Src/main.c    ****   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
+ 311              		.loc 1 160 0
+ 312 0016 2C23     		movs	r3, #44
+ 313 0018 FB18     		adds	r3, r7, r3
+ 314 001a 0122     		movs	r2, #1
+ 315 001c 1A62     		str	r2, [r3, #32]
+ 161:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
+ 316              		.loc 1 161 0
+ 317 001e 2C23     		movs	r3, #44
+ 318 0020 FB18     		adds	r3, r7, r3
+ 319 0022 1022     		movs	r2, #16
+ 320 0024 1A61     		str	r2, [r3, #16]
+ 162:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 321              		.loc 1 162 0
+ 322 0026 2C23     		movs	r3, #44
+ 323 0028 FB18     		adds	r3, r7, r3
+ 324 002a 0022     		movs	r2, #0
+ 325 002c 5A62     		str	r2, [r3, #36]
+ 163:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 326              		.loc 1 163 0
+ 327 002e 2C23     		movs	r3, #44
+ 328 0030 FB18     		adds	r3, r7, r3
+ 329 0032 1800     		movs	r0, r3
+ 330 0034 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 331 0038 031E     		subs	r3, r0, #0
+ 332 003a 01D0     		beq	.L19
+ 164:Src/main.c    ****   {
+ 165:Src/main.c    ****     Error_Handler();
+ 333              		.loc 1 165 0
+ 334 003c FFF7FEFF 		bl	Error_Handler
+ 335              	.L19:
+ 166:Src/main.c    ****   }
+ 167:Src/main.c    **** 
+ 168:Src/main.c    ****     /**Initializes the CPU, AHB and APB busses clocks 
+ 169:Src/main.c    ****     */
+ 170:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 336              		.loc 1 170 0
+ 337 0040 1C23     		movs	r3, #28
+ 338 0042 FB18     		adds	r3, r7, r3
+ 339 0044 0722     		movs	r2, #7
+ 340 0046 1A60     		str	r2, [r3]
+ 171:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1;
+ 172:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI48;
+ 341              		.loc 1 172 0
+ 342 0048 1C23     		movs	r3, #28
+ 343 004a FB18     		adds	r3, r7, r3
+ 344 004c 0322     		movs	r2, #3
+ARM GAS  /tmp/ccRtsJbi.s 			page 10
+
+
+ 345 004e 5A60     		str	r2, [r3, #4]
+ 173:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 346              		.loc 1 173 0
+ 347 0050 1C23     		movs	r3, #28
+ 348 0052 FB18     		adds	r3, r7, r3
+ 349 0054 0022     		movs	r2, #0
+ 350 0056 9A60     		str	r2, [r3, #8]
+ 174:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 351              		.loc 1 174 0
+ 352 0058 1C23     		movs	r3, #28
+ 353 005a FB18     		adds	r3, r7, r3
+ 354 005c 0022     		movs	r2, #0
+ 355 005e DA60     		str	r2, [r3, #12]
+ 175:Src/main.c    **** 
+ 176:Src/main.c    ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+ 356              		.loc 1 176 0
+ 357 0060 1C23     		movs	r3, #28
+ 358 0062 FB18     		adds	r3, r7, r3
+ 359 0064 0121     		movs	r1, #1
+ 360 0066 1800     		movs	r0, r3
+ 361 0068 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 362 006c 031E     		subs	r3, r0, #0
+ 363 006e 01D0     		beq	.L20
+ 177:Src/main.c    ****   {
+ 178:Src/main.c    ****     Error_Handler();
+ 364              		.loc 1 178 0
+ 365 0070 FFF7FEFF 		bl	Error_Handler
+ 366              	.L20:
+ 179:Src/main.c    ****   }
+ 180:Src/main.c    **** 
+ 181:Src/main.c    ****   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB|RCC_PERIPHCLK_USART1
+ 367              		.loc 1 181 0
+ 368 0074 3B00     		movs	r3, r7
+ 369 0076 164A     		ldr	r2, .L22
+ 370 0078 1A60     		str	r2, [r3]
+ 182:Src/main.c    ****                               |RCC_PERIPHCLK_I2C1;
+ 183:Src/main.c    ****   PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK1;
+ 371              		.loc 1 183 0
+ 372 007a 3B00     		movs	r3, r7
+ 373 007c 0022     		movs	r2, #0
+ 374 007e 9A60     		str	r2, [r3, #8]
+ 184:Src/main.c    ****   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+ 375              		.loc 1 184 0
+ 376 0080 3B00     		movs	r3, r7
+ 377 0082 0022     		movs	r2, #0
+ 378 0084 1A61     		str	r2, [r3, #16]
+ 185:Src/main.c    ****   PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_HSI48;
+ 379              		.loc 1 185 0
+ 380 0086 3B00     		movs	r3, r7
+ 381 0088 0022     		movs	r2, #0
+ 382 008a 9A61     		str	r2, [r3, #24]
+ 186:Src/main.c    **** 
+ 187:Src/main.c    ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 383              		.loc 1 187 0
+ 384 008c 3B00     		movs	r3, r7
+ 385 008e 1800     		movs	r0, r3
+ 386 0090 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+ARM GAS  /tmp/ccRtsJbi.s 			page 11
+
+
+ 387 0094 031E     		subs	r3, r0, #0
+ 388 0096 01D0     		beq	.L21
+ 188:Src/main.c    ****   {
+ 189:Src/main.c    ****     Error_Handler();
+ 389              		.loc 1 189 0
+ 390 0098 FFF7FEFF 		bl	Error_Handler
+ 391              	.L21:
+ 190:Src/main.c    ****   }
+ 191:Src/main.c    **** 
+ 192:Src/main.c    ****     /**Configure the Systick interrupt time 
+ 193:Src/main.c    ****     */
+ 194:Src/main.c    ****   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+ 392              		.loc 1 194 0
+ 393 009c FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 394 00a0 0200     		movs	r2, r0
+ 395 00a2 FA23     		movs	r3, #250
+ 396 00a4 9900     		lsls	r1, r3, #2
+ 397 00a6 1000     		movs	r0, r2
+ 398 00a8 FFF7FEFF 		bl	__aeabi_uidiv
+ 399              	.LVL0:
+ 400 00ac 0300     		movs	r3, r0
+ 401 00ae 1800     		movs	r0, r3
+ 402 00b0 FFF7FEFF 		bl	HAL_SYSTICK_Config
+ 195:Src/main.c    **** 
+ 196:Src/main.c    ****     /**Configure the Systick 
+ 197:Src/main.c    ****     */
+ 198:Src/main.c    ****   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+ 403              		.loc 1 198 0
+ 404 00b4 0420     		movs	r0, #4
+ 405 00b6 FFF7FEFF 		bl	HAL_SYSTICK_CLKSourceConfig
+ 199:Src/main.c    **** 
+ 200:Src/main.c    ****   /* SysTick_IRQn interrupt configuration */
+ 201:Src/main.c    ****   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+ 406              		.loc 1 201 0
+ 407 00ba 0123     		movs	r3, #1
+ 408 00bc 5B42     		rsbs	r3, r3, #0
+ 409 00be 0022     		movs	r2, #0
+ 410 00c0 0021     		movs	r1, #0
+ 411 00c2 1800     		movs	r0, r3
+ 412 00c4 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 202:Src/main.c    **** }
+ 413              		.loc 1 202 0
+ 414 00c8 C046     		nop
+ 415 00ca BD46     		mov	sp, r7
+ 416 00cc 18B0     		add	sp, sp, #96
+ 417              		@ sp needed
+ 418 00ce 80BD     		pop	{r7, pc}
+ 419              	.L23:
+ 420              		.align	2
+ 421              	.L22:
+ 422 00d0 21000200 		.word	131105
+ 423              		.cfi_endproc
+ 424              	.LFE38:
+ 426              		.section	.text.MX_I2C1_Init,"ax",%progbits
+ 427              		.align	1
+ 428              		.syntax unified
+ 429              		.code	16
+ARM GAS  /tmp/ccRtsJbi.s 			page 12
+
+
+ 430              		.thumb_func
+ 431              		.fpu softvfp
+ 433              	MX_I2C1_Init:
+ 434              	.LFB39:
+ 203:Src/main.c    **** 
+ 204:Src/main.c    **** /* I2C1 init function */
+ 205:Src/main.c    **** static void MX_I2C1_Init(void)
+ 206:Src/main.c    **** {
+ 435              		.loc 1 206 0
+ 436              		.cfi_startproc
+ 437 0000 80B5     		push	{r7, lr}
+ 438              	.LCFI10:
+ 439              		.cfi_def_cfa_offset 8
+ 440              		.cfi_offset 7, -8
+ 441              		.cfi_offset 14, -4
+ 442 0002 00AF     		add	r7, sp, #0
+ 443              	.LCFI11:
+ 444              		.cfi_def_cfa_register 7
+ 207:Src/main.c    **** 
+ 208:Src/main.c    ****   hi2c1.Instance = I2C1;
+ 445              		.loc 1 208 0
+ 446 0004 174B     		ldr	r3, .L28
+ 447 0006 184A     		ldr	r2, .L28+4
+ 448 0008 1A60     		str	r2, [r3]
+ 209:Src/main.c    ****   hi2c1.Init.Timing = 0x2000090E;
+ 449              		.loc 1 209 0
+ 450 000a 164B     		ldr	r3, .L28
+ 451 000c 174A     		ldr	r2, .L28+8
+ 452 000e 5A60     		str	r2, [r3, #4]
+ 210:Src/main.c    ****   hi2c1.Init.OwnAddress1 = 0;
+ 453              		.loc 1 210 0
+ 454 0010 144B     		ldr	r3, .L28
+ 455 0012 0022     		movs	r2, #0
+ 456 0014 9A60     		str	r2, [r3, #8]
+ 211:Src/main.c    ****   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+ 457              		.loc 1 211 0
+ 458 0016 134B     		ldr	r3, .L28
+ 459 0018 0122     		movs	r2, #1
+ 460 001a DA60     		str	r2, [r3, #12]
+ 212:Src/main.c    ****   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+ 461              		.loc 1 212 0
+ 462 001c 114B     		ldr	r3, .L28
+ 463 001e 0022     		movs	r2, #0
+ 464 0020 1A61     		str	r2, [r3, #16]
+ 213:Src/main.c    ****   hi2c1.Init.OwnAddress2 = 0;
+ 465              		.loc 1 213 0
+ 466 0022 104B     		ldr	r3, .L28
+ 467 0024 0022     		movs	r2, #0
+ 468 0026 5A61     		str	r2, [r3, #20]
+ 214:Src/main.c    ****   hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+ 469              		.loc 1 214 0
+ 470 0028 0E4B     		ldr	r3, .L28
+ 471 002a 0022     		movs	r2, #0
+ 472 002c 9A61     		str	r2, [r3, #24]
+ 215:Src/main.c    ****   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+ 473              		.loc 1 215 0
+ 474 002e 0D4B     		ldr	r3, .L28
+ARM GAS  /tmp/ccRtsJbi.s 			page 13
+
+
+ 475 0030 0022     		movs	r2, #0
+ 476 0032 DA61     		str	r2, [r3, #28]
+ 216:Src/main.c    ****   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+ 477              		.loc 1 216 0
+ 478 0034 0B4B     		ldr	r3, .L28
+ 479 0036 0022     		movs	r2, #0
+ 480 0038 1A62     		str	r2, [r3, #32]
+ 217:Src/main.c    ****   if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+ 481              		.loc 1 217 0
+ 482 003a 0A4B     		ldr	r3, .L28
+ 483 003c 1800     		movs	r0, r3
+ 484 003e FFF7FEFF 		bl	HAL_I2C_Init
+ 485 0042 031E     		subs	r3, r0, #0
+ 486 0044 01D0     		beq	.L25
+ 218:Src/main.c    ****   {
+ 219:Src/main.c    ****     Error_Handler();
+ 487              		.loc 1 219 0
+ 488 0046 FFF7FEFF 		bl	Error_Handler
+ 489              	.L25:
+ 220:Src/main.c    ****   }
+ 221:Src/main.c    **** 
+ 222:Src/main.c    ****     /**Configure Analogue filter 
+ 223:Src/main.c    ****     */
+ 224:Src/main.c    ****   if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+ 490              		.loc 1 224 0
+ 491 004a 064B     		ldr	r3, .L28
+ 492 004c 0021     		movs	r1, #0
+ 493 004e 1800     		movs	r0, r3
+ 494 0050 FFF7FEFF 		bl	HAL_I2CEx_ConfigAnalogFilter
+ 495 0054 031E     		subs	r3, r0, #0
+ 496 0056 01D0     		beq	.L27
+ 225:Src/main.c    ****   {
+ 226:Src/main.c    ****     Error_Handler();
+ 497              		.loc 1 226 0
+ 498 0058 FFF7FEFF 		bl	Error_Handler
+ 499              	.L27:
+ 227:Src/main.c    ****   }
+ 228:Src/main.c    **** 
+ 229:Src/main.c    **** }
+ 500              		.loc 1 229 0
+ 501 005c C046     		nop
+ 502 005e BD46     		mov	sp, r7
+ 503              		@ sp needed
+ 504 0060 80BD     		pop	{r7, pc}
+ 505              	.L29:
+ 506 0062 C046     		.align	2
+ 507              	.L28:
+ 508 0064 00000000 		.word	hi2c1
+ 509 0068 00540040 		.word	1073763328
+ 510 006c 0E090020 		.word	536873230
+ 511              		.cfi_endproc
+ 512              	.LFE39:
+ 514              		.section	.text.MX_USART1_Init,"ax",%progbits
+ 515              		.align	1
+ 516              		.syntax unified
+ 517              		.code	16
+ 518              		.thumb_func
+ARM GAS  /tmp/ccRtsJbi.s 			page 14
+
+
+ 519              		.fpu softvfp
+ 521              	MX_USART1_Init:
+ 522              	.LFB40:
+ 230:Src/main.c    **** 
+ 231:Src/main.c    **** /* USART1 init function */
+ 232:Src/main.c    **** static void MX_USART1_Init(void)
+ 233:Src/main.c    **** {
+ 523              		.loc 1 233 0
+ 524              		.cfi_startproc
+ 525 0000 80B5     		push	{r7, lr}
+ 526              	.LCFI12:
+ 527              		.cfi_def_cfa_offset 8
+ 528              		.cfi_offset 7, -8
+ 529              		.cfi_offset 14, -4
+ 530 0002 00AF     		add	r7, sp, #0
+ 531              	.LCFI13:
+ 532              		.cfi_def_cfa_register 7
+ 234:Src/main.c    **** 
+ 235:Src/main.c    ****   husart1.Instance = USART1;
+ 533              		.loc 1 235 0
+ 534 0004 134B     		ldr	r3, .L33
+ 535 0006 144A     		ldr	r2, .L33+4
+ 536 0008 1A60     		str	r2, [r3]
+ 236:Src/main.c    ****   husart1.Init.BaudRate = 38400;
+ 537              		.loc 1 236 0
+ 538 000a 124B     		ldr	r3, .L33
+ 539 000c 9622     		movs	r2, #150
+ 540 000e 1202     		lsls	r2, r2, #8
+ 541 0010 5A60     		str	r2, [r3, #4]
+ 237:Src/main.c    ****   husart1.Init.WordLength = USART_WORDLENGTH_7B;
+ 542              		.loc 1 237 0
+ 543 0012 104B     		ldr	r3, .L33
+ 544 0014 8022     		movs	r2, #128
+ 545 0016 5205     		lsls	r2, r2, #21
+ 546 0018 9A60     		str	r2, [r3, #8]
+ 238:Src/main.c    ****   husart1.Init.StopBits = USART_STOPBITS_1;
+ 547              		.loc 1 238 0
+ 548 001a 0E4B     		ldr	r3, .L33
+ 549 001c 0022     		movs	r2, #0
+ 550 001e DA60     		str	r2, [r3, #12]
+ 239:Src/main.c    ****   husart1.Init.Parity = USART_PARITY_NONE;
+ 551              		.loc 1 239 0
+ 552 0020 0C4B     		ldr	r3, .L33
+ 553 0022 0022     		movs	r2, #0
+ 554 0024 1A61     		str	r2, [r3, #16]
+ 240:Src/main.c    ****   husart1.Init.Mode = USART_MODE_TX_RX;
+ 555              		.loc 1 240 0
+ 556 0026 0B4B     		ldr	r3, .L33
+ 557 0028 0C22     		movs	r2, #12
+ 558 002a 5A61     		str	r2, [r3, #20]
+ 241:Src/main.c    ****   husart1.Init.CLKPolarity = USART_POLARITY_LOW;
+ 559              		.loc 1 241 0
+ 560 002c 094B     		ldr	r3, .L33
+ 561 002e 0022     		movs	r2, #0
+ 562 0030 9A61     		str	r2, [r3, #24]
+ 242:Src/main.c    ****   husart1.Init.CLKPhase = USART_PHASE_1EDGE;
+ 563              		.loc 1 242 0
+ARM GAS  /tmp/ccRtsJbi.s 			page 15
+
+
+ 564 0032 084B     		ldr	r3, .L33
+ 565 0034 0022     		movs	r2, #0
+ 566 0036 DA61     		str	r2, [r3, #28]
+ 243:Src/main.c    ****   husart1.Init.CLKLastBit = USART_LASTBIT_DISABLE;
+ 567              		.loc 1 243 0
+ 568 0038 064B     		ldr	r3, .L33
+ 569 003a 0022     		movs	r2, #0
+ 570 003c 1A62     		str	r2, [r3, #32]
+ 244:Src/main.c    ****   if (HAL_USART_Init(&husart1) != HAL_OK)
+ 571              		.loc 1 244 0
+ 572 003e 054B     		ldr	r3, .L33
+ 573 0040 1800     		movs	r0, r3
+ 574 0042 FFF7FEFF 		bl	HAL_USART_Init
+ 575 0046 031E     		subs	r3, r0, #0
+ 576 0048 01D0     		beq	.L32
+ 245:Src/main.c    ****   {
+ 246:Src/main.c    ****     Error_Handler();
+ 577              		.loc 1 246 0
+ 578 004a FFF7FEFF 		bl	Error_Handler
+ 579              	.L32:
+ 247:Src/main.c    ****   }
+ 248:Src/main.c    **** 
+ 249:Src/main.c    **** }
+ 580              		.loc 1 249 0
+ 581 004e C046     		nop
+ 582 0050 BD46     		mov	sp, r7
+ 583              		@ sp needed
+ 584 0052 80BD     		pop	{r7, pc}
+ 585              	.L34:
+ 586              		.align	2
+ 587              	.L33:
+ 588 0054 00000000 		.word	husart1
+ 589 0058 00380140 		.word	1073821696
+ 590              		.cfi_endproc
+ 591              	.LFE40:
+ 593              		.section	.text.MX_GPIO_Init,"ax",%progbits
+ 594              		.align	1
+ 595              		.syntax unified
+ 596              		.code	16
+ 597              		.thumb_func
+ 598              		.fpu softvfp
+ 600              	MX_GPIO_Init:
+ 601              	.LFB41:
+ 250:Src/main.c    **** 
+ 251:Src/main.c    **** /** Configure pins as 
+ 252:Src/main.c    ****         * Analog 
+ 253:Src/main.c    ****         * Input 
+ 254:Src/main.c    ****         * Output
+ 255:Src/main.c    ****         * EVENT_OUT
+ 256:Src/main.c    ****         * EXTI
+ 257:Src/main.c    **** */
+ 258:Src/main.c    **** static void MX_GPIO_Init(void)
+ 259:Src/main.c    **** {
+ 602              		.loc 1 259 0
+ 603              		.cfi_startproc
+ 604 0000 80B5     		push	{r7, lr}
+ 605              	.LCFI14:
+ARM GAS  /tmp/ccRtsJbi.s 			page 16
+
+
+ 606              		.cfi_def_cfa_offset 8
+ 607              		.cfi_offset 7, -8
+ 608              		.cfi_offset 14, -4
+ 609 0002 88B0     		sub	sp, sp, #32
+ 610              	.LCFI15:
+ 611              		.cfi_def_cfa_offset 40
+ 612 0004 00AF     		add	r7, sp, #0
+ 613              	.LCFI16:
+ 614              		.cfi_def_cfa_register 7
+ 615              	.LBB2:
+ 260:Src/main.c    **** 
+ 261:Src/main.c    ****   GPIO_InitTypeDef GPIO_InitStruct;
+ 262:Src/main.c    **** 
+ 263:Src/main.c    ****   /* GPIO Ports Clock Enable */
+ 264:Src/main.c    ****   __HAL_RCC_GPIOF_CLK_ENABLE();
+ 616              		.loc 1 264 0
+ 617 0006 254B     		ldr	r3, .L36
+ 618 0008 244A     		ldr	r2, .L36
+ 619 000a 5269     		ldr	r2, [r2, #20]
+ 620 000c 8021     		movs	r1, #128
+ 621 000e C903     		lsls	r1, r1, #15
+ 622 0010 0A43     		orrs	r2, r1
+ 623 0012 5A61     		str	r2, [r3, #20]
+ 624 0014 214B     		ldr	r3, .L36
+ 625 0016 5A69     		ldr	r2, [r3, #20]
+ 626 0018 8023     		movs	r3, #128
+ 627 001a DB03     		lsls	r3, r3, #15
+ 628 001c 1340     		ands	r3, r2
+ 629 001e BB60     		str	r3, [r7, #8]
+ 630 0020 BB68     		ldr	r3, [r7, #8]
+ 631              	.LBE2:
+ 632              	.LBB3:
+ 265:Src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+ 633              		.loc 1 265 0
+ 634 0022 1E4B     		ldr	r3, .L36
+ 635 0024 1D4A     		ldr	r2, .L36
+ 636 0026 5269     		ldr	r2, [r2, #20]
+ 637 0028 8021     		movs	r1, #128
+ 638 002a C902     		lsls	r1, r1, #11
+ 639 002c 0A43     		orrs	r2, r1
+ 640 002e 5A61     		str	r2, [r3, #20]
+ 641 0030 1A4B     		ldr	r3, .L36
+ 642 0032 5A69     		ldr	r2, [r3, #20]
+ 643 0034 8023     		movs	r3, #128
+ 644 0036 DB02     		lsls	r3, r3, #11
+ 645 0038 1340     		ands	r3, r2
+ 646 003a 7B60     		str	r3, [r7, #4]
+ 647 003c 7B68     		ldr	r3, [r7, #4]
+ 648              	.LBE3:
+ 649              	.LBB4:
+ 266:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+ 650              		.loc 1 266 0
+ 651 003e 174B     		ldr	r3, .L36
+ 652 0040 164A     		ldr	r2, .L36
+ 653 0042 5269     		ldr	r2, [r2, #20]
+ 654 0044 8021     		movs	r1, #128
+ 655 0046 8902     		lsls	r1, r1, #10
+ARM GAS  /tmp/ccRtsJbi.s 			page 17
+
+
+ 656 0048 0A43     		orrs	r2, r1
+ 657 004a 5A61     		str	r2, [r3, #20]
+ 658 004c 134B     		ldr	r3, .L36
+ 659 004e 5A69     		ldr	r2, [r3, #20]
+ 660 0050 8023     		movs	r3, #128
+ 661 0052 9B02     		lsls	r3, r3, #10
+ 662 0054 1340     		ands	r3, r2
+ 663 0056 3B60     		str	r3, [r7]
+ 664 0058 3B68     		ldr	r3, [r7]
+ 665              	.LBE4:
+ 267:Src/main.c    **** 
+ 268:Src/main.c    ****   /*Configure GPIO pin Output Level */
+ 269:Src/main.c    ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_10, GPIO_PIN_RESET);
+ 666              		.loc 1 269 0
+ 667 005a 1149     		ldr	r1, .L36+4
+ 668 005c 114B     		ldr	r3, .L36+8
+ 669 005e 0022     		movs	r2, #0
+ 670 0060 1800     		movs	r0, r3
+ 671 0062 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 270:Src/main.c    **** 
+ 271:Src/main.c    ****   /*Configure GPIO pins : PB0 PB1 PB2 PB10 */
+ 272:Src/main.c    ****   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_10;
+ 672              		.loc 1 272 0
+ 673 0066 0C23     		movs	r3, #12
+ 674 0068 FB18     		adds	r3, r7, r3
+ 675 006a 0D4A     		ldr	r2, .L36+4
+ 676 006c 1A60     		str	r2, [r3]
+ 273:Src/main.c    ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 677              		.loc 1 273 0
+ 678 006e 0C23     		movs	r3, #12
+ 679 0070 FB18     		adds	r3, r7, r3
+ 680 0072 0122     		movs	r2, #1
+ 681 0074 5A60     		str	r2, [r3, #4]
+ 274:Src/main.c    ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 682              		.loc 1 274 0
+ 683 0076 0C23     		movs	r3, #12
+ 684 0078 FB18     		adds	r3, r7, r3
+ 685 007a 0022     		movs	r2, #0
+ 686 007c 9A60     		str	r2, [r3, #8]
+ 275:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 687              		.loc 1 275 0
+ 688 007e 0C23     		movs	r3, #12
+ 689 0080 FB18     		adds	r3, r7, r3
+ 690 0082 0022     		movs	r2, #0
+ 691 0084 DA60     		str	r2, [r3, #12]
+ 276:Src/main.c    ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 692              		.loc 1 276 0
+ 693 0086 0C23     		movs	r3, #12
+ 694 0088 FB18     		adds	r3, r7, r3
+ 695 008a 064A     		ldr	r2, .L36+8
+ 696 008c 1900     		movs	r1, r3
+ 697 008e 1000     		movs	r0, r2
+ 698 0090 FFF7FEFF 		bl	HAL_GPIO_Init
+ 277:Src/main.c    **** 
+ 278:Src/main.c    **** }
+ 699              		.loc 1 278 0
+ 700 0094 C046     		nop
+ARM GAS  /tmp/ccRtsJbi.s 			page 18
+
+
+ 701 0096 BD46     		mov	sp, r7
+ 702 0098 08B0     		add	sp, sp, #32
+ 703              		@ sp needed
+ 704 009a 80BD     		pop	{r7, pc}
+ 705              	.L37:
+ 706              		.align	2
+ 707              	.L36:
+ 708 009c 00100240 		.word	1073876992
+ 709 00a0 07040000 		.word	1031
+ 710 00a4 00040048 		.word	1207960576
+ 711              		.cfi_endproc
+ 712              	.LFE41:
+ 714              		.section	.text.Error_Handler,"ax",%progbits
+ 715              		.align	1
+ 716              		.global	Error_Handler
+ 717              		.syntax unified
+ 718              		.code	16
+ 719              		.thumb_func
+ 720              		.fpu softvfp
+ 722              	Error_Handler:
+ 723              	.LFB42:
+ 279:Src/main.c    **** 
+ 280:Src/main.c    **** /* USER CODE BEGIN 4 */
+ 281:Src/main.c    **** 
+ 282:Src/main.c    **** /* USER CODE END 4 */
+ 283:Src/main.c    **** 
+ 284:Src/main.c    **** /**
+ 285:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 286:Src/main.c    ****   * @param  None
+ 287:Src/main.c    ****   * @retval None
+ 288:Src/main.c    ****   */
+ 289:Src/main.c    **** void Error_Handler(void)
+ 290:Src/main.c    **** {
+ 724              		.loc 1 290 0
+ 725              		.cfi_startproc
+ 726 0000 80B5     		push	{r7, lr}
+ 727              	.LCFI17:
+ 728              		.cfi_def_cfa_offset 8
+ 729              		.cfi_offset 7, -8
+ 730              		.cfi_offset 14, -4
+ 731 0002 00AF     		add	r7, sp, #0
+ 732              	.LCFI18:
+ 733              		.cfi_def_cfa_register 7
+ 734              	.L39:
+ 291:Src/main.c    ****   /* USER CODE BEGIN Error_Handler */
+ 292:Src/main.c    ****   /* User can add his own implementation to report the HAL error return state */
+ 293:Src/main.c    ****   while(1)
+ 735              		.loc 1 293 0 discriminator 1
+ 736 0004 FEE7     		b	.L39
+ 737              		.cfi_endproc
+ 738              	.LFE42:
+ 740              		.section	.bss.i.8311,"aw",%nobits
+ 741              		.align	2
+ 744              	i.8311:
+ 745 0000 00000000 		.space	4
+ 746              		.section	.bss.i.8315,"aw",%nobits
+ 747              		.align	2
+ARM GAS  /tmp/ccRtsJbi.s 			page 19
+
+
+ 750              	i.8315:
+ 751 0000 00000000 		.space	4
+ 752              		.text
+ 753              	.Letext0:
+ 754              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 755              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 756              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 757              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+ 758              		.file 6 "/usr/arm-none-eabi/include/sys/lock.h"
+ 759              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
+ 760              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stddef.h"
+ 761              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
+ 762              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 763              		.file 11 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h"
+ 764              		.file 12 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc_ex.h"
+ 765              		.file 13 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h"
+ 766              		.file 14 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 767              		.file 15 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h"
+ 768              		.file 16 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_usart.h"
+ 769              		.file 17 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 770              		.file 18 "Inc/usb_device.h"
+ 771              		.file 19 "Drivers/u8glib/inc/u8g.h"
+ 772              		.file 20 "Drivers/u8glib/inc/u8g_arm.h"
+ARM GAS  /tmp/ccRtsJbi.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+                            *COM*:000000000000004c hi2c1
+                            *COM*:0000000000000048 husart1
+     /tmp/ccRtsJbi.s:18     .bss.u8g:0000000000000000 $d
+     /tmp/ccRtsJbi.s:21     .bss.u8g:0000000000000000 u8g
+     /tmp/ccRtsJbi.s:24     .text.next_led:0000000000000000 $t
+     /tmp/ccRtsJbi.s:30     .text.next_led:0000000000000000 next_led
+     /tmp/ccRtsJbi.s:126    .text.next_led:000000000000008c $d
+     /tmp/ccRtsJbi.s:744    .bss.i.8311:0000000000000000 i.8311
+     /tmp/ccRtsJbi.s:134    .rodata:0000000000000000 $d
+     /tmp/ccRtsJbi.s:138    .text.draw:0000000000000000 $t
+     /tmp/ccRtsJbi.s:145    .text.draw:0000000000000000 draw
+     /tmp/ccRtsJbi.s:192    .text.draw:000000000000003c $d
+     /tmp/ccRtsJbi.s:750    .bss.i.8315:0000000000000000 i.8315
+     /tmp/ccRtsJbi.s:199    .text.main:0000000000000000 $t
+     /tmp/ccRtsJbi.s:206    .text.main:0000000000000000 main
+     /tmp/ccRtsJbi.s:286    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccRtsJbi.s:600    .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/ccRtsJbi.s:521    .text.MX_USART1_Init:0000000000000000 MX_USART1_Init
+     /tmp/ccRtsJbi.s:433    .text.MX_I2C1_Init:0000000000000000 MX_I2C1_Init
+     /tmp/ccRtsJbi.s:270    .text.main:0000000000000060 $d
+     /tmp/ccRtsJbi.s:279    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccRtsJbi.s:722    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccRtsJbi.s:422    .text.SystemClock_Config:00000000000000d0 $d
+     /tmp/ccRtsJbi.s:427    .text.MX_I2C1_Init:0000000000000000 $t
+     /tmp/ccRtsJbi.s:508    .text.MX_I2C1_Init:0000000000000064 $d
+     /tmp/ccRtsJbi.s:515    .text.MX_USART1_Init:0000000000000000 $t
+     /tmp/ccRtsJbi.s:588    .text.MX_USART1_Init:0000000000000054 $d
+     /tmp/ccRtsJbi.s:594    .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/ccRtsJbi.s:708    .text.MX_GPIO_Init:000000000000009c $d
+     /tmp/ccRtsJbi.s:715    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccRtsJbi.s:741    .bss.i.8311:0000000000000000 $d
+     /tmp/ccRtsJbi.s:747    .bss.i.8315:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+u8g_DrawStr
+u8g_DrawBox
+HAL_Init
+MX_USB_DEVICE_Init
+HAL_Delay
+u8g_InitComFn
+u8g_SetFont
+u8g_FirstPage
+u8g_NextPage
+u8g_com_hw_i2c_fn
+u8g_dev_ssd1306_128x64_i2c
+u8g_font_profont10
+__aeabi_uidiv
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_RCCEx_PeriphCLKConfig
+HAL_RCC_GetHCLKFreq
+HAL_SYSTICK_Config
+HAL_SYSTICK_CLKSourceConfig
+ARM GAS  /tmp/ccRtsJbi.s 			page 21
+
+
+HAL_NVIC_SetPriority
+HAL_I2C_Init
+HAL_I2CEx_ConfigAnalogFilter
+HAL_USART_Init
+HAL_GPIO_Init

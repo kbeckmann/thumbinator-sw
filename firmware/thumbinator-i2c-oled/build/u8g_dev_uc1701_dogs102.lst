@@ -1,0 +1,789 @@
+ARM GAS  /tmp/ccTYzsAZ.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_uc1701_dogs102.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_dogs102_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_dogs102_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 C1       		.byte	-63
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 E2       		.byte	-30
+  29 0009 40       		.byte	64
+  30 000a A1       		.byte	-95
+  31 000b C0       		.byte	-64
+  32 000c A6       		.byte	-90
+  33 000d A2       		.byte	-94
+  34 000e 2F       		.byte	47
+  35 000f 27       		.byte	39
+  36 0010 81       		.byte	-127
+  37 0011 0E       		.byte	14
+  38 0012 FA       		.byte	-6
+  39 0013 90       		.byte	-112
+  40 0014 A4       		.byte	-92
+  41 0015 AF       		.byte	-81
+  42 0016 FF       		.byte	-1
+  43 0017 64       		.byte	100
+  44 0018 A5       		.byte	-91
+  45 0019 FF       		.byte	-1
+  46 001a 64       		.byte	100
+  47 001b FF       		.byte	-1
+  48 001c 64       		.byte	100
+  49 001d A4       		.byte	-92
+  50 001e FF       		.byte	-1
+  51 001f D0       		.byte	-48
+  52 0020 FF       		.byte	-1
+  53 0021 FE       		.byte	-2
+  54              		.section	.rodata.u8g_dev_dogs102_data_start,"a",%progbits
+  55              		.align	2
+  58              	u8g_dev_dogs102_data_start:
+  59 0000 FF       		.byte	-1
+  60 0001 E0       		.byte	-32
+  61 0002 FF       		.byte	-1
+ARM GAS  /tmp/ccTYzsAZ.s 			page 2
+
+
+  62 0003 D1       		.byte	-47
+  63 0004 10       		.byte	16
+  64 0005 00       		.byte	0
+  65 0006 FF       		.byte	-1
+  66 0007 FE       		.byte	-2
+  67              		.section	.text.u8g_dev_dogs102_fn,"ax",%progbits
+  68              		.align	1
+  69              		.global	u8g_dev_dogs102_fn
+  70              		.syntax unified
+  71              		.code	16
+  72              		.thumb_func
+  73              		.fpu softvfp
+  75              	u8g_dev_dogs102_fn:
+  76              	.LFB0:
+  77              		.file 1 "Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c"
+   1:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+   3:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   u8g_dev_uc1701_dogs102.c
+   4:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+   5:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   
+   7:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   Copyright (c) 2011, olikraus@gmail.com
+   8:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  10:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  13:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     
+  16:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  20:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   
+  34:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   
+  35:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** */
+  36:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  37:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** #include "u8g.h"
+  38:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  39:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** #define WIDTH 102
+  40:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** #define HEIGHT 64
+  41:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** #define PAGE_HEIGHT 8
+  42:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+ARM GAS  /tmp/ccTYzsAZ.s 			page 3
+
+
+  43:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** static const uint8_t u8g_dev_dogs102_init_seq[] PROGMEM = {
+  44:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_CS(0),             /* disable chip */
+  45:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  46:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  47:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_CS(1),             /* enable chip */
+  48:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   
+  49:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0e2,            		/* soft reset */
+  50:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x040,		                /* set display start line to 0 */
+  51:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0a1,		                /* ADC set to reverse */
+  52:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0c0,		                /* common output mode */
+  53:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0a6,		                /* display normal, bit val 0: LCD pixel off. */
+  54:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0a2,		                /* LCD bias 1/9 */
+  55:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x02f,		                /* all power  control circuits on */
+  56:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x027,		                /* regulator, booster and follower */
+  57:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x081,		                /* set contrast */
+  58:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x00e,		                /* contrast value, EA default: 0x010, previous value for S102: 0x0e */
+  59:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0fa,		                /* Set Temp compensation */ 
+  60:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x090,		                /* 0.11 deg/c WP Off WC Off*/
+  61:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0a4,		                /* normal display  */
+  62:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0af,		                /* display on */
+  63:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  64:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0a5,		                /* display all points, ST7565, UC1610 */
+  65:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  66:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  67:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x0a4,		                /* normal display */
+  68:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_CS(0),             /* disable chip */
+  69:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_END                /* end of sequence */
+  70:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** };
+  71:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  72:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** static const uint8_t u8g_dev_dogs102_data_start[] PROGMEM = {
+  73:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  74:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_CS(1),             /* enable chip */
+  75:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x010,		/* set upper 4 bit of the col adr to 0 */
+  76:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   0x000,		/* set lower 4 bit of the col adr to 0 */      
+  77:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   U8G_ESC_END                /* end of sequence */
+  78:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** };
+  79:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+  80:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** uint8_t u8g_dev_dogs102_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  81:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** {
+  78              		.loc 1 81 0
+  79              		.cfi_startproc
+  80 0000 90B5     		push	{r4, r7, lr}
+  81              	.LCFI0:
+  82              		.cfi_def_cfa_offset 12
+  83              		.cfi_offset 4, -12
+  84              		.cfi_offset 7, -8
+  85              		.cfi_offset 14, -4
+  86 0002 87B0     		sub	sp, sp, #28
+  87              	.LCFI1:
+  88              		.cfi_def_cfa_offset 40
+  89 0004 00AF     		add	r7, sp, #0
+  90              	.LCFI2:
+  91              		.cfi_def_cfa_register 7
+  92 0006 F860     		str	r0, [r7, #12]
+  93 0008 B960     		str	r1, [r7, #8]
+  94 000a 3B60     		str	r3, [r7]
+  95 000c FB1D     		adds	r3, r7, #7
+ARM GAS  /tmp/ccTYzsAZ.s 			page 4
+
+
+  96 000e 1A70     		strb	r2, [r3]
+  82:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   switch(msg)
+  97              		.loc 1 82 0
+  98 0010 FB1D     		adds	r3, r7, #7
+  99 0012 1B78     		ldrb	r3, [r3]
+ 100 0014 0B2B     		cmp	r3, #11
+ 101 0016 63D0     		beq	.L10
+ 102 0018 02DC     		bgt	.L4
+ 103 001a 0A2B     		cmp	r3, #10
+ 104 001c 05D0     		beq	.L5
+ 105 001e 60E0     		b	.L2
+ 106              	.L4:
+ 107 0020 0F2B     		cmp	r3, #15
+ 108 0022 3AD0     		beq	.L6
+ 109 0024 152B     		cmp	r3, #21
+ 110 0026 0DD0     		beq	.L7
+ 111 0028 5BE0     		b	.L2
+ 112              	.L5:
+  83:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   {
+  84:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_INIT:
+  85:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 113              		.loc 1 85 0
+ 114 002a B968     		ldr	r1, [r7, #8]
+ 115 002c FB68     		ldr	r3, [r7, #12]
+ 116 002e 0222     		movs	r2, #2
+ 117 0030 1800     		movs	r0, r3
+ 118 0032 FFF7FEFF 		bl	u8g_InitCom
+  86:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_dogs102_init_seq);
+ 119              		.loc 1 86 0
+ 120 0036 314A     		ldr	r2, .L11
+ 121 0038 B968     		ldr	r1, [r7, #8]
+ 122 003a FB68     		ldr	r3, [r7, #12]
+ 123 003c 1800     		movs	r0, r3
+ 124 003e FFF7FEFF 		bl	u8g_WriteEscSeqP
+  87:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       break;
+ 125              		.loc 1 87 0
+ 126 0042 4EE0     		b	.L2
+ 127              	.L7:
+ 128              	.LBB2:
+  88:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_STOP:
+  89:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       break;
+  90:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+  91:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       {
+  92:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 129              		.loc 1 92 0
+ 130 0044 BB68     		ldr	r3, [r7, #8]
+ 131 0046 5B68     		ldr	r3, [r3, #4]
+ 132 0048 7B61     		str	r3, [r7, #20]
+  93:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_dogs102_data_start);    
+ 133              		.loc 1 93 0
+ 134 004a 2D4A     		ldr	r2, .L11+4
+ 135 004c B968     		ldr	r1, [r7, #8]
+ 136 004e FB68     		ldr	r3, [r7, #12]
+ 137 0050 1800     		movs	r0, r3
+ 138 0052 FFF7FEFF 		bl	u8g_WriteEscSeqP
+  94:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | pb->p.page); /* select current page (ST7565R) */
+ 139              		.loc 1 94 0
+ARM GAS  /tmp/ccTYzsAZ.s 			page 5
+
+
+ 140 0056 7B69     		ldr	r3, [r7, #20]
+ 141 0058 1B79     		ldrb	r3, [r3, #4]
+ 142 005a 5022     		movs	r2, #80
+ 143 005c 5242     		rsbs	r2, r2, #0
+ 144 005e 1343     		orrs	r3, r2
+ 145 0060 DAB2     		uxtb	r2, r3
+ 146 0062 B968     		ldr	r1, [r7, #8]
+ 147 0064 FB68     		ldr	r3, [r7, #12]
+ 148 0066 1800     		movs	r0, r3
+ 149 0068 FFF7FEFF 		bl	u8g_WriteByte
+  95:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 150              		.loc 1 95 0
+ 151 006c B968     		ldr	r1, [r7, #8]
+ 152 006e FB68     		ldr	r3, [r7, #12]
+ 153 0070 0122     		movs	r2, #1
+ 154 0072 1800     		movs	r0, r3
+ 155 0074 FFF7FEFF 		bl	u8g_SetAddress
+  96:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 156              		.loc 1 96 0
+ 157 0078 BA68     		ldr	r2, [r7, #8]
+ 158 007a F968     		ldr	r1, [r7, #12]
+ 159 007c 7B69     		ldr	r3, [r7, #20]
+ 160 007e 1800     		movs	r0, r3
+ 161 0080 FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 162 0084 031E     		subs	r3, r0, #0
+ 163 0086 01D1     		bne	.L8
+  97:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****           return 0;
+ 164              		.loc 1 97 0
+ 165 0088 0023     		movs	r3, #0
+ 166 008a 33E0     		b	.L9
+ 167              	.L8:
+  98:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 168              		.loc 1 98 0
+ 169 008c B968     		ldr	r1, [r7, #8]
+ 170 008e FB68     		ldr	r3, [r7, #12]
+ 171 0090 0022     		movs	r2, #0
+ 172 0092 1800     		movs	r0, r3
+ 173 0094 FFF7FEFF 		bl	u8g_SetChipSelect
+ 174              	.LBE2:
+  99:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       }
+ 100:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       break;
+ 175              		.loc 1 100 0
+ 176 0098 23E0     		b	.L2
+ 177              	.L6:
+ 101:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_CONTRAST:
+ 102:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 178              		.loc 1 102 0
+ 179 009a B968     		ldr	r1, [r7, #8]
+ 180 009c FB68     		ldr	r3, [r7, #12]
+ 181 009e 0122     		movs	r2, #1
+ 182 00a0 1800     		movs	r0, r3
+ 183 00a2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 103:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 184              		.loc 1 103 0
+ 185 00a6 B968     		ldr	r1, [r7, #8]
+ 186 00a8 FB68     		ldr	r3, [r7, #12]
+ 187 00aa 0022     		movs	r2, #0
+ARM GAS  /tmp/ccTYzsAZ.s 			page 6
+
+
+ 188 00ac 1800     		movs	r0, r3
+ 189 00ae FFF7FEFF 		bl	u8g_SetAddress
+ 104:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 190              		.loc 1 104 0
+ 191 00b2 B968     		ldr	r1, [r7, #8]
+ 192 00b4 FB68     		ldr	r3, [r7, #12]
+ 193 00b6 8122     		movs	r2, #129
+ 194 00b8 1800     		movs	r0, r3
+ 195 00ba FFF7FEFF 		bl	u8g_WriteByte
+ 105:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 196              		.loc 1 105 0
+ 197 00be 3B68     		ldr	r3, [r7]
+ 198 00c0 1B78     		ldrb	r3, [r3]
+ 199 00c2 9B08     		lsrs	r3, r3, #2
+ 200 00c4 DAB2     		uxtb	r2, r3
+ 201 00c6 B968     		ldr	r1, [r7, #8]
+ 202 00c8 FB68     		ldr	r3, [r7, #12]
+ 203 00ca 1800     		movs	r0, r3
+ 204 00cc FFF7FEFF 		bl	u8g_WriteByte
+ 106:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 205              		.loc 1 106 0
+ 206 00d0 B968     		ldr	r1, [r7, #8]
+ 207 00d2 FB68     		ldr	r3, [r7, #12]
+ 208 00d4 0022     		movs	r2, #0
+ 209 00d6 1800     		movs	r0, r3
+ 210 00d8 FFF7FEFF 		bl	u8g_SetChipSelect
+ 107:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       return 1;
+ 211              		.loc 1 107 0
+ 212 00dc 0123     		movs	r3, #1
+ 213 00de 09E0     		b	.L9
+ 214              	.L10:
+  89:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 215              		.loc 1 89 0
+ 216 00e0 C046     		nop
+ 217              	.L2:
+ 108:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   }
+ 109:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 218              		.loc 1 109 0
+ 219 00e2 3C68     		ldr	r4, [r7]
+ 220 00e4 FB1D     		adds	r3, r7, #7
+ 221 00e6 1A78     		ldrb	r2, [r3]
+ 222 00e8 B968     		ldr	r1, [r7, #8]
+ 223 00ea F868     		ldr	r0, [r7, #12]
+ 224 00ec 2300     		movs	r3, r4
+ 225 00ee FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 226 00f2 0300     		movs	r3, r0
+ 227              	.L9:
+ 110:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** }
+ 228              		.loc 1 110 0
+ 229 00f4 1800     		movs	r0, r3
+ 230 00f6 BD46     		mov	sp, r7
+ 231 00f8 07B0     		add	sp, sp, #28
+ 232              		@ sp needed
+ 233 00fa 90BD     		pop	{r4, r7, pc}
+ 234              	.L12:
+ 235              		.align	2
+ 236              	.L11:
+ARM GAS  /tmp/ccTYzsAZ.s 			page 7
+
+
+ 237 00fc 00000000 		.word	u8g_dev_dogs102_init_seq
+ 238 0100 00000000 		.word	u8g_dev_dogs102_data_start
+ 239              		.cfi_endproc
+ 240              	.LFE0:
+ 242              		.section	.text.u8g_dev_uc1701_dogs102_2x_fn,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	u8g_dev_uc1701_dogs102_2x_fn
+ 245              		.syntax unified
+ 246              		.code	16
+ 247              		.thumb_func
+ 248              		.fpu softvfp
+ 250              	u8g_dev_uc1701_dogs102_2x_fn:
+ 251              	.LFB1:
+ 111:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 
+ 112:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** uint8_t u8g_dev_uc1701_dogs102_2x_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 113:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** {
+ 252              		.loc 1 113 0
+ 253              		.cfi_startproc
+ 254 0000 90B5     		push	{r4, r7, lr}
+ 255              	.LCFI3:
+ 256              		.cfi_def_cfa_offset 12
+ 257              		.cfi_offset 4, -12
+ 258              		.cfi_offset 7, -8
+ 259              		.cfi_offset 14, -4
+ 260 0002 87B0     		sub	sp, sp, #28
+ 261              	.LCFI4:
+ 262              		.cfi_def_cfa_offset 40
+ 263 0004 00AF     		add	r7, sp, #0
+ 264              	.LCFI5:
+ 265              		.cfi_def_cfa_register 7
+ 266 0006 F860     		str	r0, [r7, #12]
+ 267 0008 B960     		str	r1, [r7, #8]
+ 268 000a 3B60     		str	r3, [r7]
+ 269 000c FB1D     		adds	r3, r7, #7
+ 270 000e 1A70     		strb	r2, [r3]
+ 114:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   switch(msg)
+ 271              		.loc 1 114 0
+ 272 0010 FB1D     		adds	r3, r7, #7
+ 273 0012 1B78     		ldrb	r3, [r3]
+ 274 0014 0B2B     		cmp	r3, #11
+ 275 0016 00D1     		bne	.LCB191
+ 276 0018 94E0     		b	.L21	@long jump
+ 277              	.LCB191:
+ 278 001a 02DC     		bgt	.L16
+ 279 001c 0A2B     		cmp	r3, #10
+ 280 001e 05D0     		beq	.L17
+ 281 0020 91E0     		b	.L14
+ 282              	.L16:
+ 283 0022 0F2B     		cmp	r3, #15
+ 284 0024 6BD0     		beq	.L18
+ 285 0026 152B     		cmp	r3, #21
+ 286 0028 0DD0     		beq	.L19
+ 287 002a 8CE0     		b	.L14
+ 288              	.L17:
+ 115:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   {
+ 116:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_INIT:
+ 117:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ARM GAS  /tmp/ccTYzsAZ.s 			page 8
+
+
+ 289              		.loc 1 117 0
+ 290 002c B968     		ldr	r1, [r7, #8]
+ 291 002e FB68     		ldr	r3, [r7, #12]
+ 292 0030 0222     		movs	r2, #2
+ 293 0032 1800     		movs	r0, r3
+ 294 0034 FFF7FEFF 		bl	u8g_InitCom
+ 118:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_dogs102_init_seq);
+ 295              		.loc 1 118 0
+ 296 0038 494A     		ldr	r2, .L22
+ 297 003a B968     		ldr	r1, [r7, #8]
+ 298 003c FB68     		ldr	r3, [r7, #12]
+ 299 003e 1800     		movs	r0, r3
+ 300 0040 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 119:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       break;
+ 301              		.loc 1 119 0
+ 302 0044 7FE0     		b	.L14
+ 303              	.L19:
+ 304              	.LBB3:
+ 120:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_STOP:
+ 121:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       break;
+ 122:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 123:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       {
+ 124:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 305              		.loc 1 124 0
+ 306 0046 BB68     		ldr	r3, [r7, #8]
+ 307 0048 5B68     		ldr	r3, [r3, #4]
+ 308 004a 7B61     		str	r3, [r7, #20]
+ 125:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 	
+ 126:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_dogs102_data_start);    
+ 309              		.loc 1 126 0
+ 310 004c 454A     		ldr	r2, .L22+4
+ 311 004e B968     		ldr	r1, [r7, #8]
+ 312 0050 FB68     		ldr	r3, [r7, #12]
+ 313 0052 1800     		movs	r0, r3
+ 314 0054 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 127:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | (2*pb->p.page)); /* select current page (ST7565R) */
+ 315              		.loc 1 127 0
+ 316 0058 7B69     		ldr	r3, [r7, #20]
+ 317 005a 1B79     		ldrb	r3, [r3, #4]
+ 318 005c DB18     		adds	r3, r3, r3
+ 319 005e DBB2     		uxtb	r3, r3
+ 320 0060 5BB2     		sxtb	r3, r3
+ 321 0062 5022     		movs	r2, #80
+ 322 0064 5242     		rsbs	r2, r2, #0
+ 323 0066 1343     		orrs	r3, r2
+ 324 0068 5BB2     		sxtb	r3, r3
+ 325 006a DAB2     		uxtb	r2, r3
+ 326 006c B968     		ldr	r1, [r7, #8]
+ 327 006e FB68     		ldr	r3, [r7, #12]
+ 328 0070 1800     		movs	r0, r3
+ 329 0072 FFF7FEFF 		bl	u8g_WriteByte
+ 128:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 330              		.loc 1 128 0
+ 331 0076 B968     		ldr	r1, [r7, #8]
+ 332 0078 FB68     		ldr	r3, [r7, #12]
+ 333 007a 0122     		movs	r2, #1
+ 334 007c 1800     		movs	r0, r3
+ARM GAS  /tmp/ccTYzsAZ.s 			page 9
+
+
+ 335 007e FFF7FEFF 		bl	u8g_SetAddress
+ 129:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 	u8g_WriteSequence(u8g, dev, pb->width, pb->buf); 
+ 336              		.loc 1 129 0
+ 337 0082 7B69     		ldr	r3, [r7, #20]
+ 338 0084 5A79     		ldrb	r2, [r3, #5]
+ 339 0086 7B69     		ldr	r3, [r7, #20]
+ 340 0088 9B68     		ldr	r3, [r3, #8]
+ 341 008a B968     		ldr	r1, [r7, #8]
+ 342 008c F868     		ldr	r0, [r7, #12]
+ 343 008e FFF7FEFF 		bl	u8g_WriteSequence
+ 130:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 344              		.loc 1 130 0
+ 345 0092 B968     		ldr	r1, [r7, #8]
+ 346 0094 FB68     		ldr	r3, [r7, #12]
+ 347 0096 0022     		movs	r2, #0
+ 348 0098 1800     		movs	r0, r3
+ 349 009a FFF7FEFF 		bl	u8g_SetChipSelect
+ 131:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 	
+ 132:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_dogs102_data_start);    
+ 350              		.loc 1 132 0
+ 351 009e 314A     		ldr	r2, .L22+4
+ 352 00a0 B968     		ldr	r1, [r7, #8]
+ 353 00a2 FB68     		ldr	r3, [r7, #12]
+ 354 00a4 1800     		movs	r0, r3
+ 355 00a6 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 133:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | (2*pb->p.page+1)); /* select current page (ST7565R) */
+ 356              		.loc 1 133 0
+ 357 00aa 7B69     		ldr	r3, [r7, #20]
+ 358 00ac 1B79     		ldrb	r3, [r3, #4]
+ 359 00ae DB18     		adds	r3, r3, r3
+ 360 00b0 DBB2     		uxtb	r3, r3
+ 361 00b2 0133     		adds	r3, r3, #1
+ 362 00b4 DBB2     		uxtb	r3, r3
+ 363 00b6 5BB2     		sxtb	r3, r3
+ 364 00b8 5022     		movs	r2, #80
+ 365 00ba 5242     		rsbs	r2, r2, #0
+ 366 00bc 1343     		orrs	r3, r2
+ 367 00be 5BB2     		sxtb	r3, r3
+ 368 00c0 DAB2     		uxtb	r2, r3
+ 369 00c2 B968     		ldr	r1, [r7, #8]
+ 370 00c4 FB68     		ldr	r3, [r7, #12]
+ 371 00c6 1800     		movs	r0, r3
+ 372 00c8 FFF7FEFF 		bl	u8g_WriteByte
+ 134:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 373              		.loc 1 134 0
+ 374 00cc B968     		ldr	r1, [r7, #8]
+ 375 00ce FB68     		ldr	r3, [r7, #12]
+ 376 00d0 0122     		movs	r2, #1
+ 377 00d2 1800     		movs	r0, r3
+ 378 00d4 FFF7FEFF 		bl	u8g_SetAddress
+ 135:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** 	u8g_WriteSequence(u8g, dev, pb->width, (uint8_t *)(pb->buf)+pb->width); 
+ 379              		.loc 1 135 0
+ 380 00d8 7B69     		ldr	r3, [r7, #20]
+ 381 00da 5C79     		ldrb	r4, [r3, #5]
+ 382 00dc 7B69     		ldr	r3, [r7, #20]
+ 383 00de 9B68     		ldr	r3, [r3, #8]
+ 384 00e0 7A69     		ldr	r2, [r7, #20]
+ARM GAS  /tmp/ccTYzsAZ.s 			page 10
+
+
+ 385 00e2 5279     		ldrb	r2, [r2, #5]
+ 386 00e4 9B18     		adds	r3, r3, r2
+ 387 00e6 B968     		ldr	r1, [r7, #8]
+ 388 00e8 F868     		ldr	r0, [r7, #12]
+ 389 00ea 2200     		movs	r2, r4
+ 390 00ec FFF7FEFF 		bl	u8g_WriteSequence
+ 136:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 391              		.loc 1 136 0
+ 392 00f0 B968     		ldr	r1, [r7, #8]
+ 393 00f2 FB68     		ldr	r3, [r7, #12]
+ 394 00f4 0022     		movs	r2, #0
+ 395 00f6 1800     		movs	r0, r3
+ 396 00f8 FFF7FEFF 		bl	u8g_SetChipSelect
+ 397              	.LBE3:
+ 137:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       }
+ 138:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       break;
+ 398              		.loc 1 138 0
+ 399 00fc 23E0     		b	.L14
+ 400              	.L18:
+ 139:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_CONTRAST:
+ 140:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 401              		.loc 1 140 0
+ 402 00fe B968     		ldr	r1, [r7, #8]
+ 403 0100 FB68     		ldr	r3, [r7, #12]
+ 404 0102 0122     		movs	r2, #1
+ 405 0104 1800     		movs	r0, r3
+ 406 0106 FFF7FEFF 		bl	u8g_SetChipSelect
+ 141:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 407              		.loc 1 141 0
+ 408 010a B968     		ldr	r1, [r7, #8]
+ 409 010c FB68     		ldr	r3, [r7, #12]
+ 410 010e 0022     		movs	r2, #0
+ 411 0110 1800     		movs	r0, r3
+ 412 0112 FFF7FEFF 		bl	u8g_SetAddress
+ 142:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 413              		.loc 1 142 0
+ 414 0116 B968     		ldr	r1, [r7, #8]
+ 415 0118 FB68     		ldr	r3, [r7, #12]
+ 416 011a 8122     		movs	r2, #129
+ 417 011c 1800     		movs	r0, r3
+ 418 011e FFF7FEFF 		bl	u8g_WriteByte
+ 143:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 419              		.loc 1 143 0
+ 420 0122 3B68     		ldr	r3, [r7]
+ 421 0124 1B78     		ldrb	r3, [r3]
+ 422 0126 9B08     		lsrs	r3, r3, #2
+ 423 0128 DAB2     		uxtb	r2, r3
+ 424 012a B968     		ldr	r1, [r7, #8]
+ 425 012c FB68     		ldr	r3, [r7, #12]
+ 426 012e 1800     		movs	r0, r3
+ 427 0130 FFF7FEFF 		bl	u8g_WriteByte
+ 144:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 428              		.loc 1 144 0
+ 429 0134 B968     		ldr	r1, [r7, #8]
+ 430 0136 FB68     		ldr	r3, [r7, #12]
+ 431 0138 0022     		movs	r2, #0
+ 432 013a 1800     		movs	r0, r3
+ARM GAS  /tmp/ccTYzsAZ.s 			page 11
+
+
+ 433 013c FFF7FEFF 		bl	u8g_SetChipSelect
+ 145:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****       return 1;
+ 434              		.loc 1 145 0
+ 435 0140 0123     		movs	r3, #1
+ 436 0142 09E0     		b	.L20
+ 437              	.L21:
+ 121:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 438              		.loc 1 121 0
+ 439 0144 C046     		nop
+ 440              	.L14:
+ 146:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   }
+ 147:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c ****   return u8g_dev_pb16v1_base_fn(u8g, dev, msg, arg);
+ 441              		.loc 1 147 0
+ 442 0146 3C68     		ldr	r4, [r7]
+ 443 0148 FB1D     		adds	r3, r7, #7
+ 444 014a 1A78     		ldrb	r2, [r3]
+ 445 014c B968     		ldr	r1, [r7, #8]
+ 446 014e F868     		ldr	r0, [r7, #12]
+ 447 0150 2300     		movs	r3, r4
+ 448 0152 FFF7FEFF 		bl	u8g_dev_pb16v1_base_fn
+ 449 0156 0300     		movs	r3, r0
+ 450              	.L20:
+ 148:Drivers/u8glib/src/u8g_dev_uc1701_dogs102.c **** }
+ 451              		.loc 1 148 0
+ 452 0158 1800     		movs	r0, r3
+ 453 015a BD46     		mov	sp, r7
+ 454 015c 07B0     		add	sp, sp, #28
+ 455              		@ sp needed
+ 456 015e 90BD     		pop	{r4, r7, pc}
+ 457              	.L23:
+ 458              		.align	2
+ 459              	.L22:
+ 460 0160 00000000 		.word	u8g_dev_dogs102_init_seq
+ 461 0164 00000000 		.word	u8g_dev_dogs102_data_start
+ 462              		.cfi_endproc
+ 463              	.LFE1:
+ 465              		.global	u8g_dev_uc1701_dogs102_sw_spi_buf
+ 466              		.section	.bss.u8g_dev_uc1701_dogs102_sw_spi_buf,"aw",%nobits
+ 467              		.align	2
+ 470              	u8g_dev_uc1701_dogs102_sw_spi_buf:
+ 471 0000 00000000 		.space	102
+ 471      00000000 
+ 471      00000000 
+ 471      00000000 
+ 471      00000000 
+ 472              		.global	u8g_dev_uc1701_dogs102_sw_spi_pb
+ 473              		.section	.data.u8g_dev_uc1701_dogs102_sw_spi_pb,"aw",%progbits
+ 474              		.align	2
+ 477              	u8g_dev_uc1701_dogs102_sw_spi_pb:
+ 478 0000 08       		.byte	8
+ 479 0001 40       		.byte	64
+ 480 0002 00       		.byte	0
+ 481 0003 00       		.byte	0
+ 482 0004 00       		.byte	0
+ 483 0005 66       		.byte	102
+ 484 0006 0000     		.space	2
+ 485 0008 00000000 		.word	u8g_dev_uc1701_dogs102_sw_spi_buf
+ARM GAS  /tmp/ccTYzsAZ.s 			page 12
+
+
+ 486              		.global	u8g_dev_uc1701_dogs102_sw_spi
+ 487              		.section	.data.u8g_dev_uc1701_dogs102_sw_spi,"aw",%progbits
+ 488              		.align	2
+ 491              	u8g_dev_uc1701_dogs102_sw_spi:
+ 492 0000 00000000 		.word	u8g_dev_dogs102_fn
+ 493 0004 00000000 		.word	u8g_dev_uc1701_dogs102_sw_spi_pb
+ 494 0008 00000000 		.word	u8g_com_null_fn
+ 495              		.global	u8g_dev_uc1701_dogs102_hw_spi_buf
+ 496              		.section	.bss.u8g_dev_uc1701_dogs102_hw_spi_buf,"aw",%nobits
+ 497              		.align	2
+ 500              	u8g_dev_uc1701_dogs102_hw_spi_buf:
+ 501 0000 00000000 		.space	102
+ 501      00000000 
+ 501      00000000 
+ 501      00000000 
+ 501      00000000 
+ 502              		.global	u8g_dev_uc1701_dogs102_hw_spi_pb
+ 503              		.section	.data.u8g_dev_uc1701_dogs102_hw_spi_pb,"aw",%progbits
+ 504              		.align	2
+ 507              	u8g_dev_uc1701_dogs102_hw_spi_pb:
+ 508 0000 08       		.byte	8
+ 509 0001 40       		.byte	64
+ 510 0002 00       		.byte	0
+ 511 0003 00       		.byte	0
+ 512 0004 00       		.byte	0
+ 513 0005 66       		.byte	102
+ 514 0006 0000     		.space	2
+ 515 0008 00000000 		.word	u8g_dev_uc1701_dogs102_hw_spi_buf
+ 516              		.global	u8g_dev_uc1701_dogs102_hw_spi
+ 517              		.section	.data.u8g_dev_uc1701_dogs102_hw_spi,"aw",%progbits
+ 518              		.align	2
+ 521              	u8g_dev_uc1701_dogs102_hw_spi:
+ 522 0000 00000000 		.word	u8g_dev_dogs102_fn
+ 523 0004 00000000 		.word	u8g_dev_uc1701_dogs102_hw_spi_pb
+ 524 0008 00000000 		.word	u8g_com_null_fn
+ 525              		.global	u8g_dev_uc1701_dogs102_2x_buf
+ 526              		.section	.bss.u8g_dev_uc1701_dogs102_2x_buf,"aw",%nobits
+ 527              		.align	2
+ 530              	u8g_dev_uc1701_dogs102_2x_buf:
+ 531 0000 00000000 		.space	204
+ 531      00000000 
+ 531      00000000 
+ 531      00000000 
+ 531      00000000 
+ 532              		.global	u8g_dev_uc1701_dogs102_2x_pb
+ 533              		.section	.data.u8g_dev_uc1701_dogs102_2x_pb,"aw",%progbits
+ 534              		.align	2
+ 537              	u8g_dev_uc1701_dogs102_2x_pb:
+ 538 0000 10       		.byte	16
+ 539 0001 40       		.byte	64
+ 540 0002 00       		.byte	0
+ 541 0003 00       		.byte	0
+ 542 0004 00       		.byte	0
+ 543 0005 66       		.byte	102
+ 544 0006 0000     		.space	2
+ 545 0008 00000000 		.word	u8g_dev_uc1701_dogs102_2x_buf
+ 546              		.global	u8g_dev_uc1701_dogs102_2x_sw_spi
+ARM GAS  /tmp/ccTYzsAZ.s 			page 13
+
+
+ 547              		.section	.data.u8g_dev_uc1701_dogs102_2x_sw_spi,"aw",%progbits
+ 548              		.align	2
+ 551              	u8g_dev_uc1701_dogs102_2x_sw_spi:
+ 552 0000 00000000 		.word	u8g_dev_uc1701_dogs102_2x_fn
+ 553 0004 00000000 		.word	u8g_dev_uc1701_dogs102_2x_pb
+ 554 0008 00000000 		.word	u8g_com_null_fn
+ 555              		.global	u8g_dev_uc1701_dogs102_2x_hw_spi
+ 556              		.section	.data.u8g_dev_uc1701_dogs102_2x_hw_spi,"aw",%progbits
+ 557              		.align	2
+ 560              	u8g_dev_uc1701_dogs102_2x_hw_spi:
+ 561 0000 00000000 		.word	u8g_dev_uc1701_dogs102_2x_fn
+ 562 0004 00000000 		.word	u8g_dev_uc1701_dogs102_2x_pb
+ 563 0008 00000000 		.word	u8g_com_null_fn
+ 564              		.text
+ 565              	.Letext0:
+ 566              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 567              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 568              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccTYzsAZ.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_uc1701_dogs102.c
+     /tmp/ccTYzsAZ.s:16     .rodata.u8g_dev_dogs102_init_seq:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:19     .rodata.u8g_dev_dogs102_init_seq:0000000000000000 u8g_dev_dogs102_init_seq
+     /tmp/ccTYzsAZ.s:55     .rodata.u8g_dev_dogs102_data_start:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:58     .rodata.u8g_dev_dogs102_data_start:0000000000000000 u8g_dev_dogs102_data_start
+     /tmp/ccTYzsAZ.s:68     .text.u8g_dev_dogs102_fn:0000000000000000 $t
+     /tmp/ccTYzsAZ.s:75     .text.u8g_dev_dogs102_fn:0000000000000000 u8g_dev_dogs102_fn
+     /tmp/ccTYzsAZ.s:237    .text.u8g_dev_dogs102_fn:00000000000000fc $d
+     /tmp/ccTYzsAZ.s:243    .text.u8g_dev_uc1701_dogs102_2x_fn:0000000000000000 $t
+     /tmp/ccTYzsAZ.s:250    .text.u8g_dev_uc1701_dogs102_2x_fn:0000000000000000 u8g_dev_uc1701_dogs102_2x_fn
+     /tmp/ccTYzsAZ.s:460    .text.u8g_dev_uc1701_dogs102_2x_fn:0000000000000160 $d
+     /tmp/ccTYzsAZ.s:470    .bss.u8g_dev_uc1701_dogs102_sw_spi_buf:0000000000000000 u8g_dev_uc1701_dogs102_sw_spi_buf
+     /tmp/ccTYzsAZ.s:467    .bss.u8g_dev_uc1701_dogs102_sw_spi_buf:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:477    .data.u8g_dev_uc1701_dogs102_sw_spi_pb:0000000000000000 u8g_dev_uc1701_dogs102_sw_spi_pb
+     /tmp/ccTYzsAZ.s:474    .data.u8g_dev_uc1701_dogs102_sw_spi_pb:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:491    .data.u8g_dev_uc1701_dogs102_sw_spi:0000000000000000 u8g_dev_uc1701_dogs102_sw_spi
+     /tmp/ccTYzsAZ.s:488    .data.u8g_dev_uc1701_dogs102_sw_spi:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:500    .bss.u8g_dev_uc1701_dogs102_hw_spi_buf:0000000000000000 u8g_dev_uc1701_dogs102_hw_spi_buf
+     /tmp/ccTYzsAZ.s:497    .bss.u8g_dev_uc1701_dogs102_hw_spi_buf:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:507    .data.u8g_dev_uc1701_dogs102_hw_spi_pb:0000000000000000 u8g_dev_uc1701_dogs102_hw_spi_pb
+     /tmp/ccTYzsAZ.s:504    .data.u8g_dev_uc1701_dogs102_hw_spi_pb:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:521    .data.u8g_dev_uc1701_dogs102_hw_spi:0000000000000000 u8g_dev_uc1701_dogs102_hw_spi
+     /tmp/ccTYzsAZ.s:518    .data.u8g_dev_uc1701_dogs102_hw_spi:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:530    .bss.u8g_dev_uc1701_dogs102_2x_buf:0000000000000000 u8g_dev_uc1701_dogs102_2x_buf
+     /tmp/ccTYzsAZ.s:527    .bss.u8g_dev_uc1701_dogs102_2x_buf:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:537    .data.u8g_dev_uc1701_dogs102_2x_pb:0000000000000000 u8g_dev_uc1701_dogs102_2x_pb
+     /tmp/ccTYzsAZ.s:534    .data.u8g_dev_uc1701_dogs102_2x_pb:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:551    .data.u8g_dev_uc1701_dogs102_2x_sw_spi:0000000000000000 u8g_dev_uc1701_dogs102_2x_sw_spi
+     /tmp/ccTYzsAZ.s:548    .data.u8g_dev_uc1701_dogs102_2x_sw_spi:0000000000000000 $d
+     /tmp/ccTYzsAZ.s:560    .data.u8g_dev_uc1701_dogs102_2x_hw_spi:0000000000000000 u8g_dev_uc1701_dogs102_2x_hw_spi
+     /tmp/ccTYzsAZ.s:557    .data.u8g_dev_uc1701_dogs102_2x_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8v1_base_fn
+u8g_WriteSequence
+u8g_dev_pb16v1_base_fn
+u8g_com_null_fn

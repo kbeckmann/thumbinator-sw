@@ -1,0 +1,930 @@
+ARM GAS  /tmp/cchAw218.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_st7565_nhd_c12864.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.global	u8g_dev_st7565_nhd_c12864_init_seq
+  16              		.section	.rodata.u8g_dev_st7565_nhd_c12864_init_seq,"a",%progbits
+  17              		.align	2
+  20              	u8g_dev_st7565_nhd_c12864_init_seq:
+  21 0000 FF       		.byte	-1
+  22 0001 D0       		.byte	-48
+  23 0002 FF       		.byte	-1
+  24 0003 E0       		.byte	-32
+  25 0004 FF       		.byte	-1
+  26 0005 CA       		.byte	-54
+  27 0006 FF       		.byte	-1
+  28 0007 D1       		.byte	-47
+  29 0008 40       		.byte	64
+  30 0009 A1       		.byte	-95
+  31 000a C0       		.byte	-64
+  32 000b A6       		.byte	-90
+  33 000c A2       		.byte	-94
+  34 000d 2F       		.byte	47
+  35 000e F8       		.byte	-8
+  36 000f 00       		.byte	0
+  37 0010 27       		.byte	39
+  38 0011 81       		.byte	-127
+  39 0012 08       		.byte	8
+  40 0013 AC       		.byte	-84
+  41 0014 00       		.byte	0
+  42 0015 AF       		.byte	-81
+  43 0016 FF       		.byte	-1
+  44 0017 64       		.byte	100
+  45 0018 A5       		.byte	-91
+  46 0019 FF       		.byte	-1
+  47 001a 64       		.byte	100
+  48 001b FF       		.byte	-1
+  49 001c 64       		.byte	100
+  50 001d A4       		.byte	-92
+  51 001e FF       		.byte	-1
+  52 001f D0       		.byte	-48
+  53 0020 FF       		.byte	-1
+  54 0021 FE       		.byte	-2
+  55              		.section	.rodata.u8g_dev_st7565_nhd_c12864_data_start,"a",%progbits
+  56              		.align	2
+  59              	u8g_dev_st7565_nhd_c12864_data_start:
+  60 0000 FF       		.byte	-1
+  61 0001 E0       		.byte	-32
+ARM GAS  /tmp/cchAw218.s 			page 2
+
+
+  62 0002 FF       		.byte	-1
+  63 0003 D1       		.byte	-47
+  64 0004 10       		.byte	16
+  65 0005 04       		.byte	4
+  66 0006 FF       		.byte	-1
+  67 0007 FE       		.byte	-2
+  68              		.section	.rodata.u8g_dev_st7565_c12864_sleep_on,"a",%progbits
+  69              		.align	2
+  72              	u8g_dev_st7565_c12864_sleep_on:
+  73 0000 FF       		.byte	-1
+  74 0001 E0       		.byte	-32
+  75 0002 FF       		.byte	-1
+  76 0003 D1       		.byte	-47
+  77 0004 AC       		.byte	-84
+  78 0005 00       		.byte	0
+  79 0006 AE       		.byte	-82
+  80 0007 A5       		.byte	-91
+  81 0008 FF       		.byte	-1
+  82 0009 D0       		.byte	-48
+  83 000a FF       		.byte	-1
+  84 000b FE       		.byte	-2
+  85              		.section	.rodata.u8g_dev_st7565_c12864_sleep_off,"a",%progbits
+  86              		.align	2
+  89              	u8g_dev_st7565_c12864_sleep_off:
+  90 0000 FF       		.byte	-1
+  91 0001 E0       		.byte	-32
+  92 0002 FF       		.byte	-1
+  93 0003 D1       		.byte	-47
+  94 0004 A4       		.byte	-92
+  95 0005 AF       		.byte	-81
+  96 0006 FF       		.byte	-1
+  97 0007 32       		.byte	50
+  98 0008 FF       		.byte	-1
+  99 0009 D0       		.byte	-48
+ 100 000a FF       		.byte	-1
+ 101 000b FE       		.byte	-2
+ 102              		.section	.text.u8g_dev_st7565_nhd_c12864_fn,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	u8g_dev_st7565_nhd_c12864_fn
+ 105              		.syntax unified
+ 106              		.code	16
+ 107              		.thumb_func
+ 108              		.fpu softvfp
+ 110              	u8g_dev_st7565_nhd_c12864_fn:
+ 111              	.LFB0:
+ 112              		.file 1 "Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c"
+   1:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+   3:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   u8g_dev_st7565_nhd_c12864.c
+   4:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+   5:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   Support for the NHD-C12864A1Z-FSB-FBW (Newhaven Display)
+   6:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+   7:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   
+   9:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   Copyright (c) 2012, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+ARM GAS  /tmp/cchAw218.s 			page 3
+
+
+  12:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  15:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     
+  18:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  22:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   
+  36:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   
+  37:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** */
+  38:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  39:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  41:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** #define WIDTH 128
+  42:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** #define HEIGHT 64
+  43:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** #define PAGE_HEIGHT 8
+  44:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  45:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** const uint8_t u8g_dev_st7565_nhd_c12864_init_seq[] PROGMEM = {
+  46:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(0),             /* disable chip */
+  47:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  48:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_RST(10),           /* do reset low pulse with (10*16)+2 milliseconds */
+  49:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(1),             /* enable chip */
+  50:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   
+  51:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x040,		                /* set display start line */
+  52:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a1,		                /* ADC set to reverse */
+  53:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0c0,		                /* common output mode: set scan direction normal operation */
+  54:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a6,                           /* display normal, bit val 0: LCD pixel off. */
+  55:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a2,		                /* LCD bias 1/9 */
+  56:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x02f,		                /* all power  control circuits on */
+  57:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0f8,		                /* set booster ratio to */
+  58:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x000,		                /* 4x */
+  59:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x027,		                /* set V0 voltage resistor ratio to large */
+  60:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x081,		                /* set contrast */
+  61:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x008,		                /* contrast: 0x008 is a good value for NHD C12864, Nov 2012: User reports
+  62:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0ac,		                /* indicator */
+  63:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x000,		                /* disable */
+  64:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0af,		                /* display on */
+  65:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  66:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  67:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a5,		                /* display all points, ST7565 */
+  68:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+ARM GAS  /tmp/cchAw218.s 			page 4
+
+
+  69:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  70:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a4,		                /* normal display */
+  71:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(0),             /* disable chip */
+  72:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_END                /* end of sequence */
+  73:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** };
+  74:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  75:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** static const uint8_t u8g_dev_st7565_nhd_c12864_data_start[] PROGMEM = {
+  76:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  77:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(1),             /* enable chip */
+  78:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x010,		/* set upper 4 bit of the col adr to 0 */
+  79:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x004,		/* set lower 4 bit of the col adr to 4 (NHD C12864) */  
+  80:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_END                /* end of sequence */
+  81:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** };
+  82:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  83:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** static const uint8_t u8g_dev_st7565_c12864_sleep_on[] PROGMEM = {
+  84:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  85:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(1),             /* enable chip */
+  86:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0ac,		/* static indicator off */
+  87:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x000,		                /* indicator register set (not sure if this is required) */
+  88:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0ae,		/* display off */      
+  89:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a5,		/* all points on */      
+  90:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(0),             /* disable chip, bugfix 12 nov 2014 */
+  91:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_END                /* end of sequence */
+  92:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** };
+  93:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+  94:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** static const uint8_t u8g_dev_st7565_c12864_sleep_off[] PROGMEM = {
+  95:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  96:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(1),             /* enable chip */
+  97:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0a4,		/* all points off */      
+  98:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   0x0af,		/* display on */      
+  99:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_DLY(50),       /* delay 50 ms */
+ 100:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_CS(0),             /* disable chip, bugfix 12 nov 2014 */
+ 101:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   U8G_ESC_END                /* end of sequence */
+ 102:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** };
+ 103:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+ 104:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** uint8_t u8g_dev_st7565_nhd_c12864_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 105:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** {
+ 113              		.loc 1 105 0
+ 114              		.cfi_startproc
+ 115 0000 90B5     		push	{r4, r7, lr}
+ 116              	.LCFI0:
+ 117              		.cfi_def_cfa_offset 12
+ 118              		.cfi_offset 4, -12
+ 119              		.cfi_offset 7, -8
+ 120              		.cfi_offset 14, -4
+ 121 0002 87B0     		sub	sp, sp, #28
+ 122              	.LCFI1:
+ 123              		.cfi_def_cfa_offset 40
+ 124 0004 00AF     		add	r7, sp, #0
+ 125              	.LCFI2:
+ 126              		.cfi_def_cfa_register 7
+ 127 0006 F860     		str	r0, [r7, #12]
+ 128 0008 B960     		str	r1, [r7, #8]
+ 129 000a 3B60     		str	r3, [r7]
+ 130 000c FB1D     		adds	r3, r7, #7
+ 131 000e 1A70     		strb	r2, [r3]
+ 106:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   switch(msg)
+ARM GAS  /tmp/cchAw218.s 			page 5
+
+
+ 132              		.loc 1 106 0
+ 133 0010 FB1D     		adds	r3, r7, #7
+ 134 0012 1B78     		ldrb	r3, [r3]
+ 135 0014 0A3B     		subs	r3, r3, #10
+ 136 0016 0B2B     		cmp	r3, #11
+ 137 0018 6FD8     		bhi	.L2
+ 138 001a 9A00     		lsls	r2, r3, #2
+ 139 001c 3D4B     		ldr	r3, .L12
+ 140 001e D318     		adds	r3, r2, r3
+ 141 0020 1B68     		ldr	r3, [r3]
+ 142 0022 9F46     		mov	pc, r3
+ 143              		.section	.rodata.u8g_dev_st7565_nhd_c12864_fn,"a",%progbits
+ 144              		.align	2
+ 145              	.L4:
+ 146 0000 24000000 		.word	.L3
+ 147 0004 FA000000 		.word	.L2
+ 148 0008 FA000000 		.word	.L2
+ 149 000c FA000000 		.word	.L2
+ 150 0010 FA000000 		.word	.L2
+ 151 0014 94000000 		.word	.L6
+ 152 0018 DA000000 		.word	.L7
+ 153 001c EA000000 		.word	.L8
+ 154 0020 FA000000 		.word	.L2
+ 155 0024 FA000000 		.word	.L2
+ 156 0028 FA000000 		.word	.L2
+ 157 002c 3E000000 		.word	.L9
+ 158              		.section	.text.u8g_dev_st7565_nhd_c12864_fn
+ 159              	.L3:
+ 107:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   {
+ 108:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_INIT:
+ 109:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 160              		.loc 1 109 0
+ 161 0024 B968     		ldr	r1, [r7, #8]
+ 162 0026 FB68     		ldr	r3, [r7, #12]
+ 163 0028 0322     		movs	r2, #3
+ 164 002a 1800     		movs	r0, r3
+ 165 002c FFF7FEFF 		bl	u8g_InitCom
+ 110:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_nhd_c12864_init_seq);
+ 166              		.loc 1 110 0
+ 167 0030 394A     		ldr	r2, .L12+4
+ 168 0032 B968     		ldr	r1, [r7, #8]
+ 169 0034 FB68     		ldr	r3, [r7, #12]
+ 170 0036 1800     		movs	r0, r3
+ 171 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 111:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       break;
+ 172              		.loc 1 111 0
+ 173 003c 5DE0     		b	.L2
+ 174              	.L9:
+ 175              	.LBB2:
+ 112:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_STOP:
+ 113:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       break;
+ 114:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 115:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       {
+ 116:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 176              		.loc 1 116 0
+ 177 003e BB68     		ldr	r3, [r7, #8]
+ 178 0040 5B68     		ldr	r3, [r3, #4]
+ARM GAS  /tmp/cchAw218.s 			page 6
+
+
+ 179 0042 7B61     		str	r3, [r7, #20]
+ 117:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_nhd_c12864_data_start);    
+ 180              		.loc 1 117 0
+ 181 0044 354A     		ldr	r2, .L12+8
+ 182 0046 B968     		ldr	r1, [r7, #8]
+ 183 0048 FB68     		ldr	r3, [r7, #12]
+ 184 004a 1800     		movs	r0, r3
+ 185 004c FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 118:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | pb->p.page); /* select current page (ST7565R) */
+ 186              		.loc 1 118 0
+ 187 0050 7B69     		ldr	r3, [r7, #20]
+ 188 0052 1B79     		ldrb	r3, [r3, #4]
+ 189 0054 5022     		movs	r2, #80
+ 190 0056 5242     		rsbs	r2, r2, #0
+ 191 0058 1343     		orrs	r3, r2
+ 192 005a DAB2     		uxtb	r2, r3
+ 193 005c B968     		ldr	r1, [r7, #8]
+ 194 005e FB68     		ldr	r3, [r7, #12]
+ 195 0060 1800     		movs	r0, r3
+ 196 0062 FFF7FEFF 		bl	u8g_WriteByte
+ 119:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 197              		.loc 1 119 0
+ 198 0066 B968     		ldr	r1, [r7, #8]
+ 199 0068 FB68     		ldr	r3, [r7, #12]
+ 200 006a 0122     		movs	r2, #1
+ 201 006c 1800     		movs	r0, r3
+ 202 006e FFF7FEFF 		bl	u8g_SetAddress
+ 120:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 203              		.loc 1 120 0
+ 204 0072 BA68     		ldr	r2, [r7, #8]
+ 205 0074 F968     		ldr	r1, [r7, #12]
+ 206 0076 7B69     		ldr	r3, [r7, #20]
+ 207 0078 1800     		movs	r0, r3
+ 208 007a FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 209 007e 031E     		subs	r3, r0, #0
+ 210 0080 01D1     		bne	.L10
+ 121:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****           return 0;
+ 211              		.loc 1 121 0
+ 212 0082 0023     		movs	r3, #0
+ 213 0084 42E0     		b	.L11
+ 214              	.L10:
+ 122:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 215              		.loc 1 122 0
+ 216 0086 B968     		ldr	r1, [r7, #8]
+ 217 0088 FB68     		ldr	r3, [r7, #12]
+ 218 008a 0022     		movs	r2, #0
+ 219 008c 1800     		movs	r0, r3
+ 220 008e FFF7FEFF 		bl	u8g_SetChipSelect
+ 221              	.LBE2:
+ 123:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       }
+ 124:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       break;
+ 222              		.loc 1 124 0
+ 223 0092 32E0     		b	.L2
+ 224              	.L6:
+ 125:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_CONTRAST:
+ 126:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 225              		.loc 1 126 0
+ARM GAS  /tmp/cchAw218.s 			page 7
+
+
+ 226 0094 B968     		ldr	r1, [r7, #8]
+ 227 0096 FB68     		ldr	r3, [r7, #12]
+ 228 0098 0122     		movs	r2, #1
+ 229 009a 1800     		movs	r0, r3
+ 230 009c FFF7FEFF 		bl	u8g_SetChipSelect
+ 127:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 231              		.loc 1 127 0
+ 232 00a0 B968     		ldr	r1, [r7, #8]
+ 233 00a2 FB68     		ldr	r3, [r7, #12]
+ 234 00a4 0022     		movs	r2, #0
+ 235 00a6 1800     		movs	r0, r3
+ 236 00a8 FFF7FEFF 		bl	u8g_SetAddress
+ 128:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 237              		.loc 1 128 0
+ 238 00ac B968     		ldr	r1, [r7, #8]
+ 239 00ae FB68     		ldr	r3, [r7, #12]
+ 240 00b0 8122     		movs	r2, #129
+ 241 00b2 1800     		movs	r0, r3
+ 242 00b4 FFF7FEFF 		bl	u8g_WriteByte
+ 129:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 243              		.loc 1 129 0
+ 244 00b8 3B68     		ldr	r3, [r7]
+ 245 00ba 1B78     		ldrb	r3, [r3]
+ 246 00bc 9B08     		lsrs	r3, r3, #2
+ 247 00be DAB2     		uxtb	r2, r3
+ 248 00c0 B968     		ldr	r1, [r7, #8]
+ 249 00c2 FB68     		ldr	r3, [r7, #12]
+ 250 00c4 1800     		movs	r0, r3
+ 251 00c6 FFF7FEFF 		bl	u8g_WriteByte
+ 130:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 252              		.loc 1 130 0
+ 253 00ca B968     		ldr	r1, [r7, #8]
+ 254 00cc FB68     		ldr	r3, [r7, #12]
+ 255 00ce 0022     		movs	r2, #0
+ 256 00d0 1800     		movs	r0, r3
+ 257 00d2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 131:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       return 1;
+ 258              		.loc 1 131 0
+ 259 00d6 0123     		movs	r3, #1
+ 260 00d8 18E0     		b	.L11
+ 261              	.L7:
+ 132:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 133:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_c12864_sleep_on);    
+ 262              		.loc 1 133 0
+ 263 00da 114A     		ldr	r2, .L12+12
+ 264 00dc B968     		ldr	r1, [r7, #8]
+ 265 00de FB68     		ldr	r3, [r7, #12]
+ 266 00e0 1800     		movs	r0, r3
+ 267 00e2 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 134:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       return 1;
+ 268              		.loc 1 134 0
+ 269 00e6 0123     		movs	r3, #1
+ 270 00e8 10E0     		b	.L11
+ 271              	.L8:
+ 135:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 136:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_c12864_sleep_off);    
+ 272              		.loc 1 136 0
+ARM GAS  /tmp/cchAw218.s 			page 8
+
+
+ 273 00ea 0E4A     		ldr	r2, .L12+16
+ 274 00ec B968     		ldr	r1, [r7, #8]
+ 275 00ee FB68     		ldr	r3, [r7, #12]
+ 276 00f0 1800     		movs	r0, r3
+ 277 00f2 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 137:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       return 1;
+ 278              		.loc 1 137 0
+ 279 00f6 0123     		movs	r3, #1
+ 280 00f8 08E0     		b	.L11
+ 281              	.L2:
+ 138:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   }
+ 139:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 282              		.loc 1 139 0
+ 283 00fa 3C68     		ldr	r4, [r7]
+ 284 00fc FB1D     		adds	r3, r7, #7
+ 285 00fe 1A78     		ldrb	r2, [r3]
+ 286 0100 B968     		ldr	r1, [r7, #8]
+ 287 0102 F868     		ldr	r0, [r7, #12]
+ 288 0104 2300     		movs	r3, r4
+ 289 0106 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 290 010a 0300     		movs	r3, r0
+ 291              	.L11:
+ 140:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** }
+ 292              		.loc 1 140 0
+ 293 010c 1800     		movs	r0, r3
+ 294 010e BD46     		mov	sp, r7
+ 295 0110 07B0     		add	sp, sp, #28
+ 296              		@ sp needed
+ 297 0112 90BD     		pop	{r4, r7, pc}
+ 298              	.L13:
+ 299              		.align	2
+ 300              	.L12:
+ 301 0114 00000000 		.word	.L4
+ 302 0118 00000000 		.word	u8g_dev_st7565_nhd_c12864_init_seq
+ 303 011c 00000000 		.word	u8g_dev_st7565_nhd_c12864_data_start
+ 304 0120 00000000 		.word	u8g_dev_st7565_c12864_sleep_on
+ 305 0124 00000000 		.word	u8g_dev_st7565_c12864_sleep_off
+ 306              		.cfi_endproc
+ 307              	.LFE0:
+ 309              		.section	.text.u8g_dev_st7565_nhd_c12864_2x_fn,"ax",%progbits
+ 310              		.align	1
+ 311              		.global	u8g_dev_st7565_nhd_c12864_2x_fn
+ 312              		.syntax unified
+ 313              		.code	16
+ 314              		.thumb_func
+ 315              		.fpu softvfp
+ 317              	u8g_dev_st7565_nhd_c12864_2x_fn:
+ 318              	.LFB1:
+ 141:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 
+ 142:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** uint8_t u8g_dev_st7565_nhd_c12864_2x_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 143:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** {
+ 319              		.loc 1 143 0
+ 320              		.cfi_startproc
+ 321 0000 90B5     		push	{r4, r7, lr}
+ 322              	.LCFI3:
+ 323              		.cfi_def_cfa_offset 12
+ 324              		.cfi_offset 4, -12
+ARM GAS  /tmp/cchAw218.s 			page 9
+
+
+ 325              		.cfi_offset 7, -8
+ 326              		.cfi_offset 14, -4
+ 327 0002 87B0     		sub	sp, sp, #28
+ 328              	.LCFI4:
+ 329              		.cfi_def_cfa_offset 40
+ 330 0004 00AF     		add	r7, sp, #0
+ 331              	.LCFI5:
+ 332              		.cfi_def_cfa_register 7
+ 333 0006 F860     		str	r0, [r7, #12]
+ 334 0008 B960     		str	r1, [r7, #8]
+ 335 000a 3B60     		str	r3, [r7]
+ 336 000c FB1D     		adds	r3, r7, #7
+ 337 000e 1A70     		strb	r2, [r3]
+ 144:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   switch(msg)
+ 338              		.loc 1 144 0
+ 339 0010 FB1D     		adds	r3, r7, #7
+ 340 0012 1B78     		ldrb	r3, [r3]
+ 341 0014 0A3B     		subs	r3, r3, #10
+ 342 0016 0B2B     		cmp	r3, #11
+ 343 0018 00D9     		bls	.LCB208
+ 344 001a A0E0     		b	.L15	@long jump
+ 345              	.LCB208:
+ 346 001c 9A00     		lsls	r2, r3, #2
+ 347 001e 564B     		ldr	r3, .L24
+ 348 0020 D318     		adds	r3, r2, r3
+ 349 0022 1B68     		ldr	r3, [r3]
+ 350 0024 9F46     		mov	pc, r3
+ 351              		.section	.rodata.u8g_dev_st7565_nhd_c12864_2x_fn,"a",%progbits
+ 352              		.align	2
+ 353              	.L17:
+ 354 0000 26000000 		.word	.L16
+ 355 0004 5E010000 		.word	.L15
+ 356 0008 5E010000 		.word	.L15
+ 357 000c 5E010000 		.word	.L15
+ 358 0010 5E010000 		.word	.L15
+ 359 0014 F8000000 		.word	.L19
+ 360 0018 3E010000 		.word	.L20
+ 361 001c 4E010000 		.word	.L21
+ 362 0020 5E010000 		.word	.L15
+ 363 0024 5E010000 		.word	.L15
+ 364 0028 5E010000 		.word	.L15
+ 365 002c 40000000 		.word	.L22
+ 366              		.section	.text.u8g_dev_st7565_nhd_c12864_2x_fn
+ 367              	.L16:
+ 145:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   {
+ 146:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_INIT:
+ 147:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 368              		.loc 1 147 0
+ 369 0026 B968     		ldr	r1, [r7, #8]
+ 370 0028 FB68     		ldr	r3, [r7, #12]
+ 371 002a 0322     		movs	r2, #3
+ 372 002c 1800     		movs	r0, r3
+ 373 002e FFF7FEFF 		bl	u8g_InitCom
+ 148:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_nhd_c12864_init_seq);
+ 374              		.loc 1 148 0
+ 375 0032 524A     		ldr	r2, .L24+4
+ 376 0034 B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/cchAw218.s 			page 10
+
+
+ 377 0036 FB68     		ldr	r3, [r7, #12]
+ 378 0038 1800     		movs	r0, r3
+ 379 003a FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 149:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       break;
+ 380              		.loc 1 149 0
+ 381 003e 8EE0     		b	.L15
+ 382              	.L22:
+ 383              	.LBB3:
+ 150:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_STOP:
+ 151:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       break;
+ 152:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 153:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       {
+ 154:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 384              		.loc 1 154 0
+ 385 0040 BB68     		ldr	r3, [r7, #8]
+ 386 0042 5B68     		ldr	r3, [r3, #4]
+ 387 0044 7B61     		str	r3, [r7, #20]
+ 155:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 	
+ 156:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_nhd_c12864_data_start);    
+ 388              		.loc 1 156 0
+ 389 0046 4E4A     		ldr	r2, .L24+8
+ 390 0048 B968     		ldr	r1, [r7, #8]
+ 391 004a FB68     		ldr	r3, [r7, #12]
+ 392 004c 1800     		movs	r0, r3
+ 393 004e FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 157:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | (2*pb->p.page)); /* select current page (ST7565R) */
+ 394              		.loc 1 157 0
+ 395 0052 7B69     		ldr	r3, [r7, #20]
+ 396 0054 1B79     		ldrb	r3, [r3, #4]
+ 397 0056 DB18     		adds	r3, r3, r3
+ 398 0058 DBB2     		uxtb	r3, r3
+ 399 005a 5BB2     		sxtb	r3, r3
+ 400 005c 5022     		movs	r2, #80
+ 401 005e 5242     		rsbs	r2, r2, #0
+ 402 0060 1343     		orrs	r3, r2
+ 403 0062 5BB2     		sxtb	r3, r3
+ 404 0064 DAB2     		uxtb	r2, r3
+ 405 0066 B968     		ldr	r1, [r7, #8]
+ 406 0068 FB68     		ldr	r3, [r7, #12]
+ 407 006a 1800     		movs	r0, r3
+ 408 006c FFF7FEFF 		bl	u8g_WriteByte
+ 158:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 409              		.loc 1 158 0
+ 410 0070 B968     		ldr	r1, [r7, #8]
+ 411 0072 FB68     		ldr	r3, [r7, #12]
+ 412 0074 0122     		movs	r2, #1
+ 413 0076 1800     		movs	r0, r3
+ 414 0078 FFF7FEFF 		bl	u8g_SetAddress
+ 159:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 	u8g_WriteSequence(u8g, dev, pb->width, pb->buf); 
+ 415              		.loc 1 159 0
+ 416 007c 7B69     		ldr	r3, [r7, #20]
+ 417 007e 5A79     		ldrb	r2, [r3, #5]
+ 418 0080 7B69     		ldr	r3, [r7, #20]
+ 419 0082 9B68     		ldr	r3, [r3, #8]
+ 420 0084 B968     		ldr	r1, [r7, #8]
+ 421 0086 F868     		ldr	r0, [r7, #12]
+ 422 0088 FFF7FEFF 		bl	u8g_WriteSequence
+ARM GAS  /tmp/cchAw218.s 			page 11
+
+
+ 160:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 423              		.loc 1 160 0
+ 424 008c B968     		ldr	r1, [r7, #8]
+ 425 008e FB68     		ldr	r3, [r7, #12]
+ 426 0090 0022     		movs	r2, #0
+ 427 0092 1800     		movs	r0, r3
+ 428 0094 FFF7FEFF 		bl	u8g_SetChipSelect
+ 161:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 	
+ 162:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_nhd_c12864_data_start);    
+ 429              		.loc 1 162 0
+ 430 0098 394A     		ldr	r2, .L24+8
+ 431 009a B968     		ldr	r1, [r7, #8]
+ 432 009c FB68     		ldr	r3, [r7, #12]
+ 433 009e 1800     		movs	r0, r3
+ 434 00a0 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 163:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | (2*pb->p.page+1)); /* select current page (ST7565R) */
+ 435              		.loc 1 163 0
+ 436 00a4 7B69     		ldr	r3, [r7, #20]
+ 437 00a6 1B79     		ldrb	r3, [r3, #4]
+ 438 00a8 DB18     		adds	r3, r3, r3
+ 439 00aa DBB2     		uxtb	r3, r3
+ 440 00ac 0133     		adds	r3, r3, #1
+ 441 00ae DBB2     		uxtb	r3, r3
+ 442 00b0 5BB2     		sxtb	r3, r3
+ 443 00b2 5022     		movs	r2, #80
+ 444 00b4 5242     		rsbs	r2, r2, #0
+ 445 00b6 1343     		orrs	r3, r2
+ 446 00b8 5BB2     		sxtb	r3, r3
+ 447 00ba DAB2     		uxtb	r2, r3
+ 448 00bc B968     		ldr	r1, [r7, #8]
+ 449 00be FB68     		ldr	r3, [r7, #12]
+ 450 00c0 1800     		movs	r0, r3
+ 451 00c2 FFF7FEFF 		bl	u8g_WriteByte
+ 164:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 452              		.loc 1 164 0
+ 453 00c6 B968     		ldr	r1, [r7, #8]
+ 454 00c8 FB68     		ldr	r3, [r7, #12]
+ 455 00ca 0122     		movs	r2, #1
+ 456 00cc 1800     		movs	r0, r3
+ 457 00ce FFF7FEFF 		bl	u8g_SetAddress
+ 165:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** 	u8g_WriteSequence(u8g, dev, pb->width, (uint8_t *)(pb->buf)+pb->width);
+ 458              		.loc 1 165 0
+ 459 00d2 7B69     		ldr	r3, [r7, #20]
+ 460 00d4 5C79     		ldrb	r4, [r3, #5]
+ 461 00d6 7B69     		ldr	r3, [r7, #20]
+ 462 00d8 9B68     		ldr	r3, [r3, #8]
+ 463 00da 7A69     		ldr	r2, [r7, #20]
+ 464 00dc 5279     		ldrb	r2, [r2, #5]
+ 465 00de 9B18     		adds	r3, r3, r2
+ 466 00e0 B968     		ldr	r1, [r7, #8]
+ 467 00e2 F868     		ldr	r0, [r7, #12]
+ 468 00e4 2200     		movs	r2, r4
+ 469 00e6 FFF7FEFF 		bl	u8g_WriteSequence
+ 166:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 470              		.loc 1 166 0
+ 471 00ea B968     		ldr	r1, [r7, #8]
+ 472 00ec FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/cchAw218.s 			page 12
+
+
+ 473 00ee 0022     		movs	r2, #0
+ 474 00f0 1800     		movs	r0, r3
+ 475 00f2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 476              	.LBE3:
+ 167:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       }
+ 168:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       break;
+ 477              		.loc 1 168 0
+ 478 00f6 32E0     		b	.L15
+ 479              	.L19:
+ 169:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_CONTRAST:
+ 170:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 480              		.loc 1 170 0
+ 481 00f8 B968     		ldr	r1, [r7, #8]
+ 482 00fa FB68     		ldr	r3, [r7, #12]
+ 483 00fc 0122     		movs	r2, #1
+ 484 00fe 1800     		movs	r0, r3
+ 485 0100 FFF7FEFF 		bl	u8g_SetChipSelect
+ 171:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 486              		.loc 1 171 0
+ 487 0104 B968     		ldr	r1, [r7, #8]
+ 488 0106 FB68     		ldr	r3, [r7, #12]
+ 489 0108 0022     		movs	r2, #0
+ 490 010a 1800     		movs	r0, r3
+ 491 010c FFF7FEFF 		bl	u8g_SetAddress
+ 172:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 492              		.loc 1 172 0
+ 493 0110 B968     		ldr	r1, [r7, #8]
+ 494 0112 FB68     		ldr	r3, [r7, #12]
+ 495 0114 8122     		movs	r2, #129
+ 496 0116 1800     		movs	r0, r3
+ 497 0118 FFF7FEFF 		bl	u8g_WriteByte
+ 173:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 498              		.loc 1 173 0
+ 499 011c 3B68     		ldr	r3, [r7]
+ 500 011e 1B78     		ldrb	r3, [r3]
+ 501 0120 9B08     		lsrs	r3, r3, #2
+ 502 0122 DAB2     		uxtb	r2, r3
+ 503 0124 B968     		ldr	r1, [r7, #8]
+ 504 0126 FB68     		ldr	r3, [r7, #12]
+ 505 0128 1800     		movs	r0, r3
+ 506 012a FFF7FEFF 		bl	u8g_WriteByte
+ 174:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 507              		.loc 1 174 0
+ 508 012e B968     		ldr	r1, [r7, #8]
+ 509 0130 FB68     		ldr	r3, [r7, #12]
+ 510 0132 0022     		movs	r2, #0
+ 511 0134 1800     		movs	r0, r3
+ 512 0136 FFF7FEFF 		bl	u8g_SetChipSelect
+ 175:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       return 1;
+ 513              		.loc 1 175 0
+ 514 013a 0123     		movs	r3, #1
+ 515 013c 18E0     		b	.L23
+ 516              	.L20:
+ 176:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 177:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_c12864_sleep_on);    
+ 517              		.loc 1 177 0
+ 518 013e 114A     		ldr	r2, .L24+12
+ARM GAS  /tmp/cchAw218.s 			page 13
+
+
+ 519 0140 B968     		ldr	r1, [r7, #8]
+ 520 0142 FB68     		ldr	r3, [r7, #12]
+ 521 0144 1800     		movs	r0, r3
+ 522 0146 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 178:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       return 1;
+ 523              		.loc 1 178 0
+ 524 014a 0123     		movs	r3, #1
+ 525 014c 10E0     		b	.L23
+ 526              	.L21:
+ 179:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 180:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_c12864_sleep_off);    
+ 527              		.loc 1 180 0
+ 528 014e 0E4A     		ldr	r2, .L24+16
+ 529 0150 B968     		ldr	r1, [r7, #8]
+ 530 0152 FB68     		ldr	r3, [r7, #12]
+ 531 0154 1800     		movs	r0, r3
+ 532 0156 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 181:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****       return 1;
+ 533              		.loc 1 181 0
+ 534 015a 0123     		movs	r3, #1
+ 535 015c 08E0     		b	.L23
+ 536              	.L15:
+ 182:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   }
+ 183:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c ****   return u8g_dev_pb16v1_base_fn(u8g, dev, msg, arg);
+ 537              		.loc 1 183 0
+ 538 015e 3C68     		ldr	r4, [r7]
+ 539 0160 FB1D     		adds	r3, r7, #7
+ 540 0162 1A78     		ldrb	r2, [r3]
+ 541 0164 B968     		ldr	r1, [r7, #8]
+ 542 0166 F868     		ldr	r0, [r7, #12]
+ 543 0168 2300     		movs	r3, r4
+ 544 016a FFF7FEFF 		bl	u8g_dev_pb16v1_base_fn
+ 545 016e 0300     		movs	r3, r0
+ 546              	.L23:
+ 184:Drivers/u8glib/src/u8g_dev_st7565_nhd_c12864.c **** }
+ 547              		.loc 1 184 0
+ 548 0170 1800     		movs	r0, r3
+ 549 0172 BD46     		mov	sp, r7
+ 550 0174 07B0     		add	sp, sp, #28
+ 551              		@ sp needed
+ 552 0176 90BD     		pop	{r4, r7, pc}
+ 553              	.L25:
+ 554              		.align	2
+ 555              	.L24:
+ 556 0178 00000000 		.word	.L17
+ 557 017c 00000000 		.word	u8g_dev_st7565_nhd_c12864_init_seq
+ 558 0180 00000000 		.word	u8g_dev_st7565_nhd_c12864_data_start
+ 559 0184 00000000 		.word	u8g_dev_st7565_c12864_sleep_on
+ 560 0188 00000000 		.word	u8g_dev_st7565_c12864_sleep_off
+ 561              		.cfi_endproc
+ 562              	.LFE1:
+ 564              		.global	u8g_dev_st7565_nhd_c12864_sw_spi_buf
+ 565              		.section	.bss.u8g_dev_st7565_nhd_c12864_sw_spi_buf,"aw",%nobits
+ 566              		.align	2
+ 569              	u8g_dev_st7565_nhd_c12864_sw_spi_buf:
+ 570 0000 00000000 		.space	128
+ 570      00000000 
+ARM GAS  /tmp/cchAw218.s 			page 14
+
+
+ 570      00000000 
+ 570      00000000 
+ 570      00000000 
+ 571              		.global	u8g_dev_st7565_nhd_c12864_sw_spi_pb
+ 572              		.section	.data.u8g_dev_st7565_nhd_c12864_sw_spi_pb,"aw",%progbits
+ 573              		.align	2
+ 576              	u8g_dev_st7565_nhd_c12864_sw_spi_pb:
+ 577 0000 08       		.byte	8
+ 578 0001 40       		.byte	64
+ 579 0002 00       		.byte	0
+ 580 0003 00       		.byte	0
+ 581 0004 00       		.byte	0
+ 582 0005 80       		.byte	-128
+ 583 0006 0000     		.space	2
+ 584 0008 00000000 		.word	u8g_dev_st7565_nhd_c12864_sw_spi_buf
+ 585              		.global	u8g_dev_st7565_nhd_c12864_sw_spi
+ 586              		.section	.data.u8g_dev_st7565_nhd_c12864_sw_spi,"aw",%progbits
+ 587              		.align	2
+ 590              	u8g_dev_st7565_nhd_c12864_sw_spi:
+ 591 0000 00000000 		.word	u8g_dev_st7565_nhd_c12864_fn
+ 592 0004 00000000 		.word	u8g_dev_st7565_nhd_c12864_sw_spi_pb
+ 593 0008 00000000 		.word	u8g_com_null_fn
+ 594              		.global	u8g_dev_st7565_nhd_c12864_hw_spi_buf
+ 595              		.section	.bss.u8g_dev_st7565_nhd_c12864_hw_spi_buf,"aw",%nobits
+ 596              		.align	2
+ 599              	u8g_dev_st7565_nhd_c12864_hw_spi_buf:
+ 600 0000 00000000 		.space	128
+ 600      00000000 
+ 600      00000000 
+ 600      00000000 
+ 600      00000000 
+ 601              		.global	u8g_dev_st7565_nhd_c12864_hw_spi_pb
+ 602              		.section	.data.u8g_dev_st7565_nhd_c12864_hw_spi_pb,"aw",%progbits
+ 603              		.align	2
+ 606              	u8g_dev_st7565_nhd_c12864_hw_spi_pb:
+ 607 0000 08       		.byte	8
+ 608 0001 40       		.byte	64
+ 609 0002 00       		.byte	0
+ 610 0003 00       		.byte	0
+ 611 0004 00       		.byte	0
+ 612 0005 80       		.byte	-128
+ 613 0006 0000     		.space	2
+ 614 0008 00000000 		.word	u8g_dev_st7565_nhd_c12864_hw_spi_buf
+ 615              		.global	u8g_dev_st7565_nhd_c12864_hw_spi
+ 616              		.section	.data.u8g_dev_st7565_nhd_c12864_hw_spi,"aw",%progbits
+ 617              		.align	2
+ 620              	u8g_dev_st7565_nhd_c12864_hw_spi:
+ 621 0000 00000000 		.word	u8g_dev_st7565_nhd_c12864_fn
+ 622 0004 00000000 		.word	u8g_dev_st7565_nhd_c12864_hw_spi_pb
+ 623 0008 00000000 		.word	u8g_com_null_fn
+ 624              		.global	u8g_dev_st7565_nhd_c12864_2x_buf
+ 625              		.section	.bss.u8g_dev_st7565_nhd_c12864_2x_buf,"aw",%nobits
+ 626              		.align	2
+ 629              	u8g_dev_st7565_nhd_c12864_2x_buf:
+ 630 0000 00000000 		.space	256
+ 630      00000000 
+ 630      00000000 
+ARM GAS  /tmp/cchAw218.s 			page 15
+
+
+ 630      00000000 
+ 630      00000000 
+ 631              		.global	u8g_dev_st7565_nhd_c12864_2x_pb
+ 632              		.section	.data.u8g_dev_st7565_nhd_c12864_2x_pb,"aw",%progbits
+ 633              		.align	2
+ 636              	u8g_dev_st7565_nhd_c12864_2x_pb:
+ 637 0000 10       		.byte	16
+ 638 0001 40       		.byte	64
+ 639 0002 00       		.byte	0
+ 640 0003 00       		.byte	0
+ 641 0004 00       		.byte	0
+ 642 0005 80       		.byte	-128
+ 643 0006 0000     		.space	2
+ 644 0008 00000000 		.word	u8g_dev_st7565_nhd_c12864_2x_buf
+ 645              		.global	u8g_dev_st7565_nhd_c12864_2x_sw_spi
+ 646              		.section	.data.u8g_dev_st7565_nhd_c12864_2x_sw_spi,"aw",%progbits
+ 647              		.align	2
+ 650              	u8g_dev_st7565_nhd_c12864_2x_sw_spi:
+ 651 0000 00000000 		.word	u8g_dev_st7565_nhd_c12864_2x_fn
+ 652 0004 00000000 		.word	u8g_dev_st7565_nhd_c12864_2x_pb
+ 653 0008 00000000 		.word	u8g_com_null_fn
+ 654              		.global	u8g_dev_st7565_nhd_c12864_2x_hw_spi
+ 655              		.section	.data.u8g_dev_st7565_nhd_c12864_2x_hw_spi,"aw",%progbits
+ 656              		.align	2
+ 659              	u8g_dev_st7565_nhd_c12864_2x_hw_spi:
+ 660 0000 00000000 		.word	u8g_dev_st7565_nhd_c12864_2x_fn
+ 661 0004 00000000 		.word	u8g_dev_st7565_nhd_c12864_2x_pb
+ 662 0008 00000000 		.word	u8g_com_null_fn
+ 663              		.text
+ 664              	.Letext0:
+ 665              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 666              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 667              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cchAw218.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_st7565_nhd_c12864.c
+     /tmp/cchAw218.s:20     .rodata.u8g_dev_st7565_nhd_c12864_init_seq:0000000000000000 u8g_dev_st7565_nhd_c12864_init_seq
+     /tmp/cchAw218.s:17     .rodata.u8g_dev_st7565_nhd_c12864_init_seq:0000000000000000 $d
+     /tmp/cchAw218.s:56     .rodata.u8g_dev_st7565_nhd_c12864_data_start:0000000000000000 $d
+     /tmp/cchAw218.s:59     .rodata.u8g_dev_st7565_nhd_c12864_data_start:0000000000000000 u8g_dev_st7565_nhd_c12864_data_start
+     /tmp/cchAw218.s:69     .rodata.u8g_dev_st7565_c12864_sleep_on:0000000000000000 $d
+     /tmp/cchAw218.s:72     .rodata.u8g_dev_st7565_c12864_sleep_on:0000000000000000 u8g_dev_st7565_c12864_sleep_on
+     /tmp/cchAw218.s:86     .rodata.u8g_dev_st7565_c12864_sleep_off:0000000000000000 $d
+     /tmp/cchAw218.s:89     .rodata.u8g_dev_st7565_c12864_sleep_off:0000000000000000 u8g_dev_st7565_c12864_sleep_off
+     /tmp/cchAw218.s:103    .text.u8g_dev_st7565_nhd_c12864_fn:0000000000000000 $t
+     /tmp/cchAw218.s:110    .text.u8g_dev_st7565_nhd_c12864_fn:0000000000000000 u8g_dev_st7565_nhd_c12864_fn
+     /tmp/cchAw218.s:144    .rodata.u8g_dev_st7565_nhd_c12864_fn:0000000000000000 $d
+     /tmp/cchAw218.s:301    .text.u8g_dev_st7565_nhd_c12864_fn:0000000000000114 $d
+     /tmp/cchAw218.s:310    .text.u8g_dev_st7565_nhd_c12864_2x_fn:0000000000000000 $t
+     /tmp/cchAw218.s:317    .text.u8g_dev_st7565_nhd_c12864_2x_fn:0000000000000000 u8g_dev_st7565_nhd_c12864_2x_fn
+     /tmp/cchAw218.s:352    .rodata.u8g_dev_st7565_nhd_c12864_2x_fn:0000000000000000 $d
+     /tmp/cchAw218.s:556    .text.u8g_dev_st7565_nhd_c12864_2x_fn:0000000000000178 $d
+     /tmp/cchAw218.s:569    .bss.u8g_dev_st7565_nhd_c12864_sw_spi_buf:0000000000000000 u8g_dev_st7565_nhd_c12864_sw_spi_buf
+     /tmp/cchAw218.s:566    .bss.u8g_dev_st7565_nhd_c12864_sw_spi_buf:0000000000000000 $d
+     /tmp/cchAw218.s:576    .data.u8g_dev_st7565_nhd_c12864_sw_spi_pb:0000000000000000 u8g_dev_st7565_nhd_c12864_sw_spi_pb
+     /tmp/cchAw218.s:573    .data.u8g_dev_st7565_nhd_c12864_sw_spi_pb:0000000000000000 $d
+     /tmp/cchAw218.s:590    .data.u8g_dev_st7565_nhd_c12864_sw_spi:0000000000000000 u8g_dev_st7565_nhd_c12864_sw_spi
+     /tmp/cchAw218.s:587    .data.u8g_dev_st7565_nhd_c12864_sw_spi:0000000000000000 $d
+     /tmp/cchAw218.s:599    .bss.u8g_dev_st7565_nhd_c12864_hw_spi_buf:0000000000000000 u8g_dev_st7565_nhd_c12864_hw_spi_buf
+     /tmp/cchAw218.s:596    .bss.u8g_dev_st7565_nhd_c12864_hw_spi_buf:0000000000000000 $d
+     /tmp/cchAw218.s:606    .data.u8g_dev_st7565_nhd_c12864_hw_spi_pb:0000000000000000 u8g_dev_st7565_nhd_c12864_hw_spi_pb
+     /tmp/cchAw218.s:603    .data.u8g_dev_st7565_nhd_c12864_hw_spi_pb:0000000000000000 $d
+     /tmp/cchAw218.s:620    .data.u8g_dev_st7565_nhd_c12864_hw_spi:0000000000000000 u8g_dev_st7565_nhd_c12864_hw_spi
+     /tmp/cchAw218.s:617    .data.u8g_dev_st7565_nhd_c12864_hw_spi:0000000000000000 $d
+     /tmp/cchAw218.s:629    .bss.u8g_dev_st7565_nhd_c12864_2x_buf:0000000000000000 u8g_dev_st7565_nhd_c12864_2x_buf
+     /tmp/cchAw218.s:626    .bss.u8g_dev_st7565_nhd_c12864_2x_buf:0000000000000000 $d
+     /tmp/cchAw218.s:636    .data.u8g_dev_st7565_nhd_c12864_2x_pb:0000000000000000 u8g_dev_st7565_nhd_c12864_2x_pb
+     /tmp/cchAw218.s:633    .data.u8g_dev_st7565_nhd_c12864_2x_pb:0000000000000000 $d
+     /tmp/cchAw218.s:650    .data.u8g_dev_st7565_nhd_c12864_2x_sw_spi:0000000000000000 u8g_dev_st7565_nhd_c12864_2x_sw_spi
+     /tmp/cchAw218.s:647    .data.u8g_dev_st7565_nhd_c12864_2x_sw_spi:0000000000000000 $d
+     /tmp/cchAw218.s:659    .data.u8g_dev_st7565_nhd_c12864_2x_hw_spi:0000000000000000 u8g_dev_st7565_nhd_c12864_2x_hw_spi
+     /tmp/cchAw218.s:656    .data.u8g_dev_st7565_nhd_c12864_2x_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8v1_base_fn
+u8g_WriteSequence
+u8g_dev_pb16v1_base_fn
+u8g_com_null_fn

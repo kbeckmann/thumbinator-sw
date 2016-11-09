@@ -1,0 +1,1383 @@
+ARM GAS  /tmp/ccqyLwRN.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_ili9325d_320x240.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_ili9325d_320x240_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_ili9325d_320x240_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 32       		.byte	50
+  24 0004 FF       		.byte	-1
+  25 0005 CF       		.byte	-49
+  26 0006 FF       		.byte	-1
+  27 0007 32       		.byte	50
+  28 0008 FF       		.byte	-1
+  29 0009 CF       		.byte	-49
+  30 000a FF       		.byte	-1
+  31 000b 32       		.byte	50
+  32 000c FF       		.byte	-1
+  33 000d D1       		.byte	-47
+  34 000e FF       		.byte	-1
+  35 000f 32       		.byte	50
+  36 0010 FF       		.byte	-1
+  37 0011 E0       		.byte	-32
+  38 0012 00       		.byte	0
+  39 0013 01       		.byte	1
+  40 0014 FF       		.byte	-1
+  41 0015 E1       		.byte	-31
+  42 0016 01       		.byte	1
+  43 0017 00       		.byte	0
+  44 0018 FF       		.byte	-1
+  45 0019 E0       		.byte	-32
+  46 001a 00       		.byte	0
+  47 001b 02       		.byte	2
+  48 001c FF       		.byte	-1
+  49 001d E1       		.byte	-31
+  50 001e 02       		.byte	2
+  51 001f 00       		.byte	0
+  52 0020 FF       		.byte	-1
+  53 0021 E0       		.byte	-32
+  54 0022 00       		.byte	0
+  55 0023 03       		.byte	3
+  56 0024 FF       		.byte	-1
+  57 0025 E1       		.byte	-31
+  58 0026 10       		.byte	16
+  59 0027 30       		.byte	48
+ARM GAS  /tmp/ccqyLwRN.s 			page 2
+
+
+  60 0028 FF       		.byte	-1
+  61 0029 E0       		.byte	-32
+  62 002a 00       		.byte	0
+  63 002b 04       		.byte	4
+  64 002c FF       		.byte	-1
+  65 002d E1       		.byte	-31
+  66 002e 00       		.byte	0
+  67 002f 00       		.byte	0
+  68 0030 FF       		.byte	-1
+  69 0031 E0       		.byte	-32
+  70 0032 00       		.byte	0
+  71 0033 08       		.byte	8
+  72 0034 FF       		.byte	-1
+  73 0035 E1       		.byte	-31
+  74 0036 02       		.byte	2
+  75 0037 07       		.byte	7
+  76 0038 FF       		.byte	-1
+  77 0039 E0       		.byte	-32
+  78 003a 00       		.byte	0
+  79 003b 09       		.byte	9
+  80 003c FF       		.byte	-1
+  81 003d E1       		.byte	-31
+  82 003e 00       		.byte	0
+  83 003f 00       		.byte	0
+  84 0040 FF       		.byte	-1
+  85 0041 E0       		.byte	-32
+  86 0042 00       		.byte	0
+  87 0043 0A       		.byte	10
+  88 0044 FF       		.byte	-1
+  89 0045 E1       		.byte	-31
+  90 0046 00       		.byte	0
+  91 0047 00       		.byte	0
+  92 0048 FF       		.byte	-1
+  93 0049 E0       		.byte	-32
+  94 004a 00       		.byte	0
+  95 004b 0C       		.byte	12
+  96 004c FF       		.byte	-1
+  97 004d E1       		.byte	-31
+  98 004e 00       		.byte	0
+  99 004f 00       		.byte	0
+ 100 0050 FF       		.byte	-1
+ 101 0051 E0       		.byte	-32
+ 102 0052 00       		.byte	0
+ 103 0053 0D       		.byte	13
+ 104 0054 FF       		.byte	-1
+ 105 0055 E1       		.byte	-31
+ 106 0056 00       		.byte	0
+ 107 0057 00       		.byte	0
+ 108 0058 FF       		.byte	-1
+ 109 0059 E0       		.byte	-32
+ 110 005a 00       		.byte	0
+ 111 005b 0F       		.byte	15
+ 112 005c FF       		.byte	-1
+ 113 005d E1       		.byte	-31
+ 114 005e 00       		.byte	0
+ 115 005f 00       		.byte	0
+ 116 0060 FF       		.byte	-1
+ARM GAS  /tmp/ccqyLwRN.s 			page 3
+
+
+ 117 0061 E0       		.byte	-32
+ 118 0062 00       		.byte	0
+ 119 0063 10       		.byte	16
+ 120 0064 FF       		.byte	-1
+ 121 0065 E1       		.byte	-31
+ 122 0066 00       		.byte	0
+ 123 0067 00       		.byte	0
+ 124 0068 FF       		.byte	-1
+ 125 0069 E0       		.byte	-32
+ 126 006a 00       		.byte	0
+ 127 006b 11       		.byte	17
+ 128 006c FF       		.byte	-1
+ 129 006d E1       		.byte	-31
+ 130 006e 00       		.byte	0
+ 131 006f 07       		.byte	7
+ 132 0070 FF       		.byte	-1
+ 133 0071 E0       		.byte	-32
+ 134 0072 00       		.byte	0
+ 135 0073 12       		.byte	18
+ 136 0074 FF       		.byte	-1
+ 137 0075 E1       		.byte	-31
+ 138 0076 00       		.byte	0
+ 139 0077 00       		.byte	0
+ 140 0078 FF       		.byte	-1
+ 141 0079 E0       		.byte	-32
+ 142 007a 00       		.byte	0
+ 143 007b 13       		.byte	19
+ 144 007c FF       		.byte	-1
+ 145 007d E1       		.byte	-31
+ 146 007e 00       		.byte	0
+ 147 007f 00       		.byte	0
+ 148 0080 FF       		.byte	-1
+ 149 0081 E0       		.byte	-32
+ 150 0082 00       		.byte	0
+ 151 0083 07       		.byte	7
+ 152 0084 FF       		.byte	-1
+ 153 0085 E1       		.byte	-31
+ 154 0086 00       		.byte	0
+ 155 0087 01       		.byte	1
+ 156 0088 FF       		.byte	-1
+ 157 0089 64       		.byte	100
+ 158 008a FF       		.byte	-1
+ 159 008b 64       		.byte	100
+ 160 008c FF       		.byte	-1
+ 161 008d E0       		.byte	-32
+ 162 008e 00       		.byte	0
+ 163 008f 10       		.byte	16
+ 164 0090 FF       		.byte	-1
+ 165 0091 E1       		.byte	-31
+ 166 0092 16       		.byte	22
+ 167 0093 90       		.byte	-112
+ 168 0094 FF       		.byte	-1
+ 169 0095 E0       		.byte	-32
+ 170 0096 00       		.byte	0
+ 171 0097 11       		.byte	17
+ 172 0098 FF       		.byte	-1
+ 173 0099 E1       		.byte	-31
+ARM GAS  /tmp/ccqyLwRN.s 			page 4
+
+
+ 174 009a 02       		.byte	2
+ 175 009b 27       		.byte	39
+ 176 009c FF       		.byte	-1
+ 177 009d 32       		.byte	50
+ 178 009e FF       		.byte	-1
+ 179 009f E0       		.byte	-32
+ 180 00a0 00       		.byte	0
+ 181 00a1 12       		.byte	18
+ 182 00a2 FF       		.byte	-1
+ 183 00a3 E1       		.byte	-31
+ 184 00a4 00       		.byte	0
+ 185 00a5 0D       		.byte	13
+ 186 00a6 FF       		.byte	-1
+ 187 00a7 32       		.byte	50
+ 188 00a8 FF       		.byte	-1
+ 189 00a9 E0       		.byte	-32
+ 190 00aa 00       		.byte	0
+ 191 00ab 13       		.byte	19
+ 192 00ac FF       		.byte	-1
+ 193 00ad E1       		.byte	-31
+ 194 00ae 12       		.byte	18
+ 195 00af 00       		.byte	0
+ 196 00b0 FF       		.byte	-1
+ 197 00b1 E0       		.byte	-32
+ 198 00b2 00       		.byte	0
+ 199 00b3 29       		.byte	41
+ 200 00b4 FF       		.byte	-1
+ 201 00b5 E1       		.byte	-31
+ 202 00b6 00       		.byte	0
+ 203 00b7 0A       		.byte	10
+ 204 00b8 FF       		.byte	-1
+ 205 00b9 E0       		.byte	-32
+ 206 00ba 00       		.byte	0
+ 207 00bb 2B       		.byte	43
+ 208 00bc FF       		.byte	-1
+ 209 00bd E1       		.byte	-31
+ 210 00be 00       		.byte	0
+ 211 00bf 0D       		.byte	13
+ 212 00c0 FF       		.byte	-1
+ 213 00c1 32       		.byte	50
+ 214 00c2 FF       		.byte	-1
+ 215 00c3 E0       		.byte	-32
+ 216 00c4 00       		.byte	0
+ 217 00c5 20       		.byte	32
+ 218 00c6 FF       		.byte	-1
+ 219 00c7 E1       		.byte	-31
+ 220 00c8 00       		.byte	0
+ 221 00c9 00       		.byte	0
+ 222 00ca FF       		.byte	-1
+ 223 00cb E0       		.byte	-32
+ 224 00cc 00       		.byte	0
+ 225 00cd 21       		.byte	33
+ 226 00ce FF       		.byte	-1
+ 227 00cf E1       		.byte	-31
+ 228 00d0 00       		.byte	0
+ 229 00d1 00       		.byte	0
+ 230 00d2 FF       		.byte	-1
+ARM GAS  /tmp/ccqyLwRN.s 			page 5
+
+
+ 231 00d3 E0       		.byte	-32
+ 232 00d4 00       		.byte	0
+ 233 00d5 30       		.byte	48
+ 234 00d6 FF       		.byte	-1
+ 235 00d7 E1       		.byte	-31
+ 236 00d8 00       		.byte	0
+ 237 00d9 00       		.byte	0
+ 238 00da FF       		.byte	-1
+ 239 00db E0       		.byte	-32
+ 240 00dc 00       		.byte	0
+ 241 00dd 31       		.byte	49
+ 242 00de FF       		.byte	-1
+ 243 00df E1       		.byte	-31
+ 244 00e0 04       		.byte	4
+ 245 00e1 04       		.byte	4
+ 246 00e2 FF       		.byte	-1
+ 247 00e3 E0       		.byte	-32
+ 248 00e4 00       		.byte	0
+ 249 00e5 32       		.byte	50
+ 250 00e6 FF       		.byte	-1
+ 251 00e7 E1       		.byte	-31
+ 252 00e8 00       		.byte	0
+ 253 00e9 03       		.byte	3
+ 254 00ea FF       		.byte	-1
+ 255 00eb E0       		.byte	-32
+ 256 00ec 00       		.byte	0
+ 257 00ed 35       		.byte	53
+ 258 00ee FF       		.byte	-1
+ 259 00ef E1       		.byte	-31
+ 260 00f0 04       		.byte	4
+ 261 00f1 05       		.byte	5
+ 262 00f2 FF       		.byte	-1
+ 263 00f3 E0       		.byte	-32
+ 264 00f4 00       		.byte	0
+ 265 00f5 36       		.byte	54
+ 266 00f6 FF       		.byte	-1
+ 267 00f7 E1       		.byte	-31
+ 268 00f8 08       		.byte	8
+ 269 00f9 08       		.byte	8
+ 270 00fa FF       		.byte	-1
+ 271 00fb E0       		.byte	-32
+ 272 00fc 00       		.byte	0
+ 273 00fd 37       		.byte	55
+ 274 00fe FF       		.byte	-1
+ 275 00ff E1       		.byte	-31
+ 276 0100 04       		.byte	4
+ 277 0101 07       		.byte	7
+ 278 0102 FF       		.byte	-1
+ 279 0103 E0       		.byte	-32
+ 280 0104 00       		.byte	0
+ 281 0105 38       		.byte	56
+ 282 0106 FF       		.byte	-1
+ 283 0107 E1       		.byte	-31
+ 284 0108 03       		.byte	3
+ 285 0109 03       		.byte	3
+ 286 010a FF       		.byte	-1
+ 287 010b E0       		.byte	-32
+ARM GAS  /tmp/ccqyLwRN.s 			page 6
+
+
+ 288 010c 00       		.byte	0
+ 289 010d 39       		.byte	57
+ 290 010e FF       		.byte	-1
+ 291 010f E1       		.byte	-31
+ 292 0110 07       		.byte	7
+ 293 0111 07       		.byte	7
+ 294 0112 FF       		.byte	-1
+ 295 0113 E0       		.byte	-32
+ 296 0114 00       		.byte	0
+ 297 0115 3C       		.byte	60
+ 298 0116 FF       		.byte	-1
+ 299 0117 E1       		.byte	-31
+ 300 0118 05       		.byte	5
+ 301 0119 04       		.byte	4
+ 302 011a FF       		.byte	-1
+ 303 011b E0       		.byte	-32
+ 304 011c 00       		.byte	0
+ 305 011d 3D       		.byte	61
+ 306 011e FF       		.byte	-1
+ 307 011f E1       		.byte	-31
+ 308 0120 08       		.byte	8
+ 309 0121 08       		.byte	8
+ 310 0122 FF       		.byte	-1
+ 311 0123 E0       		.byte	-32
+ 312 0124 00       		.byte	0
+ 313 0125 50       		.byte	80
+ 314 0126 FF       		.byte	-1
+ 315 0127 E1       		.byte	-31
+ 316 0128 00       		.byte	0
+ 317 0129 00       		.byte	0
+ 318 012a FF       		.byte	-1
+ 319 012b E0       		.byte	-32
+ 320 012c 00       		.byte	0
+ 321 012d 51       		.byte	81
+ 322 012e FF       		.byte	-1
+ 323 012f E1       		.byte	-31
+ 324 0130 00       		.byte	0
+ 325 0131 EF       		.byte	-17
+ 326 0132 FF       		.byte	-1
+ 327 0133 E0       		.byte	-32
+ 328 0134 00       		.byte	0
+ 329 0135 52       		.byte	82
+ 330 0136 FF       		.byte	-1
+ 331 0137 E1       		.byte	-31
+ 332 0138 00       		.byte	0
+ 333 0139 00       		.byte	0
+ 334 013a FF       		.byte	-1
+ 335 013b E0       		.byte	-32
+ 336 013c 00       		.byte	0
+ 337 013d 53       		.byte	83
+ 338 013e FF       		.byte	-1
+ 339 013f E1       		.byte	-31
+ 340 0140 01       		.byte	1
+ 341 0141 3F       		.byte	63
+ 342 0142 FF       		.byte	-1
+ 343 0143 E0       		.byte	-32
+ 344 0144 00       		.byte	0
+ARM GAS  /tmp/ccqyLwRN.s 			page 7
+
+
+ 345 0145 60       		.byte	96
+ 346 0146 FF       		.byte	-1
+ 347 0147 E1       		.byte	-31
+ 348 0148 A7       		.byte	-89
+ 349 0149 00       		.byte	0
+ 350 014a FF       		.byte	-1
+ 351 014b E0       		.byte	-32
+ 352 014c 00       		.byte	0
+ 353 014d 61       		.byte	97
+ 354 014e FF       		.byte	-1
+ 355 014f E1       		.byte	-31
+ 356 0150 00       		.byte	0
+ 357 0151 01       		.byte	1
+ 358 0152 FF       		.byte	-1
+ 359 0153 E0       		.byte	-32
+ 360 0154 00       		.byte	0
+ 361 0155 6A       		.byte	106
+ 362 0156 FF       		.byte	-1
+ 363 0157 E1       		.byte	-31
+ 364 0158 00       		.byte	0
+ 365 0159 00       		.byte	0
+ 366 015a FF       		.byte	-1
+ 367 015b E0       		.byte	-32
+ 368 015c 00       		.byte	0
+ 369 015d 80       		.byte	-128
+ 370 015e FF       		.byte	-1
+ 371 015f E1       		.byte	-31
+ 372 0160 00       		.byte	0
+ 373 0161 00       		.byte	0
+ 374 0162 FF       		.byte	-1
+ 375 0163 E0       		.byte	-32
+ 376 0164 00       		.byte	0
+ 377 0165 81       		.byte	-127
+ 378 0166 FF       		.byte	-1
+ 379 0167 E1       		.byte	-31
+ 380 0168 00       		.byte	0
+ 381 0169 00       		.byte	0
+ 382 016a FF       		.byte	-1
+ 383 016b E0       		.byte	-32
+ 384 016c 00       		.byte	0
+ 385 016d 82       		.byte	-126
+ 386 016e FF       		.byte	-1
+ 387 016f E1       		.byte	-31
+ 388 0170 00       		.byte	0
+ 389 0171 00       		.byte	0
+ 390 0172 FF       		.byte	-1
+ 391 0173 E0       		.byte	-32
+ 392 0174 00       		.byte	0
+ 393 0175 83       		.byte	-125
+ 394 0176 FF       		.byte	-1
+ 395 0177 E1       		.byte	-31
+ 396 0178 00       		.byte	0
+ 397 0179 00       		.byte	0
+ 398 017a FF       		.byte	-1
+ 399 017b E0       		.byte	-32
+ 400 017c 00       		.byte	0
+ 401 017d 84       		.byte	-124
+ARM GAS  /tmp/ccqyLwRN.s 			page 8
+
+
+ 402 017e FF       		.byte	-1
+ 403 017f E1       		.byte	-31
+ 404 0180 00       		.byte	0
+ 405 0181 00       		.byte	0
+ 406 0182 FF       		.byte	-1
+ 407 0183 E0       		.byte	-32
+ 408 0184 00       		.byte	0
+ 409 0185 85       		.byte	-123
+ 410 0186 FF       		.byte	-1
+ 411 0187 E1       		.byte	-31
+ 412 0188 00       		.byte	0
+ 413 0189 00       		.byte	0
+ 414 018a FF       		.byte	-1
+ 415 018b E0       		.byte	-32
+ 416 018c 00       		.byte	0
+ 417 018d 90       		.byte	-112
+ 418 018e FF       		.byte	-1
+ 419 018f E1       		.byte	-31
+ 420 0190 00       		.byte	0
+ 421 0191 10       		.byte	16
+ 422 0192 FF       		.byte	-1
+ 423 0193 E0       		.byte	-32
+ 424 0194 00       		.byte	0
+ 425 0195 92       		.byte	-110
+ 426 0196 FF       		.byte	-1
+ 427 0197 E1       		.byte	-31
+ 428 0198 00       		.byte	0
+ 429 0199 00       		.byte	0
+ 430 019a FF       		.byte	-1
+ 431 019b E0       		.byte	-32
+ 432 019c 00       		.byte	0
+ 433 019d 07       		.byte	7
+ 434 019e FF       		.byte	-1
+ 435 019f E1       		.byte	-31
+ 436 01a0 01       		.byte	1
+ 437 01a1 33       		.byte	51
+ 438 01a2 FF       		.byte	-1
+ 439 01a3 0A       		.byte	10
+ 440 01a4 FF       		.byte	-1
+ 441 01a5 E0       		.byte	-32
+ 442 01a6 00       		.byte	0
+ 443 01a7 20       		.byte	32
+ 444 01a8 FF       		.byte	-1
+ 445 01a9 E1       		.byte	-31
+ 446 01aa 00       		.byte	0
+ 447 01ab 00       		.byte	0
+ 448 01ac FF       		.byte	-1
+ 449 01ad E0       		.byte	-32
+ 450 01ae 00       		.byte	0
+ 451 01af 21       		.byte	33
+ 452 01b0 FF       		.byte	-1
+ 453 01b1 E1       		.byte	-31
+ 454 01b2 00       		.byte	0
+ 455 01b3 10       		.byte	16
+ 456 01b4 FF       		.byte	-1
+ 457 01b5 E0       		.byte	-32
+ 458 01b6 00       		.byte	0
+ARM GAS  /tmp/ccqyLwRN.s 			page 9
+
+
+ 459 01b7 22       		.byte	34
+ 460 01b8 FF       		.byte	-1
+ 461 01b9 E1       		.byte	-31
+ 462 01ba FE       		.byte	-2
+ 463 01bb FE       		.byte	-2
+ 464 01bc 00       		.byte	0
+ 465 01bd 00       		.byte	0
+ 466 01be FE       		.byte	-2
+ 467 01bf FE       		.byte	-2
+ 468 01c0 00       		.byte	0
+ 469 01c1 00       		.byte	0
+ 470 01c2 FE       		.byte	-2
+ 471 01c3 FE       		.byte	-2
+ 472 01c4 00       		.byte	0
+ 473 01c5 00       		.byte	0
+ 474 01c6 FE       		.byte	-2
+ 475 01c7 FE       		.byte	-2
+ 476 01c8 00       		.byte	0
+ 477 01c9 00       		.byte	0
+ 478 01ca FE       		.byte	-2
+ 479 01cb FE       		.byte	-2
+ 480 01cc 00       		.byte	0
+ 481 01cd 00       		.byte	0
+ 482 01ce FE       		.byte	-2
+ 483 01cf FE       		.byte	-2
+ 484 01d0 00       		.byte	0
+ 485 01d1 00       		.byte	0
+ 486 01d2 FE       		.byte	-2
+ 487 01d3 FE       		.byte	-2
+ 488 01d4 00       		.byte	0
+ 489 01d5 00       		.byte	0
+ 490 01d6 FE       		.byte	-2
+ 491 01d7 FE       		.byte	-2
+ 492 01d8 00       		.byte	0
+ 493 01d9 00       		.byte	0
+ 494 01da FE       		.byte	-2
+ 495 01db FE       		.byte	-2
+ 496 01dc FF       		.byte	-1
+ 497 01dd D0       		.byte	-48
+ 498 01de FF       		.byte	-1
+ 499 01df FE       		.byte	-2
+ 500              		.section	.rodata.u8g_dev_ili9325d_320x240_page_seq,"a",%progbits
+ 501              		.align	2
+ 504              	u8g_dev_ili9325d_320x240_page_seq:
+ 505 0000 FF       		.byte	-1
+ 506 0001 D1       		.byte	-47
+ 507 0002 FF       		.byte	-1
+ 508 0003 E0       		.byte	-32
+ 509 0004 00       		.byte	0
+ 510 0005 20       		.byte	32
+ 511 0006 FF       		.byte	-1
+ 512 0007 E1       		.byte	-31
+ 513 0008 00       		.byte	0
+ 514 0009 00       		.byte	0
+ 515 000a FF       		.byte	-1
+ 516 000b E0       		.byte	-32
+ 517 000c 00       		.byte	0
+ARM GAS  /tmp/ccqyLwRN.s 			page 10
+
+
+ 518 000d 21       		.byte	33
+ 519 000e FF       		.byte	-1
+ 520 000f E1       		.byte	-31
+ 521 0010 FF       		.byte	-1
+ 522 0011 FE       		.byte	-2
+ 523              		.section	.text.u8g_dev_ili9325d_get_65K_high_byte,"ax",%progbits
+ 524              		.align	1
+ 525              		.syntax unified
+ 526              		.code	16
+ 527              		.thumb_func
+ 528              		.fpu softvfp
+ 530              	u8g_dev_ili9325d_get_65K_high_byte:
+ 531              	.LFB0:
+ 532              		.file 1 "Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c"
+   1:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+   3:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   u8g_dev_ili9325d_320x240.c
+   4:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+   5:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+   7:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   Copyright (c) 2011, olikraus@gmail.com
+   8:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  10:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  13:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     
+  16:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  20:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  34:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   Color format
+  35:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     Red: 5 Bit
+  36:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     Green: 6 Bit
+  37:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     Blue: 5 Bit
+  38:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+  39:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     
+  40:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** */
+  41:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  42:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #include "u8g.h"
+  43:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ARM GAS  /tmp/ccqyLwRN.s 			page 11
+
+
+  44:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #define WIDTH 240
+  45:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  46:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #if defined(U8G_16BIT)
+  47:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #define HEIGHT 320
+  48:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #else
+  49:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** /* if the user tries to compile the 8Bit version of the lib, then restrict the height to something 
+  50:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #define HEIGHT 240
+  51:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #endif
+  52:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** #define PAGE_HEIGHT 4
+  53:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  54:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  55:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** /*
+  56:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   reference board for this device:
+  57:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     http://iteadstudio.com/store/index.php?main_page=product_info&cPath=57_58&products_id=55
+  58:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   documentation:
+  59:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     http://iteadstudio.com/Downloadfile/ITDB02_material.rar
+  60:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   datasheet
+  61:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     http://www.newhavendisplay.com/app_notes/ILI9325D.pdf
+  62:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   other libs
+  63:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     http://henningkarlsen.com/electronics/library.php
+  64:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   init sequence
+  65:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     http://code.google.com/p/itdb02/, ITDB02.cpp, iteadstudio.com
+  66:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** */
+  67:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  68:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** static const uint8_t u8g_dev_ili9325d_320x240_init_seq[] PROGMEM = {
+  69:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_CS(0),             /* disable chip */
+  70:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+  71:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_RST(15),           /* do reset low pulse with (15*16)+2 milliseconds (=maximum delay)*/
+  72:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+  73:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_RST(15),           /* do reset low pulse with (15*16)+2 milliseconds (=maximum delay)*/
+  74:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+  75:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_CS(1),             /* enable chip */
+  76:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+  77:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  78:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+  79:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   //U8G_ESC_ADR(0),  0x000, 0x0E5,               /* only used for none D version: set SRAM internal
+  80:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   //U8G_ESC_ADR(1),  0x078, 0x0f0,             
+  81:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x001,               /* Driver Output Control, bits 8 & 10 */
+  82:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x001, 0x000,           
+  83:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x002,               /* LCD Driving Wave Control, bit 9: Set line inversi
+  84:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x002, 0x000,               /* ITDB02 none D verion: 0x007, 0x000 */        
+  85:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x003,               /* Entry Mode, GRAM write direction and BGR=1 */
+  86:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x010, 0x030,           
+  87:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x004,               /* Resize register */
+  88:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,           
+  89:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x008,               /* Display Control 2: set the back porch and front p
+  90:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x002, 0x007,           
+  91:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+  92:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x009,               /* Display Control 3 */
+  93:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,           
+  94:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+  95:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x00a,               /* Display Control 4: FMARK */
+  96:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,           
+  97:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x00c,               /* RGB Display Interface Control 1 */
+  98:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,           
+  99:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x00d,               /* Frame Maker Position */
+ 100:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,           
+ARM GAS  /tmp/ccqyLwRN.s 			page 12
+
+
+ 101:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x00f,                /* RGB Display Interface Control 2 */
+ 102:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,  
+ 103:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x010,               /* Power Control 1: SAP, BT[3:0], AP, DSTB, SLP, STB
+ 104:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,  
+ 105:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x011,               /* Power Control 2: DC1[2:0], DC0[2:0], VC[2:0] */
+ 106:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x007,  
+ 107:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x012,               /* Power Control 3: VREG1OUT voltage */
+ 108:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,  
+ 109:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x013,               /* Power Control 4: VDV[4:0] for VCOM amplitude */
+ 110:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,  
+ 111:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x007,               /* Display Control 1: Operate, but do not display */
+ 112:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x001,   
+ 113:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 114:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */  /*  ITDB02 none D verion:  50ms */
+ 115:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+ 116:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 117:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x010,               /* Power Control 1: SAP, BT[3:0], AP, DSTB, SLP, STB
+ 118:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x016, 0x090,               /*  ITDB02 none D verion:  0x010, 0x090 */
+ 119:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x011,               /* Power Control 2: SAP, BT[3:0], AP, DSTB, SLP, STB
+ 120:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x002, 0x027,
+ 121:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 122:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+ 123:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 124:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x012,               /* Power Control 3: VCI: External, VCI*1.80 */
+ 125:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x00d,               /*  ITDB02 none D verion:  0x000, 0x01f */
+ 126:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 127:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+ 128:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 129:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x013,               /* Power Control 4: VDV[4:0] for VCOM amplitude */
+ 130:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x012, 0x000,               /*  ITDB02 none D verion:  0x015, 0x000 */
+ 131:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x029,               /* Power Control 7 */
+ 132:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x00a,               /*  ITDB02 none D verion:  0x000, 0x027 */
+ 133:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x02b,               /* Frame Rate: 83 */
+ 134:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x00d,
+ 135:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 136:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+ 137:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 138:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x020,               /* Horizontal GRAM Address Set */
+ 139:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 140:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x021,               /* Vertical GRAM Address Set */
+ 141:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 142:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 143:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   /* gamma control */
+ 144:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x030,               
+ 145:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 146:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x031,
+ 147:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x004, 0x004,
+ 148:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x032,
+ 149:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x003,
+ 150:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x035,               
+ 151:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x004, 0x005,
+ 152:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x036,               
+ 153:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x008, 0x008,
+ 154:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x037,               
+ 155:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x004, 0x007,
+ 156:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x038,               
+ 157:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x003, 0x003,
+ARM GAS  /tmp/ccqyLwRN.s 			page 13
+
+
+ 158:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x039,               
+ 159:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x007, 0x007,
+ 160:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x03c,               
+ 161:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x005, 0x004,
+ 162:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x03d,               
+ 163:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x008, 0x008,
+ 164:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 165:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x050,               /* Horizontal GRAM Start Address */
+ 166:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 167:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x051,               /* Horizontal GRAM End Address: 239 */
+ 168:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x0EF,
+ 169:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x052,               /* Vertical GRAM Start Address */
+ 170:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 171:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x053,               /* Vertical GRAM End Address: 319 */
+ 172:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x001, 0x03F,
+ 173:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 174:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x060,               /* Driver Output Control 2 */
+ 175:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x0a7, 0x000,
+ 176:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x061,               /* Base Image Display Control: NDL,VLE, REV */
+ 177:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x001,
+ 178:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x06a,               /* Vertical Scroll Control */
+ 179:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 180:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 181:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x080,               /* Partial Image 1 Display Position */
+ 182:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 183:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x081,               /* Partial Image 1 RAM Start Address */
+ 184:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 185:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x082,               /* Partial Image 1 RAM End Address */
+ 186:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 187:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x083,               /* Partial Image 2 Display Position */
+ 188:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 189:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x084,               /* Partial Image 2 RAM Start Address */
+ 190:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 191:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x085,               /* Partial Image 2 RAM End Address */
+ 192:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 193:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 194:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x090,               /* Panel Interface Control 1 */
+ 195:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x010,
+ 196:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x092,               /* Panel Interface Control 2 */
+ 197:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,        /* 0x006, 0x000 */
+ 198:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 199:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x007,               /* Display Control 1: Operate, display ON */
+ 200:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x001, 0x033,   
+ 201:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 202:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_DLY(10),               /* delay 10 ms */
+ 203:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 204:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   /* write test pattern */  
+ 205:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x020,               /* Horizontal GRAM Address Set */
+ 206:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 207:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x021,               /* Vertical GRAM Address Set */
+ 208:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x010,
+ 209:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x022,               /* Write Data to GRAM */
+ 210:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x0fe, 0x0fe,
+ 211:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 212:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 213:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 214:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ARM GAS  /tmp/ccqyLwRN.s 			page 14
+
+
+ 215:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 216:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 217:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 218:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 219:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 220:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 221:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 222:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 223:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 224:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 225:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x000, 0x000,
+ 226:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   0x0fe, 0x0fe,
+ 227:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 228:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 229:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_END                /* end of sequence */
+ 230:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** };
+ 231:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 232:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 233:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** static const uint8_t u8g_dev_ili9325d_320x240_page_seq[] PROGMEM = {
+ 234:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 235:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x020,               /* Horizontal GRAM Address Set */
+ 236:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1),  0x000, 0x000,
+ 237:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(0),  0x000, 0x021,               /* Vertical GRAM Address Set */
+ 238:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_ADR(1), 
+ 239:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   U8G_ESC_END                /* end of sequence */
+ 240:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** };
+ 241:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 242:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** /* convert the internal RGB 332 to 65K high byte */
+ 243:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** static uint8_t u8g_dev_ili9325d_get_65K_high_byte(uint8_t color)
+ 244:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** {
+ 533              		.loc 1 244 0
+ 534              		.cfi_startproc
+ 535 0000 80B5     		push	{r7, lr}
+ 536              	.LCFI0:
+ 537              		.cfi_def_cfa_offset 8
+ 538              		.cfi_offset 7, -8
+ 539              		.cfi_offset 14, -4
+ 540 0002 84B0     		sub	sp, sp, #16
+ 541              	.LCFI1:
+ 542              		.cfi_def_cfa_offset 24
+ 543 0004 00AF     		add	r7, sp, #0
+ 544              	.LCFI2:
+ 545              		.cfi_def_cfa_register 7
+ 546 0006 0200     		movs	r2, r0
+ 547 0008 FB1D     		adds	r3, r7, #7
+ 548 000a 1A70     		strb	r2, [r3]
+ 245:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   uint8_t h;
+ 246:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   h = color;
+ 549              		.loc 1 246 0
+ 550 000c 0F23     		movs	r3, #15
+ 551 000e FB18     		adds	r3, r7, r3
+ 552 0010 FA1D     		adds	r2, r7, #7
+ 553 0012 1278     		ldrb	r2, [r2]
+ 554 0014 1A70     		strb	r2, [r3]
+ 247:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   h &= 0x0e0;
+ 555              		.loc 1 247 0
+ 556 0016 0F23     		movs	r3, #15
+ARM GAS  /tmp/ccqyLwRN.s 			page 15
+
+
+ 557 0018 FB18     		adds	r3, r7, r3
+ 558 001a 0F22     		movs	r2, #15
+ 559 001c BA18     		adds	r2, r7, r2
+ 560 001e 1278     		ldrb	r2, [r2]
+ 561 0020 1F21     		movs	r1, #31
+ 562 0022 8A43     		bics	r2, r1
+ 563 0024 1A70     		strb	r2, [r3]
+ 248:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   h |= h>>3;
+ 564              		.loc 1 248 0
+ 565 0026 0F23     		movs	r3, #15
+ 566 0028 FB18     		adds	r3, r7, r3
+ 567 002a 1B78     		ldrb	r3, [r3]
+ 568 002c DB08     		lsrs	r3, r3, #3
+ 569 002e D9B2     		uxtb	r1, r3
+ 570 0030 0F23     		movs	r3, #15
+ 571 0032 FB18     		adds	r3, r7, r3
+ 572 0034 0F22     		movs	r2, #15
+ 573 0036 BA18     		adds	r2, r7, r2
+ 574 0038 1278     		ldrb	r2, [r2]
+ 575 003a 0A43     		orrs	r2, r1
+ 576 003c 1A70     		strb	r2, [r3]
+ 249:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   h &= 0x0f8;
+ 577              		.loc 1 249 0
+ 578 003e 0F23     		movs	r3, #15
+ 579 0040 FB18     		adds	r3, r7, r3
+ 580 0042 0F22     		movs	r2, #15
+ 581 0044 BA18     		adds	r2, r7, r2
+ 582 0046 1278     		ldrb	r2, [r2]
+ 583 0048 0721     		movs	r1, #7
+ 584 004a 8A43     		bics	r2, r1
+ 585 004c 1A70     		strb	r2, [r3]
+ 250:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   color>>=2;
+ 586              		.loc 1 250 0
+ 587 004e FB1D     		adds	r3, r7, #7
+ 588 0050 FA1D     		adds	r2, r7, #7
+ 589 0052 1278     		ldrb	r2, [r2]
+ 590 0054 9208     		lsrs	r2, r2, #2
+ 591 0056 1A70     		strb	r2, [r3]
+ 251:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   color &= 7;
+ 592              		.loc 1 251 0
+ 593 0058 FB1D     		adds	r3, r7, #7
+ 594 005a FA1D     		adds	r2, r7, #7
+ 595 005c 1278     		ldrb	r2, [r2]
+ 596 005e 0721     		movs	r1, #7
+ 597 0060 0A40     		ands	r2, r1
+ 598 0062 1A70     		strb	r2, [r3]
+ 252:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   h |= color;
+ 599              		.loc 1 252 0
+ 600 0064 0F23     		movs	r3, #15
+ 601 0066 FB18     		adds	r3, r7, r3
+ 602 0068 0F22     		movs	r2, #15
+ 603 006a B918     		adds	r1, r7, r2
+ 604 006c FA1D     		adds	r2, r7, #7
+ 605 006e 0978     		ldrb	r1, [r1]
+ 606 0070 1278     		ldrb	r2, [r2]
+ 607 0072 0A43     		orrs	r2, r1
+ 608 0074 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccqyLwRN.s 			page 16
+
+
+ 253:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   return h;  
+ 609              		.loc 1 253 0
+ 610 0076 0F23     		movs	r3, #15
+ 611 0078 FB18     		adds	r3, r7, r3
+ 612 007a 1B78     		ldrb	r3, [r3]
+ 254:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** }
+ 613              		.loc 1 254 0
+ 614 007c 1800     		movs	r0, r3
+ 615 007e BD46     		mov	sp, r7
+ 616 0080 04B0     		add	sp, sp, #16
+ 617              		@ sp needed
+ 618 0082 80BD     		pop	{r7, pc}
+ 619              		.cfi_endproc
+ 620              	.LFE0:
+ 622              		.section	.text.u8g_dev_ili9325d_get_65K_low_byte,"ax",%progbits
+ 623              		.align	1
+ 624              		.syntax unified
+ 625              		.code	16
+ 626              		.thumb_func
+ 627              		.fpu softvfp
+ 629              	u8g_dev_ili9325d_get_65K_low_byte:
+ 630              	.LFB1:
+ 255:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 256:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** /* convert the internal RGB 332 to 65K high byte */
+ 257:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** static uint8_t u8g_dev_ili9325d_get_65K_low_byte(uint8_t color)
+ 258:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** {
+ 631              		.loc 1 258 0
+ 632              		.cfi_startproc
+ 633 0000 80B5     		push	{r7, lr}
+ 634              	.LCFI3:
+ 635              		.cfi_def_cfa_offset 8
+ 636              		.cfi_offset 7, -8
+ 637              		.cfi_offset 14, -4
+ 638 0002 84B0     		sub	sp, sp, #16
+ 639              	.LCFI4:
+ 640              		.cfi_def_cfa_offset 24
+ 641 0004 00AF     		add	r7, sp, #0
+ 642              	.LCFI5:
+ 643              		.cfi_def_cfa_register 7
+ 644 0006 0200     		movs	r2, r0
+ 645 0008 FB1D     		adds	r3, r7, #7
+ 646 000a 1A70     		strb	r2, [r3]
+ 259:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   uint8_t l;
+ 260:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   l = color;
+ 647              		.loc 1 260 0
+ 648 000c 0F23     		movs	r3, #15
+ 649 000e FB18     		adds	r3, r7, r3
+ 650 0010 FA1D     		adds	r2, r7, #7
+ 651 0012 1278     		ldrb	r2, [r2]
+ 652 0014 1A70     		strb	r2, [r3]
+ 261:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   l <<= 3;
+ 653              		.loc 1 261 0
+ 654 0016 0F23     		movs	r3, #15
+ 655 0018 FB18     		adds	r3, r7, r3
+ 656 001a 0F22     		movs	r2, #15
+ 657 001c BA18     		adds	r2, r7, r2
+ 658 001e 1278     		ldrb	r2, [r2]
+ARM GAS  /tmp/ccqyLwRN.s 			page 17
+
+
+ 659 0020 D200     		lsls	r2, r2, #3
+ 660 0022 1A70     		strb	r2, [r3]
+ 262:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   color &= 3;
+ 661              		.loc 1 262 0
+ 662 0024 FB1D     		adds	r3, r7, #7
+ 663 0026 FA1D     		adds	r2, r7, #7
+ 664 0028 1278     		ldrb	r2, [r2]
+ 665 002a 0321     		movs	r1, #3
+ 666 002c 0A40     		ands	r2, r1
+ 667 002e 1A70     		strb	r2, [r3]
+ 263:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   color <<= 1;
+ 668              		.loc 1 263 0
+ 669 0030 FA1D     		adds	r2, r7, #7
+ 670 0032 FB1D     		adds	r3, r7, #7
+ 671 0034 1B78     		ldrb	r3, [r3]
+ 672 0036 DB18     		adds	r3, r3, r3
+ 673 0038 1370     		strb	r3, [r2]
+ 264:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   l |= color;
+ 674              		.loc 1 264 0
+ 675 003a 0F23     		movs	r3, #15
+ 676 003c FB18     		adds	r3, r7, r3
+ 677 003e 0F22     		movs	r2, #15
+ 678 0040 B918     		adds	r1, r7, r2
+ 679 0042 FA1D     		adds	r2, r7, #7
+ 680 0044 0978     		ldrb	r1, [r1]
+ 681 0046 1278     		ldrb	r2, [r2]
+ 682 0048 0A43     		orrs	r2, r1
+ 683 004a 1A70     		strb	r2, [r3]
+ 265:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   return l;  
+ 684              		.loc 1 265 0
+ 685 004c 0F23     		movs	r3, #15
+ 686 004e FB18     		adds	r3, r7, r3
+ 687 0050 1B78     		ldrb	r3, [r3]
+ 266:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** }
+ 688              		.loc 1 266 0
+ 689 0052 1800     		movs	r0, r3
+ 690 0054 BD46     		mov	sp, r7
+ 691 0056 04B0     		add	sp, sp, #16
+ 692              		@ sp needed
+ 693 0058 80BD     		pop	{r7, pc}
+ 694              		.cfi_endproc
+ 695              	.LFE1:
+ 697              		.section	.text.u8g_dev_ili9325d_320x240_fn,"ax",%progbits
+ 698              		.align	1
+ 699              		.global	u8g_dev_ili9325d_320x240_fn
+ 700              		.syntax unified
+ 701              		.code	16
+ 702              		.thumb_func
+ 703              		.fpu softvfp
+ 705              	u8g_dev_ili9325d_320x240_fn:
+ 706              	.LFB2:
+ 267:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 268:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 269:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** uint8_t u8g_dev_ili9325d_320x240_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 270:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** {
+ 707              		.loc 1 270 0
+ 708              		.cfi_startproc
+ARM GAS  /tmp/ccqyLwRN.s 			page 18
+
+
+ 709 0000 90B5     		push	{r4, r7, lr}
+ 710              	.LCFI6:
+ 711              		.cfi_def_cfa_offset 12
+ 712              		.cfi_offset 4, -12
+ 713              		.cfi_offset 7, -8
+ 714              		.cfi_offset 14, -4
+ 715 0002 89B0     		sub	sp, sp, #36
+ 716              	.LCFI7:
+ 717              		.cfi_def_cfa_offset 48
+ 718 0004 00AF     		add	r7, sp, #0
+ 719              	.LCFI8:
+ 720              		.cfi_def_cfa_register 7
+ 721 0006 F860     		str	r0, [r7, #12]
+ 722 0008 B960     		str	r1, [r7, #8]
+ 723 000a 3B60     		str	r3, [r7]
+ 724 000c FB1D     		adds	r3, r7, #7
+ 725 000e 1A70     		strb	r2, [r3]
+ 271:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   
+ 272:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   switch(msg)
+ 726              		.loc 1 272 0
+ 727 0010 FB1D     		adds	r3, r7, #7
+ 728 0012 1B78     		ldrb	r3, [r3]
+ 729 0014 0B2B     		cmp	r3, #11
+ 730 0016 00D1     		bne	.LCB175
+ 731 0018 9EE0     		b	.L15	@long jump
+ 732              	.LCB175:
+ 733 001a 152B     		cmp	r3, #21
+ 734 001c 0FD0     		beq	.L8
+ 735 001e 0A2B     		cmp	r3, #10
+ 736 0020 00D0     		beq	.LCB179
+ 737 0022 9AE0     		b	.L6	@long jump
+ 738              	.LCB179:
+ 273:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   {
+ 274:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     case U8G_DEV_MSG_INIT:
+ 275:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_50NS);
+ 739              		.loc 1 275 0
+ 740 0024 B968     		ldr	r1, [r7, #8]
+ 741 0026 FB68     		ldr	r3, [r7, #12]
+ 742 0028 0122     		movs	r2, #1
+ 743 002a 1800     		movs	r0, r3
+ 744 002c FFF7FEFF 		bl	u8g_InitCom
+ 276:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       //for(;;)
+ 277:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_ili9325d_320x240_init_seq);
+ 745              		.loc 1 277 0
+ 746 0030 504A     		ldr	r2, .L16
+ 747 0032 B968     		ldr	r1, [r7, #8]
+ 748 0034 FB68     		ldr	r3, [r7, #12]
+ 749 0036 1800     		movs	r0, r3
+ 750 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 278:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     
+ 279:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       break;
+ 751              		.loc 1 279 0
+ 752 003c 8DE0     		b	.L6
+ 753              	.L8:
+ 754              	.LBB2:
+ 280:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     case U8G_DEV_MSG_STOP:
+ 281:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       break;
+ARM GAS  /tmp/ccqyLwRN.s 			page 19
+
+
+ 282:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 283:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       {
+ 284:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         uint8_t i;
+ 285:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         uint16_t y, j;
+ 286:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         uint8_t *ptr;
+ 287:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 755              		.loc 1 287 0
+ 756 003e BB68     		ldr	r3, [r7, #8]
+ 757 0040 5B68     		ldr	r3, [r3, #4]
+ 758 0042 3B61     		str	r3, [r7, #16]
+ 288:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         
+ 289:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         y = pb->p.page_y0;
+ 759              		.loc 1 289 0
+ 760 0044 3B69     		ldr	r3, [r7, #16]
+ 761 0046 9A78     		ldrb	r2, [r3, #2]
+ 762 0048 1C23     		movs	r3, #28
+ 763 004a FB18     		adds	r3, r7, r3
+ 764 004c 1A80     		strh	r2, [r3]
+ 290:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         ptr = pb->buf;
+ 765              		.loc 1 290 0
+ 766 004e 3B69     		ldr	r3, [r7, #16]
+ 767 0050 9B68     		ldr	r3, [r3, #8]
+ 768 0052 7B61     		str	r3, [r7, #20]
+ 291:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         for( i = 0; i < pb->p.page_height; i ++ )
+ 769              		.loc 1 291 0
+ 770 0054 1F23     		movs	r3, #31
+ 771 0056 FB18     		adds	r3, r7, r3
+ 772 0058 0022     		movs	r2, #0
+ 773 005a 1A70     		strb	r2, [r3]
+ 774 005c 6EE0     		b	.L10
+ 775              	.L13:
+ 292:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         {
+ 293:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_WriteEscSeqP(u8g, dev, u8g_dev_ili9325d_320x240_page_seq);
+ 776              		.loc 1 293 0
+ 777 005e 464A     		ldr	r2, .L16+4
+ 778 0060 B968     		ldr	r1, [r7, #8]
+ 779 0062 FB68     		ldr	r3, [r7, #12]
+ 780 0064 1800     		movs	r0, r3
+ 781 0066 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 294:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_WriteByte(u8g, dev, y >> 8 );      /* display ram (cursor) address high byte */
+ 782              		.loc 1 294 0
+ 783 006a 1C23     		movs	r3, #28
+ 784 006c FB18     		adds	r3, r7, r3
+ 785 006e 1B88     		ldrh	r3, [r3]
+ 786 0070 1B0A     		lsrs	r3, r3, #8
+ 787 0072 9BB2     		uxth	r3, r3
+ 788 0074 DAB2     		uxtb	r2, r3
+ 789 0076 B968     		ldr	r1, [r7, #8]
+ 790 0078 FB68     		ldr	r3, [r7, #12]
+ 791 007a 1800     		movs	r0, r3
+ 792 007c FFF7FEFF 		bl	u8g_WriteByte
+ 295:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_WriteByte(u8g, dev, y & 255 );      /* display ram (cursor) address low byte */
+ 793              		.loc 1 295 0
+ 794 0080 1C23     		movs	r3, #28
+ 795 0082 FB18     		adds	r3, r7, r3
+ 796 0084 1B88     		ldrh	r3, [r3]
+ 797 0086 DAB2     		uxtb	r2, r3
+ARM GAS  /tmp/ccqyLwRN.s 			page 20
+
+
+ 798 0088 B968     		ldr	r1, [r7, #8]
+ 799 008a FB68     		ldr	r3, [r7, #12]
+ 800 008c 1800     		movs	r0, r3
+ 801 008e FFF7FEFF 		bl	u8g_WriteByte
+ 296:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** 
+ 297:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_SetAddress(u8g, dev, 0);           /* cmd mode */
+ 802              		.loc 1 297 0
+ 803 0092 B968     		ldr	r1, [r7, #8]
+ 804 0094 FB68     		ldr	r3, [r7, #12]
+ 805 0096 0022     		movs	r2, #0
+ 806 0098 1800     		movs	r0, r3
+ 807 009a FFF7FEFF 		bl	u8g_SetAddress
+ 298:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_WriteByte(u8g, dev, 0 );  
+ 808              		.loc 1 298 0
+ 809 009e B968     		ldr	r1, [r7, #8]
+ 810 00a0 FB68     		ldr	r3, [r7, #12]
+ 811 00a2 0022     		movs	r2, #0
+ 812 00a4 1800     		movs	r0, r3
+ 813 00a6 FFF7FEFF 		bl	u8g_WriteByte
+ 299:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_WriteByte(u8g, dev, 0x022 );      /* start gram data */  
+ 814              		.loc 1 299 0
+ 815 00aa B968     		ldr	r1, [r7, #8]
+ 816 00ac FB68     		ldr	r3, [r7, #12]
+ 817 00ae 2222     		movs	r2, #34
+ 818 00b0 1800     		movs	r0, r3
+ 819 00b2 FFF7FEFF 		bl	u8g_WriteByte
+ 300:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           
+ 301:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 820              		.loc 1 301 0
+ 821 00b6 B968     		ldr	r1, [r7, #8]
+ 822 00b8 FB68     		ldr	r3, [r7, #12]
+ 823 00ba 0122     		movs	r2, #1
+ 824 00bc 1800     		movs	r0, r3
+ 825 00be FFF7FEFF 		bl	u8g_SetAddress
+ 302:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           
+ 303:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           for( j = 0; j < pb->width; j++ )
+ 826              		.loc 1 303 0
+ 827 00c2 1A23     		movs	r3, #26
+ 828 00c4 FB18     		adds	r3, r7, r3
+ 829 00c6 0022     		movs	r2, #0
+ 830 00c8 1A80     		strh	r2, [r3]
+ 831 00ca 21E0     		b	.L11
+ 832              	.L12:
+ 304:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           {
+ 305:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****             u8g_WriteByte(u8g, dev, u8g_dev_ili9325d_get_65K_high_byte(*ptr) );  
+ 833              		.loc 1 305 0 discriminator 3
+ 834 00cc 7B69     		ldr	r3, [r7, #20]
+ 835 00ce 1B78     		ldrb	r3, [r3]
+ 836 00d0 1800     		movs	r0, r3
+ 837 00d2 FFF7FEFF 		bl	u8g_dev_ili9325d_get_65K_high_byte
+ 838 00d6 0300     		movs	r3, r0
+ 839 00d8 1A00     		movs	r2, r3
+ 840 00da B968     		ldr	r1, [r7, #8]
+ 841 00dc FB68     		ldr	r3, [r7, #12]
+ 842 00de 1800     		movs	r0, r3
+ 843 00e0 FFF7FEFF 		bl	u8g_WriteByte
+ 306:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****             u8g_WriteByte(u8g, dev, u8g_dev_ili9325d_get_65K_low_byte(*ptr) );  
+ARM GAS  /tmp/ccqyLwRN.s 			page 21
+
+
+ 844              		.loc 1 306 0 discriminator 3
+ 845 00e4 7B69     		ldr	r3, [r7, #20]
+ 846 00e6 1B78     		ldrb	r3, [r3]
+ 847 00e8 1800     		movs	r0, r3
+ 848 00ea FFF7FEFF 		bl	u8g_dev_ili9325d_get_65K_low_byte
+ 849 00ee 0300     		movs	r3, r0
+ 850 00f0 1A00     		movs	r2, r3
+ 851 00f2 B968     		ldr	r1, [r7, #8]
+ 852 00f4 FB68     		ldr	r3, [r7, #12]
+ 853 00f6 1800     		movs	r0, r3
+ 854 00f8 FFF7FEFF 		bl	u8g_WriteByte
+ 307:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****               
+ 308:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****             ptr++;
+ 855              		.loc 1 308 0 discriminator 3
+ 856 00fc 7B69     		ldr	r3, [r7, #20]
+ 857 00fe 0133     		adds	r3, r3, #1
+ 858 0100 7B61     		str	r3, [r7, #20]
+ 303:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           {
+ 859              		.loc 1 303 0 discriminator 3
+ 860 0102 1A23     		movs	r3, #26
+ 861 0104 FB18     		adds	r3, r7, r3
+ 862 0106 1A88     		ldrh	r2, [r3]
+ 863 0108 1A23     		movs	r3, #26
+ 864 010a FB18     		adds	r3, r7, r3
+ 865 010c 0132     		adds	r2, r2, #1
+ 866 010e 1A80     		strh	r2, [r3]
+ 867              	.L11:
+ 303:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           {
+ 868              		.loc 1 303 0 is_stmt 0 discriminator 1
+ 869 0110 3B69     		ldr	r3, [r7, #16]
+ 870 0112 5B79     		ldrb	r3, [r3, #5]
+ 871 0114 9BB2     		uxth	r3, r3
+ 872 0116 1A22     		movs	r2, #26
+ 873 0118 BA18     		adds	r2, r7, r2
+ 874 011a 1288     		ldrh	r2, [r2]
+ 875 011c 9A42     		cmp	r2, r3
+ 876 011e D5D3     		bcc	.L12
+ 309:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           }
+ 310:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****           y++;
+ 877              		.loc 1 310 0 is_stmt 1 discriminator 2
+ 878 0120 1C23     		movs	r3, #28
+ 879 0122 FB18     		adds	r3, r7, r3
+ 880 0124 1A88     		ldrh	r2, [r3]
+ 881 0126 1C23     		movs	r3, #28
+ 882 0128 FB18     		adds	r3, r7, r3
+ 883 012a 0132     		adds	r2, r2, #1
+ 884 012c 1A80     		strh	r2, [r3]
+ 291:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         {
+ 885              		.loc 1 291 0 discriminator 2
+ 886 012e 1F23     		movs	r3, #31
+ 887 0130 FB18     		adds	r3, r7, r3
+ 888 0132 1A78     		ldrb	r2, [r3]
+ 889 0134 1F23     		movs	r3, #31
+ 890 0136 FB18     		adds	r3, r7, r3
+ 891 0138 0132     		adds	r2, r2, #1
+ 892 013a 1A70     		strb	r2, [r3]
+ 893              	.L10:
+ARM GAS  /tmp/ccqyLwRN.s 			page 22
+
+
+ 291:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         {
+ 894              		.loc 1 291 0 is_stmt 0 discriminator 1
+ 895 013c 3B69     		ldr	r3, [r7, #16]
+ 896 013e 1B78     		ldrb	r3, [r3]
+ 897 0140 1F22     		movs	r2, #31
+ 898 0142 BA18     		adds	r2, r7, r2
+ 899 0144 1278     		ldrb	r2, [r2]
+ 900 0146 9A42     		cmp	r2, r3
+ 901 0148 89D3     		bcc	.L13
+ 311:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         }
+ 312:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 902              		.loc 1 312 0 is_stmt 1
+ 903 014a B968     		ldr	r1, [r7, #8]
+ 904 014c FB68     		ldr	r3, [r7, #12]
+ 905 014e 0022     		movs	r2, #0
+ 906 0150 1800     		movs	r0, r3
+ 907 0152 FFF7FEFF 		bl	u8g_SetChipSelect
+ 908              	.LBE2:
+ 313:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       }
+ 314:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****       break;
+ 909              		.loc 1 314 0
+ 910 0156 00E0     		b	.L6
+ 911              	.L15:
+ 281:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 912              		.loc 1 281 0
+ 913 0158 C046     		nop
+ 914              	.L6:
+ 315:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   }
+ 316:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c ****   return u8g_dev_pb8h8_base_fn(u8g, dev, msg, arg);
+ 915              		.loc 1 316 0
+ 916 015a 3C68     		ldr	r4, [r7]
+ 917 015c FB1D     		adds	r3, r7, #7
+ 918 015e 1A78     		ldrb	r2, [r3]
+ 919 0160 B968     		ldr	r1, [r7, #8]
+ 920 0162 F868     		ldr	r0, [r7, #12]
+ 921 0164 2300     		movs	r3, r4
+ 922 0166 FFF7FEFF 		bl	u8g_dev_pb8h8_base_fn
+ 923 016a 0300     		movs	r3, r0
+ 317:Drivers/u8glib/src/u8g_dev_ili9325d_320x240.c **** }
+ 924              		.loc 1 317 0
+ 925 016c 1800     		movs	r0, r3
+ 926 016e BD46     		mov	sp, r7
+ 927 0170 09B0     		add	sp, sp, #36
+ 928              		@ sp needed
+ 929 0172 90BD     		pop	{r4, r7, pc}
+ 930              	.L17:
+ 931              		.align	2
+ 932              	.L16:
+ 933 0174 00000000 		.word	u8g_dev_ili9325d_320x240_init_seq
+ 934 0178 00000000 		.word	u8g_dev_ili9325d_320x240_page_seq
+ 935              		.cfi_endproc
+ 936              	.LFE2:
+ 938              		.global	u8g_ili9325d_320x240_8h8_buf
+ 939              		.section	.bss.u8g_ili9325d_320x240_8h8_buf,"aw",%nobits
+ 940              		.align	2
+ 943              	u8g_ili9325d_320x240_8h8_buf:
+ 944 0000 00000000 		.space	960
+ARM GAS  /tmp/ccqyLwRN.s 			page 23
+
+
+ 944      00000000 
+ 944      00000000 
+ 944      00000000 
+ 944      00000000 
+ 945              		.global	u8g_ili9325d_320x240_8h8_pb
+ 946              		.section	.data.u8g_ili9325d_320x240_8h8_pb,"aw",%progbits
+ 947              		.align	2
+ 950              	u8g_ili9325d_320x240_8h8_pb:
+ 951 0000 04       		.byte	4
+ 952 0001 F0       		.byte	-16
+ 953 0002 00       		.byte	0
+ 954 0003 00       		.byte	0
+ 955 0004 00       		.byte	0
+ 956 0005 F0       		.byte	-16
+ 957 0006 0000     		.space	2
+ 958 0008 00000000 		.word	u8g_ili9325d_320x240_8h8_buf
+ 959              		.global	u8g_dev_ili9325d_320x240_8bit
+ 960              		.section	.data.u8g_dev_ili9325d_320x240_8bit,"aw",%progbits
+ 961              		.align	2
+ 964              	u8g_dev_ili9325d_320x240_8bit:
+ 965 0000 00000000 		.word	u8g_dev_ili9325d_320x240_fn
+ 966 0004 00000000 		.word	u8g_ili9325d_320x240_8h8_pb
+ 967 0008 00000000 		.word	u8g_com_arduino_port_d_wr_fn
+ 968              		.text
+ 969              	.Letext0:
+ 970              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 971              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 972              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccqyLwRN.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_ili9325d_320x240.c
+     /tmp/ccqyLwRN.s:16     .rodata.u8g_dev_ili9325d_320x240_init_seq:0000000000000000 $d
+     /tmp/ccqyLwRN.s:19     .rodata.u8g_dev_ili9325d_320x240_init_seq:0000000000000000 u8g_dev_ili9325d_320x240_init_seq
+     /tmp/ccqyLwRN.s:501    .rodata.u8g_dev_ili9325d_320x240_page_seq:0000000000000000 $d
+     /tmp/ccqyLwRN.s:504    .rodata.u8g_dev_ili9325d_320x240_page_seq:0000000000000000 u8g_dev_ili9325d_320x240_page_seq
+     /tmp/ccqyLwRN.s:524    .text.u8g_dev_ili9325d_get_65K_high_byte:0000000000000000 $t
+     /tmp/ccqyLwRN.s:530    .text.u8g_dev_ili9325d_get_65K_high_byte:0000000000000000 u8g_dev_ili9325d_get_65K_high_byte
+     /tmp/ccqyLwRN.s:623    .text.u8g_dev_ili9325d_get_65K_low_byte:0000000000000000 $t
+     /tmp/ccqyLwRN.s:629    .text.u8g_dev_ili9325d_get_65K_low_byte:0000000000000000 u8g_dev_ili9325d_get_65K_low_byte
+     /tmp/ccqyLwRN.s:698    .text.u8g_dev_ili9325d_320x240_fn:0000000000000000 $t
+     /tmp/ccqyLwRN.s:705    .text.u8g_dev_ili9325d_320x240_fn:0000000000000000 u8g_dev_ili9325d_320x240_fn
+     /tmp/ccqyLwRN.s:933    .text.u8g_dev_ili9325d_320x240_fn:0000000000000174 $d
+     /tmp/ccqyLwRN.s:943    .bss.u8g_ili9325d_320x240_8h8_buf:0000000000000000 u8g_ili9325d_320x240_8h8_buf
+     /tmp/ccqyLwRN.s:940    .bss.u8g_ili9325d_320x240_8h8_buf:0000000000000000 $d
+     /tmp/ccqyLwRN.s:950    .data.u8g_ili9325d_320x240_8h8_pb:0000000000000000 u8g_ili9325d_320x240_8h8_pb
+     /tmp/ccqyLwRN.s:947    .data.u8g_ili9325d_320x240_8h8_pb:0000000000000000 $d
+     /tmp/ccqyLwRN.s:964    .data.u8g_dev_ili9325d_320x240_8bit:0000000000000000 u8g_dev_ili9325d_320x240_8bit
+     /tmp/ccqyLwRN.s:961    .data.u8g_dev_ili9325d_320x240_8bit:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_SetChipSelect
+u8g_dev_pb8h8_base_fn
+u8g_com_arduino_port_d_wr_fn

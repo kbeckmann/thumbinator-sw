@@ -1,0 +1,601 @@
+ARM GAS  /tmp/cclmLq3l.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_ssd1309_128x64.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_ssd1309_128x64_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_ssd1309_128x64_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 C1       		.byte	-63
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 FD       		.byte	-3
+  29 0009 12       		.byte	18
+  30 000a AE       		.byte	-82
+  31 000b D5       		.byte	-43
+  32 000c A0       		.byte	-96
+  33 000d A8       		.byte	-88
+  34 000e 3F       		.byte	63
+  35 000f 3D       		.byte	61
+  36 0010 00       		.byte	0
+  37 0011 40       		.byte	64
+  38 0012 A1       		.byte	-95
+  39 0013 C8       		.byte	-56
+  40 0014 DA       		.byte	-38
+  41 0015 12       		.byte	18
+  42 0016 81       		.byte	-127
+  43 0017 DF       		.byte	-33
+  44 0018 D9       		.byte	-39
+  45 0019 82       		.byte	-126
+  46 001a DB       		.byte	-37
+  47 001b 34       		.byte	52
+  48 001c A4       		.byte	-92
+  49 001d A6       		.byte	-90
+  50 001e FF       		.byte	-1
+  51 001f BF       		.byte	-65
+  52 0020 FF       		.byte	-1
+  53 0021 32       		.byte	50
+  54 0022 AF       		.byte	-81
+  55 0023 FF       		.byte	-1
+  56 0024 32       		.byte	50
+  57 0025 FF       		.byte	-1
+  58 0026 D0       		.byte	-48
+  59 0027 FF       		.byte	-1
+ARM GAS  /tmp/cclmLq3l.s 			page 2
+
+
+  60 0028 FE       		.byte	-2
+  61              		.section	.rodata.u8g_dev_ssd1309_128x64_data_start,"a",%progbits
+  62              		.align	2
+  65              	u8g_dev_ssd1309_128x64_data_start:
+  66 0000 FF       		.byte	-1
+  67 0001 E0       		.byte	-32
+  68 0002 FF       		.byte	-1
+  69 0003 D1       		.byte	-47
+  70 0004 10       		.byte	16
+  71 0005 00       		.byte	0
+  72 0006 FF       		.byte	-1
+  73 0007 FE       		.byte	-2
+  74              		.section	.rodata.u8g_dev_ssd13xx_sleep_on,"a",%progbits
+  75              		.align	2
+  78              	u8g_dev_ssd13xx_sleep_on:
+  79 0000 FF       		.byte	-1
+  80 0001 E0       		.byte	-32
+  81 0002 FF       		.byte	-1
+  82 0003 D1       		.byte	-47
+  83 0004 AE       		.byte	-82
+  84 0005 FF       		.byte	-1
+  85 0006 D0       		.byte	-48
+  86 0007 FF       		.byte	-1
+  87 0008 FE       		.byte	-2
+  88              		.section	.rodata.u8g_dev_ssd13xx_sleep_off,"a",%progbits
+  89              		.align	2
+  92              	u8g_dev_ssd13xx_sleep_off:
+  93 0000 FF       		.byte	-1
+  94 0001 E0       		.byte	-32
+  95 0002 FF       		.byte	-1
+  96 0003 D1       		.byte	-47
+  97 0004 AF       		.byte	-81
+  98 0005 FF       		.byte	-1
+  99 0006 32       		.byte	50
+ 100 0007 FF       		.byte	-1
+ 101 0008 D0       		.byte	-48
+ 102 0009 FF       		.byte	-1
+ 103 000a FE       		.byte	-2
+ 104              		.section	.text.u8g_dev_ssd1309_128x64_fn,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	u8g_dev_ssd1309_128x64_fn
+ 107              		.syntax unified
+ 108              		.code	16
+ 109              		.thumb_func
+ 110              		.fpu softvfp
+ 112              	u8g_dev_ssd1309_128x64_fn:
+ 113              	.LFB0:
+ 114              		.file 1 "Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c"
+   1:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+   3:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   u8g_dev_ssd1309_128x64.c
+   4:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+   5:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   
+   7:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   Copyright (c) 2012, olikraus@gmail.com
+   8:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+ARM GAS  /tmp/cclmLq3l.s 			page 3
+
+
+  10:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  13:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     
+  16:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  20:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   
+  34:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   
+  35:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** */
+  36:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  37:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** #include "u8g.h"
+  38:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  39:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** #define WIDTH 128
+  40:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** #define HEIGHT 64
+  41:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** #define PAGE_HEIGHT 8
+  42:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  43:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  44:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** /* ssd1309 ini sequence*/
+  45:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** static const uint8_t u8g_dev_ssd1309_128x64_init_seq[] PROGMEM={
+  46:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_CS(0),             /* disable chip */
+  47:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_ADR(0),           /* instruction mode */
+  48:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  49:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_CS(1),             /* enable chip */
+  50:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	
+  51:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xfd,0x12,		/*Command Lock */
+  52:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xae,			/*Set Display Off */
+  53:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xd5,0xa0,		/*set Display Clock Divide Ratio/Oscillator Frequency */
+  54:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xa8,0x3f,		/*Set Multiplex Ratio */
+  55:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0x3d,0x00,		/*Set Display Offset*/
+  56:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0x40,			/*Set Display Start Line*/
+  57:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xa1,			/*Set Segment Re-Map*/
+  58:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xc8,			/*Set COM Output Scan Direction*/
+  59:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xda,0x12,		/*Set COM Pins Hardware Configuration*/
+  60:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0x81,0xdf,		/*Set Current Control */
+  61:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xd9,0x82,		/*Set Pre-Charge Period */
+  62:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xdb,0x34,		/*Set VCOMH Deselect Level */
+  63:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xa4,			/*Set Entire Display On/Off */
+  64:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xa6,			/*Set Normal/Inverse Display*/
+  65:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_VCC(1),	/*Power up VCC & Stabilized */
+  66:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_DLY(50),
+ARM GAS  /tmp/cclmLq3l.s 			page 4
+
+
+  67:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	0xaf,			/*Set Display On */
+  68:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_DLY(50),
+  69:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_CS(0),             /* disable chip */
+  70:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 	U8G_ESC_END                /* end of sequence */
+  71:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** };
+  72:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  73:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** /* select one init sequence here */
+  74:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   #define u8g_dev_ssd1309_128x64_init_seq u8g_dev_ssd1309_128x64_init_seq
+  75:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   
+  76:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   
+  77:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****  static const uint8_t u8g_dev_ssd1309_128x64_data_start[] PROGMEM = {
+  78:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  79:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_CS(1),             /* enable chip */
+  80:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   0x010,		/* set upper 4 bit of the col adr to 0 */
+  81:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   0x000,		/* set lower 4 bit of the col adr to 4  */
+  82:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_END                /* end of sequence */
+  83:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** };
+  84:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  85:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** static const uint8_t u8g_dev_ssd13xx_sleep_on[] PROGMEM = {
+  86:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  87:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_CS(1),             /* enable chip */
+  88:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   0x0ae,		/* display off */      
+  89:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_CS(0),             /* disable chip */
+  90:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_END                /* end of sequence */
+  91:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** };
+  92:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+  93:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** static const uint8_t u8g_dev_ssd13xx_sleep_off[] PROGMEM = {
+  94:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  95:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_CS(1),             /* enable chip */
+  96:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   0x0af,		/* display on */      
+  97:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_DLY(50),       /* delay 50 ms */
+  98:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_CS(0),             /* disable chip */
+  99:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   U8G_ESC_END                /* end of sequence */
+ 100:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** };
+ 101:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** 
+ 102:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** uint8_t u8g_dev_ssd1309_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 103:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** {
+ 115              		.loc 1 103 0
+ 116              		.cfi_startproc
+ 117 0000 90B5     		push	{r4, r7, lr}
+ 118              	.LCFI0:
+ 119              		.cfi_def_cfa_offset 12
+ 120              		.cfi_offset 4, -12
+ 121              		.cfi_offset 7, -8
+ 122              		.cfi_offset 14, -4
+ 123 0002 87B0     		sub	sp, sp, #28
+ 124              	.LCFI1:
+ 125              		.cfi_def_cfa_offset 40
+ 126 0004 00AF     		add	r7, sp, #0
+ 127              	.LCFI2:
+ 128              		.cfi_def_cfa_register 7
+ 129 0006 F860     		str	r0, [r7, #12]
+ 130 0008 B960     		str	r1, [r7, #8]
+ 131 000a 3B60     		str	r3, [r7]
+ 132 000c FB1D     		adds	r3, r7, #7
+ 133 000e 1A70     		strb	r2, [r3]
+ 104:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   switch(msg)
+ARM GAS  /tmp/cclmLq3l.s 			page 5
+
+
+ 134              		.loc 1 104 0
+ 135 0010 FB1D     		adds	r3, r7, #7
+ 136 0012 1B78     		ldrb	r3, [r3]
+ 137 0014 0A3B     		subs	r3, r3, #10
+ 138 0016 0B2B     		cmp	r3, #11
+ 139 0018 6DD8     		bhi	.L2
+ 140 001a 9A00     		lsls	r2, r3, #2
+ 141 001c 3C4B     		ldr	r3, .L12
+ 142 001e D318     		adds	r3, r2, r3
+ 143 0020 1B68     		ldr	r3, [r3]
+ 144 0022 9F46     		mov	pc, r3
+ 145              		.section	.rodata.u8g_dev_ssd1309_128x64_fn,"a",%progbits
+ 146              		.align	2
+ 147              	.L4:
+ 148 0000 24000000 		.word	.L3
+ 149 0004 F6000000 		.word	.L2
+ 150 0008 F6000000 		.word	.L2
+ 151 000c F6000000 		.word	.L2
+ 152 0010 F6000000 		.word	.L2
+ 153 0014 94000000 		.word	.L6
+ 154 0018 D6000000 		.word	.L7
+ 155 001c E6000000 		.word	.L8
+ 156 0020 F6000000 		.word	.L2
+ 157 0024 F6000000 		.word	.L2
+ 158 0028 F6000000 		.word	.L2
+ 159 002c 3E000000 		.word	.L9
+ 160              		.section	.text.u8g_dev_ssd1309_128x64_fn
+ 161              	.L3:
+ 105:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   {
+ 106:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     case U8G_DEV_MSG_INIT:
+ 107:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 162              		.loc 1 107 0
+ 163 0024 B968     		ldr	r1, [r7, #8]
+ 164 0026 FB68     		ldr	r3, [r7, #12]
+ 165 0028 0222     		movs	r2, #2
+ 166 002a 1800     		movs	r0, r3
+ 167 002c FFF7FEFF 		bl	u8g_InitCom
+ 108:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd1309_128x64_init_seq);
+ 168              		.loc 1 108 0
+ 169 0030 384A     		ldr	r2, .L12+4
+ 170 0032 B968     		ldr	r1, [r7, #8]
+ 171 0034 FB68     		ldr	r3, [r7, #12]
+ 172 0036 1800     		movs	r0, r3
+ 173 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 109:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       break;
+ 174              		.loc 1 109 0
+ 175 003c 5BE0     		b	.L2
+ 176              	.L9:
+ 177              	.LBB2:
+ 110:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     case U8G_DEV_MSG_STOP:
+ 111:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       break;
+ 112:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 113:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       {
+ 114:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 178              		.loc 1 114 0
+ 179 003e BB68     		ldr	r3, [r7, #8]
+ 180 0040 5B68     		ldr	r3, [r3, #4]
+ARM GAS  /tmp/cclmLq3l.s 			page 6
+
+
+ 181 0042 7B61     		str	r3, [r7, #20]
+ 115:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd1309_128x64_data_start);    
+ 182              		.loc 1 115 0
+ 183 0044 344A     		ldr	r2, .L12+8
+ 184 0046 B968     		ldr	r1, [r7, #8]
+ 185 0048 FB68     		ldr	r3, [r7, #12]
+ 186 004a 1800     		movs	r0, r3
+ 187 004c FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 116:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | pb->p.page); /* select current page (SSD1306) */
+ 188              		.loc 1 116 0
+ 189 0050 7B69     		ldr	r3, [r7, #20]
+ 190 0052 1B79     		ldrb	r3, [r3, #4]
+ 191 0054 5022     		movs	r2, #80
+ 192 0056 5242     		rsbs	r2, r2, #0
+ 193 0058 1343     		orrs	r3, r2
+ 194 005a DAB2     		uxtb	r2, r3
+ 195 005c B968     		ldr	r1, [r7, #8]
+ 196 005e FB68     		ldr	r3, [r7, #12]
+ 197 0060 1800     		movs	r0, r3
+ 198 0062 FFF7FEFF 		bl	u8g_WriteByte
+ 117:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 199              		.loc 1 117 0
+ 200 0066 B968     		ldr	r1, [r7, #8]
+ 201 0068 FB68     		ldr	r3, [r7, #12]
+ 202 006a 0122     		movs	r2, #1
+ 203 006c 1800     		movs	r0, r3
+ 204 006e FFF7FEFF 		bl	u8g_SetAddress
+ 118:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 205              		.loc 1 118 0
+ 206 0072 BA68     		ldr	r2, [r7, #8]
+ 207 0074 F968     		ldr	r1, [r7, #12]
+ 208 0076 7B69     		ldr	r3, [r7, #20]
+ 209 0078 1800     		movs	r0, r3
+ 210 007a FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 211 007e 031E     		subs	r3, r0, #0
+ 212 0080 01D1     		bne	.L10
+ 119:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****           return 0;
+ 213              		.loc 1 119 0
+ 214 0082 0023     		movs	r3, #0
+ 215 0084 40E0     		b	.L11
+ 216              	.L10:
+ 120:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 217              		.loc 1 120 0
+ 218 0086 B968     		ldr	r1, [r7, #8]
+ 219 0088 FB68     		ldr	r3, [r7, #12]
+ 220 008a 0022     		movs	r2, #0
+ 221 008c 1800     		movs	r0, r3
+ 222 008e FFF7FEFF 		bl	u8g_SetChipSelect
+ 223              	.LBE2:
+ 121:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       }
+ 122:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       break;
+ 224              		.loc 1 122 0
+ 225 0092 30E0     		b	.L2
+ 226              	.L6:
+ 123:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     case U8G_DEV_MSG_CONTRAST:
+ 124:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 227              		.loc 1 124 0
+ARM GAS  /tmp/cclmLq3l.s 			page 7
+
+
+ 228 0094 B968     		ldr	r1, [r7, #8]
+ 229 0096 FB68     		ldr	r3, [r7, #12]
+ 230 0098 0122     		movs	r2, #1
+ 231 009a 1800     		movs	r0, r3
+ 232 009c FFF7FEFF 		bl	u8g_SetChipSelect
+ 125:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 233              		.loc 1 125 0
+ 234 00a0 B968     		ldr	r1, [r7, #8]
+ 235 00a2 FB68     		ldr	r3, [r7, #12]
+ 236 00a4 0022     		movs	r2, #0
+ 237 00a6 1800     		movs	r0, r3
+ 238 00a8 FFF7FEFF 		bl	u8g_SetAddress
+ 126:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 239              		.loc 1 126 0
+ 240 00ac B968     		ldr	r1, [r7, #8]
+ 241 00ae FB68     		ldr	r3, [r7, #12]
+ 242 00b0 8122     		movs	r2, #129
+ 243 00b2 1800     		movs	r0, r3
+ 244 00b4 FFF7FEFF 		bl	u8g_WriteByte
+ 127:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) ); /* 11 Jul 2015: fixed contrast calculation */
+ 245              		.loc 1 127 0
+ 246 00b8 3B68     		ldr	r3, [r7]
+ 247 00ba 1A78     		ldrb	r2, [r3]
+ 248 00bc B968     		ldr	r1, [r7, #8]
+ 249 00be FB68     		ldr	r3, [r7, #12]
+ 250 00c0 1800     		movs	r0, r3
+ 251 00c2 FFF7FEFF 		bl	u8g_WriteByte
+ 128:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 252              		.loc 1 128 0
+ 253 00c6 B968     		ldr	r1, [r7, #8]
+ 254 00c8 FB68     		ldr	r3, [r7, #12]
+ 255 00ca 0022     		movs	r2, #0
+ 256 00cc 1800     		movs	r0, r3
+ 257 00ce FFF7FEFF 		bl	u8g_SetChipSelect
+ 129:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       return 1; 
+ 258              		.loc 1 129 0
+ 259 00d2 0123     		movs	r3, #1
+ 260 00d4 18E0     		b	.L11
+ 261              	.L7:
+ 130:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 131:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd13xx_sleep_on);    
+ 262              		.loc 1 131 0
+ 263 00d6 114A     		ldr	r2, .L12+12
+ 264 00d8 B968     		ldr	r1, [r7, #8]
+ 265 00da FB68     		ldr	r3, [r7, #12]
+ 266 00dc 1800     		movs	r0, r3
+ 267 00de FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 132:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       return 1;
+ 268              		.loc 1 132 0
+ 269 00e2 0123     		movs	r3, #1
+ 270 00e4 10E0     		b	.L11
+ 271              	.L8:
+ 133:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 134:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd13xx_sleep_off);    
+ 272              		.loc 1 134 0
+ 273 00e6 0E4A     		ldr	r2, .L12+16
+ 274 00e8 B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/cclmLq3l.s 			page 8
+
+
+ 275 00ea FB68     		ldr	r3, [r7, #12]
+ 276 00ec 1800     		movs	r0, r3
+ 277 00ee FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 135:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****       return 1;
+ 278              		.loc 1 135 0
+ 279 00f2 0123     		movs	r3, #1
+ 280 00f4 08E0     		b	.L11
+ 281              	.L2:
+ 136:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   }
+ 137:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 282              		.loc 1 137 0
+ 283 00f6 3C68     		ldr	r4, [r7]
+ 284 00f8 FB1D     		adds	r3, r7, #7
+ 285 00fa 1A78     		ldrb	r2, [r3]
+ 286 00fc B968     		ldr	r1, [r7, #8]
+ 287 00fe F868     		ldr	r0, [r7, #12]
+ 288 0100 2300     		movs	r3, r4
+ 289 0102 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 290 0106 0300     		movs	r3, r0
+ 291              	.L11:
+ 138:Drivers/u8glib/src/u8g_dev_ssd1309_128x64.c **** }
+ 292              		.loc 1 138 0
+ 293 0108 1800     		movs	r0, r3
+ 294 010a BD46     		mov	sp, r7
+ 295 010c 07B0     		add	sp, sp, #28
+ 296              		@ sp needed
+ 297 010e 90BD     		pop	{r4, r7, pc}
+ 298              	.L13:
+ 299              		.align	2
+ 300              	.L12:
+ 301 0110 00000000 		.word	.L4
+ 302 0114 00000000 		.word	u8g_dev_ssd1309_128x64_init_seq
+ 303 0118 00000000 		.word	u8g_dev_ssd1309_128x64_data_start
+ 304 011c 00000000 		.word	u8g_dev_ssd13xx_sleep_on
+ 305 0120 00000000 		.word	u8g_dev_ssd13xx_sleep_off
+ 306              		.cfi_endproc
+ 307              	.LFE0:
+ 309              		.global	u8g_dev_ssd1309_128x64_hw_spi_buf
+ 310              		.section	.bss.u8g_dev_ssd1309_128x64_hw_spi_buf,"aw",%nobits
+ 311              		.align	2
+ 314              	u8g_dev_ssd1309_128x64_hw_spi_buf:
+ 315 0000 00000000 		.space	128
+ 315      00000000 
+ 315      00000000 
+ 315      00000000 
+ 315      00000000 
+ 316              		.global	u8g_dev_ssd1309_128x64_hw_spi_pb
+ 317              		.section	.data.u8g_dev_ssd1309_128x64_hw_spi_pb,"aw",%progbits
+ 318              		.align	2
+ 321              	u8g_dev_ssd1309_128x64_hw_spi_pb:
+ 322 0000 08       		.byte	8
+ 323 0001 40       		.byte	64
+ 324 0002 00       		.byte	0
+ 325 0003 00       		.byte	0
+ 326 0004 00       		.byte	0
+ 327 0005 80       		.byte	-128
+ 328 0006 0000     		.space	2
+ARM GAS  /tmp/cclmLq3l.s 			page 9
+
+
+ 329 0008 00000000 		.word	u8g_dev_ssd1309_128x64_hw_spi_buf
+ 330              		.global	u8g_dev_ssd1309_128x64_hw_spi
+ 331              		.section	.data.u8g_dev_ssd1309_128x64_hw_spi,"aw",%progbits
+ 332              		.align	2
+ 335              	u8g_dev_ssd1309_128x64_hw_spi:
+ 336 0000 00000000 		.word	u8g_dev_ssd1309_128x64_fn
+ 337 0004 00000000 		.word	u8g_dev_ssd1309_128x64_hw_spi_pb
+ 338 0008 00000000 		.word	u8g_com_null_fn
+ 339              		.global	u8g_dev_ssd1309_128x64_sw_spi_buf
+ 340              		.section	.bss.u8g_dev_ssd1309_128x64_sw_spi_buf,"aw",%nobits
+ 341              		.align	2
+ 344              	u8g_dev_ssd1309_128x64_sw_spi_buf:
+ 345 0000 00000000 		.space	128
+ 345      00000000 
+ 345      00000000 
+ 345      00000000 
+ 345      00000000 
+ 346              		.global	u8g_dev_ssd1309_128x64_sw_spi_pb
+ 347              		.section	.data.u8g_dev_ssd1309_128x64_sw_spi_pb,"aw",%progbits
+ 348              		.align	2
+ 351              	u8g_dev_ssd1309_128x64_sw_spi_pb:
+ 352 0000 08       		.byte	8
+ 353 0001 40       		.byte	64
+ 354 0002 00       		.byte	0
+ 355 0003 00       		.byte	0
+ 356 0004 00       		.byte	0
+ 357 0005 80       		.byte	-128
+ 358 0006 0000     		.space	2
+ 359 0008 00000000 		.word	u8g_dev_ssd1309_128x64_sw_spi_buf
+ 360              		.global	u8g_dev_ssd1309_128x64_sw_spi
+ 361              		.section	.data.u8g_dev_ssd1309_128x64_sw_spi,"aw",%progbits
+ 362              		.align	2
+ 365              	u8g_dev_ssd1309_128x64_sw_spi:
+ 366 0000 00000000 		.word	u8g_dev_ssd1309_128x64_fn
+ 367 0004 00000000 		.word	u8g_dev_ssd1309_128x64_sw_spi_pb
+ 368 0008 00000000 		.word	u8g_com_null_fn
+ 369              		.global	u8g_dev_ssd1309_128x64_i2c_buf
+ 370              		.section	.bss.u8g_dev_ssd1309_128x64_i2c_buf,"aw",%nobits
+ 371              		.align	2
+ 374              	u8g_dev_ssd1309_128x64_i2c_buf:
+ 375 0000 00000000 		.space	128
+ 375      00000000 
+ 375      00000000 
+ 375      00000000 
+ 375      00000000 
+ 376              		.global	u8g_dev_ssd1309_128x64_i2c_pb
+ 377              		.section	.data.u8g_dev_ssd1309_128x64_i2c_pb,"aw",%progbits
+ 378              		.align	2
+ 381              	u8g_dev_ssd1309_128x64_i2c_pb:
+ 382 0000 08       		.byte	8
+ 383 0001 40       		.byte	64
+ 384 0002 00       		.byte	0
+ 385 0003 00       		.byte	0
+ 386 0004 00       		.byte	0
+ 387 0005 80       		.byte	-128
+ 388 0006 0000     		.space	2
+ 389 0008 00000000 		.word	u8g_dev_ssd1309_128x64_i2c_buf
+ARM GAS  /tmp/cclmLq3l.s 			page 10
+
+
+ 390              		.global	u8g_dev_ssd1309_128x64_i2c
+ 391              		.section	.data.u8g_dev_ssd1309_128x64_i2c,"aw",%progbits
+ 392              		.align	2
+ 395              	u8g_dev_ssd1309_128x64_i2c:
+ 396 0000 00000000 		.word	u8g_dev_ssd1309_128x64_fn
+ 397 0004 00000000 		.word	u8g_dev_ssd1309_128x64_i2c_pb
+ 398 0008 00000000 		.word	u8g_com_null_fn
+ 399              		.text
+ 400              	.Letext0:
+ 401              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 402              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 403              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cclmLq3l.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_ssd1309_128x64.c
+     /tmp/cclmLq3l.s:16     .rodata.u8g_dev_ssd1309_128x64_init_seq:0000000000000000 $d
+     /tmp/cclmLq3l.s:19     .rodata.u8g_dev_ssd1309_128x64_init_seq:0000000000000000 u8g_dev_ssd1309_128x64_init_seq
+     /tmp/cclmLq3l.s:62     .rodata.u8g_dev_ssd1309_128x64_data_start:0000000000000000 $d
+     /tmp/cclmLq3l.s:65     .rodata.u8g_dev_ssd1309_128x64_data_start:0000000000000000 u8g_dev_ssd1309_128x64_data_start
+     /tmp/cclmLq3l.s:75     .rodata.u8g_dev_ssd13xx_sleep_on:0000000000000000 $d
+     /tmp/cclmLq3l.s:78     .rodata.u8g_dev_ssd13xx_sleep_on:0000000000000000 u8g_dev_ssd13xx_sleep_on
+     /tmp/cclmLq3l.s:89     .rodata.u8g_dev_ssd13xx_sleep_off:0000000000000000 $d
+     /tmp/cclmLq3l.s:92     .rodata.u8g_dev_ssd13xx_sleep_off:0000000000000000 u8g_dev_ssd13xx_sleep_off
+     /tmp/cclmLq3l.s:105    .text.u8g_dev_ssd1309_128x64_fn:0000000000000000 $t
+     /tmp/cclmLq3l.s:112    .text.u8g_dev_ssd1309_128x64_fn:0000000000000000 u8g_dev_ssd1309_128x64_fn
+     /tmp/cclmLq3l.s:146    .rodata.u8g_dev_ssd1309_128x64_fn:0000000000000000 $d
+     /tmp/cclmLq3l.s:301    .text.u8g_dev_ssd1309_128x64_fn:0000000000000110 $d
+     /tmp/cclmLq3l.s:314    .bss.u8g_dev_ssd1309_128x64_hw_spi_buf:0000000000000000 u8g_dev_ssd1309_128x64_hw_spi_buf
+     /tmp/cclmLq3l.s:311    .bss.u8g_dev_ssd1309_128x64_hw_spi_buf:0000000000000000 $d
+     /tmp/cclmLq3l.s:321    .data.u8g_dev_ssd1309_128x64_hw_spi_pb:0000000000000000 u8g_dev_ssd1309_128x64_hw_spi_pb
+     /tmp/cclmLq3l.s:318    .data.u8g_dev_ssd1309_128x64_hw_spi_pb:0000000000000000 $d
+     /tmp/cclmLq3l.s:335    .data.u8g_dev_ssd1309_128x64_hw_spi:0000000000000000 u8g_dev_ssd1309_128x64_hw_spi
+     /tmp/cclmLq3l.s:332    .data.u8g_dev_ssd1309_128x64_hw_spi:0000000000000000 $d
+     /tmp/cclmLq3l.s:344    .bss.u8g_dev_ssd1309_128x64_sw_spi_buf:0000000000000000 u8g_dev_ssd1309_128x64_sw_spi_buf
+     /tmp/cclmLq3l.s:341    .bss.u8g_dev_ssd1309_128x64_sw_spi_buf:0000000000000000 $d
+     /tmp/cclmLq3l.s:351    .data.u8g_dev_ssd1309_128x64_sw_spi_pb:0000000000000000 u8g_dev_ssd1309_128x64_sw_spi_pb
+     /tmp/cclmLq3l.s:348    .data.u8g_dev_ssd1309_128x64_sw_spi_pb:0000000000000000 $d
+     /tmp/cclmLq3l.s:365    .data.u8g_dev_ssd1309_128x64_sw_spi:0000000000000000 u8g_dev_ssd1309_128x64_sw_spi
+     /tmp/cclmLq3l.s:362    .data.u8g_dev_ssd1309_128x64_sw_spi:0000000000000000 $d
+     /tmp/cclmLq3l.s:374    .bss.u8g_dev_ssd1309_128x64_i2c_buf:0000000000000000 u8g_dev_ssd1309_128x64_i2c_buf
+     /tmp/cclmLq3l.s:371    .bss.u8g_dev_ssd1309_128x64_i2c_buf:0000000000000000 $d
+     /tmp/cclmLq3l.s:381    .data.u8g_dev_ssd1309_128x64_i2c_pb:0000000000000000 u8g_dev_ssd1309_128x64_i2c_pb
+     /tmp/cclmLq3l.s:378    .data.u8g_dev_ssd1309_128x64_i2c_pb:0000000000000000 $d
+     /tmp/cclmLq3l.s:395    .data.u8g_dev_ssd1309_128x64_i2c:0000000000000000 u8g_dev_ssd1309_128x64_i2c
+     /tmp/cclmLq3l.s:392    .data.u8g_dev_ssd1309_128x64_i2c:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8v1_base_fn
+u8g_com_null_fn

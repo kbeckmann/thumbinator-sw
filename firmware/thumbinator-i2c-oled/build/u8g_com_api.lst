@@ -1,0 +1,924 @@
+ARM GAS  /tmp/ccPyCqU5.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_com_api.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_InitCom,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_InitCom
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_InitCom:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_com_api.c"
+   1:Drivers/u8glib/src/u8g_com_api.c **** /*
+   2:Drivers/u8glib/src/u8g_com_api.c **** 
+   3:Drivers/u8glib/src/u8g_com_api.c ****   u8g_com_api.c
+   4:Drivers/u8glib/src/u8g_com_api.c **** 
+   5:Drivers/u8glib/src/u8g_com_api.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_com_api.c ****   
+   7:Drivers/u8glib/src/u8g_com_api.c ****   Copyright (c) 2011, olikraus@gmail.com
+   8:Drivers/u8glib/src/u8g_com_api.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_com_api.c **** 
+  10:Drivers/u8glib/src/u8g_com_api.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_com_api.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_com_api.c **** 
+  13:Drivers/u8glib/src/u8g_com_api.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_com_api.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_com_api.c ****     
+  16:Drivers/u8glib/src/u8g_com_api.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_com_api.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_com_api.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_com_api.c **** 
+  20:Drivers/u8glib/src/u8g_com_api.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_com_api.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_com_api.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_com_api.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_com_api.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_com_api.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_com_api.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_com_api.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_com_api.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_com_api.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_com_api.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_com_api.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_com_api.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_com_api.c ****   
+ARM GAS  /tmp/ccPyCqU5.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_com_api.c ****   
+  35:Drivers/u8glib/src/u8g_com_api.c **** */
+  36:Drivers/u8glib/src/u8g_com_api.c **** 
+  37:Drivers/u8glib/src/u8g_com_api.c **** #include "u8g.h"
+  38:Drivers/u8glib/src/u8g_com_api.c **** 
+  39:Drivers/u8glib/src/u8g_com_api.c **** uint8_t u8g_InitCom(u8g_t *u8g, u8g_dev_t *dev, uint8_t clk_cycle_time)
+  40:Drivers/u8glib/src/u8g_com_api.c **** {
+  26              		.loc 1 40 0
+  27              		.cfi_startproc
+  28 0000 90B5     		push	{r4, r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 12
+  31              		.cfi_offset 4, -12
+  32              		.cfi_offset 7, -8
+  33              		.cfi_offset 14, -4
+  34 0002 85B0     		sub	sp, sp, #20
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_offset 32
+  37 0004 00AF     		add	r7, sp, #0
+  38              	.LCFI2:
+  39              		.cfi_def_cfa_register 7
+  40 0006 F860     		str	r0, [r7, #12]
+  41 0008 B960     		str	r1, [r7, #8]
+  42 000a FB1D     		adds	r3, r7, #7
+  43 000c 1A70     		strb	r2, [r3]
+  41:Drivers/u8glib/src/u8g_com_api.c ****   return dev->com_fn(u8g, U8G_COM_MSG_INIT, clk_cycle_time, NULL);
+  44              		.loc 1 41 0
+  45 000e BB68     		ldr	r3, [r7, #8]
+  46 0010 9C68     		ldr	r4, [r3, #8]
+  47 0012 FB1D     		adds	r3, r7, #7
+  48 0014 1A78     		ldrb	r2, [r3]
+  49 0016 F868     		ldr	r0, [r7, #12]
+  50 0018 0023     		movs	r3, #0
+  51 001a 0121     		movs	r1, #1
+  52 001c A047     		blx	r4
+  53              	.LVL0:
+  54 001e 0300     		movs	r3, r0
+  42:Drivers/u8glib/src/u8g_com_api.c **** }
+  55              		.loc 1 42 0
+  56 0020 1800     		movs	r0, r3
+  57 0022 BD46     		mov	sp, r7
+  58 0024 05B0     		add	sp, sp, #20
+  59              		@ sp needed
+  60 0026 90BD     		pop	{r4, r7, pc}
+  61              		.cfi_endproc
+  62              	.LFE0:
+  64              		.section	.text.u8g_StopCom,"ax",%progbits
+  65              		.align	1
+  66              		.global	u8g_StopCom
+  67              		.syntax unified
+  68              		.code	16
+  69              		.thumb_func
+  70              		.fpu softvfp
+  72              	u8g_StopCom:
+  73              	.LFB1:
+  43:Drivers/u8glib/src/u8g_com_api.c **** 
+  44:Drivers/u8glib/src/u8g_com_api.c **** void u8g_StopCom(u8g_t *u8g, u8g_dev_t *dev)
+ARM GAS  /tmp/ccPyCqU5.s 			page 3
+
+
+  45:Drivers/u8glib/src/u8g_com_api.c **** {
+  74              		.loc 1 45 0
+  75              		.cfi_startproc
+  76 0000 90B5     		push	{r4, r7, lr}
+  77              	.LCFI3:
+  78              		.cfi_def_cfa_offset 12
+  79              		.cfi_offset 4, -12
+  80              		.cfi_offset 7, -8
+  81              		.cfi_offset 14, -4
+  82 0002 83B0     		sub	sp, sp, #12
+  83              	.LCFI4:
+  84              		.cfi_def_cfa_offset 24
+  85 0004 00AF     		add	r7, sp, #0
+  86              	.LCFI5:
+  87              		.cfi_def_cfa_register 7
+  88 0006 7860     		str	r0, [r7, #4]
+  89 0008 3960     		str	r1, [r7]
+  46:Drivers/u8glib/src/u8g_com_api.c ****   dev->com_fn(u8g, U8G_COM_MSG_STOP, 0, NULL);
+  90              		.loc 1 46 0
+  91 000a 3B68     		ldr	r3, [r7]
+  92 000c 9C68     		ldr	r4, [r3, #8]
+  93 000e 7868     		ldr	r0, [r7, #4]
+  94 0010 0023     		movs	r3, #0
+  95 0012 0022     		movs	r2, #0
+  96 0014 0021     		movs	r1, #0
+  97 0016 A047     		blx	r4
+  98              	.LVL1:
+  47:Drivers/u8glib/src/u8g_com_api.c **** }
+  99              		.loc 1 47 0
+ 100 0018 C046     		nop
+ 101 001a BD46     		mov	sp, r7
+ 102 001c 03B0     		add	sp, sp, #12
+ 103              		@ sp needed
+ 104 001e 90BD     		pop	{r4, r7, pc}
+ 105              		.cfi_endproc
+ 106              	.LFE1:
+ 108              		.section	.text.u8g_SetChipSelect,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	u8g_SetChipSelect
+ 111              		.syntax unified
+ 112              		.code	16
+ 113              		.thumb_func
+ 114              		.fpu softvfp
+ 116              	u8g_SetChipSelect:
+ 117              	.LFB2:
+  48:Drivers/u8glib/src/u8g_com_api.c **** 
+  49:Drivers/u8glib/src/u8g_com_api.c **** /* cs contains the chip number, which should be enabled */
+  50:Drivers/u8glib/src/u8g_com_api.c **** void u8g_SetChipSelect(u8g_t *u8g, u8g_dev_t *dev, uint8_t cs)
+  51:Drivers/u8glib/src/u8g_com_api.c **** {
+ 118              		.loc 1 51 0
+ 119              		.cfi_startproc
+ 120 0000 90B5     		push	{r4, r7, lr}
+ 121              	.LCFI6:
+ 122              		.cfi_def_cfa_offset 12
+ 123              		.cfi_offset 4, -12
+ 124              		.cfi_offset 7, -8
+ 125              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccPyCqU5.s 			page 4
+
+
+ 126 0002 85B0     		sub	sp, sp, #20
+ 127              	.LCFI7:
+ 128              		.cfi_def_cfa_offset 32
+ 129 0004 00AF     		add	r7, sp, #0
+ 130              	.LCFI8:
+ 131              		.cfi_def_cfa_register 7
+ 132 0006 F860     		str	r0, [r7, #12]
+ 133 0008 B960     		str	r1, [r7, #8]
+ 134 000a FB1D     		adds	r3, r7, #7
+ 135 000c 1A70     		strb	r2, [r3]
+  52:Drivers/u8glib/src/u8g_com_api.c ****   dev->com_fn(u8g, U8G_COM_MSG_CHIP_SELECT, cs, NULL);
+ 136              		.loc 1 52 0
+ 137 000e BB68     		ldr	r3, [r7, #8]
+ 138 0010 9C68     		ldr	r4, [r3, #8]
+ 139 0012 FB1D     		adds	r3, r7, #7
+ 140 0014 1A78     		ldrb	r2, [r3]
+ 141 0016 F868     		ldr	r0, [r7, #12]
+ 142 0018 0023     		movs	r3, #0
+ 143 001a 0321     		movs	r1, #3
+ 144 001c A047     		blx	r4
+ 145              	.LVL2:
+  53:Drivers/u8glib/src/u8g_com_api.c **** }
+ 146              		.loc 1 53 0
+ 147 001e C046     		nop
+ 148 0020 BD46     		mov	sp, r7
+ 149 0022 05B0     		add	sp, sp, #20
+ 150              		@ sp needed
+ 151 0024 90BD     		pop	{r4, r7, pc}
+ 152              		.cfi_endproc
+ 153              	.LFE2:
+ 155              		.section	.text.u8g_SetResetLow,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	u8g_SetResetLow
+ 158              		.syntax unified
+ 159              		.code	16
+ 160              		.thumb_func
+ 161              		.fpu softvfp
+ 163              	u8g_SetResetLow:
+ 164              	.LFB3:
+  54:Drivers/u8glib/src/u8g_com_api.c **** 
+  55:Drivers/u8glib/src/u8g_com_api.c **** void u8g_SetResetLow(u8g_t *u8g, u8g_dev_t *dev)
+  56:Drivers/u8glib/src/u8g_com_api.c **** {
+ 165              		.loc 1 56 0
+ 166              		.cfi_startproc
+ 167 0000 90B5     		push	{r4, r7, lr}
+ 168              	.LCFI9:
+ 169              		.cfi_def_cfa_offset 12
+ 170              		.cfi_offset 4, -12
+ 171              		.cfi_offset 7, -8
+ 172              		.cfi_offset 14, -4
+ 173 0002 83B0     		sub	sp, sp, #12
+ 174              	.LCFI10:
+ 175              		.cfi_def_cfa_offset 24
+ 176 0004 00AF     		add	r7, sp, #0
+ 177              	.LCFI11:
+ 178              		.cfi_def_cfa_register 7
+ 179 0006 7860     		str	r0, [r7, #4]
+ARM GAS  /tmp/ccPyCqU5.s 			page 5
+
+
+ 180 0008 3960     		str	r1, [r7]
+  57:Drivers/u8glib/src/u8g_com_api.c ****   dev->com_fn(u8g, U8G_COM_MSG_RESET, 0, NULL);
+ 181              		.loc 1 57 0
+ 182 000a 3B68     		ldr	r3, [r7]
+ 183 000c 9C68     		ldr	r4, [r3, #8]
+ 184 000e 7868     		ldr	r0, [r7, #4]
+ 185 0010 0023     		movs	r3, #0
+ 186 0012 0022     		movs	r2, #0
+ 187 0014 0421     		movs	r1, #4
+ 188 0016 A047     		blx	r4
+ 189              	.LVL3:
+  58:Drivers/u8glib/src/u8g_com_api.c **** }
+ 190              		.loc 1 58 0
+ 191 0018 C046     		nop
+ 192 001a BD46     		mov	sp, r7
+ 193 001c 03B0     		add	sp, sp, #12
+ 194              		@ sp needed
+ 195 001e 90BD     		pop	{r4, r7, pc}
+ 196              		.cfi_endproc
+ 197              	.LFE3:
+ 199              		.section	.text.u8g_SetResetHigh,"ax",%progbits
+ 200              		.align	1
+ 201              		.global	u8g_SetResetHigh
+ 202              		.syntax unified
+ 203              		.code	16
+ 204              		.thumb_func
+ 205              		.fpu softvfp
+ 207              	u8g_SetResetHigh:
+ 208              	.LFB4:
+  59:Drivers/u8glib/src/u8g_com_api.c **** 
+  60:Drivers/u8glib/src/u8g_com_api.c **** void u8g_SetResetHigh(u8g_t *u8g, u8g_dev_t *dev)
+  61:Drivers/u8glib/src/u8g_com_api.c **** {
+ 209              		.loc 1 61 0
+ 210              		.cfi_startproc
+ 211 0000 90B5     		push	{r4, r7, lr}
+ 212              	.LCFI12:
+ 213              		.cfi_def_cfa_offset 12
+ 214              		.cfi_offset 4, -12
+ 215              		.cfi_offset 7, -8
+ 216              		.cfi_offset 14, -4
+ 217 0002 83B0     		sub	sp, sp, #12
+ 218              	.LCFI13:
+ 219              		.cfi_def_cfa_offset 24
+ 220 0004 00AF     		add	r7, sp, #0
+ 221              	.LCFI14:
+ 222              		.cfi_def_cfa_register 7
+ 223 0006 7860     		str	r0, [r7, #4]
+ 224 0008 3960     		str	r1, [r7]
+  62:Drivers/u8glib/src/u8g_com_api.c ****   dev->com_fn(u8g, U8G_COM_MSG_RESET, 1, NULL);
+ 225              		.loc 1 62 0
+ 226 000a 3B68     		ldr	r3, [r7]
+ 227 000c 9C68     		ldr	r4, [r3, #8]
+ 228 000e 7868     		ldr	r0, [r7, #4]
+ 229 0010 0023     		movs	r3, #0
+ 230 0012 0122     		movs	r2, #1
+ 231 0014 0421     		movs	r1, #4
+ 232 0016 A047     		blx	r4
+ARM GAS  /tmp/ccPyCqU5.s 			page 6
+
+
+ 233              	.LVL4:
+  63:Drivers/u8glib/src/u8g_com_api.c **** }
+ 234              		.loc 1 63 0
+ 235 0018 C046     		nop
+ 236 001a BD46     		mov	sp, r7
+ 237 001c 03B0     		add	sp, sp, #12
+ 238              		@ sp needed
+ 239 001e 90BD     		pop	{r4, r7, pc}
+ 240              		.cfi_endproc
+ 241              	.LFE4:
+ 243              		.section	.text.u8g_SetAddress,"ax",%progbits
+ 244              		.align	1
+ 245              		.global	u8g_SetAddress
+ 246              		.syntax unified
+ 247              		.code	16
+ 248              		.thumb_func
+ 249              		.fpu softvfp
+ 251              	u8g_SetAddress:
+ 252              	.LFB5:
+  64:Drivers/u8glib/src/u8g_com_api.c **** 
+  65:Drivers/u8glib/src/u8g_com_api.c **** 
+  66:Drivers/u8glib/src/u8g_com_api.c **** void u8g_SetAddress(u8g_t *u8g, u8g_dev_t *dev, uint8_t address)
+  67:Drivers/u8glib/src/u8g_com_api.c **** {
+ 253              		.loc 1 67 0
+ 254              		.cfi_startproc
+ 255 0000 90B5     		push	{r4, r7, lr}
+ 256              	.LCFI15:
+ 257              		.cfi_def_cfa_offset 12
+ 258              		.cfi_offset 4, -12
+ 259              		.cfi_offset 7, -8
+ 260              		.cfi_offset 14, -4
+ 261 0002 85B0     		sub	sp, sp, #20
+ 262              	.LCFI16:
+ 263              		.cfi_def_cfa_offset 32
+ 264 0004 00AF     		add	r7, sp, #0
+ 265              	.LCFI17:
+ 266              		.cfi_def_cfa_register 7
+ 267 0006 F860     		str	r0, [r7, #12]
+ 268 0008 B960     		str	r1, [r7, #8]
+ 269 000a FB1D     		adds	r3, r7, #7
+ 270 000c 1A70     		strb	r2, [r3]
+  68:Drivers/u8glib/src/u8g_com_api.c ****   dev->com_fn(u8g, U8G_COM_MSG_ADDRESS, address, NULL);
+ 271              		.loc 1 68 0
+ 272 000e BB68     		ldr	r3, [r7, #8]
+ 273 0010 9C68     		ldr	r4, [r3, #8]
+ 274 0012 FB1D     		adds	r3, r7, #7
+ 275 0014 1A78     		ldrb	r2, [r3]
+ 276 0016 F868     		ldr	r0, [r7, #12]
+ 277 0018 0023     		movs	r3, #0
+ 278 001a 0221     		movs	r1, #2
+ 279 001c A047     		blx	r4
+ 280              	.LVL5:
+  69:Drivers/u8glib/src/u8g_com_api.c **** }
+ 281              		.loc 1 69 0
+ 282 001e C046     		nop
+ 283 0020 BD46     		mov	sp, r7
+ 284 0022 05B0     		add	sp, sp, #20
+ARM GAS  /tmp/ccPyCqU5.s 			page 7
+
+
+ 285              		@ sp needed
+ 286 0024 90BD     		pop	{r4, r7, pc}
+ 287              		.cfi_endproc
+ 288              	.LFE5:
+ 290              		.section	.text.u8g_WriteByte,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	u8g_WriteByte
+ 293              		.syntax unified
+ 294              		.code	16
+ 295              		.thumb_func
+ 296              		.fpu softvfp
+ 298              	u8g_WriteByte:
+ 299              	.LFB6:
+  70:Drivers/u8glib/src/u8g_com_api.c **** 
+  71:Drivers/u8glib/src/u8g_com_api.c **** uint8_t u8g_WriteByte(u8g_t *u8g, u8g_dev_t *dev, uint8_t val)
+  72:Drivers/u8glib/src/u8g_com_api.c **** {
+ 300              		.loc 1 72 0
+ 301              		.cfi_startproc
+ 302 0000 90B5     		push	{r4, r7, lr}
+ 303              	.LCFI18:
+ 304              		.cfi_def_cfa_offset 12
+ 305              		.cfi_offset 4, -12
+ 306              		.cfi_offset 7, -8
+ 307              		.cfi_offset 14, -4
+ 308 0002 85B0     		sub	sp, sp, #20
+ 309              	.LCFI19:
+ 310              		.cfi_def_cfa_offset 32
+ 311 0004 00AF     		add	r7, sp, #0
+ 312              	.LCFI20:
+ 313              		.cfi_def_cfa_register 7
+ 314 0006 F860     		str	r0, [r7, #12]
+ 315 0008 B960     		str	r1, [r7, #8]
+ 316 000a FB1D     		adds	r3, r7, #7
+ 317 000c 1A70     		strb	r2, [r3]
+  73:Drivers/u8glib/src/u8g_com_api.c ****   return dev->com_fn(u8g, U8G_COM_MSG_WRITE_BYTE, val, NULL);
+ 318              		.loc 1 73 0
+ 319 000e BB68     		ldr	r3, [r7, #8]
+ 320 0010 9C68     		ldr	r4, [r3, #8]
+ 321 0012 FB1D     		adds	r3, r7, #7
+ 322 0014 1A78     		ldrb	r2, [r3]
+ 323 0016 F868     		ldr	r0, [r7, #12]
+ 324 0018 0023     		movs	r3, #0
+ 325 001a 0521     		movs	r1, #5
+ 326 001c A047     		blx	r4
+ 327              	.LVL6:
+ 328 001e 0300     		movs	r3, r0
+  74:Drivers/u8glib/src/u8g_com_api.c **** }
+ 329              		.loc 1 74 0
+ 330 0020 1800     		movs	r0, r3
+ 331 0022 BD46     		mov	sp, r7
+ 332 0024 05B0     		add	sp, sp, #20
+ 333              		@ sp needed
+ 334 0026 90BD     		pop	{r4, r7, pc}
+ 335              		.cfi_endproc
+ 336              	.LFE6:
+ 338              		.section	.text.u8g_WriteSequence,"ax",%progbits
+ 339              		.align	1
+ARM GAS  /tmp/ccPyCqU5.s 			page 8
+
+
+ 340              		.global	u8g_WriteSequence
+ 341              		.syntax unified
+ 342              		.code	16
+ 343              		.thumb_func
+ 344              		.fpu softvfp
+ 346              	u8g_WriteSequence:
+ 347              	.LFB7:
+  75:Drivers/u8glib/src/u8g_com_api.c **** 
+  76:Drivers/u8glib/src/u8g_com_api.c **** uint8_t u8g_WriteSequence(u8g_t *u8g, u8g_dev_t *dev, uint8_t cnt, uint8_t *seq)
+  77:Drivers/u8glib/src/u8g_com_api.c **** {
+ 348              		.loc 1 77 0
+ 349              		.cfi_startproc
+ 350 0000 90B5     		push	{r4, r7, lr}
+ 351              	.LCFI21:
+ 352              		.cfi_def_cfa_offset 12
+ 353              		.cfi_offset 4, -12
+ 354              		.cfi_offset 7, -8
+ 355              		.cfi_offset 14, -4
+ 356 0002 85B0     		sub	sp, sp, #20
+ 357              	.LCFI22:
+ 358              		.cfi_def_cfa_offset 32
+ 359 0004 00AF     		add	r7, sp, #0
+ 360              	.LCFI23:
+ 361              		.cfi_def_cfa_register 7
+ 362 0006 F860     		str	r0, [r7, #12]
+ 363 0008 B960     		str	r1, [r7, #8]
+ 364 000a 3B60     		str	r3, [r7]
+ 365 000c FB1D     		adds	r3, r7, #7
+ 366 000e 1A70     		strb	r2, [r3]
+  78:Drivers/u8glib/src/u8g_com_api.c ****   return dev->com_fn(u8g, U8G_COM_MSG_WRITE_SEQ, cnt, seq);
+ 367              		.loc 1 78 0
+ 368 0010 BB68     		ldr	r3, [r7, #8]
+ 369 0012 9C68     		ldr	r4, [r3, #8]
+ 370 0014 3968     		ldr	r1, [r7]
+ 371 0016 FB1D     		adds	r3, r7, #7
+ 372 0018 1A78     		ldrb	r2, [r3]
+ 373 001a F868     		ldr	r0, [r7, #12]
+ 374 001c 0B00     		movs	r3, r1
+ 375 001e 0621     		movs	r1, #6
+ 376 0020 A047     		blx	r4
+ 377              	.LVL7:
+ 378 0022 0300     		movs	r3, r0
+  79:Drivers/u8glib/src/u8g_com_api.c **** }
+ 379              		.loc 1 79 0
+ 380 0024 1800     		movs	r0, r3
+ 381 0026 BD46     		mov	sp, r7
+ 382 0028 05B0     		add	sp, sp, #20
+ 383              		@ sp needed
+ 384 002a 90BD     		pop	{r4, r7, pc}
+ 385              		.cfi_endproc
+ 386              	.LFE7:
+ 388              		.section	.text.u8g_WriteSequenceP,"ax",%progbits
+ 389              		.align	1
+ 390              		.global	u8g_WriteSequenceP
+ 391              		.syntax unified
+ 392              		.code	16
+ 393              		.thumb_func
+ARM GAS  /tmp/ccPyCqU5.s 			page 9
+
+
+ 394              		.fpu softvfp
+ 396              	u8g_WriteSequenceP:
+ 397              	.LFB8:
+  80:Drivers/u8glib/src/u8g_com_api.c **** 
+  81:Drivers/u8glib/src/u8g_com_api.c **** uint8_t u8g_WriteSequenceP(u8g_t *u8g, u8g_dev_t *dev, uint8_t cnt, const uint8_t *seq)
+  82:Drivers/u8glib/src/u8g_com_api.c **** {
+ 398              		.loc 1 82 0
+ 399              		.cfi_startproc
+ 400 0000 90B5     		push	{r4, r7, lr}
+ 401              	.LCFI24:
+ 402              		.cfi_def_cfa_offset 12
+ 403              		.cfi_offset 4, -12
+ 404              		.cfi_offset 7, -8
+ 405              		.cfi_offset 14, -4
+ 406 0002 85B0     		sub	sp, sp, #20
+ 407              	.LCFI25:
+ 408              		.cfi_def_cfa_offset 32
+ 409 0004 00AF     		add	r7, sp, #0
+ 410              	.LCFI26:
+ 411              		.cfi_def_cfa_register 7
+ 412 0006 F860     		str	r0, [r7, #12]
+ 413 0008 B960     		str	r1, [r7, #8]
+ 414 000a 3B60     		str	r3, [r7]
+ 415 000c FB1D     		adds	r3, r7, #7
+ 416 000e 1A70     		strb	r2, [r3]
+  83:Drivers/u8glib/src/u8g_com_api.c ****   return dev->com_fn(u8g, U8G_COM_MSG_WRITE_SEQ_P, cnt, (void *)seq);
+ 417              		.loc 1 83 0
+ 418 0010 BB68     		ldr	r3, [r7, #8]
+ 419 0012 9C68     		ldr	r4, [r3, #8]
+ 420 0014 3968     		ldr	r1, [r7]
+ 421 0016 FB1D     		adds	r3, r7, #7
+ 422 0018 1A78     		ldrb	r2, [r3]
+ 423 001a F868     		ldr	r0, [r7, #12]
+ 424 001c 0B00     		movs	r3, r1
+ 425 001e 0721     		movs	r1, #7
+ 426 0020 A047     		blx	r4
+ 427              	.LVL8:
+ 428 0022 0300     		movs	r3, r0
+  84:Drivers/u8glib/src/u8g_com_api.c **** }
+ 429              		.loc 1 84 0
+ 430 0024 1800     		movs	r0, r3
+ 431 0026 BD46     		mov	sp, r7
+ 432 0028 05B0     		add	sp, sp, #20
+ 433              		@ sp needed
+ 434 002a 90BD     		pop	{r4, r7, pc}
+ 435              		.cfi_endproc
+ 436              	.LFE8:
+ 438              		.section	.text.u8g_WriteEscSeqP,"ax",%progbits
+ 439              		.align	1
+ 440              		.global	u8g_WriteEscSeqP
+ 441              		.syntax unified
+ 442              		.code	16
+ 443              		.thumb_func
+ 444              		.fpu softvfp
+ 446              	u8g_WriteEscSeqP:
+ 447              	.LFB9:
+  85:Drivers/u8glib/src/u8g_com_api.c **** 
+ARM GAS  /tmp/ccPyCqU5.s 			page 10
+
+
+  86:Drivers/u8glib/src/u8g_com_api.c **** /*
+  87:Drivers/u8glib/src/u8g_com_api.c ****   sequence := { direct_value | escape_sequence }
+  88:Drivers/u8glib/src/u8g_com_api.c ****   direct_value := 0..254
+  89:Drivers/u8glib/src/u8g_com_api.c ****   escape_sequence := value_255 | sequence_end | delay | adr | cs | not_used 
+  90:Drivers/u8glib/src/u8g_com_api.c ****   value_255 := 255 255
+  91:Drivers/u8glib/src/u8g_com_api.c ****   sequence_end = 255 254
+  92:Drivers/u8glib/src/u8g_com_api.c ****   delay := 255 0..127
+  93:Drivers/u8glib/src/u8g_com_api.c ****   adr := 255 0x0e0 .. 0x0ef 
+  94:Drivers/u8glib/src/u8g_com_api.c ****   cs := 255 0x0d0 .. 0x0df 
+  95:Drivers/u8glib/src/u8g_com_api.c ****   not_used := 255 101..254
+  96:Drivers/u8glib/src/u8g_com_api.c **** 
+  97:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_DLY(x) 255, ((x) & 0x7f)
+  98:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_CS(x) 255, (0xd0 | ((x)&0x0f))
+  99:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_ADR(x) 255, (0xe0 | ((x)&0x0f))
+ 100:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_VCC(x) 255, (0xbe | ((x)&0x01))
+ 101:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_END 255, 254
+ 102:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_255 255, 255
+ 103:Drivers/u8glib/src/u8g_com_api.c **** #define U8G_ESC_RST(x) 255, (0xc0 | ((x)&0x0f))
+ 104:Drivers/u8glib/src/u8g_com_api.c **** 
+ 105:Drivers/u8glib/src/u8g_com_api.c **** */
+ 106:Drivers/u8glib/src/u8g_com_api.c **** uint8_t u8g_WriteEscSeqP(u8g_t *u8g, u8g_dev_t *dev, const uint8_t *esc_seq)
+ 107:Drivers/u8glib/src/u8g_com_api.c **** {
+ 448              		.loc 1 107 0
+ 449              		.cfi_startproc
+ 450 0000 80B5     		push	{r7, lr}
+ 451              	.LCFI27:
+ 452              		.cfi_def_cfa_offset 8
+ 453              		.cfi_offset 7, -8
+ 454              		.cfi_offset 14, -4
+ 455 0002 86B0     		sub	sp, sp, #24
+ 456              	.LCFI28:
+ 457              		.cfi_def_cfa_offset 32
+ 458 0004 00AF     		add	r7, sp, #0
+ 459              	.LCFI29:
+ 460              		.cfi_def_cfa_register 7
+ 461 0006 F860     		str	r0, [r7, #12]
+ 462 0008 B960     		str	r1, [r7, #8]
+ 463 000a 7A60     		str	r2, [r7, #4]
+ 108:Drivers/u8glib/src/u8g_com_api.c ****   uint8_t is_escape = 0;
+ 464              		.loc 1 108 0
+ 465 000c 1723     		movs	r3, #23
+ 466 000e FB18     		adds	r3, r7, r3
+ 467 0010 0022     		movs	r2, #0
+ 468 0012 1A70     		strb	r2, [r3]
+ 469              	.L27:
+ 109:Drivers/u8glib/src/u8g_com_api.c ****   uint8_t value;
+ 110:Drivers/u8glib/src/u8g_com_api.c ****   for(;;)
+ 111:Drivers/u8glib/src/u8g_com_api.c ****   {
+ 112:Drivers/u8glib/src/u8g_com_api.c ****     value = u8g_pgm_read(esc_seq);
+ 470              		.loc 1 112 0
+ 471 0014 1623     		movs	r3, #22
+ 472 0016 FB18     		adds	r3, r7, r3
+ 473 0018 7A68     		ldr	r2, [r7, #4]
+ 474 001a 1278     		ldrb	r2, [r2]
+ 475 001c 1A70     		strb	r2, [r3]
+ 113:Drivers/u8glib/src/u8g_com_api.c ****     if ( is_escape == 0 )
+ 476              		.loc 1 113 0
+ARM GAS  /tmp/ccPyCqU5.s 			page 11
+
+
+ 477 001e 1723     		movs	r3, #23
+ 478 0020 FB18     		adds	r3, r7, r3
+ 479 0022 1B78     		ldrb	r3, [r3]
+ 480 0024 002B     		cmp	r3, #0
+ 481 0026 16D1     		bne	.L15
+ 114:Drivers/u8glib/src/u8g_com_api.c ****     {
+ 115:Drivers/u8glib/src/u8g_com_api.c ****       if ( value != 255 )
+ 482              		.loc 1 115 0
+ 483 0028 1623     		movs	r3, #22
+ 484 002a FB18     		adds	r3, r7, r3
+ 485 002c 1B78     		ldrb	r3, [r3]
+ 486 002e FF2B     		cmp	r3, #255
+ 487 0030 0CD0     		beq	.L16
+ 116:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 117:Drivers/u8glib/src/u8g_com_api.c ****         if ( u8g_WriteByte(u8g, dev, value) == 0 )
+ 488              		.loc 1 117 0
+ 489 0032 1623     		movs	r3, #22
+ 490 0034 FB18     		adds	r3, r7, r3
+ 491 0036 1A78     		ldrb	r2, [r3]
+ 492 0038 B968     		ldr	r1, [r7, #8]
+ 493 003a FB68     		ldr	r3, [r7, #12]
+ 494 003c 1800     		movs	r0, r3
+ 495 003e FFF7FEFF 		bl	u8g_WriteByte
+ 496 0042 031E     		subs	r3, r0, #0
+ 497 0044 00D0     		beq	.LCB402
+ 498 0046 91E0     		b	.L19	@long jump
+ 499              	.LCB402:
+ 118:Drivers/u8glib/src/u8g_com_api.c ****           return 0;
+ 500              		.loc 1 118 0
+ 501 0048 0023     		movs	r3, #0
+ 502 004a 95E0     		b	.L18
+ 503              	.L16:
+ 119:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 120:Drivers/u8glib/src/u8g_com_api.c ****       else
+ 121:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 122:Drivers/u8glib/src/u8g_com_api.c ****         is_escape = 1;
+ 504              		.loc 1 122 0
+ 505 004c 1723     		movs	r3, #23
+ 506 004e FB18     		adds	r3, r7, r3
+ 507 0050 0122     		movs	r2, #1
+ 508 0052 1A70     		strb	r2, [r3]
+ 509 0054 8AE0     		b	.L19
+ 510              	.L15:
+ 123:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 124:Drivers/u8glib/src/u8g_com_api.c ****     }
+ 125:Drivers/u8glib/src/u8g_com_api.c ****     else
+ 126:Drivers/u8glib/src/u8g_com_api.c ****     {
+ 127:Drivers/u8glib/src/u8g_com_api.c ****       if ( value == 255 )
+ 511              		.loc 1 127 0
+ 512 0056 1623     		movs	r3, #22
+ 513 0058 FB18     		adds	r3, r7, r3
+ 514 005a 1B78     		ldrb	r3, [r3]
+ 515 005c FF2B     		cmp	r3, #255
+ 516 005e 0CD1     		bne	.L20
+ 128:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 129:Drivers/u8glib/src/u8g_com_api.c ****         if ( u8g_WriteByte(u8g, dev, value) == 0 )
+ 517              		.loc 1 129 0
+ARM GAS  /tmp/ccPyCqU5.s 			page 12
+
+
+ 518 0060 1623     		movs	r3, #22
+ 519 0062 FB18     		adds	r3, r7, r3
+ 520 0064 1A78     		ldrb	r2, [r3]
+ 521 0066 B968     		ldr	r1, [r7, #8]
+ 522 0068 FB68     		ldr	r3, [r7, #12]
+ 523 006a 1800     		movs	r0, r3
+ 524 006c FFF7FEFF 		bl	u8g_WriteByte
+ 525 0070 031E     		subs	r3, r0, #0
+ 526 0072 00D0     		beq	.LCB430
+ 527 0074 76E0     		b	.L21	@long jump
+ 528              	.LCB430:
+ 130:Drivers/u8glib/src/u8g_com_api.c ****           return 0;
+ 529              		.loc 1 130 0
+ 530 0076 0023     		movs	r3, #0
+ 531 0078 7EE0     		b	.L18
+ 532              	.L20:
+ 131:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 132:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value == 254 )
+ 533              		.loc 1 132 0
+ 534 007a 1623     		movs	r3, #22
+ 535 007c FB18     		adds	r3, r7, r3
+ 536 007e 1B78     		ldrb	r3, [r3]
+ 537 0080 FE2B     		cmp	r3, #254
+ 538 0082 00D1     		bne	.LCB440
+ 539 0084 76E0     		b	.L29	@long jump
+ 540              	.LCB440:
+ 133:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 134:Drivers/u8glib/src/u8g_com_api.c ****         break;
+ 135:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 136:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value >= 0x0f0 )
+ 541              		.loc 1 136 0
+ 542 0086 1623     		movs	r3, #22
+ 543 0088 FB18     		adds	r3, r7, r3
+ 544 008a 1B78     		ldrb	r3, [r3]
+ 545 008c EF2B     		cmp	r3, #239
+ 546 008e 69D8     		bhi	.L21
+ 137:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 138:Drivers/u8glib/src/u8g_com_api.c ****         /* not yet used, do nothing */
+ 139:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 140:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value >= 0xe0  )
+ 547              		.loc 1 140 0
+ 548 0090 1623     		movs	r3, #22
+ 549 0092 FB18     		adds	r3, r7, r3
+ 550 0094 1B78     		ldrb	r3, [r3]
+ 551 0096 DF2B     		cmp	r3, #223
+ 552 0098 0BD9     		bls	.L24
+ 141:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 142:Drivers/u8glib/src/u8g_com_api.c ****         u8g_SetAddress(u8g, dev, value & 0x0f);
+ 553              		.loc 1 142 0
+ 554 009a 1623     		movs	r3, #22
+ 555 009c FB18     		adds	r3, r7, r3
+ 556 009e 1B78     		ldrb	r3, [r3]
+ 557 00a0 0F22     		movs	r2, #15
+ 558 00a2 1340     		ands	r3, r2
+ 559 00a4 DAB2     		uxtb	r2, r3
+ 560 00a6 B968     		ldr	r1, [r7, #8]
+ 561 00a8 FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/ccPyCqU5.s 			page 13
+
+
+ 562 00aa 1800     		movs	r0, r3
+ 563 00ac FFF7FEFF 		bl	u8g_SetAddress
+ 564 00b0 58E0     		b	.L21
+ 565              	.L24:
+ 143:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 144:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value >= 0xd0 )
+ 566              		.loc 1 144 0
+ 567 00b2 1623     		movs	r3, #22
+ 568 00b4 FB18     		adds	r3, r7, r3
+ 569 00b6 1B78     		ldrb	r3, [r3]
+ 570 00b8 CF2B     		cmp	r3, #207
+ 571 00ba 0BD9     		bls	.L25
+ 145:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 146:Drivers/u8glib/src/u8g_com_api.c ****         u8g_SetChipSelect(u8g, dev, value & 0x0f);
+ 572              		.loc 1 146 0
+ 573 00bc 1623     		movs	r3, #22
+ 574 00be FB18     		adds	r3, r7, r3
+ 575 00c0 1B78     		ldrb	r3, [r3]
+ 576 00c2 0F22     		movs	r2, #15
+ 577 00c4 1340     		ands	r3, r2
+ 578 00c6 DAB2     		uxtb	r2, r3
+ 579 00c8 B968     		ldr	r1, [r7, #8]
+ 580 00ca FB68     		ldr	r3, [r7, #12]
+ 581 00cc 1800     		movs	r0, r3
+ 582 00ce FFF7FEFF 		bl	u8g_SetChipSelect
+ 583 00d2 47E0     		b	.L21
+ 584              	.L25:
+ 147:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 148:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value >= 0xc0 )
+ 585              		.loc 1 148 0
+ 586 00d4 1623     		movs	r3, #22
+ 587 00d6 FB18     		adds	r3, r7, r3
+ 588 00d8 1B78     		ldrb	r3, [r3]
+ 589 00da BF2B     		cmp	r3, #191
+ 590 00dc 30D9     		bls	.L26
+ 149:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 150:Drivers/u8glib/src/u8g_com_api.c ****         u8g_SetResetLow(u8g, dev);
+ 591              		.loc 1 150 0
+ 592 00de BA68     		ldr	r2, [r7, #8]
+ 593 00e0 FB68     		ldr	r3, [r7, #12]
+ 594 00e2 1100     		movs	r1, r2
+ 595 00e4 1800     		movs	r0, r3
+ 596 00e6 FFF7FEFF 		bl	u8g_SetResetLow
+ 151:Drivers/u8glib/src/u8g_com_api.c ****         value &= 0x0f;
+ 597              		.loc 1 151 0
+ 598 00ea 1623     		movs	r3, #22
+ 599 00ec FB18     		adds	r3, r7, r3
+ 600 00ee 1622     		movs	r2, #22
+ 601 00f0 BA18     		adds	r2, r7, r2
+ 602 00f2 1278     		ldrb	r2, [r2]
+ 603 00f4 0F21     		movs	r1, #15
+ 604 00f6 0A40     		ands	r2, r1
+ 605 00f8 1A70     		strb	r2, [r3]
+ 152:Drivers/u8glib/src/u8g_com_api.c ****         value <<= 4;
+ 606              		.loc 1 152 0
+ 607 00fa 1623     		movs	r3, #22
+ 608 00fc FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccPyCqU5.s 			page 14
+
+
+ 609 00fe 1622     		movs	r2, #22
+ 610 0100 BA18     		adds	r2, r7, r2
+ 611 0102 1278     		ldrb	r2, [r2]
+ 612 0104 1201     		lsls	r2, r2, #4
+ 613 0106 1A70     		strb	r2, [r3]
+ 153:Drivers/u8glib/src/u8g_com_api.c ****         value+=2;
+ 614              		.loc 1 153 0
+ 615 0108 1623     		movs	r3, #22
+ 616 010a FB18     		adds	r3, r7, r3
+ 617 010c 1622     		movs	r2, #22
+ 618 010e BA18     		adds	r2, r7, r2
+ 619 0110 1278     		ldrb	r2, [r2]
+ 620 0112 0232     		adds	r2, r2, #2
+ 621 0114 1A70     		strb	r2, [r3]
+ 154:Drivers/u8glib/src/u8g_com_api.c ****         u8g_Delay(value);
+ 622              		.loc 1 154 0
+ 623 0116 1623     		movs	r3, #22
+ 624 0118 FB18     		adds	r3, r7, r3
+ 625 011a 1B78     		ldrb	r3, [r3]
+ 626 011c 9BB2     		uxth	r3, r3
+ 627 011e 1800     		movs	r0, r3
+ 628 0120 FFF7FEFF 		bl	u8g_Delay
+ 155:Drivers/u8glib/src/u8g_com_api.c ****         u8g_SetResetHigh(u8g, dev);
+ 629              		.loc 1 155 0
+ 630 0124 BA68     		ldr	r2, [r7, #8]
+ 631 0126 FB68     		ldr	r3, [r7, #12]
+ 632 0128 1100     		movs	r1, r2
+ 633 012a 1800     		movs	r0, r3
+ 634 012c FFF7FEFF 		bl	u8g_SetResetHigh
+ 156:Drivers/u8glib/src/u8g_com_api.c ****         u8g_Delay(value);
+ 635              		.loc 1 156 0
+ 636 0130 1623     		movs	r3, #22
+ 637 0132 FB18     		adds	r3, r7, r3
+ 638 0134 1B78     		ldrb	r3, [r3]
+ 639 0136 9BB2     		uxth	r3, r3
+ 640 0138 1800     		movs	r0, r3
+ 641 013a FFF7FEFF 		bl	u8g_Delay
+ 642 013e 11E0     		b	.L21
+ 643              	.L26:
+ 157:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 158:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value >= 0xbe )
+ 644              		.loc 1 158 0
+ 645 0140 1623     		movs	r3, #22
+ 646 0142 FB18     		adds	r3, r7, r3
+ 647 0144 1B78     		ldrb	r3, [r3]
+ 648 0146 BD2B     		cmp	r3, #189
+ 649 0148 0CD8     		bhi	.L21
+ 159:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 160:Drivers/u8glib/src/u8g_com_api.c **** 	/* not yet implemented */
+ 161:Drivers/u8glib/src/u8g_com_api.c ****         /* u8g_SetVCC(u8g, dev, value & 0x01); */
+ 162:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 163:Drivers/u8glib/src/u8g_com_api.c ****       else if ( value <= 127 )
+ 650              		.loc 1 163 0
+ 651 014a 1623     		movs	r3, #22
+ 652 014c FB18     		adds	r3, r7, r3
+ 653 014e 1B78     		ldrb	r3, [r3]
+ 654 0150 5BB2     		sxtb	r3, r3
+ARM GAS  /tmp/ccPyCqU5.s 			page 15
+
+
+ 655 0152 002B     		cmp	r3, #0
+ 656 0154 06DB     		blt	.L21
+ 164:Drivers/u8glib/src/u8g_com_api.c ****       {
+ 165:Drivers/u8glib/src/u8g_com_api.c ****         u8g_Delay(value);
+ 657              		.loc 1 165 0
+ 658 0156 1623     		movs	r3, #22
+ 659 0158 FB18     		adds	r3, r7, r3
+ 660 015a 1B78     		ldrb	r3, [r3]
+ 661 015c 9BB2     		uxth	r3, r3
+ 662 015e 1800     		movs	r0, r3
+ 663 0160 FFF7FEFF 		bl	u8g_Delay
+ 664              	.L21:
+ 166:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 167:Drivers/u8glib/src/u8g_com_api.c ****       is_escape = 0;
+ 665              		.loc 1 167 0
+ 666 0164 1723     		movs	r3, #23
+ 667 0166 FB18     		adds	r3, r7, r3
+ 668 0168 0022     		movs	r2, #0
+ 669 016a 1A70     		strb	r2, [r3]
+ 670              	.L19:
+ 168:Drivers/u8glib/src/u8g_com_api.c ****     }
+ 169:Drivers/u8glib/src/u8g_com_api.c ****     esc_seq++;
+ 671              		.loc 1 169 0
+ 672 016c 7B68     		ldr	r3, [r7, #4]
+ 673 016e 0133     		adds	r3, r3, #1
+ 674 0170 7B60     		str	r3, [r7, #4]
+ 112:Drivers/u8glib/src/u8g_com_api.c ****     if ( is_escape == 0 )
+ 675              		.loc 1 112 0
+ 676 0172 4FE7     		b	.L27
+ 677              	.L29:
+ 134:Drivers/u8glib/src/u8g_com_api.c ****       }
+ 678              		.loc 1 134 0
+ 679 0174 C046     		nop
+ 170:Drivers/u8glib/src/u8g_com_api.c ****   }
+ 171:Drivers/u8glib/src/u8g_com_api.c ****   return 1;
+ 680              		.loc 1 171 0
+ 681 0176 0123     		movs	r3, #1
+ 682              	.L18:
+ 172:Drivers/u8glib/src/u8g_com_api.c **** }
+ 683              		.loc 1 172 0
+ 684 0178 1800     		movs	r0, r3
+ 685 017a BD46     		mov	sp, r7
+ 686 017c 06B0     		add	sp, sp, #24
+ 687              		@ sp needed
+ 688 017e 80BD     		pop	{r7, pc}
+ 689              		.cfi_endproc
+ 690              	.LFE9:
+ 692              		.text
+ 693              	.Letext0:
+ 694              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 695              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 696              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccPyCqU5.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_com_api.c
+     /tmp/ccPyCqU5.s:16     .text.u8g_InitCom:0000000000000000 $t
+     /tmp/ccPyCqU5.s:23     .text.u8g_InitCom:0000000000000000 u8g_InitCom
+     /tmp/ccPyCqU5.s:65     .text.u8g_StopCom:0000000000000000 $t
+     /tmp/ccPyCqU5.s:72     .text.u8g_StopCom:0000000000000000 u8g_StopCom
+     /tmp/ccPyCqU5.s:109    .text.u8g_SetChipSelect:0000000000000000 $t
+     /tmp/ccPyCqU5.s:116    .text.u8g_SetChipSelect:0000000000000000 u8g_SetChipSelect
+     /tmp/ccPyCqU5.s:156    .text.u8g_SetResetLow:0000000000000000 $t
+     /tmp/ccPyCqU5.s:163    .text.u8g_SetResetLow:0000000000000000 u8g_SetResetLow
+     /tmp/ccPyCqU5.s:200    .text.u8g_SetResetHigh:0000000000000000 $t
+     /tmp/ccPyCqU5.s:207    .text.u8g_SetResetHigh:0000000000000000 u8g_SetResetHigh
+     /tmp/ccPyCqU5.s:244    .text.u8g_SetAddress:0000000000000000 $t
+     /tmp/ccPyCqU5.s:251    .text.u8g_SetAddress:0000000000000000 u8g_SetAddress
+     /tmp/ccPyCqU5.s:291    .text.u8g_WriteByte:0000000000000000 $t
+     /tmp/ccPyCqU5.s:298    .text.u8g_WriteByte:0000000000000000 u8g_WriteByte
+     /tmp/ccPyCqU5.s:339    .text.u8g_WriteSequence:0000000000000000 $t
+     /tmp/ccPyCqU5.s:346    .text.u8g_WriteSequence:0000000000000000 u8g_WriteSequence
+     /tmp/ccPyCqU5.s:389    .text.u8g_WriteSequenceP:0000000000000000 $t
+     /tmp/ccPyCqU5.s:396    .text.u8g_WriteSequenceP:0000000000000000 u8g_WriteSequenceP
+     /tmp/ccPyCqU5.s:439    .text.u8g_WriteEscSeqP:0000000000000000 $t
+     /tmp/ccPyCqU5.s:446    .text.u8g_WriteEscSeqP:0000000000000000 u8g_WriteEscSeqP
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_Delay

@@ -1,0 +1,1614 @@
+ARM GAS  /tmp/ccZ6LcmY.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_circle.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_draw_circle_section,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	u8g_draw_circle_section:
+  23              	.LFB0:
+  24              		.file 1 "Drivers/u8glib/src/u8g_circle.c"
+   1:Drivers/u8glib/src/u8g_circle.c **** /*
+   2:Drivers/u8glib/src/u8g_circle.c **** 
+   3:Drivers/u8glib/src/u8g_circle.c ****   u8g_circle.c
+   4:Drivers/u8glib/src/u8g_circle.c **** 
+   5:Drivers/u8glib/src/u8g_circle.c ****   Utility to draw empty and filled circles.
+   6:Drivers/u8glib/src/u8g_circle.c ****   
+   7:Drivers/u8glib/src/u8g_circle.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_circle.c ****   
+   9:Drivers/u8glib/src/u8g_circle.c ****   Copyright (c) 2011, bjthom@gmail.com
+  10:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawCircle & u8g_DrawDisc by olikraus@gmail.com
+  11:Drivers/u8glib/src/u8g_circle.c ****   
+  12:Drivers/u8glib/src/u8g_circle.c ****   All rights reserved.
+  13:Drivers/u8glib/src/u8g_circle.c **** 
+  14:Drivers/u8glib/src/u8g_circle.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  15:Drivers/u8glib/src/u8g_circle.c ****   are permitted provided that the following conditions are met:
+  16:Drivers/u8glib/src/u8g_circle.c **** 
+  17:Drivers/u8glib/src/u8g_circle.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  18:Drivers/u8glib/src/u8g_circle.c ****     of conditions and the following disclaimer.
+  19:Drivers/u8glib/src/u8g_circle.c ****     
+  20:Drivers/u8glib/src/u8g_circle.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  21:Drivers/u8glib/src/u8g_circle.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  22:Drivers/u8glib/src/u8g_circle.c ****     materials provided with the distribution.
+  23:Drivers/u8glib/src/u8g_circle.c **** 
+  24:Drivers/u8glib/src/u8g_circle.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  25:Drivers/u8glib/src/u8g_circle.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  26:Drivers/u8glib/src/u8g_circle.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  27:Drivers/u8glib/src/u8g_circle.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  28:Drivers/u8glib/src/u8g_circle.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  29:Drivers/u8glib/src/u8g_circle.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  30:Drivers/u8glib/src/u8g_circle.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  31:Drivers/u8glib/src/u8g_circle.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  32:Drivers/u8glib/src/u8g_circle.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  33:Drivers/u8glib/src/u8g_circle.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  34:Drivers/u8glib/src/u8g_circle.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARM GAS  /tmp/ccZ6LcmY.s 			page 2
+
+
+  35:Drivers/u8glib/src/u8g_circle.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  36:Drivers/u8glib/src/u8g_circle.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  37:Drivers/u8glib/src/u8g_circle.c ****   
+  38:Drivers/u8glib/src/u8g_circle.c ****   Addition to the U8G Library 02/25/12
+  39:Drivers/u8glib/src/u8g_circle.c ****   
+  40:Drivers/u8glib/src/u8g_circle.c ****   
+  41:Drivers/u8glib/src/u8g_circle.c **** */
+  42:Drivers/u8glib/src/u8g_circle.c **** 
+  43:Drivers/u8glib/src/u8g_circle.c **** #include "u8g.h"
+  44:Drivers/u8glib/src/u8g_circle.c **** 
+  45:Drivers/u8glib/src/u8g_circle.c **** #ifdef OLD_CODE
+  46:Drivers/u8glib/src/u8g_circle.c **** 
+  47:Drivers/u8glib/src/u8g_circle.c **** void circ_upperRight(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t y0) {
+  48:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 + x, y0 - y);
+  49:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 + y, y0 - x);
+  50:Drivers/u8glib/src/u8g_circle.c **** }
+  51:Drivers/u8glib/src/u8g_circle.c **** 		
+  52:Drivers/u8glib/src/u8g_circle.c **** void circ_upperLeft(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t y0) {
+  53:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 - x, y0 - y);
+  54:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 - y, y0 - x);
+  55:Drivers/u8glib/src/u8g_circle.c **** }
+  56:Drivers/u8glib/src/u8g_circle.c **** 		
+  57:Drivers/u8glib/src/u8g_circle.c **** void circ_lowerRight(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t y0) {
+  58:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 + x, y0 + y);
+  59:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 + y, y0 + x);
+  60:Drivers/u8glib/src/u8g_circle.c **** }
+  61:Drivers/u8glib/src/u8g_circle.c **** 		
+  62:Drivers/u8glib/src/u8g_circle.c **** void circ_lowerLeft(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t y0) {
+  63:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 - x, y0 + y);
+  64:Drivers/u8glib/src/u8g_circle.c ****   u8g_DrawPixel(u8g, x0 - y, y0 + x);
+  65:Drivers/u8glib/src/u8g_circle.c **** }
+  66:Drivers/u8glib/src/u8g_circle.c **** 			
+  67:Drivers/u8glib/src/u8g_circle.c **** void circ_all(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t y0) {
+  68:Drivers/u8glib/src/u8g_circle.c ****   circ_upperRight(u8g, x, y, x0, y0);
+  69:Drivers/u8glib/src/u8g_circle.c ****   circ_upperLeft(u8g, x, y, x0, y0);
+  70:Drivers/u8glib/src/u8g_circle.c ****   circ_lowerRight(u8g, x, y, x0, y0);
+  71:Drivers/u8glib/src/u8g_circle.c ****   circ_lowerLeft(u8g, x, y, x0, y0);
+  72:Drivers/u8glib/src/u8g_circle.c **** }
+  73:Drivers/u8glib/src/u8g_circle.c **** 
+  74:Drivers/u8glib/src/u8g_circle.c **** void u8g_DrawEmpCirc(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rad, uint8_t option)
+  75:Drivers/u8glib/src/u8g_circle.c **** {
+  76:Drivers/u8glib/src/u8g_circle.c ****   if ( u8g_IsBBXIntersection(u8g, x0-rad-1, y0-rad-1, 2*rad+1, 2*rad+1) == 0)
+  77:Drivers/u8glib/src/u8g_circle.c ****     return;
+  78:Drivers/u8glib/src/u8g_circle.c **** 
+  79:Drivers/u8glib/src/u8g_circle.c ****   int f = 1 - rad;
+  80:Drivers/u8glib/src/u8g_circle.c ****   int ddF_x = 1;
+  81:Drivers/u8glib/src/u8g_circle.c ****   int ddF_y = -2*rad;
+  82:Drivers/u8glib/src/u8g_circle.c ****   uint8_t x = 0;
+  83:Drivers/u8glib/src/u8g_circle.c ****   uint8_t y = rad;
+  84:Drivers/u8glib/src/u8g_circle.c **** 
+  85:Drivers/u8glib/src/u8g_circle.c ****   void ( *circ_util )(u8g_t *, u8g_uint_t, u8g_uint_t, u8g_uint_t, u8g_uint_t);
+  86:Drivers/u8glib/src/u8g_circle.c ****   
+  87:Drivers/u8glib/src/u8g_circle.c ****   switch (option)
+  88:Drivers/u8glib/src/u8g_circle.c ****   {
+  89:Drivers/u8glib/src/u8g_circle.c **** 	case U8G_CIRC_UPPER_RIGHT:
+  90:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0, y0 - rad);
+  91:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0 + rad, y0);
+ARM GAS  /tmp/ccZ6LcmY.s 			page 3
+
+
+  92:Drivers/u8glib/src/u8g_circle.c **** 		circ_util = circ_upperRight;
+  93:Drivers/u8glib/src/u8g_circle.c **** 		break;
+  94:Drivers/u8glib/src/u8g_circle.c **** 	case U8G_CIRC_UPPER_LEFT:
+  95:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0, y0 - rad);
+  96:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0 - rad, y0);
+  97:Drivers/u8glib/src/u8g_circle.c **** 		circ_util = circ_upperLeft;
+  98:Drivers/u8glib/src/u8g_circle.c **** 		break;
+  99:Drivers/u8glib/src/u8g_circle.c **** 	case U8G_CIRC_LOWER_RIGHT:
+ 100:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0, y0 + rad);
+ 101:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0 + rad, y0);
+ 102:Drivers/u8glib/src/u8g_circle.c **** 		circ_util = circ_lowerRight;
+ 103:Drivers/u8glib/src/u8g_circle.c **** 		break;
+ 104:Drivers/u8glib/src/u8g_circle.c **** 	case U8G_CIRC_LOWER_LEFT:
+ 105:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0, y0 + rad);
+ 106:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0 - rad, y0);
+ 107:Drivers/u8glib/src/u8g_circle.c **** 		circ_util = circ_lowerLeft;
+ 108:Drivers/u8glib/src/u8g_circle.c **** 		break;
+ 109:Drivers/u8glib/src/u8g_circle.c ****         default:
+ 110:Drivers/u8glib/src/u8g_circle.c **** 	case U8G_CIRC_ALL:
+ 111:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0, y0 + rad);
+ 112:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0, y0 - rad);
+ 113:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0 + rad, y0);
+ 114:Drivers/u8glib/src/u8g_circle.c **** 		u8g_DrawPixel(u8g, x0 - rad, y0);
+ 115:Drivers/u8glib/src/u8g_circle.c **** 		circ_util = circ_all;
+ 116:Drivers/u8glib/src/u8g_circle.c **** 		break;
+ 117:Drivers/u8glib/src/u8g_circle.c ****   }
+ 118:Drivers/u8glib/src/u8g_circle.c ****   
+ 119:Drivers/u8glib/src/u8g_circle.c ****   while( x < y )
+ 120:Drivers/u8glib/src/u8g_circle.c ****   {
+ 121:Drivers/u8glib/src/u8g_circle.c ****     if(f >= 0) 
+ 122:Drivers/u8glib/src/u8g_circle.c ****     {
+ 123:Drivers/u8glib/src/u8g_circle.c ****       y--;
+ 124:Drivers/u8glib/src/u8g_circle.c ****       ddF_y += 2;
+ 125:Drivers/u8glib/src/u8g_circle.c ****       f += ddF_y;
+ 126:Drivers/u8glib/src/u8g_circle.c ****     }
+ 127:Drivers/u8glib/src/u8g_circle.c ****     x++;
+ 128:Drivers/u8glib/src/u8g_circle.c ****     ddF_x += 2;
+ 129:Drivers/u8glib/src/u8g_circle.c ****     f += ddF_x;
+ 130:Drivers/u8glib/src/u8g_circle.c ****     
+ 131:Drivers/u8glib/src/u8g_circle.c ****     circ_util(u8g, x, y, x0, y0);
+ 132:Drivers/u8glib/src/u8g_circle.c ****   }
+ 133:Drivers/u8glib/src/u8g_circle.c **** }
+ 134:Drivers/u8glib/src/u8g_circle.c **** 
+ 135:Drivers/u8glib/src/u8g_circle.c **** 
+ 136:Drivers/u8glib/src/u8g_circle.c **** void u8g_DrawFillCirc(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rad, uint8_t option)
+ 137:Drivers/u8glib/src/u8g_circle.c **** {
+ 138:Drivers/u8glib/src/u8g_circle.c ****   if ( u8g_IsBBXIntersection(u8g, x0-rad-1, y0-rad-1, 2*rad+1, 2*rad+1) == 0)
+ 139:Drivers/u8glib/src/u8g_circle.c ****     return;
+ 140:Drivers/u8glib/src/u8g_circle.c **** 
+ 141:Drivers/u8glib/src/u8g_circle.c ****   int f = 1 - rad;
+ 142:Drivers/u8glib/src/u8g_circle.c ****   int ddF_x = 1;
+ 143:Drivers/u8glib/src/u8g_circle.c ****   int ddF_y = -2*rad;
+ 144:Drivers/u8glib/src/u8g_circle.c ****   uint8_t x = 0;
+ 145:Drivers/u8glib/src/u8g_circle.c ****   uint8_t y = rad;
+ 146:Drivers/u8glib/src/u8g_circle.c ****   
+ 147:Drivers/u8glib/src/u8g_circle.c ****   // Draw vertical diameter at the horiz. center
+ 148:Drivers/u8glib/src/u8g_circle.c ****   // u8g_DrawVLine(u8g, x0, y0 - rad, 2*rad+1);
+ARM GAS  /tmp/ccZ6LcmY.s 			page 4
+
+
+ 149:Drivers/u8glib/src/u8g_circle.c **** 
+ 150:Drivers/u8glib/src/u8g_circle.c ****   if (option == U8G_CIRC_UPPER_LEFT || option == U8G_CIRC_UPPER_RIGHT) {
+ 151:Drivers/u8glib/src/u8g_circle.c **** 	u8g_DrawVLine(u8g, x0, y0 - rad, rad+1);
+ 152:Drivers/u8glib/src/u8g_circle.c ****   }
+ 153:Drivers/u8glib/src/u8g_circle.c ****   else if (option == U8G_CIRC_LOWER_LEFT || option == U8G_CIRC_LOWER_RIGHT) {
+ 154:Drivers/u8glib/src/u8g_circle.c **** 	u8g_DrawVLine(u8g, x0, y0, rad+1);
+ 155:Drivers/u8glib/src/u8g_circle.c ****   }
+ 156:Drivers/u8glib/src/u8g_circle.c ****   else {
+ 157:Drivers/u8glib/src/u8g_circle.c **** 	u8g_DrawVLine(u8g, x0, y0 - rad, 2*rad+1);
+ 158:Drivers/u8glib/src/u8g_circle.c ****   }
+ 159:Drivers/u8glib/src/u8g_circle.c ****   
+ 160:Drivers/u8glib/src/u8g_circle.c ****   while( x < y )
+ 161:Drivers/u8glib/src/u8g_circle.c ****   {
+ 162:Drivers/u8glib/src/u8g_circle.c ****     if(f >= 0) 
+ 163:Drivers/u8glib/src/u8g_circle.c ****     {
+ 164:Drivers/u8glib/src/u8g_circle.c ****       y--;
+ 165:Drivers/u8glib/src/u8g_circle.c ****       ddF_y += 2;
+ 166:Drivers/u8glib/src/u8g_circle.c ****       f += ddF_y;
+ 167:Drivers/u8glib/src/u8g_circle.c ****     }
+ 168:Drivers/u8glib/src/u8g_circle.c ****     x++;
+ 169:Drivers/u8glib/src/u8g_circle.c ****     ddF_x += 2;
+ 170:Drivers/u8glib/src/u8g_circle.c ****     f += ddF_x;
+ 171:Drivers/u8glib/src/u8g_circle.c ****     
+ 172:Drivers/u8glib/src/u8g_circle.c **** 	//Draw vertical lines from one point to another
+ 173:Drivers/u8glib/src/u8g_circle.c **** 	
+ 174:Drivers/u8glib/src/u8g_circle.c **** 	switch (option)
+ 175:Drivers/u8glib/src/u8g_circle.c **** 	{
+ 176:Drivers/u8glib/src/u8g_circle.c **** 		case U8G_CIRC_UPPER_RIGHT:
+ 177:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0+x, y0-y, y+1);
+ 178:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0+y, y0-x, x+1);
+ 179:Drivers/u8glib/src/u8g_circle.c **** 			break;
+ 180:Drivers/u8glib/src/u8g_circle.c **** 		case U8G_CIRC_UPPER_LEFT:
+ 181:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0-x, y0-y, y+1);
+ 182:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0-y, y0-x, x+1);
+ 183:Drivers/u8glib/src/u8g_circle.c **** 			break;
+ 184:Drivers/u8glib/src/u8g_circle.c **** 		case U8G_CIRC_LOWER_RIGHT:
+ 185:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0+x, y0, y+1);
+ 186:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0+y, y0, x+1);
+ 187:Drivers/u8glib/src/u8g_circle.c **** 			break;
+ 188:Drivers/u8glib/src/u8g_circle.c **** 		case U8G_CIRC_LOWER_LEFT:
+ 189:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0-x, y0, y+1);
+ 190:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0-y, y0, x+1);
+ 191:Drivers/u8glib/src/u8g_circle.c **** 			break;
+ 192:Drivers/u8glib/src/u8g_circle.c **** 		case U8G_CIRC_ALL:
+ 193:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0+x, y0-y, 2*y+1);
+ 194:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0-x, y0-y, 2*y+1);
+ 195:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0+y, y0-x, 2*x+1);
+ 196:Drivers/u8glib/src/u8g_circle.c **** 			u8g_DrawVLine(u8g, x0-y, y0-x, 2*x+1);
+ 197:Drivers/u8glib/src/u8g_circle.c **** 			break;
+ 198:Drivers/u8glib/src/u8g_circle.c **** 	}
+ 199:Drivers/u8glib/src/u8g_circle.c ****   }
+ 200:Drivers/u8glib/src/u8g_circle.c **** }
+ 201:Drivers/u8glib/src/u8g_circle.c **** 
+ 202:Drivers/u8glib/src/u8g_circle.c **** #endif 
+ 203:Drivers/u8glib/src/u8g_circle.c **** 
+ 204:Drivers/u8glib/src/u8g_circle.c **** /*=========================================================================*/
+ 205:Drivers/u8glib/src/u8g_circle.c **** 
+ARM GAS  /tmp/ccZ6LcmY.s 			page 5
+
+
+ 206:Drivers/u8glib/src/u8g_circle.c **** static void u8g_draw_circle_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint
+ 207:Drivers/u8glib/src/u8g_circle.c **** 
+ 208:Drivers/u8glib/src/u8g_circle.c **** static void u8g_draw_circle_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint
+ 209:Drivers/u8glib/src/u8g_circle.c **** {
+  25              		.loc 1 209 0
+  26              		.cfi_startproc
+  27 0000 90B5     		push	{r4, r7, lr}
+  28              	.LCFI0:
+  29              		.cfi_def_cfa_offset 12
+  30              		.cfi_offset 4, -12
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 83B0     		sub	sp, sp, #12
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 24
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  40 0008 0C00     		movs	r4, r1
+  41 000a 1000     		movs	r0, r2
+  42 000c 1900     		movs	r1, r3
+  43 000e FB1C     		adds	r3, r7, #3
+  44 0010 221C     		adds	r2, r4, #0
+  45 0012 1A70     		strb	r2, [r3]
+  46 0014 BB1C     		adds	r3, r7, #2
+  47 0016 021C     		adds	r2, r0, #0
+  48 0018 1A70     		strb	r2, [r3]
+  49 001a 7B1C     		adds	r3, r7, #1
+  50 001c 0A1C     		adds	r2, r1, #0
+  51 001e 1A70     		strb	r2, [r3]
+ 210:Drivers/u8glib/src/u8g_circle.c ****     /* upper right */
+ 211:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_UPPER_RIGHT )
+  52              		.loc 1 211 0
+  53 0020 1C23     		movs	r3, #28
+  54 0022 FB18     		adds	r3, r7, r3
+  55 0024 1B78     		ldrb	r3, [r3]
+  56 0026 0122     		movs	r2, #1
+  57 0028 1340     		ands	r3, r2
+  58 002a 21D0     		beq	.L2
+ 212:Drivers/u8glib/src/u8g_circle.c ****     {
+ 213:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 + x, y0 - y);
+  59              		.loc 1 213 0
+  60 002c 7A1C     		adds	r2, r7, #1
+  61 002e FB1C     		adds	r3, r7, #3
+  62 0030 1278     		ldrb	r2, [r2]
+  63 0032 1B78     		ldrb	r3, [r3]
+  64 0034 D318     		adds	r3, r2, r3
+  65 0036 D9B2     		uxtb	r1, r3
+  66 0038 1823     		movs	r3, #24
+  67 003a FA18     		adds	r2, r7, r3
+  68 003c BB1C     		adds	r3, r7, #2
+  69 003e 1278     		ldrb	r2, [r2]
+  70 0040 1B78     		ldrb	r3, [r3]
+  71 0042 D31A     		subs	r3, r2, r3
+  72 0044 DAB2     		uxtb	r2, r3
+  73 0046 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccZ6LcmY.s 			page 6
+
+
+  74 0048 1800     		movs	r0, r3
+  75 004a FFF7FEFF 		bl	u8g_DrawPixel
+ 214:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 + y, y0 - x);
+  76              		.loc 1 214 0
+  77 004e 7A1C     		adds	r2, r7, #1
+  78 0050 BB1C     		adds	r3, r7, #2
+  79 0052 1278     		ldrb	r2, [r2]
+  80 0054 1B78     		ldrb	r3, [r3]
+  81 0056 D318     		adds	r3, r2, r3
+  82 0058 D9B2     		uxtb	r1, r3
+  83 005a 1823     		movs	r3, #24
+  84 005c FA18     		adds	r2, r7, r3
+  85 005e FB1C     		adds	r3, r7, #3
+  86 0060 1278     		ldrb	r2, [r2]
+  87 0062 1B78     		ldrb	r3, [r3]
+  88 0064 D31A     		subs	r3, r2, r3
+  89 0066 DAB2     		uxtb	r2, r3
+  90 0068 7B68     		ldr	r3, [r7, #4]
+  91 006a 1800     		movs	r0, r3
+  92 006c FFF7FEFF 		bl	u8g_DrawPixel
+  93              	.L2:
+ 215:Drivers/u8glib/src/u8g_circle.c ****     }
+ 216:Drivers/u8glib/src/u8g_circle.c ****     
+ 217:Drivers/u8glib/src/u8g_circle.c ****     /* upper left */
+ 218:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_UPPER_LEFT )
+  94              		.loc 1 218 0
+  95 0070 1C23     		movs	r3, #28
+  96 0072 FB18     		adds	r3, r7, r3
+  97 0074 1B78     		ldrb	r3, [r3]
+  98 0076 0222     		movs	r2, #2
+  99 0078 1340     		ands	r3, r2
+ 100 007a 21D0     		beq	.L3
+ 219:Drivers/u8glib/src/u8g_circle.c ****     {
+ 220:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 - x, y0 - y);
+ 101              		.loc 1 220 0
+ 102 007c 7A1C     		adds	r2, r7, #1
+ 103 007e FB1C     		adds	r3, r7, #3
+ 104 0080 1278     		ldrb	r2, [r2]
+ 105 0082 1B78     		ldrb	r3, [r3]
+ 106 0084 D31A     		subs	r3, r2, r3
+ 107 0086 D9B2     		uxtb	r1, r3
+ 108 0088 1823     		movs	r3, #24
+ 109 008a FA18     		adds	r2, r7, r3
+ 110 008c BB1C     		adds	r3, r7, #2
+ 111 008e 1278     		ldrb	r2, [r2]
+ 112 0090 1B78     		ldrb	r3, [r3]
+ 113 0092 D31A     		subs	r3, r2, r3
+ 114 0094 DAB2     		uxtb	r2, r3
+ 115 0096 7B68     		ldr	r3, [r7, #4]
+ 116 0098 1800     		movs	r0, r3
+ 117 009a FFF7FEFF 		bl	u8g_DrawPixel
+ 221:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 - y, y0 - x);
+ 118              		.loc 1 221 0
+ 119 009e 7A1C     		adds	r2, r7, #1
+ 120 00a0 BB1C     		adds	r3, r7, #2
+ 121 00a2 1278     		ldrb	r2, [r2]
+ 122 00a4 1B78     		ldrb	r3, [r3]
+ARM GAS  /tmp/ccZ6LcmY.s 			page 7
+
+
+ 123 00a6 D31A     		subs	r3, r2, r3
+ 124 00a8 D9B2     		uxtb	r1, r3
+ 125 00aa 1823     		movs	r3, #24
+ 126 00ac FA18     		adds	r2, r7, r3
+ 127 00ae FB1C     		adds	r3, r7, #3
+ 128 00b0 1278     		ldrb	r2, [r2]
+ 129 00b2 1B78     		ldrb	r3, [r3]
+ 130 00b4 D31A     		subs	r3, r2, r3
+ 131 00b6 DAB2     		uxtb	r2, r3
+ 132 00b8 7B68     		ldr	r3, [r7, #4]
+ 133 00ba 1800     		movs	r0, r3
+ 134 00bc FFF7FEFF 		bl	u8g_DrawPixel
+ 135              	.L3:
+ 222:Drivers/u8glib/src/u8g_circle.c ****     }
+ 223:Drivers/u8glib/src/u8g_circle.c ****     
+ 224:Drivers/u8glib/src/u8g_circle.c ****     /* lower right */
+ 225:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_LOWER_RIGHT )
+ 136              		.loc 1 225 0
+ 137 00c0 1C23     		movs	r3, #28
+ 138 00c2 FB18     		adds	r3, r7, r3
+ 139 00c4 1B78     		ldrb	r3, [r3]
+ 140 00c6 0822     		movs	r2, #8
+ 141 00c8 1340     		ands	r3, r2
+ 142 00ca 21D0     		beq	.L4
+ 226:Drivers/u8glib/src/u8g_circle.c ****     {
+ 227:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 + x, y0 + y);
+ 143              		.loc 1 227 0
+ 144 00cc 7A1C     		adds	r2, r7, #1
+ 145 00ce FB1C     		adds	r3, r7, #3
+ 146 00d0 1278     		ldrb	r2, [r2]
+ 147 00d2 1B78     		ldrb	r3, [r3]
+ 148 00d4 D318     		adds	r3, r2, r3
+ 149 00d6 D9B2     		uxtb	r1, r3
+ 150 00d8 1823     		movs	r3, #24
+ 151 00da FA18     		adds	r2, r7, r3
+ 152 00dc BB1C     		adds	r3, r7, #2
+ 153 00de 1278     		ldrb	r2, [r2]
+ 154 00e0 1B78     		ldrb	r3, [r3]
+ 155 00e2 D318     		adds	r3, r2, r3
+ 156 00e4 DAB2     		uxtb	r2, r3
+ 157 00e6 7B68     		ldr	r3, [r7, #4]
+ 158 00e8 1800     		movs	r0, r3
+ 159 00ea FFF7FEFF 		bl	u8g_DrawPixel
+ 228:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 + y, y0 + x);
+ 160              		.loc 1 228 0
+ 161 00ee 7A1C     		adds	r2, r7, #1
+ 162 00f0 BB1C     		adds	r3, r7, #2
+ 163 00f2 1278     		ldrb	r2, [r2]
+ 164 00f4 1B78     		ldrb	r3, [r3]
+ 165 00f6 D318     		adds	r3, r2, r3
+ 166 00f8 D9B2     		uxtb	r1, r3
+ 167 00fa 1823     		movs	r3, #24
+ 168 00fc FA18     		adds	r2, r7, r3
+ 169 00fe FB1C     		adds	r3, r7, #3
+ 170 0100 1278     		ldrb	r2, [r2]
+ 171 0102 1B78     		ldrb	r3, [r3]
+ 172 0104 D318     		adds	r3, r2, r3
+ARM GAS  /tmp/ccZ6LcmY.s 			page 8
+
+
+ 173 0106 DAB2     		uxtb	r2, r3
+ 174 0108 7B68     		ldr	r3, [r7, #4]
+ 175 010a 1800     		movs	r0, r3
+ 176 010c FFF7FEFF 		bl	u8g_DrawPixel
+ 177              	.L4:
+ 229:Drivers/u8glib/src/u8g_circle.c ****     }
+ 230:Drivers/u8glib/src/u8g_circle.c ****     
+ 231:Drivers/u8glib/src/u8g_circle.c ****     /* lower left */
+ 232:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_LOWER_LEFT )
+ 178              		.loc 1 232 0
+ 179 0110 1C23     		movs	r3, #28
+ 180 0112 FB18     		adds	r3, r7, r3
+ 181 0114 1B78     		ldrb	r3, [r3]
+ 182 0116 0422     		movs	r2, #4
+ 183 0118 1340     		ands	r3, r2
+ 184 011a 21D0     		beq	.L6
+ 233:Drivers/u8glib/src/u8g_circle.c ****     {
+ 234:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 - x, y0 + y);
+ 185              		.loc 1 234 0
+ 186 011c 7A1C     		adds	r2, r7, #1
+ 187 011e FB1C     		adds	r3, r7, #3
+ 188 0120 1278     		ldrb	r2, [r2]
+ 189 0122 1B78     		ldrb	r3, [r3]
+ 190 0124 D31A     		subs	r3, r2, r3
+ 191 0126 D9B2     		uxtb	r1, r3
+ 192 0128 1823     		movs	r3, #24
+ 193 012a FA18     		adds	r2, r7, r3
+ 194 012c BB1C     		adds	r3, r7, #2
+ 195 012e 1278     		ldrb	r2, [r2]
+ 196 0130 1B78     		ldrb	r3, [r3]
+ 197 0132 D318     		adds	r3, r2, r3
+ 198 0134 DAB2     		uxtb	r2, r3
+ 199 0136 7B68     		ldr	r3, [r7, #4]
+ 200 0138 1800     		movs	r0, r3
+ 201 013a FFF7FEFF 		bl	u8g_DrawPixel
+ 235:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawPixel(u8g, x0 - y, y0 + x);
+ 202              		.loc 1 235 0
+ 203 013e 7A1C     		adds	r2, r7, #1
+ 204 0140 BB1C     		adds	r3, r7, #2
+ 205 0142 1278     		ldrb	r2, [r2]
+ 206 0144 1B78     		ldrb	r3, [r3]
+ 207 0146 D31A     		subs	r3, r2, r3
+ 208 0148 D9B2     		uxtb	r1, r3
+ 209 014a 1823     		movs	r3, #24
+ 210 014c FA18     		adds	r2, r7, r3
+ 211 014e FB1C     		adds	r3, r7, #3
+ 212 0150 1278     		ldrb	r2, [r2]
+ 213 0152 1B78     		ldrb	r3, [r3]
+ 214 0154 D318     		adds	r3, r2, r3
+ 215 0156 DAB2     		uxtb	r2, r3
+ 216 0158 7B68     		ldr	r3, [r7, #4]
+ 217 015a 1800     		movs	r0, r3
+ 218 015c FFF7FEFF 		bl	u8g_DrawPixel
+ 219              	.L6:
+ 236:Drivers/u8glib/src/u8g_circle.c ****     }
+ 237:Drivers/u8glib/src/u8g_circle.c **** }
+ 220              		.loc 1 237 0
+ARM GAS  /tmp/ccZ6LcmY.s 			page 9
+
+
+ 221 0160 C046     		nop
+ 222 0162 BD46     		mov	sp, r7
+ 223 0164 03B0     		add	sp, sp, #12
+ 224              		@ sp needed
+ 225 0166 90BD     		pop	{r4, r7, pc}
+ 226              		.cfi_endproc
+ 227              	.LFE0:
+ 229              		.section	.text.u8g_draw_circle,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	u8g_draw_circle
+ 232              		.syntax unified
+ 233              		.code	16
+ 234              		.thumb_func
+ 235              		.fpu softvfp
+ 237              	u8g_draw_circle:
+ 238              	.LFB1:
+ 238:Drivers/u8glib/src/u8g_circle.c **** 
+ 239:Drivers/u8glib/src/u8g_circle.c **** void u8g_draw_circle(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rad, uint8_t option)
+ 240:Drivers/u8glib/src/u8g_circle.c **** {
+ 239              		.loc 1 240 0
+ 240              		.cfi_startproc
+ 241 0000 90B5     		push	{r4, r7, lr}
+ 242              	.LCFI3:
+ 243              		.cfi_def_cfa_offset 12
+ 244              		.cfi_offset 4, -12
+ 245              		.cfi_offset 7, -8
+ 246              		.cfi_offset 14, -4
+ 247 0002 87B0     		sub	sp, sp, #28
+ 248              	.LCFI4:
+ 249              		.cfi_def_cfa_offset 40
+ 250 0004 02AF     		add	r7, sp, #8
+ 251              	.LCFI5:
+ 252              		.cfi_def_cfa 7, 32
+ 253 0006 7860     		str	r0, [r7, #4]
+ 254 0008 0C00     		movs	r4, r1
+ 255 000a 1000     		movs	r0, r2
+ 256 000c 1900     		movs	r1, r3
+ 257 000e FB1C     		adds	r3, r7, #3
+ 258 0010 221C     		adds	r2, r4, #0
+ 259 0012 1A70     		strb	r2, [r3]
+ 260 0014 BB1C     		adds	r3, r7, #2
+ 261 0016 021C     		adds	r2, r0, #0
+ 262 0018 1A70     		strb	r2, [r3]
+ 263 001a 7B1C     		adds	r3, r7, #1
+ 264 001c 0A1C     		adds	r2, r1, #0
+ 265 001e 1A70     		strb	r2, [r3]
+ 241:Drivers/u8glib/src/u8g_circle.c ****     u8g_int_t f;
+ 242:Drivers/u8glib/src/u8g_circle.c ****     u8g_int_t ddF_x;
+ 243:Drivers/u8glib/src/u8g_circle.c ****     u8g_int_t ddF_y;
+ 244:Drivers/u8glib/src/u8g_circle.c ****     u8g_uint_t x;
+ 245:Drivers/u8glib/src/u8g_circle.c ****     u8g_uint_t y;
+ 246:Drivers/u8glib/src/u8g_circle.c **** 
+ 247:Drivers/u8glib/src/u8g_circle.c ****     f = 1;
+ 266              		.loc 1 247 0
+ 267 0020 0F23     		movs	r3, #15
+ 268 0022 FB18     		adds	r3, r7, r3
+ 269 0024 0122     		movs	r2, #1
+ARM GAS  /tmp/ccZ6LcmY.s 			page 10
+
+
+ 270 0026 1A70     		strb	r2, [r3]
+ 248:Drivers/u8glib/src/u8g_circle.c ****     f -= rad;
+ 271              		.loc 1 248 0
+ 272 0028 0F23     		movs	r3, #15
+ 273 002a FB18     		adds	r3, r7, r3
+ 274 002c 1A78     		ldrb	r2, [r3]
+ 275 002e 7B1C     		adds	r3, r7, #1
+ 276 0030 1B78     		ldrb	r3, [r3]
+ 277 0032 D31A     		subs	r3, r2, r3
+ 278 0034 DAB2     		uxtb	r2, r3
+ 279 0036 0F23     		movs	r3, #15
+ 280 0038 FB18     		adds	r3, r7, r3
+ 281 003a 1A70     		strb	r2, [r3]
+ 249:Drivers/u8glib/src/u8g_circle.c ****     ddF_x = 1;
+ 282              		.loc 1 249 0
+ 283 003c 0E23     		movs	r3, #14
+ 284 003e FB18     		adds	r3, r7, r3
+ 285 0040 0122     		movs	r2, #1
+ 286 0042 1A70     		strb	r2, [r3]
+ 250:Drivers/u8glib/src/u8g_circle.c ****     ddF_y = 0;
+ 287              		.loc 1 250 0
+ 288 0044 0D23     		movs	r3, #13
+ 289 0046 FB18     		adds	r3, r7, r3
+ 290 0048 0022     		movs	r2, #0
+ 291 004a 1A70     		strb	r2, [r3]
+ 251:Drivers/u8glib/src/u8g_circle.c ****     ddF_y -= rad;
+ 292              		.loc 1 251 0
+ 293 004c 0D23     		movs	r3, #13
+ 294 004e FB18     		adds	r3, r7, r3
+ 295 0050 1A78     		ldrb	r2, [r3]
+ 296 0052 7B1C     		adds	r3, r7, #1
+ 297 0054 1B78     		ldrb	r3, [r3]
+ 298 0056 D31A     		subs	r3, r2, r3
+ 299 0058 DAB2     		uxtb	r2, r3
+ 300 005a 0D23     		movs	r3, #13
+ 301 005c FB18     		adds	r3, r7, r3
+ 302 005e 1A70     		strb	r2, [r3]
+ 252:Drivers/u8glib/src/u8g_circle.c ****     ddF_y *= 2;
+ 303              		.loc 1 252 0
+ 304 0060 0D23     		movs	r3, #13
+ 305 0062 FB18     		adds	r3, r7, r3
+ 306 0064 1B78     		ldrb	r3, [r3]
+ 307 0066 DB18     		adds	r3, r3, r3
+ 308 0068 DAB2     		uxtb	r2, r3
+ 309 006a 0D23     		movs	r3, #13
+ 310 006c FB18     		adds	r3, r7, r3
+ 311 006e 1A70     		strb	r2, [r3]
+ 253:Drivers/u8glib/src/u8g_circle.c ****     x = 0;
+ 312              		.loc 1 253 0
+ 313 0070 0C23     		movs	r3, #12
+ 314 0072 FB18     		adds	r3, r7, r3
+ 315 0074 0022     		movs	r2, #0
+ 316 0076 1A70     		strb	r2, [r3]
+ 254:Drivers/u8glib/src/u8g_circle.c ****     y = rad;
+ 317              		.loc 1 254 0
+ 318 0078 0B23     		movs	r3, #11
+ 319 007a FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccZ6LcmY.s 			page 11
+
+
+ 320 007c 7A1C     		adds	r2, r7, #1
+ 321 007e 1278     		ldrb	r2, [r2]
+ 322 0080 1A70     		strb	r2, [r3]
+ 255:Drivers/u8glib/src/u8g_circle.c **** 
+ 256:Drivers/u8glib/src/u8g_circle.c ****     u8g_draw_circle_section(u8g, x, y, x0, y0, option);
+ 323              		.loc 1 256 0
+ 324 0082 FB1C     		adds	r3, r7, #3
+ 325 0084 1C78     		ldrb	r4, [r3]
+ 326 0086 0B23     		movs	r3, #11
+ 327 0088 FB18     		adds	r3, r7, r3
+ 328 008a 1A78     		ldrb	r2, [r3]
+ 329 008c 0C23     		movs	r3, #12
+ 330 008e FB18     		adds	r3, r7, r3
+ 331 0090 1978     		ldrb	r1, [r3]
+ 332 0092 7868     		ldr	r0, [r7, #4]
+ 333 0094 2023     		movs	r3, #32
+ 334 0096 FB18     		adds	r3, r7, r3
+ 335 0098 1B78     		ldrb	r3, [r3]
+ 336 009a 0193     		str	r3, [sp, #4]
+ 337 009c BB1C     		adds	r3, r7, #2
+ 338 009e 1B78     		ldrb	r3, [r3]
+ 339 00a0 0093     		str	r3, [sp]
+ 340 00a2 2300     		movs	r3, r4
+ 341 00a4 FFF7FEFF 		bl	u8g_draw_circle_section
+ 257:Drivers/u8glib/src/u8g_circle.c ****     
+ 258:Drivers/u8glib/src/u8g_circle.c ****     while ( x < y )
+ 342              		.loc 1 258 0
+ 343 00a8 4BE0     		b	.L8
+ 344              	.L10:
+ 259:Drivers/u8glib/src/u8g_circle.c ****     {
+ 260:Drivers/u8glib/src/u8g_circle.c ****       if (f >= 0) 
+ 345              		.loc 1 260 0
+ 346 00aa 0F23     		movs	r3, #15
+ 347 00ac FB18     		adds	r3, r7, r3
+ 348 00ae 1B78     		ldrb	r3, [r3]
+ 349 00b0 7F2B     		cmp	r3, #127
+ 350 00b2 19D8     		bhi	.L9
+ 261:Drivers/u8glib/src/u8g_circle.c ****       {
+ 262:Drivers/u8glib/src/u8g_circle.c ****         y--;
+ 351              		.loc 1 262 0
+ 352 00b4 0B23     		movs	r3, #11
+ 353 00b6 FB18     		adds	r3, r7, r3
+ 354 00b8 1A78     		ldrb	r2, [r3]
+ 355 00ba 0B23     		movs	r3, #11
+ 356 00bc FB18     		adds	r3, r7, r3
+ 357 00be 013A     		subs	r2, r2, #1
+ 358 00c0 1A70     		strb	r2, [r3]
+ 263:Drivers/u8glib/src/u8g_circle.c ****         ddF_y += 2;
+ 359              		.loc 1 263 0
+ 360 00c2 0D23     		movs	r3, #13
+ 361 00c4 FB18     		adds	r3, r7, r3
+ 362 00c6 1B78     		ldrb	r3, [r3]
+ 363 00c8 0233     		adds	r3, r3, #2
+ 364 00ca DAB2     		uxtb	r2, r3
+ 365 00cc 0D23     		movs	r3, #13
+ 366 00ce FB18     		adds	r3, r7, r3
+ 367 00d0 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccZ6LcmY.s 			page 12
+
+
+ 264:Drivers/u8glib/src/u8g_circle.c ****         f += ddF_y;
+ 368              		.loc 1 264 0
+ 369 00d2 0F23     		movs	r3, #15
+ 370 00d4 FB18     		adds	r3, r7, r3
+ 371 00d6 1A78     		ldrb	r2, [r3]
+ 372 00d8 0D23     		movs	r3, #13
+ 373 00da FB18     		adds	r3, r7, r3
+ 374 00dc 1B78     		ldrb	r3, [r3]
+ 375 00de D318     		adds	r3, r2, r3
+ 376 00e0 DAB2     		uxtb	r2, r3
+ 377 00e2 0F23     		movs	r3, #15
+ 378 00e4 FB18     		adds	r3, r7, r3
+ 379 00e6 1A70     		strb	r2, [r3]
+ 380              	.L9:
+ 265:Drivers/u8glib/src/u8g_circle.c ****       }
+ 266:Drivers/u8glib/src/u8g_circle.c ****       x++;
+ 381              		.loc 1 266 0
+ 382 00e8 0C23     		movs	r3, #12
+ 383 00ea FB18     		adds	r3, r7, r3
+ 384 00ec 1A78     		ldrb	r2, [r3]
+ 385 00ee 0C23     		movs	r3, #12
+ 386 00f0 FB18     		adds	r3, r7, r3
+ 387 00f2 0132     		adds	r2, r2, #1
+ 388 00f4 1A70     		strb	r2, [r3]
+ 267:Drivers/u8glib/src/u8g_circle.c ****       ddF_x += 2;
+ 389              		.loc 1 267 0
+ 390 00f6 0E23     		movs	r3, #14
+ 391 00f8 FB18     		adds	r3, r7, r3
+ 392 00fa 1B78     		ldrb	r3, [r3]
+ 393 00fc 0233     		adds	r3, r3, #2
+ 394 00fe DAB2     		uxtb	r2, r3
+ 395 0100 0E23     		movs	r3, #14
+ 396 0102 FB18     		adds	r3, r7, r3
+ 397 0104 1A70     		strb	r2, [r3]
+ 268:Drivers/u8glib/src/u8g_circle.c ****       f += ddF_x;
+ 398              		.loc 1 268 0
+ 399 0106 0F23     		movs	r3, #15
+ 400 0108 FB18     		adds	r3, r7, r3
+ 401 010a 1A78     		ldrb	r2, [r3]
+ 402 010c 0E23     		movs	r3, #14
+ 403 010e FB18     		adds	r3, r7, r3
+ 404 0110 1B78     		ldrb	r3, [r3]
+ 405 0112 D318     		adds	r3, r2, r3
+ 406 0114 DAB2     		uxtb	r2, r3
+ 407 0116 0F23     		movs	r3, #15
+ 408 0118 FB18     		adds	r3, r7, r3
+ 409 011a 1A70     		strb	r2, [r3]
+ 269:Drivers/u8glib/src/u8g_circle.c **** 
+ 270:Drivers/u8glib/src/u8g_circle.c ****       u8g_draw_circle_section(u8g, x, y, x0, y0, option);    
+ 410              		.loc 1 270 0
+ 411 011c FB1C     		adds	r3, r7, #3
+ 412 011e 1C78     		ldrb	r4, [r3]
+ 413 0120 0B23     		movs	r3, #11
+ 414 0122 FB18     		adds	r3, r7, r3
+ 415 0124 1A78     		ldrb	r2, [r3]
+ 416 0126 0C23     		movs	r3, #12
+ 417 0128 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/ccZ6LcmY.s 			page 13
+
+
+ 418 012a 1978     		ldrb	r1, [r3]
+ 419 012c 7868     		ldr	r0, [r7, #4]
+ 420 012e 2023     		movs	r3, #32
+ 421 0130 FB18     		adds	r3, r7, r3
+ 422 0132 1B78     		ldrb	r3, [r3]
+ 423 0134 0193     		str	r3, [sp, #4]
+ 424 0136 BB1C     		adds	r3, r7, #2
+ 425 0138 1B78     		ldrb	r3, [r3]
+ 426 013a 0093     		str	r3, [sp]
+ 427 013c 2300     		movs	r3, r4
+ 428 013e FFF7FEFF 		bl	u8g_draw_circle_section
+ 429              	.L8:
+ 258:Drivers/u8glib/src/u8g_circle.c ****     {
+ 430              		.loc 1 258 0
+ 431 0142 0C23     		movs	r3, #12
+ 432 0144 FA18     		adds	r2, r7, r3
+ 433 0146 0B23     		movs	r3, #11
+ 434 0148 FB18     		adds	r3, r7, r3
+ 435 014a 1278     		ldrb	r2, [r2]
+ 436 014c 1B78     		ldrb	r3, [r3]
+ 437 014e 9A42     		cmp	r2, r3
+ 438 0150 ABD3     		bcc	.L10
+ 271:Drivers/u8glib/src/u8g_circle.c ****     }
+ 272:Drivers/u8glib/src/u8g_circle.c **** }
+ 439              		.loc 1 272 0
+ 440 0152 C046     		nop
+ 441 0154 BD46     		mov	sp, r7
+ 442 0156 05B0     		add	sp, sp, #20
+ 443              		@ sp needed
+ 444 0158 90BD     		pop	{r4, r7, pc}
+ 445              		.cfi_endproc
+ 446              	.LFE1:
+ 448              		.section	.text.u8g_DrawCircle,"ax",%progbits
+ 449              		.align	1
+ 450              		.global	u8g_DrawCircle
+ 451              		.syntax unified
+ 452              		.code	16
+ 453              		.thumb_func
+ 454              		.fpu softvfp
+ 456              	u8g_DrawCircle:
+ 457              	.LFB2:
+ 273:Drivers/u8glib/src/u8g_circle.c **** 
+ 274:Drivers/u8glib/src/u8g_circle.c **** void u8g_DrawCircle(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rad, uint8_t option)
+ 275:Drivers/u8glib/src/u8g_circle.c **** {
+ 458              		.loc 1 275 0
+ 459              		.cfi_startproc
+ 460 0000 90B5     		push	{r4, r7, lr}
+ 461              	.LCFI6:
+ 462              		.cfi_def_cfa_offset 12
+ 463              		.cfi_offset 4, -12
+ 464              		.cfi_offset 7, -8
+ 465              		.cfi_offset 14, -4
+ 466 0002 87B0     		sub	sp, sp, #28
+ 467              	.LCFI7:
+ 468              		.cfi_def_cfa_offset 40
+ 469 0004 02AF     		add	r7, sp, #8
+ 470              	.LCFI8:
+ARM GAS  /tmp/ccZ6LcmY.s 			page 14
+
+
+ 471              		.cfi_def_cfa 7, 32
+ 472 0006 7860     		str	r0, [r7, #4]
+ 473 0008 0C00     		movs	r4, r1
+ 474 000a 1000     		movs	r0, r2
+ 475 000c 1900     		movs	r1, r3
+ 476 000e FB1C     		adds	r3, r7, #3
+ 477 0010 221C     		adds	r2, r4, #0
+ 478 0012 1A70     		strb	r2, [r3]
+ 479 0014 BB1C     		adds	r3, r7, #2
+ 480 0016 021C     		adds	r2, r0, #0
+ 481 0018 1A70     		strb	r2, [r3]
+ 482 001a 7B1C     		adds	r3, r7, #1
+ 483 001c 0A1C     		adds	r2, r1, #0
+ 484 001e 1A70     		strb	r2, [r3]
+ 485              	.LBB2:
+ 276:Drivers/u8glib/src/u8g_circle.c ****   /* check for bounding box */
+ 277:Drivers/u8glib/src/u8g_circle.c ****   {
+ 278:Drivers/u8glib/src/u8g_circle.c ****     u8g_uint_t radp, radp2;
+ 279:Drivers/u8glib/src/u8g_circle.c ****     
+ 280:Drivers/u8glib/src/u8g_circle.c ****     radp = rad;
+ 486              		.loc 1 280 0
+ 487 0020 0F23     		movs	r3, #15
+ 488 0022 FB18     		adds	r3, r7, r3
+ 489 0024 7A1C     		adds	r2, r7, #1
+ 490 0026 1278     		ldrb	r2, [r2]
+ 491 0028 1A70     		strb	r2, [r3]
+ 281:Drivers/u8glib/src/u8g_circle.c ****     radp++;
+ 492              		.loc 1 281 0
+ 493 002a 0F23     		movs	r3, #15
+ 494 002c FB18     		adds	r3, r7, r3
+ 495 002e 1A78     		ldrb	r2, [r3]
+ 496 0030 0F23     		movs	r3, #15
+ 497 0032 FB18     		adds	r3, r7, r3
+ 498 0034 0132     		adds	r2, r2, #1
+ 499 0036 1A70     		strb	r2, [r3]
+ 282:Drivers/u8glib/src/u8g_circle.c ****     radp2 = radp;
+ 500              		.loc 1 282 0
+ 501 0038 0E23     		movs	r3, #14
+ 502 003a FB18     		adds	r3, r7, r3
+ 503 003c 0F22     		movs	r2, #15
+ 504 003e BA18     		adds	r2, r7, r2
+ 505 0040 1278     		ldrb	r2, [r2]
+ 506 0042 1A70     		strb	r2, [r3]
+ 283:Drivers/u8glib/src/u8g_circle.c ****     radp2 *= 2;
+ 507              		.loc 1 283 0
+ 508 0044 0E23     		movs	r3, #14
+ 509 0046 FA18     		adds	r2, r7, r3
+ 510 0048 0E23     		movs	r3, #14
+ 511 004a FB18     		adds	r3, r7, r3
+ 512 004c 1B78     		ldrb	r3, [r3]
+ 513 004e DB18     		adds	r3, r3, r3
+ 514 0050 1370     		strb	r3, [r2]
+ 284:Drivers/u8glib/src/u8g_circle.c ****     
+ 285:Drivers/u8glib/src/u8g_circle.c ****     if ( u8g_IsBBXIntersection(u8g, x0-radp, y0-radp, radp2, radp2) == 0)
+ 515              		.loc 1 285 0
+ 516 0052 FA1C     		adds	r2, r7, #3
+ 517 0054 0F23     		movs	r3, #15
+ARM GAS  /tmp/ccZ6LcmY.s 			page 15
+
+
+ 518 0056 FB18     		adds	r3, r7, r3
+ 519 0058 1278     		ldrb	r2, [r2]
+ 520 005a 1B78     		ldrb	r3, [r3]
+ 521 005c D31A     		subs	r3, r2, r3
+ 522 005e D9B2     		uxtb	r1, r3
+ 523 0060 BA1C     		adds	r2, r7, #2
+ 524 0062 0F23     		movs	r3, #15
+ 525 0064 FB18     		adds	r3, r7, r3
+ 526 0066 1278     		ldrb	r2, [r2]
+ 527 0068 1B78     		ldrb	r3, [r3]
+ 528 006a D31A     		subs	r3, r2, r3
+ 529 006c DAB2     		uxtb	r2, r3
+ 530 006e 0E23     		movs	r3, #14
+ 531 0070 FB18     		adds	r3, r7, r3
+ 532 0072 1C78     		ldrb	r4, [r3]
+ 533 0074 7868     		ldr	r0, [r7, #4]
+ 534 0076 0E23     		movs	r3, #14
+ 535 0078 FB18     		adds	r3, r7, r3
+ 536 007a 1B78     		ldrb	r3, [r3]
+ 537 007c 0093     		str	r3, [sp]
+ 538 007e 2300     		movs	r3, r4
+ 539 0080 FFF7FEFF 		bl	u8g_IsBBXIntersection
+ 540 0084 031E     		subs	r3, r0, #0
+ 541 0086 0ED0     		beq	.L14
+ 542              	.LBE2:
+ 286:Drivers/u8glib/src/u8g_circle.c ****       return;    
+ 287:Drivers/u8glib/src/u8g_circle.c ****   }
+ 288:Drivers/u8glib/src/u8g_circle.c ****   
+ 289:Drivers/u8glib/src/u8g_circle.c ****   /* draw circle */
+ 290:Drivers/u8glib/src/u8g_circle.c ****   u8g_draw_circle(u8g, x0, y0, rad, option);
+ 543              		.loc 1 290 0
+ 544 0088 7B1C     		adds	r3, r7, #1
+ 545 008a 1C78     		ldrb	r4, [r3]
+ 546 008c BB1C     		adds	r3, r7, #2
+ 547 008e 1A78     		ldrb	r2, [r3]
+ 548 0090 FB1C     		adds	r3, r7, #3
+ 549 0092 1978     		ldrb	r1, [r3]
+ 550 0094 7868     		ldr	r0, [r7, #4]
+ 551 0096 2023     		movs	r3, #32
+ 552 0098 FB18     		adds	r3, r7, r3
+ 553 009a 1B78     		ldrb	r3, [r3]
+ 554 009c 0093     		str	r3, [sp]
+ 555 009e 2300     		movs	r3, r4
+ 556 00a0 FFF7FEFF 		bl	u8g_draw_circle
+ 557 00a4 00E0     		b	.L11
+ 558              	.L14:
+ 559              	.LBB3:
+ 286:Drivers/u8glib/src/u8g_circle.c ****       return;    
+ 560              		.loc 1 286 0
+ 561 00a6 C046     		nop
+ 562              	.L11:
+ 563              	.LBE3:
+ 291:Drivers/u8glib/src/u8g_circle.c **** }
+ 564              		.loc 1 291 0
+ 565 00a8 BD46     		mov	sp, r7
+ 566 00aa 05B0     		add	sp, sp, #20
+ 567              		@ sp needed
+ARM GAS  /tmp/ccZ6LcmY.s 			page 16
+
+
+ 568 00ac 90BD     		pop	{r4, r7, pc}
+ 569              		.cfi_endproc
+ 570              	.LFE2:
+ 572              		.section	.text.u8g_draw_disc_section,"ax",%progbits
+ 573              		.align	1
+ 574              		.syntax unified
+ 575              		.code	16
+ 576              		.thumb_func
+ 577              		.fpu softvfp
+ 579              	u8g_draw_disc_section:
+ 580              	.LFB3:
+ 292:Drivers/u8glib/src/u8g_circle.c **** 
+ 293:Drivers/u8glib/src/u8g_circle.c **** static void u8g_draw_disc_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t
+ 294:Drivers/u8glib/src/u8g_circle.c **** 
+ 295:Drivers/u8glib/src/u8g_circle.c **** static void u8g_draw_disc_section(u8g_t *u8g, u8g_uint_t x, u8g_uint_t y, u8g_uint_t x0, u8g_uint_t
+ 296:Drivers/u8glib/src/u8g_circle.c **** {
+ 581              		.loc 1 296 0
+ 582              		.cfi_startproc
+ 583 0000 90B5     		push	{r4, r7, lr}
+ 584              	.LCFI9:
+ 585              		.cfi_def_cfa_offset 12
+ 586              		.cfi_offset 4, -12
+ 587              		.cfi_offset 7, -8
+ 588              		.cfi_offset 14, -4
+ 589 0002 83B0     		sub	sp, sp, #12
+ 590              	.LCFI10:
+ 591              		.cfi_def_cfa_offset 24
+ 592 0004 00AF     		add	r7, sp, #0
+ 593              	.LCFI11:
+ 594              		.cfi_def_cfa_register 7
+ 595 0006 7860     		str	r0, [r7, #4]
+ 596 0008 0C00     		movs	r4, r1
+ 597 000a 1000     		movs	r0, r2
+ 598 000c 1900     		movs	r1, r3
+ 599 000e FB1C     		adds	r3, r7, #3
+ 600 0010 221C     		adds	r2, r4, #0
+ 601 0012 1A70     		strb	r2, [r3]
+ 602 0014 BB1C     		adds	r3, r7, #2
+ 603 0016 021C     		adds	r2, r0, #0
+ 604 0018 1A70     		strb	r2, [r3]
+ 605 001a 7B1C     		adds	r3, r7, #1
+ 606 001c 0A1C     		adds	r2, r1, #0
+ 607 001e 1A70     		strb	r2, [r3]
+ 297:Drivers/u8glib/src/u8g_circle.c ****     /* upper right */
+ 298:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_UPPER_RIGHT )
+ 608              		.loc 1 298 0
+ 609 0020 1C23     		movs	r3, #28
+ 610 0022 FB18     		adds	r3, r7, r3
+ 611 0024 1B78     		ldrb	r3, [r3]
+ 612 0026 0122     		movs	r2, #1
+ 613 0028 1340     		ands	r3, r2
+ 614 002a 27D0     		beq	.L16
+ 299:Drivers/u8glib/src/u8g_circle.c ****     {
+ 300:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0+x, y0-y, y+1);
+ 615              		.loc 1 300 0
+ 616 002c 7A1C     		adds	r2, r7, #1
+ 617 002e FB1C     		adds	r3, r7, #3
+ARM GAS  /tmp/ccZ6LcmY.s 			page 17
+
+
+ 618 0030 1278     		ldrb	r2, [r2]
+ 619 0032 1B78     		ldrb	r3, [r3]
+ 620 0034 D318     		adds	r3, r2, r3
+ 621 0036 D9B2     		uxtb	r1, r3
+ 622 0038 1823     		movs	r3, #24
+ 623 003a FA18     		adds	r2, r7, r3
+ 624 003c BB1C     		adds	r3, r7, #2
+ 625 003e 1278     		ldrb	r2, [r2]
+ 626 0040 1B78     		ldrb	r3, [r3]
+ 627 0042 D31A     		subs	r3, r2, r3
+ 628 0044 DAB2     		uxtb	r2, r3
+ 629 0046 BB1C     		adds	r3, r7, #2
+ 630 0048 1B78     		ldrb	r3, [r3]
+ 631 004a 0133     		adds	r3, r3, #1
+ 632 004c DBB2     		uxtb	r3, r3
+ 633 004e 7868     		ldr	r0, [r7, #4]
+ 634 0050 FFF7FEFF 		bl	u8g_DrawVLine
+ 301:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0+y, y0-x, x+1);
+ 635              		.loc 1 301 0
+ 636 0054 7A1C     		adds	r2, r7, #1
+ 637 0056 BB1C     		adds	r3, r7, #2
+ 638 0058 1278     		ldrb	r2, [r2]
+ 639 005a 1B78     		ldrb	r3, [r3]
+ 640 005c D318     		adds	r3, r2, r3
+ 641 005e D9B2     		uxtb	r1, r3
+ 642 0060 1823     		movs	r3, #24
+ 643 0062 FA18     		adds	r2, r7, r3
+ 644 0064 FB1C     		adds	r3, r7, #3
+ 645 0066 1278     		ldrb	r2, [r2]
+ 646 0068 1B78     		ldrb	r3, [r3]
+ 647 006a D31A     		subs	r3, r2, r3
+ 648 006c DAB2     		uxtb	r2, r3
+ 649 006e FB1C     		adds	r3, r7, #3
+ 650 0070 1B78     		ldrb	r3, [r3]
+ 651 0072 0133     		adds	r3, r3, #1
+ 652 0074 DBB2     		uxtb	r3, r3
+ 653 0076 7868     		ldr	r0, [r7, #4]
+ 654 0078 FFF7FEFF 		bl	u8g_DrawVLine
+ 655              	.L16:
+ 302:Drivers/u8glib/src/u8g_circle.c ****     }
+ 303:Drivers/u8glib/src/u8g_circle.c ****     
+ 304:Drivers/u8glib/src/u8g_circle.c ****     /* upper left */
+ 305:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_UPPER_LEFT )
+ 656              		.loc 1 305 0
+ 657 007c 1C23     		movs	r3, #28
+ 658 007e FB18     		adds	r3, r7, r3
+ 659 0080 1B78     		ldrb	r3, [r3]
+ 660 0082 0222     		movs	r2, #2
+ 661 0084 1340     		ands	r3, r2
+ 662 0086 27D0     		beq	.L17
+ 306:Drivers/u8glib/src/u8g_circle.c ****     {
+ 307:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0-x, y0-y, y+1);
+ 663              		.loc 1 307 0
+ 664 0088 7A1C     		adds	r2, r7, #1
+ 665 008a FB1C     		adds	r3, r7, #3
+ 666 008c 1278     		ldrb	r2, [r2]
+ 667 008e 1B78     		ldrb	r3, [r3]
+ARM GAS  /tmp/ccZ6LcmY.s 			page 18
+
+
+ 668 0090 D31A     		subs	r3, r2, r3
+ 669 0092 D9B2     		uxtb	r1, r3
+ 670 0094 1823     		movs	r3, #24
+ 671 0096 FA18     		adds	r2, r7, r3
+ 672 0098 BB1C     		adds	r3, r7, #2
+ 673 009a 1278     		ldrb	r2, [r2]
+ 674 009c 1B78     		ldrb	r3, [r3]
+ 675 009e D31A     		subs	r3, r2, r3
+ 676 00a0 DAB2     		uxtb	r2, r3
+ 677 00a2 BB1C     		adds	r3, r7, #2
+ 678 00a4 1B78     		ldrb	r3, [r3]
+ 679 00a6 0133     		adds	r3, r3, #1
+ 680 00a8 DBB2     		uxtb	r3, r3
+ 681 00aa 7868     		ldr	r0, [r7, #4]
+ 682 00ac FFF7FEFF 		bl	u8g_DrawVLine
+ 308:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0-y, y0-x, x+1);
+ 683              		.loc 1 308 0
+ 684 00b0 7A1C     		adds	r2, r7, #1
+ 685 00b2 BB1C     		adds	r3, r7, #2
+ 686 00b4 1278     		ldrb	r2, [r2]
+ 687 00b6 1B78     		ldrb	r3, [r3]
+ 688 00b8 D31A     		subs	r3, r2, r3
+ 689 00ba D9B2     		uxtb	r1, r3
+ 690 00bc 1823     		movs	r3, #24
+ 691 00be FA18     		adds	r2, r7, r3
+ 692 00c0 FB1C     		adds	r3, r7, #3
+ 693 00c2 1278     		ldrb	r2, [r2]
+ 694 00c4 1B78     		ldrb	r3, [r3]
+ 695 00c6 D31A     		subs	r3, r2, r3
+ 696 00c8 DAB2     		uxtb	r2, r3
+ 697 00ca FB1C     		adds	r3, r7, #3
+ 698 00cc 1B78     		ldrb	r3, [r3]
+ 699 00ce 0133     		adds	r3, r3, #1
+ 700 00d0 DBB2     		uxtb	r3, r3
+ 701 00d2 7868     		ldr	r0, [r7, #4]
+ 702 00d4 FFF7FEFF 		bl	u8g_DrawVLine
+ 703              	.L17:
+ 309:Drivers/u8glib/src/u8g_circle.c ****     }
+ 310:Drivers/u8glib/src/u8g_circle.c ****     
+ 311:Drivers/u8glib/src/u8g_circle.c ****     /* lower right */
+ 312:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_LOWER_RIGHT )
+ 704              		.loc 1 312 0
+ 705 00d8 1C23     		movs	r3, #28
+ 706 00da FB18     		adds	r3, r7, r3
+ 707 00dc 1B78     		ldrb	r3, [r3]
+ 708 00de 0822     		movs	r2, #8
+ 709 00e0 1340     		ands	r3, r2
+ 710 00e2 1FD0     		beq	.L18
+ 313:Drivers/u8glib/src/u8g_circle.c ****     {
+ 314:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0+x, y0, y+1);
+ 711              		.loc 1 314 0
+ 712 00e4 7A1C     		adds	r2, r7, #1
+ 713 00e6 FB1C     		adds	r3, r7, #3
+ 714 00e8 1278     		ldrb	r2, [r2]
+ 715 00ea 1B78     		ldrb	r3, [r3]
+ 716 00ec D318     		adds	r3, r2, r3
+ 717 00ee D9B2     		uxtb	r1, r3
+ARM GAS  /tmp/ccZ6LcmY.s 			page 19
+
+
+ 718 00f0 BB1C     		adds	r3, r7, #2
+ 719 00f2 1B78     		ldrb	r3, [r3]
+ 720 00f4 0133     		adds	r3, r3, #1
+ 721 00f6 DBB2     		uxtb	r3, r3
+ 722 00f8 1822     		movs	r2, #24
+ 723 00fa BA18     		adds	r2, r7, r2
+ 724 00fc 1278     		ldrb	r2, [r2]
+ 725 00fe 7868     		ldr	r0, [r7, #4]
+ 726 0100 FFF7FEFF 		bl	u8g_DrawVLine
+ 315:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0+y, y0, x+1);
+ 727              		.loc 1 315 0
+ 728 0104 7A1C     		adds	r2, r7, #1
+ 729 0106 BB1C     		adds	r3, r7, #2
+ 730 0108 1278     		ldrb	r2, [r2]
+ 731 010a 1B78     		ldrb	r3, [r3]
+ 732 010c D318     		adds	r3, r2, r3
+ 733 010e D9B2     		uxtb	r1, r3
+ 734 0110 FB1C     		adds	r3, r7, #3
+ 735 0112 1B78     		ldrb	r3, [r3]
+ 736 0114 0133     		adds	r3, r3, #1
+ 737 0116 DBB2     		uxtb	r3, r3
+ 738 0118 1822     		movs	r2, #24
+ 739 011a BA18     		adds	r2, r7, r2
+ 740 011c 1278     		ldrb	r2, [r2]
+ 741 011e 7868     		ldr	r0, [r7, #4]
+ 742 0120 FFF7FEFF 		bl	u8g_DrawVLine
+ 743              	.L18:
+ 316:Drivers/u8glib/src/u8g_circle.c ****     }
+ 317:Drivers/u8glib/src/u8g_circle.c ****     
+ 318:Drivers/u8glib/src/u8g_circle.c ****     /* lower left */
+ 319:Drivers/u8glib/src/u8g_circle.c ****     if ( option & U8G_DRAW_LOWER_LEFT )
+ 744              		.loc 1 319 0
+ 745 0124 1C23     		movs	r3, #28
+ 746 0126 FB18     		adds	r3, r7, r3
+ 747 0128 1B78     		ldrb	r3, [r3]
+ 748 012a 0422     		movs	r2, #4
+ 749 012c 1340     		ands	r3, r2
+ 750 012e 1FD0     		beq	.L20
+ 320:Drivers/u8glib/src/u8g_circle.c ****     {
+ 321:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0-x, y0, y+1);
+ 751              		.loc 1 321 0
+ 752 0130 7A1C     		adds	r2, r7, #1
+ 753 0132 FB1C     		adds	r3, r7, #3
+ 754 0134 1278     		ldrb	r2, [r2]
+ 755 0136 1B78     		ldrb	r3, [r3]
+ 756 0138 D31A     		subs	r3, r2, r3
+ 757 013a D9B2     		uxtb	r1, r3
+ 758 013c BB1C     		adds	r3, r7, #2
+ 759 013e 1B78     		ldrb	r3, [r3]
+ 760 0140 0133     		adds	r3, r3, #1
+ 761 0142 DBB2     		uxtb	r3, r3
+ 762 0144 1822     		movs	r2, #24
+ 763 0146 BA18     		adds	r2, r7, r2
+ 764 0148 1278     		ldrb	r2, [r2]
+ 765 014a 7868     		ldr	r0, [r7, #4]
+ 766 014c FFF7FEFF 		bl	u8g_DrawVLine
+ 322:Drivers/u8glib/src/u8g_circle.c ****       u8g_DrawVLine(u8g, x0-y, y0, x+1);
+ARM GAS  /tmp/ccZ6LcmY.s 			page 20
+
+
+ 767              		.loc 1 322 0
+ 768 0150 7A1C     		adds	r2, r7, #1
+ 769 0152 BB1C     		adds	r3, r7, #2
+ 770 0154 1278     		ldrb	r2, [r2]
+ 771 0156 1B78     		ldrb	r3, [r3]
+ 772 0158 D31A     		subs	r3, r2, r3
+ 773 015a D9B2     		uxtb	r1, r3
+ 774 015c FB1C     		adds	r3, r7, #3
+ 775 015e 1B78     		ldrb	r3, [r3]
+ 776 0160 0133     		adds	r3, r3, #1
+ 777 0162 DBB2     		uxtb	r3, r3
+ 778 0164 1822     		movs	r2, #24
+ 779 0166 BA18     		adds	r2, r7, r2
+ 780 0168 1278     		ldrb	r2, [r2]
+ 781 016a 7868     		ldr	r0, [r7, #4]
+ 782 016c FFF7FEFF 		bl	u8g_DrawVLine
+ 783              	.L20:
+ 323:Drivers/u8glib/src/u8g_circle.c ****     }
+ 324:Drivers/u8glib/src/u8g_circle.c **** }
+ 784              		.loc 1 324 0
+ 785 0170 C046     		nop
+ 786 0172 BD46     		mov	sp, r7
+ 787 0174 03B0     		add	sp, sp, #12
+ 788              		@ sp needed
+ 789 0176 90BD     		pop	{r4, r7, pc}
+ 790              		.cfi_endproc
+ 791              	.LFE3:
+ 793              		.section	.text.u8g_draw_disc,"ax",%progbits
+ 794              		.align	1
+ 795              		.global	u8g_draw_disc
+ 796              		.syntax unified
+ 797              		.code	16
+ 798              		.thumb_func
+ 799              		.fpu softvfp
+ 801              	u8g_draw_disc:
+ 802              	.LFB4:
+ 325:Drivers/u8glib/src/u8g_circle.c **** 
+ 326:Drivers/u8glib/src/u8g_circle.c **** void u8g_draw_disc(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rad, uint8_t option)
+ 327:Drivers/u8glib/src/u8g_circle.c **** {
+ 803              		.loc 1 327 0
+ 804              		.cfi_startproc
+ 805 0000 90B5     		push	{r4, r7, lr}
+ 806              	.LCFI12:
+ 807              		.cfi_def_cfa_offset 12
+ 808              		.cfi_offset 4, -12
+ 809              		.cfi_offset 7, -8
+ 810              		.cfi_offset 14, -4
+ 811 0002 87B0     		sub	sp, sp, #28
+ 812              	.LCFI13:
+ 813              		.cfi_def_cfa_offset 40
+ 814 0004 02AF     		add	r7, sp, #8
+ 815              	.LCFI14:
+ 816              		.cfi_def_cfa 7, 32
+ 817 0006 7860     		str	r0, [r7, #4]
+ 818 0008 0C00     		movs	r4, r1
+ 819 000a 1000     		movs	r0, r2
+ 820 000c 1900     		movs	r1, r3
+ARM GAS  /tmp/ccZ6LcmY.s 			page 21
+
+
+ 821 000e FB1C     		adds	r3, r7, #3
+ 822 0010 221C     		adds	r2, r4, #0
+ 823 0012 1A70     		strb	r2, [r3]
+ 824 0014 BB1C     		adds	r3, r7, #2
+ 825 0016 021C     		adds	r2, r0, #0
+ 826 0018 1A70     		strb	r2, [r3]
+ 827 001a 7B1C     		adds	r3, r7, #1
+ 828 001c 0A1C     		adds	r2, r1, #0
+ 829 001e 1A70     		strb	r2, [r3]
+ 328:Drivers/u8glib/src/u8g_circle.c ****   u8g_int_t f;
+ 329:Drivers/u8glib/src/u8g_circle.c ****   u8g_int_t ddF_x;
+ 330:Drivers/u8glib/src/u8g_circle.c ****   u8g_int_t ddF_y;
+ 331:Drivers/u8glib/src/u8g_circle.c ****   u8g_uint_t x;
+ 332:Drivers/u8glib/src/u8g_circle.c ****   u8g_uint_t y;
+ 333:Drivers/u8glib/src/u8g_circle.c **** 
+ 334:Drivers/u8glib/src/u8g_circle.c ****   f = 1;
+ 830              		.loc 1 334 0
+ 831 0020 0F23     		movs	r3, #15
+ 832 0022 FB18     		adds	r3, r7, r3
+ 833 0024 0122     		movs	r2, #1
+ 834 0026 1A70     		strb	r2, [r3]
+ 335:Drivers/u8glib/src/u8g_circle.c ****   f -= rad;
+ 835              		.loc 1 335 0
+ 836 0028 0F23     		movs	r3, #15
+ 837 002a FB18     		adds	r3, r7, r3
+ 838 002c 1A78     		ldrb	r2, [r3]
+ 839 002e 7B1C     		adds	r3, r7, #1
+ 840 0030 1B78     		ldrb	r3, [r3]
+ 841 0032 D31A     		subs	r3, r2, r3
+ 842 0034 DAB2     		uxtb	r2, r3
+ 843 0036 0F23     		movs	r3, #15
+ 844 0038 FB18     		adds	r3, r7, r3
+ 845 003a 1A70     		strb	r2, [r3]
+ 336:Drivers/u8glib/src/u8g_circle.c ****   ddF_x = 1;
+ 846              		.loc 1 336 0
+ 847 003c 0E23     		movs	r3, #14
+ 848 003e FB18     		adds	r3, r7, r3
+ 849 0040 0122     		movs	r2, #1
+ 850 0042 1A70     		strb	r2, [r3]
+ 337:Drivers/u8glib/src/u8g_circle.c ****   ddF_y = 0;
+ 851              		.loc 1 337 0
+ 852 0044 0D23     		movs	r3, #13
+ 853 0046 FB18     		adds	r3, r7, r3
+ 854 0048 0022     		movs	r2, #0
+ 855 004a 1A70     		strb	r2, [r3]
+ 338:Drivers/u8glib/src/u8g_circle.c ****   ddF_y -= rad;
+ 856              		.loc 1 338 0
+ 857 004c 0D23     		movs	r3, #13
+ 858 004e FB18     		adds	r3, r7, r3
+ 859 0050 1A78     		ldrb	r2, [r3]
+ 860 0052 7B1C     		adds	r3, r7, #1
+ 861 0054 1B78     		ldrb	r3, [r3]
+ 862 0056 D31A     		subs	r3, r2, r3
+ 863 0058 DAB2     		uxtb	r2, r3
+ 864 005a 0D23     		movs	r3, #13
+ 865 005c FB18     		adds	r3, r7, r3
+ 866 005e 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccZ6LcmY.s 			page 22
+
+
+ 339:Drivers/u8glib/src/u8g_circle.c ****   ddF_y *= 2;
+ 867              		.loc 1 339 0
+ 868 0060 0D23     		movs	r3, #13
+ 869 0062 FB18     		adds	r3, r7, r3
+ 870 0064 1B78     		ldrb	r3, [r3]
+ 871 0066 DB18     		adds	r3, r3, r3
+ 872 0068 DAB2     		uxtb	r2, r3
+ 873 006a 0D23     		movs	r3, #13
+ 874 006c FB18     		adds	r3, r7, r3
+ 875 006e 1A70     		strb	r2, [r3]
+ 340:Drivers/u8glib/src/u8g_circle.c ****   x = 0;
+ 876              		.loc 1 340 0
+ 877 0070 0C23     		movs	r3, #12
+ 878 0072 FB18     		adds	r3, r7, r3
+ 879 0074 0022     		movs	r2, #0
+ 880 0076 1A70     		strb	r2, [r3]
+ 341:Drivers/u8glib/src/u8g_circle.c ****   y = rad;
+ 881              		.loc 1 341 0
+ 882 0078 0B23     		movs	r3, #11
+ 883 007a FB18     		adds	r3, r7, r3
+ 884 007c 7A1C     		adds	r2, r7, #1
+ 885 007e 1278     		ldrb	r2, [r2]
+ 886 0080 1A70     		strb	r2, [r3]
+ 342:Drivers/u8glib/src/u8g_circle.c **** 
+ 343:Drivers/u8glib/src/u8g_circle.c ****   u8g_draw_disc_section(u8g, x, y, x0, y0, option);
+ 887              		.loc 1 343 0
+ 888 0082 FB1C     		adds	r3, r7, #3
+ 889 0084 1C78     		ldrb	r4, [r3]
+ 890 0086 0B23     		movs	r3, #11
+ 891 0088 FB18     		adds	r3, r7, r3
+ 892 008a 1A78     		ldrb	r2, [r3]
+ 893 008c 0C23     		movs	r3, #12
+ 894 008e FB18     		adds	r3, r7, r3
+ 895 0090 1978     		ldrb	r1, [r3]
+ 896 0092 7868     		ldr	r0, [r7, #4]
+ 897 0094 2023     		movs	r3, #32
+ 898 0096 FB18     		adds	r3, r7, r3
+ 899 0098 1B78     		ldrb	r3, [r3]
+ 900 009a 0193     		str	r3, [sp, #4]
+ 901 009c BB1C     		adds	r3, r7, #2
+ 902 009e 1B78     		ldrb	r3, [r3]
+ 903 00a0 0093     		str	r3, [sp]
+ 904 00a2 2300     		movs	r3, r4
+ 905 00a4 FFF7FEFF 		bl	u8g_draw_disc_section
+ 344:Drivers/u8glib/src/u8g_circle.c ****   
+ 345:Drivers/u8glib/src/u8g_circle.c ****   while ( x < y )
+ 906              		.loc 1 345 0
+ 907 00a8 4BE0     		b	.L22
+ 908              	.L24:
+ 346:Drivers/u8glib/src/u8g_circle.c ****   {
+ 347:Drivers/u8glib/src/u8g_circle.c ****     if (f >= 0) 
+ 909              		.loc 1 347 0
+ 910 00aa 0F23     		movs	r3, #15
+ 911 00ac FB18     		adds	r3, r7, r3
+ 912 00ae 1B78     		ldrb	r3, [r3]
+ 913 00b0 7F2B     		cmp	r3, #127
+ 914 00b2 19D8     		bhi	.L23
+ARM GAS  /tmp/ccZ6LcmY.s 			page 23
+
+
+ 348:Drivers/u8glib/src/u8g_circle.c ****     {
+ 349:Drivers/u8glib/src/u8g_circle.c ****       y--;
+ 915              		.loc 1 349 0
+ 916 00b4 0B23     		movs	r3, #11
+ 917 00b6 FB18     		adds	r3, r7, r3
+ 918 00b8 1A78     		ldrb	r2, [r3]
+ 919 00ba 0B23     		movs	r3, #11
+ 920 00bc FB18     		adds	r3, r7, r3
+ 921 00be 013A     		subs	r2, r2, #1
+ 922 00c0 1A70     		strb	r2, [r3]
+ 350:Drivers/u8glib/src/u8g_circle.c ****       ddF_y += 2;
+ 923              		.loc 1 350 0
+ 924 00c2 0D23     		movs	r3, #13
+ 925 00c4 FB18     		adds	r3, r7, r3
+ 926 00c6 1B78     		ldrb	r3, [r3]
+ 927 00c8 0233     		adds	r3, r3, #2
+ 928 00ca DAB2     		uxtb	r2, r3
+ 929 00cc 0D23     		movs	r3, #13
+ 930 00ce FB18     		adds	r3, r7, r3
+ 931 00d0 1A70     		strb	r2, [r3]
+ 351:Drivers/u8glib/src/u8g_circle.c ****       f += ddF_y;
+ 932              		.loc 1 351 0
+ 933 00d2 0F23     		movs	r3, #15
+ 934 00d4 FB18     		adds	r3, r7, r3
+ 935 00d6 1A78     		ldrb	r2, [r3]
+ 936 00d8 0D23     		movs	r3, #13
+ 937 00da FB18     		adds	r3, r7, r3
+ 938 00dc 1B78     		ldrb	r3, [r3]
+ 939 00de D318     		adds	r3, r2, r3
+ 940 00e0 DAB2     		uxtb	r2, r3
+ 941 00e2 0F23     		movs	r3, #15
+ 942 00e4 FB18     		adds	r3, r7, r3
+ 943 00e6 1A70     		strb	r2, [r3]
+ 944              	.L23:
+ 352:Drivers/u8glib/src/u8g_circle.c ****     }
+ 353:Drivers/u8glib/src/u8g_circle.c ****     x++;
+ 945              		.loc 1 353 0
+ 946 00e8 0C23     		movs	r3, #12
+ 947 00ea FB18     		adds	r3, r7, r3
+ 948 00ec 1A78     		ldrb	r2, [r3]
+ 949 00ee 0C23     		movs	r3, #12
+ 950 00f0 FB18     		adds	r3, r7, r3
+ 951 00f2 0132     		adds	r2, r2, #1
+ 952 00f4 1A70     		strb	r2, [r3]
+ 354:Drivers/u8glib/src/u8g_circle.c ****     ddF_x += 2;
+ 953              		.loc 1 354 0
+ 954 00f6 0E23     		movs	r3, #14
+ 955 00f8 FB18     		adds	r3, r7, r3
+ 956 00fa 1B78     		ldrb	r3, [r3]
+ 957 00fc 0233     		adds	r3, r3, #2
+ 958 00fe DAB2     		uxtb	r2, r3
+ 959 0100 0E23     		movs	r3, #14
+ 960 0102 FB18     		adds	r3, r7, r3
+ 961 0104 1A70     		strb	r2, [r3]
+ 355:Drivers/u8glib/src/u8g_circle.c ****     f += ddF_x;
+ 962              		.loc 1 355 0
+ 963 0106 0F23     		movs	r3, #15
+ARM GAS  /tmp/ccZ6LcmY.s 			page 24
+
+
+ 964 0108 FB18     		adds	r3, r7, r3
+ 965 010a 1A78     		ldrb	r2, [r3]
+ 966 010c 0E23     		movs	r3, #14
+ 967 010e FB18     		adds	r3, r7, r3
+ 968 0110 1B78     		ldrb	r3, [r3]
+ 969 0112 D318     		adds	r3, r2, r3
+ 970 0114 DAB2     		uxtb	r2, r3
+ 971 0116 0F23     		movs	r3, #15
+ 972 0118 FB18     		adds	r3, r7, r3
+ 973 011a 1A70     		strb	r2, [r3]
+ 356:Drivers/u8glib/src/u8g_circle.c **** 
+ 357:Drivers/u8glib/src/u8g_circle.c ****     u8g_draw_disc_section(u8g, x, y, x0, y0, option);    
+ 974              		.loc 1 357 0
+ 975 011c FB1C     		adds	r3, r7, #3
+ 976 011e 1C78     		ldrb	r4, [r3]
+ 977 0120 0B23     		movs	r3, #11
+ 978 0122 FB18     		adds	r3, r7, r3
+ 979 0124 1A78     		ldrb	r2, [r3]
+ 980 0126 0C23     		movs	r3, #12
+ 981 0128 FB18     		adds	r3, r7, r3
+ 982 012a 1978     		ldrb	r1, [r3]
+ 983 012c 7868     		ldr	r0, [r7, #4]
+ 984 012e 2023     		movs	r3, #32
+ 985 0130 FB18     		adds	r3, r7, r3
+ 986 0132 1B78     		ldrb	r3, [r3]
+ 987 0134 0193     		str	r3, [sp, #4]
+ 988 0136 BB1C     		adds	r3, r7, #2
+ 989 0138 1B78     		ldrb	r3, [r3]
+ 990 013a 0093     		str	r3, [sp]
+ 991 013c 2300     		movs	r3, r4
+ 992 013e FFF7FEFF 		bl	u8g_draw_disc_section
+ 993              	.L22:
+ 345:Drivers/u8glib/src/u8g_circle.c ****   {
+ 994              		.loc 1 345 0
+ 995 0142 0C23     		movs	r3, #12
+ 996 0144 FA18     		adds	r2, r7, r3
+ 997 0146 0B23     		movs	r3, #11
+ 998 0148 FB18     		adds	r3, r7, r3
+ 999 014a 1278     		ldrb	r2, [r2]
+ 1000 014c 1B78     		ldrb	r3, [r3]
+ 1001 014e 9A42     		cmp	r2, r3
+ 1002 0150 ABD3     		bcc	.L24
+ 358:Drivers/u8glib/src/u8g_circle.c ****   }
+ 359:Drivers/u8glib/src/u8g_circle.c **** }
+ 1003              		.loc 1 359 0
+ 1004 0152 C046     		nop
+ 1005 0154 BD46     		mov	sp, r7
+ 1006 0156 05B0     		add	sp, sp, #20
+ 1007              		@ sp needed
+ 1008 0158 90BD     		pop	{r4, r7, pc}
+ 1009              		.cfi_endproc
+ 1010              	.LFE4:
+ 1012              		.section	.text.u8g_DrawDisc,"ax",%progbits
+ 1013              		.align	1
+ 1014              		.global	u8g_DrawDisc
+ 1015              		.syntax unified
+ 1016              		.code	16
+ARM GAS  /tmp/ccZ6LcmY.s 			page 25
+
+
+ 1017              		.thumb_func
+ 1018              		.fpu softvfp
+ 1020              	u8g_DrawDisc:
+ 1021              	.LFB5:
+ 360:Drivers/u8glib/src/u8g_circle.c **** 
+ 361:Drivers/u8glib/src/u8g_circle.c **** void u8g_DrawDisc(u8g_t *u8g, u8g_uint_t x0, u8g_uint_t y0, u8g_uint_t rad, uint8_t option)
+ 362:Drivers/u8glib/src/u8g_circle.c **** {
+ 1022              		.loc 1 362 0
+ 1023              		.cfi_startproc
+ 1024 0000 90B5     		push	{r4, r7, lr}
+ 1025              	.LCFI15:
+ 1026              		.cfi_def_cfa_offset 12
+ 1027              		.cfi_offset 4, -12
+ 1028              		.cfi_offset 7, -8
+ 1029              		.cfi_offset 14, -4
+ 1030 0002 87B0     		sub	sp, sp, #28
+ 1031              	.LCFI16:
+ 1032              		.cfi_def_cfa_offset 40
+ 1033 0004 02AF     		add	r7, sp, #8
+ 1034              	.LCFI17:
+ 1035              		.cfi_def_cfa 7, 32
+ 1036 0006 7860     		str	r0, [r7, #4]
+ 1037 0008 0C00     		movs	r4, r1
+ 1038 000a 1000     		movs	r0, r2
+ 1039 000c 1900     		movs	r1, r3
+ 1040 000e FB1C     		adds	r3, r7, #3
+ 1041 0010 221C     		adds	r2, r4, #0
+ 1042 0012 1A70     		strb	r2, [r3]
+ 1043 0014 BB1C     		adds	r3, r7, #2
+ 1044 0016 021C     		adds	r2, r0, #0
+ 1045 0018 1A70     		strb	r2, [r3]
+ 1046 001a 7B1C     		adds	r3, r7, #1
+ 1047 001c 0A1C     		adds	r2, r1, #0
+ 1048 001e 1A70     		strb	r2, [r3]
+ 1049              	.LBB4:
+ 363:Drivers/u8glib/src/u8g_circle.c ****   /* check for bounding box */
+ 364:Drivers/u8glib/src/u8g_circle.c ****   {
+ 365:Drivers/u8glib/src/u8g_circle.c ****     u8g_uint_t radp, radp2;
+ 366:Drivers/u8glib/src/u8g_circle.c ****     
+ 367:Drivers/u8glib/src/u8g_circle.c ****     radp = rad;
+ 1050              		.loc 1 367 0
+ 1051 0020 0F23     		movs	r3, #15
+ 1052 0022 FB18     		adds	r3, r7, r3
+ 1053 0024 7A1C     		adds	r2, r7, #1
+ 1054 0026 1278     		ldrb	r2, [r2]
+ 1055 0028 1A70     		strb	r2, [r3]
+ 368:Drivers/u8glib/src/u8g_circle.c ****     radp++;
+ 1056              		.loc 1 368 0
+ 1057 002a 0F23     		movs	r3, #15
+ 1058 002c FB18     		adds	r3, r7, r3
+ 1059 002e 1A78     		ldrb	r2, [r3]
+ 1060 0030 0F23     		movs	r3, #15
+ 1061 0032 FB18     		adds	r3, r7, r3
+ 1062 0034 0132     		adds	r2, r2, #1
+ 1063 0036 1A70     		strb	r2, [r3]
+ 369:Drivers/u8glib/src/u8g_circle.c ****     radp2 = radp;
+ 1064              		.loc 1 369 0
+ARM GAS  /tmp/ccZ6LcmY.s 			page 26
+
+
+ 1065 0038 0E23     		movs	r3, #14
+ 1066 003a FB18     		adds	r3, r7, r3
+ 1067 003c 0F22     		movs	r2, #15
+ 1068 003e BA18     		adds	r2, r7, r2
+ 1069 0040 1278     		ldrb	r2, [r2]
+ 1070 0042 1A70     		strb	r2, [r3]
+ 370:Drivers/u8glib/src/u8g_circle.c ****     radp2 *= 2;
+ 1071              		.loc 1 370 0
+ 1072 0044 0E23     		movs	r3, #14
+ 1073 0046 FA18     		adds	r2, r7, r3
+ 1074 0048 0E23     		movs	r3, #14
+ 1075 004a FB18     		adds	r3, r7, r3
+ 1076 004c 1B78     		ldrb	r3, [r3]
+ 1077 004e DB18     		adds	r3, r3, r3
+ 1078 0050 1370     		strb	r3, [r2]
+ 371:Drivers/u8glib/src/u8g_circle.c ****     
+ 372:Drivers/u8glib/src/u8g_circle.c ****     if ( u8g_IsBBXIntersection(u8g, x0-radp, y0-radp, radp2, radp2) == 0)
+ 1079              		.loc 1 372 0
+ 1080 0052 FA1C     		adds	r2, r7, #3
+ 1081 0054 0F23     		movs	r3, #15
+ 1082 0056 FB18     		adds	r3, r7, r3
+ 1083 0058 1278     		ldrb	r2, [r2]
+ 1084 005a 1B78     		ldrb	r3, [r3]
+ 1085 005c D31A     		subs	r3, r2, r3
+ 1086 005e D9B2     		uxtb	r1, r3
+ 1087 0060 BA1C     		adds	r2, r7, #2
+ 1088 0062 0F23     		movs	r3, #15
+ 1089 0064 FB18     		adds	r3, r7, r3
+ 1090 0066 1278     		ldrb	r2, [r2]
+ 1091 0068 1B78     		ldrb	r3, [r3]
+ 1092 006a D31A     		subs	r3, r2, r3
+ 1093 006c DAB2     		uxtb	r2, r3
+ 1094 006e 0E23     		movs	r3, #14
+ 1095 0070 FB18     		adds	r3, r7, r3
+ 1096 0072 1C78     		ldrb	r4, [r3]
+ 1097 0074 7868     		ldr	r0, [r7, #4]
+ 1098 0076 0E23     		movs	r3, #14
+ 1099 0078 FB18     		adds	r3, r7, r3
+ 1100 007a 1B78     		ldrb	r3, [r3]
+ 1101 007c 0093     		str	r3, [sp]
+ 1102 007e 2300     		movs	r3, r4
+ 1103 0080 FFF7FEFF 		bl	u8g_IsBBXIntersection
+ 1104 0084 031E     		subs	r3, r0, #0
+ 1105 0086 0ED0     		beq	.L28
+ 1106              	.LBE4:
+ 373:Drivers/u8glib/src/u8g_circle.c ****       return;    
+ 374:Drivers/u8glib/src/u8g_circle.c ****   }
+ 375:Drivers/u8glib/src/u8g_circle.c ****   
+ 376:Drivers/u8glib/src/u8g_circle.c ****   /* draw disc */
+ 377:Drivers/u8glib/src/u8g_circle.c ****   u8g_draw_disc(u8g, x0, y0, rad, option);
+ 1107              		.loc 1 377 0
+ 1108 0088 7B1C     		adds	r3, r7, #1
+ 1109 008a 1C78     		ldrb	r4, [r3]
+ 1110 008c BB1C     		adds	r3, r7, #2
+ 1111 008e 1A78     		ldrb	r2, [r3]
+ 1112 0090 FB1C     		adds	r3, r7, #3
+ 1113 0092 1978     		ldrb	r1, [r3]
+ARM GAS  /tmp/ccZ6LcmY.s 			page 27
+
+
+ 1114 0094 7868     		ldr	r0, [r7, #4]
+ 1115 0096 2023     		movs	r3, #32
+ 1116 0098 FB18     		adds	r3, r7, r3
+ 1117 009a 1B78     		ldrb	r3, [r3]
+ 1118 009c 0093     		str	r3, [sp]
+ 1119 009e 2300     		movs	r3, r4
+ 1120 00a0 FFF7FEFF 		bl	u8g_draw_disc
+ 1121 00a4 00E0     		b	.L25
+ 1122              	.L28:
+ 1123              	.LBB5:
+ 373:Drivers/u8glib/src/u8g_circle.c ****       return;    
+ 1124              		.loc 1 373 0
+ 1125 00a6 C046     		nop
+ 1126              	.L25:
+ 1127              	.LBE5:
+ 378:Drivers/u8glib/src/u8g_circle.c **** }
+ 1128              		.loc 1 378 0
+ 1129 00a8 BD46     		mov	sp, r7
+ 1130 00aa 05B0     		add	sp, sp, #20
+ 1131              		@ sp needed
+ 1132 00ac 90BD     		pop	{r4, r7, pc}
+ 1133              		.cfi_endproc
+ 1134              	.LFE5:
+ 1136              		.text
+ 1137              	.Letext0:
+ 1138              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1139              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1140              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccZ6LcmY.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_circle.c
+     /tmp/ccZ6LcmY.s:16     .text.u8g_draw_circle_section:0000000000000000 $t
+     /tmp/ccZ6LcmY.s:22     .text.u8g_draw_circle_section:0000000000000000 u8g_draw_circle_section
+     /tmp/ccZ6LcmY.s:230    .text.u8g_draw_circle:0000000000000000 $t
+     /tmp/ccZ6LcmY.s:237    .text.u8g_draw_circle:0000000000000000 u8g_draw_circle
+     /tmp/ccZ6LcmY.s:449    .text.u8g_DrawCircle:0000000000000000 $t
+     /tmp/ccZ6LcmY.s:456    .text.u8g_DrawCircle:0000000000000000 u8g_DrawCircle
+     /tmp/ccZ6LcmY.s:573    .text.u8g_draw_disc_section:0000000000000000 $t
+     /tmp/ccZ6LcmY.s:579    .text.u8g_draw_disc_section:0000000000000000 u8g_draw_disc_section
+     /tmp/ccZ6LcmY.s:794    .text.u8g_draw_disc:0000000000000000 $t
+     /tmp/ccZ6LcmY.s:801    .text.u8g_draw_disc:0000000000000000 u8g_draw_disc
+     /tmp/ccZ6LcmY.s:1013   .text.u8g_DrawDisc:0000000000000000 $t
+     /tmp/ccZ6LcmY.s:1020   .text.u8g_DrawDisc:0000000000000000 u8g_DrawDisc
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_DrawPixel
+u8g_IsBBXIntersection
+u8g_DrawVLine

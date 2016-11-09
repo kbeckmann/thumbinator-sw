@@ -1,0 +1,515 @@
+ARM GAS  /tmp/cc835CL8.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_com_api_16gr.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_WriteByteBWTo16GrDevice,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_WriteByteBWTo16GrDevice
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_WriteByteBWTo16GrDevice:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_com_api_16gr.c"
+   1:Drivers/u8glib/src/u8g_com_api_16gr.c **** /*
+   2:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+   3:Drivers/u8glib/src/u8g_com_api_16gr.c ****   u8g_com_api_16gr.c
+   4:Drivers/u8glib/src/u8g_com_api_16gr.c ****   
+   5:Drivers/u8glib/src/u8g_com_api_16gr.c ****   Extension of the com api for devices with 16 graylevels (4 bit per pixel).
+   6:Drivers/u8glib/src/u8g_com_api_16gr.c ****   This should fit to the 8h and 16h architectures (pb8v1, pb8v2, pb16v1, pb16v2), 
+   7:Drivers/u8glib/src/u8g_com_api_16gr.c ****   mainly intended for SSD OLEDs
+   8:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+   9:Drivers/u8glib/src/u8g_com_api_16gr.c ****   Universal 8bit Graphics Library
+  10:Drivers/u8glib/src/u8g_com_api_16gr.c ****   
+  11:Drivers/u8glib/src/u8g_com_api_16gr.c ****   Copyright (c) 2011, olikraus@gmail.com
+  12:Drivers/u8glib/src/u8g_com_api_16gr.c ****   All rights reserved.
+  13:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  14:Drivers/u8glib/src/u8g_com_api_16gr.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  15:Drivers/u8glib/src/u8g_com_api_16gr.c ****   are permitted provided that the following conditions are met:
+  16:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  17:Drivers/u8glib/src/u8g_com_api_16gr.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  18:Drivers/u8glib/src/u8g_com_api_16gr.c ****     of conditions and the following disclaimer.
+  19:Drivers/u8glib/src/u8g_com_api_16gr.c ****     
+  20:Drivers/u8glib/src/u8g_com_api_16gr.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  21:Drivers/u8glib/src/u8g_com_api_16gr.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  22:Drivers/u8glib/src/u8g_com_api_16gr.c ****     materials provided with the distribution.
+  23:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  24:Drivers/u8glib/src/u8g_com_api_16gr.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  25:Drivers/u8glib/src/u8g_com_api_16gr.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  26:Drivers/u8glib/src/u8g_com_api_16gr.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  27:Drivers/u8glib/src/u8g_com_api_16gr.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  28:Drivers/u8glib/src/u8g_com_api_16gr.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  29:Drivers/u8glib/src/u8g_com_api_16gr.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  30:Drivers/u8glib/src/u8g_com_api_16gr.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  31:Drivers/u8glib/src/u8g_com_api_16gr.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  32:Drivers/u8glib/src/u8g_com_api_16gr.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  33:Drivers/u8glib/src/u8g_com_api_16gr.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+ARM GAS  /tmp/cc835CL8.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_com_api_16gr.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  35:Drivers/u8glib/src/u8g_com_api_16gr.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  36:Drivers/u8glib/src/u8g_com_api_16gr.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  37:Drivers/u8glib/src/u8g_com_api_16gr.c ****   
+  38:Drivers/u8glib/src/u8g_com_api_16gr.c ****   
+  39:Drivers/u8glib/src/u8g_com_api_16gr.c **** */
+  40:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  41:Drivers/u8glib/src/u8g_com_api_16gr.c **** #include "u8g.h"
+  42:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  43:Drivers/u8glib/src/u8g_com_api_16gr.c **** /* interpret b as a monochrome bit pattern, write value 15 for high bit and value 0 for a low bit *
+  44:Drivers/u8glib/src/u8g_com_api_16gr.c **** /* topbit (msb) is sent last */
+  45:Drivers/u8glib/src/u8g_com_api_16gr.c **** /* example: b = 0x083 will send 0xff, 0x00, 0x00, 0xf0 */
+  46:Drivers/u8glib/src/u8g_com_api_16gr.c **** uint8_t u8g_WriteByteBWTo16GrDevice(u8g_t *u8g, u8g_dev_t *dev, uint8_t b)
+  47:Drivers/u8glib/src/u8g_com_api_16gr.c **** {
+  26              		.loc 1 47 0
+  27              		.cfi_startproc
+  28 0000 90B5     		push	{r4, r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 12
+  31              		.cfi_offset 4, -12
+  32              		.cfi_offset 7, -8
+  33              		.cfi_offset 14, -4
+  34 0002 85B0     		sub	sp, sp, #20
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_offset 32
+  37 0004 00AF     		add	r7, sp, #0
+  38              	.LCFI2:
+  39              		.cfi_def_cfa_register 7
+  40 0006 F860     		str	r0, [r7, #12]
+  41 0008 B960     		str	r1, [r7, #8]
+  42 000a FB1D     		adds	r3, r7, #7
+  43 000c 1A70     		strb	r2, [r3]
+  48:Drivers/u8glib/src/u8g_com_api_16gr.c ****   static uint8_t buf[4];
+  49:Drivers/u8glib/src/u8g_com_api_16gr.c ****   static uint8_t map[4] = { 0, 0x00f, 0x0f0, 0x0ff };
+  50:Drivers/u8glib/src/u8g_com_api_16gr.c ****   buf [3] = map[b & 3];
+  44              		.loc 1 50 0
+  45 000e FB1D     		adds	r3, r7, #7
+  46 0010 1B78     		ldrb	r3, [r3]
+  47 0012 0322     		movs	r2, #3
+  48 0014 1340     		ands	r3, r2
+  49 0016 1B4A     		ldr	r2, .L3
+  50 0018 D25C     		ldrb	r2, [r2, r3]
+  51 001a 1B4B     		ldr	r3, .L3+4
+  52 001c DA70     		strb	r2, [r3, #3]
+  51:Drivers/u8glib/src/u8g_com_api_16gr.c ****   b>>=2;
+  53              		.loc 1 51 0
+  54 001e FB1D     		adds	r3, r7, #7
+  55 0020 FA1D     		adds	r2, r7, #7
+  56 0022 1278     		ldrb	r2, [r2]
+  57 0024 9208     		lsrs	r2, r2, #2
+  58 0026 1A70     		strb	r2, [r3]
+  52:Drivers/u8glib/src/u8g_com_api_16gr.c ****   buf [2] = map[b & 3];
+  59              		.loc 1 52 0
+  60 0028 FB1D     		adds	r3, r7, #7
+  61 002a 1B78     		ldrb	r3, [r3]
+  62 002c 0322     		movs	r2, #3
+  63 002e 1340     		ands	r3, r2
+ARM GAS  /tmp/cc835CL8.s 			page 3
+
+
+  64 0030 144A     		ldr	r2, .L3
+  65 0032 D25C     		ldrb	r2, [r2, r3]
+  66 0034 144B     		ldr	r3, .L3+4
+  67 0036 9A70     		strb	r2, [r3, #2]
+  53:Drivers/u8glib/src/u8g_com_api_16gr.c ****   b>>=2;
+  68              		.loc 1 53 0
+  69 0038 FB1D     		adds	r3, r7, #7
+  70 003a FA1D     		adds	r2, r7, #7
+  71 003c 1278     		ldrb	r2, [r2]
+  72 003e 9208     		lsrs	r2, r2, #2
+  73 0040 1A70     		strb	r2, [r3]
+  54:Drivers/u8glib/src/u8g_com_api_16gr.c ****   buf [1] = map[b & 3];
+  74              		.loc 1 54 0
+  75 0042 FB1D     		adds	r3, r7, #7
+  76 0044 1B78     		ldrb	r3, [r3]
+  77 0046 0322     		movs	r2, #3
+  78 0048 1340     		ands	r3, r2
+  79 004a 0E4A     		ldr	r2, .L3
+  80 004c D25C     		ldrb	r2, [r2, r3]
+  81 004e 0E4B     		ldr	r3, .L3+4
+  82 0050 5A70     		strb	r2, [r3, #1]
+  55:Drivers/u8glib/src/u8g_com_api_16gr.c ****   b>>=2;
+  83              		.loc 1 55 0
+  84 0052 FB1D     		adds	r3, r7, #7
+  85 0054 FA1D     		adds	r2, r7, #7
+  86 0056 1278     		ldrb	r2, [r2]
+  87 0058 9208     		lsrs	r2, r2, #2
+  88 005a 1A70     		strb	r2, [r3]
+  56:Drivers/u8glib/src/u8g_com_api_16gr.c ****   buf [0] = map[b & 3];
+  89              		.loc 1 56 0
+  90 005c FB1D     		adds	r3, r7, #7
+  91 005e 1B78     		ldrb	r3, [r3]
+  92 0060 0322     		movs	r2, #3
+  93 0062 1340     		ands	r3, r2
+  94 0064 074A     		ldr	r2, .L3
+  95 0066 D25C     		ldrb	r2, [r2, r3]
+  96 0068 074B     		ldr	r3, .L3+4
+  97 006a 1A70     		strb	r2, [r3]
+  57:Drivers/u8glib/src/u8g_com_api_16gr.c ****   return dev->com_fn(u8g, U8G_COM_MSG_WRITE_SEQ, 4, buf);
+  98              		.loc 1 57 0
+  99 006c BB68     		ldr	r3, [r7, #8]
+ 100 006e 9C68     		ldr	r4, [r3, #8]
+ 101 0070 054B     		ldr	r3, .L3+4
+ 102 0072 F868     		ldr	r0, [r7, #12]
+ 103 0074 0422     		movs	r2, #4
+ 104 0076 0621     		movs	r1, #6
+ 105 0078 A047     		blx	r4
+ 106              	.LVL0:
+ 107 007a 0300     		movs	r3, r0
+  58:Drivers/u8glib/src/u8g_com_api_16gr.c **** }
+ 108              		.loc 1 58 0
+ 109 007c 1800     		movs	r0, r3
+ 110 007e BD46     		mov	sp, r7
+ 111 0080 05B0     		add	sp, sp, #20
+ 112              		@ sp needed
+ 113 0082 90BD     		pop	{r4, r7, pc}
+ 114              	.L4:
+ARM GAS  /tmp/cc835CL8.s 			page 4
+
+
+ 115              		.align	2
+ 116              	.L3:
+ 117 0084 00000000 		.word	map.5628
+ 118 0088 00000000 		.word	buf.5627
+ 119              		.cfi_endproc
+ 120              	.LFE0:
+ 122              		.section	.text.u8g_WriteSequenceBWTo16GrDevice,"ax",%progbits
+ 123              		.align	1
+ 124              		.global	u8g_WriteSequenceBWTo16GrDevice
+ 125              		.syntax unified
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.fpu softvfp
+ 130              	u8g_WriteSequenceBWTo16GrDevice:
+ 131              	.LFB1:
+  59:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  60:Drivers/u8glib/src/u8g_com_api_16gr.c **** uint8_t u8g_WriteSequenceBWTo16GrDevice(u8g_t *u8g, u8g_dev_t *dev, uint8_t cnt, uint8_t *ptr)
+  61:Drivers/u8glib/src/u8g_com_api_16gr.c **** {
+ 132              		.loc 1 61 0
+ 133              		.cfi_startproc
+ 134 0000 80B5     		push	{r7, lr}
+ 135              	.LCFI3:
+ 136              		.cfi_def_cfa_offset 8
+ 137              		.cfi_offset 7, -8
+ 138              		.cfi_offset 14, -4
+ 139 0002 84B0     		sub	sp, sp, #16
+ 140              	.LCFI4:
+ 141              		.cfi_def_cfa_offset 24
+ 142 0004 00AF     		add	r7, sp, #0
+ 143              	.LCFI5:
+ 144              		.cfi_def_cfa_register 7
+ 145 0006 F860     		str	r0, [r7, #12]
+ 146 0008 B960     		str	r1, [r7, #8]
+ 147 000a 3B60     		str	r3, [r7]
+ 148 000c FB1D     		adds	r3, r7, #7
+ 149 000e 1A70     		strb	r2, [r3]
+ 150              	.L8:
+  62:Drivers/u8glib/src/u8g_com_api_16gr.c ****   do
+  63:Drivers/u8glib/src/u8g_com_api_16gr.c ****   {
+  64:Drivers/u8glib/src/u8g_com_api_16gr.c ****     if ( u8g_WriteByteBWTo16GrDevice(u8g, dev, *ptr++) == 0 )
+ 151              		.loc 1 64 0
+ 152 0010 3B68     		ldr	r3, [r7]
+ 153 0012 5A1C     		adds	r2, r3, #1
+ 154 0014 3A60     		str	r2, [r7]
+ 155 0016 1A78     		ldrb	r2, [r3]
+ 156 0018 B968     		ldr	r1, [r7, #8]
+ 157 001a FB68     		ldr	r3, [r7, #12]
+ 158 001c 1800     		movs	r0, r3
+ 159 001e FFF7FEFF 		bl	u8g_WriteByteBWTo16GrDevice
+ 160 0022 031E     		subs	r3, r0, #0
+ 161 0024 01D1     		bne	.L6
+  65:Drivers/u8glib/src/u8g_com_api_16gr.c ****       return 0;
+ 162              		.loc 1 65 0
+ 163 0026 0023     		movs	r3, #0
+ 164 0028 09E0     		b	.L7
+ 165              	.L6:
+  66:Drivers/u8glib/src/u8g_com_api_16gr.c ****     cnt--;
+ARM GAS  /tmp/cc835CL8.s 			page 5
+
+
+ 166              		.loc 1 66 0
+ 167 002a FB1D     		adds	r3, r7, #7
+ 168 002c 1A78     		ldrb	r2, [r3]
+ 169 002e FB1D     		adds	r3, r7, #7
+ 170 0030 013A     		subs	r2, r2, #1
+ 171 0032 1A70     		strb	r2, [r3]
+  67:Drivers/u8glib/src/u8g_com_api_16gr.c ****   } while( cnt != 0 );
+ 172              		.loc 1 67 0
+ 173 0034 FB1D     		adds	r3, r7, #7
+ 174 0036 1B78     		ldrb	r3, [r3]
+ 175 0038 002B     		cmp	r3, #0
+ 176 003a E9D1     		bne	.L8
+  68:Drivers/u8glib/src/u8g_com_api_16gr.c ****   return 1;
+ 177              		.loc 1 68 0
+ 178 003c 0123     		movs	r3, #1
+ 179              	.L7:
+  69:Drivers/u8glib/src/u8g_com_api_16gr.c **** }
+ 180              		.loc 1 69 0
+ 181 003e 1800     		movs	r0, r3
+ 182 0040 BD46     		mov	sp, r7
+ 183 0042 04B0     		add	sp, sp, #16
+ 184              		@ sp needed
+ 185 0044 80BD     		pop	{r7, pc}
+ 186              		.cfi_endproc
+ 187              	.LFE1:
+ 189              		.section	.text.u8g_WriteByte4LTo16GrDevice,"ax",%progbits
+ 190              		.align	1
+ 191              		.global	u8g_WriteByte4LTo16GrDevice
+ 192              		.syntax unified
+ 193              		.code	16
+ 194              		.thumb_func
+ 195              		.fpu softvfp
+ 197              	u8g_WriteByte4LTo16GrDevice:
+ 198              	.LFB2:
+  70:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  71:Drivers/u8glib/src/u8g_com_api_16gr.c **** /* interpret b as a 4L bit pattern, write values 0x000, 0x004, 0x008, 0x00c */
+  72:Drivers/u8glib/src/u8g_com_api_16gr.c **** uint8_t u8g_WriteByte4LTo16GrDevice(u8g_t *u8g, u8g_dev_t *dev, uint8_t b)
+  73:Drivers/u8glib/src/u8g_com_api_16gr.c **** {
+ 199              		.loc 1 73 0
+ 200              		.cfi_startproc
+ 201 0000 90B5     		push	{r4, r7, lr}
+ 202              	.LCFI6:
+ 203              		.cfi_def_cfa_offset 12
+ 204              		.cfi_offset 4, -12
+ 205              		.cfi_offset 7, -8
+ 206              		.cfi_offset 14, -4
+ 207 0002 87B0     		sub	sp, sp, #28
+ 208              	.LCFI7:
+ 209              		.cfi_def_cfa_offset 40
+ 210 0004 00AF     		add	r7, sp, #0
+ 211              	.LCFI8:
+ 212              		.cfi_def_cfa_register 7
+ 213 0006 F860     		str	r0, [r7, #12]
+ 214 0008 B960     		str	r1, [r7, #8]
+ 215 000a FB1D     		adds	r3, r7, #7
+ 216 000c 1A70     		strb	r2, [r3]
+  74:Drivers/u8glib/src/u8g_com_api_16gr.c ****   //static uint8_t map[16] = { 0x000, 0x004, 0x008, 0x00c, 0x040, 0x044, 0x048, 0x04c, 0x080, 0x084
+ARM GAS  /tmp/cc835CL8.s 			page 6
+
+
+  75:Drivers/u8glib/src/u8g_com_api_16gr.c ****   //static uint8_t map[16] = { 0x000, 0x004, 0x00a, 0x00f, 0x040, 0x044, 0x04a, 0x04f, 0x0a0, 0x0a4
+  76:Drivers/u8glib/src/u8g_com_api_16gr.c ****   static uint8_t map[16] = { 0x000, 0x040, 0x0a0, 0x0f0, 0x004, 0x044, 0x0a4, 0x0f4, 0x00a, 0x04a, 
+  77:Drivers/u8glib/src/u8g_com_api_16gr.c ****   uint8_t bb;
+  78:Drivers/u8glib/src/u8g_com_api_16gr.c ****   bb = b;
+ 217              		.loc 1 78 0
+ 218 000e 1723     		movs	r3, #23
+ 219 0010 FB18     		adds	r3, r7, r3
+ 220 0012 FA1D     		adds	r2, r7, #7
+ 221 0014 1278     		ldrb	r2, [r2]
+ 222 0016 1A70     		strb	r2, [r3]
+  79:Drivers/u8glib/src/u8g_com_api_16gr.c ****   bb &= 15;
+ 223              		.loc 1 79 0
+ 224 0018 1723     		movs	r3, #23
+ 225 001a FB18     		adds	r3, r7, r3
+ 226 001c 1722     		movs	r2, #23
+ 227 001e BA18     		adds	r2, r7, r2
+ 228 0020 1278     		ldrb	r2, [r2]
+ 229 0022 0F21     		movs	r1, #15
+ 230 0024 0A40     		ands	r2, r1
+ 231 0026 1A70     		strb	r2, [r3]
+  80:Drivers/u8glib/src/u8g_com_api_16gr.c ****   b>>=4;
+ 232              		.loc 1 80 0
+ 233 0028 FB1D     		adds	r3, r7, #7
+ 234 002a FA1D     		adds	r2, r7, #7
+ 235 002c 1278     		ldrb	r2, [r2]
+ 236 002e 1209     		lsrs	r2, r2, #4
+ 237 0030 1A70     		strb	r2, [r3]
+  81:Drivers/u8glib/src/u8g_com_api_16gr.c ****   dev->com_fn(u8g, U8G_COM_MSG_WRITE_BYTE, map[bb], NULL);
+ 238              		.loc 1 81 0
+ 239 0032 BB68     		ldr	r3, [r7, #8]
+ 240 0034 9C68     		ldr	r4, [r3, #8]
+ 241 0036 1723     		movs	r3, #23
+ 242 0038 FB18     		adds	r3, r7, r3
+ 243 003a 1B78     		ldrb	r3, [r3]
+ 244 003c 0A4A     		ldr	r2, .L11
+ 245 003e D25C     		ldrb	r2, [r2, r3]
+ 246 0040 F868     		ldr	r0, [r7, #12]
+ 247 0042 0023     		movs	r3, #0
+ 248 0044 0521     		movs	r1, #5
+ 249 0046 A047     		blx	r4
+ 250              	.LVL1:
+  82:Drivers/u8glib/src/u8g_com_api_16gr.c ****   return dev->com_fn(u8g, U8G_COM_MSG_WRITE_BYTE, map[b], NULL);
+ 251              		.loc 1 82 0
+ 252 0048 BB68     		ldr	r3, [r7, #8]
+ 253 004a 9C68     		ldr	r4, [r3, #8]
+ 254 004c FB1D     		adds	r3, r7, #7
+ 255 004e 1B78     		ldrb	r3, [r3]
+ 256 0050 054A     		ldr	r2, .L11
+ 257 0052 D25C     		ldrb	r2, [r2, r3]
+ 258 0054 F868     		ldr	r0, [r7, #12]
+ 259 0056 0023     		movs	r3, #0
+ 260 0058 0521     		movs	r1, #5
+ 261 005a A047     		blx	r4
+ 262              	.LVL2:
+ 263 005c 0300     		movs	r3, r0
+  83:Drivers/u8glib/src/u8g_com_api_16gr.c **** }
+ 264              		.loc 1 83 0
+ARM GAS  /tmp/cc835CL8.s 			page 7
+
+
+ 265 005e 1800     		movs	r0, r3
+ 266 0060 BD46     		mov	sp, r7
+ 267 0062 07B0     		add	sp, sp, #28
+ 268              		@ sp needed
+ 269 0064 90BD     		pop	{r4, r7, pc}
+ 270              	.L12:
+ 271 0066 C046     		.align	2
+ 272              	.L11:
+ 273 0068 00000000 		.word	map.5642
+ 274              		.cfi_endproc
+ 275              	.LFE2:
+ 277              		.section	.text.u8g_WriteSequence4LTo16GrDevice,"ax",%progbits
+ 278              		.align	1
+ 279              		.global	u8g_WriteSequence4LTo16GrDevice
+ 280              		.syntax unified
+ 281              		.code	16
+ 282              		.thumb_func
+ 283              		.fpu softvfp
+ 285              	u8g_WriteSequence4LTo16GrDevice:
+ 286              	.LFB3:
+  84:Drivers/u8glib/src/u8g_com_api_16gr.c **** 
+  85:Drivers/u8glib/src/u8g_com_api_16gr.c **** uint8_t u8g_WriteSequence4LTo16GrDevice(u8g_t *u8g, u8g_dev_t *dev, uint8_t cnt, uint8_t *ptr)
+  86:Drivers/u8glib/src/u8g_com_api_16gr.c **** {
+ 287              		.loc 1 86 0
+ 288              		.cfi_startproc
+ 289 0000 80B5     		push	{r7, lr}
+ 290              	.LCFI9:
+ 291              		.cfi_def_cfa_offset 8
+ 292              		.cfi_offset 7, -8
+ 293              		.cfi_offset 14, -4
+ 294 0002 84B0     		sub	sp, sp, #16
+ 295              	.LCFI10:
+ 296              		.cfi_def_cfa_offset 24
+ 297 0004 00AF     		add	r7, sp, #0
+ 298              	.LCFI11:
+ 299              		.cfi_def_cfa_register 7
+ 300 0006 F860     		str	r0, [r7, #12]
+ 301 0008 B960     		str	r1, [r7, #8]
+ 302 000a 3B60     		str	r3, [r7]
+ 303 000c FB1D     		adds	r3, r7, #7
+ 304 000e 1A70     		strb	r2, [r3]
+ 305              	.L16:
+  87:Drivers/u8glib/src/u8g_com_api_16gr.c ****   do
+  88:Drivers/u8glib/src/u8g_com_api_16gr.c ****   {
+  89:Drivers/u8glib/src/u8g_com_api_16gr.c ****     if ( u8g_WriteByte4LTo16GrDevice(u8g, dev, *ptr++) == 0 )
+ 306              		.loc 1 89 0
+ 307 0010 3B68     		ldr	r3, [r7]
+ 308 0012 5A1C     		adds	r2, r3, #1
+ 309 0014 3A60     		str	r2, [r7]
+ 310 0016 1A78     		ldrb	r2, [r3]
+ 311 0018 B968     		ldr	r1, [r7, #8]
+ 312 001a FB68     		ldr	r3, [r7, #12]
+ 313 001c 1800     		movs	r0, r3
+ 314 001e FFF7FEFF 		bl	u8g_WriteByte4LTo16GrDevice
+ 315 0022 031E     		subs	r3, r0, #0
+ 316 0024 01D1     		bne	.L14
+  90:Drivers/u8glib/src/u8g_com_api_16gr.c ****       return 0;
+ARM GAS  /tmp/cc835CL8.s 			page 8
+
+
+ 317              		.loc 1 90 0
+ 318 0026 0023     		movs	r3, #0
+ 319 0028 09E0     		b	.L15
+ 320              	.L14:
+  91:Drivers/u8glib/src/u8g_com_api_16gr.c ****     cnt--;
+ 321              		.loc 1 91 0
+ 322 002a FB1D     		adds	r3, r7, #7
+ 323 002c 1A78     		ldrb	r2, [r3]
+ 324 002e FB1D     		adds	r3, r7, #7
+ 325 0030 013A     		subs	r2, r2, #1
+ 326 0032 1A70     		strb	r2, [r3]
+  92:Drivers/u8glib/src/u8g_com_api_16gr.c ****   } while( cnt != 0 );
+ 327              		.loc 1 92 0
+ 328 0034 FB1D     		adds	r3, r7, #7
+ 329 0036 1B78     		ldrb	r3, [r3]
+ 330 0038 002B     		cmp	r3, #0
+ 331 003a E9D1     		bne	.L16
+  93:Drivers/u8glib/src/u8g_com_api_16gr.c ****   return 1;
+ 332              		.loc 1 93 0
+ 333 003c 0123     		movs	r3, #1
+ 334              	.L15:
+  94:Drivers/u8glib/src/u8g_com_api_16gr.c **** }
+ 335              		.loc 1 94 0
+ 336 003e 1800     		movs	r0, r3
+ 337 0040 BD46     		mov	sp, r7
+ 338 0042 04B0     		add	sp, sp, #16
+ 339              		@ sp needed
+ 340 0044 80BD     		pop	{r7, pc}
+ 341              		.cfi_endproc
+ 342              	.LFE3:
+ 344              		.section	.data.map.5628,"aw",%progbits
+ 345              		.align	2
+ 348              	map.5628:
+ 349 0000 00       		.byte	0
+ 350 0001 0F       		.byte	15
+ 351 0002 F0       		.byte	-16
+ 352 0003 FF       		.byte	-1
+ 353              		.section	.bss.buf.5627,"aw",%nobits
+ 354              		.align	2
+ 357              	buf.5627:
+ 358 0000 00000000 		.space	4
+ 359              		.section	.data.map.5642,"aw",%progbits
+ 360              		.align	2
+ 363              	map.5642:
+ 364 0000 00       		.byte	0
+ 365 0001 40       		.byte	64
+ 366 0002 A0       		.byte	-96
+ 367 0003 F0       		.byte	-16
+ 368 0004 04       		.byte	4
+ 369 0005 44       		.byte	68
+ 370 0006 A4       		.byte	-92
+ 371 0007 F4       		.byte	-12
+ 372 0008 0A       		.byte	10
+ 373 0009 4A       		.byte	74
+ 374 000a AA       		.byte	-86
+ 375 000b FA       		.byte	-6
+ 376 000c 0F       		.byte	15
+ARM GAS  /tmp/cc835CL8.s 			page 9
+
+
+ 377 000d 4F       		.byte	79
+ 378 000e AF       		.byte	-81
+ 379 000f FF       		.byte	-1
+ 380              		.text
+ 381              	.Letext0:
+ 382              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 383              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 384              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cc835CL8.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_com_api_16gr.c
+     /tmp/cc835CL8.s:16     .text.u8g_WriteByteBWTo16GrDevice:0000000000000000 $t
+     /tmp/cc835CL8.s:23     .text.u8g_WriteByteBWTo16GrDevice:0000000000000000 u8g_WriteByteBWTo16GrDevice
+     /tmp/cc835CL8.s:117    .text.u8g_WriteByteBWTo16GrDevice:0000000000000084 $d
+     /tmp/cc835CL8.s:348    .data.map.5628:0000000000000000 map.5628
+     /tmp/cc835CL8.s:357    .bss.buf.5627:0000000000000000 buf.5627
+     /tmp/cc835CL8.s:123    .text.u8g_WriteSequenceBWTo16GrDevice:0000000000000000 $t
+     /tmp/cc835CL8.s:130    .text.u8g_WriteSequenceBWTo16GrDevice:0000000000000000 u8g_WriteSequenceBWTo16GrDevice
+     /tmp/cc835CL8.s:190    .text.u8g_WriteByte4LTo16GrDevice:0000000000000000 $t
+     /tmp/cc835CL8.s:197    .text.u8g_WriteByte4LTo16GrDevice:0000000000000000 u8g_WriteByte4LTo16GrDevice
+     /tmp/cc835CL8.s:273    .text.u8g_WriteByte4LTo16GrDevice:0000000000000068 $d
+     /tmp/cc835CL8.s:363    .data.map.5642:0000000000000000 map.5642
+     /tmp/cc835CL8.s:278    .text.u8g_WriteSequence4LTo16GrDevice:0000000000000000 $t
+     /tmp/cc835CL8.s:285    .text.u8g_WriteSequence4LTo16GrDevice:0000000000000000 u8g_WriteSequence4LTo16GrDevice
+     /tmp/cc835CL8.s:345    .data.map.5628:0000000000000000 $d
+     /tmp/cc835CL8.s:354    .bss.buf.5627:0000000000000000 $d
+     /tmp/cc835CL8.s:360    .data.map.5642:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS

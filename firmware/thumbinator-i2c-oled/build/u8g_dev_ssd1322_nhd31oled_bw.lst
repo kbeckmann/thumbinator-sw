@@ -1,0 +1,1421 @@
+ARM GAS  /tmp/ccXD3jHr.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_ssd1322_nhd31oled_bw.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_ssd1322_1bit_nhd_312_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_ssd1322_1bit_nhd_312_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 0A       		.byte	10
+  22 0002 FF       		.byte	-1
+  23 0003 D0       		.byte	-48
+  24 0004 FF       		.byte	-1
+  25 0005 E0       		.byte	-32
+  26 0006 FF       		.byte	-1
+  27 0007 C1       		.byte	-63
+  28 0008 FF       		.byte	-1
+  29 0009 D1       		.byte	-47
+  30 000a FF       		.byte	-1
+  31 000b 64       		.byte	100
+  32 000c FF       		.byte	-1
+  33 000d 64       		.byte	100
+  34 000e FF       		.byte	-1
+  35 000f E0       		.byte	-32
+  36 0010 FD       		.byte	-3
+  37 0011 FF       		.byte	-1
+  38 0012 E1       		.byte	-31
+  39 0013 12       		.byte	18
+  40 0014 FF       		.byte	-1
+  41 0015 E0       		.byte	-32
+  42 0016 AE       		.byte	-82
+  43 0017 FF       		.byte	-1
+  44 0018 E0       		.byte	-32
+  45 0019 B3       		.byte	-77
+  46 001a FF       		.byte	-1
+  47 001b E1       		.byte	-31
+  48 001c 91       		.byte	-111
+  49 001d FF       		.byte	-1
+  50 001e E0       		.byte	-32
+  51 001f CA       		.byte	-54
+  52 0020 FF       		.byte	-1
+  53 0021 E1       		.byte	-31
+  54 0022 3F       		.byte	63
+  55 0023 FF       		.byte	-1
+  56 0024 E0       		.byte	-32
+  57 0025 A2       		.byte	-94
+  58 0026 FF       		.byte	-1
+  59 0027 E1       		.byte	-31
+ARM GAS  /tmp/ccXD3jHr.s 			page 2
+
+
+  60 0028 00       		.byte	0
+  61 0029 FF       		.byte	-1
+  62 002a E0       		.byte	-32
+  63 002b A1       		.byte	-95
+  64 002c FF       		.byte	-1
+  65 002d E1       		.byte	-31
+  66 002e 00       		.byte	0
+  67 002f FF       		.byte	-1
+  68 0030 E0       		.byte	-32
+  69 0031 A0       		.byte	-96
+  70 0032 FF       		.byte	-1
+  71 0033 E1       		.byte	-31
+  72 0034 14       		.byte	20
+  73 0035 11       		.byte	17
+  74 0036 FF       		.byte	-1
+  75 0037 E0       		.byte	-32
+  76 0038 AB       		.byte	-85
+  77 0039 FF       		.byte	-1
+  78 003a E1       		.byte	-31
+  79 003b 01       		.byte	1
+  80 003c FF       		.byte	-1
+  81 003d E0       		.byte	-32
+  82 003e B4       		.byte	-76
+  83 003f FF       		.byte	-1
+  84 0040 E1       		.byte	-31
+  85 0041 A0       		.byte	-96
+  86 0042 FD       		.byte	-3
+  87 0043 FF       		.byte	-1
+  88 0044 E0       		.byte	-32
+  89 0045 C1       		.byte	-63
+  90 0046 FF       		.byte	-1
+  91 0047 E1       		.byte	-31
+  92 0048 9F       		.byte	-97
+  93 0049 FF       		.byte	-1
+  94 004a E0       		.byte	-32
+  95 004b C7       		.byte	-57
+  96 004c FF       		.byte	-1
+  97 004d E1       		.byte	-31
+  98 004e 0F       		.byte	15
+  99 004f FF       		.byte	-1
+ 100 0050 E0       		.byte	-32
+ 101 0051 B9       		.byte	-71
+ 102 0052 FF       		.byte	-1
+ 103 0053 E0       		.byte	-32
+ 104 0054 B1       		.byte	-79
+ 105 0055 FF       		.byte	-1
+ 106 0056 E1       		.byte	-31
+ 107 0057 E2       		.byte	-30
+ 108 0058 FF       		.byte	-1
+ 109 0059 E0       		.byte	-32
+ 110 005a D1       		.byte	-47
+ 111 005b FF       		.byte	-1
+ 112 005c E1       		.byte	-31
+ 113 005d A2       		.byte	-94
+ 114 005e 20       		.byte	32
+ 115 005f FF       		.byte	-1
+ 116 0060 E0       		.byte	-32
+ARM GAS  /tmp/ccXD3jHr.s 			page 3
+
+
+ 117 0061 BB       		.byte	-69
+ 118 0062 FF       		.byte	-1
+ 119 0063 E1       		.byte	-31
+ 120 0064 1F       		.byte	31
+ 121 0065 FF       		.byte	-1
+ 122 0066 E0       		.byte	-32
+ 123 0067 B6       		.byte	-74
+ 124 0068 FF       		.byte	-1
+ 125 0069 E1       		.byte	-31
+ 126 006a 08       		.byte	8
+ 127 006b FF       		.byte	-1
+ 128 006c E0       		.byte	-32
+ 129 006d BE       		.byte	-66
+ 130 006e FF       		.byte	-1
+ 131 006f E1       		.byte	-31
+ 132 0070 07       		.byte	7
+ 133 0071 FF       		.byte	-1
+ 134 0072 E0       		.byte	-32
+ 135 0073 A6       		.byte	-90
+ 136 0074 FF       		.byte	-1
+ 137 0075 E0       		.byte	-32
+ 138 0076 A9       		.byte	-87
+ 139 0077 FF       		.byte	-1
+ 140 0078 E0       		.byte	-32
+ 141 0079 AF       		.byte	-81
+ 142 007a FF       		.byte	-1
+ 143 007b D0       		.byte	-48
+ 144 007c FF       		.byte	-1
+ 145 007d FE       		.byte	-2
+ 146              		.section	.rodata.u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq,"a",%progbits
+ 147              		.align	2
+ 150              	u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq:
+ 151 0000 FF       		.byte	-1
+ 152 0001 E0       		.byte	-32
+ 153 0002 FF       		.byte	-1
+ 154 0003 D1       		.byte	-47
+ 155 0004 15       		.byte	21
+ 156 0005 FF       		.byte	-1
+ 157 0006 E1       		.byte	-31
+ 158 0007 1C       		.byte	28
+ 159 0008 5B       		.byte	91
+ 160 0009 FF       		.byte	-1
+ 161 000a E0       		.byte	-32
+ 162 000b 75       		.byte	117
+ 163 000c FF       		.byte	-1
+ 164 000d E1       		.byte	-31
+ 165 000e FF       		.byte	-1
+ 166 000f FE       		.byte	-2
+ 167              		.section	.text.u8g_dev_ssd1322_1bit_prepare_row,"ax",%progbits
+ 168              		.align	1
+ 169              		.syntax unified
+ 170              		.code	16
+ 171              		.thumb_func
+ 172              		.fpu softvfp
+ 174              	u8g_dev_ssd1322_1bit_prepare_row:
+ 175              	.LFB0:
+ 176              		.file 1 "Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c"
+ARM GAS  /tmp/ccXD3jHr.s 			page 4
+
+
+   1:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+   3:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_dev_ssd1322_nhd31oled_bw.c
+   4:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+   5:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   1-Bit (BW) Driver for SSD1322 Controller (OLED Display)
+   6:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   Tested with NHD-3.12-25664
+   7:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+   8:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   Universal 8bit Graphics Library
+   9:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  10:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   Copyright (c) 2012, olikraus@gmail.com
+  11:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   All rights reserved.
+  12:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  13:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  14:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   are permitted provided that the following conditions are met:
+  15:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  16:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  17:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     of conditions and the following disclaimer.
+  18:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     
+  19:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  20:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  21:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     materials provided with the distribution.
+  22:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  23:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  24:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  25:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  26:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  27:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  28:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  29:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  30:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  31:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  32:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  33:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  34:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  35:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  36:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  37:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   SSD130x       Monochrom OLED Controller
+  38:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   SSD131x       Character OLED Controller
+  39:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   SSD132x       Graylevel OLED Controller
+  40:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   SSD1331       Color OLED Controller       
+  41:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  42:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** */
+  43:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  44:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #include "u8g.h"
+  45:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  46:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** /* width must be multiple of 8, largest value is 248 unless u8g 16 bit mode is enabled */
+  47:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #if defined(U8G_16BIT)
+  48:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #define WIDTH 256
+  49:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #else
+  50:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #define WIDTH 248
+  51:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #endif
+  52:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #define HEIGHT 64
+  53:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #define PAGE_HEIGHT 8
+  54:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  55:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** /* 
+  56:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   http://www.newhavendisplay.com/app_notes/OLED_25664.txt 
+  57:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   http://www.newhavendisplay.com/forum/viewtopic.php?f=15&t=3758
+ARM GAS  /tmp/ccXD3jHr.s 			page 5
+
+
+  58:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** */
+  59:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  60:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** static const uint8_t u8g_dev_ssd1322_1bit_nhd_312_init_seq[] PROGMEM = {
+  61:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_DLY(10),              /* delay 10 ms */
+  62:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(0),                 /* disable chip */
+  63:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               /* instruction mode */
+  64:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_RST(1),               /* do reset low pulse with (1*16)+2 milliseconds */
+  65:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(1),                /* enable chip */
+  66:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  67:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_DLY(100),             /* delay 100 ms */
+  68:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_DLY(100),             /* delay 100 ms */
+  69:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  70:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  71:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0fd,					/* lock command */
+  72:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+  73:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x012,					/* unlock */
+  74:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  75:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  76:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0ae,                               	 /* display off, sleep mode */
+  77:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  78:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  79:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0b3, 
+  80:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+  81:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x091,                    /* set display clock divide ratio/oscillator frequency (set clock as 80
+  82:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  83:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  84:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0ca, 					/* multiplex ratio */
+  85:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+  86:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x03f,                    		/* 1/64 Duty (0x0F~0x3F) */
+  87:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+  88:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  89:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0a2, 
+  90:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+  91:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x000,                     		/* display offset, shift mapping ram counter */
+  92:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  93:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  94:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0a1, 
+  95:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+  96:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x000,                     		/* display start line */
+  97:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+  98:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+  99:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0a0, 					/* Set Re-Map / Dual COM Line Mode */
+ 100:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 101:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x014, 					/* was 0x014 */                     		
+ 102:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x011, 					/* was 0x011 */	
+ 103:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 104:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 105:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0ab, 
+ 106:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 107:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x001,                     		/* Enable Internal VDD Regulator */
+ 108:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 109:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 110:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0b4, 					/* Display Enhancement A */
+ 111:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 112:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0a0,                     		
+ 113:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x005|0x0fd,                     		
+ 114:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ARM GAS  /tmp/ccXD3jHr.s 			page 6
+
+
+ 115:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 116:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0c1,					/* contrast */ 
+ 117:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 118:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x09f,                     		
+ 119:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ 120:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 121:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0c7,					/* Set Scale Factor of Segment Output Current Control */ 
+ 122:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 123:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x00f,                     		
+ 124:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 125:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 126:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0b9,                               	 /* linear gray scale */
+ 127:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 128:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 129:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0b1,					/* Phase 1 (Reset) & Phase 2 (Pre-Charge) Period Adjustment */ 
+ 130:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 131:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0e2,                     		
+ 132:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 133:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 134:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0d1, 					/* Display Enhancement B */
+ 135:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 136:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x082|0x020,                     		
+ 137:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x020,                     		
+ 138:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 139:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 140:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0bb,					/* precharge  voltage */ 
+ 141:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 142:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x01f,                     		
+ 143:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ 144:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 145:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0b6,					/* precharge period */ 
+ 146:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 147:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x008,                     		
+ 148:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 149:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 150:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0be,					/* vcomh */ 
+ 151:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               	/* data mode */
+ 152:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x007,                     		
+ 153:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 154:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 155:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0a6,                               	 /* normal display */
+ 156:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 157:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 158:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0a9,                               	 /* exit partial display */
+ 159:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 160:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               	/* instruction mode */
+ 161:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0af,                               	 /* display on */
+ 162:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 163:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 164:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 165:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_END                /* end of sequence */
+ 166:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** };
+ 167:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 168:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** static const uint8_t u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq[] PROGMEM = {
+ 169:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               /* instruction mode */
+ 170:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(1),                /* enable chip */
+ 171:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x015,       /* column address... */
+ARM GAS  /tmp/ccXD3jHr.s 			page 7
+
+
+ 172:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               /* data mode */
+ 173:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x01c,       /* start at column 0 */
+ 174:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x05b,       /* end column */
+ 175:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),               /* instruction mode */
+ 176:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x075,       /* row address... */
+ 177:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(1),               /* data mode */
+ 178:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_END                /* end of sequence */
+ 179:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** };
+ 180:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 181:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** static void u8g_dev_ssd1322_1bit_prepare_row(u8g_t *u8g, u8g_dev_t *dev, uint8_t delta_row)
+ 182:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** {
+ 177              		.loc 1 182 0
+ 178              		.cfi_startproc
+ 179 0000 80B5     		push	{r7, lr}
+ 180              	.LCFI0:
+ 181              		.cfi_def_cfa_offset 8
+ 182              		.cfi_offset 7, -8
+ 183              		.cfi_offset 14, -4
+ 184 0002 86B0     		sub	sp, sp, #24
+ 185              	.LCFI1:
+ 186              		.cfi_def_cfa_offset 32
+ 187 0004 00AF     		add	r7, sp, #0
+ 188              	.LCFI2:
+ 189              		.cfi_def_cfa_register 7
+ 190 0006 F860     		str	r0, [r7, #12]
+ 191 0008 B960     		str	r1, [r7, #8]
+ 192 000a FB1D     		adds	r3, r7, #7
+ 193 000c 1A70     		strb	r2, [r3]
+ 183:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   uint8_t row = ((u8g_pb_t *)(dev->dev_mem))->p.page;
+ 194              		.loc 1 183 0
+ 195 000e BB68     		ldr	r3, [r7, #8]
+ 196 0010 5A68     		ldr	r2, [r3, #4]
+ 197 0012 1723     		movs	r3, #23
+ 198 0014 FB18     		adds	r3, r7, r3
+ 199 0016 1279     		ldrb	r2, [r2, #4]
+ 200 0018 1A70     		strb	r2, [r3]
+ 184:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ 185:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   row *= ((u8g_pb_t *)(dev->dev_mem))->p.page_height;
+ 201              		.loc 1 185 0
+ 202 001a BB68     		ldr	r3, [r7, #8]
+ 203 001c 5B68     		ldr	r3, [r3, #4]
+ 204 001e 1A78     		ldrb	r2, [r3]
+ 205 0020 1723     		movs	r3, #23
+ 206 0022 FB18     		adds	r3, r7, r3
+ 207 0024 1721     		movs	r1, #23
+ 208 0026 7918     		adds	r1, r7, r1
+ 209 0028 0978     		ldrb	r1, [r1]
+ 210 002a 4A43     		muls	r2, r1
+ 211 002c 1A70     		strb	r2, [r3]
+ 186:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   row += delta_row;
+ 212              		.loc 1 186 0
+ 213 002e 1723     		movs	r3, #23
+ 214 0030 FB18     		adds	r3, r7, r3
+ 215 0032 1722     		movs	r2, #23
+ 216 0034 B918     		adds	r1, r7, r2
+ 217 0036 FA1D     		adds	r2, r7, #7
+ 218 0038 0978     		ldrb	r1, [r1]
+ARM GAS  /tmp/ccXD3jHr.s 			page 8
+
+
+ 219 003a 1278     		ldrb	r2, [r2]
+ 220 003c 8A18     		adds	r2, r1, r2
+ 221 003e 1A70     		strb	r2, [r3]
+ 187:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ 188:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq);
+ 222              		.loc 1 188 0
+ 223 0040 164A     		ldr	r2, .L2
+ 224 0042 B968     		ldr	r1, [r7, #8]
+ 225 0044 FB68     		ldr	r3, [r7, #12]
+ 226 0046 1800     		movs	r0, r3
+ 227 0048 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 189:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ 190:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_WriteByte(u8g, dev, row);       /* start at the selected row */
+ 228              		.loc 1 190 0
+ 229 004c 1723     		movs	r3, #23
+ 230 004e FB18     		adds	r3, r7, r3
+ 231 0050 1A78     		ldrb	r2, [r3]
+ 232 0052 B968     		ldr	r1, [r7, #8]
+ 233 0054 FB68     		ldr	r3, [r7, #12]
+ 234 0056 1800     		movs	r0, r3
+ 235 0058 FFF7FEFF 		bl	u8g_WriteByte
+ 191:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_WriteByte(u8g, dev, row+1);       /* end within the selected row */  
+ 236              		.loc 1 191 0
+ 237 005c 1723     		movs	r3, #23
+ 238 005e FB18     		adds	r3, r7, r3
+ 239 0060 1B78     		ldrb	r3, [r3]
+ 240 0062 0133     		adds	r3, r3, #1
+ 241 0064 DAB2     		uxtb	r2, r3
+ 242 0066 B968     		ldr	r1, [r7, #8]
+ 243 0068 FB68     		ldr	r3, [r7, #12]
+ 244 006a 1800     		movs	r0, r3
+ 245 006c FFF7FEFF 		bl	u8g_WriteByte
+ 192:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   
+ 193:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_SetAddress(u8g, dev, 0);          /* instruction mode mode */
+ 246              		.loc 1 193 0
+ 247 0070 B968     		ldr	r1, [r7, #8]
+ 248 0072 FB68     		ldr	r3, [r7, #12]
+ 249 0074 0022     		movs	r2, #0
+ 250 0076 1800     		movs	r0, r3
+ 251 0078 FFF7FEFF 		bl	u8g_SetAddress
+ 194:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_WriteByte(u8g, dev, 0x05c);       /* write to ram */  
+ 252              		.loc 1 194 0
+ 253 007c B968     		ldr	r1, [r7, #8]
+ 254 007e FB68     		ldr	r3, [r7, #12]
+ 255 0080 5C22     		movs	r2, #92
+ 256 0082 1800     		movs	r0, r3
+ 257 0084 FFF7FEFF 		bl	u8g_WriteByte
+ 195:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   u8g_SetAddress(u8g, dev, 1);          /* data mode */
+ 258              		.loc 1 195 0
+ 259 0088 B968     		ldr	r1, [r7, #8]
+ 260 008a FB68     		ldr	r3, [r7, #12]
+ 261 008c 0122     		movs	r2, #1
+ 262 008e 1800     		movs	r0, r3
+ 263 0090 FFF7FEFF 		bl	u8g_SetAddress
+ 196:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** }
+ 264              		.loc 1 196 0
+ 265 0094 C046     		nop
+ARM GAS  /tmp/ccXD3jHr.s 			page 9
+
+
+ 266 0096 BD46     		mov	sp, r7
+ 267 0098 06B0     		add	sp, sp, #24
+ 268              		@ sp needed
+ 269 009a 80BD     		pop	{r7, pc}
+ 270              	.L3:
+ 271              		.align	2
+ 272              	.L2:
+ 273 009c 00000000 		.word	u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq
+ 274              		.cfi_endproc
+ 275              	.LFE0:
+ 277              		.section	.rodata.u8g_dev_ssd13xx_sleep_on,"a",%progbits
+ 278              		.align	2
+ 281              	u8g_dev_ssd13xx_sleep_on:
+ 282 0000 FF       		.byte	-1
+ 283 0001 E0       		.byte	-32
+ 284 0002 FF       		.byte	-1
+ 285 0003 D1       		.byte	-47
+ 286 0004 AE       		.byte	-82
+ 287 0005 FF       		.byte	-1
+ 288 0006 D0       		.byte	-48
+ 289 0007 FF       		.byte	-1
+ 290 0008 FE       		.byte	-2
+ 291              		.section	.rodata.u8g_dev_ssd13xx_sleep_off,"a",%progbits
+ 292              		.align	2
+ 295              	u8g_dev_ssd13xx_sleep_off:
+ 296 0000 FF       		.byte	-1
+ 297 0001 E0       		.byte	-32
+ 298 0002 FF       		.byte	-1
+ 299 0003 D1       		.byte	-47
+ 300 0004 AF       		.byte	-81
+ 301 0005 FF       		.byte	-1
+ 302 0006 32       		.byte	50
+ 303 0007 FF       		.byte	-1
+ 304 0008 D0       		.byte	-48
+ 305 0009 FF       		.byte	-1
+ 306 000a FE       		.byte	-2
+ 307              		.section	.text.u8g_dev_ssd1322_nhd31oled_bw_fn,"ax",%progbits
+ 308              		.align	1
+ 309              		.global	u8g_dev_ssd1322_nhd31oled_bw_fn
+ 310              		.syntax unified
+ 311              		.code	16
+ 312              		.thumb_func
+ 313              		.fpu softvfp
+ 315              	u8g_dev_ssd1322_nhd31oled_bw_fn:
+ 316              	.LFB1:
+ 197:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 198:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** static const uint8_t u8g_dev_ssd13xx_sleep_on[] PROGMEM = {
+ 199:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 200:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 201:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0ae,		/* display off */      
+ 202:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(0),             /* disable chip, bugfix 12 nov 2014 */
+ 203:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_END                /* end of sequence */
+ 204:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** };
+ 205:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 206:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** static const uint8_t u8g_dev_ssd13xx_sleep_off[] PROGMEM = {
+ 207:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 208:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(1),             /* enable chip */
+ARM GAS  /tmp/ccXD3jHr.s 			page 10
+
+
+ 209:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   0x0af,		/* display on */      
+ 210:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_DLY(50),       /* delay 50 ms */
+ 211:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_CS(0),             /* disable chip, bugfix 12 nov 2014 */
+ 212:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   U8G_ESC_END                /* end of sequence */
+ 213:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** };
+ 214:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 215:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 216:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** uint8_t u8g_dev_ssd1322_nhd31oled_bw_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 217:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** {
+ 317              		.loc 1 217 0
+ 318              		.cfi_startproc
+ 319 0000 90B5     		push	{r4, r7, lr}
+ 320              	.LCFI3:
+ 321              		.cfi_def_cfa_offset 12
+ 322              		.cfi_offset 4, -12
+ 323              		.cfi_offset 7, -8
+ 324              		.cfi_offset 14, -4
+ 325 0002 89B0     		sub	sp, sp, #36
+ 326              	.LCFI4:
+ 327              		.cfi_def_cfa_offset 48
+ 328 0004 00AF     		add	r7, sp, #0
+ 329              	.LCFI5:
+ 330              		.cfi_def_cfa_register 7
+ 331 0006 F860     		str	r0, [r7, #12]
+ 332 0008 B960     		str	r1, [r7, #8]
+ 333 000a 3B60     		str	r3, [r7]
+ 334 000c FB1D     		adds	r3, r7, #7
+ 335 000e 1A70     		strb	r2, [r3]
+ 218:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   switch(msg)
+ 336              		.loc 1 218 0
+ 337 0010 FB1D     		adds	r3, r7, #7
+ 338 0012 1B78     		ldrb	r3, [r3]
+ 339 0014 0A3B     		subs	r3, r3, #10
+ 340 0016 0B2B     		cmp	r3, #11
+ 341 0018 00D9     		bls	.LCB121
+ 342 001a A8E0     		b	.L5	@long jump
+ 343              	.LCB121:
+ 344 001c 9A00     		lsls	r2, r3, #2
+ 345 001e 5A4B     		ldr	r3, .L16
+ 346 0020 D318     		adds	r3, r2, r3
+ 347 0022 1B68     		ldr	r3, [r3]
+ 348 0024 9F46     		mov	pc, r3
+ 349              		.section	.rodata.u8g_dev_ssd1322_nhd31oled_bw_fn,"a",%progbits
+ 350              		.align	2
+ 351              	.L7:
+ 352 0000 26000000 		.word	.L6
+ 353 0004 6E010000 		.word	.L5
+ 354 0008 6E010000 		.word	.L5
+ 355 000c 6E010000 		.word	.L5
+ 356 0010 6E010000 		.word	.L5
+ 357 0014 FA000000 		.word	.L9
+ 358 0018 4E010000 		.word	.L10
+ 359 001c 5E010000 		.word	.L11
+ 360 0020 6E010000 		.word	.L5
+ 361 0024 6E010000 		.word	.L5
+ 362 0028 6E010000 		.word	.L5
+ 363 002c 40000000 		.word	.L12
+ARM GAS  /tmp/ccXD3jHr.s 			page 11
+
+
+ 364              		.section	.text.u8g_dev_ssd1322_nhd31oled_bw_fn
+ 365              	.L6:
+ 219:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   {
+ 220:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_INIT:
+ 221:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 366              		.loc 1 221 0
+ 367 0026 B968     		ldr	r1, [r7, #8]
+ 368 0028 FB68     		ldr	r3, [r7, #12]
+ 369 002a 0222     		movs	r2, #2
+ 370 002c 1800     		movs	r0, r3
+ 371 002e FFF7FEFF 		bl	u8g_InitCom
+ 222:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd1322_1bit_nhd_312_init_seq);
+ 372              		.loc 1 222 0
+ 373 0032 564A     		ldr	r2, .L16+4
+ 374 0034 B968     		ldr	r1, [r7, #8]
+ 375 0036 FB68     		ldr	r3, [r7, #12]
+ 376 0038 1800     		movs	r0, r3
+ 377 003a FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 223:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 378              		.loc 1 223 0
+ 379 003e 96E0     		b	.L5
+ 380              	.L12:
+ 381              	.LBB2:
+ 224:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_STOP:
+ 225:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 226:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 227:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       {
+ 228:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	uint8_t i;
+ 229:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 382              		.loc 1 229 0
+ 383 0040 BB68     		ldr	r3, [r7, #8]
+ 384 0042 5B68     		ldr	r3, [r3, #4]
+ 385 0044 7B61     		str	r3, [r7, #20]
+ 230:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	uint8_t *p = pb->buf;
+ 386              		.loc 1 230 0
+ 387 0046 7B69     		ldr	r3, [r7, #20]
+ 388 0048 9B68     		ldr	r3, [r3, #8]
+ 389 004a BB61     		str	r3, [r7, #24]
+ 231:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	u8g_uint_t cnt;
+ 232:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	cnt = pb->width;
+ 390              		.loc 1 232 0
+ 391 004c 1323     		movs	r3, #19
+ 392 004e FB18     		adds	r3, r7, r3
+ 393 0050 7A69     		ldr	r2, [r7, #20]
+ 394 0052 5279     		ldrb	r2, [r2, #5]
+ 395 0054 1A70     		strb	r2, [r3]
+ 233:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	cnt >>= 3;
+ 396              		.loc 1 233 0
+ 397 0056 1323     		movs	r3, #19
+ 398 0058 FB18     		adds	r3, r7, r3
+ 399 005a 1322     		movs	r2, #19
+ 400 005c BA18     		adds	r2, r7, r2
+ 401 005e 1278     		ldrb	r2, [r2]
+ 402 0060 D208     		lsrs	r2, r2, #3
+ 403 0062 1A70     		strb	r2, [r3]
+ 234:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 235:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	for( i = 0; i < pb->p.page_height; i++ )
+ARM GAS  /tmp/ccXD3jHr.s 			page 12
+
+
+ 404              		.loc 1 235 0
+ 405 0064 1F23     		movs	r3, #31
+ 406 0066 FB18     		adds	r3, r7, r3
+ 407 0068 0022     		movs	r2, #0
+ 408 006a 1A70     		strb	r2, [r3]
+ 409 006c 3DE0     		b	.L13
+ 410              	.L14:
+ 236:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	{
+ 237:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_dev_ssd1322_1bit_prepare_row(u8g, dev, i);  /* this will also enable chip select */
+ 411              		.loc 1 237 0 discriminator 3
+ 412 006e 1F23     		movs	r3, #31
+ 413 0070 FB18     		adds	r3, r7, r3
+ 414 0072 1A78     		ldrb	r2, [r3]
+ 415 0074 B968     		ldr	r1, [r7, #8]
+ 416 0076 FB68     		ldr	r3, [r7, #12]
+ 417 0078 1800     		movs	r0, r3
+ 418 007a FFF7FEFF 		bl	u8g_dev_ssd1322_1bit_prepare_row
+ 238:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #if !defined(U8G_16BIT)
+ 239:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 419              		.loc 1 239 0 discriminator 3
+ 420 007e B968     		ldr	r1, [r7, #8]
+ 421 0080 FB68     		ldr	r3, [r7, #12]
+ 422 0082 FF22     		movs	r2, #255
+ 423 0084 1800     		movs	r0, r3
+ 424 0086 FFF7FEFF 		bl	u8g_WriteByte
+ 240:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 425              		.loc 1 240 0 discriminator 3
+ 426 008a B968     		ldr	r1, [r7, #8]
+ 427 008c FB68     		ldr	r3, [r7, #12]
+ 428 008e FF22     		movs	r2, #255
+ 429 0090 1800     		movs	r0, r3
+ 430 0092 FFF7FEFF 		bl	u8g_WriteByte
+ 241:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #endif
+ 242:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteSequenceBWTo16GrDevice(u8g, dev, cnt, p);
+ 431              		.loc 1 242 0 discriminator 3
+ 432 0096 BC69     		ldr	r4, [r7, #24]
+ 433 0098 1323     		movs	r3, #19
+ 434 009a FB18     		adds	r3, r7, r3
+ 435 009c 1A78     		ldrb	r2, [r3]
+ 436 009e B968     		ldr	r1, [r7, #8]
+ 437 00a0 F868     		ldr	r0, [r7, #12]
+ 438 00a2 2300     		movs	r3, r4
+ 439 00a4 FFF7FEFF 		bl	u8g_WriteSequenceBWTo16GrDevice
+ 243:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #if !defined(U8G_16BIT)
+ 244:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 440              		.loc 1 244 0 discriminator 3
+ 441 00a8 B968     		ldr	r1, [r7, #8]
+ 442 00aa FB68     		ldr	r3, [r7, #12]
+ 443 00ac FF22     		movs	r2, #255
+ 444 00ae 1800     		movs	r0, r3
+ 445 00b0 FFF7FEFF 		bl	u8g_WriteByte
+ 245:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 446              		.loc 1 245 0 discriminator 3
+ 447 00b4 B968     		ldr	r1, [r7, #8]
+ 448 00b6 FB68     		ldr	r3, [r7, #12]
+ 449 00b8 FF22     		movs	r2, #255
+ 450 00ba 1800     		movs	r0, r3
+ARM GAS  /tmp/ccXD3jHr.s 			page 13
+
+
+ 451 00bc FFF7FEFF 		bl	u8g_WriteByte
+ 246:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #endif
+ 247:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_MicroDelay();	// for DUE?
+ 452              		.loc 1 247 0 discriminator 3
+ 453 00c0 FFF7FEFF 		bl	u8g_MicroDelay
+ 248:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_SetChipSelect(u8g, dev, 0);        
+ 454              		.loc 1 248 0 discriminator 3
+ 455 00c4 B968     		ldr	r1, [r7, #8]
+ 456 00c6 FB68     		ldr	r3, [r7, #12]
+ 457 00c8 0022     		movs	r2, #0
+ 458 00ca 1800     		movs	r0, r3
+ 459 00cc FFF7FEFF 		bl	u8g_SetChipSelect
+ 249:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  p+=cnt;
+ 460              		.loc 1 249 0 discriminator 3
+ 461 00d0 1323     		movs	r3, #19
+ 462 00d2 FB18     		adds	r3, r7, r3
+ 463 00d4 1B78     		ldrb	r3, [r3]
+ 464 00d6 BA69     		ldr	r2, [r7, #24]
+ 465 00d8 D318     		adds	r3, r2, r3
+ 466 00da BB61     		str	r3, [r7, #24]
+ 235:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	{
+ 467              		.loc 1 235 0 discriminator 3
+ 468 00dc 1F23     		movs	r3, #31
+ 469 00de FB18     		adds	r3, r7, r3
+ 470 00e0 1A78     		ldrb	r2, [r3]
+ 471 00e2 1F23     		movs	r3, #31
+ 472 00e4 FB18     		adds	r3, r7, r3
+ 473 00e6 0132     		adds	r2, r2, #1
+ 474 00e8 1A70     		strb	r2, [r3]
+ 475              	.L13:
+ 235:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	{
+ 476              		.loc 1 235 0 is_stmt 0 discriminator 1
+ 477 00ea 7B69     		ldr	r3, [r7, #20]
+ 478 00ec 1B78     		ldrb	r3, [r3]
+ 479 00ee 1F22     		movs	r2, #31
+ 480 00f0 BA18     		adds	r2, r7, r2
+ 481 00f2 1278     		ldrb	r2, [r2]
+ 482 00f4 9A42     		cmp	r2, r3
+ 483 00f6 BAD3     		bcc	.L14
+ 484              	.LBE2:
+ 250:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	}
+ 251:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       }
+ 252:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 485              		.loc 1 252 0 is_stmt 1
+ 486 00f8 39E0     		b	.L5
+ 487              	.L9:
+ 253:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_CONTRAST:
+ 254:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 488              		.loc 1 254 0
+ 489 00fa B968     		ldr	r1, [r7, #8]
+ 490 00fc FB68     		ldr	r3, [r7, #12]
+ 491 00fe 0122     		movs	r2, #1
+ 492 0100 1800     		movs	r0, r3
+ 493 0102 FFF7FEFF 		bl	u8g_SetChipSelect
+ 255:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 494              		.loc 1 255 0
+ 495 0106 B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/ccXD3jHr.s 			page 14
+
+
+ 496 0108 FB68     		ldr	r3, [r7, #12]
+ 497 010a 0022     		movs	r2, #0
+ 498 010c 1800     		movs	r0, r3
+ 499 010e FFF7FEFF 		bl	u8g_SetAddress
+ 256:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 500              		.loc 1 256 0
+ 501 0112 B968     		ldr	r1, [r7, #8]
+ 502 0114 FB68     		ldr	r3, [r7, #12]
+ 503 0116 8122     		movs	r2, #129
+ 504 0118 1800     		movs	r0, r3
+ 505 011a FFF7FEFF 		bl	u8g_WriteByte
+ 257:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetAddress(u8g, dev, 1);          /* data mode */
+ 506              		.loc 1 257 0
+ 507 011e B968     		ldr	r1, [r7, #8]
+ 508 0120 FB68     		ldr	r3, [r7, #12]
+ 509 0122 0122     		movs	r2, #1
+ 510 0124 1800     		movs	r0, r3
+ 511 0126 FFF7FEFF 		bl	u8g_SetAddress
+ 258:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 1);
+ 512              		.loc 1 258 0
+ 513 012a 3B68     		ldr	r3, [r7]
+ 514 012c 1B78     		ldrb	r3, [r3]
+ 515 012e 5B08     		lsrs	r3, r3, #1
+ 516 0130 DAB2     		uxtb	r2, r3
+ 517 0132 B968     		ldr	r1, [r7, #8]
+ 518 0134 FB68     		ldr	r3, [r7, #12]
+ 519 0136 1800     		movs	r0, r3
+ 520 0138 FFF7FEFF 		bl	u8g_WriteByte
+ 259:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_MicroDelay();	// for DUE?
+ 521              		.loc 1 259 0
+ 522 013c FFF7FEFF 		bl	u8g_MicroDelay
+ 260:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 523              		.loc 1 260 0
+ 524 0140 B968     		ldr	r1, [r7, #8]
+ 525 0142 FB68     		ldr	r3, [r7, #12]
+ 526 0144 0022     		movs	r2, #0
+ 527 0146 1800     		movs	r0, r3
+ 528 0148 FFF7FEFF 		bl	u8g_SetChipSelect
+ 261:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 529              		.loc 1 261 0
+ 530 014c 0FE0     		b	.L5
+ 531              	.L10:
+ 262:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 263:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd13xx_sleep_on);    
+ 532              		.loc 1 263 0
+ 533 014e 104A     		ldr	r2, .L16+8
+ 534 0150 B968     		ldr	r1, [r7, #8]
+ 535 0152 FB68     		ldr	r3, [r7, #12]
+ 536 0154 1800     		movs	r0, r3
+ 537 0156 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 264:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       return 1;
+ 538              		.loc 1 264 0
+ 539 015a 0123     		movs	r3, #1
+ 540 015c 10E0     		b	.L15
+ 541              	.L11:
+ 265:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 266:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd13xx_sleep_off);    
+ARM GAS  /tmp/ccXD3jHr.s 			page 15
+
+
+ 542              		.loc 1 266 0
+ 543 015e 0D4A     		ldr	r2, .L16+12
+ 544 0160 B968     		ldr	r1, [r7, #8]
+ 545 0162 FB68     		ldr	r3, [r7, #12]
+ 546 0164 1800     		movs	r0, r3
+ 547 0166 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 267:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       return 1;
+ 548              		.loc 1 267 0
+ 549 016a 0123     		movs	r3, #1
+ 550 016c 08E0     		b	.L15
+ 551              	.L5:
+ 268:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   }
+ 269:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   return u8g_dev_pb8h1_base_fn(u8g, dev, msg, arg);
+ 552              		.loc 1 269 0
+ 553 016e 3C68     		ldr	r4, [r7]
+ 554 0170 FB1D     		adds	r3, r7, #7
+ 555 0172 1A78     		ldrb	r2, [r3]
+ 556 0174 B968     		ldr	r1, [r7, #8]
+ 557 0176 F868     		ldr	r0, [r7, #12]
+ 558 0178 2300     		movs	r3, r4
+ 559 017a FFF7FEFF 		bl	u8g_dev_pb8h1_base_fn
+ 560 017e 0300     		movs	r3, r0
+ 561              	.L15:
+ 270:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** }
+ 562              		.loc 1 270 0
+ 563 0180 1800     		movs	r0, r3
+ 564 0182 BD46     		mov	sp, r7
+ 565 0184 09B0     		add	sp, sp, #36
+ 566              		@ sp needed
+ 567 0186 90BD     		pop	{r4, r7, pc}
+ 568              	.L17:
+ 569              		.align	2
+ 570              	.L16:
+ 571 0188 00000000 		.word	.L7
+ 572 018c 00000000 		.word	u8g_dev_ssd1322_1bit_nhd_312_init_seq
+ 573 0190 00000000 		.word	u8g_dev_ssd13xx_sleep_on
+ 574 0194 00000000 		.word	u8g_dev_ssd13xx_sleep_off
+ 575              		.cfi_endproc
+ 576              	.LFE1:
+ 578              		.section	.text.u8g_dev_ssd1322_nhd31oled_2x_bw_fn,"ax",%progbits
+ 579              		.align	1
+ 580              		.global	u8g_dev_ssd1322_nhd31oled_2x_bw_fn
+ 581              		.syntax unified
+ 582              		.code	16
+ 583              		.thumb_func
+ 584              		.fpu softvfp
+ 586              	u8g_dev_ssd1322_nhd31oled_2x_bw_fn:
+ 587              	.LFB2:
+ 271:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 272:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 273:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** uint8_t u8g_dev_ssd1322_nhd31oled_2x_bw_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 274:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** {
+ 588              		.loc 1 274 0
+ 589              		.cfi_startproc
+ 590 0000 90B5     		push	{r4, r7, lr}
+ 591              	.LCFI6:
+ 592              		.cfi_def_cfa_offset 12
+ARM GAS  /tmp/ccXD3jHr.s 			page 16
+
+
+ 593              		.cfi_offset 4, -12
+ 594              		.cfi_offset 7, -8
+ 595              		.cfi_offset 14, -4
+ 596 0002 89B0     		sub	sp, sp, #36
+ 597              	.LCFI7:
+ 598              		.cfi_def_cfa_offset 48
+ 599 0004 00AF     		add	r7, sp, #0
+ 600              	.LCFI8:
+ 601              		.cfi_def_cfa_register 7
+ 602 0006 F860     		str	r0, [r7, #12]
+ 603 0008 B960     		str	r1, [r7, #8]
+ 604 000a 3B60     		str	r3, [r7]
+ 605 000c FB1D     		adds	r3, r7, #7
+ 606 000e 1A70     		strb	r2, [r3]
+ 275:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   switch(msg)
+ 607              		.loc 1 275 0
+ 608 0010 FB1D     		adds	r3, r7, #7
+ 609 0012 1B78     		ldrb	r3, [r3]
+ 610 0014 0A3B     		subs	r3, r3, #10
+ 611 0016 0B2B     		cmp	r3, #11
+ 612 0018 00D9     		bls	.LCB356
+ 613 001a A6E0     		b	.L19	@long jump
+ 614              	.LCB356:
+ 615 001c 9A00     		lsls	r2, r3, #2
+ 616 001e 594B     		ldr	r3, .L30
+ 617 0020 D318     		adds	r3, r2, r3
+ 618 0022 1B68     		ldr	r3, [r3]
+ 619 0024 9F46     		mov	pc, r3
+ 620              		.section	.rodata.u8g_dev_ssd1322_nhd31oled_2x_bw_fn,"a",%progbits
+ 621              		.align	2
+ 622              	.L21:
+ 623 0000 26000000 		.word	.L20
+ 624 0004 6A010000 		.word	.L19
+ 625 0008 6A010000 		.word	.L19
+ 626 000c 6A010000 		.word	.L19
+ 627 0010 6A010000 		.word	.L19
+ 628 0014 FA000000 		.word	.L23
+ 629 0018 4A010000 		.word	.L24
+ 630 001c 5A010000 		.word	.L25
+ 631 0020 6A010000 		.word	.L19
+ 632 0024 6A010000 		.word	.L19
+ 633 0028 6A010000 		.word	.L19
+ 634 002c 40000000 		.word	.L26
+ 635              		.section	.text.u8g_dev_ssd1322_nhd31oled_2x_bw_fn
+ 636              	.L20:
+ 276:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   {
+ 277:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_INIT:
+ 278:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 637              		.loc 1 278 0
+ 638 0026 B968     		ldr	r1, [r7, #8]
+ 639 0028 FB68     		ldr	r3, [r7, #12]
+ 640 002a 0222     		movs	r2, #2
+ 641 002c 1800     		movs	r0, r3
+ 642 002e FFF7FEFF 		bl	u8g_InitCom
+ 279:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd1322_1bit_nhd_312_init_seq);
+ 643              		.loc 1 279 0
+ 644 0032 554A     		ldr	r2, .L30+4
+ARM GAS  /tmp/ccXD3jHr.s 			page 17
+
+
+ 645 0034 B968     		ldr	r1, [r7, #8]
+ 646 0036 FB68     		ldr	r3, [r7, #12]
+ 647 0038 1800     		movs	r0, r3
+ 648 003a FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 280:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 649              		.loc 1 280 0
+ 650 003e 94E0     		b	.L19
+ 651              	.L26:
+ 652              	.LBB3:
+ 281:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_STOP:
+ 282:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 283:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 284:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       {
+ 285:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	uint8_t i;
+ 286:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 653              		.loc 1 286 0
+ 654 0040 BB68     		ldr	r3, [r7, #8]
+ 655 0042 5B68     		ldr	r3, [r3, #4]
+ 656 0044 7B61     		str	r3, [r7, #20]
+ 287:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	uint8_t *p = pb->buf;
+ 657              		.loc 1 287 0
+ 658 0046 7B69     		ldr	r3, [r7, #20]
+ 659 0048 9B68     		ldr	r3, [r3, #8]
+ 660 004a BB61     		str	r3, [r7, #24]
+ 288:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	u8g_uint_t cnt;
+ 289:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	cnt = pb->width;
+ 661              		.loc 1 289 0
+ 662 004c 1323     		movs	r3, #19
+ 663 004e FB18     		adds	r3, r7, r3
+ 664 0050 7A69     		ldr	r2, [r7, #20]
+ 665 0052 5279     		ldrb	r2, [r2, #5]
+ 666 0054 1A70     		strb	r2, [r3]
+ 290:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	cnt >>= 3;
+ 667              		.loc 1 290 0
+ 668 0056 1323     		movs	r3, #19
+ 669 0058 FB18     		adds	r3, r7, r3
+ 670 005a 1322     		movs	r2, #19
+ 671 005c BA18     		adds	r2, r7, r2
+ 672 005e 1278     		ldrb	r2, [r2]
+ 673 0060 D208     		lsrs	r2, r2, #3
+ 674 0062 1A70     		strb	r2, [r3]
+ 291:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 
+ 292:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	for( i = 0; i < pb->p.page_height; i++ )
+ 675              		.loc 1 292 0
+ 676 0064 1F23     		movs	r3, #31
+ 677 0066 FB18     		adds	r3, r7, r3
+ 678 0068 0022     		movs	r2, #0
+ 679 006a 1A70     		strb	r2, [r3]
+ 680 006c 3DE0     		b	.L27
+ 681              	.L28:
+ 293:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	{
+ 294:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_dev_ssd1322_1bit_prepare_row(u8g, dev, i);		/* this will also enable chip select */
+ 682              		.loc 1 294 0 discriminator 3
+ 683 006e 1F23     		movs	r3, #31
+ 684 0070 FB18     		adds	r3, r7, r3
+ 685 0072 1A78     		ldrb	r2, [r3]
+ 686 0074 B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/ccXD3jHr.s 			page 18
+
+
+ 687 0076 FB68     		ldr	r3, [r7, #12]
+ 688 0078 1800     		movs	r0, r3
+ 689 007a FFF7FEFF 		bl	u8g_dev_ssd1322_1bit_prepare_row
+ 295:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #if !defined(U8G_16BIT)
+ 296:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 690              		.loc 1 296 0 discriminator 3
+ 691 007e B968     		ldr	r1, [r7, #8]
+ 692 0080 FB68     		ldr	r3, [r7, #12]
+ 693 0082 FF22     		movs	r2, #255
+ 694 0084 1800     		movs	r0, r3
+ 695 0086 FFF7FEFF 		bl	u8g_WriteByte
+ 297:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 696              		.loc 1 297 0 discriminator 3
+ 697 008a B968     		ldr	r1, [r7, #8]
+ 698 008c FB68     		ldr	r3, [r7, #12]
+ 699 008e FF22     		movs	r2, #255
+ 700 0090 1800     		movs	r0, r3
+ 701 0092 FFF7FEFF 		bl	u8g_WriteByte
+ 298:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #endif
+ 299:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteSequenceBWTo16GrDevice(u8g, dev, cnt, p);
+ 702              		.loc 1 299 0 discriminator 3
+ 703 0096 BC69     		ldr	r4, [r7, #24]
+ 704 0098 1323     		movs	r3, #19
+ 705 009a FB18     		adds	r3, r7, r3
+ 706 009c 1A78     		ldrb	r2, [r3]
+ 707 009e B968     		ldr	r1, [r7, #8]
+ 708 00a0 F868     		ldr	r0, [r7, #12]
+ 709 00a2 2300     		movs	r3, r4
+ 710 00a4 FFF7FEFF 		bl	u8g_WriteSequenceBWTo16GrDevice
+ 300:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #if !defined(U8G_16BIT)
+ 301:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 711              		.loc 1 301 0 discriminator 3
+ 712 00a8 B968     		ldr	r1, [r7, #8]
+ 713 00aa FB68     		ldr	r3, [r7, #12]
+ 714 00ac FF22     		movs	r2, #255
+ 715 00ae 1800     		movs	r0, r3
+ 716 00b0 FFF7FEFF 		bl	u8g_WriteByte
+ 302:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_WriteByte(u8g, dev, 0x0ff);
+ 717              		.loc 1 302 0 discriminator 3
+ 718 00b4 B968     		ldr	r1, [r7, #8]
+ 719 00b6 FB68     		ldr	r3, [r7, #12]
+ 720 00b8 FF22     		movs	r2, #255
+ 721 00ba 1800     		movs	r0, r3
+ 722 00bc FFF7FEFF 		bl	u8g_WriteByte
+ 303:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** #endif
+ 304:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_MicroDelay();	// for DUE?	  
+ 723              		.loc 1 304 0 discriminator 3
+ 724 00c0 FFF7FEFF 		bl	u8g_MicroDelay
+ 305:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  u8g_SetChipSelect(u8g, dev, 0);        
+ 725              		.loc 1 305 0 discriminator 3
+ 726 00c4 B968     		ldr	r1, [r7, #8]
+ 727 00c6 FB68     		ldr	r3, [r7, #12]
+ 728 00c8 0022     		movs	r2, #0
+ 729 00ca 1800     		movs	r0, r3
+ 730 00cc FFF7FEFF 		bl	u8g_SetChipSelect
+ 306:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	  p+=cnt;
+ 731              		.loc 1 306 0 discriminator 3
+ARM GAS  /tmp/ccXD3jHr.s 			page 19
+
+
+ 732 00d0 1323     		movs	r3, #19
+ 733 00d2 FB18     		adds	r3, r7, r3
+ 734 00d4 1B78     		ldrb	r3, [r3]
+ 735 00d6 BA69     		ldr	r2, [r7, #24]
+ 736 00d8 D318     		adds	r3, r2, r3
+ 737 00da BB61     		str	r3, [r7, #24]
+ 292:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	{
+ 738              		.loc 1 292 0 discriminator 3
+ 739 00dc 1F23     		movs	r3, #31
+ 740 00de FB18     		adds	r3, r7, r3
+ 741 00e0 1A78     		ldrb	r2, [r3]
+ 742 00e2 1F23     		movs	r3, #31
+ 743 00e4 FB18     		adds	r3, r7, r3
+ 744 00e6 0132     		adds	r2, r2, #1
+ 745 00e8 1A70     		strb	r2, [r3]
+ 746              	.L27:
+ 292:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	{
+ 747              		.loc 1 292 0 is_stmt 0 discriminator 1
+ 748 00ea 7B69     		ldr	r3, [r7, #20]
+ 749 00ec 1B78     		ldrb	r3, [r3]
+ 750 00ee 1F22     		movs	r2, #31
+ 751 00f0 BA18     		adds	r2, r7, r2
+ 752 00f2 1278     		ldrb	r2, [r2]
+ 753 00f4 9A42     		cmp	r2, r3
+ 754 00f6 BAD3     		bcc	.L28
+ 755              	.LBE3:
+ 307:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** 	}
+ 308:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       }
+ 309:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 756              		.loc 1 309 0 is_stmt 1
+ 757 00f8 37E0     		b	.L19
+ 758              	.L23:
+ 310:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_CONTRAST:
+ 311:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 759              		.loc 1 311 0
+ 760 00fa B968     		ldr	r1, [r7, #8]
+ 761 00fc FB68     		ldr	r3, [r7, #12]
+ 762 00fe 0122     		movs	r2, #1
+ 763 0100 1800     		movs	r0, r3
+ 764 0102 FFF7FEFF 		bl	u8g_SetChipSelect
+ 312:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 765              		.loc 1 312 0
+ 766 0106 B968     		ldr	r1, [r7, #8]
+ 767 0108 FB68     		ldr	r3, [r7, #12]
+ 768 010a 0022     		movs	r2, #0
+ 769 010c 1800     		movs	r0, r3
+ 770 010e FFF7FEFF 		bl	u8g_SetAddress
+ 313:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteByte(u8g, dev, 0x0c1);	/* 21 May 2013, fixed contrast command */
+ 771              		.loc 1 313 0
+ 772 0112 B968     		ldr	r1, [r7, #8]
+ 773 0114 FB68     		ldr	r3, [r7, #12]
+ 774 0116 C122     		movs	r2, #193
+ 775 0118 1800     		movs	r0, r3
+ 776 011a FFF7FEFF 		bl	u8g_WriteByte
+ 314:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetAddress(u8g, dev, 1);          /* data mode */
+ 777              		.loc 1 314 0
+ 778 011e B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/ccXD3jHr.s 			page 20
+
+
+ 779 0120 FB68     		ldr	r3, [r7, #12]
+ 780 0122 0122     		movs	r2, #1
+ 781 0124 1800     		movs	r0, r3
+ 782 0126 FFF7FEFF 		bl	u8g_SetAddress
+ 315:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 1);
+ 783              		.loc 1 315 0
+ 784 012a 3B68     		ldr	r3, [r7]
+ 785 012c 1B78     		ldrb	r3, [r3]
+ 786 012e 5B08     		lsrs	r3, r3, #1
+ 787 0130 DAB2     		uxtb	r2, r3
+ 788 0132 B968     		ldr	r1, [r7, #8]
+ 789 0134 FB68     		ldr	r3, [r7, #12]
+ 790 0136 1800     		movs	r0, r3
+ 791 0138 FFF7FEFF 		bl	u8g_WriteByte
+ 316:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 792              		.loc 1 316 0
+ 793 013c B968     		ldr	r1, [r7, #8]
+ 794 013e FB68     		ldr	r3, [r7, #12]
+ 795 0140 0022     		movs	r2, #0
+ 796 0142 1800     		movs	r0, r3
+ 797 0144 FFF7FEFF 		bl	u8g_SetChipSelect
+ 317:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       break;
+ 798              		.loc 1 317 0
+ 799 0148 0FE0     		b	.L19
+ 800              	.L24:
+ 318:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 319:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd13xx_sleep_on);    
+ 801              		.loc 1 319 0
+ 802 014a 104A     		ldr	r2, .L30+8
+ 803 014c B968     		ldr	r1, [r7, #8]
+ 804 014e FB68     		ldr	r3, [r7, #12]
+ 805 0150 1800     		movs	r0, r3
+ 806 0152 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 320:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       return 1;
+ 807              		.loc 1 320 0
+ 808 0156 0123     		movs	r3, #1
+ 809 0158 10E0     		b	.L29
+ 810              	.L25:
+ 321:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 322:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_ssd13xx_sleep_off);    
+ 811              		.loc 1 322 0
+ 812 015a 0D4A     		ldr	r2, .L30+12
+ 813 015c B968     		ldr	r1, [r7, #8]
+ 814 015e FB68     		ldr	r3, [r7, #12]
+ 815 0160 1800     		movs	r0, r3
+ 816 0162 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 323:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****       return 1;
+ 817              		.loc 1 323 0
+ 818 0166 0123     		movs	r3, #1
+ 819 0168 08E0     		b	.L29
+ 820              	.L19:
+ 324:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   }
+ 325:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c ****   return u8g_dev_pb16h1_base_fn(u8g, dev, msg, arg);
+ 821              		.loc 1 325 0
+ 822 016a 3C68     		ldr	r4, [r7]
+ 823 016c FB1D     		adds	r3, r7, #7
+ 824 016e 1A78     		ldrb	r2, [r3]
+ARM GAS  /tmp/ccXD3jHr.s 			page 21
+
+
+ 825 0170 B968     		ldr	r1, [r7, #8]
+ 826 0172 F868     		ldr	r0, [r7, #12]
+ 827 0174 2300     		movs	r3, r4
+ 828 0176 FFF7FEFF 		bl	u8g_dev_pb16h1_base_fn
+ 829 017a 0300     		movs	r3, r0
+ 830              	.L29:
+ 326:Drivers/u8glib/src/u8g_dev_ssd1322_nhd31oled_bw.c **** }
+ 831              		.loc 1 326 0
+ 832 017c 1800     		movs	r0, r3
+ 833 017e BD46     		mov	sp, r7
+ 834 0180 09B0     		add	sp, sp, #36
+ 835              		@ sp needed
+ 836 0182 90BD     		pop	{r4, r7, pc}
+ 837              	.L31:
+ 838              		.align	2
+ 839              	.L30:
+ 840 0184 00000000 		.word	.L21
+ 841 0188 00000000 		.word	u8g_dev_ssd1322_1bit_nhd_312_init_seq
+ 842 018c 00000000 		.word	u8g_dev_ssd13xx_sleep_on
+ 843 0190 00000000 		.word	u8g_dev_ssd13xx_sleep_off
+ 844              		.cfi_endproc
+ 845              	.LFE2:
+ 847              		.global	u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf
+ 848              		.section	.bss.u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf,"aw",%nobits
+ 849              		.align	2
+ 852              	u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf:
+ 853 0000 00000000 		.space	248
+ 853      00000000 
+ 853      00000000 
+ 853      00000000 
+ 853      00000000 
+ 854              		.global	u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb
+ 855              		.section	.data.u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb,"aw",%progbits
+ 856              		.align	2
+ 859              	u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb:
+ 860 0000 08       		.byte	8
+ 861 0001 40       		.byte	64
+ 862 0002 00       		.byte	0
+ 863 0003 00       		.byte	0
+ 864 0004 00       		.byte	0
+ 865 0005 F8       		.byte	-8
+ 866 0006 0000     		.space	2
+ 867 0008 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf
+ 868              		.global	u8g_dev_ssd1322_nhd31oled_bw_sw_spi
+ 869              		.section	.data.u8g_dev_ssd1322_nhd31oled_bw_sw_spi,"aw",%progbits
+ 870              		.align	2
+ 873              	u8g_dev_ssd1322_nhd31oled_bw_sw_spi:
+ 874 0000 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_fn
+ 875 0004 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb
+ 876 0008 00000000 		.word	u8g_com_null_fn
+ 877              		.global	u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf
+ 878              		.section	.bss.u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf,"aw",%nobits
+ 879              		.align	2
+ 882              	u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf:
+ 883 0000 00000000 		.space	248
+ 883      00000000 
+ 883      00000000 
+ARM GAS  /tmp/ccXD3jHr.s 			page 22
+
+
+ 883      00000000 
+ 883      00000000 
+ 884              		.global	u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb
+ 885              		.section	.data.u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb,"aw",%progbits
+ 886              		.align	2
+ 889              	u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb:
+ 890 0000 08       		.byte	8
+ 891 0001 40       		.byte	64
+ 892 0002 00       		.byte	0
+ 893 0003 00       		.byte	0
+ 894 0004 00       		.byte	0
+ 895 0005 F8       		.byte	-8
+ 896 0006 0000     		.space	2
+ 897 0008 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf
+ 898              		.global	u8g_dev_ssd1322_nhd31oled_bw_hw_spi
+ 899              		.section	.data.u8g_dev_ssd1322_nhd31oled_bw_hw_spi,"aw",%progbits
+ 900              		.align	2
+ 903              	u8g_dev_ssd1322_nhd31oled_bw_hw_spi:
+ 904 0000 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_fn
+ 905 0004 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb
+ 906 0008 00000000 		.word	u8g_com_null_fn
+ 907              		.global	u8g_dev_ssd1322_nhd31oled_bw_parallel_buf
+ 908              		.section	.bss.u8g_dev_ssd1322_nhd31oled_bw_parallel_buf,"aw",%nobits
+ 909              		.align	2
+ 912              	u8g_dev_ssd1322_nhd31oled_bw_parallel_buf:
+ 913 0000 00000000 		.space	248
+ 913      00000000 
+ 913      00000000 
+ 913      00000000 
+ 913      00000000 
+ 914              		.global	u8g_dev_ssd1322_nhd31oled_bw_parallel_pb
+ 915              		.section	.data.u8g_dev_ssd1322_nhd31oled_bw_parallel_pb,"aw",%progbits
+ 916              		.align	2
+ 919              	u8g_dev_ssd1322_nhd31oled_bw_parallel_pb:
+ 920 0000 08       		.byte	8
+ 921 0001 40       		.byte	64
+ 922 0002 00       		.byte	0
+ 923 0003 00       		.byte	0
+ 924 0004 00       		.byte	0
+ 925 0005 F8       		.byte	-8
+ 926 0006 0000     		.space	2
+ 927 0008 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_parallel_buf
+ 928              		.global	u8g_dev_ssd1322_nhd31oled_bw_parallel
+ 929              		.section	.data.u8g_dev_ssd1322_nhd31oled_bw_parallel,"aw",%progbits
+ 930              		.align	2
+ 933              	u8g_dev_ssd1322_nhd31oled_bw_parallel:
+ 934 0000 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_fn
+ 935 0004 00000000 		.word	u8g_dev_ssd1322_nhd31oled_bw_parallel_pb
+ 936 0008 00000000 		.word	u8g_com_null_fn
+ 937              		.global	u8g_dev_ssd1322_nhd31oled_2x_bw_buf
+ 938              		.section	.bss.u8g_dev_ssd1322_nhd31oled_2x_bw_buf,"aw",%nobits
+ 939              		.align	2
+ 942              	u8g_dev_ssd1322_nhd31oled_2x_bw_buf:
+ 943 0000 00000000 		.space	496
+ 943      00000000 
+ 943      00000000 
+ 943      00000000 
+ARM GAS  /tmp/ccXD3jHr.s 			page 23
+
+
+ 943      00000000 
+ 944              		.global	u8g_dev_ssd1322_nhd31oled_2x_bw_pb
+ 945              		.section	.data.u8g_dev_ssd1322_nhd31oled_2x_bw_pb,"aw",%progbits
+ 946              		.align	2
+ 949              	u8g_dev_ssd1322_nhd31oled_2x_bw_pb:
+ 950 0000 10       		.byte	16
+ 951 0001 40       		.byte	64
+ 952 0002 00       		.byte	0
+ 953 0003 00       		.byte	0
+ 954 0004 00       		.byte	0
+ 955 0005 F8       		.byte	-8
+ 956 0006 0000     		.space	2
+ 957 0008 00000000 		.word	u8g_dev_ssd1322_nhd31oled_2x_bw_buf
+ 958              		.global	u8g_dev_ssd1322_nhd31oled_2x_bw_sw_spi
+ 959              		.section	.data.u8g_dev_ssd1322_nhd31oled_2x_bw_sw_spi,"aw",%progbits
+ 960              		.align	2
+ 963              	u8g_dev_ssd1322_nhd31oled_2x_bw_sw_spi:
+ 964 0000 00000000 		.word	u8g_dev_ssd1322_nhd31oled_2x_bw_fn
+ 965 0004 00000000 		.word	u8g_dev_ssd1322_nhd31oled_2x_bw_pb
+ 966 0008 00000000 		.word	u8g_com_null_fn
+ 967              		.global	u8g_dev_ssd1322_nhd31oled_2x_bw_hw_spi
+ 968              		.section	.data.u8g_dev_ssd1322_nhd31oled_2x_bw_hw_spi,"aw",%progbits
+ 969              		.align	2
+ 972              	u8g_dev_ssd1322_nhd31oled_2x_bw_hw_spi:
+ 973 0000 00000000 		.word	u8g_dev_ssd1322_nhd31oled_2x_bw_fn
+ 974 0004 00000000 		.word	u8g_dev_ssd1322_nhd31oled_2x_bw_pb
+ 975 0008 00000000 		.word	u8g_com_null_fn
+ 976              		.text
+ 977              	.Letext0:
+ 978              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 979              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 980              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccXD3jHr.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw.c
+     /tmp/ccXD3jHr.s:16     .rodata.u8g_dev_ssd1322_1bit_nhd_312_init_seq:0000000000000000 $d
+     /tmp/ccXD3jHr.s:19     .rodata.u8g_dev_ssd1322_1bit_nhd_312_init_seq:0000000000000000 u8g_dev_ssd1322_1bit_nhd_312_init_seq
+     /tmp/ccXD3jHr.s:147    .rodata.u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq:0000000000000000 $d
+     /tmp/ccXD3jHr.s:150    .rodata.u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq:0000000000000000 u8g_dev_ssd1322_1bit_nhd_312_prepare_page_seq
+     /tmp/ccXD3jHr.s:168    .text.u8g_dev_ssd1322_1bit_prepare_row:0000000000000000 $t
+     /tmp/ccXD3jHr.s:174    .text.u8g_dev_ssd1322_1bit_prepare_row:0000000000000000 u8g_dev_ssd1322_1bit_prepare_row
+     /tmp/ccXD3jHr.s:273    .text.u8g_dev_ssd1322_1bit_prepare_row:000000000000009c $d
+     /tmp/ccXD3jHr.s:278    .rodata.u8g_dev_ssd13xx_sleep_on:0000000000000000 $d
+     /tmp/ccXD3jHr.s:281    .rodata.u8g_dev_ssd13xx_sleep_on:0000000000000000 u8g_dev_ssd13xx_sleep_on
+     /tmp/ccXD3jHr.s:292    .rodata.u8g_dev_ssd13xx_sleep_off:0000000000000000 $d
+     /tmp/ccXD3jHr.s:295    .rodata.u8g_dev_ssd13xx_sleep_off:0000000000000000 u8g_dev_ssd13xx_sleep_off
+     /tmp/ccXD3jHr.s:308    .text.u8g_dev_ssd1322_nhd31oled_bw_fn:0000000000000000 $t
+     /tmp/ccXD3jHr.s:315    .text.u8g_dev_ssd1322_nhd31oled_bw_fn:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_fn
+     /tmp/ccXD3jHr.s:350    .rodata.u8g_dev_ssd1322_nhd31oled_bw_fn:0000000000000000 $d
+     /tmp/ccXD3jHr.s:571    .text.u8g_dev_ssd1322_nhd31oled_bw_fn:0000000000000188 $d
+     /tmp/ccXD3jHr.s:579    .text.u8g_dev_ssd1322_nhd31oled_2x_bw_fn:0000000000000000 $t
+     /tmp/ccXD3jHr.s:586    .text.u8g_dev_ssd1322_nhd31oled_2x_bw_fn:0000000000000000 u8g_dev_ssd1322_nhd31oled_2x_bw_fn
+     /tmp/ccXD3jHr.s:621    .rodata.u8g_dev_ssd1322_nhd31oled_2x_bw_fn:0000000000000000 $d
+     /tmp/ccXD3jHr.s:840    .text.u8g_dev_ssd1322_nhd31oled_2x_bw_fn:0000000000000184 $d
+     /tmp/ccXD3jHr.s:852    .bss.u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf
+     /tmp/ccXD3jHr.s:849    .bss.u8g_dev_ssd1322_nhd31oled_bw_sw_spi_buf:0000000000000000 $d
+     /tmp/ccXD3jHr.s:859    .data.u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb
+     /tmp/ccXD3jHr.s:856    .data.u8g_dev_ssd1322_nhd31oled_bw_sw_spi_pb:0000000000000000 $d
+     /tmp/ccXD3jHr.s:873    .data.u8g_dev_ssd1322_nhd31oled_bw_sw_spi:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_sw_spi
+     /tmp/ccXD3jHr.s:870    .data.u8g_dev_ssd1322_nhd31oled_bw_sw_spi:0000000000000000 $d
+     /tmp/ccXD3jHr.s:882    .bss.u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf
+     /tmp/ccXD3jHr.s:879    .bss.u8g_dev_ssd1322_nhd31oled_bw_hw_spi_buf:0000000000000000 $d
+     /tmp/ccXD3jHr.s:889    .data.u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb
+     /tmp/ccXD3jHr.s:886    .data.u8g_dev_ssd1322_nhd31oled_bw_hw_spi_pb:0000000000000000 $d
+     /tmp/ccXD3jHr.s:903    .data.u8g_dev_ssd1322_nhd31oled_bw_hw_spi:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_hw_spi
+     /tmp/ccXD3jHr.s:900    .data.u8g_dev_ssd1322_nhd31oled_bw_hw_spi:0000000000000000 $d
+     /tmp/ccXD3jHr.s:912    .bss.u8g_dev_ssd1322_nhd31oled_bw_parallel_buf:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_parallel_buf
+     /tmp/ccXD3jHr.s:909    .bss.u8g_dev_ssd1322_nhd31oled_bw_parallel_buf:0000000000000000 $d
+     /tmp/ccXD3jHr.s:919    .data.u8g_dev_ssd1322_nhd31oled_bw_parallel_pb:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_parallel_pb
+     /tmp/ccXD3jHr.s:916    .data.u8g_dev_ssd1322_nhd31oled_bw_parallel_pb:0000000000000000 $d
+     /tmp/ccXD3jHr.s:933    .data.u8g_dev_ssd1322_nhd31oled_bw_parallel:0000000000000000 u8g_dev_ssd1322_nhd31oled_bw_parallel
+     /tmp/ccXD3jHr.s:930    .data.u8g_dev_ssd1322_nhd31oled_bw_parallel:0000000000000000 $d
+     /tmp/ccXD3jHr.s:942    .bss.u8g_dev_ssd1322_nhd31oled_2x_bw_buf:0000000000000000 u8g_dev_ssd1322_nhd31oled_2x_bw_buf
+     /tmp/ccXD3jHr.s:939    .bss.u8g_dev_ssd1322_nhd31oled_2x_bw_buf:0000000000000000 $d
+     /tmp/ccXD3jHr.s:949    .data.u8g_dev_ssd1322_nhd31oled_2x_bw_pb:0000000000000000 u8g_dev_ssd1322_nhd31oled_2x_bw_pb
+     /tmp/ccXD3jHr.s:946    .data.u8g_dev_ssd1322_nhd31oled_2x_bw_pb:0000000000000000 $d
+     /tmp/ccXD3jHr.s:963    .data.u8g_dev_ssd1322_nhd31oled_2x_bw_sw_spi:0000000000000000 u8g_dev_ssd1322_nhd31oled_2x_bw_sw_spi
+     /tmp/ccXD3jHr.s:960    .data.u8g_dev_ssd1322_nhd31oled_2x_bw_sw_spi:0000000000000000 $d
+     /tmp/ccXD3jHr.s:972    .data.u8g_dev_ssd1322_nhd31oled_2x_bw_hw_spi:0000000000000000 u8g_dev_ssd1322_nhd31oled_2x_bw_hw_spi
+     /tmp/ccXD3jHr.s:969    .data.u8g_dev_ssd1322_nhd31oled_2x_bw_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_InitCom
+u8g_WriteSequenceBWTo16GrDevice
+u8g_MicroDelay
+u8g_SetChipSelect
+ARM GAS  /tmp/ccXD3jHr.s 			page 25
+
+
+u8g_dev_pb8h1_base_fn
+u8g_dev_pb16h1_base_fn
+u8g_com_null_fn

@@ -1,0 +1,1457 @@
+ARM GAS  /tmp/cceKUV4c.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_pbxh24.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_pbxh24_Clear,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_pbxh24_Clear
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_pbxh24_Clear:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_pbxh24.c"
+   1:Drivers/u8glib/src/u8g_pbxh24.c **** /*
+   2:Drivers/u8glib/src/u8g_pbxh24.c **** 
+   3:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_pbxh24.c
+   4:Drivers/u8glib/src/u8g_pbxh24.c ****   
+   5:Drivers/u8glib/src/u8g_pbxh24.c ****   x lines per page, horizontal, 24 bits per pixel (true color modes)
+   6:Drivers/u8glib/src/u8g_pbxh24.c ****   
+   7:Drivers/u8glib/src/u8g_pbxh24.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_pbxh24.c ****   
+   9:Drivers/u8glib/src/u8g_pbxh24.c ****   Copyright (c) 2013, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_pbxh24.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  12:Drivers/u8glib/src/u8g_pbxh24.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_pbxh24.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  15:Drivers/u8glib/src/u8g_pbxh24.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_pbxh24.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_pbxh24.c ****     
+  18:Drivers/u8glib/src/u8g_pbxh24.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_pbxh24.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_pbxh24.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  22:Drivers/u8glib/src/u8g_pbxh24.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_pbxh24.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_pbxh24.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_pbxh24.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_pbxh24.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_pbxh24.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_pbxh24.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_pbxh24.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_pbxh24.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_pbxh24.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_pbxh24.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_pbxh24.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ARM GAS  /tmp/cceKUV4c.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_pbxh24.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  36:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  37:Drivers/u8glib/src/u8g_pbxh24.c **** struct _u8g_pb_t
+  38:Drivers/u8glib/src/u8g_pbxh24.c **** {
+  39:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_page_t p;
+  40:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_uint_t width;
+  41:Drivers/u8glib/src/u8g_pbxh24.c ****   void *buf;
+  42:Drivers/u8glib/src/u8g_pbxh24.c **** };
+  43:Drivers/u8glib/src/u8g_pbxh24.c **** typedef struct _u8g_pb_t u8g_pb_t;
+  44:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  45:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  46:Drivers/u8glib/src/u8g_pbxh24.c **** uint8_t u8g_index_color_xh16_buf[2*WIDTH*PAGE_HEIGHT] U8G_NOCOMMON ; 
+  47:Drivers/u8glib/src/u8g_pbxh24.c **** u8g_pb_t u8g_index_color_xh16_pb = { {PAGE_HEIGHT, HEIGHT, 0, 0, 0},  WIDTH, u8g_index_color_xh16_b
+  48:Drivers/u8glib/src/u8g_pbxh24.c **** u8g_dev_t name = { dev_fn, &u8g_index_color_xh16_pb , com_fn }
+  49:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  50:Drivers/u8glib/src/u8g_pbxh24.c **** */
+  51:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  52:Drivers/u8glib/src/u8g_pbxh24.c **** #include "u8g.h"
+  53:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  54:Drivers/u8glib/src/u8g_pbxh24.c **** /*
+  55:Drivers/u8glib/src/u8g_pbxh24.c **** #define WIDTH_BITS 7
+  56:Drivers/u8glib/src/u8g_pbxh24.c **** #define WIDTH (1<<WIDTH_BITS)
+  57:Drivers/u8glib/src/u8g_pbxh24.c **** #define PAGE_HEIGHT_BITS 3
+  58:Drivers/u8glib/src/u8g_pbxh24.c **** #define PAGE_HEIGHT (1<<PAGE_HEIGHT_BITS)
+  59:Drivers/u8glib/src/u8g_pbxh24.c **** */
+  60:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  61:Drivers/u8glib/src/u8g_pbxh24.c **** void u8g_pbxh24_Clear(u8g_pb_t *b)
+  62:Drivers/u8glib/src/u8g_pbxh24.c **** {
+  26              		.loc 1 62 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 86B0     		sub	sp, sp, #24
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 32
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  63:Drivers/u8glib/src/u8g_pbxh24.c ****   uint8_t *ptr = (uint8_t *)b->buf;
+  40              		.loc 1 63 0
+  41 0008 7B68     		ldr	r3, [r7, #4]
+  42 000a 9B68     		ldr	r3, [r3, #8]
+  43 000c 7B61     		str	r3, [r7, #20]
+  64:Drivers/u8glib/src/u8g_pbxh24.c ****   uint8_t *end_ptr = ptr;
+  44              		.loc 1 64 0
+  45 000e 7B69     		ldr	r3, [r7, #20]
+  46 0010 3B61     		str	r3, [r7, #16]
+  65:Drivers/u8glib/src/u8g_pbxh24.c ****   uint8_t cnt = b->p.page_height;
+  47              		.loc 1 65 0
+  48 0012 0F23     		movs	r3, #15
+  49 0014 FB18     		adds	r3, r7, r3
+  50 0016 7A68     		ldr	r2, [r7, #4]
+ARM GAS  /tmp/cceKUV4c.s 			page 3
+
+
+  51 0018 1278     		ldrb	r2, [r2]
+  52 001a 1A70     		strb	r2, [r3]
+  53              	.L2:
+  66:Drivers/u8glib/src/u8g_pbxh24.c ****   do
+  67:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+  68:Drivers/u8glib/src/u8g_pbxh24.c ****     end_ptr += b->width*3;
+  54              		.loc 1 68 0 discriminator 1
+  55 001c 7B68     		ldr	r3, [r7, #4]
+  56 001e 5B79     		ldrb	r3, [r3, #5]
+  57 0020 1A00     		movs	r2, r3
+  58 0022 1300     		movs	r3, r2
+  59 0024 5B00     		lsls	r3, r3, #1
+  60 0026 9B18     		adds	r3, r3, r2
+  61 0028 1A00     		movs	r2, r3
+  62 002a 3B69     		ldr	r3, [r7, #16]
+  63 002c 9B18     		adds	r3, r3, r2
+  64 002e 3B61     		str	r3, [r7, #16]
+  69:Drivers/u8glib/src/u8g_pbxh24.c ****     cnt--;
+  65              		.loc 1 69 0 discriminator 1
+  66 0030 0F23     		movs	r3, #15
+  67 0032 FB18     		adds	r3, r7, r3
+  68 0034 1A78     		ldrb	r2, [r3]
+  69 0036 0F23     		movs	r3, #15
+  70 0038 FB18     		adds	r3, r7, r3
+  71 003a 013A     		subs	r2, r2, #1
+  72 003c 1A70     		strb	r2, [r3]
+  70:Drivers/u8glib/src/u8g_pbxh24.c ****   } while( cnt > 0 );
+  73              		.loc 1 70 0 discriminator 1
+  74 003e 0F23     		movs	r3, #15
+  75 0040 FB18     		adds	r3, r7, r3
+  76 0042 1B78     		ldrb	r3, [r3]
+  77 0044 002B     		cmp	r3, #0
+  78 0046 E9D1     		bne	.L2
+  79              	.L3:
+  71:Drivers/u8glib/src/u8g_pbxh24.c ****   do
+  72:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+  73:Drivers/u8glib/src/u8g_pbxh24.c ****     *ptr++ = 0;
+  80              		.loc 1 73 0 discriminator 1
+  81 0048 7B69     		ldr	r3, [r7, #20]
+  82 004a 5A1C     		adds	r2, r3, #1
+  83 004c 7A61     		str	r2, [r7, #20]
+  84 004e 0022     		movs	r2, #0
+  85 0050 1A70     		strb	r2, [r3]
+  74:Drivers/u8glib/src/u8g_pbxh24.c ****   } while( ptr != end_ptr );
+  86              		.loc 1 74 0 discriminator 1
+  87 0052 7A69     		ldr	r2, [r7, #20]
+  88 0054 3B69     		ldr	r3, [r7, #16]
+  89 0056 9A42     		cmp	r2, r3
+  90 0058 F6D1     		bne	.L3
+  75:Drivers/u8glib/src/u8g_pbxh24.c **** }
+  91              		.loc 1 75 0
+  92 005a C046     		nop
+  93 005c BD46     		mov	sp, r7
+  94 005e 06B0     		add	sp, sp, #24
+  95              		@ sp needed
+  96 0060 80BD     		pop	{r7, pc}
+  97              		.cfi_endproc
+ARM GAS  /tmp/cceKUV4c.s 			page 4
+
+
+  98              	.LFE0:
+ 100              		.section	.text.u8g_pbxh24_Init,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	u8g_pbxh24_Init
+ 103              		.syntax unified
+ 104              		.code	16
+ 105              		.thumb_func
+ 106              		.fpu softvfp
+ 108              	u8g_pbxh24_Init:
+ 109              	.LFB1:
+  76:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  77:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  78:Drivers/u8glib/src/u8g_pbxh24.c **** void u8g_pbxh24_Init(u8g_pb_t *b, void *buf, u8g_uint_t width)
+  79:Drivers/u8glib/src/u8g_pbxh24.c **** {
+ 110              		.loc 1 79 0
+ 111              		.cfi_startproc
+ 112 0000 80B5     		push	{r7, lr}
+ 113              	.LCFI3:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 84B0     		sub	sp, sp, #16
+ 118              	.LCFI4:
+ 119              		.cfi_def_cfa_offset 24
+ 120 0004 00AF     		add	r7, sp, #0
+ 121              	.LCFI5:
+ 122              		.cfi_def_cfa_register 7
+ 123 0006 F860     		str	r0, [r7, #12]
+ 124 0008 B960     		str	r1, [r7, #8]
+ 125 000a FB1D     		adds	r3, r7, #7
+ 126 000c 1A70     		strb	r2, [r3]
+  80:Drivers/u8glib/src/u8g_pbxh24.c ****   b->buf = buf;
+ 127              		.loc 1 80 0
+ 128 000e FB68     		ldr	r3, [r7, #12]
+ 129 0010 BA68     		ldr	r2, [r7, #8]
+ 130 0012 9A60     		str	r2, [r3, #8]
+  81:Drivers/u8glib/src/u8g_pbxh24.c ****   b->width = width;
+ 131              		.loc 1 81 0
+ 132 0014 FB68     		ldr	r3, [r7, #12]
+ 133 0016 FA1D     		adds	r2, r7, #7
+ 134 0018 1278     		ldrb	r2, [r2]
+ 135 001a 5A71     		strb	r2, [r3, #5]
+  82:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_pbxh24_Clear(b);
+ 136              		.loc 1 82 0
+ 137 001c FB68     		ldr	r3, [r7, #12]
+ 138 001e 1800     		movs	r0, r3
+ 139 0020 FFF7FEFF 		bl	u8g_pbxh24_Clear
+  83:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 140              		.loc 1 83 0
+ 141 0024 C046     		nop
+ 142 0026 BD46     		mov	sp, r7
+ 143 0028 04B0     		add	sp, sp, #16
+ 144              		@ sp needed
+ 145 002a 80BD     		pop	{r7, pc}
+ 146              		.cfi_endproc
+ 147              	.LFE1:
+ 149              		.section	.text.u8g_pbxh24_set_tpixel,"ax",%progbits
+ARM GAS  /tmp/cceKUV4c.s 			page 5
+
+
+ 150              		.align	1
+ 151              		.syntax unified
+ 152              		.code	16
+ 153              		.thumb_func
+ 154              		.fpu softvfp
+ 156              	u8g_pbxh24_set_tpixel:
+ 157              	.LFB2:
+  84:Drivers/u8glib/src/u8g_pbxh24.c **** 
+  85:Drivers/u8glib/src/u8g_pbxh24.c **** #ifdef OBSOLETE
+  86:Drivers/u8glib/src/u8g_pbxh24.c **** static void u8g_pbxh24_set_pixel(u8g_pb_t *b, u8g_uint_t x, u8g_uint_t y, uint8_t r, uint8_t g, uin
+  87:Drivers/u8glib/src/u8g_pbxh24.c **** {
+  88:Drivers/u8glib/src/u8g_pbxh24.c ****   uint16_t tmp;
+  89:Drivers/u8glib/src/u8g_pbxh24.c ****   uint8_t *ptr = b->buf;
+  90:Drivers/u8glib/src/u8g_pbxh24.c ****   y -= b->p.page_y0;
+  91:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp = y;
+  92:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp *= b->width;
+  93:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp += x;
+  94:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp *= 3;
+  95:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr += tmp;
+  96:Drivers/u8glib/src/u8g_pbxh24.c ****   *ptr = r;
+  97:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr++;
+  98:Drivers/u8glib/src/u8g_pbxh24.c ****   *ptr = g;
+  99:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr++;
+ 100:Drivers/u8glib/src/u8g_pbxh24.c ****   *ptr = b;
+ 101:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 102:Drivers/u8glib/src/u8g_pbxh24.c **** #endif
+ 103:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 104:Drivers/u8glib/src/u8g_pbxh24.c **** /*
+ 105:Drivers/u8glib/src/u8g_pbxh24.c ****   intensity
+ 106:Drivers/u8glib/src/u8g_pbxh24.c ****     0..3		intensity value
+ 107:Drivers/u8glib/src/u8g_pbxh24.c ****     4			replace color
+ 108:Drivers/u8glib/src/u8g_pbxh24.c **** */
+ 109:Drivers/u8glib/src/u8g_pbxh24.c **** static void u8g_pbxh24_set_tpixel(u8g_pb_t *b, u8g_uint_t x, u8g_uint_t y, uint8_t red, uint8_t gre
+ 110:Drivers/u8glib/src/u8g_pbxh24.c **** {
+ 158              		.loc 1 110 0
+ 159              		.cfi_startproc
+ 160 0000 90B5     		push	{r4, r7, lr}
+ 161              	.LCFI6:
+ 162              		.cfi_def_cfa_offset 12
+ 163              		.cfi_offset 4, -12
+ 164              		.cfi_offset 7, -8
+ 165              		.cfi_offset 14, -4
+ 166 0002 85B0     		sub	sp, sp, #20
+ 167              	.LCFI7:
+ 168              		.cfi_def_cfa_offset 32
+ 169 0004 00AF     		add	r7, sp, #0
+ 170              	.LCFI8:
+ 171              		.cfi_def_cfa_register 7
+ 172 0006 7860     		str	r0, [r7, #4]
+ 173 0008 0C00     		movs	r4, r1
+ 174 000a 1000     		movs	r0, r2
+ 175 000c 1900     		movs	r1, r3
+ 176 000e FB1C     		adds	r3, r7, #3
+ 177 0010 221C     		adds	r2, r4, #0
+ 178 0012 1A70     		strb	r2, [r3]
+ 179 0014 BB1C     		adds	r3, r7, #2
+ 180 0016 021C     		adds	r2, r0, #0
+ARM GAS  /tmp/cceKUV4c.s 			page 6
+
+
+ 181 0018 1A70     		strb	r2, [r3]
+ 182 001a 7B1C     		adds	r3, r7, #1
+ 183 001c 0A1C     		adds	r2, r1, #0
+ 184 001e 1A70     		strb	r2, [r3]
+ 111:Drivers/u8glib/src/u8g_pbxh24.c ****   uint16_t tmp;
+ 112:Drivers/u8glib/src/u8g_pbxh24.c ****   uint8_t *ptr = b->buf;
+ 185              		.loc 1 112 0
+ 186 0020 7B68     		ldr	r3, [r7, #4]
+ 187 0022 9B68     		ldr	r3, [r3, #8]
+ 188 0024 FB60     		str	r3, [r7, #12]
+ 113:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 114:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( intensity == 0 )
+ 189              		.loc 1 114 0
+ 190 0026 2823     		movs	r3, #40
+ 191 0028 FB18     		adds	r3, r7, r3
+ 192 002a 1B78     		ldrb	r3, [r3]
+ 193 002c 002B     		cmp	r3, #0
+ 194 002e 00D1     		bne	.LCB146
+ 195 0030 C3E0     		b	.L16	@long jump
+ 196              	.LCB146:
+ 115:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 116:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 117:Drivers/u8glib/src/u8g_pbxh24.c ****   y -= b->p.page_y0;
+ 197              		.loc 1 117 0
+ 198 0032 7B68     		ldr	r3, [r7, #4]
+ 199 0034 9A78     		ldrb	r2, [r3, #2]
+ 200 0036 BB1C     		adds	r3, r7, #2
+ 201 0038 B91C     		adds	r1, r7, #2
+ 202 003a 0978     		ldrb	r1, [r1]
+ 203 003c 8A1A     		subs	r2, r1, r2
+ 204 003e 1A70     		strb	r2, [r3]
+ 118:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp = y;
+ 205              		.loc 1 118 0
+ 206 0040 0A23     		movs	r3, #10
+ 207 0042 FB18     		adds	r3, r7, r3
+ 208 0044 BA1C     		adds	r2, r7, #2
+ 209 0046 1278     		ldrb	r2, [r2]
+ 210 0048 1A80     		strh	r2, [r3]
+ 119:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp *= b->width;
+ 211              		.loc 1 119 0
+ 212 004a 7B68     		ldr	r3, [r7, #4]
+ 213 004c 5B79     		ldrb	r3, [r3, #5]
+ 214 004e 9AB2     		uxth	r2, r3
+ 215 0050 0A23     		movs	r3, #10
+ 216 0052 FB18     		adds	r3, r7, r3
+ 217 0054 0A21     		movs	r1, #10
+ 218 0056 7918     		adds	r1, r7, r1
+ 219 0058 0988     		ldrh	r1, [r1]
+ 220 005a 4A43     		muls	r2, r1
+ 221 005c 1A80     		strh	r2, [r3]
+ 120:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp += x;
+ 222              		.loc 1 120 0
+ 223 005e FB1C     		adds	r3, r7, #3
+ 224 0060 1B78     		ldrb	r3, [r3]
+ 225 0062 99B2     		uxth	r1, r3
+ 226 0064 0A23     		movs	r3, #10
+ 227 0066 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/cceKUV4c.s 			page 7
+
+
+ 228 0068 0A22     		movs	r2, #10
+ 229 006a BA18     		adds	r2, r7, r2
+ 230 006c 1288     		ldrh	r2, [r2]
+ 231 006e 8A18     		adds	r2, r1, r2
+ 232 0070 1A80     		strh	r2, [r3]
+ 121:Drivers/u8glib/src/u8g_pbxh24.c ****   tmp *= 3;
+ 233              		.loc 1 121 0
+ 234 0072 0A23     		movs	r3, #10
+ 235 0074 F918     		adds	r1, r7, r3
+ 236 0076 0A23     		movs	r3, #10
+ 237 0078 FB18     		adds	r3, r7, r3
+ 238 007a 1B88     		ldrh	r3, [r3]
+ 239 007c 1A1C     		adds	r2, r3, #0
+ 240 007e 9218     		adds	r2, r2, r2
+ 241 0080 D318     		adds	r3, r2, r3
+ 242 0082 0B80     		strh	r3, [r1]
+ 122:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr += tmp;
+ 243              		.loc 1 122 0
+ 244 0084 0A23     		movs	r3, #10
+ 245 0086 FB18     		adds	r3, r7, r3
+ 246 0088 1B88     		ldrh	r3, [r3]
+ 247 008a FA68     		ldr	r2, [r7, #12]
+ 248 008c D318     		adds	r3, r2, r3
+ 249 008e FB60     		str	r3, [r7, #12]
+ 123:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 124:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( intensity == 4 )
+ 250              		.loc 1 124 0
+ 251 0090 2823     		movs	r3, #40
+ 252 0092 FB18     		adds	r3, r7, r3
+ 253 0094 1B78     		ldrb	r3, [r3]
+ 254 0096 042B     		cmp	r3, #4
+ 255 0098 14D1     		bne	.L8
+ 125:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 126:Drivers/u8glib/src/u8g_pbxh24.c ****     *ptr = red;
+ 256              		.loc 1 126 0
+ 257 009a FB68     		ldr	r3, [r7, #12]
+ 258 009c 7A1C     		adds	r2, r7, #1
+ 259 009e 1278     		ldrb	r2, [r2]
+ 260 00a0 1A70     		strb	r2, [r3]
+ 127:Drivers/u8glib/src/u8g_pbxh24.c ****     ptr++;
+ 261              		.loc 1 127 0
+ 262 00a2 FB68     		ldr	r3, [r7, #12]
+ 263 00a4 0133     		adds	r3, r3, #1
+ 264 00a6 FB60     		str	r3, [r7, #12]
+ 128:Drivers/u8glib/src/u8g_pbxh24.c ****     *ptr = green;
+ 265              		.loc 1 128 0
+ 266 00a8 FB68     		ldr	r3, [r7, #12]
+ 267 00aa 2022     		movs	r2, #32
+ 268 00ac BA18     		adds	r2, r7, r2
+ 269 00ae 1278     		ldrb	r2, [r2]
+ 270 00b0 1A70     		strb	r2, [r3]
+ 129:Drivers/u8glib/src/u8g_pbxh24.c ****     ptr++;
+ 271              		.loc 1 129 0
+ 272 00b2 FB68     		ldr	r3, [r7, #12]
+ 273 00b4 0133     		adds	r3, r3, #1
+ 274 00b6 FB60     		str	r3, [r7, #12]
+ 130:Drivers/u8glib/src/u8g_pbxh24.c ****     *ptr = blue;
+ARM GAS  /tmp/cceKUV4c.s 			page 8
+
+
+ 275              		.loc 1 130 0
+ 276 00b8 FB68     		ldr	r3, [r7, #12]
+ 277 00ba 2422     		movs	r2, #36
+ 278 00bc BA18     		adds	r2, r7, r2
+ 279 00be 1278     		ldrb	r2, [r2]
+ 280 00c0 1A70     		strb	r2, [r3]
+ 131:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 281              		.loc 1 131 0
+ 282 00c2 7BE0     		b	.L5
+ 283              	.L8:
+ 132:Drivers/u8glib/src/u8g_pbxh24.c ****   }
+ 133:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 134:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( intensity == 2 )
+ 284              		.loc 1 134 0
+ 285 00c4 2823     		movs	r3, #40
+ 286 00c6 FB18     		adds	r3, r7, r3
+ 287 00c8 1B78     		ldrb	r3, [r3]
+ 288 00ca 022B     		cmp	r3, #2
+ 289 00cc 13D1     		bne	.L9
+ 135:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 136:Drivers/u8glib/src/u8g_pbxh24.c ****     /*
+ 137:Drivers/u8glib/src/u8g_pbxh24.c ****     red = red/4 + red/2;
+ 138:Drivers/u8glib/src/u8g_pbxh24.c ****     green = green/4 + green/2;
+ 139:Drivers/u8glib/src/u8g_pbxh24.c ****     blue = blue/4 + blue/2;
+ 140:Drivers/u8glib/src/u8g_pbxh24.c ****     */
+ 141:Drivers/u8glib/src/u8g_pbxh24.c ****     red >>= 1;
+ 290              		.loc 1 141 0
+ 291 00ce 7B1C     		adds	r3, r7, #1
+ 292 00d0 7A1C     		adds	r2, r7, #1
+ 293 00d2 1278     		ldrb	r2, [r2]
+ 294 00d4 5208     		lsrs	r2, r2, #1
+ 295 00d6 1A70     		strb	r2, [r3]
+ 142:Drivers/u8glib/src/u8g_pbxh24.c ****     green >>= 1;
+ 296              		.loc 1 142 0
+ 297 00d8 2023     		movs	r3, #32
+ 298 00da FA18     		adds	r2, r7, r3
+ 299 00dc 2023     		movs	r3, #32
+ 300 00de FB18     		adds	r3, r7, r3
+ 301 00e0 1B78     		ldrb	r3, [r3]
+ 302 00e2 5B08     		lsrs	r3, r3, #1
+ 303 00e4 1370     		strb	r3, [r2]
+ 143:Drivers/u8glib/src/u8g_pbxh24.c ****     blue >>= 1;
+ 304              		.loc 1 143 0
+ 305 00e6 2423     		movs	r3, #36
+ 306 00e8 FB18     		adds	r3, r7, r3
+ 307 00ea 2422     		movs	r2, #36
+ 308 00ec BA18     		adds	r2, r7, r2
+ 309 00ee 1278     		ldrb	r2, [r2]
+ 310 00f0 5208     		lsrs	r2, r2, #1
+ 311 00f2 1A70     		strb	r2, [r3]
+ 312 00f4 17E0     		b	.L10
+ 313              	.L9:
+ 144:Drivers/u8glib/src/u8g_pbxh24.c ****   }
+ 145:Drivers/u8glib/src/u8g_pbxh24.c ****   else if ( intensity == 1 )
+ 314              		.loc 1 145 0
+ 315 00f6 2823     		movs	r3, #40
+ 316 00f8 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/cceKUV4c.s 			page 9
+
+
+ 317 00fa 1B78     		ldrb	r3, [r3]
+ 318 00fc 012B     		cmp	r3, #1
+ 319 00fe 12D1     		bne	.L10
+ 146:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 147:Drivers/u8glib/src/u8g_pbxh24.c ****     red >>= 2;
+ 320              		.loc 1 147 0
+ 321 0100 7B1C     		adds	r3, r7, #1
+ 322 0102 7A1C     		adds	r2, r7, #1
+ 323 0104 1278     		ldrb	r2, [r2]
+ 324 0106 9208     		lsrs	r2, r2, #2
+ 325 0108 1A70     		strb	r2, [r3]
+ 148:Drivers/u8glib/src/u8g_pbxh24.c ****     green >>= 2;
+ 326              		.loc 1 148 0
+ 327 010a 2023     		movs	r3, #32
+ 328 010c FA18     		adds	r2, r7, r3
+ 329 010e 2023     		movs	r3, #32
+ 330 0110 FB18     		adds	r3, r7, r3
+ 331 0112 1B78     		ldrb	r3, [r3]
+ 332 0114 9B08     		lsrs	r3, r3, #2
+ 333 0116 1370     		strb	r3, [r2]
+ 149:Drivers/u8glib/src/u8g_pbxh24.c ****     blue >>= 2;
+ 334              		.loc 1 149 0
+ 335 0118 2423     		movs	r3, #36
+ 336 011a FB18     		adds	r3, r7, r3
+ 337 011c 2422     		movs	r2, #36
+ 338 011e BA18     		adds	r2, r7, r2
+ 339 0120 1278     		ldrb	r2, [r2]
+ 340 0122 9208     		lsrs	r2, r2, #2
+ 341 0124 1A70     		strb	r2, [r3]
+ 342              	.L10:
+ 150:Drivers/u8glib/src/u8g_pbxh24.c ****   }
+ 151:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 152:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( *ptr >= 255-red ) *ptr = 255; 
+ 343              		.loc 1 152 0
+ 344 0126 FB68     		ldr	r3, [r7, #12]
+ 345 0128 1B78     		ldrb	r3, [r3]
+ 346 012a 1900     		movs	r1, r3
+ 347 012c 7B1C     		adds	r3, r7, #1
+ 348 012e 1B78     		ldrb	r3, [r3]
+ 349 0130 FF22     		movs	r2, #255
+ 350 0132 D31A     		subs	r3, r2, r3
+ 351 0134 9942     		cmp	r1, r3
+ 352 0136 03DB     		blt	.L11
+ 353              		.loc 1 152 0 is_stmt 0 discriminator 1
+ 354 0138 FB68     		ldr	r3, [r7, #12]
+ 355 013a FF22     		movs	r2, #255
+ 356 013c 1A70     		strb	r2, [r3]
+ 357 013e 07E0     		b	.L12
+ 358              	.L11:
+ 153:Drivers/u8glib/src/u8g_pbxh24.c ****   else *ptr += red;
+ 359              		.loc 1 153 0 is_stmt 1
+ 360 0140 FB68     		ldr	r3, [r7, #12]
+ 361 0142 1A78     		ldrb	r2, [r3]
+ 362 0144 7B1C     		adds	r3, r7, #1
+ 363 0146 1B78     		ldrb	r3, [r3]
+ 364 0148 D318     		adds	r3, r2, r3
+ 365 014a DAB2     		uxtb	r2, r3
+ARM GAS  /tmp/cceKUV4c.s 			page 10
+
+
+ 366 014c FB68     		ldr	r3, [r7, #12]
+ 367 014e 1A70     		strb	r2, [r3]
+ 368              	.L12:
+ 154:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr++;
+ 369              		.loc 1 154 0
+ 370 0150 FB68     		ldr	r3, [r7, #12]
+ 371 0152 0133     		adds	r3, r3, #1
+ 372 0154 FB60     		str	r3, [r7, #12]
+ 155:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 156:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( *ptr >= 255-green ) *ptr = 255; 
+ 373              		.loc 1 156 0
+ 374 0156 FB68     		ldr	r3, [r7, #12]
+ 375 0158 1B78     		ldrb	r3, [r3]
+ 376 015a 1900     		movs	r1, r3
+ 377 015c 2023     		movs	r3, #32
+ 378 015e FB18     		adds	r3, r7, r3
+ 379 0160 1B78     		ldrb	r3, [r3]
+ 380 0162 FF22     		movs	r2, #255
+ 381 0164 D31A     		subs	r3, r2, r3
+ 382 0166 9942     		cmp	r1, r3
+ 383 0168 03DB     		blt	.L13
+ 384              		.loc 1 156 0 is_stmt 0 discriminator 1
+ 385 016a FB68     		ldr	r3, [r7, #12]
+ 386 016c FF22     		movs	r2, #255
+ 387 016e 1A70     		strb	r2, [r3]
+ 388 0170 08E0     		b	.L14
+ 389              	.L13:
+ 157:Drivers/u8glib/src/u8g_pbxh24.c ****   else *ptr += green;
+ 390              		.loc 1 157 0 is_stmt 1
+ 391 0172 FB68     		ldr	r3, [r7, #12]
+ 392 0174 1A78     		ldrb	r2, [r3]
+ 393 0176 2023     		movs	r3, #32
+ 394 0178 FB18     		adds	r3, r7, r3
+ 395 017a 1B78     		ldrb	r3, [r3]
+ 396 017c D318     		adds	r3, r2, r3
+ 397 017e DAB2     		uxtb	r2, r3
+ 398 0180 FB68     		ldr	r3, [r7, #12]
+ 399 0182 1A70     		strb	r2, [r3]
+ 400              	.L14:
+ 158:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr++;
+ 401              		.loc 1 158 0
+ 402 0184 FB68     		ldr	r3, [r7, #12]
+ 403 0186 0133     		adds	r3, r3, #1
+ 404 0188 FB60     		str	r3, [r7, #12]
+ 159:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 160:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( *ptr >= 255-blue ) *ptr = 255; 
+ 405              		.loc 1 160 0
+ 406 018a FB68     		ldr	r3, [r7, #12]
+ 407 018c 1B78     		ldrb	r3, [r3]
+ 408 018e 1900     		movs	r1, r3
+ 409 0190 2423     		movs	r3, #36
+ 410 0192 FB18     		adds	r3, r7, r3
+ 411 0194 1B78     		ldrb	r3, [r3]
+ 412 0196 FF22     		movs	r2, #255
+ 413 0198 D31A     		subs	r3, r2, r3
+ 414 019a 9942     		cmp	r1, r3
+ 415 019c 03DB     		blt	.L15
+ARM GAS  /tmp/cceKUV4c.s 			page 11
+
+
+ 416              		.loc 1 160 0 is_stmt 0 discriminator 1
+ 417 019e FB68     		ldr	r3, [r7, #12]
+ 418 01a0 FF22     		movs	r2, #255
+ 419 01a2 1A70     		strb	r2, [r3]
+ 420 01a4 0AE0     		b	.L5
+ 421              	.L15:
+ 161:Drivers/u8glib/src/u8g_pbxh24.c ****   else *ptr += blue;
+ 422              		.loc 1 161 0 is_stmt 1
+ 423 01a6 FB68     		ldr	r3, [r7, #12]
+ 424 01a8 1A78     		ldrb	r2, [r3]
+ 425 01aa 2423     		movs	r3, #36
+ 426 01ac FB18     		adds	r3, r7, r3
+ 427 01ae 1B78     		ldrb	r3, [r3]
+ 428 01b0 D318     		adds	r3, r2, r3
+ 429 01b2 DAB2     		uxtb	r2, r3
+ 430 01b4 FB68     		ldr	r3, [r7, #12]
+ 431 01b6 1A70     		strb	r2, [r3]
+ 432 01b8 00E0     		b	.L5
+ 433              	.L16:
+ 115:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 434              		.loc 1 115 0
+ 435 01ba C046     		nop
+ 436              	.L5:
+ 162:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 163:Drivers/u8glib/src/u8g_pbxh24.c ****   /*
+ 164:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( *ptr < red ) *ptr = red;
+ 165:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr++;
+ 166:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( *ptr < green ) *ptr = green;
+ 167:Drivers/u8glib/src/u8g_pbxh24.c ****   ptr++;
+ 168:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( *ptr < blue ) *ptr = blue;
+ 169:Drivers/u8glib/src/u8g_pbxh24.c ****   */
+ 170:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 171:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 172:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 437              		.loc 1 172 0
+ 438 01bc BD46     		mov	sp, r7
+ 439 01be 05B0     		add	sp, sp, #20
+ 440              		@ sp needed
+ 441 01c0 90BD     		pop	{r4, r7, pc}
+ 442              		.cfi_endproc
+ 443              	.LFE2:
+ 445              		.section	.text.u8g_pbxh24_SetTPixel,"ax",%progbits
+ 446              		.align	1
+ 447              		.global	u8g_pbxh24_SetTPixel
+ 448              		.syntax unified
+ 449              		.code	16
+ 450              		.thumb_func
+ 451              		.fpu softvfp
+ 453              	u8g_pbxh24_SetTPixel:
+ 454              	.LFB3:
+ 173:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 174:Drivers/u8glib/src/u8g_pbxh24.c **** void u8g_pbxh24_SetTPixel(u8g_pb_t *b, const u8g_dev_arg_pixel_t * const arg_pixel, uint8_t intensi
+ 175:Drivers/u8glib/src/u8g_pbxh24.c **** {
+ 455              		.loc 1 175 0
+ 456              		.cfi_startproc
+ 457 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 458              	.LCFI9:
+ARM GAS  /tmp/cceKUV4c.s 			page 12
+
+
+ 459              		.cfi_def_cfa_offset 20
+ 460              		.cfi_offset 4, -20
+ 461              		.cfi_offset 5, -16
+ 462              		.cfi_offset 6, -12
+ 463              		.cfi_offset 7, -8
+ 464              		.cfi_offset 14, -4
+ 465 0002 89B0     		sub	sp, sp, #36
+ 466              	.LCFI10:
+ 467              		.cfi_def_cfa_offset 56
+ 468 0004 04AF     		add	r7, sp, #16
+ 469              	.LCFI11:
+ 470              		.cfi_def_cfa 7, 40
+ 471 0006 F860     		str	r0, [r7, #12]
+ 472 0008 B960     		str	r1, [r7, #8]
+ 473 000a FB1D     		adds	r3, r7, #7
+ 474 000c 1A70     		strb	r2, [r3]
+ 176:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( arg_pixel->y < b->p.page_y0 )
+ 475              		.loc 1 176 0
+ 476 000e BB68     		ldr	r3, [r7, #8]
+ 477 0010 5A78     		ldrb	r2, [r3, #1]
+ 478 0012 FB68     		ldr	r3, [r7, #12]
+ 479 0014 9B78     		ldrb	r3, [r3, #2]
+ 480 0016 9A42     		cmp	r2, r3
+ 481 0018 21D3     		bcc	.L22
+ 177:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 178:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( arg_pixel->y > b->p.page_y1 )
+ 482              		.loc 1 178 0
+ 483 001a BB68     		ldr	r3, [r7, #8]
+ 484 001c 5A78     		ldrb	r2, [r3, #1]
+ 485 001e FB68     		ldr	r3, [r7, #12]
+ 486 0020 DB78     		ldrb	r3, [r3, #3]
+ 487 0022 9A42     		cmp	r2, r3
+ 488 0024 1DD8     		bhi	.L23
+ 179:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 180:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( arg_pixel->x >= b->width )
+ 489              		.loc 1 180 0
+ 490 0026 BB68     		ldr	r3, [r7, #8]
+ 491 0028 1A78     		ldrb	r2, [r3]
+ 492 002a FB68     		ldr	r3, [r7, #12]
+ 493 002c 5B79     		ldrb	r3, [r3, #5]
+ 494 002e 9A42     		cmp	r2, r3
+ 495 0030 19D2     		bcs	.L24
+ 181:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 182:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_pbxh24_set_tpixel(b, arg_pixel->x, arg_pixel->y, arg_pixel->color, arg_pixel->hi_color, arg_p
+ 496              		.loc 1 182 0
+ 497 0032 BB68     		ldr	r3, [r7, #8]
+ 498 0034 1C78     		ldrb	r4, [r3]
+ 499 0036 BB68     		ldr	r3, [r7, #8]
+ 500 0038 5D78     		ldrb	r5, [r3, #1]
+ 501 003a BB68     		ldr	r3, [r7, #8]
+ 502 003c 1E79     		ldrb	r6, [r3, #4]
+ 503 003e BB68     		ldr	r3, [r7, #8]
+ 504 0040 5B79     		ldrb	r3, [r3, #5]
+ 505 0042 BA68     		ldr	r2, [r7, #8]
+ 506 0044 9279     		ldrb	r2, [r2, #6]
+ 507 0046 F868     		ldr	r0, [r7, #12]
+ 508 0048 F91D     		adds	r1, r7, #7
+ARM GAS  /tmp/cceKUV4c.s 			page 13
+
+
+ 509 004a 0978     		ldrb	r1, [r1]
+ 510 004c 0291     		str	r1, [sp, #8]
+ 511 004e 0192     		str	r2, [sp, #4]
+ 512 0050 0093     		str	r3, [sp]
+ 513 0052 3300     		movs	r3, r6
+ 514 0054 2A00     		movs	r2, r5
+ 515 0056 2100     		movs	r1, r4
+ 516 0058 FFF7FEFF 		bl	u8g_pbxh24_set_tpixel
+ 517 005c 04E0     		b	.L17
+ 518              	.L22:
+ 177:Drivers/u8glib/src/u8g_pbxh24.c ****   if ( arg_pixel->y > b->p.page_y1 )
+ 519              		.loc 1 177 0
+ 520 005e C046     		nop
+ 521 0060 02E0     		b	.L17
+ 522              	.L23:
+ 179:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 523              		.loc 1 179 0
+ 524 0062 C046     		nop
+ 525 0064 00E0     		b	.L17
+ 526              	.L24:
+ 181:Drivers/u8glib/src/u8g_pbxh24.c ****     return;
+ 527              		.loc 1 181 0
+ 528 0066 C046     		nop
+ 529              	.L17:
+ 183:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 530              		.loc 1 183 0
+ 531 0068 BD46     		mov	sp, r7
+ 532 006a 05B0     		add	sp, sp, #20
+ 533              		@ sp needed
+ 534 006c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 535              		.cfi_endproc
+ 536              	.LFE3:
+ 538              		.section	.text.u8g_pbxh24_Set8Pixel,"ax",%progbits
+ 539              		.align	1
+ 540              		.global	u8g_pbxh24_Set8Pixel
+ 541              		.syntax unified
+ 542              		.code	16
+ 543              		.thumb_func
+ 544              		.fpu softvfp
+ 546              	u8g_pbxh24_Set8Pixel:
+ 547              	.LFB4:
+ 184:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 185:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 186:Drivers/u8glib/src/u8g_pbxh24.c **** void u8g_pbxh24_Set8Pixel(u8g_pb_t *b, u8g_dev_arg_pixel_t *arg_pixel)
+ 187:Drivers/u8glib/src/u8g_pbxh24.c **** {
+ 548              		.loc 1 187 0
+ 549              		.cfi_startproc
+ 550 0000 90B5     		push	{r4, r7, lr}
+ 551              	.LCFI12:
+ 552              		.cfi_def_cfa_offset 12
+ 553              		.cfi_offset 4, -12
+ 554              		.cfi_offset 7, -8
+ 555              		.cfi_offset 14, -4
+ 556 0002 85B0     		sub	sp, sp, #20
+ 557              	.LCFI13:
+ 558              		.cfi_def_cfa_offset 32
+ 559 0004 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/cceKUV4c.s 			page 14
+
+
+ 560              	.LCFI14:
+ 561              		.cfi_def_cfa_register 7
+ 562 0006 7860     		str	r0, [r7, #4]
+ 563 0008 3960     		str	r1, [r7]
+ 188:Drivers/u8glib/src/u8g_pbxh24.c ****   register uint8_t pixel = arg_pixel->pixel;
+ 564              		.loc 1 188 0
+ 565 000a 3B68     		ldr	r3, [r7]
+ 566 000c 9C78     		ldrb	r4, [r3, #2]
+ 189:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_uint_t dx = 0;
+ 567              		.loc 1 189 0
+ 568 000e 0F23     		movs	r3, #15
+ 569 0010 FB18     		adds	r3, r7, r3
+ 570 0012 0022     		movs	r2, #0
+ 571 0014 1A70     		strb	r2, [r3]
+ 190:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_uint_t dy = 0;
+ 572              		.loc 1 190 0
+ 573 0016 0E23     		movs	r3, #14
+ 574 0018 FB18     		adds	r3, r7, r3
+ 575 001a 0022     		movs	r2, #0
+ 576 001c 1A70     		strb	r2, [r3]
+ 191:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 192:Drivers/u8glib/src/u8g_pbxh24.c ****   switch( arg_pixel->dir )
+ 577              		.loc 1 192 0
+ 578 001e 3B68     		ldr	r3, [r7]
+ 579 0020 DB78     		ldrb	r3, [r3, #3]
+ 580 0022 012B     		cmp	r3, #1
+ 581 0024 10D0     		beq	.L27
+ 582 0026 02DC     		bgt	.L28
+ 583 0028 002B     		cmp	r3, #0
+ 584 002a 05D0     		beq	.L29
+ 585 002c 24E0     		b	.L26
+ 586              	.L28:
+ 587 002e 022B     		cmp	r3, #2
+ 588 0030 12D0     		beq	.L30
+ 589 0032 032B     		cmp	r3, #3
+ 590 0034 18D0     		beq	.L31
+ 591 0036 1FE0     		b	.L26
+ 592              	.L29:
+ 193:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 194:Drivers/u8glib/src/u8g_pbxh24.c ****     case 0: dx++; break;
+ 593              		.loc 1 194 0
+ 594 0038 0F23     		movs	r3, #15
+ 595 003a FB18     		adds	r3, r7, r3
+ 596 003c 1A78     		ldrb	r2, [r3]
+ 597 003e 0F23     		movs	r3, #15
+ 598 0040 FB18     		adds	r3, r7, r3
+ 599 0042 0132     		adds	r2, r2, #1
+ 600 0044 1A70     		strb	r2, [r3]
+ 601 0046 17E0     		b	.L26
+ 602              	.L27:
+ 195:Drivers/u8glib/src/u8g_pbxh24.c ****     case 1: dy++; break;
+ 603              		.loc 1 195 0
+ 604 0048 0E23     		movs	r3, #14
+ 605 004a FB18     		adds	r3, r7, r3
+ 606 004c 1A78     		ldrb	r2, [r3]
+ 607 004e 0E23     		movs	r3, #14
+ 608 0050 FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/cceKUV4c.s 			page 15
+
+
+ 609 0052 0132     		adds	r2, r2, #1
+ 610 0054 1A70     		strb	r2, [r3]
+ 611 0056 0FE0     		b	.L26
+ 612              	.L30:
+ 196:Drivers/u8glib/src/u8g_pbxh24.c ****     case 2: dx--; break;
+ 613              		.loc 1 196 0
+ 614 0058 0F23     		movs	r3, #15
+ 615 005a FB18     		adds	r3, r7, r3
+ 616 005c 1A78     		ldrb	r2, [r3]
+ 617 005e 0F23     		movs	r3, #15
+ 618 0060 FB18     		adds	r3, r7, r3
+ 619 0062 013A     		subs	r2, r2, #1
+ 620 0064 1A70     		strb	r2, [r3]
+ 621 0066 07E0     		b	.L26
+ 622              	.L31:
+ 197:Drivers/u8glib/src/u8g_pbxh24.c ****     case 3: dy--; break;
+ 623              		.loc 1 197 0
+ 624 0068 0E23     		movs	r3, #14
+ 625 006a FB18     		adds	r3, r7, r3
+ 626 006c 1A78     		ldrb	r2, [r3]
+ 627 006e 0E23     		movs	r3, #14
+ 628 0070 FB18     		adds	r3, r7, r3
+ 629 0072 013A     		subs	r2, r2, #1
+ 630 0074 1A70     		strb	r2, [r3]
+ 631 0076 C046     		nop
+ 632              	.L26:
+ 198:Drivers/u8glib/src/u8g_pbxh24.c ****   }
+ 199:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 200:Drivers/u8glib/src/u8g_pbxh24.c ****   do
+ 201:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 202:Drivers/u8glib/src/u8g_pbxh24.c ****     if ( pixel & 128 )
+ 633              		.loc 1 202 0
+ 634 0078 63B2     		sxtb	r3, r4
+ 635 007a 002B     		cmp	r3, #0
+ 636 007c 05DA     		bge	.L32
+ 203:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pbxh24_SetTPixel(b, arg_pixel, 4);
+ 637              		.loc 1 203 0
+ 638 007e 3968     		ldr	r1, [r7]
+ 639 0080 7B68     		ldr	r3, [r7, #4]
+ 640 0082 0422     		movs	r2, #4
+ 641 0084 1800     		movs	r0, r3
+ 642 0086 FFF7FEFF 		bl	u8g_pbxh24_SetTPixel
+ 643              	.L32:
+ 204:Drivers/u8glib/src/u8g_pbxh24.c ****     arg_pixel->x += dx;
+ 644              		.loc 1 204 0
+ 645 008a 3B68     		ldr	r3, [r7]
+ 646 008c 1A78     		ldrb	r2, [r3]
+ 647 008e 0F23     		movs	r3, #15
+ 648 0090 FB18     		adds	r3, r7, r3
+ 649 0092 1B78     		ldrb	r3, [r3]
+ 650 0094 D318     		adds	r3, r2, r3
+ 651 0096 DAB2     		uxtb	r2, r3
+ 652 0098 3B68     		ldr	r3, [r7]
+ 653 009a 1A70     		strb	r2, [r3]
+ 205:Drivers/u8glib/src/u8g_pbxh24.c ****     arg_pixel->y += dy;
+ 654              		.loc 1 205 0
+ 655 009c 3B68     		ldr	r3, [r7]
+ARM GAS  /tmp/cceKUV4c.s 			page 16
+
+
+ 656 009e 5A78     		ldrb	r2, [r3, #1]
+ 657 00a0 0E23     		movs	r3, #14
+ 658 00a2 FB18     		adds	r3, r7, r3
+ 659 00a4 1B78     		ldrb	r3, [r3]
+ 660 00a6 D318     		adds	r3, r2, r3
+ 661 00a8 DAB2     		uxtb	r2, r3
+ 662 00aa 3B68     		ldr	r3, [r7]
+ 663 00ac 5A70     		strb	r2, [r3, #1]
+ 206:Drivers/u8glib/src/u8g_pbxh24.c ****     pixel <<= 1;
+ 664              		.loc 1 206 0
+ 665 00ae 231C     		adds	r3, r4, #0
+ 666 00b0 DB18     		adds	r3, r3, r3
+ 667 00b2 DCB2     		uxtb	r4, r3
+ 668 00b4 0F23     		movs	r3, #15
+ 669 00b6 FB18     		adds	r3, r7, r3
+ 670 00b8 0F22     		movs	r2, #15
+ 671 00ba BA18     		adds	r2, r7, r2
+ 672 00bc 1278     		ldrb	r2, [r2]
+ 673 00be 1A70     		strb	r2, [r3]
+ 674 00c0 0E23     		movs	r3, #14
+ 675 00c2 FB18     		adds	r3, r7, r3
+ 676 00c4 0E22     		movs	r2, #14
+ 677 00c6 BA18     		adds	r2, r7, r2
+ 678 00c8 1278     		ldrb	r2, [r2]
+ 679 00ca 1A70     		strb	r2, [r3]
+ 207:Drivers/u8glib/src/u8g_pbxh24.c ****   } while( pixel != 0  );  
+ 680              		.loc 1 207 0
+ 681 00cc 002C     		cmp	r4, #0
+ 682 00ce D3D1     		bne	.L26
+ 208:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 683              		.loc 1 208 0
+ 684 00d0 C046     		nop
+ 685 00d2 BD46     		mov	sp, r7
+ 686 00d4 05B0     		add	sp, sp, #20
+ 687              		@ sp needed
+ 688 00d6 90BD     		pop	{r4, r7, pc}
+ 689              		.cfi_endproc
+ 690              	.LFE4:
+ 692              		.section	.text.u8g_pbxh24_Set4TPixel,"ax",%progbits
+ 693              		.align	1
+ 694              		.global	u8g_pbxh24_Set4TPixel
+ 695              		.syntax unified
+ 696              		.code	16
+ 697              		.thumb_func
+ 698              		.fpu softvfp
+ 700              	u8g_pbxh24_Set4TPixel:
+ 701              	.LFB5:
+ 209:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 210:Drivers/u8glib/src/u8g_pbxh24.c **** void u8g_pbxh24_Set4TPixel(u8g_pb_t *b, u8g_dev_arg_pixel_t *arg_pixel)
+ 211:Drivers/u8glib/src/u8g_pbxh24.c **** {
+ 702              		.loc 1 211 0
+ 703              		.cfi_startproc
+ 704 0000 90B5     		push	{r4, r7, lr}
+ 705              	.LCFI15:
+ 706              		.cfi_def_cfa_offset 12
+ 707              		.cfi_offset 4, -12
+ 708              		.cfi_offset 7, -8
+ARM GAS  /tmp/cceKUV4c.s 			page 17
+
+
+ 709              		.cfi_offset 14, -4
+ 710 0002 85B0     		sub	sp, sp, #20
+ 711              	.LCFI16:
+ 712              		.cfi_def_cfa_offset 32
+ 713 0004 00AF     		add	r7, sp, #0
+ 714              	.LCFI17:
+ 715              		.cfi_def_cfa_register 7
+ 716 0006 7860     		str	r0, [r7, #4]
+ 717 0008 3960     		str	r1, [r7]
+ 212:Drivers/u8glib/src/u8g_pbxh24.c ****   register uint8_t pixel = arg_pixel->pixel;
+ 718              		.loc 1 212 0
+ 719 000a 3B68     		ldr	r3, [r7]
+ 720 000c 9C78     		ldrb	r4, [r3, #2]
+ 213:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_uint_t dx = 0;
+ 721              		.loc 1 213 0
+ 722 000e 0F23     		movs	r3, #15
+ 723 0010 FB18     		adds	r3, r7, r3
+ 724 0012 0022     		movs	r2, #0
+ 725 0014 1A70     		strb	r2, [r3]
+ 214:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_uint_t dy = 0;
+ 726              		.loc 1 214 0
+ 727 0016 0E23     		movs	r3, #14
+ 728 0018 FB18     		adds	r3, r7, r3
+ 729 001a 0022     		movs	r2, #0
+ 730 001c 1A70     		strb	r2, [r3]
+ 215:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 216:Drivers/u8glib/src/u8g_pbxh24.c ****   switch( arg_pixel->dir )
+ 731              		.loc 1 216 0
+ 732 001e 3B68     		ldr	r3, [r7]
+ 733 0020 DB78     		ldrb	r3, [r3, #3]
+ 734 0022 012B     		cmp	r3, #1
+ 735 0024 10D0     		beq	.L35
+ 736 0026 02DC     		bgt	.L36
+ 737 0028 002B     		cmp	r3, #0
+ 738 002a 05D0     		beq	.L37
+ 739 002c 24E0     		b	.L34
+ 740              	.L36:
+ 741 002e 022B     		cmp	r3, #2
+ 742 0030 12D0     		beq	.L38
+ 743 0032 032B     		cmp	r3, #3
+ 744 0034 18D0     		beq	.L39
+ 745 0036 1FE0     		b	.L34
+ 746              	.L37:
+ 217:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 218:Drivers/u8glib/src/u8g_pbxh24.c ****     case 0: dx++; break;
+ 747              		.loc 1 218 0
+ 748 0038 0F23     		movs	r3, #15
+ 749 003a FB18     		adds	r3, r7, r3
+ 750 003c 1A78     		ldrb	r2, [r3]
+ 751 003e 0F23     		movs	r3, #15
+ 752 0040 FB18     		adds	r3, r7, r3
+ 753 0042 0132     		adds	r2, r2, #1
+ 754 0044 1A70     		strb	r2, [r3]
+ 755 0046 17E0     		b	.L34
+ 756              	.L35:
+ 219:Drivers/u8glib/src/u8g_pbxh24.c ****     case 1: dy++; break;
+ 757              		.loc 1 219 0
+ARM GAS  /tmp/cceKUV4c.s 			page 18
+
+
+ 758 0048 0E23     		movs	r3, #14
+ 759 004a FB18     		adds	r3, r7, r3
+ 760 004c 1A78     		ldrb	r2, [r3]
+ 761 004e 0E23     		movs	r3, #14
+ 762 0050 FB18     		adds	r3, r7, r3
+ 763 0052 0132     		adds	r2, r2, #1
+ 764 0054 1A70     		strb	r2, [r3]
+ 765 0056 0FE0     		b	.L34
+ 766              	.L38:
+ 220:Drivers/u8glib/src/u8g_pbxh24.c ****     case 2: dx--; break;
+ 767              		.loc 1 220 0
+ 768 0058 0F23     		movs	r3, #15
+ 769 005a FB18     		adds	r3, r7, r3
+ 770 005c 1A78     		ldrb	r2, [r3]
+ 771 005e 0F23     		movs	r3, #15
+ 772 0060 FB18     		adds	r3, r7, r3
+ 773 0062 013A     		subs	r2, r2, #1
+ 774 0064 1A70     		strb	r2, [r3]
+ 775 0066 07E0     		b	.L34
+ 776              	.L39:
+ 221:Drivers/u8glib/src/u8g_pbxh24.c ****     case 3: dy--; break;
+ 777              		.loc 1 221 0
+ 778 0068 0E23     		movs	r3, #14
+ 779 006a FB18     		adds	r3, r7, r3
+ 780 006c 1A78     		ldrb	r2, [r3]
+ 781 006e 0E23     		movs	r3, #14
+ 782 0070 FB18     		adds	r3, r7, r3
+ 783 0072 013A     		subs	r2, r2, #1
+ 784 0074 1A70     		strb	r2, [r3]
+ 785 0076 C046     		nop
+ 786              	.L34:
+ 222:Drivers/u8glib/src/u8g_pbxh24.c ****   }
+ 223:Drivers/u8glib/src/u8g_pbxh24.c ****   
+ 224:Drivers/u8glib/src/u8g_pbxh24.c ****   do
+ 225:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 226:Drivers/u8glib/src/u8g_pbxh24.c ****     u8g_pbxh24_SetTPixel(b, arg_pixel, pixel >> 6);
+ 787              		.loc 1 226 0 discriminator 1
+ 788 0078 A309     		lsrs	r3, r4, #6
+ 789 007a DAB2     		uxtb	r2, r3
+ 790 007c 3968     		ldr	r1, [r7]
+ 791 007e 7B68     		ldr	r3, [r7, #4]
+ 792 0080 1800     		movs	r0, r3
+ 793 0082 FFF7FEFF 		bl	u8g_pbxh24_SetTPixel
+ 227:Drivers/u8glib/src/u8g_pbxh24.c ****     arg_pixel->x += dx;
+ 794              		.loc 1 227 0 discriminator 1
+ 795 0086 3B68     		ldr	r3, [r7]
+ 796 0088 1A78     		ldrb	r2, [r3]
+ 797 008a 0F23     		movs	r3, #15
+ 798 008c FB18     		adds	r3, r7, r3
+ 799 008e 1B78     		ldrb	r3, [r3]
+ 800 0090 D318     		adds	r3, r2, r3
+ 801 0092 DAB2     		uxtb	r2, r3
+ 802 0094 3B68     		ldr	r3, [r7]
+ 803 0096 1A70     		strb	r2, [r3]
+ 228:Drivers/u8glib/src/u8g_pbxh24.c ****     arg_pixel->y += dy;
+ 804              		.loc 1 228 0 discriminator 1
+ 805 0098 3B68     		ldr	r3, [r7]
+ARM GAS  /tmp/cceKUV4c.s 			page 19
+
+
+ 806 009a 5A78     		ldrb	r2, [r3, #1]
+ 807 009c 0E23     		movs	r3, #14
+ 808 009e FB18     		adds	r3, r7, r3
+ 809 00a0 1B78     		ldrb	r3, [r3]
+ 810 00a2 D318     		adds	r3, r2, r3
+ 811 00a4 DAB2     		uxtb	r2, r3
+ 812 00a6 3B68     		ldr	r3, [r7]
+ 813 00a8 5A70     		strb	r2, [r3, #1]
+ 229:Drivers/u8glib/src/u8g_pbxh24.c ****     pixel <<= 2;
+ 814              		.loc 1 229 0 discriminator 1
+ 815 00aa A300     		lsls	r3, r4, #2
+ 816 00ac DCB2     		uxtb	r4, r3
+ 817 00ae 0F23     		movs	r3, #15
+ 818 00b0 FB18     		adds	r3, r7, r3
+ 819 00b2 0F22     		movs	r2, #15
+ 820 00b4 BA18     		adds	r2, r7, r2
+ 821 00b6 1278     		ldrb	r2, [r2]
+ 822 00b8 1A70     		strb	r2, [r3]
+ 823 00ba 0E23     		movs	r3, #14
+ 824 00bc FB18     		adds	r3, r7, r3
+ 825 00be 0E22     		movs	r2, #14
+ 826 00c0 BA18     		adds	r2, r7, r2
+ 827 00c2 1278     		ldrb	r2, [r2]
+ 828 00c4 1A70     		strb	r2, [r3]
+ 230:Drivers/u8glib/src/u8g_pbxh24.c ****   } while( pixel != 0  );  
+ 829              		.loc 1 230 0 discriminator 1
+ 830 00c6 002C     		cmp	r4, #0
+ 831 00c8 D6D1     		bne	.L34
+ 231:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 832              		.loc 1 231 0
+ 833 00ca C046     		nop
+ 834 00cc BD46     		mov	sp, r7
+ 835 00ce 05B0     		add	sp, sp, #20
+ 836              		@ sp needed
+ 837 00d0 90BD     		pop	{r4, r7, pc}
+ 838              		.cfi_endproc
+ 839              	.LFE5:
+ 841              		.section	.text.u8g_dev_pbxh24_base_fn,"ax",%progbits
+ 842              		.align	1
+ 843              		.global	u8g_dev_pbxh24_base_fn
+ 844              		.syntax unified
+ 845              		.code	16
+ 846              		.thumb_func
+ 847              		.fpu softvfp
+ 849              	u8g_dev_pbxh24_base_fn:
+ 850              	.LFB6:
+ 232:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 233:Drivers/u8glib/src/u8g_pbxh24.c **** 
+ 234:Drivers/u8glib/src/u8g_pbxh24.c **** uint8_t u8g_dev_pbxh24_base_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 235:Drivers/u8glib/src/u8g_pbxh24.c **** {
+ 851              		.loc 1 235 0
+ 852              		.cfi_startproc
+ 853 0000 80B5     		push	{r7, lr}
+ 854              	.LCFI18:
+ 855              		.cfi_def_cfa_offset 8
+ 856              		.cfi_offset 7, -8
+ 857              		.cfi_offset 14, -4
+ARM GAS  /tmp/cceKUV4c.s 			page 20
+
+
+ 858 0002 86B0     		sub	sp, sp, #24
+ 859              	.LCFI19:
+ 860              		.cfi_def_cfa_offset 32
+ 861 0004 00AF     		add	r7, sp, #0
+ 862              	.LCFI20:
+ 863              		.cfi_def_cfa_register 7
+ 864 0006 F860     		str	r0, [r7, #12]
+ 865 0008 B960     		str	r1, [r7, #8]
+ 866 000a 3B60     		str	r3, [r7]
+ 867 000c FB1D     		adds	r3, r7, #7
+ 868 000e 1A70     		strb	r2, [r3]
+ 236:Drivers/u8glib/src/u8g_pbxh24.c ****   u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 869              		.loc 1 236 0
+ 870 0010 BB68     		ldr	r3, [r7, #8]
+ 871 0012 5B68     		ldr	r3, [r3, #4]
+ 872 0014 7B61     		str	r3, [r7, #20]
+ 237:Drivers/u8glib/src/u8g_pbxh24.c ****   switch(msg)
+ 873              		.loc 1 237 0
+ 874 0016 FB1D     		adds	r3, r7, #7
+ 875 0018 1B78     		ldrb	r3, [r3]
+ 876 001a 0A3B     		subs	r3, r3, #10
+ 877 001c 3E2B     		cmp	r3, #62
+ 878 001e 56D8     		bhi	.L41
+ 879 0020 9A00     		lsls	r2, r3, #2
+ 880 0022 2D4B     		ldr	r3, .L61
+ 881 0024 D318     		adds	r3, r2, r3
+ 882 0026 1B68     		ldr	r3, [r3]
+ 883 0028 9F46     		mov	pc, r3
+ 884              		.section	.rodata.u8g_dev_pbxh24_base_fn,"a",%progbits
+ 885              		.align	2
+ 886              	.L43:
+ 887 0000 CE000000 		.word	.L41
+ 888 0004 CE000000 		.word	.L41
+ 889 0008 CE000000 		.word	.L41
+ 890 000c CE000000 		.word	.L41
+ 891 0010 CE000000 		.word	.L41
+ 892 0014 CE000000 		.word	.L41
+ 893 0018 CE000000 		.word	.L41
+ 894 001c CE000000 		.word	.L41
+ 895 0020 CE000000 		.word	.L41
+ 896 0024 CE000000 		.word	.L41
+ 897 0028 7A000000 		.word	.L45
+ 898 002c 8C000000 		.word	.L46
+ 899 0030 CE000000 		.word	.L41
+ 900 0034 A6000000 		.word	.L47
+ 901 0038 CE000000 		.word	.L41
+ 902 003c CE000000 		.word	.L41
+ 903 0040 CE000000 		.word	.L41
+ 904 0044 CE000000 		.word	.L41
+ 905 0048 CE000000 		.word	.L41
+ 906 004c CE000000 		.word	.L41
+ 907 0050 CE000000 		.word	.L41
+ 908 0054 CE000000 		.word	.L41
+ 909 0058 CE000000 		.word	.L41
+ 910 005c CE000000 		.word	.L41
+ 911 0060 CE000000 		.word	.L41
+ 912 0064 CE000000 		.word	.L41
+ARM GAS  /tmp/cceKUV4c.s 			page 21
+
+
+ 913 0068 CE000000 		.word	.L41
+ 914 006c CE000000 		.word	.L41
+ 915 0070 CE000000 		.word	.L41
+ 916 0074 CE000000 		.word	.L41
+ 917 0078 CE000000 		.word	.L41
+ 918 007c CE000000 		.word	.L41
+ 919 0080 CE000000 		.word	.L41
+ 920 0084 CE000000 		.word	.L41
+ 921 0088 64000000 		.word	.L48
+ 922 008c 56000000 		.word	.L49
+ 923 0090 CE000000 		.word	.L41
+ 924 0094 CE000000 		.word	.L41
+ 925 0098 CE000000 		.word	.L41
+ 926 009c CE000000 		.word	.L41
+ 927 00a0 48000000 		.word	.L50
+ 928 00a4 CE000000 		.word	.L41
+ 929 00a8 CE000000 		.word	.L41
+ 930 00ac CE000000 		.word	.L41
+ 931 00b0 CE000000 		.word	.L41
+ 932 00b4 CE000000 		.word	.L41
+ 933 00b8 CE000000 		.word	.L41
+ 934 00bc CE000000 		.word	.L41
+ 935 00c0 CE000000 		.word	.L41
+ 936 00c4 2A000000 		.word	.L51
+ 937 00c8 CE000000 		.word	.L41
+ 938 00cc CE000000 		.word	.L41
+ 939 00d0 CE000000 		.word	.L41
+ 940 00d4 CE000000 		.word	.L41
+ 941 00d8 CE000000 		.word	.L41
+ 942 00dc CE000000 		.word	.L41
+ 943 00e0 CE000000 		.word	.L41
+ 944 00e4 CE000000 		.word	.L41
+ 945 00e8 CE000000 		.word	.L41
+ 946 00ec CE000000 		.word	.L41
+ 947 00f0 B4000000 		.word	.L54
+ 948 00f4 BE000000 		.word	.L55
+ 949 00f8 C8000000 		.word	.L56
+ 950              		.section	.text.u8g_dev_pbxh24_base_fn
+ 951              	.L51:
+ 238:Drivers/u8glib/src/u8g_pbxh24.c ****   {
+ 239:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_8PIXEL:
+ 240:Drivers/u8glib/src/u8g_pbxh24.c ****       if ( u8g_pb_Is8PixelVisible(pb, (u8g_dev_arg_pixel_t *)arg) )
+ 952              		.loc 1 240 0
+ 953 002a 3A68     		ldr	r2, [r7]
+ 954 002c 7B69     		ldr	r3, [r7, #20]
+ 955 002e 1100     		movs	r1, r2
+ 956 0030 1800     		movs	r0, r3
+ 957 0032 FFF7FEFF 		bl	u8g_pb_Is8PixelVisible
+ 958 0036 031E     		subs	r3, r0, #0
+ 959 0038 48D0     		beq	.L60
+ 241:Drivers/u8glib/src/u8g_pbxh24.c ****         u8g_pbxh24_Set8Pixel(pb, (u8g_dev_arg_pixel_t *)arg);
+ 960              		.loc 1 241 0
+ 961 003a 3A68     		ldr	r2, [r7]
+ 962 003c 7B69     		ldr	r3, [r7, #20]
+ 963 003e 1100     		movs	r1, r2
+ 964 0040 1800     		movs	r0, r3
+ 965 0042 FFF7FEFF 		bl	u8g_pbxh24_Set8Pixel
+ARM GAS  /tmp/cceKUV4c.s 			page 22
+
+
+ 242:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 966              		.loc 1 242 0
+ 967 0046 41E0     		b	.L60
+ 968              	.L50:
+ 243:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_PIXEL:
+ 244:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pbxh24_SetTPixel(pb, (u8g_dev_arg_pixel_t *)arg, 4);
+ 969              		.loc 1 244 0
+ 970 0048 3968     		ldr	r1, [r7]
+ 971 004a 7B69     		ldr	r3, [r7, #20]
+ 972 004c 0422     		movs	r2, #4
+ 973 004e 1800     		movs	r0, r3
+ 974 0050 FFF7FEFF 		bl	u8g_pbxh24_SetTPixel
+ 245:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 975              		.loc 1 245 0
+ 976 0054 3BE0     		b	.L41
+ 977              	.L49:
+ 246:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_4TPIXEL:
+ 247:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pbxh24_Set4TPixel(pb, (u8g_dev_arg_pixel_t *)arg);
+ 978              		.loc 1 247 0
+ 979 0056 3A68     		ldr	r2, [r7]
+ 980 0058 7B69     		ldr	r3, [r7, #20]
+ 981 005a 1100     		movs	r1, r2
+ 982 005c 1800     		movs	r0, r3
+ 983 005e FFF7FEFF 		bl	u8g_pbxh24_Set4TPixel
+ 248:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 984              		.loc 1 248 0
+ 985 0062 34E0     		b	.L41
+ 986              	.L48:
+ 249:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_TPIXEL:
+ 250:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pbxh24_SetTPixel(pb, (u8g_dev_arg_pixel_t *)arg, ((u8g_dev_arg_pixel_t *)arg)->pixel&3);
+ 987              		.loc 1 250 0
+ 988 0064 3B68     		ldr	r3, [r7]
+ 989 0066 9B78     		ldrb	r3, [r3, #2]
+ 990 0068 0322     		movs	r2, #3
+ 991 006a 1340     		ands	r3, r2
+ 992 006c DAB2     		uxtb	r2, r3
+ 993 006e 3968     		ldr	r1, [r7]
+ 994 0070 7B69     		ldr	r3, [r7, #20]
+ 995 0072 1800     		movs	r0, r3
+ 996 0074 FFF7FEFF 		bl	u8g_pbxh24_SetTPixel
+ 251:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 997              		.loc 1 251 0
+ 998 0078 29E0     		b	.L41
+ 999              	.L45:
+ 252:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_INIT:
+ 253:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 254:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_STOP:
+ 255:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 256:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_PAGE_FIRST:
+ 257:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pbxh24_Clear(pb);
+ 1000              		.loc 1 257 0
+ 1001 007a 7B69     		ldr	r3, [r7, #20]
+ 1002 007c 1800     		movs	r0, r3
+ 1003 007e FFF7FEFF 		bl	u8g_pbxh24_Clear
+ 258:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_page_First(&(pb->p));
+ 1004              		.loc 1 258 0
+ 1005 0082 7B69     		ldr	r3, [r7, #20]
+ARM GAS  /tmp/cceKUV4c.s 			page 23
+
+
+ 1006 0084 1800     		movs	r0, r3
+ 1007 0086 FFF7FEFF 		bl	u8g_page_First
+ 259:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 1008              		.loc 1 259 0
+ 1009 008a 20E0     		b	.L41
+ 1010              	.L46:
+ 260:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 261:Drivers/u8glib/src/u8g_pbxh24.c ****       if ( u8g_page_Next(&(pb->p)) == 0 )
+ 1011              		.loc 1 261 0
+ 1012 008c 7B69     		ldr	r3, [r7, #20]
+ 1013 008e 1800     		movs	r0, r3
+ 1014 0090 FFF7FEFF 		bl	u8g_page_Next
+ 1015 0094 031E     		subs	r3, r0, #0
+ 1016 0096 01D1     		bne	.L58
+ 262:Drivers/u8glib/src/u8g_pbxh24.c ****         return 0;
+ 1017              		.loc 1 262 0
+ 1018 0098 0023     		movs	r3, #0
+ 1019 009a 19E0     		b	.L59
+ 1020              	.L58:
+ 263:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pbxh24_Clear(pb);
+ 1021              		.loc 1 263 0
+ 1022 009c 7B69     		ldr	r3, [r7, #20]
+ 1023 009e 1800     		movs	r0, r3
+ 1024 00a0 FFF7FEFF 		bl	u8g_pbxh24_Clear
+ 264:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 1025              		.loc 1 264 0
+ 1026 00a4 13E0     		b	.L41
+ 1027              	.L47:
+ 265:Drivers/u8glib/src/u8g_pbxh24.c **** #ifdef U8G_DEV_MSG_IS_BBX_INTERSECTION
+ 266:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_IS_BBX_INTERSECTION:
+ 267:Drivers/u8glib/src/u8g_pbxh24.c ****       return u8g_pb_IsIntersection(pb, (u8g_dev_arg_bbx_t *)arg);
+ 268:Drivers/u8glib/src/u8g_pbxh24.c **** #endif
+ 269:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_GET_PAGE_BOX:
+ 270:Drivers/u8glib/src/u8g_pbxh24.c ****       u8g_pb_GetPageBox(pb, (u8g_box_t *)arg);
+ 1028              		.loc 1 270 0
+ 1029 00a6 3A68     		ldr	r2, [r7]
+ 1030 00a8 7B69     		ldr	r3, [r7, #20]
+ 1031 00aa 1100     		movs	r1, r2
+ 1032 00ac 1800     		movs	r0, r3
+ 1033 00ae FFF7FEFF 		bl	u8g_pb_GetPageBox
+ 271:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 1034              		.loc 1 271 0
+ 1035 00b2 0CE0     		b	.L41
+ 1036              	.L54:
+ 272:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_GET_WIDTH:
+ 273:Drivers/u8glib/src/u8g_pbxh24.c ****       *((u8g_uint_t *)arg) = pb->width;
+ 1037              		.loc 1 273 0
+ 1038 00b4 7B69     		ldr	r3, [r7, #20]
+ 1039 00b6 5A79     		ldrb	r2, [r3, #5]
+ 1040 00b8 3B68     		ldr	r3, [r7]
+ 1041 00ba 1A70     		strb	r2, [r3]
+ 274:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 1042              		.loc 1 274 0
+ 1043 00bc 07E0     		b	.L41
+ 1044              	.L55:
+ 275:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_GET_HEIGHT:
+ 276:Drivers/u8glib/src/u8g_pbxh24.c ****       *((u8g_uint_t *)arg) = pb->p.total_height;
+ARM GAS  /tmp/cceKUV4c.s 			page 24
+
+
+ 1045              		.loc 1 276 0
+ 1046 00be 7B69     		ldr	r3, [r7, #20]
+ 1047 00c0 5A78     		ldrb	r2, [r3, #1]
+ 1048 00c2 3B68     		ldr	r3, [r7]
+ 1049 00c4 1A70     		strb	r2, [r3]
+ 277:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 1050              		.loc 1 277 0
+ 1051 00c6 02E0     		b	.L41
+ 1052              	.L56:
+ 278:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_COLOR_ENTRY:
+ 279:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 280:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_XY_CB:
+ 281:Drivers/u8glib/src/u8g_pbxh24.c ****       break;
+ 282:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_GET_MODE:
+ 283:Drivers/u8glib/src/u8g_pbxh24.c ****       return U8G_MODE_TRUECOLOR;
+ 1053              		.loc 1 283 0
+ 1054 00c8 3823     		movs	r3, #56
+ 1055 00ca 01E0     		b	.L59
+ 1056              	.L60:
+ 242:Drivers/u8glib/src/u8g_pbxh24.c ****     case U8G_DEV_MSG_SET_PIXEL:
+ 1057              		.loc 1 242 0
+ 1058 00cc C046     		nop
+ 1059              	.L41:
+ 284:Drivers/u8glib/src/u8g_pbxh24.c ****   }
+ 285:Drivers/u8glib/src/u8g_pbxh24.c ****   return 1;
+ 1060              		.loc 1 285 0
+ 1061 00ce 0123     		movs	r3, #1
+ 1062              	.L59:
+ 286:Drivers/u8glib/src/u8g_pbxh24.c **** }
+ 1063              		.loc 1 286 0
+ 1064 00d0 1800     		movs	r0, r3
+ 1065 00d2 BD46     		mov	sp, r7
+ 1066 00d4 06B0     		add	sp, sp, #24
+ 1067              		@ sp needed
+ 1068 00d6 80BD     		pop	{r7, pc}
+ 1069              	.L62:
+ 1070              		.align	2
+ 1071              	.L61:
+ 1072 00d8 00000000 		.word	.L43
+ 1073              		.cfi_endproc
+ 1074              	.LFE6:
+ 1076              		.text
+ 1077              	.Letext0:
+ 1078              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 1079              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 1080              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cceKUV4c.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_pbxh24.c
+     /tmp/cceKUV4c.s:16     .text.u8g_pbxh24_Clear:0000000000000000 $t
+     /tmp/cceKUV4c.s:23     .text.u8g_pbxh24_Clear:0000000000000000 u8g_pbxh24_Clear
+     /tmp/cceKUV4c.s:101    .text.u8g_pbxh24_Init:0000000000000000 $t
+     /tmp/cceKUV4c.s:108    .text.u8g_pbxh24_Init:0000000000000000 u8g_pbxh24_Init
+     /tmp/cceKUV4c.s:150    .text.u8g_pbxh24_set_tpixel:0000000000000000 $t
+     /tmp/cceKUV4c.s:156    .text.u8g_pbxh24_set_tpixel:0000000000000000 u8g_pbxh24_set_tpixel
+     /tmp/cceKUV4c.s:446    .text.u8g_pbxh24_SetTPixel:0000000000000000 $t
+     /tmp/cceKUV4c.s:453    .text.u8g_pbxh24_SetTPixel:0000000000000000 u8g_pbxh24_SetTPixel
+     /tmp/cceKUV4c.s:539    .text.u8g_pbxh24_Set8Pixel:0000000000000000 $t
+     /tmp/cceKUV4c.s:546    .text.u8g_pbxh24_Set8Pixel:0000000000000000 u8g_pbxh24_Set8Pixel
+     /tmp/cceKUV4c.s:693    .text.u8g_pbxh24_Set4TPixel:0000000000000000 $t
+     /tmp/cceKUV4c.s:700    .text.u8g_pbxh24_Set4TPixel:0000000000000000 u8g_pbxh24_Set4TPixel
+     /tmp/cceKUV4c.s:842    .text.u8g_dev_pbxh24_base_fn:0000000000000000 $t
+     /tmp/cceKUV4c.s:849    .text.u8g_dev_pbxh24_base_fn:0000000000000000 u8g_dev_pbxh24_base_fn
+     /tmp/cceKUV4c.s:885    .rodata.u8g_dev_pbxh24_base_fn:0000000000000000 $d
+     /tmp/cceKUV4c.s:1072   .text.u8g_dev_pbxh24_base_fn:00000000000000d8 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_pb_Is8PixelVisible
+u8g_page_First
+u8g_page_Next
+u8g_pb_GetPageBox

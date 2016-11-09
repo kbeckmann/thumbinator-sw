@@ -1,0 +1,1026 @@
+ARM GAS  /tmp/ccRzdSy9.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_com_i2c.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.bss.u8g_i2c_err_code,"aw",%nobits
+  18              	u8g_i2c_err_code:
+  19 0000 00       		.space	1
+  20              		.section	.bss.u8g_i2c_opt,"aw",%nobits
+  23              	u8g_i2c_opt:
+  24 0000 00       		.space	1
+  25              		.section	.bss.u8g_i2c_err_pos,"aw",%nobits
+  28              	u8g_i2c_err_pos:
+  29 0000 00       		.space	1
+  30              		.section	.text.u8g_i2c_clear_error,"ax",%progbits
+  31              		.align	1
+  32              		.global	u8g_i2c_clear_error
+  33              		.syntax unified
+  34              		.code	16
+  35              		.thumb_func
+  36              		.fpu softvfp
+  38              	u8g_i2c_clear_error:
+  39              	.LFB0:
+  40              		.file 1 "Drivers/u8glib/src/u8g_com_i2c.c"
+   1:Drivers/u8glib/src/u8g_com_i2c.c **** /*
+   2:Drivers/u8glib/src/u8g_com_i2c.c ****   
+   3:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_com_i2c.c
+   4:Drivers/u8glib/src/u8g_com_i2c.c **** 
+   5:Drivers/u8glib/src/u8g_com_i2c.c ****   generic i2c interface
+   6:Drivers/u8glib/src/u8g_com_i2c.c **** 
+   7:Drivers/u8glib/src/u8g_com_i2c.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_com_i2c.c ****   
+   9:Drivers/u8glib/src/u8g_com_i2c.c ****   Copyright (c) 2011, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_com_i2c.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  12:Drivers/u8glib/src/u8g_com_i2c.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_com_i2c.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  15:Drivers/u8glib/src/u8g_com_i2c.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_com_i2c.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_com_i2c.c ****     
+  18:Drivers/u8glib/src/u8g_com_i2c.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_com_i2c.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_com_i2c.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  22:Drivers/u8glib/src/u8g_com_i2c.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_com_i2c.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_com_i2c.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+ARM GAS  /tmp/ccRzdSy9.s 			page 2
+
+
+  25:Drivers/u8glib/src/u8g_com_i2c.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_com_i2c.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_com_i2c.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_com_i2c.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_com_i2c.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_com_i2c.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_com_i2c.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_com_i2c.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_com_i2c.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_com_i2c.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_com_i2c.c ****   
+  36:Drivers/u8glib/src/u8g_com_i2c.c **** */
+  37:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  38:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  39:Drivers/u8glib/src/u8g_com_i2c.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  41:Drivers/u8glib/src/u8g_com_i2c.c **** //#define U8G_I2C_WITH_NO_ACK
+  42:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  43:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t u8g_i2c_err_code;
+  44:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t u8g_i2c_opt;		/* U8G_I2C_OPT_NO_ACK, SAM: U8G_I2C_OPT_DEV_1 */
+  45:Drivers/u8glib/src/u8g_com_i2c.c **** /*
+  46:Drivers/u8glib/src/u8g_com_i2c.c ****   position values
+  47:Drivers/u8glib/src/u8g_com_i2c.c ****     1: start condition
+  48:Drivers/u8glib/src/u8g_com_i2c.c ****     2: sla transfer
+  49:Drivers/u8glib/src/u8g_com_i2c.c **** */
+  50:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t u8g_i2c_err_pos;
+  51:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  52:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  53:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_clear_error(void)
+  54:Drivers/u8glib/src/u8g_com_i2c.c **** {
+  41              		.loc 1 54 0
+  42              		.cfi_startproc
+  43 0000 80B5     		push	{r7, lr}
+  44              	.LCFI0:
+  45              		.cfi_def_cfa_offset 8
+  46              		.cfi_offset 7, -8
+  47              		.cfi_offset 14, -4
+  48 0002 00AF     		add	r7, sp, #0
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_register 7
+  55:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_err_code = U8G_I2C_ERR_NONE;
+  51              		.loc 1 55 0
+  52 0004 044B     		ldr	r3, .L2
+  53 0006 0022     		movs	r2, #0
+  54 0008 1A70     		strb	r2, [r3]
+  56:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_err_pos = 0;
+  55              		.loc 1 56 0
+  56 000a 044B     		ldr	r3, .L2+4
+  57 000c 0022     		movs	r2, #0
+  58 000e 1A70     		strb	r2, [r3]
+  57:Drivers/u8glib/src/u8g_com_i2c.c **** }
+  59              		.loc 1 57 0
+  60 0010 C046     		nop
+  61 0012 BD46     		mov	sp, r7
+  62              		@ sp needed
+  63 0014 80BD     		pop	{r7, pc}
+  64              	.L3:
+ARM GAS  /tmp/ccRzdSy9.s 			page 3
+
+
+  65 0016 C046     		.align	2
+  66              	.L2:
+  67 0018 00000000 		.word	u8g_i2c_err_code
+  68 001c 00000000 		.word	u8g_i2c_err_pos
+  69              		.cfi_endproc
+  70              	.LFE0:
+  72              		.section	.text.u8g_i2c_get_error,"ax",%progbits
+  73              		.align	1
+  74              		.global	u8g_i2c_get_error
+  75              		.syntax unified
+  76              		.code	16
+  77              		.thumb_func
+  78              		.fpu softvfp
+  80              	u8g_i2c_get_error:
+  81              	.LFB1:
+  58:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  59:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t  u8g_i2c_get_error(void)
+  60:Drivers/u8glib/src/u8g_com_i2c.c **** {
+  82              		.loc 1 60 0
+  83              		.cfi_startproc
+  84 0000 80B5     		push	{r7, lr}
+  85              	.LCFI2:
+  86              		.cfi_def_cfa_offset 8
+  87              		.cfi_offset 7, -8
+  88              		.cfi_offset 14, -4
+  89 0002 00AF     		add	r7, sp, #0
+  90              	.LCFI3:
+  91              		.cfi_def_cfa_register 7
+  61:Drivers/u8glib/src/u8g_com_i2c.c ****   return u8g_i2c_err_code;
+  92              		.loc 1 61 0
+  93 0004 024B     		ldr	r3, .L6
+  94 0006 1B78     		ldrb	r3, [r3]
+  62:Drivers/u8glib/src/u8g_com_i2c.c **** }
+  95              		.loc 1 62 0
+  96 0008 1800     		movs	r0, r3
+  97 000a BD46     		mov	sp, r7
+  98              		@ sp needed
+  99 000c 80BD     		pop	{r7, pc}
+ 100              	.L7:
+ 101 000e C046     		.align	2
+ 102              	.L6:
+ 103 0010 00000000 		.word	u8g_i2c_err_code
+ 104              		.cfi_endproc
+ 105              	.LFE1:
+ 107              		.section	.text.u8g_i2c_get_err_pos,"ax",%progbits
+ 108              		.align	1
+ 109              		.global	u8g_i2c_get_err_pos
+ 110              		.syntax unified
+ 111              		.code	16
+ 112              		.thumb_func
+ 113              		.fpu softvfp
+ 115              	u8g_i2c_get_err_pos:
+ 116              	.LFB2:
+  63:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  64:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_get_err_pos(void)
+  65:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 117              		.loc 1 65 0
+ARM GAS  /tmp/ccRzdSy9.s 			page 4
+
+
+ 118              		.cfi_startproc
+ 119 0000 80B5     		push	{r7, lr}
+ 120              	.LCFI4:
+ 121              		.cfi_def_cfa_offset 8
+ 122              		.cfi_offset 7, -8
+ 123              		.cfi_offset 14, -4
+ 124 0002 00AF     		add	r7, sp, #0
+ 125              	.LCFI5:
+ 126              		.cfi_def_cfa_register 7
+  66:Drivers/u8glib/src/u8g_com_i2c.c ****   return u8g_i2c_err_pos;
+ 127              		.loc 1 66 0
+ 128 0004 024B     		ldr	r3, .L10
+ 129 0006 1B78     		ldrb	r3, [r3]
+  67:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 130              		.loc 1 67 0
+ 131 0008 1800     		movs	r0, r3
+ 132 000a BD46     		mov	sp, r7
+ 133              		@ sp needed
+ 134 000c 80BD     		pop	{r7, pc}
+ 135              	.L11:
+ 136 000e C046     		.align	2
+ 137              	.L10:
+ 138 0010 00000000 		.word	u8g_i2c_err_pos
+ 139              		.cfi_endproc
+ 140              	.LFE2:
+ 142              		.section	.text.u8g_i2c_init,"ax",%progbits
+ 143              		.align	1
+ 144              		.global	u8g_i2c_init
+ 145              		.syntax unified
+ 146              		.code	16
+ 147              		.thumb_func
+ 148              		.fpu softvfp
+ 150              	u8g_i2c_init:
+ 151              	.LFB3:
+  68:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  69:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  70:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  71:Drivers/u8glib/src/u8g_com_i2c.c **** #if defined(__AVR__)
+  72:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  73:Drivers/u8glib/src/u8g_com_i2c.c **** static void u8g_i2c_set_error(uint8_t code, uint8_t pos)
+  74:Drivers/u8glib/src/u8g_com_i2c.c **** {
+  75:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_err_code > 0 )
+  76:Drivers/u8glib/src/u8g_com_i2c.c ****     return;
+  77:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_err_code |= code;
+  78:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_err_pos = pos;
+  79:Drivers/u8glib/src/u8g_com_i2c.c **** }
+  80:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  81:Drivers/u8glib/src/u8g_com_i2c.c **** #define U8G_ATMEGA_HW_TWI
+  82:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  83:Drivers/u8glib/src/u8g_com_i2c.c **** /* remove the definition for attiny */
+  84:Drivers/u8glib/src/u8g_com_i2c.c **** #if __AVR_ARCH__ == 2
+  85:Drivers/u8glib/src/u8g_com_i2c.c **** #undef U8G_ATMEGA_HW_TWI
+  86:Drivers/u8glib/src/u8g_com_i2c.c **** #endif
+  87:Drivers/u8glib/src/u8g_com_i2c.c **** #if __AVR_ARCH__ == 25
+  88:Drivers/u8glib/src/u8g_com_i2c.c **** #undef U8G_ATMEGA_HW_TWI
+  89:Drivers/u8glib/src/u8g_com_i2c.c **** #endif
+  90:Drivers/u8glib/src/u8g_com_i2c.c **** #endif
+ARM GAS  /tmp/ccRzdSy9.s 			page 5
+
+
+  91:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  92:Drivers/u8glib/src/u8g_com_i2c.c **** #if defined(U8G_ATMEGA_HW_TWI)
+  93:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  94:Drivers/u8glib/src/u8g_com_i2c.c **** #include <avr/io.h>
+  95:Drivers/u8glib/src/u8g_com_i2c.c **** #include <util/twi.h>
+  96:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  97:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  98:Drivers/u8glib/src/u8g_com_i2c.c **** 
+  99:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_init(uint8_t options)
+ 100:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 101:Drivers/u8glib/src/u8g_com_i2c.c ****   /*
+ 102:Drivers/u8glib/src/u8g_com_i2c.c ****   TWBR: bit rate register
+ 103:Drivers/u8glib/src/u8g_com_i2c.c ****   TWSR: status register (contains preselector bits)
+ 104:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 105:Drivers/u8glib/src/u8g_com_i2c.c ****   prescalar
+ 106:Drivers/u8glib/src/u8g_com_i2c.c ****     0		1
+ 107:Drivers/u8glib/src/u8g_com_i2c.c ****     1		4
+ 108:Drivers/u8glib/src/u8g_com_i2c.c ****     2		16
+ 109:Drivers/u8glib/src/u8g_com_i2c.c ****     3		64
+ 110:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 111:Drivers/u8glib/src/u8g_com_i2c.c ****   f = F_CPU/(16+2*TWBR*prescalar)
+ 112:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 113:Drivers/u8glib/src/u8g_com_i2c.c ****   F_CPU = 16MHz
+ 114:Drivers/u8glib/src/u8g_com_i2c.c ****     TWBR = 152;
+ 115:Drivers/u8glib/src/u8g_com_i2c.c ****     TWSR = 0;
+ 116:Drivers/u8glib/src/u8g_com_i2c.c **** 	--> 50KHz
+ 117:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 118:Drivers/u8glib/src/u8g_com_i2c.c ****     TWBR = 72;
+ 119:Drivers/u8glib/src/u8g_com_i2c.c ****     TWSR = 0;
+ 120:Drivers/u8glib/src/u8g_com_i2c.c **** 	--> 100KHz
+ 121:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 122:Drivers/u8glib/src/u8g_com_i2c.c ****     TWBR = 12;
+ 123:Drivers/u8glib/src/u8g_com_i2c.c ****     TWSR = 0;
+ 124:Drivers/u8glib/src/u8g_com_i2c.c **** 	--> 400KHz
+ 125:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 126:Drivers/u8glib/src/u8g_com_i2c.c ****     F_CPU/(2*100000)-8  --> calculate TWBR value for 100KHz
+ 127:Drivers/u8glib/src/u8g_com_i2c.c **** */
+ 128:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_opt = options;
+ 129:Drivers/u8glib/src/u8g_com_i2c.c ****   TWSR = 0;
+ 130:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( options & U8G_I2C_OPT_FAST )
+ 131:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 132:Drivers/u8glib/src/u8g_com_i2c.c ****     TWBR = F_CPU/(2*400000)-8;
+ 133:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 134:Drivers/u8glib/src/u8g_com_i2c.c ****   else
+ 135:Drivers/u8glib/src/u8g_com_i2c.c ****   {  
+ 136:Drivers/u8glib/src/u8g_com_i2c.c ****     TWBR = F_CPU/(2*100000)-8;
+ 137:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 138:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_clear_error();
+ 139:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 140:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 141:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_wait(uint8_t mask, uint8_t pos)
+ 142:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 143:Drivers/u8glib/src/u8g_com_i2c.c ****   volatile uint16_t cnt = 2000;	/* timout value should be > 280 for 50KHz Bus and 16 Mhz CPU, howev
+ 144:Drivers/u8glib/src/u8g_com_i2c.c ****   while( !(TWCR & mask) )
+ 145:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 146:Drivers/u8glib/src/u8g_com_i2c.c ****       if ( cnt == 0 )
+ 147:Drivers/u8glib/src/u8g_com_i2c.c ****       {
+ARM GAS  /tmp/ccRzdSy9.s 			page 6
+
+
+ 148:Drivers/u8glib/src/u8g_com_i2c.c **** 	if ( u8g_i2c_opt & U8G_I2C_OPT_NO_ACK )
+ 149:Drivers/u8glib/src/u8g_com_i2c.c **** 	{
+ 150:Drivers/u8glib/src/u8g_com_i2c.c **** 	  return 1;	/* all ok */
+ 151:Drivers/u8glib/src/u8g_com_i2c.c **** 	}
+ 152:Drivers/u8glib/src/u8g_com_i2c.c **** 	else
+ 153:Drivers/u8glib/src/u8g_com_i2c.c **** 	{
+ 154:Drivers/u8glib/src/u8g_com_i2c.c **** 	  u8g_i2c_set_error(U8G_I2C_ERR_TIMEOUT, pos);
+ 155:Drivers/u8glib/src/u8g_com_i2c.c **** 	  return 0; /* error */
+ 156:Drivers/u8glib/src/u8g_com_i2c.c **** 	}
+ 157:Drivers/u8glib/src/u8g_com_i2c.c ****       }
+ 158:Drivers/u8glib/src/u8g_com_i2c.c ****       cnt--;
+ 159:Drivers/u8glib/src/u8g_com_i2c.c ****     }
+ 160:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;	/* all ok */
+ 161:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 162:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 163:Drivers/u8glib/src/u8g_com_i2c.c **** /* sla includes all 8 bits (with r/w bit), assums master transmit */
+ 164:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_start(uint8_t sla)
+ 165:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 166:Drivers/u8glib/src/u8g_com_i2c.c ****   register uint8_t status;
+ 167:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 168:Drivers/u8glib/src/u8g_com_i2c.c ****   /* send start */
+ 169:Drivers/u8glib/src/u8g_com_i2c.c ****   TWCR = _BV(TWINT) |  _BV(TWSTA)  |  _BV(TWEN);
+ 170:Drivers/u8glib/src/u8g_com_i2c.c ****    
+ 171:Drivers/u8glib/src/u8g_com_i2c.c ****   /* wait */
+ 172:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_wait(_BV(TWINT), 1) == 0 )
+ 173:Drivers/u8glib/src/u8g_com_i2c.c ****     return 0;
+ 174:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 175:Drivers/u8glib/src/u8g_com_i2c.c ****   status = TW_STATUS;
+ 176:Drivers/u8glib/src/u8g_com_i2c.c ****  
+ 177:Drivers/u8glib/src/u8g_com_i2c.c ****   /* check status after start */  
+ 178:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( status != TW_START && status != TW_REP_START )
+ 179:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 180:Drivers/u8glib/src/u8g_com_i2c.c ****     u8g_i2c_set_error(U8G_I2C_ERR_BUS, 1);
+ 181:Drivers/u8glib/src/u8g_com_i2c.c ****     return 0;
+ 182:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 183:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 184:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set slave address */  
+ 185:Drivers/u8glib/src/u8g_com_i2c.c ****   TWDR = sla;
+ 186:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 187:Drivers/u8glib/src/u8g_com_i2c.c ****   /* enable sla transfer */
+ 188:Drivers/u8glib/src/u8g_com_i2c.c ****   TWCR = _BV(TWINT)  |  _BV(TWEN);
+ 189:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 190:Drivers/u8glib/src/u8g_com_i2c.c ****   /* wait */
+ 191:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_wait(_BV(TWINT), 2) == 0 )
+ 192:Drivers/u8glib/src/u8g_com_i2c.c ****     return 0;
+ 193:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 194:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_opt & U8G_I2C_OPT_NO_ACK )
+ 195:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 196:Drivers/u8glib/src/u8g_com_i2c.c ****     /* do not check for ACK */
+ 197:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 198:Drivers/u8glib/src/u8g_com_i2c.c ****   else
+ 199:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 200:Drivers/u8glib/src/u8g_com_i2c.c ****     status = TW_STATUS;
+ 201:Drivers/u8glib/src/u8g_com_i2c.c ****     /* check status after sla */  
+ 202:Drivers/u8glib/src/u8g_com_i2c.c ****     if ( status != TW_MT_SLA_ACK )
+ 203:Drivers/u8glib/src/u8g_com_i2c.c ****     {
+ 204:Drivers/u8glib/src/u8g_com_i2c.c ****       u8g_i2c_set_error(U8G_I2C_ERR_BUS, 2);
+ARM GAS  /tmp/ccRzdSy9.s 			page 7
+
+
+ 205:Drivers/u8glib/src/u8g_com_i2c.c ****       return 0;
+ 206:Drivers/u8glib/src/u8g_com_i2c.c ****     }
+ 207:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 208:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 209:Drivers/u8glib/src/u8g_com_i2c.c ****    return 1;
+ 210:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 211:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 212:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_send_byte(uint8_t data)
+ 213:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 214:Drivers/u8glib/src/u8g_com_i2c.c ****   register uint8_t status;
+ 215:Drivers/u8glib/src/u8g_com_i2c.c ****   TWDR = data;
+ 216:Drivers/u8glib/src/u8g_com_i2c.c ****   TWCR = _BV(TWINT)  |  _BV(TWEN);
+ 217:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_wait(_BV(TWINT), 3) == 0 )
+ 218:Drivers/u8glib/src/u8g_com_i2c.c ****     return 0;
+ 219:Drivers/u8glib/src/u8g_com_i2c.c ****     
+ 220:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_opt & U8G_I2C_OPT_NO_ACK )
+ 221:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 222:Drivers/u8glib/src/u8g_com_i2c.c ****     /* do not check for ACK */
+ 223:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 224:Drivers/u8glib/src/u8g_com_i2c.c ****   else
+ 225:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 226:Drivers/u8glib/src/u8g_com_i2c.c ****     status = TW_STATUS;  
+ 227:Drivers/u8glib/src/u8g_com_i2c.c ****     if ( status != TW_MT_DATA_ACK )
+ 228:Drivers/u8glib/src/u8g_com_i2c.c ****     {
+ 229:Drivers/u8glib/src/u8g_com_i2c.c ****       u8g_i2c_set_error(U8G_I2C_ERR_BUS, 3);
+ 230:Drivers/u8glib/src/u8g_com_i2c.c ****       return 0;
+ 231:Drivers/u8glib/src/u8g_com_i2c.c ****     }
+ 232:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 233:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 234:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;  
+ 235:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 236:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 237:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_stop(void)
+ 238:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 239:Drivers/u8glib/src/u8g_com_i2c.c ****   /* write stop */
+ 240:Drivers/u8glib/src/u8g_com_i2c.c ****   TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTO);
+ 241:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 242:Drivers/u8glib/src/u8g_com_i2c.c ****   /* no error is checked for the stop condition */  
+ 243:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_wait(_BV(TWSTO), 4);
+ 244:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 245:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 246:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 247:Drivers/u8glib/src/u8g_com_i2c.c **** /*
+ 248:Drivers/u8glib/src/u8g_com_i2c.c **** void twi_send(uint8_t adr, uint8_t data1, uint8_t data2)
+ 249:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 250:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_start(adr<<1);
+ 251:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_send_byte(data1);
+ 252:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_send_byte(data2);
+ 253:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_stop();
+ 254:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 255:Drivers/u8glib/src/u8g_com_i2c.c **** */
+ 256:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 257:Drivers/u8glib/src/u8g_com_i2c.c **** #elif defined(ARDUINO) && defined(__SAM3X8E__)
+ 258:Drivers/u8glib/src/u8g_com_i2c.c **** /* Arduino Due */
+ 259:Drivers/u8glib/src/u8g_com_i2c.c **** #include "Arduino.h"
+ 260:Drivers/u8glib/src/u8g_com_i2c.c **** #include "sam.h"
+ 261:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ARM GAS  /tmp/ccRzdSy9.s 			page 8
+
+
+ 262:Drivers/u8glib/src/u8g_com_i2c.c **** /*
+ 263:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 264:Drivers/u8glib/src/u8g_com_i2c.c **** Controller
+ 265:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 266:Drivers/u8glib/src/u8g_com_i2c.c **** TWI0 TWCK0 PA18 A			DUE PCB: SCL1
+ 267:Drivers/u8glib/src/u8g_com_i2c.c **** TWI0 TWD0 PA17 A			DUE PCB: SDA1 
+ 268:Drivers/u8glib/src/u8g_com_i2c.c **** TWI1 TWCK1 PB13 A			DUE PCB: SCL 21
+ 269:Drivers/u8glib/src/u8g_com_i2c.c **** TWI1 TWD1 PB12 A			DUE PCB: SDA 20
+ 270:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 271:Drivers/u8glib/src/u8g_com_i2c.c **** Arduino definitions
+ 272:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 273:Drivers/u8glib/src/u8g_com_i2c.c **** #define PIN_WIRE_SDA         (20u)
+ 274:Drivers/u8glib/src/u8g_com_i2c.c **** #define PIN_WIRE_SCL         (21u)
+ 275:Drivers/u8glib/src/u8g_com_i2c.c **** #define WIRE_INTERFACE       TWI1
+ 276:Drivers/u8glib/src/u8g_com_i2c.c **** #define WIRE_INTERFACE_ID    ID_TWI1
+ 277:Drivers/u8glib/src/u8g_com_i2c.c **** #define WIRE_ISR_HANDLER     TWI1_Handler
+ 278:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 279:Drivers/u8glib/src/u8g_com_i2c.c **** #define PIN_WIRE1_SDA        (70u)
+ 280:Drivers/u8glib/src/u8g_com_i2c.c **** #define PIN_WIRE1_SCL        (71u)
+ 281:Drivers/u8glib/src/u8g_com_i2c.c **** #define WIRE1_INTERFACE      TWI0
+ 282:Drivers/u8glib/src/u8g_com_i2c.c **** #define WIRE1_INTERFACE_ID   ID_TWI0
+ 283:Drivers/u8glib/src/u8g_com_i2c.c **** #define WIRE1_ISR_HANDLER    TWI0_Handler
+ 284:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 285:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 286:Drivers/u8glib/src/u8g_com_i2c.c **** */
+ 287:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 288:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_400KHz_delay(void)
+ 289:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 290:Drivers/u8glib/src/u8g_com_i2c.c ****   /* should be at least 4 */
+ 291:Drivers/u8glib/src/u8g_com_i2c.c ****   /* should be 5 for 100KHz transfer speed */
+ 292:Drivers/u8glib/src/u8g_com_i2c.c ****  
+ 293:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 294:Drivers/u8glib/src/u8g_com_i2c.c ****   /*
+ 295:Drivers/u8glib/src/u8g_com_i2c.c ****     Arduino Due
+ 296:Drivers/u8glib/src/u8g_com_i2c.c ****     0x NOP: 470KHz
+ 297:Drivers/u8glib/src/u8g_com_i2c.c ****     4x NOP: 450KHz
+ 298:Drivers/u8glib/src/u8g_com_i2c.c ****     8x NOP: 430KHz
+ 299:Drivers/u8glib/src/u8g_com_i2c.c ****     16x NOP: 400KHz
+ 300:Drivers/u8glib/src/u8g_com_i2c.c ****   */
+ 301:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 302:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 303:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 304:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 305:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 306:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 307:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 308:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 309:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 310:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 311:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 312:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 313:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 314:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 315:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 316:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 317:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 318:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ARM GAS  /tmp/ccRzdSy9.s 			page 9
+
+
+ 319:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 320:Drivers/u8glib/src/u8g_com_i2c.c ****   __NOP();
+ 321:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 322:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 323:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_100KHz_delay(void)
+ 324:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 325:Drivers/u8glib/src/u8g_com_i2c.c ****   /* 
+ 326:Drivers/u8glib/src/u8g_com_i2c.c ****     1x u8g_MicroDelay()	ca. 130KHz
+ 327:Drivers/u8glib/src/u8g_com_i2c.c ****     2x u8g_MicroDelay()	ca. 80KHz 
+ 328:Drivers/u8glib/src/u8g_com_i2c.c ****   */
+ 329:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_MicroDelay();
+ 330:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_MicroDelay();  
+ 331:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 332:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 333:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 334:Drivers/u8glib/src/u8g_com_i2c.c **** uint32_t i2c_started = 0;
+ 335:Drivers/u8glib/src/u8g_com_i2c.c **** uint32_t i2c_scl_pin = 0;
+ 336:Drivers/u8glib/src/u8g_com_i2c.c **** uint32_t i2c_sda_pin = 0;
+ 337:Drivers/u8glib/src/u8g_com_i2c.c **** void (*i2c_delay)(void) = i2c_100KHz_delay;
+ 338:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 339:Drivers/u8glib/src/u8g_com_i2c.c **** const PinDescription *i2c_scl_pin_desc;
+ 340:Drivers/u8glib/src/u8g_com_i2c.c **** const PinDescription *i2c_sda_pin_desc;
+ 341:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 342:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 343:Drivers/u8glib/src/u8g_com_i2c.c **** /* maybe this can be optimized */
+ 344:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_init(void)
+ 345:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 346:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc = &(g_APinDescription[i2c_sda_pin]);
+ 347:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc = &(g_APinDescription[i2c_scl_pin]);
+ 348:Drivers/u8glib/src/u8g_com_i2c.c ****   pinMode(i2c_sda_pin, OUTPUT);
+ 349:Drivers/u8glib/src/u8g_com_i2c.c ****   digitalWrite(i2c_sda_pin, HIGH);
+ 350:Drivers/u8glib/src/u8g_com_i2c.c ****   pinMode(i2c_scl_pin, OUTPUT);
+ 351:Drivers/u8glib/src/u8g_com_i2c.c ****   digitalWrite(i2c_scl_pin, HIGH);
+ 352:Drivers/u8glib/src/u8g_com_i2c.c ****   PIO_Configure( i2c_sda_pin_desc->pPort, PIO_OUTPUT_0, i2c_sda_pin_desc->ulPin, PIO_OPENDRAIN );
+ 353:Drivers/u8glib/src/u8g_com_i2c.c ****   PIO_Configure( i2c_scl_pin_desc->pPort, PIO_OUTPUT_0, i2c_scl_pin_desc->ulPin, PIO_OPENDRAIN );
+ 354:Drivers/u8glib/src/u8g_com_i2c.c ****   PIO_Clear( i2c_sda_pin_desc->pPort, i2c_sda_pin_desc->ulPin) ;
+ 355:Drivers/u8glib/src/u8g_com_i2c.c ****   PIO_Clear( i2c_scl_pin_desc->pPort, i2c_scl_pin_desc->ulPin) ;
+ 356:Drivers/u8glib/src/u8g_com_i2c.c ****   PIO_Configure( i2c_sda_pin_desc->pPort, PIO_INPUT, i2c_sda_pin_desc->ulPin, PIO_DEFAULT ) ;
+ 357:Drivers/u8glib/src/u8g_com_i2c.c ****   PIO_Configure( i2c_scl_pin_desc->pPort, PIO_INPUT, i2c_scl_pin_desc->ulPin, PIO_DEFAULT ) ;
+ 358:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 359:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 360:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 361:Drivers/u8glib/src/u8g_com_i2c.c **** /* actually, the scl line is not observed, so this procedure does not return a value */
+ 362:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_read_scl_and_delay(void)
+ 363:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 364:Drivers/u8glib/src/u8g_com_i2c.c ****   uint32_t dwMask = i2c_scl_pin_desc->ulPin;
+ 365:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_Configure( i2c_scl_pin_desc->pPort, PIO_INPUT, i2c_scl_pin_desc->ulPin, PIO_DEFAULT ) ;
+ 366:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_SetInput( i2c_scl_pin_desc->pPort, i2c_scl_pin_desc->ulPin, PIO_DEFAULT ) ;
+ 367:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 368:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set as input */
+ 369:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc->pPort->PIO_ODR = dwMask ;
+ 370:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc->pPort->PIO_PER = dwMask ;
+ 371:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 372:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 373:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 374:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 375:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_clear_scl(void)
+ARM GAS  /tmp/ccRzdSy9.s 			page 10
+
+
+ 376:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 377:Drivers/u8glib/src/u8g_com_i2c.c ****   uint32_t dwMask = i2c_scl_pin_desc->ulPin;
+ 378:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 379:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set open collector and drive low */
+ 380:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_Configure( i2c_scl_pin_desc->pPort, PIO_OUTPUT_0, i2c_scl_pin_desc->ulPin, PIO_OPENDRAIN );
+ 381:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_SetOutput( i2c_scl_pin_desc->pPort, i2c_scl_pin_desc->ulPin, 0, 1, 0);
+ 382:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 383:Drivers/u8glib/src/u8g_com_i2c.c ****   /* open drain, zero default output */
+ 384:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc->pPort->PIO_MDER = dwMask;
+ 385:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc->pPort->PIO_CODR = dwMask;
+ 386:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc->pPort->PIO_OER = dwMask;
+ 387:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_scl_pin_desc->pPort->PIO_PER = dwMask;
+ 388:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 389:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_Clear( i2c_scl_pin_desc->pPort, i2c_scl_pin_desc->ulPin) ;
+ 390:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 391:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 392:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t i2c_read_sda(void)
+ 393:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 394:Drivers/u8glib/src/u8g_com_i2c.c ****   uint32_t dwMask = i2c_sda_pin_desc->ulPin;
+ 395:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_Configure( i2c_sda_pin_desc->pPort, PIO_INPUT, i2c_sda_pin_desc->ulPin, PIO_DEFAULT ) ;
+ 396:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_SetInput( i2c_sda_pin_desc->pPort, i2c_sda_pin_desc->ulPin, PIO_DEFAULT ) ;
+ 397:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 398:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set as input */
+ 399:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc->pPort->PIO_ODR = dwMask ;
+ 400:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc->pPort->PIO_PER = dwMask ;
+ 401:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 402:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 403:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;
+ 404:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 405:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 406:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_clear_sda(void)
+ 407:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 408:Drivers/u8glib/src/u8g_com_i2c.c ****   uint32_t dwMask = i2c_sda_pin_desc->ulPin;
+ 409:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 410:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set open collector and drive low */
+ 411:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_Configure( i2c_sda_pin_desc->pPort, PIO_OUTPUT_0, i2c_sda_pin_desc->ulPin, PIO_OPENDRAIN );
+ 412:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_SetOutput( i2c_sda_pin_desc->pPort, i2c_sda_pin_desc->ulPin, 0, 1, 0);
+ 413:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 414:Drivers/u8glib/src/u8g_com_i2c.c ****   /* open drain, zero default output */
+ 415:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc->pPort->PIO_MDER = dwMask ;
+ 416:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc->pPort->PIO_CODR = dwMask ;
+ 417:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc->pPort->PIO_OER = dwMask ;
+ 418:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_sda_pin_desc->pPort->PIO_PER = dwMask ;
+ 419:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 420:Drivers/u8glib/src/u8g_com_i2c.c ****   //PIO_Clear( i2c_sda_pin_desc->pPort, i2c_sda_pin_desc->ulPin) ;
+ 421:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 422:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 423:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_start(void)
+ 424:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 425:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( i2c_started != 0 )
+ 426:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 427:Drivers/u8glib/src/u8g_com_i2c.c ****     /* if already started: do restart */
+ 428:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_read_sda();     /* SDA = 1 */
+ 429:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_delay();
+ 430:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_read_scl_and_delay();
+ 431:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 432:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_read_sda();
+ARM GAS  /tmp/ccRzdSy9.s 			page 11
+
+
+ 433:Drivers/u8glib/src/u8g_com_i2c.c ****   /*
+ 434:Drivers/u8glib/src/u8g_com_i2c.c ****   if (i2c_read_sda() == 0)
+ 435:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 436:Drivers/u8glib/src/u8g_com_i2c.c ****     // do something because arbitration is lost
+ 437:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 438:Drivers/u8glib/src/u8g_com_i2c.c ****   */
+ 439:Drivers/u8glib/src/u8g_com_i2c.c ****   /* send the start condition, both lines go from 1 to 0 */
+ 440:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_clear_sda();
+ 441:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 442:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_clear_scl();
+ 443:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_started = 1;
+ 444:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 445:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 446:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 447:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_stop(void)
+ 448:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 449:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set SDA to 0 */
+ 450:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_clear_sda();  
+ 451:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 452:Drivers/u8glib/src/u8g_com_i2c.c ****  
+ 453:Drivers/u8glib/src/u8g_com_i2c.c ****   /* now release all lines */
+ 454:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_read_scl_and_delay();
+ 455:Drivers/u8glib/src/u8g_com_i2c.c ****  
+ 456:Drivers/u8glib/src/u8g_com_i2c.c ****   /* set SDA to 1 */
+ 457:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_read_sda();
+ 458:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 459:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_started = 0;
+ 460:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 461:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 462:Drivers/u8glib/src/u8g_com_i2c.c **** static void i2c_write_bit(uint8_t val)
+ 463:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 464:Drivers/u8glib/src/u8g_com_i2c.c ****   if (val)
+ 465:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_read_sda();
+ 466:Drivers/u8glib/src/u8g_com_i2c.c ****   else
+ 467:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_clear_sda();
+ 468:Drivers/u8glib/src/u8g_com_i2c.c ****  
+ 469:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 470:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_read_scl_and_delay();
+ 471:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_clear_scl();
+ 472:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 473:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 474:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t i2c_read_bit(void)
+ 475:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 476:Drivers/u8glib/src/u8g_com_i2c.c ****   uint8_t val;
+ 477:Drivers/u8glib/src/u8g_com_i2c.c ****   /* do not drive SDA */
+ 478:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_read_sda();
+ 479:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 480:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_read_scl_and_delay();
+ 481:Drivers/u8glib/src/u8g_com_i2c.c ****   val = i2c_read_sda();
+ 482:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_delay();
+ 483:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_clear_scl();
+ 484:Drivers/u8glib/src/u8g_com_i2c.c ****   return val;
+ 485:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 486:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 487:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t i2c_write_byte(uint8_t b)
+ 488:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 489:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 128);
+ARM GAS  /tmp/ccRzdSy9.s 			page 12
+
+
+ 490:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 64);
+ 491:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 32);
+ 492:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 16);
+ 493:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 8);
+ 494:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 4);
+ 495:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 2);
+ 496:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_bit(b & 1);
+ 497:Drivers/u8glib/src/u8g_com_i2c.c ****     
+ 498:Drivers/u8glib/src/u8g_com_i2c.c ****   /* read ack from client */
+ 499:Drivers/u8glib/src/u8g_com_i2c.c ****   /* 0: ack was given by client */
+ 500:Drivers/u8glib/src/u8g_com_i2c.c ****   /* 1: nothing happend during ack cycle */  
+ 501:Drivers/u8glib/src/u8g_com_i2c.c ****   return i2c_read_bit();
+ 502:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 503:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 504:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 505:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 506:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_init(uint8_t options)
+ 507:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 508:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_opt = options;
+ 509:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_clear_error();
+ 510:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 511:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_opt & U8G_I2C_OPT_FAST )
+ 512:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 513:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_delay = i2c_400KHz_delay;
+ 514:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 515:Drivers/u8glib/src/u8g_com_i2c.c ****   else
+ 516:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 517:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_delay = i2c_100KHz_delay;
+ 518:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 519:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 520:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 521:Drivers/u8glib/src/u8g_com_i2c.c ****   if ( u8g_i2c_opt & U8G_I2C_OPT_DEV_1 )
+ 522:Drivers/u8glib/src/u8g_com_i2c.c ****   {
+ 523:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_scl_pin = PIN_WIRE1_SCL;
+ 524:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_sda_pin = PIN_WIRE1_SDA;
+ 525:Drivers/u8glib/src/u8g_com_i2c.c ****     
+ 526:Drivers/u8glib/src/u8g_com_i2c.c ****     //REG_PIOA_PDR = PIO_PB12A_TWD1 | PIO_PB13A_TWCK1;
+ 527:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 528:Drivers/u8glib/src/u8g_com_i2c.c ****   else
+ 529:Drivers/u8glib/src/u8g_com_i2c.c ****   {    
+ 530:Drivers/u8glib/src/u8g_com_i2c.c ****     
+ 531:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_scl_pin = PIN_WIRE_SCL;
+ 532:Drivers/u8glib/src/u8g_com_i2c.c ****     i2c_sda_pin = PIN_WIRE_SDA;
+ 533:Drivers/u8glib/src/u8g_com_i2c.c ****     
+ 534:Drivers/u8glib/src/u8g_com_i2c.c ****     //REG_PIOA_PDR = PIO_PA17A_TWD0 | PIO_PA18A_TWCK0;
+ 535:Drivers/u8glib/src/u8g_com_i2c.c ****   }
+ 536:Drivers/u8glib/src/u8g_com_i2c.c ****   
+ 537:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_init();
+ 538:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 539:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 540:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 541:Drivers/u8glib/src/u8g_com_i2c.c **** /* sla includes also the r/w bit */
+ 542:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_start(uint8_t sla)
+ 543:Drivers/u8glib/src/u8g_com_i2c.c **** {  
+ 544:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_start();
+ 545:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_write_byte(sla);
+ 546:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;
+ARM GAS  /tmp/ccRzdSy9.s 			page 13
+
+
+ 547:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 548:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 549:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_send_byte(uint8_t data)
+ 550:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 551:Drivers/u8glib/src/u8g_com_i2c.c ****   return i2c_write_byte(data);
+ 552:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 553:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 554:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_stop(void)
+ 555:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 556:Drivers/u8glib/src/u8g_com_i2c.c ****   i2c_stop();
+ 557:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 558:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 559:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 560:Drivers/u8glib/src/u8g_com_i2c.c **** #elif defined(U8G_RASPBERRY_PI)
+ 561:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 562:Drivers/u8glib/src/u8g_com_i2c.c **** #include <wiringPi.h>
+ 563:Drivers/u8glib/src/u8g_com_i2c.c **** #include <wiringPiI2C.h>
+ 564:Drivers/u8glib/src/u8g_com_i2c.c **** #include <stdio.h>
+ 565:Drivers/u8glib/src/u8g_com_i2c.c **** #include <stdlib.h>
+ 566:Drivers/u8glib/src/u8g_com_i2c.c **** #include <errno.h>
+ 567:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 568:Drivers/u8glib/src/u8g_com_i2c.c **** #define I2C_SLA         0x3c
+ 569:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 570:Drivers/u8glib/src/u8g_com_i2c.c **** static int fd=-1;
+ 571:Drivers/u8glib/src/u8g_com_i2c.c **** static uint8_t i2cMode = 0;
+ 572:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 573:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_init(uint8_t options) {
+ 574:Drivers/u8glib/src/u8g_com_i2c.c ****    u8g_i2c_clear_error();
+ 575:Drivers/u8glib/src/u8g_com_i2c.c ****    u8g_i2c_opt = options;
+ 576:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 577:Drivers/u8glib/src/u8g_com_i2c.c ****    if (wiringPiSetup() == -1) {
+ 578:Drivers/u8glib/src/u8g_com_i2c.c ****       printf("wiringPi-Error\n");
+ 579:Drivers/u8glib/src/u8g_com_i2c.c ****       exit(1);
+ 580:Drivers/u8glib/src/u8g_com_i2c.c ****    }
+ 581:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 582:Drivers/u8glib/src/u8g_com_i2c.c ****    fd = wiringPiI2CSetup(I2C_SLA);
+ 583:Drivers/u8glib/src/u8g_com_i2c.c ****    if (fd < 0) {
+ 584:Drivers/u8glib/src/u8g_com_i2c.c ****       printf ("Unable to open I2C device 0: %s\n", strerror (errno)) ;
+ 585:Drivers/u8glib/src/u8g_com_i2c.c ****       exit (1) ;
+ 586:Drivers/u8glib/src/u8g_com_i2c.c ****    }
+ 587:Drivers/u8glib/src/u8g_com_i2c.c ****    //u8g_SetPIOutput(u8g, U8G_PI_RESET);
+ 588:Drivers/u8glib/src/u8g_com_i2c.c ****    //u8g_SetPIOutput(u8g, U8G_PI_A0);
+ 589:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 590:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_start(uint8_t sla) {
+ 591:Drivers/u8glib/src/u8g_com_i2c.c ****    u8g_i2c_send_mode(0);
+ 592:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 593:Drivers/u8glib/src/u8g_com_i2c.c ****    return 1;
+ 594:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 595:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 596:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_stop(void) {
+ 597:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 598:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 599:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_send_mode(uint8_t mode) {
+ 600:Drivers/u8glib/src/u8g_com_i2c.c ****    i2cMode = mode;
+ 601:Drivers/u8glib/src/u8g_com_i2c.c **** } 
+ 602:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 603:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_send_byte(uint8_t data) {
+ARM GAS  /tmp/ccRzdSy9.s 			page 14
+
+
+ 604:Drivers/u8glib/src/u8g_com_i2c.c ****    wiringPiI2CWriteReg8(fd, i2cMode, data);
+ 605:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 606:Drivers/u8glib/src/u8g_com_i2c.c ****    return 1;
+ 607:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 608:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 609:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_wait(uint8_t mask, uint8_t pos)
+ 610:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 611:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;
+ 612:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 613:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 614:Drivers/u8glib/src/u8g_com_i2c.c **** #else
+ 615:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 616:Drivers/u8glib/src/u8g_com_i2c.c **** /* empty interface */
+ 617:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 618:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_init(uint8_t options)
+ 619:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 152              		.loc 1 619 0
+ 153              		.cfi_startproc
+ 154 0000 80B5     		push	{r7, lr}
+ 155              	.LCFI6:
+ 156              		.cfi_def_cfa_offset 8
+ 157              		.cfi_offset 7, -8
+ 158              		.cfi_offset 14, -4
+ 159 0002 82B0     		sub	sp, sp, #8
+ 160              	.LCFI7:
+ 161              		.cfi_def_cfa_offset 16
+ 162 0004 00AF     		add	r7, sp, #0
+ 163              	.LCFI8:
+ 164              		.cfi_def_cfa_register 7
+ 165 0006 0200     		movs	r2, r0
+ 166 0008 FB1D     		adds	r3, r7, #7
+ 167 000a 1A70     		strb	r2, [r3]
+ 620:Drivers/u8glib/src/u8g_com_i2c.c ****   u8g_i2c_clear_error();
+ 168              		.loc 1 620 0
+ 169 000c FFF7FEFF 		bl	u8g_i2c_clear_error
+ 621:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 170              		.loc 1 621 0
+ 171 0010 C046     		nop
+ 172 0012 BD46     		mov	sp, r7
+ 173 0014 02B0     		add	sp, sp, #8
+ 174              		@ sp needed
+ 175 0016 80BD     		pop	{r7, pc}
+ 176              		.cfi_endproc
+ 177              	.LFE3:
+ 179              		.section	.text.u8g_i2c_wait,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	u8g_i2c_wait
+ 182              		.syntax unified
+ 183              		.code	16
+ 184              		.thumb_func
+ 185              		.fpu softvfp
+ 187              	u8g_i2c_wait:
+ 188              	.LFB4:
+ 622:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 623:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_wait(uint8_t mask, uint8_t pos)
+ 624:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 189              		.loc 1 624 0
+ARM GAS  /tmp/ccRzdSy9.s 			page 15
+
+
+ 190              		.cfi_startproc
+ 191 0000 80B5     		push	{r7, lr}
+ 192              	.LCFI9:
+ 193              		.cfi_def_cfa_offset 8
+ 194              		.cfi_offset 7, -8
+ 195              		.cfi_offset 14, -4
+ 196 0002 82B0     		sub	sp, sp, #8
+ 197              	.LCFI10:
+ 198              		.cfi_def_cfa_offset 16
+ 199 0004 00AF     		add	r7, sp, #0
+ 200              	.LCFI11:
+ 201              		.cfi_def_cfa_register 7
+ 202 0006 0200     		movs	r2, r0
+ 203 0008 FB1D     		adds	r3, r7, #7
+ 204 000a 1A70     		strb	r2, [r3]
+ 205 000c BB1D     		adds	r3, r7, #6
+ 206 000e 0A1C     		adds	r2, r1, #0
+ 207 0010 1A70     		strb	r2, [r3]
+ 625:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;
+ 208              		.loc 1 625 0
+ 209 0012 0123     		movs	r3, #1
+ 626:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 210              		.loc 1 626 0
+ 211 0014 1800     		movs	r0, r3
+ 212 0016 BD46     		mov	sp, r7
+ 213 0018 02B0     		add	sp, sp, #8
+ 214              		@ sp needed
+ 215 001a 80BD     		pop	{r7, pc}
+ 216              		.cfi_endproc
+ 217              	.LFE4:
+ 219              		.section	.text.u8g_i2c_start,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	u8g_i2c_start
+ 222              		.syntax unified
+ 223              		.code	16
+ 224              		.thumb_func
+ 225              		.fpu softvfp
+ 227              	u8g_i2c_start:
+ 228              	.LFB5:
+ 627:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 628:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_start(uint8_t sla)
+ 629:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 229              		.loc 1 629 0
+ 230              		.cfi_startproc
+ 231 0000 80B5     		push	{r7, lr}
+ 232              	.LCFI12:
+ 233              		.cfi_def_cfa_offset 8
+ 234              		.cfi_offset 7, -8
+ 235              		.cfi_offset 14, -4
+ 236 0002 82B0     		sub	sp, sp, #8
+ 237              	.LCFI13:
+ 238              		.cfi_def_cfa_offset 16
+ 239 0004 00AF     		add	r7, sp, #0
+ 240              	.LCFI14:
+ 241              		.cfi_def_cfa_register 7
+ 242 0006 0200     		movs	r2, r0
+ 243 0008 FB1D     		adds	r3, r7, #7
+ARM GAS  /tmp/ccRzdSy9.s 			page 16
+
+
+ 244 000a 1A70     		strb	r2, [r3]
+ 630:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;
+ 245              		.loc 1 630 0
+ 246 000c 0123     		movs	r3, #1
+ 631:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 247              		.loc 1 631 0
+ 248 000e 1800     		movs	r0, r3
+ 249 0010 BD46     		mov	sp, r7
+ 250 0012 02B0     		add	sp, sp, #8
+ 251              		@ sp needed
+ 252 0014 80BD     		pop	{r7, pc}
+ 253              		.cfi_endproc
+ 254              	.LFE5:
+ 256              		.section	.text.u8g_i2c_send_byte,"ax",%progbits
+ 257              		.align	1
+ 258              		.global	u8g_i2c_send_byte
+ 259              		.syntax unified
+ 260              		.code	16
+ 261              		.thumb_func
+ 262              		.fpu softvfp
+ 264              	u8g_i2c_send_byte:
+ 265              	.LFB6:
+ 632:Drivers/u8glib/src/u8g_com_i2c.c **** uint8_t u8g_i2c_send_byte(uint8_t data)
+ 633:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 266              		.loc 1 633 0
+ 267              		.cfi_startproc
+ 268 0000 80B5     		push	{r7, lr}
+ 269              	.LCFI15:
+ 270              		.cfi_def_cfa_offset 8
+ 271              		.cfi_offset 7, -8
+ 272              		.cfi_offset 14, -4
+ 273 0002 82B0     		sub	sp, sp, #8
+ 274              	.LCFI16:
+ 275              		.cfi_def_cfa_offset 16
+ 276 0004 00AF     		add	r7, sp, #0
+ 277              	.LCFI17:
+ 278              		.cfi_def_cfa_register 7
+ 279 0006 0200     		movs	r2, r0
+ 280 0008 FB1D     		adds	r3, r7, #7
+ 281 000a 1A70     		strb	r2, [r3]
+ 634:Drivers/u8glib/src/u8g_com_i2c.c ****   return 1;
+ 282              		.loc 1 634 0
+ 283 000c 0123     		movs	r3, #1
+ 635:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 284              		.loc 1 635 0
+ 285 000e 1800     		movs	r0, r3
+ 286 0010 BD46     		mov	sp, r7
+ 287 0012 02B0     		add	sp, sp, #8
+ 288              		@ sp needed
+ 289 0014 80BD     		pop	{r7, pc}
+ 290              		.cfi_endproc
+ 291              	.LFE6:
+ 293              		.section	.text.u8g_i2c_stop,"ax",%progbits
+ 294              		.align	1
+ 295              		.global	u8g_i2c_stop
+ 296              		.syntax unified
+ 297              		.code	16
+ARM GAS  /tmp/ccRzdSy9.s 			page 17
+
+
+ 298              		.thumb_func
+ 299              		.fpu softvfp
+ 301              	u8g_i2c_stop:
+ 302              	.LFB7:
+ 636:Drivers/u8glib/src/u8g_com_i2c.c **** 
+ 637:Drivers/u8glib/src/u8g_com_i2c.c **** void u8g_i2c_stop(void)
+ 638:Drivers/u8glib/src/u8g_com_i2c.c **** {
+ 303              		.loc 1 638 0
+ 304              		.cfi_startproc
+ 305 0000 80B5     		push	{r7, lr}
+ 306              	.LCFI18:
+ 307              		.cfi_def_cfa_offset 8
+ 308              		.cfi_offset 7, -8
+ 309              		.cfi_offset 14, -4
+ 310 0002 00AF     		add	r7, sp, #0
+ 311              	.LCFI19:
+ 312              		.cfi_def_cfa_register 7
+ 639:Drivers/u8glib/src/u8g_com_i2c.c **** }
+ 313              		.loc 1 639 0
+ 314 0004 C046     		nop
+ 315 0006 BD46     		mov	sp, r7
+ 316              		@ sp needed
+ 317 0008 80BD     		pop	{r7, pc}
+ 318              		.cfi_endproc
+ 319              	.LFE7:
+ 321              		.text
+ 322              	.Letext0:
+ 323              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 324              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 325              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccRzdSy9.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_com_i2c.c
+     /tmp/ccRzdSy9.s:18     .bss.u8g_i2c_err_code:0000000000000000 u8g_i2c_err_code
+     /tmp/ccRzdSy9.s:19     .bss.u8g_i2c_err_code:0000000000000000 $d
+     /tmp/ccRzdSy9.s:23     .bss.u8g_i2c_opt:0000000000000000 u8g_i2c_opt
+     /tmp/ccRzdSy9.s:24     .bss.u8g_i2c_opt:0000000000000000 $d
+     /tmp/ccRzdSy9.s:28     .bss.u8g_i2c_err_pos:0000000000000000 u8g_i2c_err_pos
+     /tmp/ccRzdSy9.s:29     .bss.u8g_i2c_err_pos:0000000000000000 $d
+     /tmp/ccRzdSy9.s:31     .text.u8g_i2c_clear_error:0000000000000000 $t
+     /tmp/ccRzdSy9.s:38     .text.u8g_i2c_clear_error:0000000000000000 u8g_i2c_clear_error
+     /tmp/ccRzdSy9.s:67     .text.u8g_i2c_clear_error:0000000000000018 $d
+     /tmp/ccRzdSy9.s:73     .text.u8g_i2c_get_error:0000000000000000 $t
+     /tmp/ccRzdSy9.s:80     .text.u8g_i2c_get_error:0000000000000000 u8g_i2c_get_error
+     /tmp/ccRzdSy9.s:103    .text.u8g_i2c_get_error:0000000000000010 $d
+     /tmp/ccRzdSy9.s:108    .text.u8g_i2c_get_err_pos:0000000000000000 $t
+     /tmp/ccRzdSy9.s:115    .text.u8g_i2c_get_err_pos:0000000000000000 u8g_i2c_get_err_pos
+     /tmp/ccRzdSy9.s:138    .text.u8g_i2c_get_err_pos:0000000000000010 $d
+     /tmp/ccRzdSy9.s:143    .text.u8g_i2c_init:0000000000000000 $t
+     /tmp/ccRzdSy9.s:150    .text.u8g_i2c_init:0000000000000000 u8g_i2c_init
+     /tmp/ccRzdSy9.s:180    .text.u8g_i2c_wait:0000000000000000 $t
+     /tmp/ccRzdSy9.s:187    .text.u8g_i2c_wait:0000000000000000 u8g_i2c_wait
+     /tmp/ccRzdSy9.s:220    .text.u8g_i2c_start:0000000000000000 $t
+     /tmp/ccRzdSy9.s:227    .text.u8g_i2c_start:0000000000000000 u8g_i2c_start
+     /tmp/ccRzdSy9.s:257    .text.u8g_i2c_send_byte:0000000000000000 $t
+     /tmp/ccRzdSy9.s:264    .text.u8g_i2c_send_byte:0000000000000000 u8g_i2c_send_byte
+     /tmp/ccRzdSy9.s:294    .text.u8g_i2c_stop:0000000000000000 $t
+     /tmp/ccRzdSy9.s:301    .text.u8g_i2c_stop:0000000000000000 u8g_i2c_stop
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS

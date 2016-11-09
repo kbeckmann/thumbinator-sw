@@ -1,0 +1,579 @@
+ARM GAS  /tmp/ccONrap4.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_st7565_dogm132.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_st7565_dogm132_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_st7565_dogm132_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 C1       		.byte	-63
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 40       		.byte	64
+  29 0009 A1       		.byte	-95
+  30 000a C0       		.byte	-64
+  31 000b A6       		.byte	-90
+  32 000c A2       		.byte	-94
+  33 000d 2F       		.byte	47
+  34 000e F8       		.byte	-8
+  35 000f 00       		.byte	0
+  36 0010 23       		.byte	35
+  37 0011 81       		.byte	-127
+  38 0012 1F       		.byte	31
+  39 0013 AC       		.byte	-84
+  40 0014 00       		.byte	0
+  41 0015 AF       		.byte	-81
+  42 0016 FF       		.byte	-1
+  43 0017 64       		.byte	100
+  44 0018 A5       		.byte	-91
+  45 0019 FF       		.byte	-1
+  46 001a 64       		.byte	100
+  47 001b FF       		.byte	-1
+  48 001c 64       		.byte	100
+  49 001d A4       		.byte	-92
+  50 001e FF       		.byte	-1
+  51 001f D0       		.byte	-48
+  52 0020 FF       		.byte	-1
+  53 0021 FE       		.byte	-2
+  54              		.section	.rodata.u8g_dev_st7565_dogm132_data_start,"a",%progbits
+  55              		.align	2
+  58              	u8g_dev_st7565_dogm132_data_start:
+  59 0000 FF       		.byte	-1
+  60 0001 E0       		.byte	-32
+  61 0002 FF       		.byte	-1
+ARM GAS  /tmp/ccONrap4.s 			page 2
+
+
+  62 0003 D1       		.byte	-47
+  63 0004 10       		.byte	16
+  64 0005 00       		.byte	0
+  65 0006 FF       		.byte	-1
+  66 0007 FE       		.byte	-2
+  67              		.section	.rodata.u8g_dev_st7565_dogm132_sleep_on,"a",%progbits
+  68              		.align	2
+  71              	u8g_dev_st7565_dogm132_sleep_on:
+  72 0000 FF       		.byte	-1
+  73 0001 E0       		.byte	-32
+  74 0002 FF       		.byte	-1
+  75 0003 D1       		.byte	-47
+  76 0004 AC       		.byte	-84
+  77 0005 00       		.byte	0
+  78 0006 AE       		.byte	-82
+  79 0007 A5       		.byte	-91
+  80 0008 FF       		.byte	-1
+  81 0009 D0       		.byte	-48
+  82 000a FF       		.byte	-1
+  83 000b FE       		.byte	-2
+  84              		.section	.rodata.u8g_dev_st7565_dogm132_sleep_off,"a",%progbits
+  85              		.align	2
+  88              	u8g_dev_st7565_dogm132_sleep_off:
+  89 0000 FF       		.byte	-1
+  90 0001 E0       		.byte	-32
+  91 0002 FF       		.byte	-1
+  92 0003 D1       		.byte	-47
+  93 0004 A4       		.byte	-92
+  94 0005 AF       		.byte	-81
+  95 0006 FF       		.byte	-1
+  96 0007 32       		.byte	50
+  97 0008 FF       		.byte	-1
+  98 0009 D0       		.byte	-48
+  99 000a FF       		.byte	-1
+ 100 000b FE       		.byte	-2
+ 101              		.section	.text.u8g_dev_st7565_dogm132_fn,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	u8g_dev_st7565_dogm132_fn
+ 104              		.syntax unified
+ 105              		.code	16
+ 106              		.thumb_func
+ 107              		.fpu softvfp
+ 109              	u8g_dev_st7565_dogm132_fn:
+ 110              	.LFB0:
+ 111              		.file 1 "Drivers/u8glib/src/u8g_dev_st7565_dogm132.c"
+   1:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+   3:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   u8g_dev_st7565_dogm132.c
+   4:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+   5:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   
+   7:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   Copyright (c) 2011, olikraus@gmail.com
+   8:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  10:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+ARM GAS  /tmp/ccONrap4.s 			page 3
+
+
+  13:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     
+  16:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  20:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   
+  34:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   
+  35:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** */
+  36:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  37:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** #include "u8g.h"
+  38:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  39:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** #define WIDTH 132
+  40:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** #define HEIGHT 32
+  41:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** #define PAGE_HEIGHT 8
+  42:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  43:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** static const uint8_t u8g_dev_st7565_dogm132_init_seq[] PROGMEM = {
+  44:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(0),             /* disable chip */
+  45:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  46:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_RST(1),           /* do reset low pulse with (1*16)+2 milliseconds */
+  47:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(1),             /* enable chip */
+  48:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  49:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x040,		/* set display start line to 0 */
+  50:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a1,		/* ADC set to reverse */
+  51:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0c0,		/* common output mode */
+  52:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a6,		/* display normal, bit val 0: LCD pixel off. */
+  53:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a2,		/* LCD bias 1/9 */
+  54:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x02f,		/* all power  control circuits on */
+  55:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0f8,		/* set booster ratio to */
+  56:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x000,		/* 4x */
+  57:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x023,		/* set V0 voltage resistor ratio to large */
+  58:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x081,		/* set contrast */
+  59:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x01f,		/* contrast value, EA default: 0x01f */
+  60:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0ac,		/* indicator */
+  61:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x000,		/* disable */
+  62:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0af,		/* display on */
+  63:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  64:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** #ifdef OBSOLETE_DOGM128  
+  65:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x040,		                /* set display start line */
+  66:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0c8,		                /* set scan direction inverse operation */
+  67:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a2,		                /* LCD bias 1/9 */
+  68:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x02f,		                /* all power  control circuits on */
+  69:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0f8,		                /* set booster ratio to */
+ARM GAS  /tmp/ccONrap4.s 			page 4
+
+
+  70:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x000,		                /* 4x */
+  71:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x027,		                /* set V0 voltage resistor ratio to large */
+  72:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x081,		                /* set contrast */
+  73:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x018,		                /* contrast value, EA default: 0x016 */
+  74:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0ac,		                /* indicator */
+  75:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x000,		                /* disable */
+  76:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0af,		                /* display on */
+  77:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** #endif
+  78:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  79:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  80:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  81:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a5,		                /* display all points, ST7565 */
+  82:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  83:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_DLY(100),       /* delay 100 ms */
+  84:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a4,		                /* normal display */
+  85:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(0),             /* disable chip */
+  86:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_END                /* end of sequence */
+  87:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** };
+  88:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  89:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** static const uint8_t u8g_dev_st7565_dogm132_data_start[] PROGMEM = {
+  90:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  91:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(1),             /* enable chip */
+  92:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x010,		/* set upper 4 bit of the col adr to 0 */
+  93:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x000,		/* set lower 4 bit of the col adr to 0  */
+  94:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_END                /* end of sequence */
+  95:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** };
+  96:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+  97:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** static const uint8_t u8g_dev_st7565_dogm132_sleep_on[] PROGMEM = {
+  98:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  99:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 100:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0ac,		/* static indicator off */
+ 101:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x000,		                /* indicator register set (not sure if this is required) */
+ 102:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0ae,		/* display off */      
+ 103:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a5,		/* all points on */      
+ 104:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(0),             /* disable chip, bugfix 12 nov 2014 */
+ 105:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_END                /* end of sequence */
+ 106:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** };
+ 107:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+ 108:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** static const uint8_t u8g_dev_st7565_dogm132_sleep_off[] PROGMEM = {
+ 109:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+ 110:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(1),             /* enable chip */
+ 111:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0a4,		/* all points off */      
+ 112:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   0x0af,		/* display on */      
+ 113:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_DLY(50),       /* delay 50 ms */
+ 114:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_CS(0),             /* disable chip, bugfix 12 nov 2014 */
+ 115:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   U8G_ESC_END                /* end of sequence */
+ 116:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** };
+ 117:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** 
+ 118:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** uint8_t u8g_dev_st7565_dogm132_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 119:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** {
+ 112              		.loc 1 119 0
+ 113              		.cfi_startproc
+ 114 0000 90B5     		push	{r4, r7, lr}
+ 115              	.LCFI0:
+ 116              		.cfi_def_cfa_offset 12
+ 117              		.cfi_offset 4, -12
+ 118              		.cfi_offset 7, -8
+ARM GAS  /tmp/ccONrap4.s 			page 5
+
+
+ 119              		.cfi_offset 14, -4
+ 120 0002 87B0     		sub	sp, sp, #28
+ 121              	.LCFI1:
+ 122              		.cfi_def_cfa_offset 40
+ 123 0004 00AF     		add	r7, sp, #0
+ 124              	.LCFI2:
+ 125              		.cfi_def_cfa_register 7
+ 126 0006 F860     		str	r0, [r7, #12]
+ 127 0008 B960     		str	r1, [r7, #8]
+ 128 000a 3B60     		str	r3, [r7]
+ 129 000c FB1D     		adds	r3, r7, #7
+ 130 000e 1A70     		strb	r2, [r3]
+ 120:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   switch(msg)
+ 131              		.loc 1 120 0
+ 132 0010 FB1D     		adds	r3, r7, #7
+ 133 0012 1B78     		ldrb	r3, [r3]
+ 134 0014 0A3B     		subs	r3, r3, #10
+ 135 0016 0B2B     		cmp	r3, #11
+ 136 0018 6FD8     		bhi	.L2
+ 137 001a 9A00     		lsls	r2, r3, #2
+ 138 001c 3D4B     		ldr	r3, .L12
+ 139 001e D318     		adds	r3, r2, r3
+ 140 0020 1B68     		ldr	r3, [r3]
+ 141 0022 9F46     		mov	pc, r3
+ 142              		.section	.rodata.u8g_dev_st7565_dogm132_fn,"a",%progbits
+ 143              		.align	2
+ 144              	.L4:
+ 145 0000 24000000 		.word	.L3
+ 146 0004 FA000000 		.word	.L2
+ 147 0008 FA000000 		.word	.L2
+ 148 000c FA000000 		.word	.L2
+ 149 0010 FA000000 		.word	.L2
+ 150 0014 94000000 		.word	.L6
+ 151 0018 DA000000 		.word	.L7
+ 152 001c EA000000 		.word	.L8
+ 153 0020 FA000000 		.word	.L2
+ 154 0024 FA000000 		.word	.L2
+ 155 0028 FA000000 		.word	.L2
+ 156 002c 3E000000 		.word	.L9
+ 157              		.section	.text.u8g_dev_st7565_dogm132_fn
+ 158              	.L3:
+ 121:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   {
+ 122:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     case U8G_DEV_MSG_INIT:
+ 123:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_400NS);
+ 159              		.loc 1 123 0
+ 160 0024 B968     		ldr	r1, [r7, #8]
+ 161 0026 FB68     		ldr	r3, [r7, #12]
+ 162 0028 0322     		movs	r2, #3
+ 163 002a 1800     		movs	r0, r3
+ 164 002c FFF7FEFF 		bl	u8g_InitCom
+ 124:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_dogm132_init_seq);
+ 165              		.loc 1 124 0
+ 166 0030 394A     		ldr	r2, .L12+4
+ 167 0032 B968     		ldr	r1, [r7, #8]
+ 168 0034 FB68     		ldr	r3, [r7, #12]
+ 169 0036 1800     		movs	r0, r3
+ 170 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ARM GAS  /tmp/ccONrap4.s 			page 6
+
+
+ 125:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       break;
+ 171              		.loc 1 125 0
+ 172 003c 5DE0     		b	.L2
+ 173              	.L9:
+ 174              	.LBB2:
+ 126:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     case U8G_DEV_MSG_STOP:
+ 127:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       break;
+ 128:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 129:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       {
+ 130:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 175              		.loc 1 130 0
+ 176 003e BB68     		ldr	r3, [r7, #8]
+ 177 0040 5B68     		ldr	r3, [r3, #4]
+ 178 0042 7B61     		str	r3, [r7, #20]
+ 131:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****         u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_dogm132_data_start);    
+ 179              		.loc 1 131 0
+ 180 0044 354A     		ldr	r2, .L12+8
+ 181 0046 B968     		ldr	r1, [r7, #8]
+ 182 0048 FB68     		ldr	r3, [r7, #12]
+ 183 004a 1800     		movs	r0, r3
+ 184 004c FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 132:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****         u8g_WriteByte(u8g, dev, 0x0b0 | pb->p.page); /* select current page (ST7565R) */
+ 185              		.loc 1 132 0
+ 186 0050 7B69     		ldr	r3, [r7, #20]
+ 187 0052 1B79     		ldrb	r3, [r3, #4]
+ 188 0054 5022     		movs	r2, #80
+ 189 0056 5242     		rsbs	r2, r2, #0
+ 190 0058 1343     		orrs	r3, r2
+ 191 005a DAB2     		uxtb	r2, r3
+ 192 005c B968     		ldr	r1, [r7, #8]
+ 193 005e FB68     		ldr	r3, [r7, #12]
+ 194 0060 1800     		movs	r0, r3
+ 195 0062 FFF7FEFF 		bl	u8g_WriteByte
+ 133:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****         u8g_SetAddress(u8g, dev, 1);           /* data mode */
+ 196              		.loc 1 133 0
+ 197 0066 B968     		ldr	r1, [r7, #8]
+ 198 0068 FB68     		ldr	r3, [r7, #12]
+ 199 006a 0122     		movs	r2, #1
+ 200 006c 1800     		movs	r0, r3
+ 201 006e FFF7FEFF 		bl	u8g_SetAddress
+ 134:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****         if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 202              		.loc 1 134 0
+ 203 0072 BA68     		ldr	r2, [r7, #8]
+ 204 0074 F968     		ldr	r1, [r7, #12]
+ 205 0076 7B69     		ldr	r3, [r7, #20]
+ 206 0078 1800     		movs	r0, r3
+ 207 007a FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 208 007e 031E     		subs	r3, r0, #0
+ 209 0080 01D1     		bne	.L10
+ 135:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****           return 0;
+ 210              		.loc 1 135 0
+ 211 0082 0023     		movs	r3, #0
+ 212 0084 42E0     		b	.L11
+ 213              	.L10:
+ 136:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 214              		.loc 1 136 0
+ 215 0086 B968     		ldr	r1, [r7, #8]
+ARM GAS  /tmp/ccONrap4.s 			page 7
+
+
+ 216 0088 FB68     		ldr	r3, [r7, #12]
+ 217 008a 0022     		movs	r2, #0
+ 218 008c 1800     		movs	r0, r3
+ 219 008e FFF7FEFF 		bl	u8g_SetChipSelect
+ 220              	.LBE2:
+ 137:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       }
+ 138:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       break;
+ 221              		.loc 1 138 0
+ 222 0092 32E0     		b	.L2
+ 223              	.L6:
+ 139:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     case U8G_DEV_MSG_CONTRAST:
+ 140:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 224              		.loc 1 140 0
+ 225 0094 B968     		ldr	r1, [r7, #8]
+ 226 0096 FB68     		ldr	r3, [r7, #12]
+ 227 0098 0122     		movs	r2, #1
+ 228 009a 1800     		movs	r0, r3
+ 229 009c FFF7FEFF 		bl	u8g_SetChipSelect
+ 141:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 230              		.loc 1 141 0
+ 231 00a0 B968     		ldr	r1, [r7, #8]
+ 232 00a2 FB68     		ldr	r3, [r7, #12]
+ 233 00a4 0022     		movs	r2, #0
+ 234 00a6 1800     		movs	r0, r3
+ 235 00a8 FFF7FEFF 		bl	u8g_SetAddress
+ 142:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_WriteByte(u8g, dev, 0x081);
+ 236              		.loc 1 142 0
+ 237 00ac B968     		ldr	r1, [r7, #8]
+ 238 00ae FB68     		ldr	r3, [r7, #12]
+ 239 00b0 8122     		movs	r2, #129
+ 240 00b2 1800     		movs	r0, r3
+ 241 00b4 FFF7FEFF 		bl	u8g_WriteByte
+ 143:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) >> 2);
+ 242              		.loc 1 143 0
+ 243 00b8 3B68     		ldr	r3, [r7]
+ 244 00ba 1B78     		ldrb	r3, [r3]
+ 245 00bc 9B08     		lsrs	r3, r3, #2
+ 246 00be DAB2     		uxtb	r2, r3
+ 247 00c0 B968     		ldr	r1, [r7, #8]
+ 248 00c2 FB68     		ldr	r3, [r7, #12]
+ 249 00c4 1800     		movs	r0, r3
+ 250 00c6 FFF7FEFF 		bl	u8g_WriteByte
+ 144:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_SetChipSelect(u8g, dev, 0);      
+ 251              		.loc 1 144 0
+ 252 00ca B968     		ldr	r1, [r7, #8]
+ 253 00cc FB68     		ldr	r3, [r7, #12]
+ 254 00ce 0022     		movs	r2, #0
+ 255 00d0 1800     		movs	r0, r3
+ 256 00d2 FFF7FEFF 		bl	u8g_SetChipSelect
+ 145:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       return 1;
+ 257              		.loc 1 145 0
+ 258 00d6 0123     		movs	r3, #1
+ 259 00d8 18E0     		b	.L11
+ 260              	.L7:
+ 146:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     case U8G_DEV_MSG_SLEEP_ON:
+ 147:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_dogm132_sleep_on);    
+ 261              		.loc 1 147 0
+ARM GAS  /tmp/ccONrap4.s 			page 8
+
+
+ 262 00da 114A     		ldr	r2, .L12+12
+ 263 00dc B968     		ldr	r1, [r7, #8]
+ 264 00de FB68     		ldr	r3, [r7, #12]
+ 265 00e0 1800     		movs	r0, r3
+ 266 00e2 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 148:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       return 1;
+ 267              		.loc 1 148 0
+ 268 00e6 0123     		movs	r3, #1
+ 269 00e8 10E0     		b	.L11
+ 270              	.L8:
+ 149:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****     case U8G_DEV_MSG_SLEEP_OFF:
+ 150:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_st7565_dogm132_sleep_off);    
+ 271              		.loc 1 150 0
+ 272 00ea 0E4A     		ldr	r2, .L12+16
+ 273 00ec B968     		ldr	r1, [r7, #8]
+ 274 00ee FB68     		ldr	r3, [r7, #12]
+ 275 00f0 1800     		movs	r0, r3
+ 276 00f2 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 151:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****       return 1;
+ 277              		.loc 1 151 0
+ 278 00f6 0123     		movs	r3, #1
+ 279 00f8 08E0     		b	.L11
+ 280              	.L2:
+ 152:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   }
+ 153:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 281              		.loc 1 153 0
+ 282 00fa 3C68     		ldr	r4, [r7]
+ 283 00fc FB1D     		adds	r3, r7, #7
+ 284 00fe 1A78     		ldrb	r2, [r3]
+ 285 0100 B968     		ldr	r1, [r7, #8]
+ 286 0102 F868     		ldr	r0, [r7, #12]
+ 287 0104 2300     		movs	r3, r4
+ 288 0106 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 289 010a 0300     		movs	r3, r0
+ 290              	.L11:
+ 154:Drivers/u8glib/src/u8g_dev_st7565_dogm132.c **** }
+ 291              		.loc 1 154 0
+ 292 010c 1800     		movs	r0, r3
+ 293 010e BD46     		mov	sp, r7
+ 294 0110 07B0     		add	sp, sp, #28
+ 295              		@ sp needed
+ 296 0112 90BD     		pop	{r4, r7, pc}
+ 297              	.L13:
+ 298              		.align	2
+ 299              	.L12:
+ 300 0114 00000000 		.word	.L4
+ 301 0118 00000000 		.word	u8g_dev_st7565_dogm132_init_seq
+ 302 011c 00000000 		.word	u8g_dev_st7565_dogm132_data_start
+ 303 0120 00000000 		.word	u8g_dev_st7565_dogm132_sleep_on
+ 304 0124 00000000 		.word	u8g_dev_st7565_dogm132_sleep_off
+ 305              		.cfi_endproc
+ 306              	.LFE0:
+ 308              		.global	u8g_dev_st7565_dogm132_sw_spi_buf
+ 309              		.section	.bss.u8g_dev_st7565_dogm132_sw_spi_buf,"aw",%nobits
+ 310              		.align	2
+ 313              	u8g_dev_st7565_dogm132_sw_spi_buf:
+ 314 0000 00000000 		.space	132
+ARM GAS  /tmp/ccONrap4.s 			page 9
+
+
+ 314      00000000 
+ 314      00000000 
+ 314      00000000 
+ 314      00000000 
+ 315              		.global	u8g_dev_st7565_dogm132_sw_spi_pb
+ 316              		.section	.data.u8g_dev_st7565_dogm132_sw_spi_pb,"aw",%progbits
+ 317              		.align	2
+ 320              	u8g_dev_st7565_dogm132_sw_spi_pb:
+ 321 0000 08       		.byte	8
+ 322 0001 20       		.byte	32
+ 323 0002 00       		.byte	0
+ 324 0003 00       		.byte	0
+ 325 0004 00       		.byte	0
+ 326 0005 84       		.byte	-124
+ 327 0006 0000     		.space	2
+ 328 0008 00000000 		.word	u8g_dev_st7565_dogm132_sw_spi_buf
+ 329              		.global	u8g_dev_st7565_dogm132_sw_spi
+ 330              		.section	.data.u8g_dev_st7565_dogm132_sw_spi,"aw",%progbits
+ 331              		.align	2
+ 334              	u8g_dev_st7565_dogm132_sw_spi:
+ 335 0000 00000000 		.word	u8g_dev_st7565_dogm132_fn
+ 336 0004 00000000 		.word	u8g_dev_st7565_dogm132_sw_spi_pb
+ 337 0008 00000000 		.word	u8g_com_null_fn
+ 338              		.global	u8g_dev_st7565_dogm132_hw_spi_buf
+ 339              		.section	.bss.u8g_dev_st7565_dogm132_hw_spi_buf,"aw",%nobits
+ 340              		.align	2
+ 343              	u8g_dev_st7565_dogm132_hw_spi_buf:
+ 344 0000 00000000 		.space	132
+ 344      00000000 
+ 344      00000000 
+ 344      00000000 
+ 344      00000000 
+ 345              		.global	u8g_dev_st7565_dogm132_hw_spi_pb
+ 346              		.section	.data.u8g_dev_st7565_dogm132_hw_spi_pb,"aw",%progbits
+ 347              		.align	2
+ 350              	u8g_dev_st7565_dogm132_hw_spi_pb:
+ 351 0000 08       		.byte	8
+ 352 0001 20       		.byte	32
+ 353 0002 00       		.byte	0
+ 354 0003 00       		.byte	0
+ 355 0004 00       		.byte	0
+ 356 0005 84       		.byte	-124
+ 357 0006 0000     		.space	2
+ 358 0008 00000000 		.word	u8g_dev_st7565_dogm132_hw_spi_buf
+ 359              		.global	u8g_dev_st7565_dogm132_hw_spi
+ 360              		.section	.data.u8g_dev_st7565_dogm132_hw_spi,"aw",%progbits
+ 361              		.align	2
+ 364              	u8g_dev_st7565_dogm132_hw_spi:
+ 365 0000 00000000 		.word	u8g_dev_st7565_dogm132_fn
+ 366 0004 00000000 		.word	u8g_dev_st7565_dogm132_hw_spi_pb
+ 367 0008 00000000 		.word	u8g_com_null_fn
+ 368              		.text
+ 369              	.Letext0:
+ 370              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 371              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 372              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccONrap4.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_st7565_dogm132.c
+     /tmp/ccONrap4.s:16     .rodata.u8g_dev_st7565_dogm132_init_seq:0000000000000000 $d
+     /tmp/ccONrap4.s:19     .rodata.u8g_dev_st7565_dogm132_init_seq:0000000000000000 u8g_dev_st7565_dogm132_init_seq
+     /tmp/ccONrap4.s:55     .rodata.u8g_dev_st7565_dogm132_data_start:0000000000000000 $d
+     /tmp/ccONrap4.s:58     .rodata.u8g_dev_st7565_dogm132_data_start:0000000000000000 u8g_dev_st7565_dogm132_data_start
+     /tmp/ccONrap4.s:68     .rodata.u8g_dev_st7565_dogm132_sleep_on:0000000000000000 $d
+     /tmp/ccONrap4.s:71     .rodata.u8g_dev_st7565_dogm132_sleep_on:0000000000000000 u8g_dev_st7565_dogm132_sleep_on
+     /tmp/ccONrap4.s:85     .rodata.u8g_dev_st7565_dogm132_sleep_off:0000000000000000 $d
+     /tmp/ccONrap4.s:88     .rodata.u8g_dev_st7565_dogm132_sleep_off:0000000000000000 u8g_dev_st7565_dogm132_sleep_off
+     /tmp/ccONrap4.s:102    .text.u8g_dev_st7565_dogm132_fn:0000000000000000 $t
+     /tmp/ccONrap4.s:109    .text.u8g_dev_st7565_dogm132_fn:0000000000000000 u8g_dev_st7565_dogm132_fn
+     /tmp/ccONrap4.s:143    .rodata.u8g_dev_st7565_dogm132_fn:0000000000000000 $d
+     /tmp/ccONrap4.s:300    .text.u8g_dev_st7565_dogm132_fn:0000000000000114 $d
+     /tmp/ccONrap4.s:313    .bss.u8g_dev_st7565_dogm132_sw_spi_buf:0000000000000000 u8g_dev_st7565_dogm132_sw_spi_buf
+     /tmp/ccONrap4.s:310    .bss.u8g_dev_st7565_dogm132_sw_spi_buf:0000000000000000 $d
+     /tmp/ccONrap4.s:320    .data.u8g_dev_st7565_dogm132_sw_spi_pb:0000000000000000 u8g_dev_st7565_dogm132_sw_spi_pb
+     /tmp/ccONrap4.s:317    .data.u8g_dev_st7565_dogm132_sw_spi_pb:0000000000000000 $d
+     /tmp/ccONrap4.s:334    .data.u8g_dev_st7565_dogm132_sw_spi:0000000000000000 u8g_dev_st7565_dogm132_sw_spi
+     /tmp/ccONrap4.s:331    .data.u8g_dev_st7565_dogm132_sw_spi:0000000000000000 $d
+     /tmp/ccONrap4.s:343    .bss.u8g_dev_st7565_dogm132_hw_spi_buf:0000000000000000 u8g_dev_st7565_dogm132_hw_spi_buf
+     /tmp/ccONrap4.s:340    .bss.u8g_dev_st7565_dogm132_hw_spi_buf:0000000000000000 $d
+     /tmp/ccONrap4.s:350    .data.u8g_dev_st7565_dogm132_hw_spi_pb:0000000000000000 u8g_dev_st7565_dogm132_hw_spi_pb
+     /tmp/ccONrap4.s:347    .data.u8g_dev_st7565_dogm132_hw_spi_pb:0000000000000000 $d
+     /tmp/ccONrap4.s:364    .data.u8g_dev_st7565_dogm132_hw_spi:0000000000000000 u8g_dev_st7565_dogm132_hw_spi
+     /tmp/ccONrap4.s:361    .data.u8g_dev_st7565_dogm132_hw_spi:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_WriteByte
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8v1_base_fn
+u8g_com_null_fn

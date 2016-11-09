@@ -1,0 +1,325 @@
+ARM GAS  /tmp/ccZPAA2r.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_page.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_page_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_page_Init
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_page_Init:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_page.c"
+   1:Drivers/u8glib/src/u8g_page.c **** /*
+   2:Drivers/u8glib/src/u8g_page.c **** 
+   3:Drivers/u8glib/src/u8g_page.c ****   u8g_page.c
+   4:Drivers/u8glib/src/u8g_page.c ****   
+   5:Drivers/u8glib/src/u8g_page.c ****   page helper functions, only called by the dev handler.
+   6:Drivers/u8glib/src/u8g_page.c **** 
+   7:Drivers/u8glib/src/u8g_page.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_page.c ****   
+   9:Drivers/u8glib/src/u8g_page.c ****   Copyright (c) 2011, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_page.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_page.c **** 
+  12:Drivers/u8glib/src/u8g_page.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_page.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_page.c **** 
+  15:Drivers/u8glib/src/u8g_page.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_page.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_page.c ****     
+  18:Drivers/u8glib/src/u8g_page.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_page.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_page.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_page.c **** 
+  22:Drivers/u8glib/src/u8g_page.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_page.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_page.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_page.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_page.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_page.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_page.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_page.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_page.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_page.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_page.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_page.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ARM GAS  /tmp/ccZPAA2r.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_page.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_page.c ****   
+  36:Drivers/u8glib/src/u8g_page.c ****   
+  37:Drivers/u8glib/src/u8g_page.c **** */
+  38:Drivers/u8glib/src/u8g_page.c **** 
+  39:Drivers/u8glib/src/u8g_page.c **** #include "u8g.h"
+  40:Drivers/u8glib/src/u8g_page.c **** 
+  41:Drivers/u8glib/src/u8g_page.c **** /*
+  42:Drivers/u8glib/src/u8g_page.c ****   setup page count structure
+  43:Drivers/u8glib/src/u8g_page.c ****   conditions: page_height <= total_height
+  44:Drivers/u8glib/src/u8g_page.c **** */
+  45:Drivers/u8glib/src/u8g_page.c **** void u8g_page_Init(u8g_page_t *p, u8g_uint_t page_height, u8g_uint_t total_height )
+  46:Drivers/u8glib/src/u8g_page.c **** {
+  26              		.loc 1 46 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
+  40 0008 0800     		movs	r0, r1
+  41 000a 1100     		movs	r1, r2
+  42 000c FB1C     		adds	r3, r7, #3
+  43 000e 021C     		adds	r2, r0, #0
+  44 0010 1A70     		strb	r2, [r3]
+  45 0012 BB1C     		adds	r3, r7, #2
+  46 0014 0A1C     		adds	r2, r1, #0
+  47 0016 1A70     		strb	r2, [r3]
+  47:Drivers/u8glib/src/u8g_page.c ****   p->page_height = page_height;
+  48              		.loc 1 47 0
+  49 0018 7B68     		ldr	r3, [r7, #4]
+  50 001a FA1C     		adds	r2, r7, #3
+  51 001c 1278     		ldrb	r2, [r2]
+  52 001e 1A70     		strb	r2, [r3]
+  48:Drivers/u8glib/src/u8g_page.c ****   p->total_height = total_height;
+  53              		.loc 1 48 0
+  54 0020 7B68     		ldr	r3, [r7, #4]
+  55 0022 BA1C     		adds	r2, r7, #2
+  56 0024 1278     		ldrb	r2, [r2]
+  57 0026 5A70     		strb	r2, [r3, #1]
+  49:Drivers/u8glib/src/u8g_page.c ****   p->page = 0;
+  58              		.loc 1 49 0
+  59 0028 7B68     		ldr	r3, [r7, #4]
+  60 002a 0022     		movs	r2, #0
+  61 002c 1A71     		strb	r2, [r3, #4]
+  50:Drivers/u8glib/src/u8g_page.c ****   u8g_page_First(p);
+  62              		.loc 1 50 0
+  63 002e 7B68     		ldr	r3, [r7, #4]
+  64 0030 1800     		movs	r0, r3
+  65 0032 FFF7FEFF 		bl	u8g_page_First
+ARM GAS  /tmp/ccZPAA2r.s 			page 3
+
+
+  51:Drivers/u8glib/src/u8g_page.c **** }
+  66              		.loc 1 51 0
+  67 0036 C046     		nop
+  68 0038 BD46     		mov	sp, r7
+  69 003a 02B0     		add	sp, sp, #8
+  70              		@ sp needed
+  71 003c 80BD     		pop	{r7, pc}
+  72              		.cfi_endproc
+  73              	.LFE0:
+  75              		.section	.text.u8g_page_First,"ax",%progbits
+  76              		.align	1
+  77              		.global	u8g_page_First
+  78              		.syntax unified
+  79              		.code	16
+  80              		.thumb_func
+  81              		.fpu softvfp
+  83              	u8g_page_First:
+  84              	.LFB1:
+  52:Drivers/u8glib/src/u8g_page.c **** 
+  53:Drivers/u8glib/src/u8g_page.c **** void u8g_page_First(u8g_page_t *p)
+  54:Drivers/u8glib/src/u8g_page.c **** {
+  85              		.loc 1 54 0
+  86              		.cfi_startproc
+  87 0000 80B5     		push	{r7, lr}
+  88              	.LCFI3:
+  89              		.cfi_def_cfa_offset 8
+  90              		.cfi_offset 7, -8
+  91              		.cfi_offset 14, -4
+  92 0002 82B0     		sub	sp, sp, #8
+  93              	.LCFI4:
+  94              		.cfi_def_cfa_offset 16
+  95 0004 00AF     		add	r7, sp, #0
+  96              	.LCFI5:
+  97              		.cfi_def_cfa_register 7
+  98 0006 7860     		str	r0, [r7, #4]
+  55:Drivers/u8glib/src/u8g_page.c ****   p->page_y0 = 0;
+  99              		.loc 1 55 0
+ 100 0008 7B68     		ldr	r3, [r7, #4]
+ 101 000a 0022     		movs	r2, #0
+ 102 000c 9A70     		strb	r2, [r3, #2]
+  56:Drivers/u8glib/src/u8g_page.c ****   p->page_y1 = p->page_height;
+ 103              		.loc 1 56 0
+ 104 000e 7B68     		ldr	r3, [r7, #4]
+ 105 0010 1A78     		ldrb	r2, [r3]
+ 106 0012 7B68     		ldr	r3, [r7, #4]
+ 107 0014 DA70     		strb	r2, [r3, #3]
+  57:Drivers/u8glib/src/u8g_page.c ****   p->page_y1--;
+ 108              		.loc 1 57 0
+ 109 0016 7B68     		ldr	r3, [r7, #4]
+ 110 0018 DB78     		ldrb	r3, [r3, #3]
+ 111 001a 013B     		subs	r3, r3, #1
+ 112 001c DAB2     		uxtb	r2, r3
+ 113 001e 7B68     		ldr	r3, [r7, #4]
+ 114 0020 DA70     		strb	r2, [r3, #3]
+  58:Drivers/u8glib/src/u8g_page.c ****   p->page = 0;
+ 115              		.loc 1 58 0
+ 116 0022 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccZPAA2r.s 			page 4
+
+
+ 117 0024 0022     		movs	r2, #0
+ 118 0026 1A71     		strb	r2, [r3, #4]
+  59:Drivers/u8glib/src/u8g_page.c **** }
+ 119              		.loc 1 59 0
+ 120 0028 C046     		nop
+ 121 002a BD46     		mov	sp, r7
+ 122 002c 02B0     		add	sp, sp, #8
+ 123              		@ sp needed
+ 124 002e 80BD     		pop	{r7, pc}
+ 125              		.cfi_endproc
+ 126              	.LFE1:
+ 128              		.section	.text.u8g_page_Next,"ax",%progbits
+ 129              		.align	1
+ 130              		.global	u8g_page_Next
+ 131              		.syntax unified
+ 132              		.code	16
+ 133              		.thumb_func
+ 134              		.fpu softvfp
+ 136              	u8g_page_Next:
+ 137              	.LFB2:
+  60:Drivers/u8glib/src/u8g_page.c **** 
+  61:Drivers/u8glib/src/u8g_page.c **** uint8_t u8g_page_Next(u8g_page_t * p)
+  62:Drivers/u8glib/src/u8g_page.c **** {
+ 138              		.loc 1 62 0
+ 139              		.cfi_startproc
+ 140 0000 90B5     		push	{r4, r7, lr}
+ 141              	.LCFI6:
+ 142              		.cfi_def_cfa_offset 12
+ 143              		.cfi_offset 4, -12
+ 144              		.cfi_offset 7, -8
+ 145              		.cfi_offset 14, -4
+ 146 0002 83B0     		sub	sp, sp, #12
+ 147              	.LCFI7:
+ 148              		.cfi_def_cfa_offset 24
+ 149 0004 00AF     		add	r7, sp, #0
+ 150              	.LCFI8:
+ 151              		.cfi_def_cfa_register 7
+ 152 0006 7860     		str	r0, [r7, #4]
+  63:Drivers/u8glib/src/u8g_page.c ****   register u8g_uint_t y1;
+  64:Drivers/u8glib/src/u8g_page.c ****   p->page_y0 += p->page_height;
+ 153              		.loc 1 64 0
+ 154 0008 7B68     		ldr	r3, [r7, #4]
+ 155 000a 9A78     		ldrb	r2, [r3, #2]
+ 156 000c 7B68     		ldr	r3, [r7, #4]
+ 157 000e 1B78     		ldrb	r3, [r3]
+ 158 0010 D318     		adds	r3, r2, r3
+ 159 0012 DAB2     		uxtb	r2, r3
+ 160 0014 7B68     		ldr	r3, [r7, #4]
+ 161 0016 9A70     		strb	r2, [r3, #2]
+  65:Drivers/u8glib/src/u8g_page.c ****   if ( p->page_y0 >= p->total_height )
+ 162              		.loc 1 65 0
+ 163 0018 7B68     		ldr	r3, [r7, #4]
+ 164 001a 9A78     		ldrb	r2, [r3, #2]
+ 165 001c 7B68     		ldr	r3, [r7, #4]
+ 166 001e 5B78     		ldrb	r3, [r3, #1]
+ 167 0020 9A42     		cmp	r2, r3
+ 168 0022 01D3     		bcc	.L4
+ARM GAS  /tmp/ccZPAA2r.s 			page 5
+
+
+  66:Drivers/u8glib/src/u8g_page.c ****     return 0;
+ 169              		.loc 1 66 0
+ 170 0024 0023     		movs	r3, #0
+ 171 0026 18E0     		b	.L5
+ 172              	.L4:
+  67:Drivers/u8glib/src/u8g_page.c ****   p->page++;
+ 173              		.loc 1 67 0
+ 174 0028 7B68     		ldr	r3, [r7, #4]
+ 175 002a 1B79     		ldrb	r3, [r3, #4]
+ 176 002c 0133     		adds	r3, r3, #1
+ 177 002e DAB2     		uxtb	r2, r3
+ 178 0030 7B68     		ldr	r3, [r7, #4]
+ 179 0032 1A71     		strb	r2, [r3, #4]
+  68:Drivers/u8glib/src/u8g_page.c ****   y1 = p->page_y1;
+ 180              		.loc 1 68 0
+ 181 0034 7B68     		ldr	r3, [r7, #4]
+ 182 0036 DC78     		ldrb	r4, [r3, #3]
+  69:Drivers/u8glib/src/u8g_page.c ****   y1 += p->page_height;
+ 183              		.loc 1 69 0
+ 184 0038 7B68     		ldr	r3, [r7, #4]
+ 185 003a 1B78     		ldrb	r3, [r3]
+ 186 003c 1B19     		adds	r3, r3, r4
+ 187 003e DCB2     		uxtb	r4, r3
+  70:Drivers/u8glib/src/u8g_page.c ****   if ( y1 >= p->total_height )
+ 188              		.loc 1 70 0
+ 189 0040 7B68     		ldr	r3, [r7, #4]
+ 190 0042 5B78     		ldrb	r3, [r3, #1]
+ 191 0044 A342     		cmp	r3, r4
+ 192 0046 04D8     		bhi	.L6
+  71:Drivers/u8glib/src/u8g_page.c ****   {
+  72:Drivers/u8glib/src/u8g_page.c ****     y1 = p->total_height;
+ 193              		.loc 1 72 0
+ 194 0048 7B68     		ldr	r3, [r7, #4]
+ 195 004a 5C78     		ldrb	r4, [r3, #1]
+  73:Drivers/u8glib/src/u8g_page.c ****     y1--;
+ 196              		.loc 1 73 0
+ 197 004c 2300     		movs	r3, r4
+ 198 004e 013B     		subs	r3, r3, #1
+ 199 0050 DCB2     		uxtb	r4, r3
+ 200              	.L6:
+  74:Drivers/u8glib/src/u8g_page.c ****   }
+  75:Drivers/u8glib/src/u8g_page.c ****   p->page_y1 = y1;
+ 201              		.loc 1 75 0
+ 202 0052 7B68     		ldr	r3, [r7, #4]
+ 203 0054 221C     		adds	r2, r4, #0
+ 204 0056 DA70     		strb	r2, [r3, #3]
+  76:Drivers/u8glib/src/u8g_page.c ****   
+  77:Drivers/u8glib/src/u8g_page.c ****   return 1;
+ 205              		.loc 1 77 0
+ 206 0058 0123     		movs	r3, #1
+ 207              	.L5:
+  78:Drivers/u8glib/src/u8g_page.c **** }
+ 208              		.loc 1 78 0
+ 209 005a 1800     		movs	r0, r3
+ 210 005c BD46     		mov	sp, r7
+ 211 005e 03B0     		add	sp, sp, #12
+ 212              		@ sp needed
+ARM GAS  /tmp/ccZPAA2r.s 			page 6
+
+
+ 213 0060 90BD     		pop	{r4, r7, pc}
+ 214              		.cfi_endproc
+ 215              	.LFE2:
+ 217              		.text
+ 218              	.Letext0:
+ 219              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 220              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 221              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccZPAA2r.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_page.c
+     /tmp/ccZPAA2r.s:16     .text.u8g_page_Init:0000000000000000 $t
+     /tmp/ccZPAA2r.s:23     .text.u8g_page_Init:0000000000000000 u8g_page_Init
+     /tmp/ccZPAA2r.s:83     .text.u8g_page_First:0000000000000000 u8g_page_First
+     /tmp/ccZPAA2r.s:76     .text.u8g_page_First:0000000000000000 $t
+     /tmp/ccZPAA2r.s:129    .text.u8g_page_Next:0000000000000000 $t
+     /tmp/ccZPAA2r.s:136    .text.u8g_page_Next:0000000000000000 u8g_page_Next
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS

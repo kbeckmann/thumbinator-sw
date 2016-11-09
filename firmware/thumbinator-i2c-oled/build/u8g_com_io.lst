@@ -1,0 +1,713 @@
+ARM GAS  /tmp/ccXkq1tc.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_com_io.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.u8g_Pin,"ax",%progbits
+  16              		.align	1
+  17              		.global	u8g_Pin
+  18              		.syntax unified
+  19              		.code	16
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	u8g_Pin:
+  24              	.LFB0:
+  25              		.file 1 "Drivers/u8glib/src/u8g_com_io.c"
+   1:Drivers/u8glib/src/u8g_com_io.c **** /*
+   2:Drivers/u8glib/src/u8g_com_io.c ****   
+   3:Drivers/u8glib/src/u8g_com_io.c ****   u8g_com_io.c
+   4:Drivers/u8glib/src/u8g_com_io.c ****   
+   5:Drivers/u8glib/src/u8g_com_io.c ****   abstraction layer for low level i/o 
+   6:Drivers/u8glib/src/u8g_com_io.c **** 
+   7:Drivers/u8glib/src/u8g_com_io.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_com_io.c ****   
+   9:Drivers/u8glib/src/u8g_com_io.c ****   Copyright (c) 2012, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_com_io.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_com_io.c **** 
+  12:Drivers/u8glib/src/u8g_com_io.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_com_io.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_com_io.c **** 
+  15:Drivers/u8glib/src/u8g_com_io.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_com_io.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_com_io.c ****     
+  18:Drivers/u8glib/src/u8g_com_io.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_com_io.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_com_io.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_com_io.c **** 
+  22:Drivers/u8glib/src/u8g_com_io.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_com_io.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_com_io.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_com_io.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_com_io.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_com_io.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_com_io.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_com_io.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_com_io.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_com_io.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_com_io.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_com_io.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ARM GAS  /tmp/ccXkq1tc.s 			page 2
+
+
+  34:Drivers/u8glib/src/u8g_com_io.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_com_io.c **** 
+  36:Drivers/u8glib/src/u8g_com_io.c ****   Update for ATOMIC operation done (01 Jun 2013)
+  37:Drivers/u8glib/src/u8g_com_io.c ****     U8G_ATOMIC_OR(ptr, val)
+  38:Drivers/u8glib/src/u8g_com_io.c ****     U8G_ATOMIC_AND(ptr, val)
+  39:Drivers/u8glib/src/u8g_com_io.c ****     U8G_ATOMIC_START();
+  40:Drivers/u8glib/src/u8g_com_io.c ****     U8G_ATOMIC_END();
+  41:Drivers/u8glib/src/u8g_com_io.c **** 
+  42:Drivers/u8glib/src/u8g_com_io.c ****   uint8_t u8g_Pin(uint8_t port, uint8_t bitpos)						Convert to internal number: AVR: port*8+bitpos
+  43:Drivers/u8glib/src/u8g_com_io.c ****   void u8g_SetPinOutput(uint8_t internal_pin_number)
+  44:Drivers/u8glib/src/u8g_com_io.c ****   void u8g_SetPinInput(uint8_t internal_pin_number)
+  45:Drivers/u8glib/src/u8g_com_io.c ****   void u8g_SetPinLevel(uint8_t internal_pin_number, uint8_t level)
+  46:Drivers/u8glib/src/u8g_com_io.c ****   uint8_t u8g_GetPinLevel(uint8_t internal_pin_number)
+  47:Drivers/u8glib/src/u8g_com_io.c **** 
+  48:Drivers/u8glib/src/u8g_com_io.c **** 
+  49:Drivers/u8glib/src/u8g_com_io.c **** */
+  50:Drivers/u8glib/src/u8g_com_io.c **** 
+  51:Drivers/u8glib/src/u8g_com_io.c **** #include "u8g.h"
+  52:Drivers/u8glib/src/u8g_com_io.c **** 
+  53:Drivers/u8glib/src/u8g_com_io.c **** #if defined(__AVR__)
+  54:Drivers/u8glib/src/u8g_com_io.c **** 
+  55:Drivers/u8glib/src/u8g_com_io.c **** #include <avr/interrupt.h>
+  56:Drivers/u8glib/src/u8g_com_io.c **** #include <avr/io.h>
+  57:Drivers/u8glib/src/u8g_com_io.c **** 
+  58:Drivers/u8glib/src/u8g_com_io.c **** typedef volatile uint8_t * IO_PTR;
+  59:Drivers/u8glib/src/u8g_com_io.c **** 
+  60:Drivers/u8glib/src/u8g_com_io.c **** /* create internal pin number */
+  61:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_Pin(uint8_t port, uint8_t bitpos)
+  62:Drivers/u8glib/src/u8g_com_io.c **** {
+  63:Drivers/u8glib/src/u8g_com_io.c ****   port <<= 3;
+  64:Drivers/u8glib/src/u8g_com_io.c ****   port += bitpos;
+  65:Drivers/u8glib/src/u8g_com_io.c ****   return port;
+  66:Drivers/u8glib/src/u8g_com_io.c **** }
+  67:Drivers/u8glib/src/u8g_com_io.c **** 
+  68:Drivers/u8glib/src/u8g_com_io.c **** const IO_PTR u8g_avr_ddr_P[] PROGMEM = {
+  69:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRA
+  70:Drivers/u8glib/src/u8g_com_io.c ****   &DDRA,
+  71:Drivers/u8glib/src/u8g_com_io.c **** #else
+  72:Drivers/u8glib/src/u8g_com_io.c ****   0,
+  73:Drivers/u8glib/src/u8g_com_io.c **** #endif
+  74:Drivers/u8glib/src/u8g_com_io.c ****   &DDRB,
+  75:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRC
+  76:Drivers/u8glib/src/u8g_com_io.c ****   &DDRC,
+  77:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRD
+  78:Drivers/u8glib/src/u8g_com_io.c ****   &DDRD,
+  79:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRE
+  80:Drivers/u8glib/src/u8g_com_io.c ****   &DDRE,
+  81:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRF
+  82:Drivers/u8glib/src/u8g_com_io.c ****   &DDRF,
+  83:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRG
+  84:Drivers/u8glib/src/u8g_com_io.c ****   &DDRG,
+  85:Drivers/u8glib/src/u8g_com_io.c **** #ifdef DDRH
+  86:Drivers/u8glib/src/u8g_com_io.c ****   &DDRH,
+  87:Drivers/u8glib/src/u8g_com_io.c **** #endif
+  88:Drivers/u8glib/src/u8g_com_io.c **** #endif
+  89:Drivers/u8glib/src/u8g_com_io.c **** #endif
+  90:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ARM GAS  /tmp/ccXkq1tc.s 			page 3
+
+
+  91:Drivers/u8glib/src/u8g_com_io.c **** #endif
+  92:Drivers/u8glib/src/u8g_com_io.c **** #endif
+  93:Drivers/u8glib/src/u8g_com_io.c **** };
+  94:Drivers/u8glib/src/u8g_com_io.c **** 
+  95:Drivers/u8glib/src/u8g_com_io.c **** 
+  96:Drivers/u8glib/src/u8g_com_io.c **** const IO_PTR u8g_avr_port_P[] PROGMEM = {
+  97:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTA
+  98:Drivers/u8glib/src/u8g_com_io.c ****   &PORTA,
+  99:Drivers/u8glib/src/u8g_com_io.c **** #else
+ 100:Drivers/u8glib/src/u8g_com_io.c ****   0,
+ 101:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 102:Drivers/u8glib/src/u8g_com_io.c ****   &PORTB,
+ 103:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTC
+ 104:Drivers/u8glib/src/u8g_com_io.c ****   &PORTC,
+ 105:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTD
+ 106:Drivers/u8glib/src/u8g_com_io.c ****   &PORTD,
+ 107:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTE
+ 108:Drivers/u8glib/src/u8g_com_io.c ****   &PORTE,
+ 109:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTF
+ 110:Drivers/u8glib/src/u8g_com_io.c ****   &PORTF,
+ 111:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTG
+ 112:Drivers/u8glib/src/u8g_com_io.c ****   &PORTG,
+ 113:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PORTH
+ 114:Drivers/u8glib/src/u8g_com_io.c ****   &PORTH,
+ 115:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 116:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 117:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 118:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 119:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 120:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 121:Drivers/u8glib/src/u8g_com_io.c **** };
+ 122:Drivers/u8glib/src/u8g_com_io.c **** 
+ 123:Drivers/u8glib/src/u8g_com_io.c **** const IO_PTR u8g_avr_pin_P[] PROGMEM = {
+ 124:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PINA
+ 125:Drivers/u8glib/src/u8g_com_io.c ****   &PINA,
+ 126:Drivers/u8glib/src/u8g_com_io.c **** #else
+ 127:Drivers/u8glib/src/u8g_com_io.c ****   0,
+ 128:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 129:Drivers/u8glib/src/u8g_com_io.c ****   &PINB,
+ 130:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PINC
+ 131:Drivers/u8glib/src/u8g_com_io.c ****   &PINC,
+ 132:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PIND
+ 133:Drivers/u8glib/src/u8g_com_io.c ****   &PIND,
+ 134:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PINE
+ 135:Drivers/u8glib/src/u8g_com_io.c ****   &PINE,
+ 136:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PINF
+ 137:Drivers/u8glib/src/u8g_com_io.c ****   &PINF,
+ 138:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PING
+ 139:Drivers/u8glib/src/u8g_com_io.c ****   &PING,
+ 140:Drivers/u8glib/src/u8g_com_io.c **** #ifdef PINH
+ 141:Drivers/u8glib/src/u8g_com_io.c ****   &PINH,
+ 142:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 143:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 144:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 145:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 146:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 147:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ARM GAS  /tmp/ccXkq1tc.s 			page 4
+
+
+ 148:Drivers/u8glib/src/u8g_com_io.c **** };
+ 149:Drivers/u8glib/src/u8g_com_io.c **** 
+ 150:Drivers/u8glib/src/u8g_com_io.c **** static volatile uint8_t *u8g_get_avr_io_ptr(const IO_PTR *base, uint8_t offset)
+ 151:Drivers/u8glib/src/u8g_com_io.c **** {
+ 152:Drivers/u8glib/src/u8g_com_io.c ****   volatile uint8_t * tmp;
+ 153:Drivers/u8glib/src/u8g_com_io.c ****   base += offset;
+ 154:Drivers/u8glib/src/u8g_com_io.c ****   memcpy_P(&tmp, base, sizeof(volatile uint8_t * PROGMEM));
+ 155:Drivers/u8glib/src/u8g_com_io.c ****   return tmp; 
+ 156:Drivers/u8glib/src/u8g_com_io.c **** }
+ 157:Drivers/u8glib/src/u8g_com_io.c **** 
+ 158:Drivers/u8glib/src/u8g_com_io.c **** /* set direction to output of the specified pin (internal pin number) */
+ 159:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinOutput(uint8_t internal_pin_number)
+ 160:Drivers/u8glib/src/u8g_com_io.c **** {
+ 161:Drivers/u8glib/src/u8g_com_io.c ****   *u8g_get_avr_io_ptr(u8g_avr_ddr_P, internal_pin_number>>3) |= _BV(internal_pin_number&7);
+ 162:Drivers/u8glib/src/u8g_com_io.c **** }
+ 163:Drivers/u8glib/src/u8g_com_io.c **** 
+ 164:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinInput(uint8_t internal_pin_number)
+ 165:Drivers/u8glib/src/u8g_com_io.c **** {
+ 166:Drivers/u8glib/src/u8g_com_io.c ****   *u8g_get_avr_io_ptr(u8g_avr_ddr_P, internal_pin_number>>3) &= ~_BV(internal_pin_number&7);
+ 167:Drivers/u8glib/src/u8g_com_io.c **** }
+ 168:Drivers/u8glib/src/u8g_com_io.c **** 
+ 169:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinLevel(uint8_t internal_pin_number, uint8_t level)
+ 170:Drivers/u8glib/src/u8g_com_io.c **** {
+ 171:Drivers/u8glib/src/u8g_com_io.c ****   volatile uint8_t * tmp = u8g_get_avr_io_ptr(u8g_avr_port_P, internal_pin_number>>3);
+ 172:Drivers/u8glib/src/u8g_com_io.c ****   
+ 173:Drivers/u8glib/src/u8g_com_io.c ****   if ( level == 0 )
+ 174:Drivers/u8glib/src/u8g_com_io.c ****   {
+ 175:Drivers/u8glib/src/u8g_com_io.c ****     U8G_ATOMIC_AND(tmp, ~_BV(internal_pin_number&7));
+ 176:Drivers/u8glib/src/u8g_com_io.c ****    // *tmp &= ~_BV(internal_pin_number&7);
+ 177:Drivers/u8glib/src/u8g_com_io.c ****   }
+ 178:Drivers/u8glib/src/u8g_com_io.c ****   else
+ 179:Drivers/u8glib/src/u8g_com_io.c ****   {
+ 180:Drivers/u8glib/src/u8g_com_io.c ****     U8G_ATOMIC_OR(tmp, _BV(internal_pin_number&7));
+ 181:Drivers/u8glib/src/u8g_com_io.c ****     //*tmp |= _BV(internal_pin_number&7);
+ 182:Drivers/u8glib/src/u8g_com_io.c ****   }
+ 183:Drivers/u8glib/src/u8g_com_io.c ****   
+ 184:Drivers/u8glib/src/u8g_com_io.c **** }
+ 185:Drivers/u8glib/src/u8g_com_io.c **** 
+ 186:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_GetPinLevel(uint8_t internal_pin_number)
+ 187:Drivers/u8glib/src/u8g_com_io.c **** {
+ 188:Drivers/u8glib/src/u8g_com_io.c ****   volatile uint8_t * tmp = u8g_get_avr_io_ptr(u8g_avr_pin_P, internal_pin_number>>3);
+ 189:Drivers/u8glib/src/u8g_com_io.c ****   if ( ((*tmp) & _BV(internal_pin_number&7))  != 0 )
+ 190:Drivers/u8glib/src/u8g_com_io.c ****     return 1;
+ 191:Drivers/u8glib/src/u8g_com_io.c ****   return 0;
+ 192:Drivers/u8glib/src/u8g_com_io.c **** }
+ 193:Drivers/u8glib/src/u8g_com_io.c **** 
+ 194:Drivers/u8glib/src/u8g_com_io.c **** #elif defined (__MSP430__)
+ 195:Drivers/u8glib/src/u8g_com_io.c **** #include <msp430.h>
+ 196:Drivers/u8glib/src/u8g_com_io.c **** 
+ 197:Drivers/u8glib/src/u8g_com_io.c **** typedef volatile uint8_t * IO_PTR;
+ 198:Drivers/u8glib/src/u8g_com_io.c **** 
+ 199:Drivers/u8glib/src/u8g_com_io.c **** // MSP430 F5XXX / F6XXX series. 
+ 200:Drivers/u8glib/src/u8g_com_io.c **** const IO_PTR u8g_msp_ddr_P[] PROGMEM = {
+ 201:Drivers/u8glib/src/u8g_com_io.c **** 	&P1DIR
+ 202:Drivers/u8glib/src/u8g_com_io.c **** 	,&P2DIR
+ 203:Drivers/u8glib/src/u8g_com_io.c **** 	,&P3DIR
+ 204:Drivers/u8glib/src/u8g_com_io.c **** 	,&P4DIR
+ARM GAS  /tmp/ccXkq1tc.s 			page 5
+
+
+ 205:Drivers/u8glib/src/u8g_com_io.c **** 	,&P5DIR
+ 206:Drivers/u8glib/src/u8g_com_io.c **** 	,&P6DIR
+ 207:Drivers/u8glib/src/u8g_com_io.c **** 	,&P7DIR
+ 208:Drivers/u8glib/src/u8g_com_io.c **** 	,&P8DIR
+ 209:Drivers/u8glib/src/u8g_com_io.c **** #if defined (__MSP430_HAS_PORT9_R__)
+ 210:Drivers/u8glib/src/u8g_com_io.c **** 	,&P9DIR
+ 211:Drivers/u8glib/src/u8g_com_io.c **** #if defined (__MSP430_HAS_PORT10_R__)
+ 212:Drivers/u8glib/src/u8g_com_io.c **** 	,&P10DIR
+ 213:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 214:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 215:Drivers/u8glib/src/u8g_com_io.c **** };
+ 216:Drivers/u8glib/src/u8g_com_io.c **** 
+ 217:Drivers/u8glib/src/u8g_com_io.c **** const IO_PTR u8g_msp_port_P[] PROGMEM = {
+ 218:Drivers/u8glib/src/u8g_com_io.c **** 	&P1OUT
+ 219:Drivers/u8glib/src/u8g_com_io.c **** 	,&P2OUT
+ 220:Drivers/u8glib/src/u8g_com_io.c **** 	,&P3OUT
+ 221:Drivers/u8glib/src/u8g_com_io.c **** 	,&P4OUT
+ 222:Drivers/u8glib/src/u8g_com_io.c **** 	,&P5OUT
+ 223:Drivers/u8glib/src/u8g_com_io.c **** 	,&P6OUT
+ 224:Drivers/u8glib/src/u8g_com_io.c **** 	,&P7OUT
+ 225:Drivers/u8glib/src/u8g_com_io.c **** 	,&P8OUT
+ 226:Drivers/u8glib/src/u8g_com_io.c **** #if defined (__MSP430_HAS_PORT9_R__)
+ 227:Drivers/u8glib/src/u8g_com_io.c **** 	,&P9OUT
+ 228:Drivers/u8glib/src/u8g_com_io.c **** #if defined (__MSP430_HAS_PORT10_R__)
+ 229:Drivers/u8glib/src/u8g_com_io.c **** 	,&P10OUT
+ 230:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 231:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 232:Drivers/u8glib/src/u8g_com_io.c **** };
+ 233:Drivers/u8glib/src/u8g_com_io.c **** 
+ 234:Drivers/u8glib/src/u8g_com_io.c **** const IO_PTR u8g_msp_pin_P[] PROGMEM = {
+ 235:Drivers/u8glib/src/u8g_com_io.c **** 	&P1IN
+ 236:Drivers/u8glib/src/u8g_com_io.c **** 	,&P2IN
+ 237:Drivers/u8glib/src/u8g_com_io.c **** 	,&P3IN
+ 238:Drivers/u8glib/src/u8g_com_io.c **** 	,&P4IN
+ 239:Drivers/u8glib/src/u8g_com_io.c **** 	,&P5IN
+ 240:Drivers/u8glib/src/u8g_com_io.c **** 	,&P6IN
+ 241:Drivers/u8glib/src/u8g_com_io.c **** 	,&P7IN
+ 242:Drivers/u8glib/src/u8g_com_io.c **** 	,&P8IN
+ 243:Drivers/u8glib/src/u8g_com_io.c **** #if defined (__MSP430_HAS_PORT9_R__)
+ 244:Drivers/u8glib/src/u8g_com_io.c **** 	,&P9IN
+ 245:Drivers/u8glib/src/u8g_com_io.c **** #if defined (__MSP430_HAS_PORT10_R__)
+ 246:Drivers/u8glib/src/u8g_com_io.c **** 	,&P10IN
+ 247:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 248:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 249:Drivers/u8glib/src/u8g_com_io.c **** };
+ 250:Drivers/u8glib/src/u8g_com_io.c **** 
+ 251:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_Pin(uint8_t port, uint8_t bitpos)
+ 252:Drivers/u8glib/src/u8g_com_io.c **** {
+ 253:Drivers/u8glib/src/u8g_com_io.c **** 	port <<= 3;
+ 254:Drivers/u8glib/src/u8g_com_io.c **** 	port += bitpos;
+ 255:Drivers/u8glib/src/u8g_com_io.c **** 	return port;
+ 256:Drivers/u8glib/src/u8g_com_io.c **** }
+ 257:Drivers/u8glib/src/u8g_com_io.c **** 
+ 258:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinOutput(uint8_t internal_pin_number)
+ 259:Drivers/u8glib/src/u8g_com_io.c **** {
+ 260:Drivers/u8glib/src/u8g_com_io.c **** 	uint8_t port = (internal_pin_number >> 3)-1;
+ 261:Drivers/u8glib/src/u8g_com_io.c **** 	uint8_t output = 1 << (internal_pin_number & 0x07);
+ARM GAS  /tmp/ccXkq1tc.s 			page 6
+
+
+ 262:Drivers/u8glib/src/u8g_com_io.c **** 	*u8g_msp_ddr_P[port] |= output;
+ 263:Drivers/u8glib/src/u8g_com_io.c **** }
+ 264:Drivers/u8glib/src/u8g_com_io.c **** 
+ 265:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinInput(uint8_t internal_pin_number)
+ 266:Drivers/u8glib/src/u8g_com_io.c **** {
+ 267:Drivers/u8glib/src/u8g_com_io.c **** 	uint8_t port = (internal_pin_number >> 3)-1;
+ 268:Drivers/u8glib/src/u8g_com_io.c **** 	*u8g_msp_ddr_P[port] &= ~(1 << (internal_pin_number & 0x07));
+ 269:Drivers/u8glib/src/u8g_com_io.c **** }
+ 270:Drivers/u8glib/src/u8g_com_io.c **** 
+ 271:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinLevel(uint8_t internal_pin_number, uint8_t level)
+ 272:Drivers/u8glib/src/u8g_com_io.c **** {
+ 273:Drivers/u8glib/src/u8g_com_io.c **** 	uint8_t port = (internal_pin_number >> 3)-1;
+ 274:Drivers/u8glib/src/u8g_com_io.c **** 	if (level == 0)
+ 275:Drivers/u8glib/src/u8g_com_io.c **** 	{
+ 276:Drivers/u8glib/src/u8g_com_io.c **** 		*u8g_msp_port_P[port] &= ~(1 << (internal_pin_number & 0x07));
+ 277:Drivers/u8glib/src/u8g_com_io.c **** 	}
+ 278:Drivers/u8glib/src/u8g_com_io.c **** 	else
+ 279:Drivers/u8glib/src/u8g_com_io.c **** 	{
+ 280:Drivers/u8glib/src/u8g_com_io.c **** 		*u8g_msp_port_P[port]|= (1 << (internal_pin_number & 0x07));
+ 281:Drivers/u8glib/src/u8g_com_io.c **** 	}
+ 282:Drivers/u8glib/src/u8g_com_io.c **** }
+ 283:Drivers/u8glib/src/u8g_com_io.c **** 
+ 284:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_GetPinLevel(uint8_t internal_pin_number)
+ 285:Drivers/u8glib/src/u8g_com_io.c **** {
+ 286:Drivers/u8glib/src/u8g_com_io.c **** 	uint8_t port = (internal_pin_number >> 3)-1;
+ 287:Drivers/u8glib/src/u8g_com_io.c **** 	uint8_t tmp = *u8g_msp_pin_P[port];
+ 288:Drivers/u8glib/src/u8g_com_io.c **** 	if (tmp & (1 << (internal_pin_number & 0x07)))
+ 289:Drivers/u8glib/src/u8g_com_io.c **** 	{
+ 290:Drivers/u8glib/src/u8g_com_io.c **** 		return 1;
+ 291:Drivers/u8glib/src/u8g_com_io.c **** 	}
+ 292:Drivers/u8glib/src/u8g_com_io.c **** 	return 0;
+ 293:Drivers/u8glib/src/u8g_com_io.c **** }
+ 294:Drivers/u8glib/src/u8g_com_io.c **** 
+ 295:Drivers/u8glib/src/u8g_com_io.c **** #elif defined(U8G_RASPBERRY_PI)
+ 296:Drivers/u8glib/src/u8g_com_io.c **** 
+ 297:Drivers/u8glib/src/u8g_com_io.c **** #include <wiringPi.h>
+ 298:Drivers/u8glib/src/u8g_com_io.c **** //#include "/usr/local/include/wiringPi.h"
+ 299:Drivers/u8glib/src/u8g_com_io.c **** 
+ 300:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinOutput(uint8_t internal_pin_number) {
+ 301:Drivers/u8glib/src/u8g_com_io.c ****    pinMode(internal_pin_number, OUTPUT);
+ 302:Drivers/u8glib/src/u8g_com_io.c **** }
+ 303:Drivers/u8glib/src/u8g_com_io.c **** 
+ 304:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinInput(uint8_t internal_pin_number) {
+ 305:Drivers/u8glib/src/u8g_com_io.c ****    pinMode(internal_pin_number, INPUT);
+ 306:Drivers/u8glib/src/u8g_com_io.c **** }
+ 307:Drivers/u8glib/src/u8g_com_io.c **** 
+ 308:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinLevel(uint8_t internal_pin_number, uint8_t level) {
+ 309:Drivers/u8glib/src/u8g_com_io.c ****    digitalWrite(internal_pin_number, level);
+ 310:Drivers/u8glib/src/u8g_com_io.c **** }
+ 311:Drivers/u8glib/src/u8g_com_io.c **** 
+ 312:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_GetPinLevel(uint8_t internal_pin_number) {
+ 313:Drivers/u8glib/src/u8g_com_io.c ****    return digitalRead(internal_pin_number);
+ 314:Drivers/u8glib/src/u8g_com_io.c **** }
+ 315:Drivers/u8glib/src/u8g_com_io.c **** 
+ 316:Drivers/u8glib/src/u8g_com_io.c **** 
+ 317:Drivers/u8glib/src/u8g_com_io.c **** #else
+ 318:Drivers/u8glib/src/u8g_com_io.c **** 
+ARM GAS  /tmp/ccXkq1tc.s 			page 7
+
+
+ 319:Drivers/u8glib/src/u8g_com_io.c **** /* convert "port" and "bitpos" to internal pin number */
+ 320:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_Pin(uint8_t port, uint8_t bitpos)
+ 321:Drivers/u8glib/src/u8g_com_io.c **** {
+  26              		.loc 1 321 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 82B0     		sub	sp, sp, #8
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 16
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 0200     		movs	r2, r0
+  40 0008 FB1D     		adds	r3, r7, #7
+  41 000a 1A70     		strb	r2, [r3]
+  42 000c BB1D     		adds	r3, r7, #6
+  43 000e 0A1C     		adds	r2, r1, #0
+  44 0010 1A70     		strb	r2, [r3]
+ 322:Drivers/u8glib/src/u8g_com_io.c ****   port <<= 3;
+  45              		.loc 1 322 0
+  46 0012 FB1D     		adds	r3, r7, #7
+  47 0014 FA1D     		adds	r2, r7, #7
+  48 0016 1278     		ldrb	r2, [r2]
+  49 0018 D200     		lsls	r2, r2, #3
+  50 001a 1A70     		strb	r2, [r3]
+ 323:Drivers/u8glib/src/u8g_com_io.c ****   port += bitpos;
+  51              		.loc 1 323 0
+  52 001c FB1D     		adds	r3, r7, #7
+  53 001e F91D     		adds	r1, r7, #7
+  54 0020 BA1D     		adds	r2, r7, #6
+  55 0022 0978     		ldrb	r1, [r1]
+  56 0024 1278     		ldrb	r2, [r2]
+  57 0026 8A18     		adds	r2, r1, r2
+  58 0028 1A70     		strb	r2, [r3]
+ 324:Drivers/u8glib/src/u8g_com_io.c ****   return port;
+  59              		.loc 1 324 0
+  60 002a FB1D     		adds	r3, r7, #7
+  61 002c 1B78     		ldrb	r3, [r3]
+ 325:Drivers/u8glib/src/u8g_com_io.c **** }
+  62              		.loc 1 325 0
+  63 002e 1800     		movs	r0, r3
+  64 0030 BD46     		mov	sp, r7
+  65 0032 02B0     		add	sp, sp, #8
+  66              		@ sp needed
+  67 0034 80BD     		pop	{r7, pc}
+  68              		.cfi_endproc
+  69              	.LFE0:
+  71              		.section	.text.u8g_SetPinOutput,"ax",%progbits
+  72              		.align	1
+  73              		.global	u8g_SetPinOutput
+  74              		.syntax unified
+  75              		.code	16
+  76              		.thumb_func
+ARM GAS  /tmp/ccXkq1tc.s 			page 8
+
+
+  77              		.fpu softvfp
+  79              	u8g_SetPinOutput:
+  80              	.LFB1:
+ 326:Drivers/u8glib/src/u8g_com_io.c **** 
+ 327:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinOutput(uint8_t internal_pin_number)
+ 328:Drivers/u8glib/src/u8g_com_io.c **** {
+  81              		.loc 1 328 0
+  82              		.cfi_startproc
+  83 0000 80B5     		push	{r7, lr}
+  84              	.LCFI3:
+  85              		.cfi_def_cfa_offset 8
+  86              		.cfi_offset 7, -8
+  87              		.cfi_offset 14, -4
+  88 0002 82B0     		sub	sp, sp, #8
+  89              	.LCFI4:
+  90              		.cfi_def_cfa_offset 16
+  91 0004 00AF     		add	r7, sp, #0
+  92              	.LCFI5:
+  93              		.cfi_def_cfa_register 7
+  94 0006 0200     		movs	r2, r0
+  95 0008 FB1D     		adds	r3, r7, #7
+  96 000a 1A70     		strb	r2, [r3]
+ 329:Drivers/u8glib/src/u8g_com_io.c **** }
+  97              		.loc 1 329 0
+  98 000c C046     		nop
+  99 000e BD46     		mov	sp, r7
+ 100 0010 02B0     		add	sp, sp, #8
+ 101              		@ sp needed
+ 102 0012 80BD     		pop	{r7, pc}
+ 103              		.cfi_endproc
+ 104              	.LFE1:
+ 106              		.section	.text.u8g_SetPinInput,"ax",%progbits
+ 107              		.align	1
+ 108              		.global	u8g_SetPinInput
+ 109              		.syntax unified
+ 110              		.code	16
+ 111              		.thumb_func
+ 112              		.fpu softvfp
+ 114              	u8g_SetPinInput:
+ 115              	.LFB2:
+ 330:Drivers/u8glib/src/u8g_com_io.c **** 
+ 331:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinInput(uint8_t internal_pin_number)
+ 332:Drivers/u8glib/src/u8g_com_io.c **** {
+ 116              		.loc 1 332 0
+ 117              		.cfi_startproc
+ 118 0000 80B5     		push	{r7, lr}
+ 119              	.LCFI6:
+ 120              		.cfi_def_cfa_offset 8
+ 121              		.cfi_offset 7, -8
+ 122              		.cfi_offset 14, -4
+ 123 0002 82B0     		sub	sp, sp, #8
+ 124              	.LCFI7:
+ 125              		.cfi_def_cfa_offset 16
+ 126 0004 00AF     		add	r7, sp, #0
+ 127              	.LCFI8:
+ 128              		.cfi_def_cfa_register 7
+ 129 0006 0200     		movs	r2, r0
+ARM GAS  /tmp/ccXkq1tc.s 			page 9
+
+
+ 130 0008 FB1D     		adds	r3, r7, #7
+ 131 000a 1A70     		strb	r2, [r3]
+ 333:Drivers/u8glib/src/u8g_com_io.c **** }
+ 132              		.loc 1 333 0
+ 133 000c C046     		nop
+ 134 000e BD46     		mov	sp, r7
+ 135 0010 02B0     		add	sp, sp, #8
+ 136              		@ sp needed
+ 137 0012 80BD     		pop	{r7, pc}
+ 138              		.cfi_endproc
+ 139              	.LFE2:
+ 141              		.section	.text.u8g_SetPinLevel,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	u8g_SetPinLevel
+ 144              		.syntax unified
+ 145              		.code	16
+ 146              		.thumb_func
+ 147              		.fpu softvfp
+ 149              	u8g_SetPinLevel:
+ 150              	.LFB3:
+ 334:Drivers/u8glib/src/u8g_com_io.c **** 
+ 335:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPinLevel(uint8_t internal_pin_number, uint8_t level)
+ 336:Drivers/u8glib/src/u8g_com_io.c **** {
+ 151              		.loc 1 336 0
+ 152              		.cfi_startproc
+ 153 0000 80B5     		push	{r7, lr}
+ 154              	.LCFI9:
+ 155              		.cfi_def_cfa_offset 8
+ 156              		.cfi_offset 7, -8
+ 157              		.cfi_offset 14, -4
+ 158 0002 82B0     		sub	sp, sp, #8
+ 159              	.LCFI10:
+ 160              		.cfi_def_cfa_offset 16
+ 161 0004 00AF     		add	r7, sp, #0
+ 162              	.LCFI11:
+ 163              		.cfi_def_cfa_register 7
+ 164 0006 0200     		movs	r2, r0
+ 165 0008 FB1D     		adds	r3, r7, #7
+ 166 000a 1A70     		strb	r2, [r3]
+ 167 000c BB1D     		adds	r3, r7, #6
+ 168 000e 0A1C     		adds	r2, r1, #0
+ 169 0010 1A70     		strb	r2, [r3]
+ 337:Drivers/u8glib/src/u8g_com_io.c **** }
+ 170              		.loc 1 337 0
+ 171 0012 C046     		nop
+ 172 0014 BD46     		mov	sp, r7
+ 173 0016 02B0     		add	sp, sp, #8
+ 174              		@ sp needed
+ 175 0018 80BD     		pop	{r7, pc}
+ 176              		.cfi_endproc
+ 177              	.LFE3:
+ 179              		.section	.text.u8g_GetPinLevel,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	u8g_GetPinLevel
+ 182              		.syntax unified
+ 183              		.code	16
+ 184              		.thumb_func
+ARM GAS  /tmp/ccXkq1tc.s 			page 10
+
+
+ 185              		.fpu softvfp
+ 187              	u8g_GetPinLevel:
+ 188              	.LFB4:
+ 338:Drivers/u8glib/src/u8g_com_io.c **** 
+ 339:Drivers/u8glib/src/u8g_com_io.c **** uint8_t u8g_GetPinLevel(uint8_t internal_pin_number)
+ 340:Drivers/u8glib/src/u8g_com_io.c **** {
+ 189              		.loc 1 340 0
+ 190              		.cfi_startproc
+ 191 0000 80B5     		push	{r7, lr}
+ 192              	.LCFI12:
+ 193              		.cfi_def_cfa_offset 8
+ 194              		.cfi_offset 7, -8
+ 195              		.cfi_offset 14, -4
+ 196 0002 82B0     		sub	sp, sp, #8
+ 197              	.LCFI13:
+ 198              		.cfi_def_cfa_offset 16
+ 199 0004 00AF     		add	r7, sp, #0
+ 200              	.LCFI14:
+ 201              		.cfi_def_cfa_register 7
+ 202 0006 0200     		movs	r2, r0
+ 203 0008 FB1D     		adds	r3, r7, #7
+ 204 000a 1A70     		strb	r2, [r3]
+ 341:Drivers/u8glib/src/u8g_com_io.c ****   return 0;
+ 205              		.loc 1 341 0
+ 206 000c 0023     		movs	r3, #0
+ 342:Drivers/u8glib/src/u8g_com_io.c **** }
+ 207              		.loc 1 342 0
+ 208 000e 1800     		movs	r0, r3
+ 209 0010 BD46     		mov	sp, r7
+ 210 0012 02B0     		add	sp, sp, #8
+ 211              		@ sp needed
+ 212 0014 80BD     		pop	{r7, pc}
+ 213              		.cfi_endproc
+ 214              	.LFE4:
+ 216              		.section	.text.u8g_SetPIOutput,"ax",%progbits
+ 217              		.align	1
+ 218              		.global	u8g_SetPIOutput
+ 219              		.syntax unified
+ 220              		.code	16
+ 221              		.thumb_func
+ 222              		.fpu softvfp
+ 224              	u8g_SetPIOutput:
+ 225              	.LFB5:
+ 343:Drivers/u8glib/src/u8g_com_io.c **** 
+ 344:Drivers/u8glib/src/u8g_com_io.c **** #endif
+ 345:Drivers/u8glib/src/u8g_com_io.c **** 
+ 346:Drivers/u8glib/src/u8g_com_io.c **** 
+ 347:Drivers/u8glib/src/u8g_com_io.c **** #if defined(U8G_WITH_PINLIST)
+ 348:Drivers/u8glib/src/u8g_com_io.c **** 
+ 349:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPIOutput(u8g_t *u8g, uint8_t pi)
+ 350:Drivers/u8glib/src/u8g_com_io.c **** {
+ 351:Drivers/u8glib/src/u8g_com_io.c ****   uint8_t pin;
+ 352:Drivers/u8glib/src/u8g_com_io.c ****   pin = u8g->pin_list[pi];
+ 353:Drivers/u8glib/src/u8g_com_io.c ****   if ( pin != U8G_PIN_NONE )
+ 354:Drivers/u8glib/src/u8g_com_io.c ****     u8g_SetPinOutput(pin);
+ 355:Drivers/u8glib/src/u8g_com_io.c **** }
+ 356:Drivers/u8glib/src/u8g_com_io.c **** 
+ARM GAS  /tmp/ccXkq1tc.s 			page 11
+
+
+ 357:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPILevel(u8g_t *u8g, uint8_t pi, uint8_t level)
+ 358:Drivers/u8glib/src/u8g_com_io.c **** {
+ 359:Drivers/u8glib/src/u8g_com_io.c ****   uint8_t pin;
+ 360:Drivers/u8glib/src/u8g_com_io.c ****   pin = u8g->pin_list[pi];
+ 361:Drivers/u8glib/src/u8g_com_io.c ****   if ( pin != U8G_PIN_NONE )
+ 362:Drivers/u8glib/src/u8g_com_io.c ****     u8g_SetPinLevel(pin, level);
+ 363:Drivers/u8glib/src/u8g_com_io.c **** }
+ 364:Drivers/u8glib/src/u8g_com_io.c **** 
+ 365:Drivers/u8glib/src/u8g_com_io.c **** #else  /* defined(U8G_WITH_PINLIST) */
+ 366:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPIOutput(u8g_t *u8g, uint8_t pi)
+ 367:Drivers/u8glib/src/u8g_com_io.c **** {
+ 226              		.loc 1 367 0
+ 227              		.cfi_startproc
+ 228 0000 80B5     		push	{r7, lr}
+ 229              	.LCFI15:
+ 230              		.cfi_def_cfa_offset 8
+ 231              		.cfi_offset 7, -8
+ 232              		.cfi_offset 14, -4
+ 233 0002 82B0     		sub	sp, sp, #8
+ 234              	.LCFI16:
+ 235              		.cfi_def_cfa_offset 16
+ 236 0004 00AF     		add	r7, sp, #0
+ 237              	.LCFI17:
+ 238              		.cfi_def_cfa_register 7
+ 239 0006 7860     		str	r0, [r7, #4]
+ 240 0008 0A00     		movs	r2, r1
+ 241 000a FB1C     		adds	r3, r7, #3
+ 242 000c 1A70     		strb	r2, [r3]
+ 368:Drivers/u8glib/src/u8g_com_io.c **** }
+ 243              		.loc 1 368 0
+ 244 000e C046     		nop
+ 245 0010 BD46     		mov	sp, r7
+ 246 0012 02B0     		add	sp, sp, #8
+ 247              		@ sp needed
+ 248 0014 80BD     		pop	{r7, pc}
+ 249              		.cfi_endproc
+ 250              	.LFE5:
+ 252              		.section	.text.u8g_SetPILevel,"ax",%progbits
+ 253              		.align	1
+ 254              		.global	u8g_SetPILevel
+ 255              		.syntax unified
+ 256              		.code	16
+ 257              		.thumb_func
+ 258              		.fpu softvfp
+ 260              	u8g_SetPILevel:
+ 261              	.LFB6:
+ 369:Drivers/u8glib/src/u8g_com_io.c **** 
+ 370:Drivers/u8glib/src/u8g_com_io.c **** void u8g_SetPILevel(u8g_t *u8g, uint8_t pi, uint8_t level)
+ 371:Drivers/u8glib/src/u8g_com_io.c **** {
+ 262              		.loc 1 371 0
+ 263              		.cfi_startproc
+ 264 0000 80B5     		push	{r7, lr}
+ 265              	.LCFI18:
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 7, -8
+ 268              		.cfi_offset 14, -4
+ 269 0002 82B0     		sub	sp, sp, #8
+ARM GAS  /tmp/ccXkq1tc.s 			page 12
+
+
+ 270              	.LCFI19:
+ 271              		.cfi_def_cfa_offset 16
+ 272 0004 00AF     		add	r7, sp, #0
+ 273              	.LCFI20:
+ 274              		.cfi_def_cfa_register 7
+ 275 0006 7860     		str	r0, [r7, #4]
+ 276 0008 0800     		movs	r0, r1
+ 277 000a 1100     		movs	r1, r2
+ 278 000c FB1C     		adds	r3, r7, #3
+ 279 000e 021C     		adds	r2, r0, #0
+ 280 0010 1A70     		strb	r2, [r3]
+ 281 0012 BB1C     		adds	r3, r7, #2
+ 282 0014 0A1C     		adds	r2, r1, #0
+ 283 0016 1A70     		strb	r2, [r3]
+ 372:Drivers/u8glib/src/u8g_com_io.c **** }
+ 284              		.loc 1 372 0
+ 285 0018 C046     		nop
+ 286 001a BD46     		mov	sp, r7
+ 287 001c 02B0     		add	sp, sp, #8
+ 288              		@ sp needed
+ 289 001e 80BD     		pop	{r7, pc}
+ 290              		.cfi_endproc
+ 291              	.LFE6:
+ 293              		.text
+ 294              	.Letext0:
+ 295              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 296              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 297              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/ccXkq1tc.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_com_io.c
+     /tmp/ccXkq1tc.s:16     .text.u8g_Pin:0000000000000000 $t
+     /tmp/ccXkq1tc.s:23     .text.u8g_Pin:0000000000000000 u8g_Pin
+     /tmp/ccXkq1tc.s:72     .text.u8g_SetPinOutput:0000000000000000 $t
+     /tmp/ccXkq1tc.s:79     .text.u8g_SetPinOutput:0000000000000000 u8g_SetPinOutput
+     /tmp/ccXkq1tc.s:107    .text.u8g_SetPinInput:0000000000000000 $t
+     /tmp/ccXkq1tc.s:114    .text.u8g_SetPinInput:0000000000000000 u8g_SetPinInput
+     /tmp/ccXkq1tc.s:142    .text.u8g_SetPinLevel:0000000000000000 $t
+     /tmp/ccXkq1tc.s:149    .text.u8g_SetPinLevel:0000000000000000 u8g_SetPinLevel
+     /tmp/ccXkq1tc.s:180    .text.u8g_GetPinLevel:0000000000000000 $t
+     /tmp/ccXkq1tc.s:187    .text.u8g_GetPinLevel:0000000000000000 u8g_GetPinLevel
+     /tmp/ccXkq1tc.s:217    .text.u8g_SetPIOutput:0000000000000000 $t
+     /tmp/ccXkq1tc.s:224    .text.u8g_SetPIOutput:0000000000000000 u8g_SetPIOutput
+     /tmp/ccXkq1tc.s:253    .text.u8g_SetPILevel:0000000000000000 $t
+     /tmp/ccXkq1tc.s:260    .text.u8g_SetPILevel:0000000000000000 u8g_SetPILevel
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS

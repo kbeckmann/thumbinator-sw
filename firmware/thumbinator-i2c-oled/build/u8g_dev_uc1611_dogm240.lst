@@ -1,0 +1,579 @@
+ARM GAS  /tmp/cca4wy2U.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_uc1611_dogm240.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_uc1611_dogm240_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_uc1611_dogm240_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D1       		.byte	-47
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 F1       		.byte	-15
+  25 0005 3F       		.byte	63
+  26 0006 F2       		.byte	-14
+  27 0007 00       		.byte	0
+  28 0008 F3       		.byte	-13
+  29 0009 3F       		.byte	63
+  30 000a 81       		.byte	-127
+  31 000b B7       		.byte	-73
+  32 000c C0       		.byte	-64
+  33 000d 02       		.byte	2
+  34 000e A3       		.byte	-93
+  35 000f E9       		.byte	-23
+  36 0010 A9       		.byte	-87
+  37 0011 D1       		.byte	-47
+  38 0012 FF       		.byte	-1
+  39 0013 D0       		.byte	-48
+  40 0014 FF       		.byte	-1
+  41 0015 FE       		.byte	-2
+  42              		.section	.text.setPage,"ax",%progbits
+  43              		.align	1
+  44              		.syntax unified
+  45              		.code	16
+  46              		.thumb_func
+  47              		.fpu softvfp
+  49              	setPage:
+  50              	.LFB0:
+  51              		.file 1 "Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c"
+   1:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+   3:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   u8g_dev_uc1611_dogm240.c
+   4:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+   5:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   Universal 8bit Graphics Library
+   6:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   
+   7:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   Copyright (c) 2014, dev.menges.jonas@gmail.com
+   8:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   All rights reserved.
+   9:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+ARM GAS  /tmp/cca4wy2U.s 			page 2
+
+
+  10:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  11:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   are permitted provided that the following conditions are met:
+  12:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  13:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  14:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     of conditions and the following disclaimer.
+  15:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     
+  16:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  17:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  18:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     materials provided with the distribution.
+  19:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  20:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  21:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  22:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  23:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  24:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  25:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  26:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  27:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  28:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  29:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  30:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  31:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  32:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  33:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   
+  34:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   
+  35:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** */
+  36:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  37:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** #include "u8g.h"
+  38:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  39:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  40:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** #define WIDTH 240
+  41:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** #define HEIGHT 64
+  42:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** #define PAGE_HEIGHT 8
+  43:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  44:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  45:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** static const uint8_t u8g_dev_uc1611_dogm240_init_seq[] PROGMEM = {
+  46:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_CS(1),             // enable chip
+  47:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_ADR(0),           // instruction mode
+  48:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xF1,     // set last COM electrode
+  49:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x3F,     // 64-1=63
+  50:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xF2,     // set display start line
+  51:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x00,     // 0
+  52:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xF3,     // set display end line
+  53:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x3F,     // 64-1=63
+  54:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x81,     // set contrast (0-255)
+  55:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xB7,     // 183
+  56:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xC0,     // set view
+  57:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   //0x04,     // topview
+  58:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x02,     // bottomview
+  59:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xA3,     // set line rate (9.4k)
+  60:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xE9,     // set bias ratio (10)
+  61:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xA9,     // enable display
+  62:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0xD1,      // set black and white mode
+  63:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_CS(0),             // disable chip
+  64:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_END                // end of sequence
+  65:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** };
+  66:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+ARM GAS  /tmp/cca4wy2U.s 			page 3
+
+
+  67:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** static void setPage(u8g_t *u8g, u8g_dev_t *dev, unsigned char page)
+  68:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** {
+  52              		.loc 1 68 0
+  53              		.cfi_startproc
+  54 0000 80B5     		push	{r7, lr}
+  55              	.LCFI0:
+  56              		.cfi_def_cfa_offset 8
+  57              		.cfi_offset 7, -8
+  58              		.cfi_offset 14, -4
+  59 0002 84B0     		sub	sp, sp, #16
+  60              	.LCFI1:
+  61              		.cfi_def_cfa_offset 24
+  62 0004 00AF     		add	r7, sp, #0
+  63              	.LCFI2:
+  64              		.cfi_def_cfa_register 7
+  65 0006 F860     		str	r0, [r7, #12]
+  66 0008 B960     		str	r1, [r7, #8]
+  67 000a FB1D     		adds	r3, r7, #7
+  68 000c 1A70     		strb	r2, [r3]
+  69:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   u8g_WriteByte(u8g, dev, 0x70 + (page>>4)); 
+  69              		.loc 1 69 0
+  70 000e FB1D     		adds	r3, r7, #7
+  71 0010 1B78     		ldrb	r3, [r3]
+  72 0012 1B09     		lsrs	r3, r3, #4
+  73 0014 DBB2     		uxtb	r3, r3
+  74 0016 7033     		adds	r3, r3, #112
+  75 0018 DAB2     		uxtb	r2, r3
+  76 001a B968     		ldr	r1, [r7, #8]
+  77 001c FB68     		ldr	r3, [r7, #12]
+  78 001e 1800     		movs	r0, r3
+  79 0020 FFF7FEFF 		bl	u8g_WriteByte
+  70:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   u8g_WriteByte(u8g, dev, 0x60 + (page&0x0F));
+  80              		.loc 1 70 0
+  81 0024 FB1D     		adds	r3, r7, #7
+  82 0026 1B78     		ldrb	r3, [r3]
+  83 0028 0F22     		movs	r2, #15
+  84 002a 1340     		ands	r3, r2
+  85 002c DBB2     		uxtb	r3, r3
+  86 002e 6033     		adds	r3, r3, #96
+  87 0030 DAB2     		uxtb	r2, r3
+  88 0032 B968     		ldr	r1, [r7, #8]
+  89 0034 FB68     		ldr	r3, [r7, #12]
+  90 0036 1800     		movs	r0, r3
+  91 0038 FFF7FEFF 		bl	u8g_WriteByte
+  71:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** }
+  92              		.loc 1 71 0
+  93 003c C046     		nop
+  94 003e BD46     		mov	sp, r7
+  95 0040 04B0     		add	sp, sp, #16
+  96              		@ sp needed
+  97 0042 80BD     		pop	{r7, pc}
+  98              		.cfi_endproc
+  99              	.LFE0:
+ 101              		.section	.rodata.u8g_dev_uc1611_dogm240_data_start,"a",%progbits
+ 102              		.align	2
+ 105              	u8g_dev_uc1611_dogm240_data_start:
+ 106 0000 FF       		.byte	-1
+ARM GAS  /tmp/cca4wy2U.s 			page 4
+
+
+ 107 0001 E0       		.byte	-32
+ 108 0002 FF       		.byte	-1
+ 109 0003 D1       		.byte	-47
+ 110 0004 10       		.byte	16
+ 111 0005 00       		.byte	0
+ 112 0006 FF       		.byte	-1
+ 113 0007 FE       		.byte	-2
+ 114              		.section	.text.u8g_dev_uc1611_dogm240_fn,"ax",%progbits
+ 115              		.align	1
+ 116              		.global	u8g_dev_uc1611_dogm240_fn
+ 117              		.syntax unified
+ 118              		.code	16
+ 119              		.thumb_func
+ 120              		.fpu softvfp
+ 122              	u8g_dev_uc1611_dogm240_fn:
+ 123              	.LFB1:
+  72:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  73:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** static const uint8_t u8g_dev_uc1611_dogm240_data_start[] PROGMEM = {
+  74:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_ADR(0),           /* instruction mode */
+  75:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_CS(1),            /* enable chip */
+  76:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x10,                     /* set upper 4 bit of the col adr to 0 */
+  77:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   0x00,                     /* set lower 4 bit of the col adr to 0 */
+  78:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   U8G_ESC_END               /* end of sequence */
+  79:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** };
+  80:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** 
+  81:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** uint8_t u8g_dev_uc1611_dogm240_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+  82:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** {
+ 124              		.loc 1 82 0
+ 125              		.cfi_startproc
+ 126 0000 90B5     		push	{r4, r7, lr}
+ 127              	.LCFI3:
+ 128              		.cfi_def_cfa_offset 12
+ 129              		.cfi_offset 4, -12
+ 130              		.cfi_offset 7, -8
+ 131              		.cfi_offset 14, -4
+ 132 0002 87B0     		sub	sp, sp, #28
+ 133              	.LCFI4:
+ 134              		.cfi_def_cfa_offset 40
+ 135 0004 00AF     		add	r7, sp, #0
+ 136              	.LCFI5:
+ 137              		.cfi_def_cfa_register 7
+ 138 0006 F860     		str	r0, [r7, #12]
+ 139 0008 B960     		str	r1, [r7, #8]
+ 140 000a 3B60     		str	r3, [r7]
+ 141 000c FB1D     		adds	r3, r7, #7
+ 142 000e 1A70     		strb	r2, [r3]
+  83:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   switch(msg)
+ 143              		.loc 1 83 0
+ 144 0010 FB1D     		adds	r3, r7, #7
+ 145 0012 1B78     		ldrb	r3, [r3]
+ 146 0014 0B2B     		cmp	r3, #11
+ 147 0016 5DD0     		beq	.L11
+ 148 0018 02DC     		bgt	.L5
+ 149 001a 0A2B     		cmp	r3, #10
+ 150 001c 05D0     		beq	.L6
+ 151 001e 5AE0     		b	.L3
+ 152              	.L5:
+ARM GAS  /tmp/cca4wy2U.s 			page 5
+
+
+ 153 0020 0F2B     		cmp	r3, #15
+ 154 0022 36D0     		beq	.L7
+ 155 0024 152B     		cmp	r3, #21
+ 156 0026 0DD0     		beq	.L8
+ 157 0028 55E0     		b	.L3
+ 158              	.L6:
+  84:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   {
+  85:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     case U8G_DEV_MSG_INIT:
+  86:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_300NS);
+ 159              		.loc 1 86 0
+ 160 002a B968     		ldr	r1, [r7, #8]
+ 161 002c FB68     		ldr	r3, [r7, #12]
+ 162 002e 0222     		movs	r2, #2
+ 163 0030 1800     		movs	r0, r3
+ 164 0032 FFF7FEFF 		bl	u8g_InitCom
+  87:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1611_dogm240_init_seq);
+ 165              		.loc 1 87 0
+ 166 0036 2E4A     		ldr	r2, .L12
+ 167 0038 B968     		ldr	r1, [r7, #8]
+ 168 003a FB68     		ldr	r3, [r7, #12]
+ 169 003c 1800     		movs	r0, r3
+ 170 003e FFF7FEFF 		bl	u8g_WriteEscSeqP
+  88:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       break;
+ 171              		.loc 1 88 0
+ 172 0042 48E0     		b	.L3
+ 173              	.L8:
+ 174              	.LBB2:
+  89:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     case U8G_DEV_MSG_STOP:
+  90:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       break;
+  91:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+  92:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       {
+  93:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 175              		.loc 1 93 0
+ 176 0044 BB68     		ldr	r3, [r7, #8]
+ 177 0046 5B68     		ldr	r3, [r3, #4]
+ 178 0048 7B61     		str	r3, [r7, #20]
+  94:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_uc1611_dogm240_data_start);
+ 179              		.loc 1 94 0
+ 180 004a 2A4A     		ldr	r2, .L12+4
+ 181 004c B968     		ldr	r1, [r7, #8]
+ 182 004e FB68     		ldr	r3, [r7, #12]
+ 183 0050 1800     		movs	r0, r3
+ 184 0052 FFF7FEFF 		bl	u8g_WriteEscSeqP
+  95:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       setPage(u8g, dev, pb->p.page);   /* select current page (uc1611) */
+ 185              		.loc 1 95 0
+ 186 0056 7B69     		ldr	r3, [r7, #20]
+ 187 0058 1A79     		ldrb	r2, [r3, #4]
+ 188 005a B968     		ldr	r1, [r7, #8]
+ 189 005c FB68     		ldr	r3, [r7, #12]
+ 190 005e 1800     		movs	r0, r3
+ 191 0060 FFF7FEFF 		bl	setPage
+  96:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_SetAddress(u8g, dev, 1);     /* data mode */
+ 192              		.loc 1 96 0
+ 193 0064 B968     		ldr	r1, [r7, #8]
+ 194 0066 FB68     		ldr	r3, [r7, #12]
+ 195 0068 0122     		movs	r2, #1
+ 196 006a 1800     		movs	r0, r3
+ARM GAS  /tmp/cca4wy2U.s 			page 6
+
+
+ 197 006c FFF7FEFF 		bl	u8g_SetAddress
+  97:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       if ( u8g_pb_WriteBuffer(pb, u8g, dev) == 0 )
+ 198              		.loc 1 97 0
+ 199 0070 BA68     		ldr	r2, [r7, #8]
+ 200 0072 F968     		ldr	r1, [r7, #12]
+ 201 0074 7B69     		ldr	r3, [r7, #20]
+ 202 0076 1800     		movs	r0, r3
+ 203 0078 FFF7FEFF 		bl	u8g_pb_WriteBuffer
+ 204 007c 031E     		subs	r3, r0, #0
+ 205 007e 01D1     		bne	.L9
+  98:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****         return 0;
+ 206              		.loc 1 98 0
+ 207 0080 0023     		movs	r3, #0
+ 208 0082 31E0     		b	.L10
+ 209              	.L9:
+  99:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 210              		.loc 1 99 0
+ 211 0084 B968     		ldr	r1, [r7, #8]
+ 212 0086 FB68     		ldr	r3, [r7, #12]
+ 213 0088 0122     		movs	r2, #1
+ 214 008a 1800     		movs	r0, r3
+ 215 008c FFF7FEFF 		bl	u8g_SetChipSelect
+ 216              	.LBE2:
+ 100:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       }
+ 101:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       break;
+ 217              		.loc 1 101 0
+ 218 0090 21E0     		b	.L3
+ 219              	.L7:
+ 102:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     case U8G_DEV_MSG_CONTRAST:
+ 103:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_SetChipSelect(u8g, dev, 0);
+ 220              		.loc 1 103 0
+ 221 0092 B968     		ldr	r1, [r7, #8]
+ 222 0094 FB68     		ldr	r3, [r7, #12]
+ 223 0096 0022     		movs	r2, #0
+ 224 0098 1800     		movs	r0, r3
+ 225 009a FFF7FEFF 		bl	u8g_SetChipSelect
+ 104:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_SetAddress(u8g, dev, 0);          /* instruction mode */
+ 226              		.loc 1 104 0
+ 227 009e B968     		ldr	r1, [r7, #8]
+ 228 00a0 FB68     		ldr	r3, [r7, #12]
+ 229 00a2 0022     		movs	r2, #0
+ 230 00a4 1800     		movs	r0, r3
+ 231 00a6 FFF7FEFF 		bl	u8g_SetAddress
+ 105:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_WriteByte(u8g, dev, 0x81);
+ 232              		.loc 1 105 0
+ 233 00aa B968     		ldr	r1, [r7, #8]
+ 234 00ac FB68     		ldr	r3, [r7, #12]
+ 235 00ae 8122     		movs	r2, #129
+ 236 00b0 1800     		movs	r0, r3
+ 237 00b2 FFF7FEFF 		bl	u8g_WriteByte
+ 106:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       /* 11 Jul 2015: bugfix, github issue 339 */
+ 107:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_WriteByte(u8g, dev, (*(uint8_t *)arg) );	/* set contrast from, keep gain at 0 */
+ 238              		.loc 1 107 0
+ 239 00b6 3B68     		ldr	r3, [r7]
+ 240 00b8 1A78     		ldrb	r2, [r3]
+ 241 00ba B968     		ldr	r1, [r7, #8]
+ 242 00bc FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/cca4wy2U.s 			page 7
+
+
+ 243 00be 1800     		movs	r0, r3
+ 244 00c0 FFF7FEFF 		bl	u8g_WriteByte
+ 108:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       u8g_SetChipSelect(u8g, dev, 1);
+ 245              		.loc 1 108 0
+ 246 00c4 B968     		ldr	r1, [r7, #8]
+ 247 00c6 FB68     		ldr	r3, [r7, #12]
+ 248 00c8 0122     		movs	r2, #1
+ 249 00ca 1800     		movs	r0, r3
+ 250 00cc FFF7FEFF 		bl	u8g_SetChipSelect
+ 109:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****       return 1;
+ 251              		.loc 1 109 0
+ 252 00d0 0123     		movs	r3, #1
+ 253 00d2 09E0     		b	.L10
+ 254              	.L11:
+  90:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 255              		.loc 1 90 0
+ 256 00d4 C046     		nop
+ 257              	.L3:
+ 110:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   }
+ 111:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c ****   return u8g_dev_pb8v1_base_fn(u8g, dev, msg, arg);
+ 258              		.loc 1 111 0
+ 259 00d6 3C68     		ldr	r4, [r7]
+ 260 00d8 FB1D     		adds	r3, r7, #7
+ 261 00da 1A78     		ldrb	r2, [r3]
+ 262 00dc B968     		ldr	r1, [r7, #8]
+ 263 00de F868     		ldr	r0, [r7, #12]
+ 264 00e0 2300     		movs	r3, r4
+ 265 00e2 FFF7FEFF 		bl	u8g_dev_pb8v1_base_fn
+ 266 00e6 0300     		movs	r3, r0
+ 267              	.L10:
+ 112:Drivers/u8glib/src/u8g_dev_uc1611_dogm240.c **** }
+ 268              		.loc 1 112 0
+ 269 00e8 1800     		movs	r0, r3
+ 270 00ea BD46     		mov	sp, r7
+ 271 00ec 07B0     		add	sp, sp, #28
+ 272              		@ sp needed
+ 273 00ee 90BD     		pop	{r4, r7, pc}
+ 274              	.L13:
+ 275              		.align	2
+ 276              	.L12:
+ 277 00f0 00000000 		.word	u8g_dev_uc1611_dogm240_init_seq
+ 278 00f4 00000000 		.word	u8g_dev_uc1611_dogm240_data_start
+ 279              		.cfi_endproc
+ 280              	.LFE1:
+ 282              		.global	u8g_dev_uc1611_dogm240_i2c_buf
+ 283              		.section	.bss.u8g_dev_uc1611_dogm240_i2c_buf,"aw",%nobits
+ 284              		.align	2
+ 287              	u8g_dev_uc1611_dogm240_i2c_buf:
+ 288 0000 00000000 		.space	240
+ 288      00000000 
+ 288      00000000 
+ 288      00000000 
+ 288      00000000 
+ 289              		.global	u8g_dev_uc1611_dogm240_i2c_pb
+ 290              		.section	.data.u8g_dev_uc1611_dogm240_i2c_pb,"aw",%progbits
+ 291              		.align	2
+ 294              	u8g_dev_uc1611_dogm240_i2c_pb:
+ARM GAS  /tmp/cca4wy2U.s 			page 8
+
+
+ 295 0000 08       		.byte	8
+ 296 0001 40       		.byte	64
+ 297 0002 00       		.byte	0
+ 298 0003 00       		.byte	0
+ 299 0004 00       		.byte	0
+ 300 0005 F0       		.byte	-16
+ 301 0006 0000     		.space	2
+ 302 0008 00000000 		.word	u8g_dev_uc1611_dogm240_i2c_buf
+ 303              		.global	u8g_dev_uc1611_dogm240_i2c
+ 304              		.section	.data.u8g_dev_uc1611_dogm240_i2c,"aw",%progbits
+ 305              		.align	2
+ 308              	u8g_dev_uc1611_dogm240_i2c:
+ 309 0000 00000000 		.word	u8g_dev_uc1611_dogm240_fn
+ 310 0004 00000000 		.word	u8g_dev_uc1611_dogm240_i2c_pb
+ 311 0008 00000000 		.word	u8g_com_null_fn
+ 312              		.global	u8g_dev_uc1611_dogm240_sw_spi_buf
+ 313              		.section	.bss.u8g_dev_uc1611_dogm240_sw_spi_buf,"aw",%nobits
+ 314              		.align	2
+ 317              	u8g_dev_uc1611_dogm240_sw_spi_buf:
+ 318 0000 00000000 		.space	240
+ 318      00000000 
+ 318      00000000 
+ 318      00000000 
+ 318      00000000 
+ 319              		.global	u8g_dev_uc1611_dogm240_sw_spi_pb
+ 320              		.section	.data.u8g_dev_uc1611_dogm240_sw_spi_pb,"aw",%progbits
+ 321              		.align	2
+ 324              	u8g_dev_uc1611_dogm240_sw_spi_pb:
+ 325 0000 08       		.byte	8
+ 326 0001 40       		.byte	64
+ 327 0002 00       		.byte	0
+ 328 0003 00       		.byte	0
+ 329 0004 00       		.byte	0
+ 330 0005 F0       		.byte	-16
+ 331 0006 0000     		.space	2
+ 332 0008 00000000 		.word	u8g_dev_uc1611_dogm240_sw_spi_buf
+ 333              		.global	u8g_dev_uc1611_dogm240_sw_spi
+ 334              		.section	.data.u8g_dev_uc1611_dogm240_sw_spi,"aw",%progbits
+ 335              		.align	2
+ 338              	u8g_dev_uc1611_dogm240_sw_spi:
+ 339 0000 00000000 		.word	u8g_dev_uc1611_dogm240_fn
+ 340 0004 00000000 		.word	u8g_dev_uc1611_dogm240_sw_spi_pb
+ 341 0008 00000000 		.word	u8g_com_null_fn
+ 342              		.global	u8g_dev_uc1611_dogm240_hw_spi_buf
+ 343              		.section	.bss.u8g_dev_uc1611_dogm240_hw_spi_buf,"aw",%nobits
+ 344              		.align	2
+ 347              	u8g_dev_uc1611_dogm240_hw_spi_buf:
+ 348 0000 00000000 		.space	240
+ 348      00000000 
+ 348      00000000 
+ 348      00000000 
+ 348      00000000 
+ 349              		.global	u8g_dev_uc1611_dogm240_hw_spi_pb
+ 350              		.section	.data.u8g_dev_uc1611_dogm240_hw_spi_pb,"aw",%progbits
+ 351              		.align	2
+ 354              	u8g_dev_uc1611_dogm240_hw_spi_pb:
+ 355 0000 08       		.byte	8
+ARM GAS  /tmp/cca4wy2U.s 			page 9
+
+
+ 356 0001 40       		.byte	64
+ 357 0002 00       		.byte	0
+ 358 0003 00       		.byte	0
+ 359 0004 00       		.byte	0
+ 360 0005 F0       		.byte	-16
+ 361 0006 0000     		.space	2
+ 362 0008 00000000 		.word	u8g_dev_uc1611_dogm240_hw_spi_buf
+ 363              		.global	u8g_dev_uc1611_dogm240_hw_spi
+ 364              		.section	.data.u8g_dev_uc1611_dogm240_hw_spi,"aw",%progbits
+ 365              		.align	2
+ 368              	u8g_dev_uc1611_dogm240_hw_spi:
+ 369 0000 00000000 		.word	u8g_dev_uc1611_dogm240_fn
+ 370 0004 00000000 		.word	u8g_dev_uc1611_dogm240_hw_spi_pb
+ 371 0008 00000000 		.word	u8g_com_null_fn
+ 372              		.global	u8g_dev_uc1611_dogm240_8bit_buf
+ 373              		.section	.bss.u8g_dev_uc1611_dogm240_8bit_buf,"aw",%nobits
+ 374              		.align	2
+ 377              	u8g_dev_uc1611_dogm240_8bit_buf:
+ 378 0000 00000000 		.space	240
+ 378      00000000 
+ 378      00000000 
+ 378      00000000 
+ 378      00000000 
+ 379              		.global	u8g_dev_uc1611_dogm240_8bit_pb
+ 380              		.section	.data.u8g_dev_uc1611_dogm240_8bit_pb,"aw",%progbits
+ 381              		.align	2
+ 384              	u8g_dev_uc1611_dogm240_8bit_pb:
+ 385 0000 08       		.byte	8
+ 386 0001 40       		.byte	64
+ 387 0002 00       		.byte	0
+ 388 0003 00       		.byte	0
+ 389 0004 00       		.byte	0
+ 390 0005 F0       		.byte	-16
+ 391 0006 0000     		.space	2
+ 392 0008 00000000 		.word	u8g_dev_uc1611_dogm240_8bit_buf
+ 393              		.global	u8g_dev_uc1611_dogm240_8bit
+ 394              		.section	.data.u8g_dev_uc1611_dogm240_8bit,"aw",%progbits
+ 395              		.align	2
+ 398              	u8g_dev_uc1611_dogm240_8bit:
+ 399 0000 00000000 		.word	u8g_dev_uc1611_dogm240_fn
+ 400 0004 00000000 		.word	u8g_dev_uc1611_dogm240_8bit_pb
+ 401 0008 00000000 		.word	u8g_com_null_fn
+ 402              		.text
+ 403              	.Letext0:
+ 404              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 405              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 406              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cca4wy2U.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_uc1611_dogm240.c
+     /tmp/cca4wy2U.s:16     .rodata.u8g_dev_uc1611_dogm240_init_seq:0000000000000000 $d
+     /tmp/cca4wy2U.s:19     .rodata.u8g_dev_uc1611_dogm240_init_seq:0000000000000000 u8g_dev_uc1611_dogm240_init_seq
+     /tmp/cca4wy2U.s:43     .text.setPage:0000000000000000 $t
+     /tmp/cca4wy2U.s:49     .text.setPage:0000000000000000 setPage
+     /tmp/cca4wy2U.s:102    .rodata.u8g_dev_uc1611_dogm240_data_start:0000000000000000 $d
+     /tmp/cca4wy2U.s:105    .rodata.u8g_dev_uc1611_dogm240_data_start:0000000000000000 u8g_dev_uc1611_dogm240_data_start
+     /tmp/cca4wy2U.s:115    .text.u8g_dev_uc1611_dogm240_fn:0000000000000000 $t
+     /tmp/cca4wy2U.s:122    .text.u8g_dev_uc1611_dogm240_fn:0000000000000000 u8g_dev_uc1611_dogm240_fn
+     /tmp/cca4wy2U.s:277    .text.u8g_dev_uc1611_dogm240_fn:00000000000000f0 $d
+     /tmp/cca4wy2U.s:287    .bss.u8g_dev_uc1611_dogm240_i2c_buf:0000000000000000 u8g_dev_uc1611_dogm240_i2c_buf
+     /tmp/cca4wy2U.s:284    .bss.u8g_dev_uc1611_dogm240_i2c_buf:0000000000000000 $d
+     /tmp/cca4wy2U.s:294    .data.u8g_dev_uc1611_dogm240_i2c_pb:0000000000000000 u8g_dev_uc1611_dogm240_i2c_pb
+     /tmp/cca4wy2U.s:291    .data.u8g_dev_uc1611_dogm240_i2c_pb:0000000000000000 $d
+     /tmp/cca4wy2U.s:308    .data.u8g_dev_uc1611_dogm240_i2c:0000000000000000 u8g_dev_uc1611_dogm240_i2c
+     /tmp/cca4wy2U.s:305    .data.u8g_dev_uc1611_dogm240_i2c:0000000000000000 $d
+     /tmp/cca4wy2U.s:317    .bss.u8g_dev_uc1611_dogm240_sw_spi_buf:0000000000000000 u8g_dev_uc1611_dogm240_sw_spi_buf
+     /tmp/cca4wy2U.s:314    .bss.u8g_dev_uc1611_dogm240_sw_spi_buf:0000000000000000 $d
+     /tmp/cca4wy2U.s:324    .data.u8g_dev_uc1611_dogm240_sw_spi_pb:0000000000000000 u8g_dev_uc1611_dogm240_sw_spi_pb
+     /tmp/cca4wy2U.s:321    .data.u8g_dev_uc1611_dogm240_sw_spi_pb:0000000000000000 $d
+     /tmp/cca4wy2U.s:338    .data.u8g_dev_uc1611_dogm240_sw_spi:0000000000000000 u8g_dev_uc1611_dogm240_sw_spi
+     /tmp/cca4wy2U.s:335    .data.u8g_dev_uc1611_dogm240_sw_spi:0000000000000000 $d
+     /tmp/cca4wy2U.s:347    .bss.u8g_dev_uc1611_dogm240_hw_spi_buf:0000000000000000 u8g_dev_uc1611_dogm240_hw_spi_buf
+     /tmp/cca4wy2U.s:344    .bss.u8g_dev_uc1611_dogm240_hw_spi_buf:0000000000000000 $d
+     /tmp/cca4wy2U.s:354    .data.u8g_dev_uc1611_dogm240_hw_spi_pb:0000000000000000 u8g_dev_uc1611_dogm240_hw_spi_pb
+     /tmp/cca4wy2U.s:351    .data.u8g_dev_uc1611_dogm240_hw_spi_pb:0000000000000000 $d
+     /tmp/cca4wy2U.s:368    .data.u8g_dev_uc1611_dogm240_hw_spi:0000000000000000 u8g_dev_uc1611_dogm240_hw_spi
+     /tmp/cca4wy2U.s:365    .data.u8g_dev_uc1611_dogm240_hw_spi:0000000000000000 $d
+     /tmp/cca4wy2U.s:377    .bss.u8g_dev_uc1611_dogm240_8bit_buf:0000000000000000 u8g_dev_uc1611_dogm240_8bit_buf
+     /tmp/cca4wy2U.s:374    .bss.u8g_dev_uc1611_dogm240_8bit_buf:0000000000000000 $d
+     /tmp/cca4wy2U.s:384    .data.u8g_dev_uc1611_dogm240_8bit_pb:0000000000000000 u8g_dev_uc1611_dogm240_8bit_pb
+     /tmp/cca4wy2U.s:381    .data.u8g_dev_uc1611_dogm240_8bit_pb:0000000000000000 $d
+     /tmp/cca4wy2U.s:398    .data.u8g_dev_uc1611_dogm240_8bit:0000000000000000 u8g_dev_uc1611_dogm240_8bit
+     /tmp/cca4wy2U.s:395    .data.u8g_dev_uc1611_dogm240_8bit:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_WriteByte
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_SetAddress
+u8g_pb_WriteBuffer
+u8g_SetChipSelect
+u8g_dev_pb8v1_base_fn
+u8g_com_null_fn

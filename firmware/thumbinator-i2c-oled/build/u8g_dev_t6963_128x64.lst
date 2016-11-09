@@ -1,0 +1,585 @@
+ARM GAS  /tmp/cckuHk9t.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_dev_t6963_128x64.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_dev_t6963_128x64_init_seq,"a",%progbits
+  16              		.align	2
+  19              	u8g_dev_t6963_128x64_init_seq:
+  20 0000 FF       		.byte	-1
+  21 0001 D0       		.byte	-48
+  22 0002 FF       		.byte	-1
+  23 0003 E0       		.byte	-32
+  24 0004 FF       		.byte	-1
+  25 0005 CF       		.byte	-49
+  26 0006 FF       		.byte	-1
+  27 0007 D1       		.byte	-47
+  28 0008 FF       		.byte	-1
+  29 0009 32       		.byte	50
+  30 000a FF       		.byte	-1
+  31 000b E0       		.byte	-32
+  32 000c 00       		.byte	0
+  33 000d 00       		.byte	0
+  34 000e FF       		.byte	-1
+  35 000f E1       		.byte	-31
+  36 0010 21       		.byte	33
+  37 0011 FF       		.byte	-1
+  38 0012 E0       		.byte	-32
+  39 0013 00       		.byte	0
+  40 0014 00       		.byte	0
+  41 0015 FF       		.byte	-1
+  42 0016 E1       		.byte	-31
+  43 0017 22       		.byte	34
+  44 0018 FF       		.byte	-1
+  45 0019 E0       		.byte	-32
+  46 001a 00       		.byte	0
+  47 001b 00       		.byte	0
+  48 001c FF       		.byte	-1
+  49 001d E1       		.byte	-31
+  50 001e 40       		.byte	64
+  51 001f FF       		.byte	-1
+  52 0020 E0       		.byte	-32
+  53 0021 10       		.byte	16
+  54 0022 00       		.byte	0
+  55 0023 FF       		.byte	-1
+  56 0024 E1       		.byte	-31
+  57 0025 41       		.byte	65
+  58 0026 FF       		.byte	-1
+  59 0027 E0       		.byte	-32
+ARM GAS  /tmp/cckuHk9t.s 			page 2
+
+
+  60 0028 00       		.byte	0
+  61 0029 00       		.byte	0
+  62 002a FF       		.byte	-1
+  63 002b E1       		.byte	-31
+  64 002c 42       		.byte	66
+  65 002d FF       		.byte	-1
+  66 002e E0       		.byte	-32
+  67 002f 10       		.byte	16
+  68 0030 00       		.byte	0
+  69 0031 FF       		.byte	-1
+  70 0032 E1       		.byte	-31
+  71 0033 43       		.byte	67
+  72 0034 FF       		.byte	-1
+  73 0035 E1       		.byte	-31
+  74 0036 80       		.byte	-128
+  75 0037 FF       		.byte	-1
+  76 0038 E1       		.byte	-31
+  77 0039 98       		.byte	-104
+  78 003a FF       		.byte	-1
+  79 003b E0       		.byte	-32
+  80 003c 00       		.byte	0
+  81 003d 00       		.byte	0
+  82 003e FF       		.byte	-1
+  83 003f E1       		.byte	-31
+  84 0040 24       		.byte	36
+  85 0041 FF       		.byte	-1
+  86 0042 64       		.byte	100
+  87 0043 FF       		.byte	-1
+  88 0044 E0       		.byte	-32
+  89 0045 FF       		.byte	-1
+  90 0046 D0       		.byte	-48
+  91 0047 FF       		.byte	-1
+  92 0048 FE       		.byte	-2
+  93              		.section	.text.u8g_dev_t6963_128x64_fn,"ax",%progbits
+  94              		.align	1
+  95              		.global	u8g_dev_t6963_128x64_fn
+  96              		.syntax unified
+  97              		.code	16
+  98              		.thumb_func
+  99              		.fpu softvfp
+ 101              	u8g_dev_t6963_128x64_fn:
+ 102              	.LFB0:
+ 103              		.file 1 "Drivers/u8glib/src/u8g_dev_t6963_128x64.c"
+   1:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** /*
+   2:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+   3:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   u8g_dev_t6963_128x64.c
+   4:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+   5:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Tested with Varitronix MGLS240128TZ
+   6:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+   7:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Universal 8bit Graphics Library
+   8:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+   9:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Copyright (c) 2013, olikraus@gmail.com
+  10:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   All rights reserved.
+  11:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  12:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  13:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   are permitted provided that the following conditions are met:
+  14:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+ARM GAS  /tmp/cckuHk9t.s 			page 3
+
+
+  15:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  16:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     of conditions and the following disclaimer.
+  17:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     
+  18:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  19:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  20:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     materials provided with the distribution.
+  21:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  22:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  23:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  24:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  25:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  26:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  27:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  28:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  29:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  30:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  31:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  32:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  33:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  34:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  35:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+  36:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         
+  37:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Application Notes for the MGLS 240x128
+  38:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     www.baso.no/content/pdf/T6963C_Application.pdf
+  39:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+  40:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Hitachi App Notes:
+  41:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     https://www.sparkfun.com/datasheets/LCD/Monochrome/AN-029-Toshiba_T6963C.pdf
+  42:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  43:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   Notes:
+  44:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     The font selection pins should generate the 8x8 font.
+  45:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     For the MGLS240128TZ only FS1 is available on pin 18.
+  46:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     FS1 must be low to generate the 8x8 font.
+  47:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+  48:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+  49:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** */
+  50:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  51:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** #include "u8g.h"
+  52:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  53:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** #define WIDTH 128
+  54:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** #define HEIGHT 64
+  55:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** #define PAGE_HEIGHT 16
+  56:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  57:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  58:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** /* text is not used, so settings are not relevant */
+  59:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** static const uint8_t u8g_dev_t6963_128x64_init_seq[] PROGMEM = {
+  60:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_CS(0),             /* disable chip */
+  61:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),           /* data mode */
+  62:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_RST(15),           /* do reset low pulse with (15*16)+2 milliseconds (=maximum delay)*/
+  63:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  64:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_CS(1),             /* enable chip */
+  65:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_DLY(50),         /* delay 50 ms */
+  66:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  67:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+  68:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* low byte */
+  69:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+  70:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+  71:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x021,                                /* set cursor position */
+ARM GAS  /tmp/cckuHk9t.s 			page 4
+
+
+  72:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+  73:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+  74:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* low byte */
+  75:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+  76:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+  77:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x022,                                /* set offset */
+  78:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  79:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+  80:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* low byte */
+  81:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+  82:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+  83:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x040,				     /* text home */
+  84:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  85:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+  86:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   WIDTH/8,                      	    /* low byte */
+  87:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+  88:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+  89:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x041,				     /* text columns */
+  90:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  91:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+  92:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* low byte */
+  93:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+  94:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+  95:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x042,				     /* graphics home */
+  96:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+  97:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+  98:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   WIDTH/8,                      /* low byte */
+  99:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+ 100:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+ 101:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x043,				     /* graphics columns */
+ 102:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+ 103:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // mode set
+ 104:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x080: Internal CG, OR Mode
+ 105:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x081: Internal CG, EXOR Mode
+ 106:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x083: Internal CG, AND Mode
+ 107:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x088: External CG, OR Mode
+ 108:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x089: External CG, EXOR Mode
+ 109:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x08B: External CG, AND Mode
+ 110:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+ 111:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x080,                                /* mode register: OR Mode, Internal Character Mode */
+ 112:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+ 113:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+ 114:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // display mode
+ 115:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x090: Display off
+ 116:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x094: Graphic off, text on, cursor off, blink off
+ 117:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x096: Graphic off, text on, cursor on, blink off
+ 118:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x097: Graphic off, text on, cursor on, blink on
+ 119:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x098: Graphic on, text off, cursor off, blink off
+ 120:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x09a: Graphic on, text off, cursor on, blink off
+ 121:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // ...
+ 122:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x09c: Graphic on, text on, cursor off, blink off
+ 123:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   // 0x09f: Graphic on, text on, cursor on, blink on
+ 124:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x098,                                /* mode register: Display Mode, Graphics on, Text off, Curs
+ 125:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+ 126:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+ 127:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* low byte */
+ 128:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x000,                                /* height byte */
+ARM GAS  /tmp/cckuHk9t.s 			page 5
+
+
+ 129:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(1),               /* instruction mode */
+ 130:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   0x024,                                /* set adr pointer */
+ 131:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+ 132:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+ 133:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_DLY(100),         /* delay 100 ms */
+ 134:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   
+ 135:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_ADR(0),               /* data mode */
+ 136:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_CS(0),             /* disable chip */
+ 137:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   U8G_ESC_END                /* end of sequence */
+ 138:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** };
+ 139:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+ 140:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** uint8_t u8g_dev_t6963_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *arg)
+ 141:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** {
+ 104              		.loc 1 141 0
+ 105              		.cfi_startproc
+ 106 0000 90B5     		push	{r4, r7, lr}
+ 107              	.LCFI0:
+ 108              		.cfi_def_cfa_offset 12
+ 109              		.cfi_offset 4, -12
+ 110              		.cfi_offset 7, -8
+ 111              		.cfi_offset 14, -4
+ 112 0002 89B0     		sub	sp, sp, #36
+ 113              	.LCFI1:
+ 114              		.cfi_def_cfa_offset 48
+ 115 0004 00AF     		add	r7, sp, #0
+ 116              	.LCFI2:
+ 117              		.cfi_def_cfa_register 7
+ 118 0006 F860     		str	r0, [r7, #12]
+ 119 0008 B960     		str	r1, [r7, #8]
+ 120 000a 3B60     		str	r3, [r7]
+ 121 000c FB1D     		adds	r3, r7, #7
+ 122 000e 1A70     		strb	r2, [r3]
+ 142:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   switch(msg)
+ 123              		.loc 1 142 0
+ 124 0010 FB1D     		adds	r3, r7, #7
+ 125 0012 1B78     		ldrb	r3, [r3]
+ 126 0014 0B2B     		cmp	r3, #11
+ 127 0016 00D1     		bne	.LCB24
+ 128 0018 8BE0     		b	.L9	@long jump
+ 129              	.LCB24:
+ 130 001a 152B     		cmp	r3, #21
+ 131 001c 0FD0     		beq	.L4
+ 132 001e 0A2B     		cmp	r3, #10
+ 133 0020 00D0     		beq	.LCB28
+ 134 0022 87E0     		b	.L2	@long jump
+ 135              	.LCB28:
+ 143:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   {
+ 144:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     case U8G_DEV_MSG_INIT:
+ 145:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_NONE);    
+ 136              		.loc 1 145 0
+ 137 0024 B968     		ldr	r1, [r7, #8]
+ 138 0026 FB68     		ldr	r3, [r7, #12]
+ 139 0028 FF22     		movs	r2, #255
+ 140 002a 1800     		movs	r0, r3
+ 141 002c FFF7FEFF 		bl	u8g_InitCom
+ 146:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       u8g_WriteEscSeqP(u8g, dev, u8g_dev_t6963_128x64_init_seq);
+ 142              		.loc 1 146 0
+ARM GAS  /tmp/cckuHk9t.s 			page 6
+
+
+ 143 0030 474A     		ldr	r2, .L10
+ 144 0032 B968     		ldr	r1, [r7, #8]
+ 145 0034 FB68     		ldr	r3, [r7, #12]
+ 146 0036 1800     		movs	r0, r3
+ 147 0038 FFF7FEFF 		bl	u8g_WriteEscSeqP
+ 147:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       break;
+ 148              		.loc 1 147 0
+ 149 003c 7AE0     		b	.L2
+ 150              	.L4:
+ 151              	.LBB2:
+ 148:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     case U8G_DEV_MSG_STOP:
+ 149:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       break;
+ 150:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 151:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       {
+ 152:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         uint8_t y, i;
+ 153:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         uint16_t disp_ram_adr;
+ 154:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         uint8_t *ptr;
+ 155:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         u8g_pb_t *pb = (u8g_pb_t *)(dev->dev_mem);
+ 152              		.loc 1 155 0
+ 153 003e BB68     		ldr	r3, [r7, #8]
+ 154 0040 5B68     		ldr	r3, [r3, #4]
+ 155 0042 7B61     		str	r3, [r7, #20]
+ 156:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 
+ 157:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         
+ 158:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 	u8g_SetAddress(u8g, dev, 0);           /* data mode */
+ 156              		.loc 1 158 0
+ 157 0044 B968     		ldr	r1, [r7, #8]
+ 158 0046 FB68     		ldr	r3, [r7, #12]
+ 159 0048 0022     		movs	r2, #0
+ 160 004a 1800     		movs	r0, r3
+ 161 004c FFF7FEFF 		bl	u8g_SetAddress
+ 159:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         u8g_SetChipSelect(u8g, dev, 1);
+ 162              		.loc 1 159 0
+ 163 0050 B968     		ldr	r1, [r7, #8]
+ 164 0052 FB68     		ldr	r3, [r7, #12]
+ 165 0054 0122     		movs	r2, #1
+ 166 0056 1800     		movs	r0, r3
+ 167 0058 FFF7FEFF 		bl	u8g_SetChipSelect
+ 160:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         y = pb->p.page_y0;
+ 168              		.loc 1 160 0
+ 169 005c 1323     		movs	r3, #19
+ 170 005e FB18     		adds	r3, r7, r3
+ 171 0060 7A69     		ldr	r2, [r7, #20]
+ 172 0062 9278     		ldrb	r2, [r2, #2]
+ 173 0064 1A70     		strb	r2, [r3]
+ 161:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         ptr = pb->buf;
+ 174              		.loc 1 161 0
+ 175 0066 7B69     		ldr	r3, [r7, #20]
+ 176 0068 9B68     		ldr	r3, [r3, #8]
+ 177 006a BB61     		str	r3, [r7, #24]
+ 162:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         disp_ram_adr = WIDTH/8;
+ 178              		.loc 1 162 0
+ 179 006c 1C23     		movs	r3, #28
+ 180 006e FB18     		adds	r3, r7, r3
+ 181 0070 1022     		movs	r2, #16
+ 182 0072 1A80     		strh	r2, [r3]
+ 163:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         disp_ram_adr *= y;
+ARM GAS  /tmp/cckuHk9t.s 			page 7
+
+
+ 183              		.loc 1 163 0
+ 184 0074 1323     		movs	r3, #19
+ 185 0076 FB18     		adds	r3, r7, r3
+ 186 0078 1B78     		ldrb	r3, [r3]
+ 187 007a 9AB2     		uxth	r2, r3
+ 188 007c 1C23     		movs	r3, #28
+ 189 007e FB18     		adds	r3, r7, r3
+ 190 0080 1C21     		movs	r1, #28
+ 191 0082 7918     		adds	r1, r7, r1
+ 192 0084 0988     		ldrh	r1, [r1]
+ 193 0086 4A43     		muls	r2, r1
+ 194 0088 1A80     		strh	r2, [r3]
+ 164:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         for( i = 0; i < PAGE_HEIGHT; i ++ )
+ 195              		.loc 1 164 0
+ 196 008a 1F23     		movs	r3, #31
+ 197 008c FB18     		adds	r3, r7, r3
+ 198 008e 0022     		movs	r2, #0
+ 199 0090 1A70     		strb	r2, [r3]
+ 200 0092 3CE0     		b	.L6
+ 201              	.L7:
+ 165:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         {
+ 166:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           u8g_SetAddress(u8g, dev, 0);           /* data mode */
+ 202              		.loc 1 166 0 discriminator 3
+ 203 0094 B968     		ldr	r1, [r7, #8]
+ 204 0096 FB68     		ldr	r3, [r7, #12]
+ 205 0098 0022     		movs	r2, #0
+ 206 009a 1800     		movs	r0, r3
+ 207 009c FFF7FEFF 		bl	u8g_SetAddress
+ 167:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           u8g_WriteByte(u8g, dev, disp_ram_adr&255 );      /* address low byte */
+ 208              		.loc 1 167 0 discriminator 3
+ 209 00a0 1C23     		movs	r3, #28
+ 210 00a2 FB18     		adds	r3, r7, r3
+ 211 00a4 1B88     		ldrh	r3, [r3]
+ 212 00a6 DAB2     		uxtb	r2, r3
+ 213 00a8 B968     		ldr	r1, [r7, #8]
+ 214 00aa FB68     		ldr	r3, [r7, #12]
+ 215 00ac 1800     		movs	r0, r3
+ 216 00ae FFF7FEFF 		bl	u8g_WriteByte
+ 168:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           u8g_WriteByte(u8g, dev, disp_ram_adr>>8 );      /* address hight byte */
+ 217              		.loc 1 168 0 discriminator 3
+ 218 00b2 1C23     		movs	r3, #28
+ 219 00b4 FB18     		adds	r3, r7, r3
+ 220 00b6 1B88     		ldrh	r3, [r3]
+ 221 00b8 1B0A     		lsrs	r3, r3, #8
+ 222 00ba 9BB2     		uxth	r3, r3
+ 223 00bc DAB2     		uxtb	r2, r3
+ 224 00be B968     		ldr	r1, [r7, #8]
+ 225 00c0 FB68     		ldr	r3, [r7, #12]
+ 226 00c2 1800     		movs	r0, r3
+ 227 00c4 FFF7FEFF 		bl	u8g_WriteByte
+ 169:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           u8g_SetAddress(u8g, dev, 1);           /* cmd mode */
+ 228              		.loc 1 169 0 discriminator 3
+ 229 00c8 B968     		ldr	r1, [r7, #8]
+ 230 00ca FB68     		ldr	r3, [r7, #12]
+ 231 00cc 0122     		movs	r2, #1
+ 232 00ce 1800     		movs	r0, r3
+ 233 00d0 FFF7FEFF 		bl	u8g_SetAddress
+ARM GAS  /tmp/cckuHk9t.s 			page 8
+
+
+ 170:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           u8g_WriteByte(u8g, dev, 0x024 );      /* set adr ptr */
+ 234              		.loc 1 170 0 discriminator 3
+ 235 00d4 B968     		ldr	r1, [r7, #8]
+ 236 00d6 FB68     		ldr	r3, [r7, #12]
+ 237 00d8 2422     		movs	r2, #36
+ 238 00da 1800     		movs	r0, r3
+ 239 00dc FFF7FEFF 		bl	u8g_WriteByte
+ 171:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 	  
+ 172:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           u8g_WriteSequence(u8g, dev, WIDTH/8, ptr);	
+ 240              		.loc 1 172 0 discriminator 3
+ 241 00e0 BB69     		ldr	r3, [r7, #24]
+ 242 00e2 B968     		ldr	r1, [r7, #8]
+ 243 00e4 F868     		ldr	r0, [r7, #12]
+ 244 00e6 1022     		movs	r2, #16
+ 245 00e8 FFF7FEFF 		bl	u8g_WriteSequence
+ 173:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 	  
+ 174:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           ptr += WIDTH/8;
+ 246              		.loc 1 174 0 discriminator 3
+ 247 00ec BB69     		ldr	r3, [r7, #24]
+ 248 00ee 1033     		adds	r3, r3, #16
+ 249 00f0 BB61     		str	r3, [r7, #24]
+ 175:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****           disp_ram_adr += WIDTH/8;
+ 250              		.loc 1 175 0 discriminator 3
+ 251 00f2 1C23     		movs	r3, #28
+ 252 00f4 FB18     		adds	r3, r7, r3
+ 253 00f6 1C22     		movs	r2, #28
+ 254 00f8 BA18     		adds	r2, r7, r2
+ 255 00fa 1288     		ldrh	r2, [r2]
+ 256 00fc 1032     		adds	r2, r2, #16
+ 257 00fe 1A80     		strh	r2, [r3]
+ 164:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         {
+ 258              		.loc 1 164 0 discriminator 3
+ 259 0100 1F23     		movs	r3, #31
+ 260 0102 FB18     		adds	r3, r7, r3
+ 261 0104 1A78     		ldrb	r2, [r3]
+ 262 0106 1F23     		movs	r3, #31
+ 263 0108 FB18     		adds	r3, r7, r3
+ 264 010a 0132     		adds	r2, r2, #1
+ 265 010c 1A70     		strb	r2, [r3]
+ 266              	.L6:
+ 164:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         {
+ 267              		.loc 1 164 0 is_stmt 0 discriminator 1
+ 268 010e 1F23     		movs	r3, #31
+ 269 0110 FB18     		adds	r3, r7, r3
+ 270 0112 1B78     		ldrb	r3, [r3]
+ 271 0114 0F2B     		cmp	r3, #15
+ 272 0116 BDD9     		bls	.L7
+ 176:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         }
+ 177:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** 	u8g_SetAddress(u8g, dev, 0);           /* data mode */
+ 273              		.loc 1 177 0 is_stmt 1
+ 274 0118 B968     		ldr	r1, [r7, #8]
+ 275 011a FB68     		ldr	r3, [r7, #12]
+ 276 011c 0022     		movs	r2, #0
+ 277 011e 1800     		movs	r0, r3
+ 278 0120 FFF7FEFF 		bl	u8g_SetAddress
+ 178:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****         u8g_SetChipSelect(u8g, dev, 0);
+ 279              		.loc 1 178 0
+ARM GAS  /tmp/cckuHk9t.s 			page 9
+
+
+ 280 0124 B968     		ldr	r1, [r7, #8]
+ 281 0126 FB68     		ldr	r3, [r7, #12]
+ 282 0128 0022     		movs	r2, #0
+ 283 012a 1800     		movs	r0, r3
+ 284 012c FFF7FEFF 		bl	u8g_SetChipSelect
+ 285              	.LBE2:
+ 179:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       }
+ 180:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****       break;
+ 286              		.loc 1 180 0
+ 287 0130 00E0     		b	.L2
+ 288              	.L9:
+ 149:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****     case U8G_DEV_MSG_PAGE_NEXT:
+ 289              		.loc 1 149 0
+ 290 0132 C046     		nop
+ 291              	.L2:
+ 181:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   }
+ 182:Drivers/u8glib/src/u8g_dev_t6963_128x64.c ****   return u8g_dev_pb16h1_base_fn(u8g, dev, msg, arg);
+ 292              		.loc 1 182 0
+ 293 0134 3C68     		ldr	r4, [r7]
+ 294 0136 FB1D     		adds	r3, r7, #7
+ 295 0138 1A78     		ldrb	r2, [r3]
+ 296 013a B968     		ldr	r1, [r7, #8]
+ 297 013c F868     		ldr	r0, [r7, #12]
+ 298 013e 2300     		movs	r3, r4
+ 299 0140 FFF7FEFF 		bl	u8g_dev_pb16h1_base_fn
+ 300 0144 0300     		movs	r3, r0
+ 183:Drivers/u8glib/src/u8g_dev_t6963_128x64.c **** }
+ 301              		.loc 1 183 0
+ 302 0146 1800     		movs	r0, r3
+ 303 0148 BD46     		mov	sp, r7
+ 304 014a 09B0     		add	sp, sp, #36
+ 305              		@ sp needed
+ 306 014c 90BD     		pop	{r4, r7, pc}
+ 307              	.L11:
+ 308 014e C046     		.align	2
+ 309              	.L10:
+ 310 0150 00000000 		.word	u8g_dev_t6963_128x64_init_seq
+ 311              		.cfi_endproc
+ 312              	.LFE0:
+ 314              		.global	u8g_dev_t6963_128x64_2x_bw_buf
+ 315              		.section	.bss.u8g_dev_t6963_128x64_2x_bw_buf,"aw",%nobits
+ 316              		.align	2
+ 319              	u8g_dev_t6963_128x64_2x_bw_buf:
+ 320 0000 00000000 		.space	256
+ 320      00000000 
+ 320      00000000 
+ 320      00000000 
+ 320      00000000 
+ 321              		.global	u8g_dev_t6963_128x64_2x_bw_pb
+ 322              		.section	.data.u8g_dev_t6963_128x64_2x_bw_pb,"aw",%progbits
+ 323              		.align	2
+ 326              	u8g_dev_t6963_128x64_2x_bw_pb:
+ 327 0000 10       		.byte	16
+ 328 0001 40       		.byte	64
+ 329 0002 00       		.byte	0
+ 330 0003 00       		.byte	0
+ 331 0004 00       		.byte	0
+ARM GAS  /tmp/cckuHk9t.s 			page 10
+
+
+ 332 0005 80       		.byte	-128
+ 333 0006 0000     		.space	2
+ 334 0008 00000000 		.word	u8g_dev_t6963_128x64_2x_bw_buf
+ 335              		.global	u8g_dev_t6963_128x64_8bit
+ 336              		.section	.data.u8g_dev_t6963_128x64_8bit,"aw",%progbits
+ 337              		.align	2
+ 340              	u8g_dev_t6963_128x64_8bit:
+ 341 0000 00000000 		.word	u8g_dev_t6963_128x64_fn
+ 342 0004 00000000 		.word	u8g_dev_t6963_128x64_2x_bw_pb
+ 343 0008 00000000 		.word	u8g_com_null_fn
+ 344              		.text
+ 345              	.Letext0:
+ 346              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 347              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 348              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cckuHk9t.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_dev_t6963_128x64.c
+     /tmp/cckuHk9t.s:16     .rodata.u8g_dev_t6963_128x64_init_seq:0000000000000000 $d
+     /tmp/cckuHk9t.s:19     .rodata.u8g_dev_t6963_128x64_init_seq:0000000000000000 u8g_dev_t6963_128x64_init_seq
+     /tmp/cckuHk9t.s:94     .text.u8g_dev_t6963_128x64_fn:0000000000000000 $t
+     /tmp/cckuHk9t.s:101    .text.u8g_dev_t6963_128x64_fn:0000000000000000 u8g_dev_t6963_128x64_fn
+     /tmp/cckuHk9t.s:310    .text.u8g_dev_t6963_128x64_fn:0000000000000150 $d
+     /tmp/cckuHk9t.s:319    .bss.u8g_dev_t6963_128x64_2x_bw_buf:0000000000000000 u8g_dev_t6963_128x64_2x_bw_buf
+     /tmp/cckuHk9t.s:316    .bss.u8g_dev_t6963_128x64_2x_bw_buf:0000000000000000 $d
+     /tmp/cckuHk9t.s:326    .data.u8g_dev_t6963_128x64_2x_bw_pb:0000000000000000 u8g_dev_t6963_128x64_2x_bw_pb
+     /tmp/cckuHk9t.s:323    .data.u8g_dev_t6963_128x64_2x_bw_pb:0000000000000000 $d
+     /tmp/cckuHk9t.s:340    .data.u8g_dev_t6963_128x64_8bit:0000000000000000 u8g_dev_t6963_128x64_8bit
+     /tmp/cckuHk9t.s:337    .data.u8g_dev_t6963_128x64_8bit:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+u8g_InitCom
+u8g_WriteEscSeqP
+u8g_SetAddress
+u8g_SetChipSelect
+u8g_WriteByte
+u8g_WriteSequence
+u8g_dev_pb16h1_base_fn
+u8g_com_null_fn

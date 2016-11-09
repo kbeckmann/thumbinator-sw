@@ -1,0 +1,312 @@
+ARM GAS  /tmp/cchSTyLF.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"u8g_u8toa.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.rodata.u8g_u8toa_tab,"a",%progbits
+  16              		.align	2
+  19              	u8g_u8toa_tab:
+  20 0000 64       		.byte	100
+  21 0001 0A       		.byte	10
+  22 0002 01       		.byte	1
+  23              		.section	.text.u8g_u8toap,"ax",%progbits
+  24              		.align	1
+  25              		.global	u8g_u8toap
+  26              		.syntax unified
+  27              		.code	16
+  28              		.thumb_func
+  29              		.fpu softvfp
+  31              	u8g_u8toap:
+  32              	.LFB0:
+  33              		.file 1 "Drivers/u8glib/src/u8g_u8toa.c"
+   1:Drivers/u8glib/src/u8g_u8toa.c **** /*
+   2:Drivers/u8glib/src/u8g_u8toa.c **** 
+   3:Drivers/u8glib/src/u8g_u8toa.c ****   u8g_u8toa.c
+   4:Drivers/u8glib/src/u8g_u8toa.c **** 
+   5:Drivers/u8glib/src/u8g_u8toa.c **** 
+   6:Drivers/u8glib/src/u8g_u8toa.c ****   Universal 8bit Graphics Library
+   7:Drivers/u8glib/src/u8g_u8toa.c ****   
+   8:Drivers/u8glib/src/u8g_u8toa.c ****   Copyright (c) 2011, olikraus@gmail.com
+   9:Drivers/u8glib/src/u8g_u8toa.c ****   All rights reserved.
+  10:Drivers/u8glib/src/u8g_u8toa.c **** 
+  11:Drivers/u8glib/src/u8g_u8toa.c ****   Redistribution and use in source and binary forms, with or without modification, 
+  12:Drivers/u8glib/src/u8g_u8toa.c ****   are permitted provided that the following conditions are met:
+  13:Drivers/u8glib/src/u8g_u8toa.c **** 
+  14:Drivers/u8glib/src/u8g_u8toa.c ****   * Redistributions of source code must retain the above copyright notice, this list 
+  15:Drivers/u8glib/src/u8g_u8toa.c ****     of conditions and the following disclaimer.
+  16:Drivers/u8glib/src/u8g_u8toa.c ****     
+  17:Drivers/u8glib/src/u8g_u8toa.c ****   * Redistributions in binary form must reproduce the above copyright notice, this 
+  18:Drivers/u8glib/src/u8g_u8toa.c ****     list of conditions and the following disclaimer in the documentation and/or other 
+  19:Drivers/u8glib/src/u8g_u8toa.c ****     materials provided with the distribution.
+  20:Drivers/u8glib/src/u8g_u8toa.c **** 
+  21:Drivers/u8glib/src/u8g_u8toa.c ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+  22:Drivers/u8glib/src/u8g_u8toa.c ****   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+  23:Drivers/u8glib/src/u8g_u8toa.c ****   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+  24:Drivers/u8glib/src/u8g_u8toa.c ****   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+  25:Drivers/u8glib/src/u8g_u8toa.c ****   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+  26:Drivers/u8glib/src/u8g_u8toa.c ****   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  27:Drivers/u8glib/src/u8g_u8toa.c ****   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+ARM GAS  /tmp/cchSTyLF.s 			page 2
+
+
+  28:Drivers/u8glib/src/u8g_u8toa.c ****   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+  29:Drivers/u8glib/src/u8g_u8toa.c ****   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+  30:Drivers/u8glib/src/u8g_u8toa.c ****   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+  31:Drivers/u8glib/src/u8g_u8toa.c ****   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  32:Drivers/u8glib/src/u8g_u8toa.c ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+  33:Drivers/u8glib/src/u8g_u8toa.c ****   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+  34:Drivers/u8glib/src/u8g_u8toa.c ****   
+  35:Drivers/u8glib/src/u8g_u8toa.c **** */
+  36:Drivers/u8glib/src/u8g_u8toa.c **** 
+  37:Drivers/u8glib/src/u8g_u8toa.c **** 
+  38:Drivers/u8glib/src/u8g_u8toa.c **** #include "u8g.h"
+  39:Drivers/u8glib/src/u8g_u8toa.c **** 
+  40:Drivers/u8glib/src/u8g_u8toa.c **** static const unsigned char u8g_u8toa_tab[3]  = { 100, 10, 1 } ;
+  41:Drivers/u8glib/src/u8g_u8toa.c **** const char *u8g_u8toap(char * dest, uint8_t v)
+  42:Drivers/u8glib/src/u8g_u8toa.c **** {
+  34              		.loc 1 42 0
+  35              		.cfi_startproc
+  36 0000 80B5     		push	{r7, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 84B0     		sub	sp, sp, #16
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 24
+  44 0004 00AF     		add	r7, sp, #0
+  45              	.LCFI2:
+  46              		.cfi_def_cfa_register 7
+  47 0006 7860     		str	r0, [r7, #4]
+  48 0008 0A00     		movs	r2, r1
+  49 000a FB1C     		adds	r3, r7, #3
+  50 000c 1A70     		strb	r2, [r3]
+  43:Drivers/u8glib/src/u8g_u8toa.c ****   uint8_t pos;
+  44:Drivers/u8glib/src/u8g_u8toa.c ****   uint8_t d;
+  45:Drivers/u8glib/src/u8g_u8toa.c ****   uint8_t c;
+  46:Drivers/u8glib/src/u8g_u8toa.c ****   for( pos = 0; pos < 3; pos++ )
+  51              		.loc 1 46 0
+  52 000e 0F23     		movs	r3, #15
+  53 0010 FB18     		adds	r3, r7, r3
+  54 0012 0022     		movs	r2, #0
+  55 0014 1A70     		strb	r2, [r3]
+  56 0016 33E0     		b	.L2
+  57              	.L5:
+  47:Drivers/u8glib/src/u8g_u8toa.c ****   {
+  48:Drivers/u8glib/src/u8g_u8toa.c ****       d = '0';
+  58              		.loc 1 48 0
+  59 0018 0E23     		movs	r3, #14
+  60 001a FB18     		adds	r3, r7, r3
+  61 001c 3022     		movs	r2, #48
+  62 001e 1A70     		strb	r2, [r3]
+  49:Drivers/u8glib/src/u8g_u8toa.c ****       c = *(u8g_u8toa_tab+pos);
+  63              		.loc 1 49 0
+  64 0020 0F23     		movs	r3, #15
+  65 0022 FB18     		adds	r3, r7, r3
+  66 0024 1A78     		ldrb	r2, [r3]
+  67 0026 1D4B     		ldr	r3, .L7
+  68 0028 D218     		adds	r2, r2, r3
+ARM GAS  /tmp/cchSTyLF.s 			page 3
+
+
+  69 002a 0D23     		movs	r3, #13
+  70 002c FB18     		adds	r3, r7, r3
+  71 002e 1278     		ldrb	r2, [r2]
+  72 0030 1A70     		strb	r2, [r3]
+  50:Drivers/u8glib/src/u8g_u8toa.c ****       while( v >= c )
+  73              		.loc 1 50 0
+  74 0032 0EE0     		b	.L3
+  75              	.L4:
+  51:Drivers/u8glib/src/u8g_u8toa.c ****       {
+  52:Drivers/u8glib/src/u8g_u8toa.c **** 	v -= c;
+  76              		.loc 1 52 0
+  77 0034 FB1C     		adds	r3, r7, #3
+  78 0036 F91C     		adds	r1, r7, #3
+  79 0038 0D22     		movs	r2, #13
+  80 003a BA18     		adds	r2, r7, r2
+  81 003c 0978     		ldrb	r1, [r1]
+  82 003e 1278     		ldrb	r2, [r2]
+  83 0040 8A1A     		subs	r2, r1, r2
+  84 0042 1A70     		strb	r2, [r3]
+  53:Drivers/u8glib/src/u8g_u8toa.c **** 	d++;
+  85              		.loc 1 53 0
+  86 0044 0E23     		movs	r3, #14
+  87 0046 FB18     		adds	r3, r7, r3
+  88 0048 1A78     		ldrb	r2, [r3]
+  89 004a 0E23     		movs	r3, #14
+  90 004c FB18     		adds	r3, r7, r3
+  91 004e 0132     		adds	r2, r2, #1
+  92 0050 1A70     		strb	r2, [r3]
+  93              	.L3:
+  50:Drivers/u8glib/src/u8g_u8toa.c ****       while( v >= c )
+  94              		.loc 1 50 0
+  95 0052 FA1C     		adds	r2, r7, #3
+  96 0054 0D23     		movs	r3, #13
+  97 0056 FB18     		adds	r3, r7, r3
+  98 0058 1278     		ldrb	r2, [r2]
+  99 005a 1B78     		ldrb	r3, [r3]
+ 100 005c 9A42     		cmp	r2, r3
+ 101 005e E9D2     		bcs	.L4
+  54:Drivers/u8glib/src/u8g_u8toa.c ****       }
+  55:Drivers/u8glib/src/u8g_u8toa.c ****       dest[pos] = d;
+ 102              		.loc 1 55 0 discriminator 2
+ 103 0060 0F23     		movs	r3, #15
+ 104 0062 FB18     		adds	r3, r7, r3
+ 105 0064 1B78     		ldrb	r3, [r3]
+ 106 0066 7A68     		ldr	r2, [r7, #4]
+ 107 0068 D318     		adds	r3, r2, r3
+ 108 006a 0E22     		movs	r2, #14
+ 109 006c BA18     		adds	r2, r7, r2
+ 110 006e 1278     		ldrb	r2, [r2]
+ 111 0070 1A70     		strb	r2, [r3]
+  46:Drivers/u8glib/src/u8g_u8toa.c ****   {
+ 112              		.loc 1 46 0 discriminator 2
+ 113 0072 0F23     		movs	r3, #15
+ 114 0074 FB18     		adds	r3, r7, r3
+ 115 0076 1A78     		ldrb	r2, [r3]
+ 116 0078 0F23     		movs	r3, #15
+ 117 007a FB18     		adds	r3, r7, r3
+ARM GAS  /tmp/cchSTyLF.s 			page 4
+
+
+ 118 007c 0132     		adds	r2, r2, #1
+ 119 007e 1A70     		strb	r2, [r3]
+ 120              	.L2:
+  46:Drivers/u8glib/src/u8g_u8toa.c ****   {
+ 121              		.loc 1 46 0 is_stmt 0 discriminator 1
+ 122 0080 0F23     		movs	r3, #15
+ 123 0082 FB18     		adds	r3, r7, r3
+ 124 0084 1B78     		ldrb	r3, [r3]
+ 125 0086 022B     		cmp	r3, #2
+ 126 0088 C6D9     		bls	.L5
+  56:Drivers/u8glib/src/u8g_u8toa.c ****   }  
+  57:Drivers/u8glib/src/u8g_u8toa.c ****   dest[3] = '\0';
+ 127              		.loc 1 57 0 is_stmt 1
+ 128 008a 7B68     		ldr	r3, [r7, #4]
+ 129 008c 0333     		adds	r3, r3, #3
+ 130 008e 0022     		movs	r2, #0
+ 131 0090 1A70     		strb	r2, [r3]
+  58:Drivers/u8glib/src/u8g_u8toa.c ****   return dest;
+ 132              		.loc 1 58 0
+ 133 0092 7B68     		ldr	r3, [r7, #4]
+  59:Drivers/u8glib/src/u8g_u8toa.c **** }
+ 134              		.loc 1 59 0
+ 135 0094 1800     		movs	r0, r3
+ 136 0096 BD46     		mov	sp, r7
+ 137 0098 04B0     		add	sp, sp, #16
+ 138              		@ sp needed
+ 139 009a 80BD     		pop	{r7, pc}
+ 140              	.L8:
+ 141              		.align	2
+ 142              	.L7:
+ 143 009c 00000000 		.word	u8g_u8toa_tab
+ 144              		.cfi_endproc
+ 145              	.LFE0:
+ 147              		.section	.text.u8g_u8toa,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	u8g_u8toa
+ 150              		.syntax unified
+ 151              		.code	16
+ 152              		.thumb_func
+ 153              		.fpu softvfp
+ 155              	u8g_u8toa:
+ 156              	.LFB1:
+  60:Drivers/u8glib/src/u8g_u8toa.c **** 
+  61:Drivers/u8glib/src/u8g_u8toa.c **** /* v = value, d = number of digits */
+  62:Drivers/u8glib/src/u8g_u8toa.c **** const char *u8g_u8toa(uint8_t v, uint8_t d)
+  63:Drivers/u8glib/src/u8g_u8toa.c **** {
+ 157              		.loc 1 63 0
+ 158              		.cfi_startproc
+ 159 0000 80B5     		push	{r7, lr}
+ 160              	.LCFI3:
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 7, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 82B0     		sub	sp, sp, #8
+ 165              	.LCFI4:
+ 166              		.cfi_def_cfa_offset 16
+ 167 0004 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/cchSTyLF.s 			page 5
+
+
+ 168              	.LCFI5:
+ 169              		.cfi_def_cfa_register 7
+ 170 0006 0200     		movs	r2, r0
+ 171 0008 FB1D     		adds	r3, r7, #7
+ 172 000a 1A70     		strb	r2, [r3]
+ 173 000c BB1D     		adds	r3, r7, #6
+ 174 000e 0A1C     		adds	r2, r1, #0
+ 175 0010 1A70     		strb	r2, [r3]
+  64:Drivers/u8glib/src/u8g_u8toa.c ****   static char buf[4];
+  65:Drivers/u8glib/src/u8g_u8toa.c ****   d = 3-d;
+ 176              		.loc 1 65 0
+ 177 0012 BB1D     		adds	r3, r7, #6
+ 178 0014 BA1D     		adds	r2, r7, #6
+ 179 0016 1278     		ldrb	r2, [r2]
+ 180 0018 0321     		movs	r1, #3
+ 181 001a 8A1A     		subs	r2, r1, r2
+ 182 001c 1A70     		strb	r2, [r3]
+  66:Drivers/u8glib/src/u8g_u8toa.c ****   return u8g_u8toap(buf, v) + d;
+ 183              		.loc 1 66 0
+ 184 001e FB1D     		adds	r3, r7, #7
+ 185 0020 1A78     		ldrb	r2, [r3]
+ 186 0022 064B     		ldr	r3, .L11
+ 187 0024 1100     		movs	r1, r2
+ 188 0026 1800     		movs	r0, r3
+ 189 0028 FFF7FEFF 		bl	u8g_u8toap
+ 190 002c 0200     		movs	r2, r0
+ 191 002e BB1D     		adds	r3, r7, #6
+ 192 0030 1B78     		ldrb	r3, [r3]
+ 193 0032 D318     		adds	r3, r2, r3
+  67:Drivers/u8glib/src/u8g_u8toa.c **** }
+ 194              		.loc 1 67 0
+ 195 0034 1800     		movs	r0, r3
+ 196 0036 BD46     		mov	sp, r7
+ 197 0038 02B0     		add	sp, sp, #8
+ 198              		@ sp needed
+ 199 003a 80BD     		pop	{r7, pc}
+ 200              	.L12:
+ 201              		.align	2
+ 202              	.L11:
+ 203 003c 00000000 		.word	buf.5640
+ 204              		.cfi_endproc
+ 205              	.LFE1:
+ 207              		.section	.bss.buf.5640,"aw",%nobits
+ 208              		.align	2
+ 211              	buf.5640:
+ 212 0000 00000000 		.space	4
+ 213              		.text
+ 214              	.Letext0:
+ 215              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 216              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 217              		.file 4 "Drivers/u8glib/inc/u8g.h"
+ARM GAS  /tmp/cchSTyLF.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 u8g_u8toa.c
+     /tmp/cchSTyLF.s:16     .rodata.u8g_u8toa_tab:0000000000000000 $d
+     /tmp/cchSTyLF.s:19     .rodata.u8g_u8toa_tab:0000000000000000 u8g_u8toa_tab
+     /tmp/cchSTyLF.s:24     .text.u8g_u8toap:0000000000000000 $t
+     /tmp/cchSTyLF.s:31     .text.u8g_u8toap:0000000000000000 u8g_u8toap
+     /tmp/cchSTyLF.s:143    .text.u8g_u8toap:000000000000009c $d
+     /tmp/cchSTyLF.s:148    .text.u8g_u8toa:0000000000000000 $t
+     /tmp/cchSTyLF.s:155    .text.u8g_u8toa:0000000000000000 u8g_u8toa
+     /tmp/cchSTyLF.s:203    .text.u8g_u8toa:000000000000003c $d
+     /tmp/cchSTyLF.s:211    .bss.buf.5640:0000000000000000 buf.5640
+     /tmp/cchSTyLF.s:208    .bss.buf.5640:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+NO UNDEFINED SYMBOLS
