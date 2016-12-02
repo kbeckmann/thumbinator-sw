@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cctuzZsd.s 			page 1
+ARM GAS  /tmp/ccekuFow.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****               (+++) __HAL_RCC_USB_CLK_ENABLE);
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****            
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****          (##) Initialize the related GPIO clocks
-ARM GAS  /tmp/cctuzZsd.s 			page 2
+ARM GAS  /tmp/ccekuFow.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****          (##) Configure PCD pin-out
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** /* Private typedef -----------------------------------------------------------*/
-ARM GAS  /tmp/cctuzZsd.s 			page 3
+ARM GAS  /tmp/ccekuFow.s 			page 3
 
 
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** /* Private define ------------------------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
   31              		.cfi_offset 4, -12
   32              		.cfi_offset 7, -8
   33              		.cfi_offset 14, -4
-ARM GAS  /tmp/cctuzZsd.s 			page 4
+ARM GAS  /tmp/ccekuFow.s 			page 4
 
 
   34 0002 85B0     		sub	sp, sp, #20
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  159:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     HAL_PCD_MspInit(hpcd);
   69              		.loc 1 159 0
   70 0032 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cctuzZsd.s 			page 5
+ARM GAS  /tmp/ccekuFow.s 			page 5
 
 
   71 0034 1800     		movs	r0, r3
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  113 007c FA68     		ldr	r2, [r7, #12]
  114 007e 2B20     		movs	r0, #43
  115 0080 1300     		movs	r3, r2
-ARM GAS  /tmp/cctuzZsd.s 			page 6
+ARM GAS  /tmp/ccekuFow.s 			page 6
 
 
  116 0082 DB00     		lsls	r3, r3, #3
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  165 00d8 9A42     		cmp	r2, r3
  166 00da B6D8     		bhi	.L6
  175:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  }
-ARM GAS  /tmp/cctuzZsd.s 			page 7
+ARM GAS  /tmp/ccekuFow.s 			page 7
 
 
  176:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  214 0130 1A70     		strb	r2, [r3]
  183:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****    hpcd->OUT_ep[i].maxpacket = 0;
  215              		.loc 1 183 0 discriminator 3
-ARM GAS  /tmp/cctuzZsd.s 			page 8
+ARM GAS  /tmp/ccekuFow.s 			page 8
 
 
  216 0132 7868     		ldr	r0, [r7, #4]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  187:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   
  188:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  /* Init Device */
  189:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  /*CNTR_FRES = 1*/
-ARM GAS  /tmp/cctuzZsd.s 			page 9
+ARM GAS  /tmp/ccekuFow.s 			page 9
 
 
  190:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  hpcd->Instance->CNTR = USB_CNTR_FRES;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  300              		.loc 1 208 0
  301 01c4 7B68     		ldr	r3, [r7, #4]
  302 01c6 2422     		movs	r2, #36
-ARM GAS  /tmp/cctuzZsd.s 			page 10
+ARM GAS  /tmp/ccekuFow.s 			page 10
 
 
  303 01c8 0021     		movs	r1, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  221:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   /* Check the PCD handle allocation */
  222:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   if(hpcd == NULL)
  347              		.loc 1 222 0
-ARM GAS  /tmp/cctuzZsd.s 			page 11
+ARM GAS  /tmp/ccekuFow.s 			page 11
 
 
  348 0008 7B68     		ldr	r3, [r7, #4]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  387              		.section	.text.HAL_PCD_MspInit,"ax",%progbits
  388              		.align	1
  389              		.weak	HAL_PCD_MspInit
-ARM GAS  /tmp/cctuzZsd.s 			page 12
+ARM GAS  /tmp/ccekuFow.s 			page 12
 
 
  390              		.syntax unified
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  256:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @brief  DeInitializes PCD MSP.
  257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd: PCD handle
  258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval None
-ARM GAS  /tmp/cctuzZsd.s 			page 13
+ARM GAS  /tmp/ccekuFow.s 			page 13
 
 
  259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  282:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     This subsection provides a set of functions allowing to manage the PCD data 
  283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     transfers.
  284:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/cctuzZsd.s 			page 14
+ARM GAS  /tmp/ccekuFow.s 			page 14
 
 
  285:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** @endverbatim
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  501 002c 0080FFFF 		.word	-32768
  502              		.cfi_endproc
  503              	.LFE39:
-ARM GAS  /tmp/cctuzZsd.s 			page 15
+ARM GAS  /tmp/ccekuFow.s 			page 15
 
 
  505              		.section	.text.HAL_PCD_Stop,"ax",%progbits
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  548 0024 1B68     		ldr	r3, [r3]
  549 0026 4022     		movs	r2, #64
  550 0028 0121     		movs	r1, #1
-ARM GAS  /tmp/cctuzZsd.s 			page 16
+ARM GAS  /tmp/ccekuFow.s 			page 16
 
 
  551 002a 9952     		strh	r1, [r3, r2]
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  328:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
  329:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** void HAL_PCD_IRQHandler(PCD_HandleTypeDef *hpcd)
  330:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** {
-ARM GAS  /tmp/cctuzZsd.s 			page 17
+ARM GAS  /tmp/ccekuFow.s 			page 17
 
 
  592              		.loc 1 330 0
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  636 003c DB00     		lsls	r3, r3, #3
  637 003e 1A40     		ands	r2, r3
  638 0040 8023     		movs	r3, #128
-ARM GAS  /tmp/cctuzZsd.s 			page 18
+ARM GAS  /tmp/ccekuFow.s 			page 18
 
 
  639 0042 DB00     		lsls	r3, r3, #3
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  684 0094 4421     		movs	r1, #68
  685 0096 5B5A     		ldrh	r3, [r3, r1]
  686 0098 9BB2     		uxth	r3, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 19
+ARM GAS  /tmp/ccekuFow.s 			page 19
 
 
  687 009a 6749     		ldr	r1, .L31+4
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  733 00ec 9A42     		cmp	r2, r3
  734 00ee 24D1     		bne	.L26
  358:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
-ARM GAS  /tmp/cctuzZsd.s 			page 20
+ARM GAS  /tmp/ccekuFow.s 			page 20
 
 
  359:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  776              	.L26:
  372:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   }
  373:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
-ARM GAS  /tmp/cctuzZsd.s 			page 21
+ARM GAS  /tmp/ccekuFow.s 			page 21
 
 
  374:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_SUSP))
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  823 018e 5B5A     		ldrh	r3, [r3, r1]
  824 0190 9BB2     		uxth	r3, r3
  825 0192 0421     		movs	r1, #4
-ARM GAS  /tmp/cctuzZsd.s 			page 22
+ARM GAS  /tmp/ccekuFow.s 			page 22
 
 
  826 0194 0B43     		orrs	r3, r1
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  870 01e4 9BB2     		uxth	r3, r3
  871 01e6 1849     		ldr	r1, .L31+20
  872 01e8 0B40     		ands	r3, r1
-ARM GAS  /tmp/cctuzZsd.s 			page 23
+ARM GAS  /tmp/ccekuFow.s 			page 23
 
 
  873 01ea 99B2     		uxth	r1, r3
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  918 0234 FFFBFFFF 		.word	-1025
  919 0238 FFBFFFFF 		.word	-16385
  920 023c FFDFFFFF 		.word	-8193
-ARM GAS  /tmp/cctuzZsd.s 			page 24
+ARM GAS  /tmp/ccekuFow.s 			page 24
 
 
  921 0240 FFEFFFFF 		.word	-4097
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  960 0014 80BD     		pop	{r7, pc}
  961              		.cfi_endproc
  962              	.LFE42:
-ARM GAS  /tmp/cctuzZsd.s 			page 25
+ARM GAS  /tmp/ccekuFow.s 			page 25
 
 
  964              		.section	.text.HAL_PCD_DataInStageCallback,"ax",%progbits
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1003              		.syntax unified
  1004              		.code	16
  1005              		.thumb_func
-ARM GAS  /tmp/cctuzZsd.s 			page 26
+ARM GAS  /tmp/ccekuFow.s 			page 26
 
 
  1006              		.fpu softvfp
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  455:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  __weak void HAL_PCD_SOFCallback(PCD_HandleTypeDef *hpcd)
  456:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** {
  1043              		.loc 1 456 0
-ARM GAS  /tmp/cctuzZsd.s 			page 27
+ARM GAS  /tmp/ccekuFow.s 			page 27
 
 
  1044              		.cfi_startproc
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1085              		.cfi_def_cfa_offset 16
  1086 0004 00AF     		add	r7, sp, #0
  1087              	.LCFI35:
-ARM GAS  /tmp/cctuzZsd.s 			page 28
+ARM GAS  /tmp/ccekuFow.s 			page 28
 
 
  1088              		.cfi_def_cfa_register 7
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  493:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** }
  1123              		.loc 1 493 0
  1124 0008 C046     		nop
-ARM GAS  /tmp/cctuzZsd.s 			page 29
+ARM GAS  /tmp/ccekuFow.s 			page 29
 
 
  1125 000a BD46     		mov	sp, r7
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1167              		.weak	HAL_PCD_ISOOUTIncompleteCallback
  1168              		.syntax unified
  1169              		.code	16
-ARM GAS  /tmp/cctuzZsd.s 			page 30
+ARM GAS  /tmp/ccekuFow.s 			page 30
 
 
  1170              		.thumb_func
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1210              	.LFB50:
  526:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
  527:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** /**
-ARM GAS  /tmp/cctuzZsd.s 			page 31
+ARM GAS  /tmp/ccekuFow.s 			page 31
 
 
  528:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @brief  Incomplete ISO IN  callbacks
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  548:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
  549:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****  __weak void HAL_PCD_ConnectCallback(PCD_HandleTypeDef *hpcd)
  550:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** {
-ARM GAS  /tmp/cctuzZsd.s 			page 32
+ARM GAS  /tmp/ccekuFow.s 			page 32
 
 
  1247              		.loc 1 550 0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1288              	.LCFI52:
  1289              		.cfi_def_cfa_offset 16
  1290 0004 00AF     		add	r7, sp, #0
-ARM GAS  /tmp/cctuzZsd.s 			page 33
+ARM GAS  /tmp/ccekuFow.s 			page 33
 
 
  1291              	.LCFI53:
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1314              		.cfi_startproc
  1315 0000 80B5     		push	{r7, lr}
  1316              	.LCFI54:
-ARM GAS  /tmp/cctuzZsd.s 			page 34
+ARM GAS  /tmp/ccekuFow.s 			page 34
 
 
  1317              		.cfi_def_cfa_offset 8
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1364 0044 0023     		movs	r3, #0
  1365              	.L46:
  606:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** }
-ARM GAS  /tmp/cctuzZsd.s 			page 35
+ARM GAS  /tmp/ccekuFow.s 			page 35
 
 
  1366              		.loc 1 606 0
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1413              	.L50:
  1414              		.loc 1 615 0 discriminator 2
  1415 0018 7A68     		ldr	r2, [r7, #4]
-ARM GAS  /tmp/cctuzZsd.s 			page 36
+ARM GAS  /tmp/ccekuFow.s 			page 36
 
 
  1416 001a F423     		movs	r3, #244
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  627:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  address: new device address
  628:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval HAL status
  629:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
-ARM GAS  /tmp/cctuzZsd.s 			page 37
+ARM GAS  /tmp/ccekuFow.s 			page 37
 
 
  630:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** HAL_StatusTypeDef HAL_PCD_SetAddress(PCD_HandleTypeDef *hpcd, uint8_t address)
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1507              	.L55:
  638:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****    }
  639:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****    else /* USB Address will be applied later */
-ARM GAS  /tmp/cctuzZsd.s 			page 38
+ARM GAS  /tmp/ccekuFow.s 			page 38
 
 
  640:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****    {
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1547              		.cfi_def_cfa_offset 12
  1548              		.cfi_offset 4, -12
  1549              		.cfi_offset 7, -8
-ARM GAS  /tmp/cctuzZsd.s 			page 39
+ARM GAS  /tmp/ccekuFow.s 			page 39
 
 
  1550              		.cfi_offset 14, -4
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  665:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
  666:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     ep = &hpcd->OUT_ep[ep_addr & 0x7F];
  1596              		.loc 1 666 0
-ARM GAS  /tmp/cctuzZsd.s 			page 40
+ARM GAS  /tmp/ccekuFow.s 			page 40
 
 
  1597 004c FB1C     		adds	r3, r7, #3
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1643 009c D35C     		ldrb	r3, [r2, r3]
  1644 009e 012B     		cmp	r3, #1
  1645 00a0 01D1     		bne	.L60
-ARM GAS  /tmp/cctuzZsd.s 			page 41
+ARM GAS  /tmp/ccekuFow.s 			page 41
 
 
  1646              		.loc 1 674 0 is_stmt 0 discriminator 1
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1680 00d2 1B78     		ldrb	r3, [r3]
  1681 00d4 9B00     		lsls	r3, r3, #2
  1682 00d6 D218     		adds	r2, r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 42
+ARM GAS  /tmp/ccekuFow.s 			page 42
 
 
  1683 00d8 7B68     		ldr	r3, [r7, #4]
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1733 0130 7B68     		ldr	r3, [r7, #4]
  1734 0132 1B68     		ldr	r3, [r3]
  1735 0134 1900     		movs	r1, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 43
+ARM GAS  /tmp/ccekuFow.s 			page 43
 
 
  1736 0136 7B69     		ldr	r3, [r7, #20]
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1784 018a 1B78     		ldrb	r3, [r3]
  1785 018c 9B00     		lsls	r3, r3, #2
  1786 018e D218     		adds	r2, r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 44
+ARM GAS  /tmp/ccekuFow.s 			page 44
 
 
  1787 0190 7B68     		ldr	r3, [r7, #4]
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1834 01e6 8022     		movs	r2, #128
  1835 01e8 D200     		lsls	r2, r2, #3
  1836 01ea 9446     		mov	ip, r2
-ARM GAS  /tmp/cctuzZsd.s 			page 45
+ARM GAS  /tmp/ccekuFow.s 			page 45
 
 
  1837 01ec 6344     		add	r3, r3, ip
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1888 0248 7B69     		ldr	r3, [r7, #20]
  1889 024a 1B78     		ldrb	r3, [r3]
  1890 024c 9B00     		lsls	r3, r3, #2
-ARM GAS  /tmp/cctuzZsd.s 			page 46
+ARM GAS  /tmp/ccekuFow.s 			page 46
 
 
  1891 024e D318     		adds	r3, r2, r3
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  711:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       /*Set the endpoint Receive buffer counter*/
  712:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       PCD_SET_EP_RX_CNT(hpcd->Instance, ep->num, ep->maxpacket)
  1940              		.loc 1 712 0
-ARM GAS  /tmp/cctuzZsd.s 			page 47
+ARM GAS  /tmp/ccekuFow.s 			page 47
 
 
  1941 02a8 7B68     		ldr	r3, [r7, #4]
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  1995 030a 1A80     		strh	r2, [r3]
  1996 030c 18E0     		b	.L75
  1997              	.L73:
-ARM GAS  /tmp/cctuzZsd.s 			page 48
+ARM GAS  /tmp/ccekuFow.s 			page 48
 
 
  1998              		.loc 1 712 0 discriminator 2
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2051 0366 D218     		adds	r2, r2, r3
  2052 0368 7B68     		ldr	r3, [r7, #4]
  2053 036a 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 49
+ARM GAS  /tmp/ccekuFow.s 			page 49
 
 
  2054 036c 1900     		movs	r1, r3
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2106 03cc 8080FFFF 		.word	-32640
  2107 03d0 C080FFFF 		.word	-32576
  2108 03d4 BF8FFFFF 		.word	-28737
-ARM GAS  /tmp/cctuzZsd.s 			page 50
+ARM GAS  /tmp/ccekuFow.s 			page 50
 
 
  2109 03d8 04040000 		.word	1028
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2154 0434 8022     		movs	r2, #128
  2155 0436 D200     		lsls	r2, r2, #3
  2156 0438 9446     		mov	ip, r2
-ARM GAS  /tmp/cctuzZsd.s 			page 51
+ARM GAS  /tmp/ccekuFow.s 			page 51
 
 
  2157 043a 6344     		add	r3, r3, ip
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2206 0496 1B88     		ldrh	r3, [r3]
  2207 0498 1A00     		movs	r2, r3
  2208 049a 8023     		movs	r3, #128
-ARM GAS  /tmp/cctuzZsd.s 			page 52
+ARM GAS  /tmp/ccekuFow.s 			page 52
 
 
  2209 049c DB01     		lsls	r3, r3, #7
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2262 04fe 9B00     		lsls	r3, r3, #2
  2263 0500 CB18     		adds	r3, r1, r3
  2264 0502 1B88     		ldrh	r3, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 53
+ARM GAS  /tmp/ccekuFow.s 			page 53
 
 
  2265 0504 7549     		ldr	r1, .L86+12
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2314 055e 9B01     		lsls	r3, r3, #6
  2315 0560 6340     		eors	r3, r4
  2316 0562 9CB2     		uxth	r4, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 54
+ARM GAS  /tmp/ccekuFow.s 			page 54
 
 
  2317 0564 7B68     		ldr	r3, [r7, #4]
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2365 05b8 1A00     		movs	r2, r3
  2366 05ba 8023     		movs	r3, #128
  2367 05bc DB01     		lsls	r3, r3, #7
-ARM GAS  /tmp/cctuzZsd.s 			page 55
+ARM GAS  /tmp/ccekuFow.s 			page 55
 
 
  2368 05be 1340     		ands	r3, r2
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2421 0620 CB18     		adds	r3, r1, r3
  2422 0622 1B88     		ldrh	r3, [r3]
  2423 0624 2D49     		ldr	r1, .L86+12
-ARM GAS  /tmp/cctuzZsd.s 			page 56
+ARM GAS  /tmp/ccekuFow.s 			page 56
 
 
  2424 0626 0B40     		ands	r3, r1
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2475 0684 2243     		orrs	r2, r4
  2476 0686 92B2     		uxth	r2, r2
  2477 0688 1A80     		strh	r2, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 57
+ARM GAS  /tmp/ccekuFow.s 			page 57
 
 
  2478              	.LBE8:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2525 06d0 0F0E0000 		.word	3599
  2526 06d4 8081FFFF 		.word	-32384
  2527 06d8 04040000 		.word	1028
-ARM GAS  /tmp/cctuzZsd.s 			page 58
+ARM GAS  /tmp/ccekuFow.s 			page 58
 
 
  2528 06dc 0F0F0000 		.word	3855
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  766:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   {
  767:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     ep = &hpcd->IN_ep[ep_addr & 0x7F];
  2571              		.loc 1 767 0
-ARM GAS  /tmp/cctuzZsd.s 			page 59
+ARM GAS  /tmp/ccekuFow.s 			page 59
 
 
  2572 0018 FB1C     		adds	r3, r7, #3
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2618 006a 5A70     		strb	r2, [r3, #1]
  776:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   
  777:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_LOCK(hpcd); 
-ARM GAS  /tmp/cctuzZsd.s 			page 60
+ARM GAS  /tmp/ccekuFow.s 			page 60
 
 
  2619              		.loc 1 777 0
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2667 00ba 9B00     		lsls	r3, r3, #2
  2668 00bc D218     		adds	r2, r2, r3
  2669 00be 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cctuzZsd.s 			page 61
+ARM GAS  /tmp/ccekuFow.s 			page 61
 
 
  2670 00c0 1B68     		ldr	r3, [r3]
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2718 0114 9B00     		lsls	r3, r3, #2
  2719 0116 D318     		adds	r3, r2, r3
  2720 0118 1B88     		ldrh	r3, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 62
+ARM GAS  /tmp/ccekuFow.s 			page 62
 
 
  2721 011a 1A00     		movs	r2, r3
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2773 017a 1A80     		strh	r2, [r3]
  2774 017c 13E1     		b	.L98
  2775              	.L93:
-ARM GAS  /tmp/cctuzZsd.s 			page 63
+ARM GAS  /tmp/ccekuFow.s 			page 63
 
 
  2776              	.LBE11:
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2821              	.L100:
  801:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       PCD_CLEAR_TX_DTOG(hpcd->Instance, ep->num)
  2822              		.loc 1 801 0 is_stmt 1
-ARM GAS  /tmp/cctuzZsd.s 			page 64
+ARM GAS  /tmp/ccekuFow.s 			page 64
 
 
  2823 01ce 7B68     		ldr	r3, [r7, #4]
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2874 022e 1B88     		ldrh	r3, [r3]
  2875 0230 6249     		ldr	r1, .L104
  2876 0232 0B40     		ands	r3, r1
-ARM GAS  /tmp/cctuzZsd.s 			page 65
+ARM GAS  /tmp/ccekuFow.s 			page 65
 
 
  2877 0234 9BB2     		uxth	r3, r3
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2928 0290 2243     		orrs	r2, r4
  2929 0292 92B2     		uxth	r2, r2
  2930 0294 1A80     		strh	r2, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 66
+ARM GAS  /tmp/ccekuFow.s 			page 66
 
 
  2931              	.LBE13:
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  2979 02ea D318     		adds	r3, r2, r3
  2980 02ec 1B88     		ldrh	r3, [r3]
  2981 02ee 1A00     		movs	r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 67
+ARM GAS  /tmp/ccekuFow.s 			page 67
 
 
  2982 02f0 4023     		movs	r3, #64
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3033              		.loc 1 816 0
  3034 034e 7B68     		ldr	r3, [r7, #4]
  3035 0350 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 68
+ARM GAS  /tmp/ccekuFow.s 			page 68
 
 
  3036 0352 1A00     		movs	r2, r3
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3085 03a8 F423     		movs	r3, #244
  3086 03aa 5B00     		lsls	r3, r3, #1
  3087 03ac 0021     		movs	r1, #0
-ARM GAS  /tmp/cctuzZsd.s 			page 69
+ARM GAS  /tmp/ccekuFow.s 			page 69
 
 
  3088 03ae D154     		strb	r1, [r2, r3]
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3130              		.cfi_def_cfa_offset 56
  3131 0004 00AF     		add	r7, sp, #0
  3132              	.LCFI71:
-ARM GAS  /tmp/cctuzZsd.s 			page 70
+ARM GAS  /tmp/ccekuFow.s 			page 70
 
 
  3133              		.cfi_def_cfa_register 7
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3176 004e 7F22     		movs	r2, #127
  3177 0050 1340     		ands	r3, r2
  3178 0052 DAB2     		uxtb	r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 71
+ARM GAS  /tmp/ccekuFow.s 			page 71
 
 
  3179 0054 FB69     		ldr	r3, [r7, #28]
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3221 0096 3B60     		str	r3, [r7]
  859:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     ep->xfer_len =0;
  3222              		.loc 1 859 0
-ARM GAS  /tmp/cctuzZsd.s 			page 72
+ARM GAS  /tmp/ccekuFow.s 			page 72
 
 
  3223 0098 FB69     		ldr	r3, [r7, #28]
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3270 00e8 2623     		movs	r3, #38
  3271 00ea FB18     		adds	r3, r7, r3
  3272 00ec 013A     		subs	r2, r2, #1
-ARM GAS  /tmp/cctuzZsd.s 			page 73
+ARM GAS  /tmp/ccekuFow.s 			page 73
 
 
  3273 00ee 1A80     		strh	r2, [r3]
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3322 013a 002B     		cmp	r3, #0
  3323 013c 47D1     		bne	.L117
  3324              	.LBB18:
-ARM GAS  /tmp/cctuzZsd.s 			page 74
+ARM GAS  /tmp/ccekuFow.s 			page 74
 
 
  3325              		.loc 1 871 0 is_stmt 0 discriminator 1
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3379              	.L118:
  3380              		.loc 1 871 0 discriminator 4
  3381 019e 3B68     		ldr	r3, [r7]
-ARM GAS  /tmp/cctuzZsd.s 			page 75
+ARM GAS  /tmp/ccekuFow.s 			page 75
 
 
  3382 01a0 5A08     		lsrs	r2, r3, #1
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3436 01fc 1A80     		strh	r2, [r3]
  3437              	.L122:
  3438              		.loc 1 871 0 discriminator 13
-ARM GAS  /tmp/cctuzZsd.s 			page 76
+ARM GAS  /tmp/ccekuFow.s 			page 76
 
 
  3439 01fe FB69     		ldr	r3, [r7, #28]
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3493 025c 1343     		orrs	r3, r2
  3494 025e 9AB2     		uxth	r2, r3
  3495 0260 3B69     		ldr	r3, [r7, #16]
-ARM GAS  /tmp/cctuzZsd.s 			page 77
+ARM GAS  /tmp/ccekuFow.s 			page 77
 
 
  3496 0262 1A80     		strh	r2, [r3]
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3550 02ba 194A     		ldr	r2, .L128+8
  3551 02bc 9446     		mov	ip, r2
  3552 02be 6344     		add	r3, r3, ip
-ARM GAS  /tmp/cctuzZsd.s 			page 78
+ARM GAS  /tmp/ccekuFow.s 			page 78
 
 
  3553 02c0 3A68     		ldr	r2, [r7]
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3599              		.loc 1 879 0
  3600 030e 1800     		movs	r0, r3
  3601 0310 BD46     		mov	sp, r7
-ARM GAS  /tmp/cctuzZsd.s 			page 79
+ARM GAS  /tmp/ccekuFow.s 			page 79
 
 
  3602 0312 0BB0     		add	sp, sp, #44
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3648 0016 7868     		ldr	r0, [r7, #4]
  3649 0018 9023     		movs	r3, #144
  3650 001a 5900     		lsls	r1, r3, #1
-ARM GAS  /tmp/cctuzZsd.s 			page 80
+ARM GAS  /tmp/ccekuFow.s 			page 80
 
 
  3651 001c 1300     		movs	r3, r2
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3696 000e FB18     		adds	r3, r7, r3
  3697 0010 0A1C     		adds	r2, r1, #0
  3698 0012 1A70     		strb	r2, [r3]
-ARM GAS  /tmp/cctuzZsd.s 			page 81
+ARM GAS  /tmp/ccekuFow.s 			page 81
 
 
  901:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   PCD_EPTypeDef *ep;
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3742 005c 1A70     		strb	r2, [r3]
  912:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   
  913:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   __HAL_LOCK(hpcd); 
-ARM GAS  /tmp/cctuzZsd.s 			page 82
+ARM GAS  /tmp/ccekuFow.s 			page 82
 
 
  3743              		.loc 1 913 0
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3786 00a0 0022     		movs	r2, #0
  3787 00a2 5A61     		str	r2, [r3, #20]
  3788              	.L136:
-ARM GAS  /tmp/cctuzZsd.s 			page 83
+ARM GAS  /tmp/ccekuFow.s 			page 83
 
 
  925:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   }
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3831 00f0 FB69     		ldr	r3, [r7, #28]
  3832 00f2 1B78     		ldrb	r3, [r3]
  3833 00f4 9B00     		lsls	r3, r3, #2
-ARM GAS  /tmp/cctuzZsd.s 			page 84
+ARM GAS  /tmp/ccekuFow.s 			page 84
 
 
  3834 00f6 D318     		adds	r3, r2, r3
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3885 0150 013A     		subs	r2, r2, #1
  3886 0152 1A80     		strh	r2, [r3]
  3887              	.L142:
-ARM GAS  /tmp/cctuzZsd.s 			page 85
+ARM GAS  /tmp/ccekuFow.s 			page 85
 
 
  3888              		.loc 1 939 0 discriminator 7
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3942 01aa 9BB2     		uxth	r3, r3
  3943 01ac 1A00     		movs	r2, r3
  3944 01ae FB69     		ldr	r3, [r7, #28]
-ARM GAS  /tmp/cctuzZsd.s 			page 86
+ARM GAS  /tmp/ccekuFow.s 			page 86
 
 
  3945 01b0 1B78     		ldrb	r3, [r3]
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  3993 0202 3B68     		ldr	r3, [r7]
  3994 0204 3E2B     		cmp	r3, #62
  3995 0206 1AD9     		bls	.L148
-ARM GAS  /tmp/cctuzZsd.s 			page 87
+ARM GAS  /tmp/ccekuFow.s 			page 87
 
 
  3996              		.loc 1 945 0 discriminator 3
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4050 0262 1B88     		ldrh	r3, [r3]
  4051 0264 9B02     		lsls	r3, r3, #10
  4052 0266 9AB2     		uxth	r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 88
+ARM GAS  /tmp/ccekuFow.s 			page 88
 
 
  4053 0268 7B69     		ldr	r3, [r7, #20]
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4103 02ba 2300     		movs	r3, r4
  4104 02bc FFF7FEFF 		bl	PCD_WritePMA
  950:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     PCD_FreeUserBuffer(hpcd->Instance, ep->num, ep->is_in)
-ARM GAS  /tmp/cctuzZsd.s 			page 89
+ARM GAS  /tmp/ccekuFow.s 			page 89
 
 
  4105              		.loc 1 950 0
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4159 0322 1A49     		ldr	r1, .L154+20
  4160 0324 0B43     		orrs	r3, r1
  4161 0326 9BB2     		uxth	r3, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 90
+ARM GAS  /tmp/ccekuFow.s 			page 90
 
 
  4162 0328 1380     		strh	r3, [r2]
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4208              		@ sp needed
  4209 0374 90BD     		pop	{r4, r7, pc}
  4210              	.L155:
-ARM GAS  /tmp/cctuzZsd.s 			page 91
+ARM GAS  /tmp/ccekuFow.s 			page 91
 
 
  4211 0376 C046     		.align	2
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4255 0012 5B00     		lsls	r3, r3, #1
  4256 0014 D35C     		ldrb	r3, [r2, r3]
  4257 0016 012B     		cmp	r3, #1
-ARM GAS  /tmp/cctuzZsd.s 			page 92
+ARM GAS  /tmp/ccekuFow.s 			page 92
 
 
  4258 0018 01D1     		bne	.L157
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  980:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   
  981:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   ep->is_stall = 1;
  4303              		.loc 1 981 0
-ARM GAS  /tmp/cctuzZsd.s 			page 93
+ARM GAS  /tmp/ccekuFow.s 			page 93
 
 
  4304 0062 FB68     		ldr	r3, [r7, #12]
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4351 00b6 7B68     		ldr	r3, [r7, #4]
  4352 00b8 1B68     		ldr	r3, [r3]
  4353 00ba 1A00     		movs	r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 94
+ARM GAS  /tmp/ccekuFow.s 			page 94
 
 
  4354 00bc FB68     		ldr	r3, [r7, #12]
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  995:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     }
  996:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     else
  997:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     {
-ARM GAS  /tmp/cctuzZsd.s 			page 95
+ARM GAS  /tmp/ccekuFow.s 			page 95
 
 
  998:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       PCD_SET_EP_RX_STATUS(hpcd->Instance, ep->num , USB_EP_RX_STALL)
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4449 0154 BFBF0000 		.word	49087
  4450 0158 8080FFFF 		.word	-32640
  4451 015c BF8FFFFF 		.word	-28737
-ARM GAS  /tmp/cctuzZsd.s 			page 96
+ARM GAS  /tmp/ccekuFow.s 			page 96
 
 
  4452 0160 8FBFFFFF 		.word	-16497
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4494 001e 1A40     		ands	r2, r3
  4495 0020 1300     		movs	r3, r2
  4496 0022 DB00     		lsls	r3, r3, #3
-ARM GAS  /tmp/cctuzZsd.s 			page 97
+ARM GAS  /tmp/ccekuFow.s 			page 97
 
 
  4497 0024 9B1A     		subs	r3, r3, r2
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4540              		.loc 1 1029 0
  4541 006e 7A68     		ldr	r2, [r7, #4]
  4542 0070 F423     		movs	r3, #244
-ARM GAS  /tmp/cctuzZsd.s 			page 98
+ARM GAS  /tmp/ccekuFow.s 			page 98
 
 
  4543 0072 5B00     		lsls	r3, r3, #1
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4593 00ca 9BB2     		uxth	r3, r3
  4594 00cc 3649     		ldr	r1, .L175+4
  4595 00ce 0B43     		orrs	r3, r1
-ARM GAS  /tmp/cctuzZsd.s 			page 99
+ARM GAS  /tmp/ccekuFow.s 			page 99
 
 
  4596 00d0 9BB2     		uxth	r3, r3
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4645 0126 15D0     		beq	.L174
  4646              		.loc 1 1038 0 is_stmt 0 discriminator 1
  4647 0128 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cctuzZsd.s 			page 100
+ARM GAS  /tmp/ccekuFow.s 			page 100
 
 
  4648 012a 1B68     		ldr	r3, [r3]
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4701 018e 1A80     		strh	r2, [r3]
  4702              	.L173:
  4703              	.LBE32:
-ARM GAS  /tmp/cctuzZsd.s 			page 101
+ARM GAS  /tmp/ccekuFow.s 			page 101
 
 
 1040:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   }
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4746              		.cfi_offset 7, -8
  4747              		.cfi_offset 14, -4
  4748 0002 82B0     		sub	sp, sp, #8
-ARM GAS  /tmp/cctuzZsd.s 			page 102
+ARM GAS  /tmp/ccekuFow.s 			page 102
 
 
  4749              	.LCFI85:
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4794 0008 7B68     		ldr	r3, [r7, #4]
  4795 000a 1A68     		ldr	r2, [r3]
  4796 000c 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cctuzZsd.s 			page 103
+ARM GAS  /tmp/ccekuFow.s 			page 103
 
 
  4797 000e 1B68     		ldr	r3, [r3]
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4842 0008 7B68     		ldr	r3, [r7, #4]
  4843 000a 1A68     		ldr	r2, [r3]
  4844 000c 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/cctuzZsd.s 			page 104
+ARM GAS  /tmp/ccekuFow.s 			page 104
 
 
  4845 000e 1B68     		ldr	r3, [r3]
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
 1102:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** PCD_StateTypeDef HAL_PCD_GetState(PCD_HandleTypeDef *hpcd)
 1103:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** {
  4875              		.loc 1 1103 0
-ARM GAS  /tmp/cctuzZsd.s 			page 105
+ARM GAS  /tmp/ccekuFow.s 			page 105
 
 
  4876              		.cfi_startproc
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
 1122:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param   wNBytes: no. of bytes to be copied.
 1123:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @retval None
 1124:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   */
-ARM GAS  /tmp/cctuzZsd.s 			page 106
+ARM GAS  /tmp/ccekuFow.s 			page 106
 
 
 1125:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** void PCD_WritePMA(USB_TypeDef  *USBx, uint8_t *pbUsrBuf, uint16_t wPMABufAddr, uint16_t wNBytes)
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  4957 0038 BB68     		ldr	r3, [r7, #8]
  4958 003a 1A78     		ldrb	r2, [r3]
  4959 003c 1223     		movs	r3, #18
-ARM GAS  /tmp/cctuzZsd.s 			page 107
+ARM GAS  /tmp/ccekuFow.s 			page 107
 
 
  4960 003e FB18     		adds	r3, r7, r3
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5006              		.cfi_endproc
  5007              	.LFE67:
  5009              		.section	.text.PCD_ReadPMA,"ax",%progbits
-ARM GAS  /tmp/cctuzZsd.s 			page 108
+ARM GAS  /tmp/ccekuFow.s 			page 108
 
 
  5010              		.align	1
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5050 0026 D318     		adds	r3, r2, r3
  5051 0028 8022     		movs	r2, #128
  5052 002a D200     		lsls	r2, r2, #3
-ARM GAS  /tmp/cctuzZsd.s 			page 109
+ARM GAS  /tmp/ccekuFow.s 			page 109
 
 
  5053 002c 9446     		mov	ip, r2
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
 1163:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** 
 1164:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c **** /**
 1165:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @brief  This function handles PCD Endpoint interrupt request.
-ARM GAS  /tmp/cctuzZsd.s 			page 110
+ARM GAS  /tmp/ccekuFow.s 			page 110
 
 
 1166:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****   * @param  hpcd: PCD handle
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5139 002c 1A70     		strb	r2, [r3]
 1182:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     
 1183:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****     if (EPindex == 0)
-ARM GAS  /tmp/cctuzZsd.s 			page 111
+ARM GAS  /tmp/ccekuFow.s 			page 111
 
 
  5140              		.loc 1 1183 0
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5180 0072 1B78     		ldrb	r3, [r3]
  5181 0074 DB00     		lsls	r3, r3, #3
  5182 0076 D318     		adds	r3, r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 112
+ARM GAS  /tmp/ccekuFow.s 			page 112
 
 
  5183 0078 1A00     		movs	r2, r3
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5228 00c6 2421     		movs	r1, #36
  5229 00c8 525C     		ldrb	r2, [r2, r1]
  5230 00ca D2B2     		uxtb	r2, r2
-ARM GAS  /tmp/cctuzZsd.s 			page 113
+ARM GAS  /tmp/ccekuFow.s 			page 113
 
 
  5231 00cc 8021     		movs	r1, #128
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5268 010a 7B68     		ldr	r3, [r7, #4]
  5269 010c 1B68     		ldr	r3, [r3]
  5270 010e 5022     		movs	r2, #80
-ARM GAS  /tmp/cctuzZsd.s 			page 114
+ARM GAS  /tmp/ccekuFow.s 			page 114
 
 
  5271 0110 9B5A     		ldrh	r3, [r3, r2]
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5319              	.L197:
 1230:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         }
 1231:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         
-ARM GAS  /tmp/cctuzZsd.s 			page 115
+ARM GAS  /tmp/ccekuFow.s 			page 115
 
 
 1232:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         else if ((wEPVal & USB_EP_CTR_RX) != 0)
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5367 01c2 002B     		cmp	r3, #0
  5368 01c4 11D0     		beq	.L198
 1239:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           {
-ARM GAS  /tmp/cctuzZsd.s 			page 116
+ARM GAS  /tmp/ccekuFow.s 			page 116
 
 
 1240:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****             PCD_ReadPMA(hpcd->Instance, ep->xfer_buff, ep->pmaadress, ep->xfer_count);
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5415 0216 7B69     		ldr	r3, [r7, #20]
  5416 0218 DB68     		ldr	r3, [r3, #12]
  5417 021a 5A09     		lsrs	r2, r3, #5
-ARM GAS  /tmp/cctuzZsd.s 			page 117
+ARM GAS  /tmp/ccekuFow.s 			page 117
 
 
  5418 021c 1C23     		movs	r3, #28
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5472 0278 1B88     		ldrh	r3, [r3]
  5473 027a 9B02     		lsls	r3, r3, #10
  5474 027c 9AB2     		uxth	r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 118
+ARM GAS  /tmp/ccekuFow.s 			page 118
 
 
  5475 027e 3B69     		ldr	r3, [r7, #16]
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5518 02c4 1A80     		strh	r2, [r3]
 1259:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****       if ((wEPVal & USB_EP_CTR_RX) != 0)
  5519              		.loc 1 1259 0
-ARM GAS  /tmp/cctuzZsd.s 			page 119
+ARM GAS  /tmp/ccekuFow.s 			page 119
 
 
  5520 02c6 0C23     		movs	r3, #12
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5567 031c 002B     		cmp	r3, #0
  5568 031e 37D1     		bne	.L204
 1267:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****         {
-ARM GAS  /tmp/cctuzZsd.s 			page 120
+ARM GAS  /tmp/ccekuFow.s 			page 120
 
 
 1268:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           count = PCD_GET_EP_RX_CNT(hpcd->Instance, ep->num);
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5619 0380 8F0F0000 		.word	3983
  5620 0384 0080FFFF 		.word	-32768
  5621 0388 8FBFFFFF 		.word	-16497
-ARM GAS  /tmp/cctuzZsd.s 			page 121
+ARM GAS  /tmp/ccekuFow.s 			page 121
 
 
  5622 038c 8080FFFF 		.word	-32640
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5666 03de 002B     		cmp	r3, #0
  5667 03e0 32D0     		beq	.L221
 1282:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****             {
-ARM GAS  /tmp/cctuzZsd.s 			page 122
+ARM GAS  /tmp/ccekuFow.s 			page 122
 
 
 1283:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****               PCD_ReadPMA(hpcd->Instance, ep->xfer_buff, ep->pmaaddr0, count);
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5712 0432 7B68     		ldr	r3, [r7, #4]
  5713 0434 1868     		ldr	r0, [r3]
  5714 0436 7B69     		ldr	r3, [r7, #20]
-ARM GAS  /tmp/cctuzZsd.s 			page 123
+ARM GAS  /tmp/ccekuFow.s 			page 123
 
 
  5715 0438 1969     		ldr	r1, [r3, #16]
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5762 048e D218     		adds	r2, r2, r3
  5763 0490 7B69     		ldr	r3, [r7, #20]
  5764 0492 1A61     		str	r2, [r3, #16]
-ARM GAS  /tmp/cctuzZsd.s 			page 124
+ARM GAS  /tmp/ccekuFow.s 			page 124
 
 
 1300:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****        
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5805 04d8 1340     		ands	r3, r2
  5806 04da 00D1     		bne	.LCB5426
  5807 04dc E9E0     		b	.L192	@long jump
-ARM GAS  /tmp/cctuzZsd.s 			page 125
+ARM GAS  /tmp/ccekuFow.s 			page 125
 
 
  5808              	.LCB5426:
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5852 052c 9B5A     		ldrh	r3, [r3, r2]
  5853 052e 9BB2     		uxth	r3, r3
  5854 0530 1A00     		movs	r2, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 126
+ARM GAS  /tmp/ccekuFow.s 			page 126
 
 
  5855 0532 7B69     		ldr	r3, [r7, #20]
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5901 0586 4023     		movs	r3, #64
  5902 0588 1340     		ands	r3, r2
  5903 058a 25D0     		beq	.L215
-ARM GAS  /tmp/cctuzZsd.s 			page 127
+ARM GAS  /tmp/ccekuFow.s 			page 127
 
 
 1332:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           {
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5946 05d8 7B68     		ldr	r3, [r7, #4]
  5947 05da 1B68     		ldr	r3, [r3]
  5948 05dc 5022     		movs	r2, #80
-ARM GAS  /tmp/cctuzZsd.s 			page 128
+ARM GAS  /tmp/ccekuFow.s 			page 128
 
 
  5949 05de 9B5A     		ldrh	r3, [r3, r2]
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  5997 0638 1B78     		ldrb	r3, [r3]
  5998 063a 9B00     		lsls	r3, r3, #2
  5999 063c CB18     		adds	r3, r1, r3
-ARM GAS  /tmp/cctuzZsd.s 			page 129
+ARM GAS  /tmp/ccekuFow.s 			page 129
 
 
  6000 063e 1B88     		ldrh	r3, [r3]
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
 1359:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c ****           HAL_PCD_DataInStageCallback(hpcd, ep->num);
  6045              		.loc 1 1359 0
  6046 0690 7B69     		ldr	r3, [r7, #20]
-ARM GAS  /tmp/cctuzZsd.s 			page 130
+ARM GAS  /tmp/ccekuFow.s 			page 130
 
 
  6047 0692 1A78     		ldrb	r2, [r3]
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  6090 06d8 02040000 		.word	1026
  6091 06dc 06040000 		.word	1030
  6092 06e0 0F0F0000 		.word	3855
-ARM GAS  /tmp/cctuzZsd.s 			page 131
+ARM GAS  /tmp/ccekuFow.s 			page 131
 
 
  6093 06e4 C080FFFF 		.word	-32576
@@ -7818,98 +7818,98 @@ ARM GAS  /tmp/cctuzZsd.s 			page 1
  6108              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
  6109              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
  6110              		.file 11 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pcd.h"
-ARM GAS  /tmp/cctuzZsd.s 			page 132
+ARM GAS  /tmp/ccekuFow.s 			page 132
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_pcd.c
-     /tmp/cctuzZsd.s:16     .text.HAL_PCD_Init:0000000000000000 $t
-     /tmp/cctuzZsd.s:23     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
-     /tmp/cctuzZsd.s:395    .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/cctuzZsd.s:324    .text.HAL_PCD_DeInit:0000000000000000 $t
-     /tmp/cctuzZsd.s:331    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
-     /tmp/cctuzZsd.s:513    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
-     /tmp/cctuzZsd.s:428    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/cctuzZsd.s:388    .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/cctuzZsd.s:421    .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/cctuzZsd.s:454    .text.HAL_PCD_Start:0000000000000000 $t
-     /tmp/cctuzZsd.s:461    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
-     /tmp/cctuzZsd.s:501    .text.HAL_PCD_Start:000000000000002c $d
-     /tmp/cctuzZsd.s:506    .text.HAL_PCD_Stop:0000000000000000 $t
-     /tmp/cctuzZsd.s:583    .text.HAL_PCD_IRQHandler:0000000000000000 $t
-     /tmp/cctuzZsd.s:590    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
-     /tmp/cctuzZsd.s:5099   .text.PCD_EP_ISR_Handler:0000000000000000 PCD_EP_ISR_Handler
-     /tmp/cctuzZsd.s:1074   .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/cctuzZsd.s:1459   .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
-     /tmp/cctuzZsd.s:1140   .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/cctuzZsd.s:1107   .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/cctuzZsd.s:1041   .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/cctuzZsd.s:918    .text.HAL_PCD_IRQHandler:0000000000000234 $d
-     /tmp/cctuzZsd.s:929    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:936    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/cctuzZsd.s:965    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:972    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/cctuzZsd.s:1001   .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1008   .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/cctuzZsd.s:1034   .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1067   .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1100   .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1133   .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1166   .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1173   .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/cctuzZsd.s:1202   .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1209   .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/cctuzZsd.s:1238   .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1245   .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/cctuzZsd.s:1271   .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/cctuzZsd.s:1278   .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/cctuzZsd.s:1304   .text.HAL_PCD_DevConnect:0000000000000000 $t
-     /tmp/cctuzZsd.s:1311   .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
-     /tmp/cctuzZsd.s:1375   .text.HAL_PCD_DevConnect:0000000000000050 $d
-     /tmp/cctuzZsd.s:1380   .text.HAL_PCD_DevDisconnect:0000000000000000 $t
-     /tmp/cctuzZsd.s:1387   .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
-     /tmp/cctuzZsd.s:1452   .text.HAL_PCD_SetAddress:0000000000000000 $t
-     /tmp/cctuzZsd.s:1534   .text.HAL_PCD_EP_Open:0000000000000000 $t
-     /tmp/cctuzZsd.s:1541   .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
-     /tmp/cctuzZsd.s:2104   .text.HAL_PCD_EP_Open:00000000000003c4 $d
-     /tmp/cctuzZsd.s:2117   .text.HAL_PCD_EP_Open:00000000000003ec $t
-     /tmp/cctuzZsd.s:2525   .text.HAL_PCD_EP_Open:00000000000006d0 $d
-     /tmp/cctuzZsd.s:2538   .text.HAL_PCD_EP_Close:0000000000000000 $t
-     /tmp/cctuzZsd.s:2545   .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
-     /tmp/cctuzZsd.s:3101   .text.HAL_PCD_EP_Close:00000000000003bc $d
-     /tmp/cctuzZsd.s:3111   .text.HAL_PCD_EP_Receive:0000000000000000 $t
-ARM GAS  /tmp/cctuzZsd.s 			page 133
+     /tmp/ccekuFow.s:16     .text.HAL_PCD_Init:0000000000000000 $t
+     /tmp/ccekuFow.s:23     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
+     /tmp/ccekuFow.s:395    .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/ccekuFow.s:324    .text.HAL_PCD_DeInit:0000000000000000 $t
+     /tmp/ccekuFow.s:331    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
+     /tmp/ccekuFow.s:513    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
+     /tmp/ccekuFow.s:428    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/ccekuFow.s:388    .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/ccekuFow.s:421    .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/ccekuFow.s:454    .text.HAL_PCD_Start:0000000000000000 $t
+     /tmp/ccekuFow.s:461    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
+     /tmp/ccekuFow.s:501    .text.HAL_PCD_Start:000000000000002c $d
+     /tmp/ccekuFow.s:506    .text.HAL_PCD_Stop:0000000000000000 $t
+     /tmp/ccekuFow.s:583    .text.HAL_PCD_IRQHandler:0000000000000000 $t
+     /tmp/ccekuFow.s:590    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
+     /tmp/ccekuFow.s:5099   .text.PCD_EP_ISR_Handler:0000000000000000 PCD_EP_ISR_Handler
+     /tmp/ccekuFow.s:1074   .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/ccekuFow.s:1459   .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
+     /tmp/ccekuFow.s:1140   .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/ccekuFow.s:1107   .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/ccekuFow.s:1041   .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/ccekuFow.s:918    .text.HAL_PCD_IRQHandler:0000000000000234 $d
+     /tmp/ccekuFow.s:929    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:936    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/ccekuFow.s:965    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:972    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/ccekuFow.s:1001   .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1008   .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/ccekuFow.s:1034   .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1067   .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1100   .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1133   .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1166   .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1173   .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/ccekuFow.s:1202   .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1209   .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/ccekuFow.s:1238   .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1245   .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/ccekuFow.s:1271   .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/ccekuFow.s:1278   .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/ccekuFow.s:1304   .text.HAL_PCD_DevConnect:0000000000000000 $t
+     /tmp/ccekuFow.s:1311   .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
+     /tmp/ccekuFow.s:1375   .text.HAL_PCD_DevConnect:0000000000000050 $d
+     /tmp/ccekuFow.s:1380   .text.HAL_PCD_DevDisconnect:0000000000000000 $t
+     /tmp/ccekuFow.s:1387   .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
+     /tmp/ccekuFow.s:1452   .text.HAL_PCD_SetAddress:0000000000000000 $t
+     /tmp/ccekuFow.s:1534   .text.HAL_PCD_EP_Open:0000000000000000 $t
+     /tmp/ccekuFow.s:1541   .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
+     /tmp/ccekuFow.s:2104   .text.HAL_PCD_EP_Open:00000000000003c4 $d
+     /tmp/ccekuFow.s:2117   .text.HAL_PCD_EP_Open:00000000000003ec $t
+     /tmp/ccekuFow.s:2525   .text.HAL_PCD_EP_Open:00000000000006d0 $d
+     /tmp/ccekuFow.s:2538   .text.HAL_PCD_EP_Close:0000000000000000 $t
+     /tmp/ccekuFow.s:2545   .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
+     /tmp/ccekuFow.s:3101   .text.HAL_PCD_EP_Close:00000000000003bc $d
+     /tmp/ccekuFow.s:3111   .text.HAL_PCD_EP_Receive:0000000000000000 $t
+ARM GAS  /tmp/ccekuFow.s 			page 133
 
 
-     /tmp/cctuzZsd.s:3118   .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
-     /tmp/cctuzZsd.s:3608   .text.HAL_PCD_EP_Receive:0000000000000318 $d
-     /tmp/cctuzZsd.s:3617   .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
-     /tmp/cctuzZsd.s:3624   .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
-     /tmp/cctuzZsd.s:3669   .text.HAL_PCD_EP_Transmit:0000000000000000 $t
-     /tmp/cctuzZsd.s:3676   .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
-     /tmp/cctuzZsd.s:4912   .text.PCD_WritePMA:0000000000000000 PCD_WritePMA
-     /tmp/cctuzZsd.s:4213   .text.HAL_PCD_EP_Transmit:0000000000000378 $d
-     /tmp/cctuzZsd.s:4225   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
-     /tmp/cctuzZsd.s:4232   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
-     /tmp/cctuzZsd.s:4449   .text.HAL_PCD_EP_SetStall:0000000000000154 $d
-     /tmp/cctuzZsd.s:4457   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
-     /tmp/cctuzZsd.s:4464   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
-     /tmp/cctuzZsd.s:4722   .text.HAL_PCD_EP_ClrStall:00000000000001a4 $d
-     /tmp/cctuzZsd.s:4732   .text.HAL_PCD_EP_Flush:0000000000000000 $t
-     /tmp/cctuzZsd.s:4739   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
-     /tmp/cctuzZsd.s:4770   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/cctuzZsd.s:4777   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
-     /tmp/cctuzZsd.s:4818   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/cctuzZsd.s:4825   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
-     /tmp/cctuzZsd.s:4866   .text.HAL_PCD_GetState:0000000000000000 $t
-     /tmp/cctuzZsd.s:4873   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
-     /tmp/cctuzZsd.s:4905   .text.PCD_WritePMA:0000000000000000 $t
-     /tmp/cctuzZsd.s:5010   .text.PCD_ReadPMA:0000000000000000 $t
-     /tmp/cctuzZsd.s:5017   .text.PCD_ReadPMA:0000000000000000 PCD_ReadPMA
-     /tmp/cctuzZsd.s:5093   .text.PCD_EP_ISR_Handler:0000000000000000 $t
-     /tmp/cctuzZsd.s:5616   .text.PCD_EP_ISR_Handler:0000000000000374 $d
-     /tmp/cctuzZsd.s:5625   .text.PCD_EP_ISR_Handler:0000000000000390 $t
-     /tmp/cctuzZsd.s:6090   .text.PCD_EP_ISR_Handler:00000000000006d8 $d
+     /tmp/ccekuFow.s:3118   .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
+     /tmp/ccekuFow.s:3608   .text.HAL_PCD_EP_Receive:0000000000000318 $d
+     /tmp/ccekuFow.s:3617   .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
+     /tmp/ccekuFow.s:3624   .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
+     /tmp/ccekuFow.s:3669   .text.HAL_PCD_EP_Transmit:0000000000000000 $t
+     /tmp/ccekuFow.s:3676   .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
+     /tmp/ccekuFow.s:4912   .text.PCD_WritePMA:0000000000000000 PCD_WritePMA
+     /tmp/ccekuFow.s:4213   .text.HAL_PCD_EP_Transmit:0000000000000378 $d
+     /tmp/ccekuFow.s:4225   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
+     /tmp/ccekuFow.s:4232   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
+     /tmp/ccekuFow.s:4449   .text.HAL_PCD_EP_SetStall:0000000000000154 $d
+     /tmp/ccekuFow.s:4457   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
+     /tmp/ccekuFow.s:4464   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
+     /tmp/ccekuFow.s:4722   .text.HAL_PCD_EP_ClrStall:00000000000001a4 $d
+     /tmp/ccekuFow.s:4732   .text.HAL_PCD_EP_Flush:0000000000000000 $t
+     /tmp/ccekuFow.s:4739   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
+     /tmp/ccekuFow.s:4770   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccekuFow.s:4777   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
+     /tmp/ccekuFow.s:4818   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccekuFow.s:4825   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
+     /tmp/ccekuFow.s:4866   .text.HAL_PCD_GetState:0000000000000000 $t
+     /tmp/ccekuFow.s:4873   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
+     /tmp/ccekuFow.s:4905   .text.PCD_WritePMA:0000000000000000 $t
+     /tmp/ccekuFow.s:5010   .text.PCD_ReadPMA:0000000000000000 $t
+     /tmp/ccekuFow.s:5017   .text.PCD_ReadPMA:0000000000000000 PCD_ReadPMA
+     /tmp/ccekuFow.s:5093   .text.PCD_EP_ISR_Handler:0000000000000000 $t
+     /tmp/ccekuFow.s:5616   .text.PCD_EP_ISR_Handler:0000000000000374 $d
+     /tmp/ccekuFow.s:5625   .text.PCD_EP_ISR_Handler:0000000000000390 $t
+     /tmp/ccekuFow.s:6090   .text.PCD_EP_ISR_Handler:00000000000006d8 $d
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

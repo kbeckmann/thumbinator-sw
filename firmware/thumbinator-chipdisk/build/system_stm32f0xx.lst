@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccsYyFZR.s 			page 1
+ARM GAS  /tmp/ccP1cotf.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
   61              		.syntax unified
   62              		.code	16
   63              		.thumb_func
-ARM GAS  /tmp/ccsYyFZR.s 			page 2
+ARM GAS  /tmp/ccP1cotf.s 			page 2
 
 
   64              		.fpu softvfp
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
   51:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *   2. Redistributions in binary form must reproduce the above copyright notice,
   52:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *      this list of conditions and the following disclaimer in the documentation
   53:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *      and/or other materials provided with the distribution.
-ARM GAS  /tmp/ccsYyFZR.s 			page 3
+ARM GAS  /tmp/ccP1cotf.s 			page 3
 
 
   54:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *   3. Neither the name of STMicroelectronics nor the names of its contributors
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  108:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****                                                 This value can be provided and adapted by the user 
  109:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c **** #endif /* HSI_VALUE */
  110:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c **** 
-ARM GAS  /tmp/ccsYyFZR.s 			page 4
+ARM GAS  /tmp/ccP1cotf.s 			page 4
 
 
  111:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c **** #if !defined (HSI48_VALUE)
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  165:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c **** void SystemInit(void)
  166:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c **** {
   69              		.loc 1 166 0
-ARM GAS  /tmp/ccsYyFZR.s 			page 5
+ARM GAS  /tmp/ccP1cotf.s 			page 5
 
 
   70              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  184:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c **** 
  185:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   /* Reset PLLSRC, PLLXTPRE and PLLMUL[3:0] bits */
  186:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   RCC->CFGR &= (uint32_t)0xFFC0FFFFU;
-ARM GAS  /tmp/ccsYyFZR.s 			page 6
+ARM GAS  /tmp/ccP1cotf.s 			page 6
 
 
  107              		.loc 1 186 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  128              		.loc 1 219 0
  129 0058 054B     		ldr	r3, .L2
  130 005a 054A     		ldr	r2, .L2
-ARM GAS  /tmp/ccsYyFZR.s 			page 7
+ARM GAS  /tmp/ccP1cotf.s 			page 7
 
 
  131 005c 526B     		ldr	r2, [r2, #52]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  240:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *           - If SYSCLK source is HSI, SystemCoreClock will contain the HSI_VALUE(*)
  241:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *
  242:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *           - If SYSCLK source is HSE, SystemCoreClock will contain the HSE_VALUE(**)
-ARM GAS  /tmp/ccsYyFZR.s 			page 8
+ARM GAS  /tmp/ccP1cotf.s 			page 8
 
 
  243:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   *
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  269:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   switch (tmp)
  195              		.loc 1 269 0
  196 0020 FB68     		ldr	r3, [r7, #12]
-ARM GAS  /tmp/ccsYyFZR.s 			page 9
+ARM GAS  /tmp/ccP1cotf.s 			page 9
 
 
  197 0022 042B     		cmp	r3, #4
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  238 0060 DB6A     		ldr	r3, [r3, #44]
  239 0062 0F22     		movs	r2, #15
  240 0064 1340     		ands	r3, r2
-ARM GAS  /tmp/ccsYyFZR.s 			page 10
+ARM GAS  /tmp/ccP1cotf.s 			page 10
 
 
  241 0066 0133     		adds	r3, r3, #1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  266 008e 5B02     		lsls	r3, r3, #9
  267 0090 9A42     		cmp	r2, r3
  268 0092 0AD1     		bne	.L12
-ARM GAS  /tmp/ccsYyFZR.s 			page 11
+ARM GAS  /tmp/ccP1cotf.s 			page 11
 
 
  293:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****       }
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  319:Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c ****   SystemCoreClock >>= tmp;
  313              		.loc 1 319 0
  314 00d8 054B     		ldr	r3, .L14+4
-ARM GAS  /tmp/ccsYyFZR.s 			page 12
+ARM GAS  /tmp/ccP1cotf.s 			page 12
 
 
  315 00da 1A68     		ldr	r2, [r3]
@@ -693,23 +693,23 @@ ARM GAS  /tmp/ccsYyFZR.s 			page 1
  344              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
  345              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stddef.h"
  346              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
-ARM GAS  /tmp/ccsYyFZR.s 			page 13
+ARM GAS  /tmp/ccP1cotf.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 system_stm32f0xx.c
-     /tmp/ccsYyFZR.s:20     .data.SystemCoreClock:0000000000000000 SystemCoreClock
-     /tmp/ccsYyFZR.s:17     .data.SystemCoreClock:0000000000000000 $d
-     /tmp/ccsYyFZR.s:27     .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
-     /tmp/ccsYyFZR.s:24     .rodata.AHBPrescTable:0000000000000000 $d
-     /tmp/ccsYyFZR.s:49     .rodata.APBPrescTable:0000000000000000 APBPrescTable
-     /tmp/ccsYyFZR.s:46     .rodata.APBPrescTable:0000000000000000 $d
-     /tmp/ccsYyFZR.s:59     .text.SystemInit:0000000000000000 $t
-     /tmp/ccsYyFZR.s:66     .text.SystemInit:0000000000000000 SystemInit
-     /tmp/ccsYyFZR.s:147    .text.SystemInit:0000000000000070 $d
-     /tmp/ccsYyFZR.s:158    .text.SystemCoreClockUpdate:0000000000000000 $t
-     /tmp/ccsYyFZR.s:165    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
-     /tmp/ccsYyFZR.s:329    .text.SystemCoreClockUpdate:00000000000000ec $d
+     /tmp/ccP1cotf.s:20     .data.SystemCoreClock:0000000000000000 SystemCoreClock
+     /tmp/ccP1cotf.s:17     .data.SystemCoreClock:0000000000000000 $d
+     /tmp/ccP1cotf.s:27     .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
+     /tmp/ccP1cotf.s:24     .rodata.AHBPrescTable:0000000000000000 $d
+     /tmp/ccP1cotf.s:49     .rodata.APBPrescTable:0000000000000000 APBPrescTable
+     /tmp/ccP1cotf.s:46     .rodata.APBPrescTable:0000000000000000 $d
+     /tmp/ccP1cotf.s:59     .text.SystemInit:0000000000000000 $t
+     /tmp/ccP1cotf.s:66     .text.SystemInit:0000000000000000 SystemInit
+     /tmp/ccP1cotf.s:147    .text.SystemInit:0000000000000070 $d
+     /tmp/ccP1cotf.s:158    .text.SystemCoreClockUpdate:0000000000000000 $t
+     /tmp/ccP1cotf.s:165    .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+     /tmp/ccP1cotf.s:329    .text.SystemCoreClockUpdate:00000000000000ec $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

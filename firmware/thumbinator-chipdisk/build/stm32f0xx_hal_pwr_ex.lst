@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccj2sU0z.s 			page 1
+ARM GAS  /tmp/ccGP4wpX.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-ARM GAS  /tmp/ccj2sU0z.s 			page 2
+ARM GAS  /tmp/ccGP4wpX.s 			page 2
 
 
   34:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
   88:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****     *** PVD configuration ***
   89:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****     =========================
   90:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****     [..]
-ARM GAS  /tmp/ccj2sU0z.s 			page 3
+ARM GAS  /tmp/ccGP4wpX.s 			page 3
 
 
   91:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****       (+) The PVD is used to monitor the VDD power supply by comparing it to a
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  131:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c **** 
  132:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   /* Set PLS[7:5] bits according to PVDLevel value */
  133:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   MODIFY_REG(PWR->CR, PWR_CR_PLS, sConfigPVD->PVDLevel);
-ARM GAS  /tmp/ccj2sU0z.s 			page 4
+ARM GAS  /tmp/ccGP4wpX.s 			page 4
 
 
   40              		.loc 1 133 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  143:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****     __HAL_PWR_PVD_EXTI_ENABLE_IT();
   85              		.loc 1 143 0
   86 0058 184B     		ldr	r3, .L7+4
-ARM GAS  /tmp/ccj2sU0z.s 			page 5
+ARM GAS  /tmp/ccGP4wpX.s 			page 5
 
 
   87 005a 184A     		ldr	r2, .L7+4
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  126 0098 7B68     		ldr	r3, [r7, #4]
  127 009a 5B68     		ldr	r3, [r3, #4]
  128 009c 0222     		movs	r2, #2
-ARM GAS  /tmp/ccj2sU0z.s 			page 6
+ARM GAS  /tmp/ccGP4wpX.s 			page 6
 
 
  129 009e 1340     		ands	r3, r2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  174              		.cfi_def_cfa_register 7
  170:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   PWR->CR |= (uint32_t)PWR_CR_PVDE;
  175              		.loc 1 170 0
-ARM GAS  /tmp/ccj2sU0z.s 			page 7
+ARM GAS  /tmp/ccGP4wpX.s 			page 7
 
 
  176 0004 044B     		ldr	r3, .L10
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  222 0010 C046     		nop
  223 0012 BD46     		mov	sp, r7
  224              		@ sp needed
-ARM GAS  /tmp/ccj2sU0z.s 			page 8
+ARM GAS  /tmp/ccGP4wpX.s 			page 8
 
 
  225 0014 80BD     		pop	{r7, pc}
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  265 0018 5202     		lsls	r2, r2, #9
  266 001a 5A61     		str	r2, [r3, #20]
  267              	.L17:
-ARM GAS  /tmp/ccj2sU0z.s 			page 9
+ARM GAS  /tmp/ccGP4wpX.s 			page 9
 
 
  197:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  312              		.code	16
  313              		.thumb_func
  314              		.fpu softvfp
-ARM GAS  /tmp/ccj2sU0z.s 			page 10
+ARM GAS  /tmp/ccGP4wpX.s 			page 10
 
 
  316              	HAL_PWREx_EnableVddio2Monitor:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  350 0026 C046     		.align	2
  351              	.L22:
  352 0028 00040140 		.word	1073808384
-ARM GAS  /tmp/ccj2sU0z.s 			page 11
+ARM GAS  /tmp/ccGP4wpX.s 			page 11
 
 
  353              		.cfi_endproc
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  398 002a BD46     		mov	sp, r7
  399              		@ sp needed
  400 002c 80BD     		pop	{r7, pc}
-ARM GAS  /tmp/ccj2sU0z.s 			page 12
+ARM GAS  /tmp/ccGP4wpX.s 			page 12
 
 
  401              	.L26:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  257:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c ****   }
  258:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c **** }
  441              		.loc 1 258 0
-ARM GAS  /tmp/ccj2sU0z.s 			page 13
+ARM GAS  /tmp/ccGP4wpX.s 			page 13
 
 
  442 0018 C046     		nop
@@ -778,41 +778,41 @@ ARM GAS  /tmp/ccj2sU0z.s 			page 1
  488              		.file 7 "/usr/arm-none-eabi/include/sys/_types.h"
  489              		.file 8 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stddef.h"
  490              		.file 9 "/usr/arm-none-eabi/include/sys/reent.h"
-ARM GAS  /tmp/ccj2sU0z.s 			page 14
+ARM GAS  /tmp/ccGP4wpX.s 			page 14
 
 
  491              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_pwr_ex.h"
  492              		.file 11 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
-ARM GAS  /tmp/ccj2sU0z.s 			page 15
+ARM GAS  /tmp/ccGP4wpX.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f0xx_hal_pwr_ex.c
-     /tmp/ccj2sU0z.s:16     .text.HAL_PWR_ConfigPVD:0000000000000000 $t
-     /tmp/ccj2sU0z.s:23     .text.HAL_PWR_ConfigPVD:0000000000000000 HAL_PWR_ConfigPVD
-     /tmp/ccj2sU0z.s:149    .text.HAL_PWR_ConfigPVD:00000000000000b8 $d
-     /tmp/ccj2sU0z.s:156    .text.HAL_PWR_EnablePVD:0000000000000000 $t
-     /tmp/ccj2sU0z.s:163    .text.HAL_PWR_EnablePVD:0000000000000000 HAL_PWR_EnablePVD
-     /tmp/ccj2sU0z.s:190    .text.HAL_PWR_EnablePVD:0000000000000018 $d
-     /tmp/ccj2sU0z.s:195    .text.HAL_PWR_DisablePVD:0000000000000000 $t
-     /tmp/ccj2sU0z.s:202    .text.HAL_PWR_DisablePVD:0000000000000000 HAL_PWR_DisablePVD
-     /tmp/ccj2sU0z.s:229    .text.HAL_PWR_DisablePVD:0000000000000018 $d
-     /tmp/ccj2sU0z.s:234    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 $t
-     /tmp/ccj2sU0z.s:241    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 HAL_PWR_PVD_IRQHandler
-     /tmp/ccj2sU0z.s:288    .text.HAL_PWR_PVDCallback:0000000000000000 HAL_PWR_PVDCallback
-     /tmp/ccj2sU0z.s:276    .text.HAL_PWR_PVD_IRQHandler:0000000000000024 $d
-     /tmp/ccj2sU0z.s:281    .text.HAL_PWR_PVDCallback:0000000000000000 $t
-     /tmp/ccj2sU0z.s:309    .text.HAL_PWREx_EnableVddio2Monitor:0000000000000000 $t
-     /tmp/ccj2sU0z.s:316    .text.HAL_PWREx_EnableVddio2Monitor:0000000000000000 HAL_PWREx_EnableVddio2Monitor
-     /tmp/ccj2sU0z.s:352    .text.HAL_PWREx_EnableVddio2Monitor:0000000000000028 $d
-     /tmp/ccj2sU0z.s:357    .text.HAL_PWREx_DisableVddio2Monitor:0000000000000000 $t
-     /tmp/ccj2sU0z.s:364    .text.HAL_PWREx_DisableVddio2Monitor:0000000000000000 HAL_PWREx_DisableVddio2Monitor
-     /tmp/ccj2sU0z.s:404    .text.HAL_PWREx_DisableVddio2Monitor:0000000000000030 $d
-     /tmp/ccj2sU0z.s:409    .text.HAL_PWREx_Vddio2Monitor_IRQHandler:0000000000000000 $t
-     /tmp/ccj2sU0z.s:416    .text.HAL_PWREx_Vddio2Monitor_IRQHandler:0000000000000000 HAL_PWREx_Vddio2Monitor_IRQHandler
-     /tmp/ccj2sU0z.s:461    .text.HAL_PWREx_Vddio2MonitorCallback:0000000000000000 HAL_PWREx_Vddio2MonitorCallback
-     /tmp/ccj2sU0z.s:449    .text.HAL_PWREx_Vddio2Monitor_IRQHandler:0000000000000020 $d
-     /tmp/ccj2sU0z.s:454    .text.HAL_PWREx_Vddio2MonitorCallback:0000000000000000 $t
+     /tmp/ccGP4wpX.s:16     .text.HAL_PWR_ConfigPVD:0000000000000000 $t
+     /tmp/ccGP4wpX.s:23     .text.HAL_PWR_ConfigPVD:0000000000000000 HAL_PWR_ConfigPVD
+     /tmp/ccGP4wpX.s:149    .text.HAL_PWR_ConfigPVD:00000000000000b8 $d
+     /tmp/ccGP4wpX.s:156    .text.HAL_PWR_EnablePVD:0000000000000000 $t
+     /tmp/ccGP4wpX.s:163    .text.HAL_PWR_EnablePVD:0000000000000000 HAL_PWR_EnablePVD
+     /tmp/ccGP4wpX.s:190    .text.HAL_PWR_EnablePVD:0000000000000018 $d
+     /tmp/ccGP4wpX.s:195    .text.HAL_PWR_DisablePVD:0000000000000000 $t
+     /tmp/ccGP4wpX.s:202    .text.HAL_PWR_DisablePVD:0000000000000000 HAL_PWR_DisablePVD
+     /tmp/ccGP4wpX.s:229    .text.HAL_PWR_DisablePVD:0000000000000018 $d
+     /tmp/ccGP4wpX.s:234    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 $t
+     /tmp/ccGP4wpX.s:241    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 HAL_PWR_PVD_IRQHandler
+     /tmp/ccGP4wpX.s:288    .text.HAL_PWR_PVDCallback:0000000000000000 HAL_PWR_PVDCallback
+     /tmp/ccGP4wpX.s:276    .text.HAL_PWR_PVD_IRQHandler:0000000000000024 $d
+     /tmp/ccGP4wpX.s:281    .text.HAL_PWR_PVDCallback:0000000000000000 $t
+     /tmp/ccGP4wpX.s:309    .text.HAL_PWREx_EnableVddio2Monitor:0000000000000000 $t
+     /tmp/ccGP4wpX.s:316    .text.HAL_PWREx_EnableVddio2Monitor:0000000000000000 HAL_PWREx_EnableVddio2Monitor
+     /tmp/ccGP4wpX.s:352    .text.HAL_PWREx_EnableVddio2Monitor:0000000000000028 $d
+     /tmp/ccGP4wpX.s:357    .text.HAL_PWREx_DisableVddio2Monitor:0000000000000000 $t
+     /tmp/ccGP4wpX.s:364    .text.HAL_PWREx_DisableVddio2Monitor:0000000000000000 HAL_PWREx_DisableVddio2Monitor
+     /tmp/ccGP4wpX.s:404    .text.HAL_PWREx_DisableVddio2Monitor:0000000000000030 $d
+     /tmp/ccGP4wpX.s:409    .text.HAL_PWREx_Vddio2Monitor_IRQHandler:0000000000000000 $t
+     /tmp/ccGP4wpX.s:416    .text.HAL_PWREx_Vddio2Monitor_IRQHandler:0000000000000000 HAL_PWREx_Vddio2Monitor_IRQHandler
+     /tmp/ccGP4wpX.s:461    .text.HAL_PWREx_Vddio2MonitorCallback:0000000000000000 HAL_PWREx_Vddio2MonitorCallback
+     /tmp/ccGP4wpX.s:449    .text.HAL_PWREx_Vddio2Monitor_IRQHandler:0000000000000020 $d
+     /tmp/ccGP4wpX.s:454    .text.HAL_PWREx_Vddio2MonitorCallback:0000000000000000 $t
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccY3TSMS.s 			page 1
+ARM GAS  /tmp/ccFoOb53.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
   61 0003 04       		.byte	4
   62              		.comm	USBD_StrDesc,512,4
   63              		.section	.text.USBD_FS_DeviceDescriptor,"ax",%progbits
-ARM GAS  /tmp/ccY3TSMS.s 			page 2
+ARM GAS  /tmp/ccFoOb53.s 			page 2
 
 
   64              		.align	1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
   46:Src/usbd_desc.c **** #include "usbd_core.h"
   47:Src/usbd_desc.c **** #include "usbd_desc.h"
   48:Src/usbd_desc.c **** #include "usbd_conf.h"
-ARM GAS  /tmp/ccY3TSMS.s 			page 3
+ARM GAS  /tmp/ccFoOb53.s 			page 3
 
 
   49:Src/usbd_desc.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  103:Src/usbd_desc.c **** #ifdef USB_SUPPORT_USER_STRING_DESC
  104:Src/usbd_desc.c **** uint8_t *     USBD_FS_USRStringDesc (USBD_SpeedTypeDef speed, uint8_t idx , uint16_t *length);  
  105:Src/usbd_desc.c **** #endif /* USB_SUPPORT_USER_STRING_DESC */  
-ARM GAS  /tmp/ccY3TSMS.s 			page 4
+ARM GAS  /tmp/ccFoOb53.s 			page 4
 
 
  106:Src/usbd_desc.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  160:Src/usbd_desc.c **** #endif
  161:Src/usbd_desc.c **** __ALIGN_BEGIN uint8_t USBD_StrDesc[USBD_MAX_STR_DESC_SIZ] __ALIGN_END;
  162:Src/usbd_desc.c **** /**
-ARM GAS  /tmp/ccY3TSMS.s 			page 5
+ARM GAS  /tmp/ccFoOb53.s 			page 5
 
 
  163:Src/usbd_desc.c ****   * @}
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  102 001c 80BD     		pop	{r7, pc}
  103              	.L4:
  104 001e C046     		.align	2
-ARM GAS  /tmp/ccY3TSMS.s 			page 6
+ARM GAS  /tmp/ccFoOb53.s 			page 6
 
 
  105              	.L3:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  148 001c 80BD     		pop	{r7, pc}
  149              	.L8:
  150 001e C046     		.align	2
-ARM GAS  /tmp/ccY3TSMS.s 			page 7
+ARM GAS  /tmp/ccFoOb53.s 			page 7
 
 
  151              	.L7:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  213:Src/usbd_desc.c ****   {   
  214:Src/usbd_desc.c ****     USBD_GetString (USBD_PRODUCT_STRING_FS, USBD_StrDesc, length);
  192              		.loc 1 214 0
-ARM GAS  /tmp/ccY3TSMS.s 			page 8
+ARM GAS  /tmp/ccFoOb53.s 			page 8
 
 
  193 0016 3A68     		ldr	r2, [r7]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  223:Src/usbd_desc.c **** /**
  224:Src/usbd_desc.c **** * @brief  USBD_FS_ManufacturerStrDescriptor 
  225:Src/usbd_desc.c **** *         return the manufacturer string descriptor
-ARM GAS  /tmp/ccY3TSMS.s 			page 9
+ARM GAS  /tmp/ccFoOb53.s 			page 9
 
 
  226:Src/usbd_desc.c **** * @param  speed : current device speed
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  280              		.section	.text.USBD_FS_SerialStrDescriptor,"ax",%progbits
  281              		.align	1
  282              		.global	USBD_FS_SerialStrDescriptor
-ARM GAS  /tmp/ccY3TSMS.s 			page 10
+ARM GAS  /tmp/ccFoOb53.s 			page 10
 
 
  283              		.syntax unified
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  321 0024 3A68     		ldr	r2, [r7]
  322 0026 0549     		ldr	r1, .L23
  323 0028 054B     		ldr	r3, .L23+4
-ARM GAS  /tmp/ccY3TSMS.s 			page 11
+ARM GAS  /tmp/ccFoOb53.s 			page 11
 
 
  324 002a 1800     		movs	r0, r3
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  365              	.LCFI16:
  366              		.cfi_def_cfa_offset 16
  367 0004 00AF     		add	r7, sp, #0
-ARM GAS  /tmp/ccY3TSMS.s 			page 12
+ARM GAS  /tmp/ccFoOb53.s 			page 12
 
 
  368              	.LCFI17:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  413 0048 43444320 		.ascii	"CDC Interface\000"
  413      496E7465 
  413      72666163 
-ARM GAS  /tmp/ccY3TSMS.s 			page 13
+ARM GAS  /tmp/ccFoOb53.s 			page 13
 
 
  413      6500
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  289:Src/usbd_desc.c ****   else
  290:Src/usbd_desc.c ****   {
  291:Src/usbd_desc.c ****     USBD_GetString (USBD_INTERFACE_STRING_FS, USBD_StrDesc, length);
-ARM GAS  /tmp/ccY3TSMS.s 			page 14
+ARM GAS  /tmp/ccFoOb53.s 			page 14
 
 
  454              		.loc 1 291 0
@@ -817,40 +817,40 @@ ARM GAS  /tmp/ccY3TSMS.s 			page 1
  485              		.file 8 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  486              		.file 9 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
  487              		.file 10 "Inc/usbd_desc.h"
-ARM GAS  /tmp/ccY3TSMS.s 			page 15
+ARM GAS  /tmp/ccFoOb53.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_desc.c
-     /tmp/ccY3TSMS.s:20     .data.FS_Desc:0000000000000000 FS_Desc
-     /tmp/ccY3TSMS.s:17     .data.FS_Desc:0000000000000000 $d
-     /tmp/ccY3TSMS.s:71     .text.USBD_FS_DeviceDescriptor:0000000000000000 USBD_FS_DeviceDescriptor
-     /tmp/ccY3TSMS.s:118    .text.USBD_FS_LangIDStrDescriptor:0000000000000000 USBD_FS_LangIDStrDescriptor
-     /tmp/ccY3TSMS.s:235    .text.USBD_FS_ManufacturerStrDescriptor:0000000000000000 USBD_FS_ManufacturerStrDescriptor
-     /tmp/ccY3TSMS.s:168    .text.USBD_FS_ProductStrDescriptor:0000000000000000 USBD_FS_ProductStrDescriptor
-     /tmp/ccY3TSMS.s:288    .text.USBD_FS_SerialStrDescriptor:0000000000000000 USBD_FS_SerialStrDescriptor
-     /tmp/ccY3TSMS.s:355    .text.USBD_FS_ConfigStrDescriptor:0000000000000000 USBD_FS_ConfigStrDescriptor
-     /tmp/ccY3TSMS.s:422    .text.USBD_FS_InterfaceStrDescriptor:0000000000000000 USBD_FS_InterfaceStrDescriptor
-     /tmp/ccY3TSMS.s:33     .data.USBD_FS_DeviceDesc:0000000000000000 USBD_FS_DeviceDesc
-     /tmp/ccY3TSMS.s:30     .data.USBD_FS_DeviceDesc:0000000000000000 $d
-     /tmp/ccY3TSMS.s:57     .data.USBD_LangIDDesc:0000000000000000 USBD_LangIDDesc
-     /tmp/ccY3TSMS.s:54     .data.USBD_LangIDDesc:0000000000000000 $d
+     /tmp/ccFoOb53.s:20     .data.FS_Desc:0000000000000000 FS_Desc
+     /tmp/ccFoOb53.s:17     .data.FS_Desc:0000000000000000 $d
+     /tmp/ccFoOb53.s:71     .text.USBD_FS_DeviceDescriptor:0000000000000000 USBD_FS_DeviceDescriptor
+     /tmp/ccFoOb53.s:118    .text.USBD_FS_LangIDStrDescriptor:0000000000000000 USBD_FS_LangIDStrDescriptor
+     /tmp/ccFoOb53.s:235    .text.USBD_FS_ManufacturerStrDescriptor:0000000000000000 USBD_FS_ManufacturerStrDescriptor
+     /tmp/ccFoOb53.s:168    .text.USBD_FS_ProductStrDescriptor:0000000000000000 USBD_FS_ProductStrDescriptor
+     /tmp/ccFoOb53.s:288    .text.USBD_FS_SerialStrDescriptor:0000000000000000 USBD_FS_SerialStrDescriptor
+     /tmp/ccFoOb53.s:355    .text.USBD_FS_ConfigStrDescriptor:0000000000000000 USBD_FS_ConfigStrDescriptor
+     /tmp/ccFoOb53.s:422    .text.USBD_FS_InterfaceStrDescriptor:0000000000000000 USBD_FS_InterfaceStrDescriptor
+     /tmp/ccFoOb53.s:33     .data.USBD_FS_DeviceDesc:0000000000000000 USBD_FS_DeviceDesc
+     /tmp/ccFoOb53.s:30     .data.USBD_FS_DeviceDesc:0000000000000000 $d
+     /tmp/ccFoOb53.s:57     .data.USBD_LangIDDesc:0000000000000000 USBD_LangIDDesc
+     /tmp/ccFoOb53.s:54     .data.USBD_LangIDDesc:0000000000000000 $d
                             *COM*:0000000000000200 USBD_StrDesc
-     /tmp/ccY3TSMS.s:64     .text.USBD_FS_DeviceDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:106    .text.USBD_FS_DeviceDescriptor:0000000000000020 $d
-     /tmp/ccY3TSMS.s:111    .text.USBD_FS_LangIDStrDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:152    .text.USBD_FS_LangIDStrDescriptor:0000000000000020 $d
-     /tmp/ccY3TSMS.s:157    .rodata:0000000000000000 $d
-     /tmp/ccY3TSMS.s:161    .text.USBD_FS_ProductStrDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:218    .text.USBD_FS_ProductStrDescriptor:000000000000003c $d
-     /tmp/ccY3TSMS.s:228    .text.USBD_FS_ManufacturerStrDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:271    .text.USBD_FS_ManufacturerStrDescriptor:0000000000000024 $d
-     /tmp/ccY3TSMS.s:281    .text.USBD_FS_SerialStrDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:338    .text.USBD_FS_SerialStrDescriptor:000000000000003c $d
-     /tmp/ccY3TSMS.s:348    .text.USBD_FS_ConfigStrDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:405    .text.USBD_FS_ConfigStrDescriptor:000000000000003c $d
-     /tmp/ccY3TSMS.s:415    .text.USBD_FS_InterfaceStrDescriptor:0000000000000000 $t
-     /tmp/ccY3TSMS.s:472    .text.USBD_FS_InterfaceStrDescriptor:000000000000003c $d
+     /tmp/ccFoOb53.s:64     .text.USBD_FS_DeviceDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:106    .text.USBD_FS_DeviceDescriptor:0000000000000020 $d
+     /tmp/ccFoOb53.s:111    .text.USBD_FS_LangIDStrDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:152    .text.USBD_FS_LangIDStrDescriptor:0000000000000020 $d
+     /tmp/ccFoOb53.s:157    .rodata:0000000000000000 $d
+     /tmp/ccFoOb53.s:161    .text.USBD_FS_ProductStrDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:218    .text.USBD_FS_ProductStrDescriptor:000000000000003c $d
+     /tmp/ccFoOb53.s:228    .text.USBD_FS_ManufacturerStrDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:271    .text.USBD_FS_ManufacturerStrDescriptor:0000000000000024 $d
+     /tmp/ccFoOb53.s:281    .text.USBD_FS_SerialStrDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:338    .text.USBD_FS_SerialStrDescriptor:000000000000003c $d
+     /tmp/ccFoOb53.s:348    .text.USBD_FS_ConfigStrDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:405    .text.USBD_FS_ConfigStrDescriptor:000000000000003c $d
+     /tmp/ccFoOb53.s:415    .text.USBD_FS_InterfaceStrDescriptor:0000000000000000 $t
+     /tmp/ccFoOb53.s:472    .text.USBD_FS_InterfaceStrDescriptor:000000000000003c $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

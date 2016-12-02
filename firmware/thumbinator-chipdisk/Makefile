@@ -25,6 +25,7 @@ BUILD_DIR = build
 # source
 ######################################
 C_SOURCES = \
+  Src/micromod.c \
   Src/usb_device.c \
   Src/usbd_conf.c \
   Src/usbd_desc.c \
@@ -32,9 +33,10 @@ C_SOURCES = \
   Src/stm32f0xx_it.c \
   Src/stm32f0xx_hal_msp.c \
   Src/main.c \
-  Src/micromod.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c \
+  Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dac.c \
+  Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dac_ex.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_usart.c \
@@ -77,8 +79,7 @@ AS_DEFS =
 C_DEFS = -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F072xB
 # includes for gcc
 AS_INCLUDES =
-C_INCLUDES = -ISrc
-C_INCLUDES += -IInc
+C_INCLUDES = -IInc
 C_INCLUDES += -IDrivers/STM32F0xx_HAL_Driver/Inc
 C_INCLUDES += -IDrivers/STM32F0xx_HAL_Driver/Inc/Legacy
 C_INCLUDES += -IDrivers/CMSIS/Device/ST/STM32F0xx/Include

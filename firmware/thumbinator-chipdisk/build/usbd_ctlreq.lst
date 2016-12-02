@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccMud4m1.s 			page 1
+ARM GAS  /tmp/ccKzJvDo.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
   31:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** 
   32:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** 
   33:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** /** @addtogroup STM32_USBD_STATE_DEVICE_LIBRARY
-ARM GAS  /tmp/ccMud4m1.s 			page 2
+ARM GAS  /tmp/ccKzJvDo.s 			page 2
 
 
   34:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   * @{
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
   88:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** static void USBD_GetConfig(USBD_HandleTypeDef *pdev , 
   89:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****                            USBD_SetupReqTypedef *req);
   90:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** 
-ARM GAS  /tmp/ccMud4m1.s 			page 3
+ARM GAS  /tmp/ccKzJvDo.s 			page 3
 
 
   91:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** static void USBD_GetStatus(USBD_HandleTypeDef *pdev , 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
   47 0012 3B68     		ldr	r3, [r7]
   48 0014 5B78     		ldrb	r3, [r3, #1]
   49 0016 092B     		cmp	r3, #9
-ARM GAS  /tmp/ccMud4m1.s 			page 4
+ARM GAS  /tmp/ccKzJvDo.s 			page 4
 
 
   50 0018 35D8     		bhi	.L2
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
   92 0044 1100     		movs	r1, r2
   93 0046 1800     		movs	r0, r3
   94 0048 FFF7FEFF 		bl	USBD_SetConfig
-ARM GAS  /tmp/ccMud4m1.s 			page 5
+ARM GAS  /tmp/ccKzJvDo.s 			page 5
 
 
  136:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     break;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  131              		.loc 1 153 0
  132 0084 06E0     		b	.L11
  133              	.L2:
-ARM GAS  /tmp/ccMud4m1.s 			page 6
+ARM GAS  /tmp/ccKzJvDo.s 			page 6
 
 
  154:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  172 0000 80B5     		push	{r7, lr}
  173              	.LCFI3:
  174              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccMud4m1.s 			page 7
+ARM GAS  /tmp/ccKzJvDo.s 			page 7
 
 
  175              		.cfi_offset 7, -8
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  218 0040 17D1     		bne	.L24
  219              		.loc 1 182 0 is_stmt 0 discriminator 1
  220 0042 0F23     		movs	r3, #15
-ARM GAS  /tmp/ccMud4m1.s 			page 8
+ARM GAS  /tmp/ccKzJvDo.s 			page 8
 
 
  221 0044 FB18     		adds	r3, r7, r3
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  257 0078 BD46     		mov	sp, r7
  258 007a 04B0     		add	sp, sp, #16
  259              		@ sp needed
-ARM GAS  /tmp/ccMud4m1.s 			page 9
+ARM GAS  /tmp/ccKzJvDo.s 			page 9
 
 
  260 007c 80BD     		pop	{r7, pc}
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  215:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   /* Check if it is a class request */
  216:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   if ((req->bmRequest & 0x60) == 0x20)
  300              		.loc 1 216 0
-ARM GAS  /tmp/ccMud4m1.s 			page 10
+ARM GAS  /tmp/ccKzJvDo.s 			page 10
 
 
  301 001c 3B68     		ldr	r3, [r7]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  238:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       if (req->wValue == USB_FEATURE_EP_HALT)
  239:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       {
  240:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****         if ((ep_addr != 0x00) && (ep_addr != 0x80)) 
-ARM GAS  /tmp/ccMud4m1.s 			page 11
+ARM GAS  /tmp/ccKzJvDo.s 			page 11
 
 
  241:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****         { 
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  295:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       
  296:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     case USBD_STATE_CONFIGURED:
  297:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       pep = ((ep_addr & 0x80) == 0x80) ? &pdev->ep_in[ep_addr & 0x7F]:\
-ARM GAS  /tmp/ccMud4m1.s 			page 12
+ARM GAS  /tmp/ccKzJvDo.s 			page 12
 
 
  298:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****                                          &pdev->ep_out[ep_addr & 0x7F];
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  361 007a 0E23     		movs	r3, #14
  362 007c FB18     		adds	r3, r7, r3
  363 007e 1A78     		ldrb	r2, [r3]
-ARM GAS  /tmp/ccMud4m1.s 			page 13
+ARM GAS  /tmp/ccKzJvDo.s 			page 13
 
 
  364 0080 7B68     		ldr	r3, [r7, #4]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  411 00ce FFF7FEFF 		bl	USBD_CtlSendStatus
  249:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       
  412              		.loc 1 249 0
-ARM GAS  /tmp/ccMud4m1.s 			page 14
+ARM GAS  /tmp/ccKzJvDo.s 			page 14
 
 
  413 00d2 07E0     		b	.L36
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  459 0116 1800     		movs	r0, r3
  460 0118 FFF7FEFF 		bl	USBD_LL_StallEP
  266:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       
-ARM GAS  /tmp/ccMud4m1.s 			page 15
+ARM GAS  /tmp/ccKzJvDo.s 			page 15
 
 
  461              		.loc 1 266 0
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  508 0166 FFF7FEFF 		bl	USBD_CtlError
  282:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     }
  509              		.loc 1 282 0
-ARM GAS  /tmp/ccMud4m1.s 			page 16
+ARM GAS  /tmp/ccKzJvDo.s 			page 16
 
 
  510 016a 02E0     		b	.L43
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  556 01ac 002B     		cmp	r3, #0
  557 01ae 0ADA     		bge	.L51
  297:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****                                          &pdev->ep_out[ep_addr & 0x7F];
-ARM GAS  /tmp/ccMud4m1.s 			page 17
+ARM GAS  /tmp/ccKzJvDo.s 			page 17
 
 
  558              		.loc 1 297 0 is_stmt 0 discriminator 1
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  606              	.L54:
  309:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****                         2);
  607              		.loc 1 309 0
-ARM GAS  /tmp/ccMud4m1.s 			page 18
+ARM GAS  /tmp/ccKzJvDo.s 			page 18
 
 
  608 01fe B968     		ldr	r1, [r7, #8]
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  324:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** /**
  325:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** * @brief  USBD_GetDescriptor
  326:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** *         Handle Get Descriptor requests
-ARM GAS  /tmp/ccMud4m1.s 			page 19
+ARM GAS  /tmp/ccKzJvDo.s 			page 19
 
 
  327:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** * @param  pdev: device instance
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  339:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   { 
  340:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** #if (USBD_LPM_ENABLED == 1)
  341:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   case USB_DESC_TYPE_BOS:
-ARM GAS  /tmp/ccMud4m1.s 			page 20
+ARM GAS  /tmp/ccKzJvDo.s 			page 20
 
 
  342:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     pbuf = pdev->pDesc->GetBOSDescriptor(pdev->dev_speed, &len);
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  355:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     else
  356:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     {
  357:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       pbuf   = (uint8_t *)pdev->pClass->GetFSConfigDescriptor(&len);
-ARM GAS  /tmp/ccMud4m1.s 			page 21
+ARM GAS  /tmp/ccKzJvDo.s 			page 21
 
 
  358:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       pbuf[1] = USB_DESC_TYPE_CONFIGURATION;
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  364:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     {
  365:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     case USBD_IDX_LANGID_STR:
  366:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****      pbuf = pdev->pDesc->GetLangIDStrDescriptor(pdev->dev_speed, &len);        
-ARM GAS  /tmp/ccMud4m1.s 			page 22
+ARM GAS  /tmp/ccKzJvDo.s 			page 22
 
 
  784              		.loc 1 366 0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  830 00e4 1000     		movs	r0, r2
  831 00e6 9847     		blx	r3
  832              	.LVL9:
-ARM GAS  /tmp/ccMud4m1.s 			page 23
+ARM GAS  /tmp/ccKzJvDo.s 			page 23
 
 
  833 00e8 0300     		movs	r3, r0
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  875 0126 7A68     		ldr	r2, [r7, #4]
  876 0128 8423     		movs	r3, #132
  877 012a 9B00     		lsls	r3, r3, #2
-ARM GAS  /tmp/ccMud4m1.s 			page 24
+ARM GAS  /tmp/ccKzJvDo.s 			page 24
 
 
  878 012c D358     		ldr	r3, [r2, r3]
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  915 0164 0A22     		movs	r2, #10
  916 0166 BA18     		adds	r2, r7, r2
  917 0168 1000     		movs	r0, r2
-ARM GAS  /tmp/ccMud4m1.s 			page 25
+ARM GAS  /tmp/ccKzJvDo.s 			page 25
 
 
  918 016a 9847     		blx	r3
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  958 01a6 0DE0     		b	.L70
  959              	.L84:
  418:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     }
-ARM GAS  /tmp/ccMud4m1.s 			page 26
+ARM GAS  /tmp/ccKzJvDo.s 			page 26
 
 
  419:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     else
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  999 01e8 9A42     		cmp	r2, r3
  1000 01ea 00D9     		bls	.L86
  1001 01ec 011C     		adds	r1, r0, #0
-ARM GAS  /tmp/ccMud4m1.s 			page 27
+ARM GAS  /tmp/ccKzJvDo.s 			page 27
 
 
  1002              	.L86:
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1040 0000 80B5     		push	{r7, lr}
  1041              	.LCFI12:
  1042              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccMud4m1.s 			page 28
+ARM GAS  /tmp/ccKzJvDo.s 			page 28
 
 
  1043              		.cfi_offset 7, -8
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1087              	.L92:
  461:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     } 
  462:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     else 
-ARM GAS  /tmp/ccMud4m1.s 			page 29
+ARM GAS  /tmp/ccKzJvDo.s 			page 29
 
 
  463:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     {
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  458:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     {
  1129              		.loc 1 458 0
  1130 008a 05E0     		b	.L95
-ARM GAS  /tmp/ccMud4m1.s 			page 30
+ARM GAS  /tmp/ccKzJvDo.s 			page 30
 
 
  1131              	.L91:
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1168              	.LCFI17:
  1169              		.cfi_def_cfa_register 7
  1170 0006 7860     		str	r0, [r7, #4]
-ARM GAS  /tmp/ccMud4m1.s 			page 31
+ARM GAS  /tmp/ccKzJvDo.s 			page 31
 
 
  1171 0008 3960     		str	r1, [r7]
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1208 0044 3B4B     		ldr	r3, .L110
  1209 0046 1B78     		ldrb	r3, [r3]
  1210 0048 1A00     		movs	r2, r3
-ARM GAS  /tmp/ccMud4m1.s 			page 32
+ARM GAS  /tmp/ccKzJvDo.s 			page 32
 
 
  1211 004a 7B68     		ldr	r3, [r7, #4]
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1251              	.L101:
  524:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       
  525:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     case USBD_STATE_CONFIGURED:
-ARM GAS  /tmp/ccMud4m1.s 			page 33
+ARM GAS  /tmp/ccKzJvDo.s 			page 33
 
 
  526:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       if (cfgidx == 0) 
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  552:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       break;
  1280              		.loc 1 552 0
  1281 00c0 35E0     		b	.L96
-ARM GAS  /tmp/ccMud4m1.s 			page 34
+ARM GAS  /tmp/ccKzJvDo.s 			page 34
 
 
  1282              	.L105:
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1329 0114 0BE0     		b	.L96
  1330              	.L107:
  550:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****       }
-ARM GAS  /tmp/ccMud4m1.s 			page 35
+ARM GAS  /tmp/ccKzJvDo.s 			page 35
 
 
  1331              		.loc 1 550 0
@@ -2072,7 +2072,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1352              	.L111:
  1353              		.align	2
  1354              	.L110:
- 1355 0134 00000000 		.word	cfgidx.6909
+ 1355 0134 00000000 		.word	cfgidx.7000
  1356              		.cfi_endproc
  1357              	.LFE40:
  1359              		.section	.text.USBD_GetConfig,"ax",%progbits
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1369              		.cfi_startproc
  1370 0000 80B5     		push	{r7, lr}
  1371              	.LCFI18:
-ARM GAS  /tmp/ccMud4m1.s 			page 36
+ARM GAS  /tmp/ccKzJvDo.s 			page 36
 
 
  1372              		.cfi_def_cfa_offset 8
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  578:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     {
  1397              		.loc 1 578 0
  1398 0020 7A68     		ldr	r2, [r7, #4]
-ARM GAS  /tmp/ccMud4m1.s 			page 37
+ARM GAS  /tmp/ccKzJvDo.s 			page 37
 
 
  1399 0022 FE23     		movs	r3, #254
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1444              	.L119:
  1445              		.loc 1 599 0
  1446 0068 C046     		nop
-ARM GAS  /tmp/ccMud4m1.s 			page 38
+ARM GAS  /tmp/ccKzJvDo.s 			page 38
 
 
  1447 006a BD46     		mov	sp, r7
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  617:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     
  618:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c **** #if ( USBD_SELF_POWERED == 1)
  619:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     pdev->dev_config_status = USB_CONFIG_SELF_POWERED;                                  
-ARM GAS  /tmp/ccMud4m1.s 			page 39
+ARM GAS  /tmp/ccKzJvDo.s 			page 39
 
 
  1486              		.loc 1 619 0
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  636:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     break;
  1523              		.loc 1 636 0
  1524 0054 C046     		nop
-ARM GAS  /tmp/ccMud4m1.s 			page 40
+ARM GAS  /tmp/ccKzJvDo.s 			page 40
 
 
  1525              	.L124:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  654:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     pdev->dev_remote_wakeup = 1;  
  1564              		.loc 1 654 0
  1565 0012 7A68     		ldr	r2, [r7, #4]
-ARM GAS  /tmp/ccMud4m1.s 			page 41
+ARM GAS  /tmp/ccKzJvDo.s 			page 41
 
 
  1566 0014 8123     		movs	r3, #129
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1605              		.cfi_startproc
  1606 0000 80B5     		push	{r7, lr}
  1607              	.LCFI27:
-ARM GAS  /tmp/ccMud4m1.s 			page 42
+ARM GAS  /tmp/ccKzJvDo.s 			page 42
 
 
  1608              		.cfi_def_cfa_offset 8
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  681:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     }
  682:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     break;
  1653              		.loc 1 682 0
-ARM GAS  /tmp/ccMud4m1.s 			page 43
+ARM GAS  /tmp/ccKzJvDo.s 			page 43
 
 
  1654 0044 06E0     		b	.L133
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1692              		.cfi_offset 7, -8
  1693              		.cfi_offset 14, -4
  1694 0002 82B0     		sub	sp, sp, #8
-ARM GAS  /tmp/ccMud4m1.s 			page 44
+ARM GAS  /tmp/ccKzJvDo.s 			page 44
 
 
  1695              	.LCFI31:
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1744 0054 0633     		adds	r3, r3, #6
  1745 0056 1B78     		ldrb	r3, [r3]
  1746 0058 9AB2     		uxth	r2, r3
-ARM GAS  /tmp/ccMud4m1.s 			page 45
+ARM GAS  /tmp/ccKzJvDo.s 			page 45
 
 
  1747 005a 3B68     		ldr	r3, [r7]
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1789 0006 7860     		str	r0, [r7, #4]
  1790 0008 3960     		str	r1, [r7]
  719:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   USBD_LL_StallEP(pdev , 0x80);
-ARM GAS  /tmp/ccMud4m1.s 			page 46
+ARM GAS  /tmp/ccKzJvDo.s 			page 46
 
 
  1791              		.loc 1 719 0
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1833 0006 F860     		str	r0, [r7, #12]
  1834 0008 B960     		str	r1, [r7, #8]
  1835 000a 7A60     		str	r2, [r7, #4]
-ARM GAS  /tmp/ccMud4m1.s 			page 47
+ARM GAS  /tmp/ccKzJvDo.s 			page 47
 
 
  734:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****   uint8_t idx = 0;
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1883 0062 1A70     		strb	r2, [r3]
  741:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     
  742:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     while (*desc != '\0') 
-ARM GAS  /tmp/ccMud4m1.s 			page 48
+ARM GAS  /tmp/ccKzJvDo.s 			page 48
 
 
  1884              		.loc 1 742 0
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1932              		.section	.text.USBD_GetLen,"ax",%progbits
  1933              		.align	1
  1934              		.syntax unified
-ARM GAS  /tmp/ccMud4m1.s 			page 49
+ARM GAS  /tmp/ccKzJvDo.s 			page 49
 
 
  1935              		.code	16
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1975              	.L142:
  760:Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c ****     {
  1976              		.loc 1 760 0
-ARM GAS  /tmp/ccMud4m1.s 			page 50
+ARM GAS  /tmp/ccKzJvDo.s 			page 50
 
 
  1977 0026 7B68     		ldr	r3, [r7, #4]
@@ -2961,8 +2961,8 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  1990 003a 80BD     		pop	{r7, pc}
  1991              		.cfi_endproc
  1992              	.LFE48:
- 1994              		.section	.bss.cfgidx.6909,"aw",%nobits
- 1997              	cfgidx.6909:
+ 1994              		.section	.bss.cfgidx.7000,"aw",%nobits
+ 1997              	cfgidx.7000:
  1998 0000 00       		.space	1
  1999              		.text
  2000              	.Letext0:
@@ -2974,46 +2974,46 @@ ARM GAS  /tmp/ccMud4m1.s 			page 1
  2006              		.file 7 "/usr/arm-none-eabi/include/sys/_stdint.h"
  2007              		.file 8 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
  2008              		.file 9 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
-ARM GAS  /tmp/ccMud4m1.s 			page 51
+ARM GAS  /tmp/ccKzJvDo.s 			page 51
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_ctlreq.c
-     /tmp/ccMud4m1.s:16     .text.USBD_StdDevReq:0000000000000000 $t
-     /tmp/ccMud4m1.s:23     .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
-     /tmp/ccMud4m1.s:57     .rodata.USBD_StdDevReq:0000000000000000 $d
-     /tmp/ccMud4m1.s:653    .text.USBD_GetDescriptor:0000000000000000 USBD_GetDescriptor
-     /tmp/ccMud4m1.s:1036   .text.USBD_SetAddress:0000000000000000 USBD_SetAddress
-     /tmp/ccMud4m1.s:1155   .text.USBD_SetConfig:0000000000000000 USBD_SetConfig
-     /tmp/ccMud4m1.s:1366   .text.USBD_GetConfig:0000000000000000 USBD_GetConfig
-     /tmp/ccMud4m1.s:1461   .text.USBD_GetStatus:0000000000000000 USBD_GetStatus
-     /tmp/ccMud4m1.s:1542   .text.USBD_SetFeature:0000000000000000 USBD_SetFeature
-     /tmp/ccMud4m1.s:1602   .text.USBD_ClrFeature:0000000000000000 USBD_ClrFeature
-     /tmp/ccMud4m1.s:1774   .text.USBD_CtlError:0000000000000000 USBD_CtlError
-     /tmp/ccMud4m1.s:156    .text.USBD_StdDevReq:00000000000000a4 $d
-     /tmp/ccMud4m1.s:161    .text.USBD_StdItfReq:0000000000000000 $t
-     /tmp/ccMud4m1.s:168    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
-     /tmp/ccMud4m1.s:265    .text.USBD_StdEPReq:0000000000000000 $t
-     /tmp/ccMud4m1.s:272    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
-     /tmp/ccMud4m1.s:647    .text.USBD_GetDescriptor:0000000000000000 $t
-     /tmp/ccMud4m1.s:685    .rodata.USBD_GetDescriptor:0000000000000000 $d
-     /tmp/ccMud4m1.s:1024   .text.USBD_GetDescriptor:000000000000020c $d
-     /tmp/ccMud4m1.s:1030   .text.USBD_SetAddress:0000000000000000 $t
-     /tmp/ccMud4m1.s:1149   .text.USBD_SetConfig:0000000000000000 $t
-     /tmp/ccMud4m1.s:1355   .text.USBD_SetConfig:0000000000000134 $d
-     /tmp/ccMud4m1.s:1997   .bss.cfgidx.6909:0000000000000000 cfgidx.6909
-     /tmp/ccMud4m1.s:1360   .text.USBD_GetConfig:0000000000000000 $t
-     /tmp/ccMud4m1.s:1455   .text.USBD_GetStatus:0000000000000000 $t
-     /tmp/ccMud4m1.s:1536   .text.USBD_SetFeature:0000000000000000 $t
-     /tmp/ccMud4m1.s:1596   .text.USBD_ClrFeature:0000000000000000 $t
-     /tmp/ccMud4m1.s:1678   .text.USBD_ParseSetupRequest:0000000000000000 $t
-     /tmp/ccMud4m1.s:1685   .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
-     /tmp/ccMud4m1.s:1767   .text.USBD_CtlError:0000000000000000 $t
-     /tmp/ccMud4m1.s:1811   .text.USBD_GetString:0000000000000000 $t
-     /tmp/ccMud4m1.s:1818   .text.USBD_GetString:0000000000000000 USBD_GetString
-     /tmp/ccMud4m1.s:1939   .text.USBD_GetLen:0000000000000000 USBD_GetLen
-     /tmp/ccMud4m1.s:1933   .text.USBD_GetLen:0000000000000000 $t
-     /tmp/ccMud4m1.s:1998   .bss.cfgidx.6909:0000000000000000 $d
+     /tmp/ccKzJvDo.s:16     .text.USBD_StdDevReq:0000000000000000 $t
+     /tmp/ccKzJvDo.s:23     .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
+     /tmp/ccKzJvDo.s:57     .rodata.USBD_StdDevReq:0000000000000000 $d
+     /tmp/ccKzJvDo.s:653    .text.USBD_GetDescriptor:0000000000000000 USBD_GetDescriptor
+     /tmp/ccKzJvDo.s:1036   .text.USBD_SetAddress:0000000000000000 USBD_SetAddress
+     /tmp/ccKzJvDo.s:1155   .text.USBD_SetConfig:0000000000000000 USBD_SetConfig
+     /tmp/ccKzJvDo.s:1366   .text.USBD_GetConfig:0000000000000000 USBD_GetConfig
+     /tmp/ccKzJvDo.s:1461   .text.USBD_GetStatus:0000000000000000 USBD_GetStatus
+     /tmp/ccKzJvDo.s:1542   .text.USBD_SetFeature:0000000000000000 USBD_SetFeature
+     /tmp/ccKzJvDo.s:1602   .text.USBD_ClrFeature:0000000000000000 USBD_ClrFeature
+     /tmp/ccKzJvDo.s:1774   .text.USBD_CtlError:0000000000000000 USBD_CtlError
+     /tmp/ccKzJvDo.s:156    .text.USBD_StdDevReq:00000000000000a4 $d
+     /tmp/ccKzJvDo.s:161    .text.USBD_StdItfReq:0000000000000000 $t
+     /tmp/ccKzJvDo.s:168    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
+     /tmp/ccKzJvDo.s:265    .text.USBD_StdEPReq:0000000000000000 $t
+     /tmp/ccKzJvDo.s:272    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
+     /tmp/ccKzJvDo.s:647    .text.USBD_GetDescriptor:0000000000000000 $t
+     /tmp/ccKzJvDo.s:685    .rodata.USBD_GetDescriptor:0000000000000000 $d
+     /tmp/ccKzJvDo.s:1024   .text.USBD_GetDescriptor:000000000000020c $d
+     /tmp/ccKzJvDo.s:1030   .text.USBD_SetAddress:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1149   .text.USBD_SetConfig:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1355   .text.USBD_SetConfig:0000000000000134 $d
+     /tmp/ccKzJvDo.s:1997   .bss.cfgidx.7000:0000000000000000 cfgidx.7000
+     /tmp/ccKzJvDo.s:1360   .text.USBD_GetConfig:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1455   .text.USBD_GetStatus:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1536   .text.USBD_SetFeature:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1596   .text.USBD_ClrFeature:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1678   .text.USBD_ParseSetupRequest:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1685   .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
+     /tmp/ccKzJvDo.s:1767   .text.USBD_CtlError:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1811   .text.USBD_GetString:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1818   .text.USBD_GetString:0000000000000000 USBD_GetString
+     /tmp/ccKzJvDo.s:1939   .text.USBD_GetLen:0000000000000000 USBD_GetLen
+     /tmp/ccKzJvDo.s:1933   .text.USBD_GetLen:0000000000000000 $t
+     /tmp/ccKzJvDo.s:1998   .bss.cfgidx.7000:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS

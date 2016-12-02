@@ -1,5 +1,5 @@
-build/stm32f0xx_hal_pcd.o: \
- Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c \
+build/stm32f0xx_hal_dac.o: \
+ Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dac.c \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h \
  Inc/stm32f0xx_hal_conf.h Inc/main.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h \
