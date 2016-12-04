@@ -54,9 +54,11 @@ PCD_HandleTypeDef hpcd_USB_FS;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 int16_t song_length;
-int16_t buffer1[1024];
-int16_t buffer2[1024];
-uint16_t *active_buffer = buffer1;
+uint8_t buffer1[512*1];
+uint8_t buffer2[512*1];
+int16_t decoded[512*1];
+uint32_t *active_buffer = buffer1;
+
 
 /* USER CODE END PV */
 
@@ -77,25 +79,35 @@ static void MX_USART1_UART_Init(void);
 
 /* USER CODE BEGIN 0 */
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac)
+//void HAL_DAC_ConvHalfCpltCallbackCh1(DAC_HandleTypeDef* hdac)
 {
+
   UNUSED(hdac);
-  uart_printf(".");
+
+//  HAL_DAC_Stop_DMA(&hdac, DAC_CHANNEL_1);
+
+//  uart_printf(".");
 
   // swap
+//  DMA1_Channel3->CMAR = (uint32_t) & *active_buffer;
 //  active_buffer = active_buffer == buffer1 ? buffer2 : buffer1;
 
   int i;
-  for (i = 0; i < sizeof(buffer2)/sizeof(buffer2[0]); i++) {
-    buffer2[i] = 0;
+  for (i = 0; i < sizeof(decoded)/2; i++) {
+    decoded[i] = 0;
   }
 
-  micromod_get_audio(buffer2, sizeof(buffer2)/2);
-  for (i = 0; i < sizeof(buffer2) / sizeof(buffer2[0]); i++) {
-    buffer1[i] = ((uint8_t)(buffer2[i*2]>>4)) + 0x7fff;
+  micromod_get_audio(decoded, sizeof(decoded)/4);
+
+  for (i = 0; i < sizeof(decoded)/4; i++) {
+//    active_buffer[i] = (decoded[i*2+1] >> 8) + 0x7f;
+//    active_buffer[i] = (decoded[i*2+1] >> 1) + 0x7fff;
+    active_buffer[i] = (decoded[i*2+1] >> 8);
   }
+//  HAL_DMA_Start_IT(hdac->DMA_Handle1, (uint32_t)buffer1, (uint32_t)&hdac->Instance->DHR8R1, sizeof(buffer1)/4);
 
 //  HAL_DAC_Stop_DMA(&hdac, DAC_CHANNEL_1);
-//  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint8_t*)buffer1, sizeof(buffer1), DAC_ALIGN_12B_R);
+//  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint8_t*)buffer1, sizeof(buffer1), DAC_ALIGN_8B_R);
 }
 
 
@@ -127,7 +139,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
   song_length = micromod_calculate_mod_file_len(chiptune);
-  micromod_initialise(chiptune, 48000);
+//  micromod_initialise(chiptune, 48000);
+  micromod_initialise(chiptune, 8000);
 
   HAL_Delay(100);
 
@@ -136,9 +149,9 @@ int main(void)
 
 
 //  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
-//  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sintable, sizeof(sintable), DAC_ALIGN_8B_R);
+//  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sintable2, sizeof(sintable), DAC_ALIGN_8B_R);
 //  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, noise, sizeof(noise), DAC_ALIGN_8B_R);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint8_t*)buffer1, sizeof(buffer1), DAC_ALIGN_12B_R);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint8_t*)buffer1, sizeof(buffer1), DAC_ALIGN_8B_R);
 
   // Start the timer!! Important!
   __HAL_TIM_ENABLE(&htim6);
@@ -149,6 +162,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int i = 0;
+  uart_printf("Hello! %d\r\n", i);
   while (1)
   {
   /* USER CODE END WHILE */
@@ -295,7 +309,7 @@ static void MX_TIM6_Init(void)
   htim6.Instance = TIM6;
   htim6.Init.Prescaler = 0;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 1000;
+  htim6.Init.Period = 3000;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
     Error_Handler();

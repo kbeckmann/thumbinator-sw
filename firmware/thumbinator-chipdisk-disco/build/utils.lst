@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccixZJxv.s 			page 1
+ARM GAS  /tmp/cciapR5p.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -8,7 +8,7 @@ ARM GAS  /tmp/ccixZJxv.s 			page 1
    5              		.eabi_attribute 24, 1
    6              		.eabi_attribute 25, 1
    7              		.eabi_attribute 26, 1
-   8              		.eabi_attribute 30, 6
+   8              		.eabi_attribute 30, 4
    9              		.eabi_attribute 34, 0
   10              		.eabi_attribute 18, 4
   11              		.file	"utils.c"
@@ -35,100 +35,82 @@ ARM GAS  /tmp/ccixZJxv.s 			page 1
    8:Src/utils.c   **** void uart_printf(const char* format, ...) {
   26              		.loc 1 8 0
   27              		.cfi_startproc
-  28 0000 0FB4     		push	{r0, r1, r2, r3}
-  29              	.LCFI0:
-  30              		.cfi_def_cfa_offset 16
-  31 0002 80B5     		push	{r7, lr}
-  32              	.LCFI1:
-  33              		.cfi_def_cfa_offset 24
-  34              		.cfi_offset 7, -24
+  28              	.LVL0:
+  29 0000 0FB4     		push	{r0, r1, r2, r3}
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 16
+  32 0002 00B5     		push	{lr}
+  33              	.LCFI1:
+  34              		.cfi_def_cfa_offset 20
   35              		.cfi_offset 14, -20
-  36 0004 A2B0     		sub	sp, sp, #136
+  36 0004 A3B0     		sub	sp, sp, #140
   37              	.LCFI2:
   38              		.cfi_def_cfa_offset 160
-  39 0006 00AF     		add	r7, sp, #0
-  40              	.LCFI3:
-  41              		.cfi_def_cfa_register 7
+  39              		.loc 1 8 0
+  40 0006 24AA     		add	r2, sp, #144
+  41 0008 02CA     		ldmia	r2!, {r1}
    9:Src/utils.c   ****     va_list arglist;
   10:Src/utils.c   ****     va_start(arglist, format);
-  42              		.loc 1 10 0
-  43 0008 9423     		movs	r3, #148
-  44 000a FB18     		adds	r3, r7, r3
-  45 000c 8022     		movs	r2, #128
-  46 000e BA18     		adds	r2, r7, r2
-  47 0010 1360     		str	r3, [r2]
   11:Src/utils.c   ****     char data[128];
-ARM GAS  /tmp/ccixZJxv.s 			page 2
-
-
   12:Src/utils.c   ****     int len = vsprintf(data, format, arglist);
-  48              		.loc 1 12 0
-  49 0012 8023     		movs	r3, #128
-  50 0014 FB18     		adds	r3, r7, r3
-  51 0016 1A68     		ldr	r2, [r3]
-  52 0018 9023     		movs	r3, #144
-  53 001a FB18     		adds	r3, r7, r3
-  54 001c 1968     		ldr	r1, [r3]
-  55 001e 3B00     		movs	r3, r7
-  56 0020 1800     		movs	r0, r3
-  57 0022 FFF7FEFF 		bl	vsprintf
-  58 0026 0300     		movs	r3, r0
-  59 0028 8422     		movs	r2, #132
-  60 002a BA18     		adds	r2, r7, r2
-  61 002c 1360     		str	r3, [r2]
+  42              		.loc 1 12 0
+  43 000a 02A8     		add	r0, sp, #8
+  10:Src/utils.c   ****     char data[128];
+  44              		.loc 1 10 0
+  45 000c 0192     		str	r2, [sp, #4]
+ARM GAS  /tmp/cciapR5p.s 			page 2
+
+
+  46              		.loc 1 12 0
+  47 000e FFF7FEFF 		bl	vsprintf
+  48              	.LVL1:
   13:Src/utils.c   ****     va_end(arglist);
   14:Src/utils.c   ****     HAL_UART_Transmit(&huart1, (uint8_t*) data, len, 10);
-  62              		.loc 1 14 0
-  63 002e 8423     		movs	r3, #132
-  64 0030 FB18     		adds	r3, r7, r3
-  65 0032 1B68     		ldr	r3, [r3]
-  66 0034 9AB2     		uxth	r2, r3
-  67 0036 3900     		movs	r1, r7
-  68 0038 0548     		ldr	r0, .L2
-  69 003a 0A23     		movs	r3, #10
-  70 003c FFF7FEFF 		bl	HAL_UART_Transmit
+  49              		.loc 1 14 0
+  50 0012 0A23     		movs	r3, #10
+  51 0014 82B2     		uxth	r2, r0
+  52 0016 02A9     		add	r1, sp, #8
+  53 0018 0348     		ldr	r0, .L2
+  54              	.LVL2:
+  55 001a FFF7FEFF 		bl	HAL_UART_Transmit
+  56              	.LVL3:
   15:Src/utils.c   **** }
-  71              		.loc 1 15 0
-  72 0040 C046     		nop
-  73 0042 BD46     		mov	sp, r7
-  74 0044 22B0     		add	sp, sp, #136
-  75              		@ sp needed
-  76 0046 80BC     		pop	{r7}
-  77 0048 08BC     		pop	{r3}
-  78 004a 04B0     		add	sp, sp, #16
-  79 004c 1847     		bx	r3
-  80              	.L3:
-  81 004e C046     		.align	2
-  82              	.L2:
-  83 0050 00000000 		.word	huart1
-  84              		.cfi_endproc
-  85              	.LFE35:
-  87              		.text
-  88              	.Letext0:
-  89              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
-  90              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
-  91              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
-  92              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
-  93              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stdarg.h"
-  94              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
-  95              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
-  96              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stddef.h"
-  97              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
-  98              		.file 11 "<built-in>"
-  99              		.file 12 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
- 100              		.file 13 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
- 101              		.file 14 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h"
-ARM GAS  /tmp/ccixZJxv.s 			page 3
-
-
-ARM GAS  /tmp/ccixZJxv.s 			page 4
+  57              		.loc 1 15 0
+  58 001e 23B0     		add	sp, sp, #140
+  59              		@ sp needed
+  60 0020 08BC     		pop	{r3}
+  61 0022 04B0     		add	sp, sp, #16
+  62 0024 1847     		bx	r3
+  63              	.L3:
+  64 0026 C046     		.align	2
+  65              	.L2:
+  66 0028 00000000 		.word	huart1
+  67              		.cfi_endproc
+  68              	.LFE35:
+  70              		.text
+  71              	.Letext0:
+  72              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+  73              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  74              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+  75              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h"
+  76              		.file 6 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stdarg.h"
+  77              		.file 7 "/usr/arm-none-eabi/include/sys/lock.h"
+  78              		.file 8 "/usr/arm-none-eabi/include/sys/_types.h"
+  79              		.file 9 "/usr/lib/gcc/arm-none-eabi/6.2.0/include/stddef.h"
+  80              		.file 10 "/usr/arm-none-eabi/include/sys/reent.h"
+  81              		.file 11 "<built-in>"
+  82              		.file 12 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+  83              		.file 13 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+  84              		.file 14 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h"
+  85              		.file 15 "/usr/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/cciapR5p.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 utils.c
-     /tmp/ccixZJxv.s:16     .text.uart_printf:0000000000000000 $t
-     /tmp/ccixZJxv.s:23     .text.uart_printf:0000000000000000 uart_printf
-     /tmp/ccixZJxv.s:83     .text.uart_printf:0000000000000050 $d
+     /tmp/cciapR5p.s:16     .text.uart_printf:0000000000000000 $t
+     /tmp/cciapR5p.s:23     .text.uart_printf:0000000000000000 uart_printf
+     /tmp/cciapR5p.s:66     .text.uart_printf:0000000000000028 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
