@@ -13,7 +13,7 @@ TARGET = thumbinator-ws2801
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -O0
+OPT = -Os
 
 #######################################
 # pathes
