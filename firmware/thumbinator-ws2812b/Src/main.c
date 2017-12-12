@@ -71,23 +71,24 @@ static void next_led(void) {
   HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, (i & 4) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
 
-uint8_t pixels[] = {
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
+const uint8_t pixels_test[] = {
 /*
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+*/
 	0b10101010,
 	0b10101010,
 	0b10101010,
@@ -102,6 +103,7 @@ uint8_t pixels[] = {
 	0b10101010,
 	0b10101010,
 	0b10101010,
+/*
 	255, 255, 255,
 	127, 127,   0,
 	  0, 127, 127,
@@ -111,40 +113,58 @@ uint8_t pixels[] = {
 };
 
 
+uint8_t pixels[3 * 144 * 2];
+
+#define ARRAY_SIZE(x) sizeof(x)/sizeof((x)[0])
+
+#define GPIO_SET(GPIOx, GPIO_Pin) do {			\
+			GPIOx->BSRR = (uint32_t)GPIO_Pin;	\
+		} while (0)
+
+#define GPIO_RESET(GPIOx, GPIO_Pin) do {		\
+			GPIOx->BRR = (uint32_t)GPIO_Pin;	\
+		} while (0)
+
 
 #pragma GCC optimize ("-O3")
 static void ws2812b_write(uint8_t *p_buf, size_t num_elements, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 {
-	HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
-	for (int i = 0; i < num_elements; i++) {
-		for (int j = 0; j < 8; j++) {
-			//const bool bit = (p_buf[i] & (1 << j)) != 0;
+	uint8_t *end = p_buf + num_elements;
+	uint8_t p = *p_buf++;
+	uint8_t bitMask = 0x80;
 
-			const bool bit = true;
+	//GPIO_SET(GPIOx, GPIO_Pin);
 
-			HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET);
-			if (bit) {
-				__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+	for (;;) {
+		GPIO_SET(GPIOx, GPIO_Pin);
+		if (p & bitMask) {
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
 					"nop; nop; nop; nop; nop; nop; nop; nop;"
 					"nop; nop; nop; nop; nop; nop; nop; nop;"
 					"nop; nop; nop;");
-			} else {
-				__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+			GPIO_RESET(GPIOx, GPIO_Pin);
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop;");
+		} else {
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+				  "nop; nop; nop; nop; nop;");
+			GPIO_RESET(GPIOx, GPIO_Pin);
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
 					"nop; nop; nop; nop; nop; nop; nop; nop;"
 					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop;");
-			}
-			HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
+					"nop; nop;");
+		}
+
+		if(bitMask >>= 1) {
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; nop;");
+		} else {
+			if (p_buf >= end) break;
+			p = *p_buf++;
+			bitMask = 0x80;
 		}
 	}
 
-	HAL_Delay(100);
+	HAL_Delay(1);
 }
 
 /* USER CODE END 0 */
@@ -181,6 +201,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  static uint32_t t = 0;
   while (1)
   {
   /* USER CODE END WHILE */
@@ -191,6 +213,21 @@ int main(void)
 	//HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port, BUTTON_0_Pin));
 
 	ws2812b_write(pixels, sizeof(pixels), CONN_12_GPIO_Port, CONN_12_Pin);
+
+	for (int i = 0; i < sizeof(pixels); i += 3) {
+#if 0
+		pixels[i + 0] = (i + t) % 30;
+		pixels[i + 1] = 0;
+		pixels[i + 2] = 0;
+#elif 1
+		pixels[i + 0] = 1;
+		pixels[i + 1] = 1;
+		pixels[i + 2] = 1;
+#else
+
+#endif
+	}
+	t += 1;
 
     //HAL_Delay(250);
 
@@ -209,9 +246,8 @@ void SystemClock_Config(void)
 
     /**Initializes the CPU, AHB and APB busses clocks
     */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = 16;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48;
+  RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -222,11 +258,11 @@ void SystemClock_Config(void)
     */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI48;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -281,14 +317,14 @@ static void MX_GPIO_Init(void)
                           |CONN_7_Pin|CONN_6_Pin|CONN_5_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CONN_12_Pin */
   GPIO_InitStruct.Pin = CONN_12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(CONN_12_GPIO_Port, &GPIO_InitStruct);
 
 }
