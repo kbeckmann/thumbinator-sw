@@ -40,6 +40,8 @@
 #include "stm32f0xx_hal.h"
 
 /* USER CODE BEGIN Includes */
+#include <stdbool.h>
+#include <stdint.h>
 
 /* USER CODE END Includes */
 
@@ -67,6 +69,82 @@ static void next_led(void) {
   HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, (i & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
   HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, (i & 2) ? GPIO_PIN_SET : GPIO_PIN_RESET);
   HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, (i & 4) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+}
+
+uint8_t pixels[] = {
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+	0xFFFFFFFF,
+/*
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	0b10101010,
+	255, 255, 255,
+	127, 127,   0,
+	  0, 127, 127,
+	  0,   0, 127,
+	127,   0,   0,
+*/
+};
+
+
+
+#pragma GCC optimize ("-O3")
+static void ws2812b_write(uint8_t *p_buf, size_t num_elements, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+	HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
+	for (int i = 0; i < num_elements; i++) {
+		for (int j = 0; j < 8; j++) {
+			//const bool bit = (p_buf[i] & (1 << j)) != 0;
+
+			const bool bit = true;
+
+			HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET);
+			if (bit) {
+				__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop;");
+			} else {
+				__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop; nop; nop; nop; nop; nop;"
+					"nop; nop; nop;");
+			}
+			HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
+		}
+	}
+
+	HAL_Delay(100);
 }
 
 /* USER CODE END 0 */
@@ -108,11 +186,13 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-    next_led();
+    //next_led();
 
-    HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port, BUTTON_0_Pin));
+	//HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port, BUTTON_0_Pin));
 
-    HAL_Delay(250);
+	ws2812b_write(pixels, sizeof(pixels), CONN_12_GPIO_Port, CONN_12_Pin);
+
+    //HAL_Delay(250);
 
   }
   /* USER CODE END 3 */
