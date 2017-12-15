@@ -43,6 +43,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "gpio_fast.h"
+#include "effect.h"
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -69,117 +72,6 @@ static void next_led(void) {
   HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, (i & 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
   HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, (i & 2) ? GPIO_PIN_SET : GPIO_PIN_RESET);
   HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, (i & 4) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-}
-
-const uint8_t pixels_test[] = {
-/*
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-	0xFFFFFFFF,
-*/
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-	0b10101010,
-/*
-	255, 255, 255,
-	127, 127,   0,
-	  0, 127, 127,
-	  0,   0, 127,
-	127,   0,   0,
-*/
-};
-
-
-uint8_t pixels[3 * 144 * 2];
-
-#define ARRAY_SIZE(x) sizeof(x)/sizeof((x)[0])
-
-#define GPIO_SET(GPIOx, GPIO_Pin) do {			\
-			GPIOx->BSRR = (uint32_t)GPIO_Pin;	\
-		} while (0)
-
-#define GPIO_RESET(GPIOx, GPIO_Pin) do {		\
-			GPIOx->BRR = (uint32_t)GPIO_Pin;	\
-		} while (0)
-
-
-#pragma GCC optimize ("-O3")
-static void ws2812b_write(uint8_t *p_buf, size_t num_elements, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
-{
-	__disable_irq();
-
-	//uint8_t *end = p_buf + num_elements;
-	uint32_t p ; //= *p_buf++;
-	//uint8_t bitMask = 0x80;
-	uint32_t i = 0;
-
-	//GPIO_SET(GPIOx, GPIO_Pin);
-	num_elements *= 8;
-	while(i < num_elements) {
-                const uint32_t index   = i >> 3; // aka i/8
-                const uint32_t current = p_buf[index];
-                const uint32_t bitmask = (1 << (i & 0x07));
-                const uint32_t bit     = current & bitmask;
-                p                      = bit;
-                i++;
-
-		GPIO_SET(GPIOx, GPIO_Pin);
-		if (p) {
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
-					  "nop; nop; nop; nop; nop; nop; nop; nop;"
-					  "nop; nop; nop; nop; nop; nop; nop; nop;"
-				   	  "nop; nop;");
-			GPIO_RESET(GPIOx, GPIO_Pin);
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; "
-					"nop; nop; nop; nop; nop; ");
-		} else {
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; "
-                                        "nop;  nop; nop; nop;");
-			GPIO_RESET(GPIOx, GPIO_Pin);
-			 __asm("nop; nop; nop; nop; nop; nop; nop; nop;"
-                                          "nop; nop; nop; nop; nop; nop; nop; nop;"
-                                          "nop; nop; nop; nop; nop; nop; nop; nop;"
-                                          "nop; nop; nop;");
-
-		}
-
-		/*
-		if(bitMask >>= 1) {
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; nop; nop; nop;");
-		} else {
-			if (p_buf >= end) break;
-			p = *p_buf++;
-			bitMask = 0x80;
-		}*/
-
-	}
-	__enable_irq();
-
-	HAL_Delay(1);
-	
 }
 
 /* USER CODE END 0 */
@@ -223,30 +115,14 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-    //next_led();
+    t++;
+    next_led();
+    effect_show(t);
 
-	//HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port, BUTTON_0_Pin));
+    if (t % 10 == 0)
+      effect_next();
 
-	ws2812b_write(pixels, sizeof(pixels), CONN_12_GPIO_Port, CONN_12_Pin);
-	ws2812b_write(pixels, sizeof(pixels), CONN_11_GPIO_Port, CONN_11_Pin);
-
-	for (int i = 0; i < sizeof(pixels); i += 3) {
-#if 1
-		pixels[i + 0] = i == t % sizeof(pixels) ? 255 : 0;
-		pixels[i + 1] =  i == t % sizeof(pixels) ? 255 : 0;;
-		pixels[i + 2] =  i == t % sizeof(pixels) ? 255 : 0;;
-#elif 0
-		pixels[i + 0] = 255;
-		pixels[i + 1] = 255;
-		pixels[i + 2] = 255;
-#else
-
-#endif
-	}
-	t += 1;
-
-    //HAL_Delay(250);
-
+    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 

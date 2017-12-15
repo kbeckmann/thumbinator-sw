@@ -25,10 +25,13 @@ BUILD_DIR = build
 # source
 ######################################
 C_SOURCES = \
-  Src/stm32f0xx_it.c \
-  Src/stm32f0xx_hal_msp.c \
   Src/system_stm32f0xx.c \
   Src/main.c \
+  Src/stm32f0xx_hal_msp.c \
+  Src/stm32f0xx_it.c \
+  Src/effect.c \
+  Src/ws2812b.c \
+  Src/hsv.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c \
   Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c \
