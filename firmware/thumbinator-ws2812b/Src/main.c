@@ -119,10 +119,9 @@ int main(void)
     next_led();
     effect_show(t);
 
-    if (t % 10 == 0)
+    if (t % 1000 == 0)
       effect_next();
 
-    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 

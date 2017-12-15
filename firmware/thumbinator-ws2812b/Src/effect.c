@@ -94,10 +94,9 @@ void render_police(uint32_t index, uint32_t t, uint8_t * p_pixels, uint32_t num_
 
 
 static effect_render_cb effects[] = {
-  //  render_colors,
-  //  render_constant,
-   // render_car,
-   render_police,
+  render_colors,
+  render_constant,
+  render_police,
 };
 
 static int effect_count = sizeof(effects)/sizeof(effects[0]);
