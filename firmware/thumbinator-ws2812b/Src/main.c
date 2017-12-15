@@ -129,42 +129,57 @@ uint8_t pixels[3 * 144 * 2];
 #pragma GCC optimize ("-O3")
 static void ws2812b_write(uint8_t *p_buf, size_t num_elements, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 {
-	uint8_t *end = p_buf + num_elements;
-	uint8_t p = *p_buf++;
-	uint8_t bitMask = 0x80;
+	__disable_irq();
+
+	//uint8_t *end = p_buf + num_elements;
+	uint32_t p ; //= *p_buf++;
+	//uint8_t bitMask = 0x80;
+	uint32_t i = 0;
 
 	//GPIO_SET(GPIOx, GPIO_Pin);
+	num_elements *= 8;
+	while(i < num_elements) {
+                const uint32_t index   = i >> 3; // aka i/8
+                const uint32_t current = p_buf[index];
+                const uint32_t bitmask = (1 << (i & 0x07));
+                const uint32_t bit     = current & bitmask;
+                p                      = bit;
+                i++;
 
-	for (;;) {
 		GPIO_SET(GPIOx, GPIO_Pin);
-		if (p & bitMask) {
+		if (p) {
 			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop;");
+					  "nop; nop; nop; nop; nop; nop; nop; nop;"
+					  "nop; nop; nop; nop; nop; nop; nop; nop;"
+				   	  "nop; nop;");
 			GPIO_RESET(GPIOx, GPIO_Pin);
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop;");
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; "
+					"nop; nop; nop; nop; nop; ");
 		} else {
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
-				  "nop; nop; nop; nop; nop;");
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; "
+                                        "nop;  nop; nop; nop;");
 			GPIO_RESET(GPIOx, GPIO_Pin);
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop; nop; nop; nop; nop; nop; nop;"
-					"nop; nop;");
+			 __asm("nop; nop; nop; nop; nop; nop; nop; nop;"
+                                          "nop; nop; nop; nop; nop; nop; nop; nop;"
+                                          "nop; nop; nop; nop; nop; nop; nop; nop;"
+                                          "nop; nop; nop;");
+
 		}
 
+		/*
 		if(bitMask >>= 1) {
-			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; nop;");
+			__asm("nop; nop; nop; nop; nop; nop; nop; nop; nop; nop; nop; nop;");
 		} else {
 			if (p_buf >= end) break;
 			p = *p_buf++;
 			bitMask = 0x80;
-		}
+		}*/
+
 	}
+	__enable_irq();
 
 	HAL_Delay(1);
+	
 }
 
 /* USER CODE END 0 */
@@ -178,7 +193,7 @@ int main(void)
 
   /* MCU Configuration----------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  /* Reset of all peripherals, Initializes the Flash interface and the Systck. */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
@@ -213,16 +228,17 @@ int main(void)
 	//HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, HAL_GPIO_ReadPin(BUTTON_0_GPIO_Port, BUTTON_0_Pin));
 
 	ws2812b_write(pixels, sizeof(pixels), CONN_12_GPIO_Port, CONN_12_Pin);
+	ws2812b_write(pixels, sizeof(pixels), CONN_11_GPIO_Port, CONN_11_Pin);
 
 	for (int i = 0; i < sizeof(pixels); i += 3) {
-#if 0
-		pixels[i + 0] = (i + t) % 30;
-		pixels[i + 1] = 0;
-		pixels[i + 2] = 0;
-#elif 1
-		pixels[i + 0] = 1;
-		pixels[i + 1] = 1;
-		pixels[i + 2] = 1;
+#if 1
+		pixels[i + 0] = i == t % sizeof(pixels) ? 255 : 0;
+		pixels[i + 1] =  i == t % sizeof(pixels) ? 255 : 0;;
+		pixels[i + 2] =  i == t % sizeof(pixels) ? 255 : 0;;
+#elif 0
+		pixels[i + 0] = 255;
+		pixels[i + 1] = 255;
+		pixels[i + 2] = 255;
 #else
 
 #endif
