@@ -17,7 +17,7 @@ void ws2812b_write(uint8_t *p_buf, size_t num_elements, GPIO_TypeDef* GPIOx, uin
 	while(i < num_elements) {
                 const uint32_t index   = i >> 3; // aka i/8
                 const uint32_t current = p_buf[index];
-                const uint32_t bitmask = (1 << (i & 0x07));
+                const uint32_t bitmask = (1 << (8 - (i & 0x07)));
                 const uint32_t bit     = current & bitmask;
                 p                      = bit;
                 i++;
