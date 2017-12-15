@@ -44,5 +44,5 @@ void ws2812b_write(uint8_t *p_buf, size_t num_elements, GPIO_TypeDef* GPIOx, uin
 	}
 	__enable_irq();
 
-	HAL_Delay(1);
+//	HAL_Delay(1);
 }
