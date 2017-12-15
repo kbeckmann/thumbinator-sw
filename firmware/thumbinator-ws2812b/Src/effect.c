@@ -6,12 +6,12 @@
 #include "ws2812b.h"
 #include "hsv.h"
 
-int current_effect;
+#define NUM_LEDS 97
+#define V_MAX 127
 
-static uint8_t g_pixels[2][144 * 3];
-
+static int current_effect;
+static uint8_t g_pixels[2][NUM_LEDS * 3];
 typedef void (*effect_render_cb)(uint32_t t, uint8_t * p_pixels, uint32_t num_bytes);
-
 
 void render_colors(uint32_t t, uint8_t * p_pixels, uint32_t num_bytes)
 {
@@ -21,7 +21,8 @@ void render_colors(uint32_t t, uint8_t * p_pixels, uint32_t num_bytes)
         uint8_t r, g, b;
         h = i % 255 + t;
         s = 255;
-        v = 127;
+        v = V_MAX;
+
         hsvtorgb(&r, &g, &b, h, s, v);
         p_pixels[i]     = g;
         p_pixels[i + 1] = r;
@@ -36,7 +37,7 @@ void render_constant(uint32_t t, uint8_t * p_pixels, uint32_t num_bytes)
 
     h = t;
     s = 255;
-    v = 127;
+    v = V_MAX;
     hsvtorgb(&r, &g, &b, h, s, v);
 
     for (int i = 0; i < num_bytes; i += 3) {
@@ -46,13 +47,12 @@ void render_constant(uint32_t t, uint8_t * p_pixels, uint32_t num_bytes)
     }
 }
 
-
 static effect_render_cb effects[] = {
     render_colors,
     render_constant,
 };
-int effect_count = sizeof(effects)/sizeof(effects[0]);
 
+static int effect_count = sizeof(effects)/sizeof(effects[0]);
 
 void effect_next(void)
 {
